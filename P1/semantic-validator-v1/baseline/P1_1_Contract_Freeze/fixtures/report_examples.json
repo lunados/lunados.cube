@@ -1,0 +1,98 @@
+{
+  "kind": "expected_report_shapes_not_executed",
+  "reports": [
+    {
+      "format": "aiaeao.cube.validation-report/1",
+      "reference_version": "v9.4",
+      "profile": "P1-VC/1.0.0",
+      "epistemic_warrant": "NOT_EVALUATED",
+      "current_authority": "NOT_EVALUATED",
+      "canonical_admission": "NOT_EVALUATED",
+      "overall_status": "PASS",
+      "context_id": "p1-fixture:migration",
+      "checks": {
+        "syntax": {
+          "status": "PASS"
+        },
+        "structure": {
+          "status": "PASS"
+        },
+        "concept_resolution": {
+          "status": "PASS"
+        },
+        "referent_binding": {
+          "status": "PASS"
+        },
+        "predicate_typing": {
+          "status": "PASS"
+        },
+        "method_typing": {
+          "status": "NOT_EVALUATED",
+          "reason": "No application/qualifier in the example"
+        },
+        "qualifier_typing": {
+          "status": "NOT_EVALUATED",
+          "reason": "No application/qualifier in the example"
+        },
+        "scope_consistency": {
+          "status": "PASS"
+        }
+      },
+      "diagnostics": [],
+      "summary": "Illustrative expectation only, NOT a validator-produced report."
+    },
+    {
+      "format": "aiaeao.cube.validation-report/1",
+      "reference_version": "v9.4",
+      "profile": "P1-VC/1.0.0",
+      "epistemic_warrant": "NOT_EVALUATED",
+      "current_authority": "NOT_EVALUATED",
+      "canonical_admission": "NOT_EVALUATED",
+      "overall_status": "FAIL",
+      "context_id": null,
+      "checks": {
+        "syntax": {
+          "status": "PASS"
+        },
+        "structure": {
+          "status": "PASS"
+        },
+        "concept_resolution": {
+          "status": "FAIL"
+        },
+        "referent_binding": {
+          "status": "NOT_EVALUATED",
+          "reason": "Prior failure"
+        },
+        "predicate_typing": {
+          "status": "NOT_EVALUATED",
+          "reason": "Prior failure"
+        },
+        "method_typing": {
+          "status": "NOT_EVALUATED",
+          "reason": "Prior failure"
+        },
+        "qualifier_typing": {
+          "status": "NOT_EVALUATED",
+          "reason": "Prior failure"
+        },
+        "scope_consistency": {
+          "status": "NOT_EVALUATED",
+          "reason": "Prior failure"
+        }
+      },
+      "diagnostics": [
+        {
+          "code": "P1_NON_INSTANTIABLE",
+          "stage": "concept_resolution",
+          "severity": "error",
+          "message": "X dimension Σ is not an instantiable referent.",
+          "reference_rule": "Morphology v9.4 §2.9 D.5 / C012",
+          "byte_start": 0,
+          "byte_end": 15
+        }
+      ],
+      "summary": "Illustrative expectation only, NOT a validator-produced report."
+    }
+  ]
+}

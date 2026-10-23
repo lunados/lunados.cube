@@ -1,0 +1,27 @@
+(* P1-VC/1.0.0 lexical and syntactic freeze; one complete expression / UTF-8 document. *)
+(* Whitespace [SPACE,TAB,LF,CR] may occur between tokens; no comments in input. *)
+Document      = WS, Expression, WS, EOF ;
+Expression    = Primary, { WS, "@", WS, Qualifier } ;
+Primary       = Reference | Relation | Application | "(", WS, Expression, WS, ")" ;
+Reference     = Home, WS, ":", WS, Layer, WS, ":", WS, ConceptKey,
+                WS, "[", WS, JsonString, WS, "]" ;
+Home          = "X" | "Y" | "Z" ;
+Layer         = "α" | "β" | "ζ" ;
+Qualifier     = QualifierKind, WS, "(", WS, [ Parameters ], WS, ")" ;
+QualifierKind = "T" | "F" | "M" | "O" ;
+Relation      = "rel", WS, "(", WS, JsonString, WS, ",", WS,
+                Expression, WS, ",", WS, Expression, WS,
+                [ ";", WS, Parameters, WS ], ")" ;
+Application   = MethodID, WS, "(", WS,
+                [ Arguments, WS ], [ ";", WS, Parameters, WS ], ")" ;
+Arguments     = Expression, { WS, ",", WS, Expression } ;
+Parameters    = Parameter, { WS, ",", WS, Parameter } ;
+Parameter     = ParameterName, WS, "=", WS, Scalar ;
+Scalar        = JsonString | JsonNumber | "true" | "false" | "null" ;
+(* JsonString and JsonNumber use strict JSON lexical rules (RFC 8259). *)
+(* ConceptKey tokens are exact spellings in contract/concept_keys.json. *)
+(* MethodID must match /^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*\/v[1-9][0-9]*$/. *)
+(* ParameterName must match /^[A-Za-z_][A-Za-z0-9_]*$/. *)
+(* WS = zero or more SPACE/TAB/LF/CR. EOF = end of decoded input. *)
+(* Relation predicate is a nonempty JSON String; its semantic meaning requires a versioned profile. *)
+(* No infix arrows, implicit calls, glyph-derived IDs, scalar expressions or multiple top-level expressions. *)

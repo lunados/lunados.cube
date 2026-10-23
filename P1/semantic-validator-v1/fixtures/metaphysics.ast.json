@@ -1,0 +1,23 @@
+{
+  "kind": "relation",
+  "predicate_id": "related",
+  "subject": {
+    "kind": "reference",
+    "address": {
+      "home": "Y",
+      "layer": "α",
+      "concept_key": "Annotation"
+    },
+    "referent_ref": "example:thesis-A"
+  },
+  "object": {
+    "kind": "reference",
+    "address": {
+      "home": "Y",
+      "layer": "α",
+      "concept_key": "Annotation"
+    },
+    "referent_ref": "example:objection-B"
+  },
+  "parameters": {}
+}

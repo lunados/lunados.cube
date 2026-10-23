@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:cube:p1:binding-context:1",
+  "title": "P1-VC/1.0.0 declared referent & predicate context (fixture scoped)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "reference_version",
+    "context_id",
+    "source_kind",
+    "referents",
+    "predicate_contracts"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.binding-context/1"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "context_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_kind": {
+      "enum": [
+        "illustrative_fixture",
+        "external_declaration_unverified"
+      ]
+    },
+    "scope_ref": {
+      "type": "string"
+    },
+    "referents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/referent"
+      },
+      "maxItems": 10000
+    },
+    "predicate_contracts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/predicate"
+      },
+      "maxItems": 512
+    },
+    "method_contracts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/method"
+      },
+      "maxItems": 512
+    },
+    "profile_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "referent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "concept_id",
+        "home",
+        "layers",
+        "provenance_status"
+      ],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "home": {
+          "enum": [
+            "X",
+            "Y",
+            "Z"
+          ]
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "α",
+              "β",
+              "ζ"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "provenance_status": {
+          "const": "declared_unverified"
+        },
+        "scope_ref": {
+          "type": "string"
+        },
+        "witness_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method_id",
+        "revision",
+        "scope",
+        "origin",
+        "argument_min",
+        "argument_max"
+      ],
+      "properties": {
+        "method_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*/v[1-9][0-9]*$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "argument_min": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "argument_max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "argument_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "effect_class": {
+          "enum": [
+            "pure_declarative",
+            "unknown",
+            "effectful_declared"
+          ]
+        }
+      }
+    },
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicate_id",
+        "revision",
+        "scope",
+        "origin",
+        "subject_concept_ids",
+        "object_concept_ids",
+        "direction"
+      ],
+      "properties": {
+        "predicate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "subject_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "object_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "direction": {
+          "const": "subject_to_object"
+        },
+        "required_qualifiers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "T",
+              "F",
+              "M",
+              "O"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "additional_constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

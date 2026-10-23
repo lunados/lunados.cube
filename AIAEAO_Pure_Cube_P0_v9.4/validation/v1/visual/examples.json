@@ -1,0 +1,46 @@
+{
+  "profile": "P1-VG-basic/1.0.0",
+  "reference_version": "v9.4",
+  "items": [
+    {
+      "anchor_id": "core-lenses.epistemology",
+      "label": "Epistemology",
+      "form_id": "form.lens-marker",
+      "color_token": "domain.epistemology",
+      "reason": "Optional lens color, no epistemic conclusion implied"
+    },
+    {
+      "anchor_id": "contract-pairs.authority",
+      "label": "Authority",
+      "form_id": "form.contract-anchor",
+      "color_token": "domain.governance",
+      "reason": "Visual X Gamma family, not authorization of this user"
+    },
+    {
+      "anchor_id": "resource-objects.artifact",
+      "label": "Artifact",
+      "form_id": "form.resource-card",
+      "reason": "Y object shown in neutral geometry; does not prove evidence"
+    },
+    {
+      "anchor_id": "governance-boundary.execution-boundary",
+      "label": "Execution Boundary",
+      "form_id": "form.boundary-frame",
+      "reason": "Z frame; not an admission"
+    },
+    {
+      "anchor_id": "relation-arrows.reference",
+      "label": "Reference",
+      "form_id": "form.relation-edge",
+      "reason": "Registered Unicode direction, no color forced"
+    },
+    {
+      "anchor_id": "action-lifecycle.running",
+      "label": "Running (declared only)",
+      "form_id": "form.state-badge",
+      "color_token": "status.pending",
+      "qualified_state_witness_ref": "fixture:state/run-1",
+      "reason": "Color depicts only provided qualified fixture state, not verified execution"
+    }
+  ]
+}

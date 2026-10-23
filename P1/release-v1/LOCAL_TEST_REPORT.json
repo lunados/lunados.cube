@@ -1,0 +1,27 @@
+{
+  "format": "aiaeao.cube.p1.5.local-release-report/1",
+  "release_candidate": "P1-VC/1.0.0",
+  "reference": "v9.4",
+  "offline_local_gate": "PASS",
+  "verification_command": "python3 P1/release-v1/scripts/verify_p15.py",
+  "regression_tests": {
+    "parser": 26,
+    "resolver": 41,
+    "semantic": 73
+  },
+  "independent_cli_vectors": {
+    "p1_1": 25,
+    "p1_5": 22,
+    "lexical_negative": 10,
+    "metamorphic_groups": 1
+  },
+  "schema_oracle": "jsonschema 2020-12 used",
+  "source_lock": "PASS",
+  "published_v9_4_changed": false,
+  "root_manifest_extension": "validation_profiles.P1-VC/1.0.0",
+  "P1_QUALIFIER_SIGNATURE_disposition": "accepted as separately documented engineering addendum",
+  "github_actions_matrix": "NOT_EXECUTED_HERE",
+  "remote_deployment": "NOT_DEPLOYED_HERE",
+  "human_acceptance": "PENDING",
+  "semantic_truth_and_authority": "NOT_EVALUATED"
+}

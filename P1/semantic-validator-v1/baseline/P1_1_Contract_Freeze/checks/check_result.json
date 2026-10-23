@@ -1,0 +1,15 @@
+{
+  "profile": "P1-VC/1.0.0",
+  "date": "2026-10-23",
+  "result": "PASS",
+  "check_type": "static_contract_consistency_only",
+  "output": "PASS — P1.1 static consistency: 85 keys (80+5), 10 predicate names, 21 diagnostics, 25 designed cases, 2 scoped contexts, source lock; JSON Schemas validated; P0 source hash parity confirmed",
+  "not_tested": [
+    "parser",
+    "resolver",
+    "semantic_validator",
+    "real_runtime",
+    "external_evidence",
+    "GitHub deployment"
+  ]
+}

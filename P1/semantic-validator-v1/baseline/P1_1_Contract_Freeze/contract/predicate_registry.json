@@ -1,0 +1,79 @@
+{
+  "format": "aiaeao.cube.p1.predicate-names/1",
+  "reference_version": "v9.4",
+  "p1_profile": "P1-VC/1.0.0",
+  "reference_vocabulary": [
+    {
+      "name": "parent",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    },
+    {
+      "name": "child",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    },
+    {
+      "name": "references",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    },
+    {
+      "name": "related",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    },
+    {
+      "name": "sameAs",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    },
+    {
+      "name": "supersedes",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    },
+    {
+      "name": "derivedFrom",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    },
+    {
+      "name": "causedBy",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    },
+    {
+      "name": "resultOf",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    },
+    {
+      "name": "fulfills",
+      "signature_status": "not_universally_adopted",
+      "definition_source": "morphology.md §7.6/§7.6.1"
+    }
+  ],
+  "built_in_signatures": [],
+  "effect": "Recognizing a name only permits lexical identification; without a matching explicit versioned relation profile the admissibility check returns UNRESOLVED.",
+  "profile_contract": {
+    "required_fields": [
+      "predicate_id",
+      "revision",
+      "subject_concept_ids",
+      "object_concept_ids",
+      "direction",
+      "origin",
+      "scope"
+    ],
+    "direction_values": [
+      "subject_to_object"
+    ],
+    "nonimplications": [
+      "reference_does_not_prove_causation",
+      "result_does_not_prove_verification",
+      "selection_does_not_prove_admission"
+    ],
+    "external_profiles": "May be supplied by caller as evidence-qualified fixture scopes, without modifying the v9.4 reference or providing production trust."
+  }
+}

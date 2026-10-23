@@ -1,0 +1,307 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:cube:p1:resolution-result:1",
+  "title": "Pure Cube P1.3 resolution result (partial-stage evidence, NOT full validation)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "reference_version",
+    "profile",
+    "component",
+    "input_format",
+    "input_sha256",
+    "context_id",
+    "resolution_status",
+    "checks",
+    "bindings",
+    "diagnostics",
+    "epistemic_warrant",
+    "current_authority",
+    "canonical_admission",
+    "semantic_typing",
+    "limitations"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.resolution-result/1"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "profile": {
+      "const": "P1-VC/1.0.0"
+    },
+    "component": {
+      "const": "P1.3"
+    },
+    "input_format": {
+      "enum": [
+        "acg_text",
+        "json_ast"
+      ]
+    },
+    "input_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "context_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resolution_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ]
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "syntax",
+        "structure",
+        "concept_resolution",
+        "referent_binding",
+        "predicate_typing",
+        "method_typing",
+        "qualifier_typing",
+        "scope_consistency"
+      ],
+      "properties": {
+        "syntax": {
+          "$ref": "#/$defs/check"
+        },
+        "structure": {
+          "$ref": "#/$defs/check"
+        },
+        "concept_resolution": {
+          "$ref": "#/$defs/check"
+        },
+        "referent_binding": {
+          "$ref": "#/$defs/check"
+        },
+        "predicate_typing": {
+          "$ref": "#/$defs/check"
+        },
+        "method_typing": {
+          "$ref": "#/$defs/check"
+        },
+        "qualifier_typing": {
+          "$ref": "#/$defs/check"
+        },
+        "scope_consistency": {
+          "$ref": "#/$defs/check"
+        }
+      }
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/binding"
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/diagnostic"
+      }
+    },
+    "epistemic_warrant": {
+      "const": "NOT_EVALUATED"
+    },
+    "current_authority": {
+      "const": "NOT_EVALUATED"
+    },
+    "canonical_admission": {
+      "const": "NOT_EVALUATED"
+    },
+    "semantic_typing": {
+      "const": "NOT_EVALUATED"
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED",
+            "NOT_EVALUATED"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ast_path",
+        "home",
+        "layer",
+        "concept_key",
+        "referent_ref",
+        "concept_resolution",
+        "referent_binding"
+      ],
+      "properties": {
+        "ast_path": {
+          "type": "string"
+        },
+        "home": {
+          "enum": [
+            "X",
+            "Y",
+            "Z"
+          ]
+        },
+        "layer": {
+          "enum": [
+            "α",
+            "β",
+            "ζ"
+          ]
+        },
+        "concept_key": {
+          "type": "string"
+        },
+        "referent_ref": {
+          "type": "string"
+        },
+        "concept_id": {
+          "type": "string"
+        },
+        "instantiation": {
+          "enum": [
+            "not_instantiable",
+            "requires_binding_profile",
+            "eligible_with_declared_referent"
+          ]
+        },
+        "concept_resolution": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED",
+            "NOT_EVALUATED"
+          ]
+        },
+        "referent_binding": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED",
+            "NOT_EVALUATED"
+          ]
+        },
+        "declaration_origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "provenance_status": {
+          "const": "declared_unverified"
+        },
+        "declared_layers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "α",
+              "β",
+              "ζ"
+            ]
+          }
+        },
+        "declared_witness_ref": {
+          "type": "string"
+        },
+        "witness_truth": {
+          "const": "NOT_EVALUATED"
+        }
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "required": [
+        "code",
+        "stage",
+        "severity",
+        "message",
+        "reference_rule"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^P1_[A-Z0-9_]+$"
+        },
+        "stage": {
+          "enum": [
+            "syntax",
+            "structure",
+            "concept_resolution",
+            "referent_binding",
+            "predicate_typing",
+            "method_typing",
+            "qualifier_typing",
+            "scope_consistency"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "error",
+            "unresolved",
+            "info"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "reference_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ast_path": {
+          "type": "string"
+        },
+        "byte_start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "byte_end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "column": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,612 @@
+{
+  "format": "aiaeao.cube.p1.concept-keys/1",
+  "reference_version": "v9.4",
+  "p1_profile": "P1-VC/1.0.0",
+  "source_catalog": "v9.4/grammar/concepts.json",
+  "key_rule": "Exactly the listed (home, concept_key) pairs. No case folding, NFKC, inference from glyphs or automatic alias generation.",
+  "referent_rule": "Known key does not prove an instance. Qualified reference binding requires a compatible declared referent and layer context.",
+  "catalog_entry_count": 80,
+  "semantic_notation_alias_count": 5,
+  "entries": [
+    {
+      "home": "X",
+      "concept_key": "Epistemology",
+      "concept_id": "X:dimension:epistemology",
+      "kind": "dimension",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Observation",
+      "concept_id": "X:scope:observation",
+      "kind": "scope",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "X",
+      "concept_key": "Perception",
+      "concept_id": "X:endpoint:perception",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Conclusion",
+      "concept_id": "X:endpoint:conclusion",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Governance",
+      "concept_id": "X:dimension:governance",
+      "kind": "dimension",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Policy",
+      "concept_id": "X:scope:policy",
+      "kind": "scope",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "X",
+      "concept_key": "Authority",
+      "concept_id": "X:endpoint:authority",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Admission",
+      "concept_id": "X:endpoint:admission",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Semantics",
+      "concept_id": "X:dimension:semantics",
+      "kind": "dimension",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Conversation",
+      "concept_id": "X:scope:conversation",
+      "kind": "scope",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "X",
+      "concept_key": "Expectation",
+      "concept_id": "X:endpoint:expectation",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Satisfaction",
+      "concept_id": "X:endpoint:satisfaction",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Execution",
+      "concept_id": "X:dimension:execution",
+      "kind": "dimension",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Contract",
+      "concept_id": "X:scope:contract",
+      "kind": "scope",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "X",
+      "concept_key": "Delegation",
+      "concept_id": "X:endpoint:delegation",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Completion",
+      "concept_id": "X:endpoint:completion",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Provenance",
+      "concept_id": "X:dimension:provenance",
+      "kind": "dimension",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Event",
+      "concept_id": "X:scope:event",
+      "kind": "scope",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "X",
+      "concept_key": "Action",
+      "concept_id": "X:endpoint:action",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Result",
+      "concept_id": "X:endpoint:result",
+      "kind": "endpoint",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Invariant",
+      "concept_id": "X:logic-relation:invariant",
+      "kind": "logic-relation",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Constraint",
+      "concept_id": "X:logic-relation:constraint",
+      "kind": "logic-relation",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Compatibility",
+      "concept_id": "X:logic-relation:compatibility",
+      "kind": "logic-relation",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Authorization",
+      "concept_id": "X:logic-relation:authorization",
+      "kind": "logic-relation",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Verification",
+      "concept_id": "X:logic-relation:verification",
+      "kind": "logic-relation",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "X",
+      "concept_key": "Refutation",
+      "concept_id": "X:logic-relation:refutation",
+      "kind": "logic-relation",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Actor",
+      "concept_id": "Y:identity-anchor:actor",
+      "kind": "identity-anchor",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "RoleBinding",
+      "concept_id": "Y:identity-anchor:role-binding",
+      "kind": "identity-anchor",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Principal",
+      "concept_id": "Y:identity-anchor:principal",
+      "kind": "identity-anchor",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "SessionBinding",
+      "concept_id": "Y:identity-anchor:session-binding",
+      "kind": "identity-anchor",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "CapabilityProfile",
+      "concept_id": "Y:identity-anchor:capability-profile",
+      "kind": "identity-anchor",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "AdaptationProfile",
+      "concept_id": "Y:identity-anchor:adaptation-profile",
+      "kind": "identity-anchor",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Source",
+      "concept_id": "Y:resource-object:source",
+      "kind": "resource-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Resource",
+      "concept_id": "Y:resource-object:resource",
+      "kind": "resource-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Content",
+      "concept_id": "Y:resource-object:content",
+      "kind": "resource-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Revision",
+      "concept_id": "Y:resource-object:revision",
+      "kind": "resource-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Artifact",
+      "concept_id": "Y:resource-object:artifact",
+      "kind": "resource-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Evidence",
+      "concept_id": "Y:resource-object:evidence",
+      "kind": "resource-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Cache",
+      "concept_id": "Y:resource-object:cache",
+      "kind": "resource-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "WorkItem",
+      "concept_id": "Y:identified-object:work-item",
+      "kind": "identified-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "BoundedExecution",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "kind": "identified-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Outcome",
+      "concept_id": "Y:identified-object:outcome",
+      "kind": "identified-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Annotation",
+      "concept_id": "Y:identified-object:annotation",
+      "kind": "identified-object",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Selection",
+      "concept_id": "Y:relation-arrow:selection",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Reference",
+      "concept_id": "Y:relation-arrow:reference",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "UsesSpecification",
+      "concept_id": "Y:relation-arrow:uses-specification",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Admits",
+      "concept_id": "Y:relation-arrow:admits",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Refuses",
+      "concept_id": "Y:relation-arrow:refuses",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "PerformedBy",
+      "concept_id": "Y:relation-arrow:performed-by",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "ExecutedAs",
+      "concept_id": "Y:relation-arrow:executed-as",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Production",
+      "concept_id": "Y:relation-arrow:production",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Observation",
+      "concept_id": "Y:relation-arrow:observation",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Causation",
+      "concept_id": "Y:relation-arrow:causation",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Derivation",
+      "concept_id": "Y:relation-arrow:derivation",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Y",
+      "concept_key": "Projection",
+      "concept_id": "Y:relation-arrow:projection",
+      "kind": "relation-arrow",
+      "instantiation": "not_instantiable"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Core",
+      "concept_id": "Z:module-body:core",
+      "kind": "module-body",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Connector",
+      "concept_id": "Z:module-body:connector",
+      "kind": "module-body",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Toolbox",
+      "concept_id": "Z:module-body:toolbox",
+      "kind": "module-body",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Tool",
+      "concept_id": "Z:module-body:tool",
+      "kind": "module-body",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Adapter",
+      "concept_id": "Z:module-body:adapter",
+      "kind": "module-body",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Integration",
+      "concept_id": "Z:module-body:integration",
+      "kind": "module-body",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Runtime",
+      "concept_id": "Z:module-body:runtime",
+      "kind": "module-body",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Provider",
+      "concept_id": "Z:module-body:provider",
+      "kind": "module-body",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "ThirdPartyDependency",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "kind": "module-body",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Boundary",
+      "concept_id": "Z:boundary:boundary",
+      "kind": "boundary",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "ProjectBoundary",
+      "concept_id": "Z:boundary:project-boundary",
+      "kind": "boundary",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "ThreadBoundary",
+      "concept_id": "Z:boundary:thread-boundary",
+      "kind": "boundary",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Grant",
+      "concept_id": "Z:boundary:grant",
+      "kind": "boundary",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Refusal",
+      "concept_id": "Z:boundary:refusal",
+      "kind": "boundary",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Capability",
+      "concept_id": "Z:boundary:capability",
+      "kind": "boundary",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "CapabilityBoundary",
+      "concept_id": "Z:boundary:capability-boundary",
+      "kind": "boundary",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "ExecutionBoundary",
+      "concept_id": "Z:boundary:execution-boundary",
+      "kind": "boundary",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Visibility",
+      "concept_id": "Z:boundary:visibility",
+      "kind": "boundary",
+      "instantiation": "eligible_with_declared_referent"
+    },
+    {
+      "home": "Z",
+      "concept_key": "Ownership",
+      "concept_id": "Z:zone:ownership",
+      "kind": "zone",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "Z",
+      "concept_key": "ResourceZone",
+      "concept_id": "Z:zone:resource-zone",
+      "kind": "zone",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "Z",
+      "concept_key": "BackOffice",
+      "concept_id": "Z:zone:back-office",
+      "kind": "zone",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "Z",
+      "concept_key": "FrontOffice",
+      "concept_id": "Z:zone:front-office",
+      "kind": "zone",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "Z",
+      "concept_key": "FrontStage",
+      "concept_id": "Z:zone:front-stage",
+      "kind": "zone",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "Z",
+      "concept_key": "ZoneBoundary",
+      "concept_id": "Z:zone:zone-boundary",
+      "kind": "zone",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "Z",
+      "concept_key": "SameResourceAcrossZones",
+      "concept_id": "Z:zone:same-resource-across-zones",
+      "kind": "zone",
+      "instantiation": "requires_binding_profile"
+    },
+    {
+      "home": "X",
+      "concept_key": "Ψ",
+      "concept_id": "X:dimension:epistemology",
+      "kind": "dimension",
+      "instantiation": "not_instantiable",
+      "alias_kind": "semantic_notation"
+    },
+    {
+      "home": "X",
+      "concept_key": "Γ",
+      "concept_id": "X:dimension:governance",
+      "kind": "dimension",
+      "instantiation": "not_instantiable",
+      "alias_kind": "semantic_notation"
+    },
+    {
+      "home": "X",
+      "concept_key": "Σ",
+      "concept_id": "X:dimension:semantics",
+      "kind": "dimension",
+      "instantiation": "not_instantiable",
+      "alias_kind": "semantic_notation"
+    },
+    {
+      "home": "X",
+      "concept_key": "Ξ",
+      "concept_id": "X:dimension:execution",
+      "kind": "dimension",
+      "instantiation": "not_instantiable",
+      "alias_kind": "semantic_notation"
+    },
+    {
+      "home": "X",
+      "concept_key": "Π",
+      "concept_id": "X:dimension:provenance",
+      "kind": "dimension",
+      "instantiation": "not_instantiable",
+      "alias_kind": "semantic_notation"
+    }
+  ]
+}

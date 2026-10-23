@@ -1,0 +1,31 @@
+{
+  "format": "aiaeao.cube.p1.conformance-index/1",
+  "reference_version": "v9.4",
+  "profile": "P1-VC/1.0.0",
+  "implementation": "Python 3.11+ offline CLI; no hosted invocation",
+  "stage_order": [
+    "syntax",
+    "structure",
+    "concept_resolution",
+    "referent_binding",
+    "predicate_typing",
+    "method_typing",
+    "qualifier_typing",
+    "scope_consistency"
+  ],
+  "independent_test_method": "fresh process / CLI black-box, manually predetermined expectations",
+  "original_p1_1_vectors": 25,
+  "additional_independent_vectors": 22,
+  "adversarial_lexical_vectors": 10,
+  "p1_2_p1_3_p1_4_unit_cases": {
+    "parser": 26,
+    "resolver": 41,
+    "semantic": 73
+  },
+  "report_semantics": "PASS/FAIL/UNRESOLVED are descriptive only. epistemic_warrant, current_authority, canonical_admission remain NOT_EVALUATED.",
+  "local_release_gate": "python3 P1/release-v1/scripts/verify_p15.py",
+  "human_approved": false,
+  "ci_status": "not_verified_until_github_actions_run",
+  "deployed_http_status": "not_verified_until_cloudflare_deployment",
+  "rust_implementation_parity": "not_established"
+}

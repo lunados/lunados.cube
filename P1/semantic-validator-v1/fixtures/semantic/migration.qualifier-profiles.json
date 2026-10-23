@@ -1,0 +1,90 @@
+{
+  "format": "aiaeao.cube.qualifier-profiles/1",
+  "reference_version": "v9.4",
+  "profile_id": "p1-fixture:migration:qualifiers",
+  "scope": "p1-fixture:migration",
+  "origin": "illustrative_fixture",
+  "witness_refs": [
+    "fixture:clock-01",
+    "fixture:observer-01"
+  ],
+  "qualifiers": [
+    {
+      "profile_ref": "fixture:T-occurrence/v1",
+      "coordinate": "T",
+      "required_parameters": [
+        "role",
+        "clock",
+        "origin",
+        "precision",
+        "source_ref",
+        "witness_ref"
+      ],
+      "allowed_parameters": [
+        "role",
+        "clock",
+        "origin",
+        "precision",
+        "source_ref",
+        "witness_ref"
+      ],
+      "allowed_values": {
+        "role": [
+          "occurrence"
+        ],
+        "precision": [
+          "second"
+        ]
+      },
+      "requires_witness": true
+    },
+    {
+      "profile_ref": "fixture:O-delivery/v1",
+      "coordinate": "O",
+      "required_parameters": [
+        "delivered",
+        "witness_ref"
+      ],
+      "allowed_parameters": [
+        "delivered",
+        "witness_ref"
+      ],
+      "allowed_values": {},
+      "requires_witness": true
+    },
+    {
+      "profile_ref": "fixture:M-display/v1",
+      "coordinate": "M",
+      "required_parameters": [
+        "mode"
+      ],
+      "allowed_parameters": [
+        "mode"
+      ],
+      "allowed_values": {
+        "mode": [
+          "Loose",
+          "Strict",
+          "Transitional"
+        ]
+      },
+      "requires_witness": false
+    },
+    {
+      "profile_ref": "fixture:F-description/v1",
+      "coordinate": "F",
+      "required_parameters": [
+        "method"
+      ],
+      "allowed_parameters": [
+        "method"
+      ],
+      "allowed_values": {
+        "method": [
+          "analysis.describe/v1"
+        ]
+      },
+      "requires_witness": false
+    }
+  ]
+}

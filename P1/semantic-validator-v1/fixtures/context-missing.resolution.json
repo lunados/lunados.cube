@@ -1,0 +1,75 @@
+{
+  "format": "aiaeao.cube.resolution-result/1",
+  "reference_version": "v9.4",
+  "profile": "P1-VC/1.0.0",
+  "component": "P1.3",
+  "input_format": "acg_text",
+  "input_sha256": "0869f0a316786d0ff46354f039ec3a6ef471bde162483ae0c244374b28434f1b",
+  "context_id": null,
+  "resolution_status": "UNRESOLVED",
+  "checks": {
+    "syntax": {
+      "status": "PASS",
+      "reason": "Source grammar parsed."
+    },
+    "structure": {
+      "status": "PASS",
+      "reason": "AST passed P1.2 structural checks."
+    },
+    "concept_resolution": {
+      "status": "PASS",
+      "reason": "Every resolved reference passed this descriptive stage."
+    },
+    "referent_binding": {
+      "status": "UNRESOLVED",
+      "reason": "One or more reference bindings remain unresolved."
+    },
+    "predicate_typing": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    },
+    "method_typing": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    },
+    "qualifier_typing": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    },
+    "scope_consistency": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    }
+  },
+  "bindings": [
+    {
+      "ast_path": "/",
+      "home": "Y",
+      "layer": "α",
+      "concept_key": "Artifact",
+      "referent_ref": "not-declared",
+      "concept_resolution": "PASS",
+      "referent_binding": "UNRESOLVED",
+      "concept_id": "Y:resource-object:artifact",
+      "instantiation": "eligible_with_declared_referent"
+    }
+  ],
+  "diagnostics": [
+    {
+      "code": "P1_BINDING_CONTEXT_REQUIRED",
+      "stage": "referent_binding",
+      "severity": "unresolved",
+      "message": "No exact declared referent binding available in the supplied context.",
+      "reference_rule": "Morphology §2.9 / C011",
+      "ast_path": "/"
+    }
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "current_authority": "NOT_EVALUATED",
+  "canonical_admission": "NOT_EVALUATED",
+  "semantic_typing": "NOT_EVALUATED",
+  "limitations": [
+    "P1.3-only status: predicate/method/qualifier/scope typing deferred.",
+    "Context declarations are untrusted, including ζ witness pointers."
+  ]
+}

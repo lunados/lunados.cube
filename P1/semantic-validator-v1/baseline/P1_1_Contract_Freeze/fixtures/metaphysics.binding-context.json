@@ -1,0 +1,53 @@
+{
+  "format": "aiaeao.cube.binding-context/1",
+  "reference_version": "v9.4",
+  "context_id": "p1-fixture:metaphysics",
+  "source_kind": "illustrative_fixture",
+  "scope_ref": "p1-fixture:metaphysics",
+  "referents": [
+    {
+      "ref": "example:thesis-A",
+      "concept_id": "Y:identified-object:annotation",
+      "home": "Y",
+      "layers": [
+        "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "p1-fixture:metaphysics"
+    },
+    {
+      "ref": "example:objection-B",
+      "concept_id": "Y:identified-object:annotation",
+      "home": "Y",
+      "layers": [
+        "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "p1-fixture:metaphysics"
+    }
+  ],
+  "method_contracts": [],
+  "predicate_contracts": [
+    {
+      "predicate_id": "related",
+      "revision": "p1-fixture:metaphysics:pred/1",
+      "scope": "p1-fixture:metaphysics",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+        "Y:identified-object:annotation"
+      ],
+      "object_concept_ids": [
+        "Y:identified-object:annotation"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+        "This is a scoped fixture contract. It does not establish the truth of the assertion."
+      ]
+    }
+  ],
+  "profile_limitations": [
+    "Synthetic declarations only: referents are not independently authenticated.",
+    "No authorization, external execution, or canonical AIAEAO Thread admission is asserted."
+  ]
+}
