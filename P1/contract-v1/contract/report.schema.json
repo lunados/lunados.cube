@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:cube:p1:report:1",
+  "title": "P1-VC/1.0.0 deterministic diagnostic report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "reference_version",
+    "profile",
+    "overall_status",
+    "checks",
+    "diagnostics",
+    "epistemic_warrant",
+    "current_authority",
+    "canonical_admission"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.validation-report/1"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "profile": {
+      "const": "P1-VC/1.0.0"
+    },
+    "overall_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ]
+    },
+    "context_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "input_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "checks": {
+      "type": "object",
+      "required": [
+        "syntax",
+        "structure",
+        "concept_resolution",
+        "referent_binding",
+        "predicate_typing",
+        "method_typing",
+        "qualifier_typing",
+        "scope_consistency"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "syntax": {
+          "$ref": "#/$defs/check"
+        },
+        "structure": {
+          "$ref": "#/$defs/check"
+        },
+        "concept_resolution": {
+          "$ref": "#/$defs/check"
+        },
+        "referent_binding": {
+          "$ref": "#/$defs/check"
+        },
+        "predicate_typing": {
+          "$ref": "#/$defs/check"
+        },
+        "method_typing": {
+          "$ref": "#/$defs/check"
+        },
+        "qualifier_typing": {
+          "$ref": "#/$defs/check"
+        },
+        "scope_consistency": {
+          "$ref": "#/$defs/check"
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/diagnostic"
+      }
+    },
+    "epistemic_warrant": {
+      "const": "NOT_EVALUATED"
+    },
+    "current_authority": {
+      "const": "NOT_EVALUATED"
+    },
+    "canonical_admission": {
+      "const": "NOT_EVALUATED"
+    },
+    "summary": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED",
+            "NOT_EVALUATED"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "stage",
+        "severity",
+        "message",
+        "reference_rule"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^P1_[A-Z0-9_]+$"
+        },
+        "stage": {
+          "enum": [
+            "syntax",
+            "structure",
+            "concept_resolution",
+            "referent_binding",
+            "predicate_typing",
+            "method_typing",
+            "qualifier_typing",
+            "scope_consistency"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "error",
+            "unresolved",
+            "info"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "reference_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "byte_start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "byte_end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "column": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

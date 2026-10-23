@@ -1,0 +1,262 @@
+{
+  "format": "aiaeao.cube.vg-basic/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "presentation_extension": "P1-VG-basic/1.0.0",
+  "status": "proposed_display_extension",
+  "glyph_source": "https://cube.lunados.net/v9.4/visual/symbols.json",
+  "composition_order": [
+    "shape_optional",
+    "color_optional",
+    "unicode_registered_anchor",
+    "visible_label"
+  ],
+  "symbol_policy": {
+    "unicode_codepoints": "129 existing v9.4 canonical anchors",
+    "glyph_count": 129,
+    "identity": "anchor_id as display registry key; not ontology instance ID",
+    "historical_aliases": "four through v9.4 symbols.json, not new primaries",
+    "unicode_normalization": "do_not_use_NFKC_as_identifier",
+    "fallback": "visible text label; preserve original Unicode if supported"
+  },
+  "forms": [
+    {
+      "id": "form.lens-marker",
+      "historical_class": "circle-halo-marker",
+      "css_primitive": "circle",
+      "instruction": "Domain lens; Unicode glyph centered inside a circular outline/ring. Not a truth or authority mark.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.contract-anchor",
+      "historical_class": "rounded-anchor-card",
+      "css_primitive": "rounded_rectangle",
+      "instruction": "Comparable endpoints; the glyph already differentiates opening and complement.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.resource-card",
+      "historical_class": "resource-card",
+      "css_primitive": "rectangle",
+      "instruction": "Resource/object carrier; semantic type is only the Unicode anchor+label, never this box.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.state-badge",
+      "historical_class": "badge-pill-dot",
+      "css_primitive": "pill",
+      "instruction": "State is labelled; status color requires a qualified witness.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.boundary-frame",
+      "historical_class": "modifier-frame",
+      "css_primitive": "outline_rectangle",
+      "instruction": "Boundary drawn as a frame around an existing element, not permission.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.relation-edge",
+      "historical_class": "line-arrow-edge",
+      "css_primitive": "line",
+      "instruction": "Use the registered Unicode relation arrow inline; neutral line/label optional; no forced shape or accent color.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.zone-region",
+      "historical_class": "band-region",
+      "css_primitive": "band",
+      "instruction": "Region grouping; no hierarchy or access tier inferred.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.module-block",
+      "historical_class": "block-container",
+      "css_primitive": "rounded_rectangle",
+      "instruction": "Module labelled as an outlined container; not evidence of an active runtime.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.identity-chip",
+      "historical_class": "chip-badge",
+      "css_primitive": "pill",
+      "instruction": "Actor/principal/role visually grouped while identities remain distinct.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.planning-node",
+      "historical_class": "geometric-planning-node",
+      "css_primitive": "rounded_rectangle",
+      "instruction": "Neutral planning card/node; no implication that work was executed.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.shell-surface",
+      "historical_class": "ui-surface-atom",
+      "css_primitive": "rectangle",
+      "instruction": "UI panel/rail/tab surface; not a semantic home.",
+      "mode": "optional_nonsemantic"
+    },
+    {
+      "id": "form.glyph-only",
+      "historical_class": "glyph-only",
+      "css_primitive": "none",
+      "instruction": "Render Unicode directly with accessible text; no shape required.",
+      "mode": "preferred_baseline"
+    }
+  ],
+  "colors": {
+    "domain.epistemology": {
+      "css_variable": "--vg-domain-epistemology",
+      "hex": "#2F7D59"
+    },
+    "domain.governance": {
+      "css_variable": "--vg-domain-governance",
+      "hex": "#8E244D"
+    },
+    "domain.semantics": {
+      "css_variable": "--vg-domain-semantics",
+      "hex": "#B9831F"
+    },
+    "domain.execution": {
+      "css_variable": "--vg-domain-execution",
+      "hex": "#2563EB"
+    },
+    "domain.provenance": {
+      "css_variable": "--vg-domain-provenance",
+      "hex": "#7C3AED"
+    },
+    "status.neutral": {
+      "css_variable": "--vg-status-neutral",
+      "hex": "#64748B"
+    },
+    "status.inactive": {
+      "css_variable": "--vg-status-inactive",
+      "hex": "#CBD5E1"
+    },
+    "status.info": {
+      "css_variable": "--vg-status-info",
+      "hex": "#0284C7"
+    },
+    "status.success": {
+      "css_variable": "--vg-status-success",
+      "hex": "#16A34A"
+    },
+    "status.warning": {
+      "css_variable": "--vg-status-warning",
+      "hex": "#D97706"
+    },
+    "status.danger": {
+      "css_variable": "--vg-status-danger",
+      "hex": "#DC2626"
+    },
+    "status.pending": {
+      "css_variable": "--vg-status-pending",
+      "hex": "#0891B2"
+    },
+    "status.selected": {
+      "css_variable": "--vg-status-selected",
+      "hex": "#0F766E"
+    },
+    "status.cached": {
+      "css_variable": "--vg-status-cached",
+      "hex": "#4F46E5"
+    },
+    "status.dirty": {
+      "css_variable": "--vg-status-dirty",
+      "hex": "#EA580C"
+    },
+    "relation.default": {
+      "css_variable": "--vg-relation-default",
+      "hex": "#475569"
+    },
+    "surface.muted": {
+      "css_variable": "--vg-surface-muted",
+      "hex": "#94A3B8"
+    }
+  },
+  "color_rules": {
+    "domain_accent": "Optional for five X dimensions and their ten endpoints; not proof of state or admission.",
+    "neutral": "All other entities default neutral. A status accent requires externally qualified state evidence.",
+    "relation_arrows": "No forced color; neutral monochrome optional for connecting line, not the mathematical/registered arrow glyph.",
+    "status": "Status colors are only an optional display of a supplied, explicit, scoped state fact; never infer from concept label or glyph alone.",
+    "color_not_required": true,
+    "color_not_sole_cue": true
+  },
+  "css_primitive_mapping": {
+    "circle": "border-radius:50%; border-style:solid",
+    "pill": "border-radius:999px; border-style:solid",
+    "rectangle": "border-radius:0; border-style:solid",
+    "rounded_rectangle": "border-radius:0.5rem; border-style:solid",
+    "outline_rectangle": "border:1px solid currentColor; border-radius:0.4rem",
+    "line": "border-top:1px solid currentColor",
+    "band": "border:1px solid currentColor; background:transparent",
+    "none": "no wrapper"
+  },
+  "semantics_boundary": "Presentation only. Not part of resolver or semantic validator, no SVG dependency.",
+  "constraints": [
+    {
+      "id": "VG-P1-001",
+      "test": "Every anchor_id MUST map exactly to the 129 v9.4 symbolic records, Unicode codepoint unchanged.",
+      "enforcement": "static_check"
+    },
+    {
+      "id": "VG-P1-002",
+      "test": "No glyph, geometry or CSS token is a machine Semantic ID or authenticated referent key.",
+      "enforcement": "display_constraint"
+    },
+    {
+      "id": "VG-P1-003",
+      "test": "No relation-arrow glyph acquires imposed chromatic role or a wrapper; formal operators have no mandatory color or shape.",
+      "enforcement": "static_check_and_display_constraint"
+    },
+    {
+      "id": "VG-P1-004",
+      "test": "Domain color may identify visual perspective only, never Authority, Admission, truth or success.",
+      "enforcement": "display_constraint"
+    },
+    {
+      "id": "VG-P1-005",
+      "test": "Status accent requires explicit qualified state source/witness; no green success inferred from glyph, label, parse or binding.",
+      "enforcement": "render_plan_check"
+    },
+    {
+      "id": "VG-P1-006",
+      "test": "An opening/complement pair remains visually comparable; Result is not Outcome, Completion, Verification or Satisfaction.",
+      "enforcement": "display_constraint"
+    },
+    {
+      "id": "VG-P1-007",
+      "test": "All colors and geometric forms have independent visible text/Unicode labels; monochrome rendering preserves distinctions.",
+      "enforcement": "render_plan_check_and_manual_review"
+    },
+    {
+      "id": "VG-P1-008",
+      "test": "No SVG, external font, image or glyph generated from Unicode decomposition is required.",
+      "enforcement": "package_check"
+    },
+    {
+      "id": "VG-P1-009",
+      "test": "T/F/M/O are qualifiers; color and form cannot create fourth/fifth primary ontology homes.",
+      "enforcement": "display_constraint"
+    },
+    {
+      "id": "VG-P1-010",
+      "test": "When a glyph is not available in the user font, fall back to textual label/anchor_id; do not replace the registered Unicode character.",
+      "enforcement": "display_constraint"
+    },
+    {
+      "id": "VG-P1-011",
+      "test": "Always preserve v9.4 symbol aesthetic review notes; original v0.9.3 source is historical and used only as design guidance.",
+      "enforcement": "static_check_and_display_constraint"
+    }
+  ],
+  "lineage": {
+    "canonical_symbol_registry": "AIAEAO Morphology v9.4 Annex J, published P0 /v9.4/visual/symbols.json",
+    "historical_symbol_provenance": "lunados/lunados.space web/satellites/visual-grammar/VG_V093_SYMBOLIC_REGISTRY.json (v0.9.3; v9.2 historical reference)",
+    "historical_pair_form_color_summary": "lunados/lunados.space web/satellites/visual-grammar/VG_V093_PAIR_GRAMMAR_REFERENCE.json (v0.9.3; v9.2 historical reference)",
+    "historical_form_design": "lunados/lunados.space web/docs/vg/aiaeao-vg-reflector-standalone-v0.4.2/scripts/v06-form-color-tabs.js",
+    "historical_color_tokens": "lunados/lunados.space web/docs/vg/aiaeao-vg-reflector-standalone-v0.4.2/styles/vg-color-tokens-v0.6-consolidated.css",
+    "note": "Form recommendations are an optional CSS/HTML projection from historical design; not an adopted v9.4 ontology or mandatory renderer."
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "format": "aiaeao.cube.validation-profile/1",
+  "id": "P1-VC/1.0.0",
+  "reference_version": "v9.4",
+  "disposition": "engineering_contract_proposal_for_P1.1_freeze",
+  "source_of_semantic_authority": "Morphology v9.4; this profile defines validator behavior only",
+  "p0_input_contract": "v9.4/notation/ast.schema.json; v9.4/notation/grammar.ebnf",
+  "supported_kinds": [
+    "reference",
+    "qualified",
+    "relation",
+    "application"
+  ],
+  "input_formats": [
+    "acg_text",
+    "json_ast"
+  ],
+  "output_format": "application/json",
+  "required_stage_order": [
+    "syntax",
+    "structure",
+    "concept_resolution",
+    "referent_binding",
+    "predicate_typing",
+    "method_typing",
+    "qualifier_typing",
+    "scope_consistency"
+  ],
+  "statuses": [
+    "PASS",
+    "FAIL",
+    "UNRESOLVED",
+    "NOT_EVALUATED"
+  ],
+  "overall_precedence": [
+    "FAIL",
+    "UNRESOLVED",
+    "PASS"
+  ],
+  "overall_status_values": [
+    "PASS",
+    "FAIL",
+    "UNRESOLVED"
+  ],
+  "overall_rule": "FAIL if any applicable mandatory stage FAIL; else UNRESOLVED if any UNRESOLVED; else PASS if all applicable mandatory stages PASS. NOT_EVALUATED is excluded from aggregation and must have a reason.",
+  "constraints": {
+    "maximum_source_bytes": 1048576,
+    "maximum_ast_depth": 64,
+    "maximum_ast_nodes": 10000,
+    "maximum_parameters_per_expression": 64,
+    "maximum_qualifiers_per_expression": 64,
+    "input_encoding": "UTF-8, no BOM; prohibit malformed bytes",
+    "unicode_policy": "Preserve Unicode scalars; do not NFKC/casefold concept IDs, quoted referent values or method identifiers.",
+    "whitespace": "Space, TAB, LF, CR allowed between tokens; not inside unescaped string.",
+    "document": "Exactly one expression, then EOF; no comments or Markdown fences.",
+    "strings": "Strict JSON double-quoted strings/escapes; disallow lone UTF-16 surrogate escapes.",
+    "number": "RFC 8259 JSON number, interpreted as exact decimal token for syntax; no NaN/Infinity; semantics never inferred by numeric spelling.",
+    "method_id_pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*/v[1-9][0-9]*$",
+    "parameter_name_pattern": "^[A-Za-z_][A-Za-z0-9_]*$",
+    "concept_key": "Explicit table: contract/concept_keys.json (80 homes + 5 notation aliases).",
+    "duplicate_parameter_name": "FAIL",
+    "qualified_order": "Preserve order/multiplicity; do not commute or de-duplicate qualifiers.",
+    "no_implicit_coercions": true
+  },
+  "reference_bindings": {
+    "address_triplet": "home:layer:concept_key[JSON_STRING]",
+    "home": [
+      "X",
+      "Y",
+      "Z"
+    ],
+    "layer": [
+      "α",
+      "β",
+      "ζ"
+    ],
+    "concept_resolution": "Exact (home, concept_key) match in registry; catalog concept_id is not a referent ID.",
+    "unknown_concept": "UNRESOLVED unless a known key appears with the explicitly wrong home (FAIL).",
+    "noninstantiable": "FAIL if the known dimension/logic relation/arrow is used as an instance reference.",
+    "requires_profile": "UNRESOLVED unless an explicit compatible instantiation profile is present.",
+    "referent_resolution": "Exact referent_ref and concept_id, layer and scope match from a supplied binding context; missing means UNRESOLVED.",
+    "reference_to_zeta": "No ζ historical/admitted evidence is inferred from a lexical ζ address; without concrete witness UNRESOLVED.",
+    "foreign_id_is_not_principal": true,
+    "runtime_authority_never_derived": true
+  },
+  "predicate_typing": {
+    "names": "P0 technical reference kinds are names, not universal typed signatures.",
+    "without_versioned_signature": "UNRESOLVED",
+    "with_versioned_signature": "Check direction, subject/object exact concept kind membership, scope, qualifiers; failure FAIL.",
+    "profile_origin": "Caller-provided profiles count as assertions in named scope, not canonical AIAEAO production contracts.",
+    "path_composition": "Preserve path only; no new predicate inferred by composition."
+  },
+  "method_typing": {
+    "without_versioned_signature": "UNRESOLVED",
+    "with_versioned_signature": "Check method ID, revision, scope, declared argument count/types and pure-description status; effects never invoked.",
+    "effectful_method": "May be described but cannot be invoked; runtime authority is NOT_EVALUATED."
+  },
+  "qualifier_typing": {
+    "qualifier_coordinates": [
+      "T",
+      "F",
+      "M",
+      "O"
+    ],
+    "temporal_facets": [
+      "occurrence",
+      "recording",
+      "observation",
+      "assessment",
+      "effective-interval",
+      "freshness",
+      "historicity",
+      "scheduling"
+    ],
+    "temporal_default": "Without role/clock/origin/precision when required for requested operation => UNRESOLVED, never fabricated timestamps.",
+    "observer_default": "Observer permission, delivery and perception separate; without witness => UNRESOLVED for corresponding claim.",
+    "mode_default": "Loose/Transitional/Strict are VG interpretive examples, not runtime mode registry values.",
+    "method_default": "Declared or versioned method name does not mean executable or valid effect.",
+    "layer_binding": "O/T are bound with preserved witnesses for α→β→ζ; no erasure of required evidence."
+  },
+  "trust_and_effects": {
+    "epistemic_warrant": "NOT_EVALUATED",
+    "real_effect_authorization": "NOT_EVALUATED",
+    "canonical_admission": "NOT_EVALUATED",
+    "tool_invocation": false,
+    "source_truth_asserted": false
+  },
+  "diagnostic_order": "byte_offset asc; then error_code asc; then stage_order",
+  "diagnostic_span": "UTF-8 byte offsets start inclusive / end exclusive, 1-based Unicode scalar line/column where available.",
+  "report_schema": "contract/report.schema.json",
+  "context_schema": "contract/context.schema.json"
+}

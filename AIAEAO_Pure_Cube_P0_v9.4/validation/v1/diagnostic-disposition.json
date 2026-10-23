@@ -1,0 +1,11 @@
+{
+  "format": "aiaeao.cube.p1.5.extension-review/1",
+  "profile": "P1-VC/1.0.0",
+  "extension": "P1_QUALIFIER_SIGNATURE",
+  "decision": "ACCEPT_FOR_P1.5_ENGINEERING_RC_WITH_DOCUMENTED_EXTENSION",
+  "compatible_with_p1_1_schema": true,
+  "why": "Diagnostic code matches the P1.1 report schema pattern; P1.1 21-code register is not edited. This code is reserved to indicate invalid caller-scoped qualifier profile constraints. No additional ontology semantics.",
+  "qualification_profiles_contract": "aiaeao.cube.qualifier-profiles/1",
+  "not_claimed": "human adoption of a production or ontology contract",
+  "future_change": "Any behaviorally incompatible revision must explicitly version its validation profile."
+}

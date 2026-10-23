@@ -1,0 +1,66 @@
+{
+  "format": "aiaeao.cube.binding-context/1",
+  "reference_version": "v9.4",
+  "context_id": "p1-fixture:migration",
+  "source_kind": "illustrative_fixture",
+  "scope_ref": "p1-fixture:migration",
+  "referents": [
+    {
+      "ref": "example:migration-plan",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+        "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "p1-fixture:migration"
+    },
+    {
+      "ref": "example:source-repository",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+        "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "p1-fixture:migration"
+    }
+  ],
+  "method_contracts": [
+    {
+      "method_id": "analysis.describe/v1",
+      "revision": "p1-fixture:method/1",
+      "scope": "p1-fixture:migration",
+      "origin": "illustrative_fixture",
+      "argument_min": 1,
+      "argument_max": 1,
+      "argument_concept_ids": [
+        "Y:resource-object:artifact"
+      ],
+      "effect_class": "pure_declarative"
+    }
+  ],
+  "predicate_contracts": [
+    {
+      "predicate_id": "references",
+      "revision": "p1-fixture:migration:pred/1",
+      "scope": "p1-fixture:migration",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+        "Y:resource-object:artifact"
+      ],
+      "object_concept_ids": [
+        "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+        "This is a scoped fixture contract. It does not establish the truth of the assertion."
+      ]
+    }
+  ],
+  "profile_limitations": [
+    "Synthetic declarations only: referents are not independently authenticated.",
+    "No authorization, external execution, or canonical AIAEAO Thread admission is asserted."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "format": "aiaeao.cube.resolution-result/1",
+  "reference_version": "v9.4",
+  "profile": "P1-VC/1.0.0",
+  "component": "P1.3",
+  "input_format": "acg_text",
+  "input_sha256": "0b415084f7cc7bb58c82805c74700080c35bccdf7e7ed6274e3150116f8b363e",
+  "context_id": "p1-fixture:migration",
+  "resolution_status": "PASS",
+  "checks": {
+    "syntax": {
+      "status": "PASS",
+      "reason": "Source grammar parsed."
+    },
+    "structure": {
+      "status": "PASS",
+      "reason": "AST passed P1.2 structural checks."
+    },
+    "concept_resolution": {
+      "status": "PASS",
+      "reason": "Every resolved reference passed this descriptive stage."
+    },
+    "referent_binding": {
+      "status": "PASS",
+      "reason": "Every resolved reference passed this descriptive stage."
+    },
+    "predicate_typing": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    },
+    "method_typing": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    },
+    "qualifier_typing": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    },
+    "scope_consistency": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    }
+  },
+  "bindings": [
+    {
+      "ast_path": "/subject",
+      "home": "Y",
+      "layer": "α",
+      "concept_key": "Artifact",
+      "referent_ref": "example:migration-plan",
+      "concept_resolution": "PASS",
+      "referent_binding": "PASS",
+      "concept_id": "Y:resource-object:artifact",
+      "instantiation": "eligible_with_declared_referent",
+      "declaration_origin": "illustrative_fixture",
+      "provenance_status": "declared_unverified",
+      "declared_layers": [
+        "α"
+      ]
+    },
+    {
+      "ast_path": "/object",
+      "home": "Y",
+      "layer": "α",
+      "concept_key": "Resource",
+      "referent_ref": "example:source-repository",
+      "concept_resolution": "PASS",
+      "referent_binding": "PASS",
+      "concept_id": "Y:resource-object:resource",
+      "instantiation": "eligible_with_declared_referent",
+      "declaration_origin": "illustrative_fixture",
+      "provenance_status": "declared_unverified",
+      "declared_layers": [
+        "α"
+      ]
+    }
+  ],
+  "diagnostics": [],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "current_authority": "NOT_EVALUATED",
+  "canonical_admission": "NOT_EVALUATED",
+  "semantic_typing": "NOT_EVALUATED",
+  "limitations": [
+    "P1.3-only status: predicate/method/qualifier/scope typing deferred.",
+    "Context declarations are untrusted, including ζ witness pointers."
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "format": "aiaeao.cube.p1.4.rule-coverage/1",
+  "reference_version": "v9.4",
+  "validator_profile": "P1-VC/1.0.0",
+  "status_meanings": {
+    "enforced_subset": "Only named mechanical aspect tested, not full underlying conceptual constraint",
+    "noninference_guard": "Validator specifically refrains from claiming prohibited entailment",
+    "reference_only": "Conceptual source preserved; no executable input-level implementation in P1.4"
+  },
+  "rules": [
+    {
+      "id": "C001",
+      "coverage": "enforced_subset",
+      "implementation_note": "Exact home/concept lookup; does not prove ontology completeness",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.5; 6.1"
+      }
+    },
+    {
+      "id": "C002",
+      "coverage": "enforced_subset",
+      "implementation_note": "T/F/M/O only AST qualifiers, X/Y/Z only homes",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.1"
+      }
+    },
+    {
+      "id": "C003",
+      "coverage": "reference_only",
+      "implementation_note": "Five-dimensional X invariant belongs to P0 release validation; not an input-expression constraint",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2"
+      }
+    },
+    {
+      "id": "C004",
+      "coverage": "enforced_subset",
+      "implementation_note": "Exact concept IDs; no implicit identity-anchor coercion",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.3; 6.3.1"
+      }
+    },
+    {
+      "id": "C005",
+      "coverage": "noninference_guard",
+      "implementation_note": "No Capability/Role-based authority inference",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.3; 6.2.2"
+      }
+    },
+    {
+      "id": "C006",
+      "coverage": "noninference_guard",
+      "implementation_note": "Admission NOT_EVALUATED; never inferred from parse",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.2"
+      }
+    },
+    {
+      "id": "C007",
+      "coverage": "noninference_guard",
+      "implementation_note": "No Core state mutation or ingestion",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.1; 7.5"
+      }
+    },
+    {
+      "id": "C008",
+      "coverage": "enforced_subset",
+      "implementation_note": "Exact concept ID typing, no automatic Result/Outcome interchange",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.3; 6.2"
+      }
+    },
+    {
+      "id": "C009",
+      "coverage": "noninference_guard",
+      "implementation_note": "Fixture assertions are unverified; Evidence does not imply truth",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      }
+    },
+    {
+      "id": "C010",
+      "coverage": "reference_only",
+      "implementation_note": "Claim home distinction retained in P0 catalog; general subject-qualified interpretation not executable",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2.11"
+      }
+    },
+    {
+      "id": "C011",
+      "coverage": "enforced_subset",
+      "implementation_note": "P1.3 referent/context matching, declared identity only",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.9"
+      }
+    },
+    {
+      "id": "C012",
+      "coverage": "enforced_subset",
+      "implementation_note": "Dimension addresses reject instantiation",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.9"
+      }
+    },
+    {
+      "id": "C013",
+      "coverage": "enforced_subset",
+      "implementation_note": "T facet enumeration and required qualifier declarations; full clock semantics not decided",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.6"
+      }
+    },
+    {
+      "id": "C014",
+      "coverage": "noninference_guard",
+      "implementation_note": "No chronological causation inference",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.6; 7.7"
+      }
+    },
+    {
+      "id": "C015",
+      "coverage": "enforced_subset",
+      "implementation_note": "O witness pointer required for scoped fixture PASS; empirical perception unverified",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.10; 4.9"
+      }
+    },
+    {
+      "id": "C016",
+      "coverage": "noninference_guard",
+      "implementation_note": "No reverse inference from projections or compression",
+      "source": {
+        "reference": "morphology.md",
+        "section": "4.3; 5.8"
+      }
+    },
+    {
+      "id": "C017",
+      "coverage": "enforced_subset",
+      "implementation_note": "Declared predicate direction fixed to subject_to_object",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.8"
+      }
+    },
+    {
+      "id": "C018",
+      "coverage": "noninference_guard",
+      "implementation_note": "No relation inferred from paths",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.11"
+      }
+    },
+    {
+      "id": "C019",
+      "coverage": "noninference_guard",
+      "implementation_note": "External mathematical proof and premises NOT_EVALUATED",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.7; 5.11"
+      }
+    },
+    {
+      "id": "C020",
+      "coverage": "noninference_guard",
+      "implementation_note": "Effectful method application rejected; no actual Admission checks",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.14"
+      }
+    },
+    {
+      "id": "C021",
+      "coverage": "enforced_subset",
+      "implementation_note": "M requires local presentation fixture; no production mode enumerations",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.10"
+      }
+    },
+    {
+      "id": "C022",
+      "coverage": "enforced_subset",
+      "implementation_note": "P1.3 β/ζ declared witness pointer checks; not proof of history",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.12"
+      }
+    },
+    {
+      "id": "C023",
+      "coverage": "noninference_guard",
+      "implementation_note": "No numeric feature interpretation from coordinate labels",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.9"
+      }
+    },
+    {
+      "id": "C024",
+      "coverage": "reference_only",
+      "implementation_note": "Nominal/ordinal/ratio dimensions not machine modeled in P1.4",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.12"
+      }
+    },
+    {
+      "id": "C025",
+      "coverage": "noninference_guard",
+      "implementation_note": "No inference from changed parameter to changed effect",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.8"
+      }
+    },
+    {
+      "id": "C026",
+      "coverage": "noninference_guard",
+      "implementation_note": "Foreign referent string not promoted into authenticated Principal",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.19"
+      }
+    },
+    {
+      "id": "C027",
+      "coverage": "reference_only",
+      "implementation_note": "Canonical Thread/Relay Thread distinction not an executable input rule",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.3; 5.4"
+      }
+    },
+    {
+      "id": "C028",
+      "coverage": "noninference_guard",
+      "implementation_note": "Visual anchor not consumed as concept identity",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.9; 7.40"
+      }
+    },
+    {
+      "id": "C029",
+      "coverage": "reference_only",
+      "implementation_note": "Cache freshness/authorization not executable from this input profile",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.14"
+      }
+    },
+    {
+      "id": "C030",
+      "coverage": "enforced_subset",
+      "implementation_note": "Method signatures typed descriptively; effectful invocation blocked",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.12"
+      }
+    },
+    {
+      "id": "C031",
+      "coverage": "enforced_subset",
+      "implementation_note": "No NFKC concept/glyph remapping",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.9"
+      }
+    },
+    {
+      "id": "C032",
+      "coverage": "noninference_guard",
+      "implementation_note": "No migration side effects or historic compatibility assertion",
+      "source": {
+        "reference": "morphology.md",
+        "section": "1; 7.5"
+      }
+    }
+  ]
+}

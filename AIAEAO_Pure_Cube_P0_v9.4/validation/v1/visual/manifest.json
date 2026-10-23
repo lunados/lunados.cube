@@ -1,0 +1,42 @@
+{
+  "format": "aiaeao.cube.visual-presentation-manifest/1",
+  "profile": "P1-VG-basic/1.0.0",
+  "status": "engineering_release_candidate_display_only",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "canonical_symbol_source": "https://cube.lunados.net/v9.4/visual/symbols.json",
+  "no_svg": true,
+  "function_invocation_available": false,
+  "assets": {
+    "form_color": {
+      "href": "https://cube.lunados.net/validation/v1/visual/form-color.json",
+      "media_type": "application/json",
+      "sha256": "27be9aed784c82d038d7f43b04ec06a4ea1eb3d2ffdf1e8e1a7eb6b501800200",
+      "bytes": 10137
+    },
+    "anchors": {
+      "href": "https://cube.lunados.net/validation/v1/visual/anchors.json",
+      "media_type": "application/json",
+      "sha256": "1fdb6926d94600ca8d53069125d1d819ce2c727c85febb07b01ce16e7bdeffe2",
+      "bytes": 58903
+    },
+    "render_plan_schema": {
+      "href": "https://cube.lunados.net/validation/v1/visual/render-plan.schema.json",
+      "media_type": "application/json",
+      "sha256": "af2b8f5847cfa67266eac3c8e04970b65ebf8d4f0bf3eaa2837edcc04e9a4711",
+      "bytes": 2399
+    },
+    "examples": {
+      "href": "https://cube.lunados.net/validation/v1/visual/examples.json",
+      "media_type": "application/json",
+      "sha256": "96a926d9f81cd3b459f5928113beaa5943c8517fd3a05fef238663d0e156d091",
+      "bytes": 1495
+    },
+    "agent_guide": {
+      "href": "https://cube.lunados.net/validation/v1/visual/agent-guide.md",
+      "media_type": "text/markdown",
+      "sha256": "851a3057965cc61395a9b8d69b9c24907a14a019dfbf6aff6c407ba8b57f1277",
+      "bytes": 3358
+    }
+  }
+}

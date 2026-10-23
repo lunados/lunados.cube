@@ -1,0 +1,1 @@
+Y:α:Artifact["example:migration-plan"]@T(role="occurrence",clock="UTC",origin="fixture:clock-01",precision="second",source_ref="fixture:source",witness_ref="fixture:clock-01")@O(delivered=true,witness_ref="fixture:observer-01")

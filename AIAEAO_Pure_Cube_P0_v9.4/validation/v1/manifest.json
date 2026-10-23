@@ -1,0 +1,42 @@
+{
+  "format": "aiaeao.cube.validation-manifest/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "status": "engineering_release_candidate",
+  "canonical_reference": "https://cube.lunados.net/v9.4/morphology.md",
+  "reference_entry": "https://cube.lunados.net/manifest.json",
+  "function_invocation_available": false,
+  "writes_available": false,
+  "authentication": "none_for_public_static_metadata",
+  "callable_api": "not_offered_in_P1",
+  "nonimplications": [
+    "syntax_is_not_truth",
+    "typing_is_not_admission",
+    "fixture_binding_is_not_authentication",
+    "no_server_instance_authority"
+  ],
+  "assets": {
+    "conformance": {
+      "href": "https://cube.lunados.net/validation/v1/conformance.json",
+      "media_type": "application/json",
+      "sha256": "2677b9b0b54d547eeee56fff2538a7f943258ff6cc89dc2c6e392d3e8a8abd7b",
+      "bytes": 1105
+    },
+    "rule_coverage": {
+      "href": "https://cube.lunados.net/validation/v1/rule-coverage.json",
+      "media_type": "application/json",
+      "sha256": "d4cabfce07248063786c9e487e4f150a4ea914b07f5f21f80469e951e2d20044",
+      "bytes": 8621
+    },
+    "diagnostic_disposition": {
+      "href": "https://cube.lunados.net/validation/v1/diagnostic-disposition.json",
+      "media_type": "application/json",
+      "sha256": "fa2774fb1d324c8b800f3324ad27d4ce7b74abe1a87c1a62a6e126dfdfe30f1e",
+      "bytes": 716
+    }
+  },
+  "display_extensions": {
+    "P1-VG-basic/1.0.0": "https://cube.lunados.net/validation/v1/visual/manifest.json"
+  },
+  "visual_grammar_role": "optional presentation instructions; never validator evidence, ontology or runtime authority"
+}

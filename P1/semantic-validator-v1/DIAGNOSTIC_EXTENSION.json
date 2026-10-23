@@ -1,0 +1,14 @@
+{
+  "format": "aiaeao.cube.p1.4.diagnostic-extension/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "disposition": "P1.4 local implementation extension; must be reviewed/frozen in P1.5, not part of P1.1's 21-code register",
+  "codes": [
+    {
+      "code": "P1_QUALIFIER_SIGNATURE",
+      "stage": "qualifier_typing",
+      "default_status": "FAIL",
+      "reference_rule": "P1.4 qualification-profiles/1 local scoped signature (not v9.4 ontology)"
+    }
+  ]
+}

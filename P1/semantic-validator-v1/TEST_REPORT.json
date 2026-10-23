@@ -1,0 +1,31 @@
+{
+  "format": "aiaeao.cube.p1.4.test-report/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "component": "P1.4 semantic validator",
+  "implementation": "python-stdlib",
+  "executed_test_counts": {
+    "parser": 26,
+    "resolver": 41,
+    "semantic": 73
+  },
+  "executed_tests_total": 140,
+  "p1_1_frozen_conformance_cases": 25,
+  "p1_1_cases_executed": 25,
+  "golden_examples": [
+    {
+      "name": "migration",
+      "descriptive_status": "PASS"
+    },
+    {
+      "name": "metaphysics",
+      "descriptive_status": "PASS"
+    }
+  ],
+  "independent_json_schema": "passed for 29 semantic reports and one qualification profile (when jsonschema installed)",
+  "p1_1_static_consistency": "passed",
+  "prior_components_parser_resolver_unchanged": true,
+  "authenticity_and_external_truth": "NOT_EVALUATED",
+  "method_effect_execution": false,
+  "p1_5_independent_oracle_and_release_gate": "OPEN"
+}

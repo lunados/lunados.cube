@@ -1,0 +1,133 @@
+{
+  "format": "aiaeao.cube.p1.diagnostic-codes/1",
+  "profile": "P1-VC/1.0.0",
+  "codes": [
+    {
+      "code": "P1_INVALID_UTF8",
+      "stage": "syntax",
+      "default_status": "FAIL",
+      "reference_rule": "P1 validation profile / UTF-8"
+    },
+    {
+      "code": "P1_INPUT_LIMIT",
+      "stage": "syntax",
+      "default_status": "FAIL",
+      "reference_rule": "P1 validation profile / resource limits"
+    },
+    {
+      "code": "P1_SYNTAX",
+      "stage": "syntax",
+      "default_status": "FAIL",
+      "reference_rule": "P0 notation/grammar.ebnf + P1 notation_p1.ebnf"
+    },
+    {
+      "code": "P1_DUPLICATE_PARAMETER",
+      "stage": "syntax",
+      "default_status": "FAIL",
+      "reference_rule": "P1 notation_p1.ebnf / unique parameter names"
+    },
+    {
+      "code": "P1_STRUCTURAL_AST",
+      "stage": "structure",
+      "default_status": "FAIL",
+      "reference_rule": "P0 notation/ast.schema.json"
+    },
+    {
+      "code": "P1_UNKNOWN_CONCEPT",
+      "stage": "concept_resolution",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology §2.9 / P1 exact key table"
+    },
+    {
+      "code": "P1_WRONG_HOME",
+      "stage": "concept_resolution",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology §§3.5, 6.1"
+    },
+    {
+      "code": "P1_NON_INSTANTIABLE",
+      "stage": "concept_resolution",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology §2.9 D.5 / C012"
+    },
+    {
+      "code": "P1_INSTANTIATION_PROFILE_REQUIRED",
+      "stage": "referent_binding",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology §2.9 D.3/D.5"
+    },
+    {
+      "code": "P1_BINDING_CONTEXT_REQUIRED",
+      "stage": "referent_binding",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology §2.9 / C011"
+    },
+    {
+      "code": "P1_REFERENT_MISMATCH",
+      "stage": "referent_binding",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology §§2.9, 6.1 / C011"
+    },
+    {
+      "code": "P1_LAYER_WITNESS_MISSING",
+      "stage": "referent_binding",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology §§3.12, 7.37 / C022"
+    },
+    {
+      "code": "P1_PREDICATE_PROFILE_MISSING",
+      "stage": "predicate_typing",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology §7.6.1 / C018"
+    },
+    {
+      "code": "P1_PREDICATE_SIGNATURE",
+      "stage": "predicate_typing",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology §7.6.1 R01-AC02"
+    },
+    {
+      "code": "P1_METHOD_PROFILE_MISSING",
+      "stage": "method_typing",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology §§3.7, 5.12, 7.12.1"
+    },
+    {
+      "code": "P1_METHOD_SIGNATURE",
+      "stage": "method_typing",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology §§5.14, 7.12.1, 7.13.2"
+    },
+    {
+      "code": "P1_QUALIFIER_PROFILE_MISSING",
+      "stage": "qualifier_typing",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology §§3.6,3.7,3.10"
+    },
+    {
+      "code": "P1_TEMPORAL_ROLE",
+      "stage": "qualifier_typing",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology §3.6 D.1/D.2"
+    },
+    {
+      "code": "P1_OBSERVER_WITNESS",
+      "stage": "qualifier_typing",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology §§3.10, 4.9 / C015"
+    },
+    {
+      "code": "P1_SCOPE_CONFLICT",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology §§3.5, 6.4.2"
+    },
+    {
+      "code": "P1_CONTEXT_UNTRUSTED",
+      "stage": "scope_consistency",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology §§5.17, 5.19"
+    }
+  ],
+  "ordering": "Sort by UTF-8 byte start, code, then stage index. When there is no stable source span, use null positions and stable traversal index after positioned diagnostics."
+}

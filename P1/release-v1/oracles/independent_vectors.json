@@ -1,0 +1,267 @@
+{
+  "format": "aiaeao.cube.p1.5.independent-vectors/1",
+  "basis": "P1.1 frozen normative rules and additional P1.4 declared qualification profile; expectations manually specified without running validator",
+  "cases": [
+    {
+      "id": "I01-golden-migration",
+      "input_format": "acg_text",
+      "expected_overall": "PASS",
+      "expected_checks": {
+        "predicate_typing": "PASS"
+      },
+      "expected_diagnostic_code": null,
+      "rationale": "Only declared fixture reference and declared predicate signature",
+      "input_file": "fixtures/migration.acg",
+      "context": "fixtures/migration.binding-context.json"
+    },
+    {
+      "id": "I02-golden-metaphysics",
+      "input_format": "acg_text",
+      "expected_overall": "PASS",
+      "expected_checks": {
+        "predicate_typing": "PASS"
+      },
+      "expected_diagnostic_code": null,
+      "rationale": "Only declared annotation relationship",
+      "input_file": "fixtures/metaphysics.acg",
+      "context": "fixtures/metaphysics.binding-context.json"
+    },
+    {
+      "id": "I03-invert-direction",
+      "input_format": "acg_text",
+      "expected_overall": "FAIL",
+      "expected_checks": {
+        "predicate_typing": "FAIL"
+      },
+      "expected_diagnostic_code": "P1_PREDICATE_SIGNATURE",
+      "rationale": "Directed predicate cannot be inverted",
+      "input_text": "rel(\"references\",Y:α:Resource[\"example:source-repository\"],Y:α:Artifact[\"example:migration-plan\"])",
+      "context": "fixtures/migration.binding-context.json"
+    },
+    {
+      "id": "I04-undeclared-causality",
+      "input_format": "acg_text",
+      "expected_overall": "UNRESOLVED",
+      "expected_checks": {
+        "predicate_typing": "UNRESOLVED"
+      },
+      "expected_diagnostic_code": "P1_PREDICATE_PROFILE_MISSING",
+      "rationale": "Known name does not imply adopted typed signature or causation",
+      "input_text": "rel(\"causedBy\",Y:α:Artifact[\"example:migration-plan\"],Y:α:Resource[\"example:source-repository\"])",
+      "context": "fixtures/migration.binding-context.json"
+    },
+    {
+      "id": "I05-temporal-unknown",
+      "input_format": "acg_text",
+      "expected_overall": "FAIL",
+      "expected_checks": {
+        "qualifier_typing": "FAIL"
+      },
+      "expected_diagnostic_code": "P1_TEMPORAL_ROLE",
+      "rationale": "Unknown built-in temporal facet",
+      "input_text": "Y:α:Artifact[\"example:migration-plan\"]@T(role=\"tomorrow\")",
+      "context": "fixtures/migration.binding-context.json"
+    },
+    {
+      "id": "I06-temporal-no-profile",
+      "input_format": "acg_text",
+      "expected_overall": "UNRESOLVED",
+      "expected_checks": {
+        "qualifier_typing": "UNRESOLVED"
+      },
+      "expected_diagnostic_code": "P1_QUALIFIER_PROFILE_MISSING",
+      "rationale": "No time proof from role spelling",
+      "input_text": "Y:α:Artifact[\"example:migration-plan\"]@T(role=\"occurrence\")",
+      "context": "fixtures/migration.binding-context.json"
+    },
+    {
+      "id": "I07-observer-no-witness",
+      "input_format": "acg_text",
+      "expected_overall": "UNRESOLVED",
+      "expected_checks": {
+        "qualifier_typing": "UNRESOLVED"
+      },
+      "expected_diagnostic_code": "P1_OBSERVER_WITNESS",
+      "rationale": "Flag does not prove delivery",
+      "input_text": "Y:α:Artifact[\"example:migration-plan\"]@O(delivered=true)",
+      "context": "fixtures/migration.binding-context.json"
+    },
+    {
+      "id": "I08-presentation-mode",
+      "input_format": "acg_text",
+      "expected_overall": "PASS",
+      "expected_checks": {
+        "qualifier_typing": "PASS"
+      },
+      "expected_diagnostic_code": null,
+      "rationale": "Local presentation label only; never admission",
+      "input_file": "fixtures/semantic/example-m.acg",
+      "context": "fixtures/semantic/migration-with-method.binding-context.json",
+      "qualification_profiles": "fixtures/semantic/migration.qualifier-profiles.json"
+    },
+    {
+      "id": "I09-bad-mode-value",
+      "input_format": "acg_text",
+      "expected_overall": "FAIL",
+      "expected_checks": {
+        "qualifier_typing": "FAIL"
+      },
+      "expected_diagnostic_code": "P1_QUALIFIER_SIGNATURE",
+      "rationale": "Local qualifier-profile enum mismatch",
+      "input_text": "Y:α:Artifact[\"example:migration-plan\"]@M(mode=\"admin\")",
+      "context": "fixtures/semantic/migration-with-method.binding-context.json",
+      "qualification_profiles": "fixtures/semantic/migration.qualifier-profiles.json"
+    },
+    {
+      "id": "I10-pure-method",
+      "input_format": "acg_text",
+      "expected_overall": "PASS",
+      "expected_checks": {
+        "method_typing": "PASS"
+      },
+      "expected_diagnostic_code": null,
+      "rationale": "Descriptive pure method in declared scope",
+      "input_file": "fixtures/semantic/example-method.acg",
+      "context": "fixtures/semantic/migration-with-method.binding-context.json"
+    },
+    {
+      "id": "I11-method-type-error",
+      "input_format": "acg_text",
+      "expected_overall": "FAIL",
+      "expected_checks": {
+        "method_typing": "FAIL"
+      },
+      "expected_diagnostic_code": "P1_METHOD_SIGNATURE",
+      "rationale": "Method expects Artifact, not Resource",
+      "input_text": "analysis.describe/v1(Y:α:Resource[\"example:source-repository\"])",
+      "context": "fixtures/semantic/migration-with-method.binding-context.json"
+    },
+    {
+      "id": "I12-method-undeclared",
+      "input_format": "acg_text",
+      "expected_overall": "UNRESOLVED",
+      "expected_checks": {
+        "method_typing": "UNRESOLVED"
+      },
+      "expected_diagnostic_code": "P1_METHOD_PROFILE_MISSING",
+      "rationale": "No global methods inferred",
+      "input_file": "fixtures/semantic/example-method.acg",
+      "context": "fixtures/migration.binding-context.json"
+    },
+    {
+      "id": "I13-time-observer-fixture",
+      "input_format": "acg_text",
+      "expected_overall": "PASS",
+      "expected_checks": {
+        "qualifier_typing": "PASS"
+      },
+      "expected_diagnostic_code": null,
+      "rationale": "Witness pointers are only unverified fixture declarations",
+      "input_file": "fixtures/semantic/example-qualified.acg",
+      "context": "fixtures/semantic/migration-with-method.binding-context.json",
+      "qualification_profiles": "fixtures/semantic/migration.qualifier-profiles.json"
+    },
+    {
+      "id": "I14-no-context",
+      "input_format": "acg_text",
+      "expected_overall": "UNRESOLVED",
+      "expected_checks": {
+        "referent_binding": "UNRESOLVED"
+      },
+      "expected_diagnostic_code": "P1_BINDING_CONTEXT_REQUIRED",
+      "rationale": "Syntax and concept registry cannot prove referent",
+      "input_file": "fixtures/migration.acg"
+    },
+    {
+      "id": "I15-wrong-home",
+      "input_format": "acg_text",
+      "expected_overall": "FAIL",
+      "expected_checks": {
+        "concept_resolution": "FAIL"
+      },
+      "expected_diagnostic_code": "P1_WRONG_HOME",
+      "rationale": "Event belongs to X scope",
+      "input_text": "Y:α:Event[\"event:e1\"]"
+    },
+    {
+      "id": "I16-noninstantiable-glyph-alias",
+      "input_format": "acg_text",
+      "expected_overall": "FAIL",
+      "expected_checks": {
+        "concept_resolution": "FAIL"
+      },
+      "expected_diagnostic_code": "P1_NON_INSTANTIABLE",
+      "rationale": "Dimension is non-instantiable",
+      "input_text": "X:α:Σ[\"q\"]"
+    },
+    {
+      "id": "I17-json-ast-no-text-claim",
+      "input_format": "json_ast",
+      "expected_overall": "PASS",
+      "expected_checks": {
+        "syntax": "NOT_EVALUATED",
+        "structure": "PASS"
+      },
+      "expected_diagnostic_code": null,
+      "rationale": "JSON AST is not proof that original ACG text passed syntax",
+      "input_file": "fixtures/migration.ast.json",
+      "context": "fixtures/migration.binding-context.json"
+    },
+    {
+      "id": "I18-untyped-predicate-params",
+      "input_format": "acg_text",
+      "expected_overall": "UNRESOLVED",
+      "expected_checks": {
+        "predicate_typing": "UNRESOLVED"
+      },
+      "expected_diagnostic_code": "P1_PREDICATE_PROFILE_MISSING",
+      "rationale": "No typed keyword contract",
+      "input_text": "rel(\"references\",Y:α:Artifact[\"example:migration-plan\"],Y:α:Resource[\"example:source-repository\"];limit=2)",
+      "context": "fixtures/migration.binding-context.json"
+    },
+    {
+      "id": "I19-incorrect-syntax",
+      "input_format": "acg_text",
+      "expected_overall": "FAIL",
+      "expected_checks": {
+        "syntax": "FAIL"
+      },
+      "expected_diagnostic_code": "P1_SYNTAX",
+      "rationale": "Missing delimiter",
+      "input_text": "rel(\"related\",Y:α:Annotation[\"a\"],Y:α:Annotation[\"b\"]"
+    },
+    {
+      "id": "I20-duplicate-params",
+      "input_format": "acg_text",
+      "expected_overall": "FAIL",
+      "expected_checks": {
+        "syntax": "FAIL"
+      },
+      "expected_diagnostic_code": "P1_DUPLICATE_PARAMETER",
+      "rationale": "No silent overwrite",
+      "input_text": "Y:α:Artifact[\"a\"]@T(role=\"recording\",role=\"occurrence\")"
+    },
+    {
+      "id": "I21-untrusted-claim",
+      "input_format": "acg_text",
+      "expected_overall": "UNRESOLVED",
+      "expected_checks": {
+        "qualifier_typing": "UNRESOLVED"
+      },
+      "expected_diagnostic_code": "P1_OBSERVER_WITNESS",
+      "rationale": "Permission needs external source, not true flag",
+      "input_text": "Y:α:Annotation[\"x\"]@O(permitted=true)"
+    },
+    {
+      "id": "I22-layer-witness",
+      "input_format": "acg_text",
+      "expected_overall": "UNRESOLVED",
+      "expected_checks": {
+        "referent_binding": "UNRESOLVED"
+      },
+      "expected_diagnostic_code": "P1_LAYER_WITNESS_MISSING",
+      "rationale": "Zeta text cannot prove historical instance",
+      "input_text": "Y:ζ:Artifact[\"x\"]"
+    }
+  ]
+}

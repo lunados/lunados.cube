@@ -1,0 +1,15 @@
+{
+  "package": "P1-VG-basic/1.0.0",
+  "status": "local_pass_live_not_checked",
+  "v9_4_primary_glyphs": 129,
+  "historical_aliases": 4,
+  "historical_form_classes": 11,
+  "fallback_form_choices": 1,
+  "palette_tokens": 17,
+  "negative_plan_controls": 10,
+  "vg_gate": "PASS",
+  "p1_5_regression_gate": "PASS",
+  "changes_under_v9.4": 0,
+  "svg_assets": 0,
+  "publication": "not_pushed_to_github"
+}

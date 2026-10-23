@@ -1,0 +1,73 @@
+{
+  "format": "aiaeao.cube.resolution-result/1",
+  "reference_version": "v9.4",
+  "profile": "P1-VC/1.0.0",
+  "component": "P1.3",
+  "input_format": "acg_text",
+  "input_sha256": "c04c41c732c152b25d70629d36faa830f07dcea000762006d0e95567073df4cf",
+  "context_id": null,
+  "resolution_status": "FAIL",
+  "checks": {
+    "syntax": {
+      "status": "PASS",
+      "reason": "Source grammar parsed."
+    },
+    "structure": {
+      "status": "PASS",
+      "reason": "AST passed P1.2 structural checks."
+    },
+    "concept_resolution": {
+      "status": "FAIL",
+      "reason": "One or more references failed this stage."
+    },
+    "referent_binding": {
+      "status": "NOT_EVALUATED",
+      "reason": "No applicable references or blocked by earlier checks."
+    },
+    "predicate_typing": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    },
+    "method_typing": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    },
+    "qualifier_typing": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    },
+    "scope_consistency": {
+      "status": "NOT_EVALUATED",
+      "reason": "Not implemented in P1.3; reserved for P1.4/P1.5."
+    }
+  },
+  "bindings": [
+    {
+      "ast_path": "/",
+      "home": "Y",
+      "layer": "α",
+      "concept_key": "Event",
+      "referent_ref": "event:e1",
+      "concept_resolution": "FAIL",
+      "referent_binding": "NOT_EVALUATED"
+    }
+  ],
+  "diagnostics": [
+    {
+      "code": "P1_WRONG_HOME",
+      "stage": "concept_resolution",
+      "severity": "error",
+      "message": "Known concept key 'Event' belongs to home(s) X, not Y.",
+      "reference_rule": "Morphology §§3.5, 6.1",
+      "ast_path": "//address"
+    }
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "current_authority": "NOT_EVALUATED",
+  "canonical_admission": "NOT_EVALUATED",
+  "semantic_typing": "NOT_EVALUATED",
+  "limitations": [
+    "P1.3-only status: predicate/method/qualifier/scope typing deferred.",
+    "Context declarations are untrusted, including ζ witness pointers."
+  ]
+}

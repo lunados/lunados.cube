@@ -1,0 +1,976 @@
+{
+  "reference_version": "v9.4",
+  "scope": "Primary definition homes X/Y/Z and established reference concepts in Morphology §6",
+  "identifier_policy": "id is the Cube v9.4 reference-index key; NOT a production database id, universal Semantic ID or instantiable locator",
+  "concepts": [
+    {
+      "id": "X:dimension:epistemology",
+      "home": "X",
+      "kind": "dimension",
+      "label": "Epistemology",
+      "definition": "What can be perceived; what can be justified?",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2"
+      },
+      "visual_semantic_id": "core-lenses.epistemology",
+      "qualification": "Analytical viewpoint; not an instantiable referent type"
+    },
+    {
+      "id": "X:scope:observation",
+      "home": "X",
+      "kind": "scope",
+      "label": "Observation",
+      "definition": "Frame for perceiving and evaluating available information",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.1"
+      }
+    },
+    {
+      "id": "X:endpoint:perception",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Perception",
+      "definition": "Taking in qualified information",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.1"
+      },
+      "visual_semantic_id": "contract-pairs.perception"
+    },
+    {
+      "id": "X:endpoint:conclusion",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Conclusion",
+      "definition": "Evidence-bounded assessment, verification, refutation or unresolved judgment",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.1"
+      },
+      "visual_semantic_id": "contract-pairs.conclusion"
+    },
+    {
+      "id": "X:dimension:governance",
+      "home": "X",
+      "kind": "dimension",
+      "label": "Governance",
+      "definition": "Who may act, under what constraints; was this request admitted?",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2"
+      },
+      "visual_semantic_id": "core-lenses.governance",
+      "qualification": "Analytical viewpoint; not an instantiable referent type"
+    },
+    {
+      "id": "X:scope:policy",
+      "home": "X",
+      "kind": "scope",
+      "label": "Policy",
+      "definition": "Frame of governing constraints/defaults/exceptions",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.2"
+      }
+    },
+    {
+      "id": "X:endpoint:authority",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Authority",
+      "definition": "Permission held under a source, scope and context",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.2"
+      },
+      "visual_semantic_id": "contract-pairs.authority"
+    },
+    {
+      "id": "X:endpoint:admission",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Admission",
+      "definition": "Specific decision to admit or refuse a requested action",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.2"
+      },
+      "visual_semantic_id": "contract-pairs.admission"
+    },
+    {
+      "id": "X:dimension:semantics",
+      "home": "X",
+      "kind": "dimension",
+      "label": "Semantics",
+      "definition": "What is intended and to what extent was it met?",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2"
+      },
+      "visual_semantic_id": "core-lenses.semantics",
+      "qualification": "Analytical viewpoint; not an instantiable referent type"
+    },
+    {
+      "id": "X:scope:conversation",
+      "home": "X",
+      "kind": "scope",
+      "label": "Conversation",
+      "definition": "Durable information exchange organized around one active Expectation",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.3"
+      }
+    },
+    {
+      "id": "X:endpoint:expectation",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Expectation",
+      "definition": "One active intended objective within a Conversation",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.3"
+      },
+      "visual_semantic_id": "contract-pairs.expectation"
+    },
+    {
+      "id": "X:endpoint:satisfaction",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Satisfaction",
+      "definition": "Assessment of an Expectation against stated criteria",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.3"
+      },
+      "visual_semantic_id": "contract-pairs.satisfaction"
+    },
+    {
+      "id": "X:dimension:execution",
+      "home": "X",
+      "kind": "dimension",
+      "label": "Execution",
+      "definition": "Which responsibility was assigned and fulfilled?",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2"
+      },
+      "visual_semantic_id": "core-lenses.execution",
+      "qualification": "Analytical viewpoint; not an instantiable referent type"
+    },
+    {
+      "id": "X:scope:contract",
+      "home": "X",
+      "kind": "scope",
+      "label": "Contract",
+      "definition": "Responsibility assignment together with its fulfillment status",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.4"
+      }
+    },
+    {
+      "id": "X:endpoint:delegation",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Delegation",
+      "definition": "Scoped assignment of responsibility to an Actor",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.4"
+      },
+      "visual_semantic_id": "contract-pairs.delegation"
+    },
+    {
+      "id": "X:endpoint:completion",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Completion",
+      "definition": "Assessment of fulfillment of delegated responsibility",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.4"
+      },
+      "visual_semantic_id": "contract-pairs.completion"
+    },
+    {
+      "id": "X:dimension:provenance",
+      "home": "X",
+      "kind": "dimension",
+      "label": "Provenance",
+      "definition": "Who or what attempted an effect; what was recorded?",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2"
+      },
+      "visual_semantic_id": "core-lenses.provenance",
+      "qualification": "Analytical viewpoint; not an instantiable referent type"
+    },
+    {
+      "id": "X:scope:event",
+      "home": "X",
+      "kind": "scope",
+      "label": "Event",
+      "definition": "Smallest append-only admitted canonical occurrence/change record",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.5"
+      }
+    },
+    {
+      "id": "X:endpoint:action",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Action",
+      "definition": "Attempted effect of an action",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.5"
+      },
+      "visual_semantic_id": "contract-pairs.action"
+    },
+    {
+      "id": "X:endpoint:result",
+      "home": "X",
+      "kind": "endpoint",
+      "label": "Result",
+      "definition": "Recorded production/response of the Action, possibly many Results",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.5"
+      },
+      "visual_semantic_id": "contract-pairs.result"
+    },
+    {
+      "id": "X:logic-relation:invariant",
+      "home": "X",
+      "kind": "logic-relation",
+      "label": "Invariant",
+      "definition": "Condition intended to remain true",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.6"
+      },
+      "visual_semantic_id": "logic-relations.invariant"
+    },
+    {
+      "id": "X:logic-relation:constraint",
+      "home": "X",
+      "kind": "logic-relation",
+      "label": "Constraint",
+      "definition": "Restriction on admissible states/combinations",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.6"
+      },
+      "visual_semantic_id": "logic-relations.constraint"
+    },
+    {
+      "id": "X:logic-relation:compatibility",
+      "home": "X",
+      "kind": "logic-relation",
+      "label": "Compatibility",
+      "definition": "Whether meanings and requirements can coexist",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.6"
+      },
+      "visual_semantic_id": "logic-relations.compatibility"
+    },
+    {
+      "id": "X:logic-relation:authorization",
+      "home": "X",
+      "kind": "logic-relation",
+      "label": "Authorization",
+      "definition": "Whether action is permitted under applicable constraints",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.6"
+      },
+      "visual_semantic_id": "logic-relations.authorization"
+    },
+    {
+      "id": "X:logic-relation:verification",
+      "home": "X",
+      "kind": "logic-relation",
+      "label": "Verification",
+      "definition": "Support for a proposition under explicit checks",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.6"
+      },
+      "visual_semantic_id": "logic-relations.verification"
+    },
+    {
+      "id": "X:logic-relation:refutation",
+      "home": "X",
+      "kind": "logic-relation",
+      "label": "Refutation",
+      "definition": "Failure of a proposition under stated checks",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.6"
+      },
+      "visual_semantic_id": "logic-relations.refutation"
+    },
+    {
+      "id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "kind": "identity-anchor",
+      "label": "Actor",
+      "definition": "Stable identifiable participant, distinct from role/principal/session/provider",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.1"
+      },
+      "visual_semantic_id": "identity-anchors.actor"
+    },
+    {
+      "id": "Y:identity-anchor:role-binding",
+      "home": "Y",
+      "kind": "identity-anchor",
+      "label": "Role Binding",
+      "definition": "Contextual, time- and scope-qualified responsibility of an Actor, not Authority",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.1"
+      },
+      "visual_semantic_id": "identity-anchors.role-binding"
+    },
+    {
+      "id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "kind": "identity-anchor",
+      "label": "Principal",
+      "definition": "Authenticated technical identity at a security/resource boundary",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.1"
+      },
+      "visual_semantic_id": "identity-anchors.principal"
+    },
+    {
+      "id": "Y:identity-anchor:session-binding",
+      "home": "Y",
+      "kind": "identity-anchor",
+      "label": "Session Binding",
+      "definition": "Binding of stable Actor to transient runtime/provider/process/interaction context",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.1"
+      },
+      "visual_semantic_id": "identity-anchors.session-binding"
+    },
+    {
+      "id": "Y:identity-anchor:capability-profile",
+      "home": "Y",
+      "kind": "identity-anchor",
+      "label": "Capability Profile",
+      "definition": "Extensible description of abilities, not a grant of authority",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.1"
+      },
+      "visual_semantic_id": "identity-anchors.capability-profile"
+    },
+    {
+      "id": "Y:identity-anchor:adaptation-profile",
+      "home": "Y",
+      "kind": "identity-anchor",
+      "label": "Adaptation Profile",
+      "definition": "Description of retained or changing Actor/runtime state; not proof of learning",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.1"
+      },
+      "visual_semantic_id": "identity-anchors.adaptation-profile"
+    },
+    {
+      "id": "Y:resource-object:source",
+      "home": "Y",
+      "kind": "resource-object",
+      "label": "Source",
+      "definition": "Distinguishable origin of material or a claim; attribution is not credibility",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "visual_semantic_id": "resource-objects.source"
+    },
+    {
+      "id": "Y:resource-object:resource",
+      "home": "Y",
+      "kind": "resource-object",
+      "label": "Resource",
+      "definition": "Addressable item under ownership, permission and use constraints",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "visual_semantic_id": "resource-objects.resource"
+    },
+    {
+      "id": "Y:resource-object:content",
+      "home": "Y",
+      "kind": "resource-object",
+      "label": "Content",
+      "definition": "Material carried by a Resource/record, distinct from its identity",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "visual_semantic_id": "resource-objects.content"
+    },
+    {
+      "id": "Y:resource-object:revision",
+      "home": "Y",
+      "kind": "resource-object",
+      "label": "Revision",
+      "definition": "Version or changed state of referenced Content/Resource",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "visual_semantic_id": "resource-objects.revision"
+    },
+    {
+      "id": "Y:resource-object:artifact",
+      "home": "Y",
+      "kind": "resource-object",
+      "label": "Artifact",
+      "definition": "Durable output/reference; not automatically Evidence or truth",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "visual_semantic_id": "resource-objects.artifact"
+    },
+    {
+      "id": "Y:resource-object:evidence",
+      "home": "Y",
+      "kind": "resource-object",
+      "label": "Evidence",
+      "definition": "Supporting raw material or reference, not automatically verified",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "visual_semantic_id": "resource-objects.evidence"
+    },
+    {
+      "id": "Y:resource-object:cache",
+      "home": "Y",
+      "kind": "resource-object",
+      "label": "Cache",
+      "definition": "Retained derived representation; not a canonical authority source",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "visual_semantic_id": "resource-objects.cache"
+    },
+    {
+      "id": "Y:identified-object:work-item",
+      "home": "Y",
+      "kind": "identified-object",
+      "label": "Work Item",
+      "definition": "Durable identified unit of intended work",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "qualification": "No independently required storage root follows from this reference concept"
+    },
+    {
+      "id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "kind": "identified-object",
+      "label": "Bounded Execution",
+      "definition": "Identifiable unit of actually performed work, distinct from X Execution dimension",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "qualification": "No independently required storage root follows from this reference concept"
+    },
+    {
+      "id": "Y:identified-object:outcome",
+      "home": "Y",
+      "kind": "identified-object",
+      "label": "Outcome",
+      "definition": "Terminal state and evidence summary of one bounded Execution, distinct from Completion",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "visual_semantic_id": "execution-objects.outcome",
+      "qualification": "No independently required storage root follows from this reference concept"
+    },
+    {
+      "id": "Y:identified-object:annotation",
+      "home": "Y",
+      "kind": "identified-object",
+      "label": "Annotation",
+      "definition": "Interpretation, classification, validation, hypothesis or claim about referenced subject",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      },
+      "qualification": "No independently required storage root follows from this reference concept"
+    },
+    {
+      "id": "Y:relation-arrow:selection",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Selection",
+      "definition": "Chosen object/reference",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.selection"
+    },
+    {
+      "id": "Y:relation-arrow:reference",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Reference",
+      "definition": "Points to another referent",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.reference"
+    },
+    {
+      "id": "Y:relation-arrow:uses-specification",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Uses specification",
+      "definition": "Uses a description or contract",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.uses-specification"
+    },
+    {
+      "id": "Y:relation-arrow:admits",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Admits",
+      "definition": "Admitted linkage; does not prove runtime effect",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.admits"
+    },
+    {
+      "id": "Y:relation-arrow:refuses",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Refuses",
+      "definition": "Rejected linkage; does not imply performed effect",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.refuses"
+    },
+    {
+      "id": "Y:relation-arrow:performed-by",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Performed-by",
+      "definition": "Action attributed to Actor",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.performed-by"
+    },
+    {
+      "id": "Y:relation-arrow:executed-as",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Executed-as",
+      "definition": "Action attributed to authenticated Principal",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.executed-as"
+    },
+    {
+      "id": "Y:relation-arrow:production",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Production",
+      "definition": "Produces output",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.production"
+    },
+    {
+      "id": "Y:relation-arrow:observation",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Observation",
+      "definition": "Takes in/observes a referenced subject; not Ψ Observation scope",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.observation"
+    },
+    {
+      "id": "Y:relation-arrow:causation",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Causation",
+      "definition": "Claim of triggered/caused occurrence; not mere chronology",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.causation"
+    },
+    {
+      "id": "Y:relation-arrow:derivation",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Derivation",
+      "definition": "Derives representation/claim from other material",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.derivation"
+    },
+    {
+      "id": "Y:relation-arrow:projection",
+      "home": "Y",
+      "kind": "relation-arrow",
+      "label": "Projection",
+      "definition": "Appearance in derived view/zone",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.3"
+      },
+      "visual_semantic_id": "relation-arrows.projection"
+    },
+    {
+      "id": "Z:module-body:core",
+      "home": "Z",
+      "kind": "module-body",
+      "label": "Core",
+      "definition": "Canonical model stewardship and admitted ingestion",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.1"
+      },
+      "visual_semantic_id": "module-bodies.core"
+    },
+    {
+      "id": "Z:module-body:connector",
+      "home": "Z",
+      "kind": "module-body",
+      "label": "Connector",
+      "definition": "Run control, technical observation and mediated interactions, not direct canon writer",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.1"
+      },
+      "visual_semantic_id": "module-bodies.connector"
+    },
+    {
+      "id": "Z:module-body:toolbox",
+      "home": "Z",
+      "kind": "module-body",
+      "label": "Toolbox",
+      "definition": "Capability parameters and normalized results/evidence, not direct canon writer",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.1"
+      },
+      "visual_semantic_id": "module-bodies.toolbox"
+    },
+    {
+      "id": "Z:module-body:tool",
+      "home": "Z",
+      "kind": "module-body",
+      "label": "Tool",
+      "definition": "Invocable operational capability reached through applicable boundary",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.1"
+      },
+      "visual_semantic_id": "module-bodies.tool"
+    },
+    {
+      "id": "Z:module-body:adapter",
+      "home": "Z",
+      "kind": "module-body",
+      "label": "Adapter",
+      "definition": "Maps external vocabulary into existing AIAEAO semantics without redefining it",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.1"
+      },
+      "visual_semantic_id": "module-bodies.adapter"
+    },
+    {
+      "id": "Z:module-body:integration",
+      "home": "Z",
+      "kind": "module-body",
+      "label": "Integration",
+      "definition": "Coordinated connection to a software/service boundary",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.1"
+      },
+      "visual_semantic_id": "module-bodies.integration"
+    },
+    {
+      "id": "Z:module-body:runtime",
+      "home": "Z",
+      "kind": "module-body",
+      "label": "Runtime",
+      "definition": "Operational environment actually serving/executing an Actor/tool",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.1"
+      },
+      "visual_semantic_id": "module-bodies.runtime"
+    },
+    {
+      "id": "Z:module-body:provider",
+      "home": "Z",
+      "kind": "module-body",
+      "label": "Provider",
+      "definition": "Service/model/infrastructure source implementing runtime/capability",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.1"
+      },
+      "visual_semantic_id": "module-bodies.provider"
+    },
+    {
+      "id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "kind": "module-body",
+      "label": "Third-party Dependency",
+      "definition": "Externally owned component with non-assumed reliability, limits and Authority",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.1"
+      },
+      "visual_semantic_id": "module-bodies.third-party-dependency"
+    },
+    {
+      "id": "Z:boundary:boundary",
+      "home": "Z",
+      "kind": "boundary",
+      "label": "Boundary",
+      "definition": "Extent across which identity, permission, effects, provenance or representation require rules",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.2"
+      },
+      "visual_semantic_id": "governance-boundary.boundary"
+    },
+    {
+      "id": "Z:boundary:project-boundary",
+      "home": "Z",
+      "kind": "boundary",
+      "label": "Project Boundary",
+      "definition": "Administrative ownership, default-permission and namespace boundary",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.2"
+      },
+      "visual_semantic_id": "governance-boundary.project-boundary"
+    },
+    {
+      "id": "Z:boundary:thread-boundary",
+      "home": "Z",
+      "kind": "boundary",
+      "label": "Thread Boundary",
+      "definition": "Durable semantic/provenance boundary for a coherent objective space",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.2"
+      },
+      "visual_semantic_id": "governance-boundary.thread-boundary"
+    },
+    {
+      "id": "Z:boundary:grant",
+      "home": "Z",
+      "kind": "boundary",
+      "label": "Grant",
+      "definition": "Bounded conferment of permissions from a valid authority source",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.2"
+      },
+      "visual_semantic_id": "governance-boundary.grant"
+    },
+    {
+      "id": "Z:boundary:refusal",
+      "home": "Z",
+      "kind": "boundary",
+      "label": "Refusal",
+      "definition": "Negative decision branch for a concrete request; not a runtime Outcome",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.2"
+      },
+      "visual_semantic_id": "governance-boundary.refusal"
+    },
+    {
+      "id": "Z:boundary:capability",
+      "home": "Z",
+      "kind": "boundary",
+      "label": "Capability",
+      "definition": "Technically available ability, not Authority",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.2"
+      },
+      "visual_semantic_id": "governance-boundary.capability"
+    },
+    {
+      "id": "Z:boundary:capability-boundary",
+      "home": "Z",
+      "kind": "boundary",
+      "label": "Capability Boundary",
+      "definition": "Restriction on reachable technical abilities in a context",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.2"
+      },
+      "visual_semantic_id": "governance-boundary.capability-boundary"
+    },
+    {
+      "id": "Z:boundary:execution-boundary",
+      "home": "Z",
+      "kind": "boundary",
+      "label": "Execution Boundary",
+      "definition": "Constraint on side effects and resource reach of a permitted action",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.2"
+      },
+      "visual_semantic_id": "governance-boundary.execution-boundary"
+    },
+    {
+      "id": "Z:boundary:visibility",
+      "home": "Z",
+      "kind": "boundary",
+      "label": "Visibility",
+      "definition": "Whether authorized information is surfaced in a view/context",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.2"
+      },
+      "visual_semantic_id": "governance-boundary.visibility"
+    },
+    {
+      "id": "Z:zone:ownership",
+      "home": "Z",
+      "kind": "zone",
+      "label": "Ownership",
+      "definition": "Resource control/possession scope",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.3"
+      },
+      "visual_semantic_id": "resource-zones.ownership"
+    },
+    {
+      "id": "Z:zone:resource-zone",
+      "home": "Z",
+      "kind": "zone",
+      "label": "Resource Zone",
+      "definition": "Operational/presentation zone of resource",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.3"
+      },
+      "visual_semantic_id": "resource-zones.resource-zone"
+    },
+    {
+      "id": "Z:zone:back-office",
+      "home": "Z",
+      "kind": "zone",
+      "label": "Back Office",
+      "definition": "Internally oriented operational/technical activity and evidence",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.3"
+      },
+      "visual_semantic_id": "resource-zones.back-office"
+    },
+    {
+      "id": "Z:zone:front-office",
+      "home": "Z",
+      "kind": "zone",
+      "label": "Front Office",
+      "definition": "Mediated information/interaction preparation",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.3"
+      },
+      "visual_semantic_id": "resource-zones.front-office"
+    },
+    {
+      "id": "Z:zone:front-stage",
+      "home": "Z",
+      "kind": "zone",
+      "label": "Front Stage",
+      "definition": "User/observer-facing appearance of information and controls",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.3"
+      },
+      "visual_semantic_id": "resource-zones.front-stage"
+    },
+    {
+      "id": "Z:zone:zone-boundary",
+      "home": "Z",
+      "kind": "zone",
+      "label": "Zone Boundary",
+      "definition": "Distinction between zones subject to access/transfer rules",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.3"
+      },
+      "visual_semantic_id": "resource-zones.zone-boundary"
+    },
+    {
+      "id": "Z:zone:same-resource-across-zones",
+      "home": "Z",
+      "kind": "zone",
+      "label": "Same Resource Across Zones",
+      "definition": "One canonical identity presented in multiple zones, not duplicated truth",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.4.3"
+      },
+      "visual_semantic_id": "resource-zones.same-resource-across-zones"
+    }
+  ],
+  "one_primary_home_per_concept": true,
+  "reference_binding_requires": "Declared compatible referent resolver and binding context; concept index alone does not instantiate any referent",
+  "separate_qualifiers": [
+    "T",
+    "F",
+    "M",
+    "O"
+  ]
+}

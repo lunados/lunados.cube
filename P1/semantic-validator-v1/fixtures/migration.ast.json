@@ -1,0 +1,23 @@
+{
+  "kind": "relation",
+  "predicate_id": "references",
+  "subject": {
+    "kind": "reference",
+    "address": {
+      "home": "Y",
+      "layer": "α",
+      "concept_key": "Artifact"
+    },
+    "referent_ref": "example:migration-plan"
+  },
+  "object": {
+    "kind": "reference",
+    "address": {
+      "home": "Y",
+      "layer": "α",
+      "concept_key": "Resource"
+    },
+    "referent_ref": "example:source-repository"
+  },
+  "parameters": {}
+}

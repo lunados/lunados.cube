@@ -1,0 +1,209 @@
+{
+  "format": "aiaeao.cube.p1.conformance-cases/1",
+  "profile": "P1-VC/1.0.0",
+  "implementation_status": "design_inputs_not_executed_validator_tests",
+  "cases": [
+    {
+      "id": "F01",
+      "input": "v9.4/examples/migration.acg",
+      "context": "fixtures/migration.binding-context.json",
+      "expected_overall": "PASS",
+      "expect_check": "predicate_typing",
+      "expect_code": null,
+      "qualification": "Fixture-scoped descriptive PASS; no historical truth."
+    },
+    {
+      "id": "F02",
+      "input": "v9.4/examples/metaphysics.acg",
+      "context": "fixtures/metaphysics.binding-context.json",
+      "expected_overall": "PASS",
+      "expect_check": "predicate_typing",
+      "expect_code": null,
+      "qualification": "Fixture-scoped descriptive PASS; no theorem or independent verification."
+    },
+    {
+      "id": "F03",
+      "input_text": "X:α:Σ[\"q\"]",
+      "context": null,
+      "expected_overall": "FAIL",
+      "expect_code": "P1_NON_INSTANTIABLE",
+      "qualification": "Recognized Greek semantic dimension alias, non-instantiable."
+    },
+    {
+      "id": "F04",
+      "input_text": "Y:α:Event[\"event:e1\"]",
+      "context": null,
+      "expected_overall": "FAIL",
+      "expect_code": "P1_WRONG_HOME",
+      "qualification": "Event is an X scope, not a Y concept."
+    },
+    {
+      "id": "F05",
+      "input_text": "X:α:Event[\"event:e1\"]",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_BINDING_CONTEXT_REQUIRED",
+      "qualification": "Correct concept/home; no concrete identified Event reference binding."
+    },
+    {
+      "id": "F06",
+      "input_text": "Y:α:Wizard[\"x\"]",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_UNKNOWN_CONCEPT",
+      "qualification": "No invented concept inferred."
+    },
+    {
+      "id": "F07",
+      "input_text": "Y:α:Actor[\"x\"]@T(role=\"occurrence\",value=\"2026-01-01T00:00:00Z\")",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_BINDING_CONTEXT_REQUIRED",
+      "qualification": "Valid shape; temporal origin and identified Actor unresolved."
+    },
+    {
+      "id": "F08",
+      "input_text": "Y:α:Actor[\"x\"]@M(mode=\"Strict\")",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_QUALIFIER_PROFILE_MISSING",
+      "qualification": "Interpretive Strict is not an admitted runtime Mode value."
+    },
+    {
+      "id": "F09",
+      "input_text": "rel(\"causedBy\", Y:α:Artifact[\"a\"], Y:α:Resource[\"b\"])",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_PREDICATE_PROFILE_MISSING",
+      "qualification": "Known relation name, no typed universal signature."
+    },
+    {
+      "id": "F10",
+      "input_text": "rel(\"references\", Y:α:Annotation[\"example:thesis-A\"], Y:α:Annotation[\"example:objection-B\"])",
+      "context": "fixtures/metaphysics.binding-context.json",
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_PREDICATE_PROFILE_MISSING",
+      "qualification": "No references signature in metaphysics profile; cannot appropriate the migration fixture signature."
+    },
+    {
+      "id": "F11",
+      "input_text": "rel(\"references\", Y:α:Artifact[\"example:migration-plan\"], Y:α:Artifact[\"example:source-repository\"])",
+      "context": "fixtures/migration.binding-context.json",
+      "expected_overall": "FAIL",
+      "expect_code": "P1_REFERENT_MISMATCH",
+      "qualification": "Target resolved in fixture as Resource, not Artifact."
+    },
+    {
+      "id": "F12",
+      "input_text": "Y:α:Artifact[\"x\"]@T(role=\"unknown-time\")",
+      "context": null,
+      "expected_overall": "FAIL",
+      "expect_code": "P1_TEMPORAL_ROLE",
+      "qualification": "Not among eight reference facets; no external profile."
+    },
+    {
+      "id": "F13",
+      "input_text": "Y:α:Artifact[\"x\"]@O(delivered=true)",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_OBSERVER_WITNESS",
+      "qualification": "Declared delivery flag is not proof of delivered context."
+    },
+    {
+      "id": "F14",
+      "input_text": "Y:α:Actor[\"x\"]@F(method=\"f\")",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_QUALIFIER_PROFILE_MISSING",
+      "qualification": "Missing revisioned method profile."
+    },
+    {
+      "id": "F15",
+      "input_text": "Y:α:Artifact[\"x\"]@T(role=\"scheduling\",order=\"partial\")",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_QUALIFIER_PROFILE_MISSING",
+      "qualification": "D.2: partial order must not be inferred to cause scheduling/cause; declared role needs context."
+    },
+    {
+      "id": "F16",
+      "input_text": "Y:α:Artifact[\"x\"]@M(mode=\"Loose\")",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_QUALIFIER_PROFILE_MISSING",
+      "qualification": "VG interpretive label is not an adopted runtime mode."
+    },
+    {
+      "id": "F17",
+      "input_text": "Y:ζ:Artifact[\"x\"]",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_LAYER_WITNESS_MISSING",
+      "qualification": "ζ is not admission proof."
+    },
+    {
+      "id": "F18",
+      "input_text": "rel(\"related\", Y:α:Annotation[\"x\"], Y:α:Annotation[\"y\"]",
+      "context": null,
+      "expected_overall": "FAIL",
+      "expect_code": "P1_SYNTAX",
+      "qualification": "Missing closing parenthesis."
+    },
+    {
+      "id": "F19",
+      "input_text": "Y:α:Artifact[\"x\"]@T(role=\"occurrence\",role=\"recording\")",
+      "context": null,
+      "expected_overall": "FAIL",
+      "expect_code": "P1_DUPLICATE_PARAMETER",
+      "qualification": "No silent overwrite of duplicate keyword."
+    },
+    {
+      "id": "F20",
+      "input_text": "rel(\"related\", Y:α:Annotation[\"x\"], Y:α:Annotation[\"y\"])",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_PREDICATE_PROFILE_MISSING",
+      "qualification": "No spontaneous assumption of universal relation signature."
+    },
+    {
+      "id": "F21",
+      "input_text": "Y:α:Annotation[\"a\"]@O(permitted=true)",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_OBSERVER_WITNESS",
+      "qualification": "Permission claim without authoritative source remains unresolved."
+    },
+    {
+      "id": "F22",
+      "input_text": "Y:α:Artifact[\"a\"]@T(role=\"occurrence\",time=\"t1\")",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_QUALIFIER_PROFILE_MISSING",
+      "qualification": "Clock comparability and origin unknown."
+    },
+    {
+      "id": "F23",
+      "input_text": "rel(\"related\", Y:α:Annotation[\"x\"], Y:α:Annotation[\"y\"])@M(mode=\"Strict\")",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_QUALIFIER_PROFILE_MISSING",
+      "qualification": "Mode cannot imply verification."
+    },
+    {
+      "id": "F24",
+      "input_text": "Y:α:Artifact[\"x\"]@T(role=\"occurrence\")@O(actor_ref=\"human:a\")",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_OBSERVER_WITNESS",
+      "qualification": "Qualifier order preserved, no inferred O/T witnesses."
+    },
+    {
+      "id": "F25",
+      "input_text": "audio.duck/v1(Y:α:Artifact[\"x\"])",
+      "context": null,
+      "expected_overall": "UNRESOLVED",
+      "expect_code": "P1_METHOD_PROFILE_MISSING",
+      "qualification": "Valid function syntax, no versioned accepted method profile."
+    }
+  ]
+}

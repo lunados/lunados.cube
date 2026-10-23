@@ -1,0 +1,63 @@
+{
+  "format": "aiaeao.cube.p1.source-lock/1",
+  "created": "2026-10-23",
+  "reference_version": "v9.4",
+  "sources": [
+    {
+      "name": "Morphology v9.4 source",
+      "sha256": "749bb26b36bb4672a53cf8bc15d58b2cd75ebc07ee90ee6cb38cb6c86bd4bfd9"
+    },
+    {
+      "name": "P0/v9.4/morphology.md",
+      "sha256": "749bb26b36bb4672a53cf8bc15d58b2cd75ebc07ee90ee6cb38cb6c86bd4bfd9"
+    },
+    {
+      "name": "P0/v9.4/grammar/concepts.json",
+      "sha256": "a15b0db3a3cfdb5874b8ab59de0ec9f4af08e8280e0634c48e3b37c3498000b8"
+    },
+    {
+      "name": "P0/v9.4/grammar/relations.json",
+      "sha256": "a1c0c98b8c91fa5d7e59c790d7e3fdf894708694a67b4d693cf55533effd0488"
+    },
+    {
+      "name": "P0/v9.4/grammar/constraints.json",
+      "sha256": "eebc060a0f8c633226dd4739a86819808ca501062193d4e60c4e703125537d8a"
+    },
+    {
+      "name": "P0/v9.4/notation/grammar.ebnf",
+      "sha256": "98b6c725b6e5cf3c8b84db34965a37937dd43e69a433e2eb198972fa7affaa20"
+    },
+    {
+      "name": "P0/v9.4/notation/syntax.json",
+      "sha256": "0f7c5822cc221f893c7dc3b191f31fe73342e66013935467c6906d64a52ad0e2"
+    },
+    {
+      "name": "P0/v9.4/notation/ast.schema.json",
+      "sha256": "833c68abd73b847f4f386d18841f763837a2303a23e4b8991fc8ffbec29cfa85"
+    },
+    {
+      "name": "P0/v9.4/core.json",
+      "sha256": "c8cefa62122e9256c553c2ba56a9d33359fc3e2e3065815484fc46d02d462e30"
+    },
+    {
+      "name": "P0/v9.4/time.json",
+      "sha256": "f6c7244e041ad4fdbb5c862c18b129c2d6e96e9841a222bd33eeece2db915ffc"
+    },
+    {
+      "name": "P0/v9.4/observer.json",
+      "sha256": "6a496dfea1bacceecc5b901fcfc1ae736ca5b0971b62fb6c2b683a9da6b863c8"
+    },
+    {
+      "name": "P0/v9.4/visual/symbols.json",
+      "sha256": "7d35d3e855e94f7b77c8c52fa6bddc6265cae57576b1beb5b8869a4170c54656"
+    },
+    {
+      "name": "P0/v9.4/examples/migration.acg",
+      "sha256": "0b415084f7cc7bb58c82805c74700080c35bccdf7e7ed6274e3150116f8b363e"
+    },
+    {
+      "name": "P0/v9.4/examples/metaphysics.acg",
+      "sha256": "574c13788c3852e91f443c9ab27a0a36454196fc7a5681ec42704e2305b09cf7"
+    }
+  ]
+}
