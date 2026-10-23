@@ -1,0 +1,98 @@
+{
+  "example_id": "migration",
+  "reference_version": "v9.4",
+  "kind": "hypothetical_foreign_mapping",
+  "task": "Move a document repository with dependent synchronization jobs; describe observed state and proposed target architecture.",
+  "evidence_level": "scenario_only",
+  "has_real_world_sources": false,
+  "source_reality": {
+    "known": [
+      "Hypothetical document repository and sync jobs"
+    ],
+    "unknown": [
+      "Repository identities",
+      "job dependencies and scheduling",
+      "credentials and grants",
+      "clock mapping",
+      "actual migration result",
+      "independent evidence"
+    ]
+  },
+  "mapped_referents": [
+    {
+      "ref": "source-repository",
+      "concept_ref": "Y:resource-object:resource",
+      "status": "hypothetical"
+    },
+    {
+      "ref": "target-repository",
+      "concept_ref": "Y:resource-object:resource",
+      "status": "proposed"
+    },
+    {
+      "ref": "sync-job-A",
+      "concept_ref": "Y:identified-object:work-item",
+      "status": "hypothetical"
+    },
+    {
+      "ref": "migration-plan",
+      "concept_ref": "Y:resource-object:artifact",
+      "status": "proposed"
+    },
+    {
+      "ref": "target-conclusion",
+      "concept_ref": "X:endpoint:conclusion",
+      "status": "unverified"
+    },
+    {
+      "ref": "responsible-actor",
+      "concept_ref": "Y:identity-anchor:actor",
+      "status": "unbound"
+    }
+  ],
+  "coordinate_views": {
+    "core": [
+      "X:Semantics Expectation = target state specification",
+      "X:Governance = scoped authorization decision (unknown)",
+      "Y = resources, job work items, plan artifact, actors",
+      "Z = project/thread, connector/runtime boundaries",
+      "F = migration mapping method not provided",
+      "M = planning description, not a frozen runtime enum"
+    ],
+    "T": [
+      "Occurrence/recording/as_of distinction required for actual before/after evidence",
+      "Job scheduling and dependency roles not inferred from file names"
+    ],
+    "O": [
+      "Observer coverage of observed jobs/repository is unknown",
+      "Current view is not proof of delivered runtime context"
+    ]
+  },
+  "assertions": [
+    {
+      "claim": "Sync job A depends on source repository",
+      "origin": "scenario_assumption",
+      "warrant": "unverified",
+      "limitations": [
+        "No foreign config inspected"
+      ]
+    },
+    {
+      "claim": "Target migration succeeded",
+      "origin": "not_asserted",
+      "warrant": "unknown",
+      "limitations": [
+        "No execution or checks performed"
+      ]
+    }
+  ],
+  "constraints_observed": [
+    "C005",
+    "C006",
+    "C008",
+    "C013",
+    "C014",
+    "C026"
+  ],
+  "result": "Proposed architecture + explicit evidence gaps; no Action, admitted Event, Completion or Satisfaction asserted"
+}

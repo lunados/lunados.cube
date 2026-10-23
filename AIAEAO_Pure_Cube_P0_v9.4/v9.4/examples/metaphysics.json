@@ -1,0 +1,84 @@
+{
+  "example_id": "metaphysics",
+  "reference_version": "v9.4",
+  "kind": "hypothetical_research_description",
+  "task": "Formulate a metaphysical research question with theses, objections and evidence/proof boundaries.",
+  "evidence_level": "scenario_only",
+  "has_real_world_sources": false,
+  "question": "Can a particular metaphysical thesis be coherently specified and compared with an opposing thesis?",
+  "mapped_referents": [
+    {
+      "ref": "research-question",
+      "concept_ref": "X:endpoint:expectation",
+      "status": "declared_goal"
+    },
+    {
+      "ref": "thesis-A",
+      "concept_ref": "Y:identified-object:annotation",
+      "status": "hypothesis"
+    },
+    {
+      "ref": "objection-B",
+      "concept_ref": "Y:identified-object:annotation",
+      "status": "opposing_hypothesis"
+    },
+    {
+      "ref": "argument-document",
+      "concept_ref": "Y:resource-object:content",
+      "status": "proposed"
+    },
+    {
+      "ref": "claim-assessment",
+      "concept_ref": "X:endpoint:conclusion",
+      "status": "unresolved"
+    },
+    {
+      "ref": "source",
+      "concept_ref": "Y:resource-object:source",
+      "status": "unidentified"
+    }
+  ],
+  "coordinate_views": {
+    "core": [
+      "Ψ Observation / Perception -> Conclusion (unresolved without admissible premises)",
+      "Σ Expectation = bounded research question",
+      "Y = annotations for claims and freely stated content",
+      "F = dialectics as optional method; no forced synthesis",
+      "Γ = no authority implied by a correct argument",
+      "M = explorative interpretation only"
+    ],
+    "T": [
+      "Historical source date and temporal validity must be supplied where the claim requires them"
+    ],
+    "O": [
+      "Observer/perspective differs from empirical observation or actual reception"
+    ]
+  },
+  "assertions": [
+    {
+      "claim": "Thesis A",
+      "origin": "hypothesis",
+      "warrant": "unresolved",
+      "limitations": [
+        "Premises and source evidence unspecified"
+      ]
+    },
+    {
+      "claim": "Objection B negates Thesis A",
+      "origin": "unverified_possible_relation",
+      "warrant": "not_established",
+      "limitations": [
+        "Shared interpretation/scope/time not shown"
+      ]
+    }
+  ],
+  "constraints_observed": [
+    "C009",
+    "C010",
+    "C018",
+    "C019",
+    "C020",
+    "C028"
+  ],
+  "result": "Qualified, unresolved research structure; no truth, theorem, verification or mandatory synthesis asserted"
+}

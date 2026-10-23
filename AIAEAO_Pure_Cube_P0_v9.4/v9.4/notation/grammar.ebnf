@@ -1,0 +1,30 @@
+(* Cube v9.4 P0 reference notation: syntax shape adapted from ACG concept v0.2. *)
+(* A syntactic description only: lexical/binding context is given in syntax.json. No parser or runtime validation claim. *)
+
+Document      = Expression ;
+Expression    = Primary, { "@", Qualifier } ;
+Primary       = Reference | Relation | Application | "(", Expression, ")" ;
+Reference     = Address, "[", String, "]" ;
+Address       = Home, ":", Layer, ":", ConceptKey ;
+Home          = "X" | "Y" | "Z" ;
+Layer         = "α" | "β" | "ζ" ;
+Qualifier     = QualifierKind, "(", [ Parameters ], ")" ;
+QualifierKind = "T" | "F" | "M" | "O" ;
+Relation      = "rel", "(", String, ",", Expression, ",", Expression,
+                [ ";", Parameters ], ")" ;
+Application   = MethodName, "(", [ Arguments ], [ ";", Parameters ], ")" ;
+Arguments     = Expression, { ",", Expression } ;
+Parameters    = Parameter, { ",", Parameter } ;
+Parameter     = Name, "=", Scalar ;
+Scalar        = String | Number | Boolean | "null" ;
+Boolean       = "true" | "false" ;
+
+(* Token policy for the reference exchange notation; semantic binding requires a separate resolver: *)
+(* String = JSON double-quoted string with escapes. *)
+(* Number = JSON number. *)
+(* MethodName = namespaced/versioned identifier, e.g. audio.duck/v1. *)
+(* ConceptKey = resolver-owned nonempty token, e.g. Σ, Event, Resource. *)
+(* Name = ASCII identifier [A-Za-z_][A-Za-z0-9_]* for profile parameters. *)
+(* Keywords: rel, T, F, M, O, true, false, null. *)
+(* No untyped arrows, :: or superscript/subscript source forms. *)
+(* Syntactic conformance does not entail semantic, evidence, or execution conformance. *)

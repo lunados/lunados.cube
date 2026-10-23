@@ -1,0 +1,4 @@
+Publication licensing decision required: The package includes user-supplied
+Morphology v9.4 and derived resources. The generator does not claim permission
+to sublicense third-party materials nor choose the rights holder's license.
+Before public publication add an explicit appropriate LICENSE file.

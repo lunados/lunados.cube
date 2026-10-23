@@ -1,0 +1,47 @@
+{
+  "reference_version": "v9.4",
+  "view": "observer",
+  "coordinate": "O",
+  "name": "Observer Perspective",
+  "role": "qualifier_not_ontology_home",
+  "source": {
+    "reference": "morphology.md",
+    "section": "3.10; 4.1–4.11"
+  },
+  "distinguish": [
+    "available",
+    "permitted",
+    "visible",
+    "selected",
+    "delivered",
+    "perceived",
+    "concluded"
+  ],
+  "observation_scope_is_not_o": true,
+  "observer_contract": {
+    "actor_ref": "Y Actor, if identified",
+    "purpose": "purpose of view/context",
+    "scope": "Z boundary/source selection",
+    "permission": "independently checked X Governance",
+    "visibility": "separate Z exposure check",
+    "as_of": "T cutoff and clock basis",
+    "method": "F projection or context-assembly revision",
+    "coverage": "sampled/exhaustive/unknown, declared with evidence",
+    "omissions": "known exclusions and unknown source context"
+  },
+  "distinct_operations": {
+    "context_assembly": "Bounded selection/transformation delivered to target Actor for a task",
+    "projection": "Observer-oriented view, may be selective/lossy and need not be delivered as runtime input"
+  },
+  "historical_inference": "Stored/eligible/permitted/visible material does not prove actual delivery or perception.",
+  "insufficient_delivery_evidence": "unknown_not_perceived_proof",
+  "no_implicit": [
+    "visible -> permitted",
+    "permitted -> delivered",
+    "delivered -> perceived",
+    "perceived -> justified conclusion",
+    "same projected item -> duplicate canonical Event",
+    "observer qualifier -> Authority"
+  ],
+  "relation_to_layers": "O is qualified/bound as rule context alpha->beta; it is not globally erased for zeta and observers can differ for same record"
+}

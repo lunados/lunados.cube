@@ -1,0 +1,142 @@
+{
+  "reference_version": "v9.4",
+  "view": "time",
+  "coordinate": "T",
+  "name": "Temporal Qualification",
+  "role": "qualifier_not_ontology_home",
+  "referent_definition_homes": [
+    "X",
+    "Y",
+    "Z"
+  ],
+  "source": {
+    "reference": "morphology.md",
+    "section": "3.6; 7.7.1"
+  },
+  "facets": [
+    {
+      "id": "occurrence",
+      "question": "When did the referenced event/action/result occur?",
+      "example": "occurred_at"
+    },
+    {
+      "id": "recording",
+      "question": "When was material admitted/recorded?",
+      "example": "recorded_at"
+    },
+    {
+      "id": "observation",
+      "question": "When and under which context was something observed?",
+      "example": "observed_at"
+    },
+    {
+      "id": "assessment",
+      "question": "When was judgment assessed?",
+      "example": "assessed_at"
+    },
+    {
+      "id": "effective-interval",
+      "question": "During which interval did Role/Grant/Policy apply?",
+      "example": "effective_from/effective_until"
+    },
+    {
+      "id": "freshness",
+      "question": "Until when may a derived/cache state be reused?",
+      "example": "source revision and validity criterion"
+    },
+    {
+      "id": "historicity",
+      "question": "What was known/recorded/accessible as of a cutoff?",
+      "example": "as_of"
+    },
+    {
+      "id": "scheduling",
+      "question": "Which deadline/guard/dependency constrains intended action?",
+      "example": "deadline / partial order when explicitly scheduling"
+    }
+  ],
+  "facet_names_are_not_persisted_enum": true,
+  "time_profile_obligations": [
+    "referent",
+    "role",
+    "value/context",
+    "clock origin",
+    "clock unit",
+    "clock transform (where needed)",
+    "precision/uncertainty",
+    "source and revision",
+    "comparability rules"
+  ],
+  "partial_order_rule": "An occurrence-level logical-clock partial order is not a scheduling command or causation assertion.",
+  "historic_state_distinctions": [
+    "occurred",
+    "recorded_by_cutoff",
+    "actor_permitted",
+    "context_delivered",
+    "actually_perceived_if_evidenced",
+    "retrospectively_concluded"
+  ],
+  "time_contract_family": [
+    {
+      "id": "TIME-01",
+      "question": "Distinct time roles",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.7.1"
+      },
+      "implementation_status": "integrated_candidate_not_adopted_runtime"
+    },
+    {
+      "id": "TIME-02",
+      "question": "Effective intervals",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.7.1"
+      },
+      "implementation_status": "integrated_candidate_not_adopted_runtime"
+    },
+    {
+      "id": "TIME-03",
+      "question": "Cache validity",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.7.1"
+      },
+      "implementation_status": "integrated_candidate_not_adopted_runtime"
+    },
+    {
+      "id": "TIME-04",
+      "question": "Historical as-of view",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.7.1"
+      },
+      "implementation_status": "integrated_candidate_not_adopted_runtime"
+    },
+    {
+      "id": "TIME-05",
+      "question": "Temporal dependency",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.7.1"
+      },
+      "implementation_status": "integrated_candidate_not_adopted_runtime"
+    },
+    {
+      "id": "TIME-06",
+      "question": "Runtime versus persistence qualification",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.7.1"
+      },
+      "implementation_status": "integrated_candidate_not_adopted_runtime"
+    }
+  ],
+  "no_implicit": [
+    "timestamp -> all time roles",
+    "time order -> causation",
+    "cached -> fresh",
+    "recorded -> occurred",
+    "as_of snapshot -> delivered/perceived"
+  ]
+}

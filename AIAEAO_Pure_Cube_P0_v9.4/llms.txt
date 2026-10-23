@@ -1,0 +1,12 @@
+# AIAEAO Pure Cube — Machine Reference v9.4
+
+Canonical public entry: https://cube.lunados.net/manifest.json
+Full adopted documentary source: https://cube.lunados.net/v9.4/morphology.md
+Three views: https://cube.lunados.net/v9.4/core.json
+             https://cube.lunados.net/v9.4/time.json
+             https://cube.lunados.net/v9.4/observer.json
+Application: https://cube.lunados.net/v9.4/agent-guide.md
+Grammar, Notation, Visual Grammar: see the manifest resources.
+
+The Cube documents concepts. It does not grant authority, certify a fact, or
+create actual AIAEAO Events. It has no execution endpoint in P0.
