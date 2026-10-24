@@ -1,0 +1,3 @@
+# SDK v2 required: MCP protocol 2026-07-28 and SDK-managed stdio.
+# Exact top-level pin for PoC repeatability. Resolve transitive lock on target Mac.
+mcp==2.0.0

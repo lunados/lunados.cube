@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "aiaeao-cube": {
+      "command": "/ABSOLUTE/PATH/TO/.venv/bin/python3",
+      "args": [
+        "-u",
+        "/ABSOLUTE/PATH/TO/P3/adapters/mcp-local/run_server.py"
+      ]
+    }
+  }
+}

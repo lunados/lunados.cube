@@ -1,0 +1,23 @@
+{
+  "adr_status": "ACCEPTED 2026-10-24",
+  "local_adapter_status": "BRIDGE_TESTED",
+  "official_sdk_inprocess": "NOT_EVALUATED_MISSING_DEPENDENCY",
+  "official_sdk_stdio": "NOT_EVALUATED_MISSING_DEPENDENCY",
+  "real_agent_host": "NOT_EVALUATED",
+  "overall_gate_a": "PENDING",
+  "new_bridge_tests": 36,
+  "new_bridge_tests_passed": 36,
+  "frozen_vp06_tests": 237,
+  "vp05_matrix_cases": 90,
+  "vp05_positive": 54,
+  "vp05_expected_rejections": 36,
+  "vp06_golden_count": 4,
+  "svg_byte_parity": "PASS for 4 frozen golden jobs; repeat 3/3 for flow fixture",
+  "svg_transport": "inline_utf8_xml_plus_report",
+  "p1_validation_invoked": false,
+  "remote_mcp_deployed": false,
+  "stdout_mcp_wire_qualified": false,
+  "external_agent_invocation_observed": false,
+  "mcp_python_sdk_direct_pin": "mcp==2.0.0",
+  "status_reason": "Official SDK unavailable in build environment; install and test on Mac before acceptance"
+}

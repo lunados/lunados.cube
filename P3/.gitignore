@@ -1,0 +1,7 @@
+# Generated locally; never publish interpreter/dependencies or secrets
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/.DS_Store
+**/.env
+**/.env.*
