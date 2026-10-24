@@ -1,0 +1,28 @@
+{
+  "format": "aiaeao.cube.mcp-g2-offline-evidence/1",
+  "implementation": "P3 P1 MCP adapter overlay G2",
+  "profile": "P1-VC/1.0.0",
+  "p3_tests_passed": 137,
+  "g1_g11_legacy_tests_passed": 101,
+  "g2_new_tests_passed": 36,
+  "frozen_p1_5_gate": "PASS",
+  "sdk_stdio_on_target": "PENDING",
+  "claude_host": "PENDING",
+  "authority": "NOT_EVALUATED",
+  "deployment": "NOT_DEPLOYED",
+  "p1_reference_modules": {
+    "cube_semantic/validator.py": {
+      "sha256": "8bb28455d16a260120a62e2be2695c52ae724e5075ea7f026a05bb07cf28e533",
+      "bytes": 22954
+    },
+    "cube_resolver/resolver.py": {
+      "sha256": "17ff5c9e5cb6cc4bf3839577866f52310181ddc6f204adf15548e60746adb398",
+      "bytes": 19071
+    },
+    "cube_parser/parser.py": {
+      "sha256": "f246518440f997d206f8645a3e698f8316a6d7bec00024f572047e181932d835",
+      "bytes": 23319
+    }
+  },
+  "status": "LOCAL_IMPLEMENTATION_PASS_HOST_PENDING"
+}

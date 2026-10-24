@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cube.lunados.net/v9.4/notation/ast.schema.json",
+  "title": "AIAEAO Cube v9.4 reference interchange AST — structural shape (P0)",
+  "$comment": "P0 syntax-shape contract drawn from ACG v0.2; not an accepted production/Event schema. A structural pass is not a type/semantic, trust or authority validation.",
+  "$ref": "#/$defs/expression",
+  "$defs": {
+    "scalar": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "null"
+      ]
+    },
+    "params": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/scalar"
+      }
+    },
+    "address": {
+      "type": "object",
+      "required": [
+        "home",
+        "layer",
+        "concept_key"
+      ],
+      "properties": {
+        "home": {
+          "enum": [
+            "X",
+            "Y",
+            "Z"
+          ]
+        },
+        "layer": {
+          "enum": [
+            "α",
+            "β",
+            "ζ"
+          ]
+        },
+        "concept_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Only if resolved by an applicable authoritative registry"
+        }
+      },
+      "additionalProperties": false
+    },
+    "qualifier": {
+      "type": "object",
+      "required": [
+        "coordinate",
+        "parameters"
+      ],
+      "properties": {
+        "coordinate": {
+          "enum": [
+            "T",
+            "F",
+            "M",
+            "O"
+          ]
+        },
+        "parameters": {
+          "$ref": "#/$defs/params"
+        },
+        "profile_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "reference": {
+      "type": "object",
+      "required": [
+        "kind",
+        "address",
+        "referent_ref"
+      ],
+      "properties": {
+        "kind": {
+          "const": "reference"
+        },
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "referent_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "qualified": {
+      "type": "object",
+      "required": [
+        "kind",
+        "expression",
+        "qualifiers"
+      ],
+      "properties": {
+        "kind": {
+          "const": "qualified"
+        },
+        "expression": {
+          "$ref": "#/$defs/expression"
+        },
+        "qualifiers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/qualifier"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "relation": {
+      "type": "object",
+      "required": [
+        "kind",
+        "predicate_id",
+        "subject",
+        "object",
+        "parameters"
+      ],
+      "properties": {
+        "kind": {
+          "const": "relation"
+        },
+        "predicate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject": {
+          "$ref": "#/$defs/expression"
+        },
+        "object": {
+          "$ref": "#/$defs/expression"
+        },
+        "parameters": {
+          "$ref": "#/$defs/params"
+        }
+      },
+      "additionalProperties": false
+    },
+    "application": {
+      "type": "object",
+      "required": [
+        "kind",
+        "method_id",
+        "arguments",
+        "parameters"
+      ],
+      "properties": {
+        "kind": {
+          "const": "application"
+        },
+        "method_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "arguments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/expression"
+          }
+        },
+        "parameters": {
+          "$ref": "#/$defs/params"
+        }
+      },
+      "additionalProperties": false
+    },
+    "expression": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/reference"
+        },
+        {
+          "$ref": "#/$defs/qualified"
+        },
+        {
+          "$ref": "#/$defs/relation"
+        },
+        {
+          "$ref": "#/$defs/application"
+        }
+      ]
+    }
+  }
+}

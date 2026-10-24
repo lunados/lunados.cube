@@ -1,0 +1,70 @@
+{
+  "reference_version": "v9.4",
+  "name": "Cube compositional notation reference profile",
+  "basis": "ACG concept v0.2 EBNF, aligned with Morphology v9.4 D.1–D.5 / MR-03; ACG source version does not redefine Morphology",
+  "published_ebnf": "grammar.ebnf",
+  "interchange_schema": "ast.schema.json",
+  "machine_identifiers": "Home / Layer / concept_key / typed predicate/method name / source-scoped referent locator; never glyphs",
+  "address": {
+    "pattern": "Home:Layer:ConceptKey[\"referent\"]",
+    "home": [
+      "X",
+      "Y",
+      "Z"
+    ],
+    "layer": [
+      "α",
+      "β",
+      "ζ"
+    ],
+    "literal_example": "X:α:Event[\"event:e1\"]",
+    "invalid_dimension_reference": "X:α:Σ[\"q\"]",
+    "referent_is_not_semantic_id": true
+  },
+  "expression_kinds": [
+    "reference",
+    "qualified",
+    "relation",
+    "application"
+  ],
+  "qualifiers": [
+    "T",
+    "F",
+    "M",
+    "O"
+  ],
+  "lexical_profile": {
+    "strings": "JSON double-quoted strings with escapes",
+    "numbers": "JSON number",
+    "booleans": [
+      "true",
+      "false"
+    ],
+    "null": "null",
+    "parameter_names": "[A-Za-z_][A-Za-z0-9_]*",
+    "method_names": "Versioned namespaced identifiers, requiring applicable binding profile",
+    "concept_keys": "Registry/resolver-owned; source name alone is not proof of reference binding"
+  },
+  "constraint_on_reference_binding": "An instantiable concept/Scope and a compatible identified referent must be resolved under a declared context.",
+  "partial_conformance": [
+    "structural_AST",
+    "resolution",
+    "type_admissibility",
+    "semantics/interpreted_value",
+    "epistemic_warrant",
+    "current_governance_admission"
+  ],
+  "structural_validation_is_not_semantic_validation": true,
+  "disallowed_forms": [
+    "untyped arrow as relation assertion",
+    "SVG/glyph used as machine semantic ID",
+    "automatic NFKC-based ID mapping",
+    "status or authority inferred from successful parse"
+  ],
+  "unbound_profile_behavior": "unresolved; not silently valid",
+  "source": {
+    "reference": "morphology.md",
+    "section": "2.9; 3.12; 5.8; 5.14; 7.37"
+  },
+  "syntax_does_not_assert": "full public parser implemented, technical relation registry adopted, method execution admitted, real Core/Adapter parity"
+}

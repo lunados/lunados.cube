@@ -1,0 +1,36 @@
+{
+  "approved_architecture": "CP-001/G0 ACCEPTED",
+  "artifact_version": "P3-MCP-P0-G1/0.1.0-proof",
+  "claude_host_resources": {
+    "reason": "requires user Desktop host and resources/read support",
+    "result": "NOT_RUN"
+  },
+  "cloudflare_deployment": "NOT_PERFORMED",
+  "date": "2026-10-24",
+  "format": "aiaeao.cube.mcp-p0-g1-evidence/1",
+  "gate_g1": "HOST_PENDING",
+  "network_calls": false,
+  "offline_checks": {
+    "UTF8_byte_parity": "PASS",
+    "integrity_manifest": "PASS",
+    "legacy_p3_bridge_tests": 36,
+    "negative_uris": "PASS",
+    "p0_resource_tests": 40,
+    "result": "PASS",
+    "tampering": "PASS",
+    "total": 76
+  },
+  "p0_index_resources": 1,
+  "p0_reference_version": "v9.4",
+  "p0_resources": 13,
+  "p1_validation_added": false,
+  "p2_tools_changed": false,
+  "p3_legacy_compatibility": "four MCP printer tools unmodified",
+  "repo_push": "NOT_PERFORMED",
+  "scope": "G1 P0 Resource Proof only",
+  "sdk_stdio_resources": {
+    "reason": "official MCP SDK v2 not installed in build environment; executable verification script included",
+    "result": "NOT_RUN"
+  },
+  "source_lock_sha256": "cb259c5962a61c507ace6260d37ae364cf6658794a115052e3bc4fefdca477a1"
+}

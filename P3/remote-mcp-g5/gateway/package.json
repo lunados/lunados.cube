@@ -1,0 +1,21 @@
+{
+  "name": "aiaeao-cube-g5-mcp-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:syntax": "node --check src/index.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "dry-run": "wrangler deploy --dry-run --outdir dist",
+    "test:offline": "node --test tests/security.test.mjs",
+    "check:freeze": "node --check src/index.mjs && node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "wrangler": "4.152.0"
+  }
+}

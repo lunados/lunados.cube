@@ -1,0 +1,28 @@
+{
+  "cloudflare_runtime_deployed": false,
+  "date": "2026-10-24",
+  "format": "aiaeao.cube.g5-offline-evidence/1",
+  "gates_pending": [
+    "Pyodide asset/import packaging",
+    "npm install SDK-v2 + Wrangler bundle",
+    "private Worker Service Binding",
+    "Streamable HTTP remote auth and error semantics",
+    "Claude/Grok remote client",
+    "security and operations before public production"
+  ],
+  "host_acceptance_performed": false,
+  "local_status": "PASS",
+  "node_security_tests": 4,
+  "official_js_sdk_installed": false,
+  "p0_snapshot_sha256": "cb259c5962a61c507ace6260d37ae364cf6658794a115052e3bc4fefdca477a1",
+  "parity": [
+    "P0 index and 14 allowlisted Resources",
+    "P1 PASS, FAIL and UNRESOLVED",
+    "P1 technical configuration error",
+    "P2 SVG byte exact and report structural exact",
+    "independent G3 outcomes"
+  ],
+  "profile": "P3-MCP-REMOTE/0.1.0-proof",
+  "python_contract_tests": 17,
+  "remote_sdk_test_performed": false
+}

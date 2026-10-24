@@ -1,0 +1,244 @@
+{
+  "format": "aiaeao.cube.reference-manifest/1",
+  "reference_version": "v9.4",
+  "reference_date": "2026-10-23",
+  "canonical_origin": "https://cube.lunados.net",
+  "point_of_truth": "https://cube.lunados.net/v9.4/morphology.md",
+  "reference_role": "single documentary model; derivative version-bound machine projections",
+  "scope": "public_static_read_only",
+  "entrypoints": {
+    "core": "https://cube.lunados.net/v9.4/core.json",
+    "time": "https://cube.lunados.net/v9.4/time.json",
+    "observer": "https://cube.lunados.net/v9.4/observer.json"
+  },
+  "related_grammars": {
+    "notation": "notation",
+    "visual_grammar": "visual_grammar",
+    "concepts": "concepts",
+    "relations": "relations",
+    "constraints": "constraints"
+  },
+  "api": {
+    "transport": "HTTP GET (static assets)",
+    "authentication": "none",
+    "function_invocation_available": false,
+    "writes_available": false,
+    "server_instance_binding": false
+  },
+  "validity_boundaries": {
+    "canonical_ontology_homes": [
+      "X",
+      "Y",
+      "Z"
+    ],
+    "qualifying_coordinates": [
+      "T",
+      "F",
+      "M",
+      "O"
+    ],
+    "semantic_referent_resolver": "not hosted in P0",
+    "effect_authority": "not provided",
+    "source_truth": "not asserted by structural checks"
+  },
+  "assets": {
+    "reference_source": {
+      "href": "https://cube.lunados.net/v9.4/morphology.md",
+      "media_type": "text/markdown",
+      "sha256": "749bb26b36bb4672a53cf8bc15d58b2cd75ebc07ee90ee6cb38cb6c86bd4bfd9",
+      "bytes": 268040
+    },
+    "core": {
+      "href": "https://cube.lunados.net/v9.4/core.json",
+      "media_type": "application/json",
+      "sha256": "c8cefa62122e9256c553c2ba56a9d33359fc3e2e3065815484fc46d02d462e30",
+      "bytes": 4700
+    },
+    "time": {
+      "href": "https://cube.lunados.net/v9.4/time.json",
+      "media_type": "application/json",
+      "sha256": "f6c7244e041ad4fdbb5c862c18b129c2d6e96e9841a222bd33eeece2db915ffc",
+      "bytes": 3819
+    },
+    "observer": {
+      "href": "https://cube.lunados.net/v9.4/observer.json",
+      "media_type": "application/json",
+      "sha256": "6a496dfea1bacceecc5b901fcfc1ae736ca5b0971b62fb6c2b683a9da6b863c8",
+      "bytes": 1735
+    },
+    "concepts": {
+      "href": "https://cube.lunados.net/v9.4/grammar/concepts.json",
+      "media_type": "application/json",
+      "sha256": "a15b0db3a3cfdb5874b8ab59de0ec9f4af08e8280e0634c48e3b37c3498000b8",
+      "bytes": 29731
+    },
+    "relations": {
+      "href": "https://cube.lunados.net/v9.4/grammar/relations.json",
+      "media_type": "application/json",
+      "sha256": "a1c0c98b8c91fa5d7e59c790d7e3fdf894708694a67b4d693cf55533effd0488",
+      "bytes": 5292
+    },
+    "constraints": {
+      "href": "https://cube.lunados.net/v9.4/grammar/constraints.json",
+      "media_type": "application/json",
+      "sha256": "eebc060a0f8c633226dd4739a86819808ca501062193d4e60c4e703125537d8a",
+      "bytes": 8350
+    },
+    "notation": {
+      "href": "https://cube.lunados.net/v9.4/notation/syntax.json",
+      "media_type": "application/json",
+      "sha256": "0f7c5822cc221f893c7dc3b191f31fe73342e66013935467c6906d64a52ad0e2",
+      "bytes": 2280
+    },
+    "ebnf": {
+      "href": "https://cube.lunados.net/v9.4/notation/grammar.ebnf",
+      "media_type": "text/plain",
+      "sha256": "98b6c725b6e5cf3c8b84db34965a37937dd43e69a433e2eb198972fa7affaa20",
+      "bytes": 1655
+    },
+    "ast_schema": {
+      "href": "https://cube.lunados.net/v9.4/notation/ast.schema.json",
+      "media_type": "application/json",
+      "sha256": "833c68abd73b847f4f386d18841f763837a2303a23e4b8991fc8ffbec29cfa85",
+      "bytes": 4313
+    },
+    "visual_grammar": {
+      "href": "https://cube.lunados.net/v9.4/visual/symbols.json",
+      "media_type": "application/json",
+      "sha256": "7d35d3e855e94f7b77c8c52fa6bddc6265cae57576b1beb5b8869a4170c54656",
+      "bytes": 39986
+    },
+    "visual_guide": {
+      "href": "https://cube.lunados.net/v9.4/visual/README.md",
+      "media_type": "text/markdown",
+      "sha256": "2e985b26bdb250998b35c8d545f04c58531023de93d09b7e8a3e9d10b07c16b2",
+      "bytes": 813
+    },
+    "agent_application": {
+      "href": "https://cube.lunados.net/v9.4/agent-guide.md",
+      "media_type": "text/markdown",
+      "sha256": "6314224406e02e46f84894a6f57af595f019a35e115c4d39ab9cf3f95260f40d",
+      "bytes": 2711
+    },
+    "example_migration": {
+      "href": "https://cube.lunados.net/v9.4/examples/migration.json",
+      "media_type": "application/json",
+      "sha256": "68bc9add88a55fc7fde717fe068d1a6ae0bcff429766a1d36bd78fa25df6b449",
+      "bytes": 2788
+    },
+    "example_metaphysics": {
+      "href": "https://cube.lunados.net/v9.4/examples/metaphysics.json",
+      "media_type": "application/json",
+      "sha256": "943f94cc3c1c528ae68fa79c1c165fa59e55853b597572bdca41b74a4b5abef5",
+      "bytes": 2480
+    },
+    "example_migration_acg": {
+      "href": "https://cube.lunados.net/v9.4/examples/migration.acg",
+      "media_type": "text/plain",
+      "sha256": "0b415084f7cc7bb58c82805c74700080c35bccdf7e7ed6274e3150116f8b363e",
+      "bytes": 103
+    },
+    "example_migration_ast": {
+      "href": "https://cube.lunados.net/v9.4/examples/migration.ast.json",
+      "media_type": "application/json",
+      "sha256": "a99689fe42cd671ac85108438081e0ad59630f637e3ff4dfd91227ddda4d7bb9",
+      "bytes": 451
+    },
+    "example_metaphysics_acg": {
+      "href": "https://cube.lunados.net/v9.4/examples/metaphysics.acg",
+      "media_type": "text/plain",
+      "sha256": "574c13788c3852e91f443c9ab27a0a36454196fc7a5681ec42704e2305b09cf7",
+      "bytes": 92
+    },
+    "example_metaphysics_ast": {
+      "href": "https://cube.lunados.net/v9.4/examples/metaphysics.ast.json",
+      "media_type": "application/json",
+      "sha256": "4950239dd6cbc205428fc35c990d0c339f58e9265be1b88eebd397be3d846b4b",
+      "bytes": 440
+    },
+    "examples_guide": {
+      "href": "https://cube.lunados.net/v9.4/examples/README.md",
+      "media_type": "text/markdown",
+      "sha256": "6248b9ea66b406eacaab483c2e408c750783947079a9d2e54191eef5c707104c",
+      "bytes": 645
+    },
+    "roadmap": {
+      "href": "https://cube.lunados.net/ROADMAP.md",
+      "media_type": "text/markdown",
+      "sha256": "149ff5de571d172fc2b42c1da335e9bf94bc52823a3c1e7d765fc3732fd008fd",
+      "bytes": 2193
+    },
+    "readme": {
+      "href": "https://cube.lunados.net/README.txt",
+      "media_type": "text/plain",
+      "sha256": "5163ed1238fb23c7f7915126fc61043536064ada335f7f0afa5e3ff8ea8e2d23",
+      "bytes": 2440
+    },
+    "validation_manifest": {
+      "href": "https://cube.lunados.net/validation/v1/manifest.json",
+      "media_type": "application/json",
+      "sha256": "a0a5fcfc3629eb9e80524f93c2d3fba01d3707de4cdaf1475189c2600f644e16",
+      "bytes": 1649
+    },
+    "validation_conformance": {
+      "href": "https://cube.lunados.net/validation/v1/conformance.json",
+      "media_type": "application/json",
+      "sha256": "2677b9b0b54d547eeee56fff2538a7f943258ff6cc89dc2c6e392d3e8a8abd7b",
+      "bytes": 1105
+    },
+    "validation_rule_coverage": {
+      "href": "https://cube.lunados.net/validation/v1/rule-coverage.json",
+      "media_type": "application/json",
+      "sha256": "d4cabfce07248063786c9e487e4f150a4ea914b07f5f21f80469e951e2d20044",
+      "bytes": 8621
+    },
+    "validation_diagnostic_disposition": {
+      "href": "https://cube.lunados.net/validation/v1/diagnostic-disposition.json",
+      "media_type": "application/json",
+      "sha256": "fa2774fb1d324c8b800f3324ad27d4ce7b74abe1a87c1a62a6e126dfdfe30f1e",
+      "bytes": 716
+    },
+    "visual_presentation_manifest": {
+      "href": "https://cube.lunados.net/validation/v1/visual/manifest.json",
+      "media_type": "application/json",
+      "sha256": "aab59626e6a4da3fbd39aa54687bb492ff7a613f15f010ac9dceaa5086b6f3cf",
+      "bytes": 1638
+    },
+    "visual_presentation_form_color": {
+      "href": "https://cube.lunados.net/validation/v1/visual/form-color.json",
+      "media_type": "application/json",
+      "sha256": "27be9aed784c82d038d7f43b04ec06a4ea1eb3d2ffdf1e8e1a7eb6b501800200",
+      "bytes": 10137
+    },
+    "visual_presentation_anchors": {
+      "href": "https://cube.lunados.net/validation/v1/visual/anchors.json",
+      "media_type": "application/json",
+      "sha256": "1fdb6926d94600ca8d53069125d1d819ce2c727c85febb07b01ce16e7bdeffe2",
+      "bytes": 58903
+    },
+    "visual_presentation_render_plan_schema": {
+      "href": "https://cube.lunados.net/validation/v1/visual/render-plan.schema.json",
+      "media_type": "application/json",
+      "sha256": "af2b8f5847cfa67266eac3c8e04970b65ebf8d4f0bf3eaa2837edcc04e9a4711",
+      "bytes": 2399
+    },
+    "visual_presentation_examples": {
+      "href": "https://cube.lunados.net/validation/v1/visual/examples.json",
+      "media_type": "application/json",
+      "sha256": "96a926d9f81cd3b459f5928113beaa5943c8517fd3a05fef238663d0e156d091",
+      "bytes": 1495
+    },
+    "visual_presentation_agent_guide": {
+      "href": "https://cube.lunados.net/validation/v1/visual/agent-guide.md",
+      "media_type": "text/markdown",
+      "sha256": "851a3057965cc61395a9b8d69b9c24907a14a019dfbf6aff6c407ba8b57f1277",
+      "bytes": 3358
+    }
+  },
+  "validation_profiles": {
+    "P1-VC/1.0.0": "https://cube.lunados.net/validation/v1/manifest.json"
+  },
+  "visual_presentation_profiles": {
+    "P1-VG-basic/1.0.0": "https://cube.lunados.net/validation/v1/visual/manifest.json"
+  }
+}

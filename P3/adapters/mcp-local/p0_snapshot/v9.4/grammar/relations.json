@@ -1,0 +1,191 @@
+{
+  "reference_version": "v9.4",
+  "relation_families_are_distinct": true,
+  "conceptual_x_logic": [
+    {
+      "concept_ref": "X:logic-relation:invariant",
+      "name": "Invariant",
+      "requires": "declared scope, relevant logic/criteria, evidence where meaningful"
+    },
+    {
+      "concept_ref": "X:logic-relation:constraint",
+      "name": "Constraint",
+      "requires": "declared scope, relevant logic/criteria, evidence where meaningful"
+    },
+    {
+      "concept_ref": "X:logic-relation:compatibility",
+      "name": "Compatibility",
+      "requires": "declared scope, relevant logic/criteria, evidence where meaningful"
+    },
+    {
+      "concept_ref": "X:logic-relation:authorization",
+      "name": "Authorization",
+      "requires": "declared scope, relevant logic/criteria, evidence where meaningful"
+    },
+    {
+      "concept_ref": "X:logic-relation:verification",
+      "name": "Verification",
+      "requires": "declared scope, relevant logic/criteria, evidence where meaningful"
+    },
+    {
+      "concept_ref": "X:logic-relation:refutation",
+      "name": "Refutation",
+      "requires": "declared scope, relevant logic/criteria, evidence where meaningful"
+    }
+  ],
+  "conceptual_y_arrows": [
+    {
+      "concept_ref": "Y:relation-arrow:selection",
+      "name": "Selection"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:reference",
+      "name": "Reference"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:uses-specification",
+      "name": "Uses specification"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:admits",
+      "name": "Admits"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:refuses",
+      "name": "Refuses"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:performed-by",
+      "name": "Performed-by"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:executed-as",
+      "name": "Executed-as"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:production",
+      "name": "Production"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:observation",
+      "name": "Observation"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:causation",
+      "name": "Causation"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:derivation",
+      "name": "Derivation"
+    },
+    {
+      "concept_ref": "Y:relation-arrow:projection",
+      "name": "Projection"
+    }
+  ],
+  "technical_reference_kinds": [
+    {
+      "name": "parent",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    },
+    {
+      "name": "child",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    },
+    {
+      "name": "references",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    },
+    {
+      "name": "related",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    },
+    {
+      "name": "sameAs",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    },
+    {
+      "name": "supersedes",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    },
+    {
+      "name": "derivedFrom",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    },
+    {
+      "name": "causedBy",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    },
+    {
+      "name": "resultOf",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    },
+    {
+      "name": "fulfills",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.6"
+      },
+      "adopted_as_universal_predicate_signature": false
+    }
+  ],
+  "qualified_relation_form": "Rel(subject_ref, predicate_type, object_ref; {scope?,temporal?,origin?,evidence?,method?,status?,limitations?})",
+  "relation_type_obligations": {
+    "direction": "preserve",
+    "source_home": "X/Y/Z referent must remain anchored to its primary home",
+    "scope": "explicit or unresolved",
+    "time": "explicit when needed",
+    "evidence": "claim support separately evaluated",
+    "composition": "partial, typed; no predicate inference from a path"
+  },
+  "predicate_registry_status": "No adopted, universal, production REL-01 predicate signature registry is declared in Morphology v9.4. Missing predicate profile => unresolved, not allowed.",
+  "non_implications": [
+    "path -> inferred predicate",
+    "causedBy <- timestamp ordering",
+    "references -> dependency locality proof",
+    "resultOf -> verification",
+    "selection -> admission",
+    "sameAs -> identical provenance",
+    "fulfills -> completed Contract"
+  ],
+  "source": {
+    "reference": "morphology.md",
+    "section": "5.6–5.11; 6.2.6; 6.3.3; 7.6.1"
+  }
+}

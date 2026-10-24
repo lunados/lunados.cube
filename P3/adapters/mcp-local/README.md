@@ -67,3 +67,9 @@ Reference: original `P2/visual-printer-release-v1/agent/AGENT_QUICKSTART.md` and
 ## A1.1 release note
 
 See [RELEASE_0.1.1.md](RELEASE_0.1.1.md): patched official SDK stdio smoke transport, preserved virtualenv interpreter path in Claude config generation, updated adapter version, and captured user-reported macOS test evidence. No semantic, rendering or safety policy changes.
+
+---
+
+## G4 consolidated capability surface
+
+**Current G4 release candidate: `P3-MCP-LOCAL/0.2.0-rc1`.** See [G4_README.md](G4_README.md) and [G4_INSTALL.md](G4_INSTALL.md). Whole-Cube discovery uses new `cube_discover_surface` (seven MCP tools); the legacy `cube_get_capabilities` remains intentionally **P2-only**, including its historic adapter version/tool list. For host-specific acceptance see [G4_CLAUDE_ACCEPTANCE.md](G4_CLAUDE_ACCEPTANCE.md).

@@ -1,0 +1,131 @@
+{
+  "domain": "P0",
+  "format": "aiaeao.cube.mcp-p0-pinned-lock/1",
+  "no_network": true,
+  "no_runtime_execution": true,
+  "reference_version": "v9.4",
+  "repository": "lunados/lunados.cube",
+  "resources": [
+    {
+      "bytes": 9440,
+      "mime_type": "application/json",
+      "path": "manifest.json",
+      "revision": "v9.4",
+      "sha256": "32aa4c0305e49257240c4610beafe48f4b68da2e512f89a6e511ca4e8ba3733a",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/manifest.json"
+    },
+    {
+      "bytes": 4700,
+      "mime_type": "application/json",
+      "path": "v9.4/core.json",
+      "revision": "v9.4",
+      "sha256": "c8cefa62122e9256c553c2ba56a9d33359fc3e2e3065815484fc46d02d462e30",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/core.json"
+    },
+    {
+      "bytes": 29731,
+      "mime_type": "application/json",
+      "path": "v9.4/grammar/concepts.json",
+      "revision": "v9.4",
+      "sha256": "a15b0db3a3cfdb5874b8ab59de0ec9f4af08e8280e0634c48e3b37c3498000b8",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/grammar/concepts.json"
+    },
+    {
+      "bytes": 8350,
+      "mime_type": "application/json",
+      "path": "v9.4/grammar/constraints.json",
+      "revision": "v9.4",
+      "sha256": "eebc060a0f8c633226dd4739a86819808ca501062193d4e60c4e703125537d8a",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/grammar/constraints.json"
+    },
+    {
+      "bytes": 5292,
+      "mime_type": "application/json",
+      "path": "v9.4/grammar/relations.json",
+      "revision": "v9.4",
+      "sha256": "a1c0c98b8c91fa5d7e59c790d7e3fdf894708694a67b4d693cf55533effd0488",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/grammar/relations.json"
+    },
+    {
+      "bytes": 268040,
+      "mime_type": "text/markdown",
+      "path": "v9.4/morphology.md",
+      "revision": "v9.4",
+      "sha256": "749bb26b36bb4672a53cf8bc15d58b2cd75ebc07ee90ee6cb38cb6c86bd4bfd9",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/morphology.md"
+    },
+    {
+      "bytes": 4313,
+      "mime_type": "application/json",
+      "path": "v9.4/notation/ast.schema.json",
+      "revision": "v9.4",
+      "sha256": "833c68abd73b847f4f386d18841f763837a2303a23e4b8991fc8ffbec29cfa85",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/notation/ast.schema.json"
+    },
+    {
+      "bytes": 1655,
+      "mime_type": "text/plain",
+      "path": "v9.4/notation/grammar.ebnf",
+      "revision": "v9.4",
+      "sha256": "98b6c725b6e5cf3c8b84db34965a37937dd43e69a433e2eb198972fa7affaa20",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/notation/grammar.ebnf"
+    },
+    {
+      "bytes": 2280,
+      "mime_type": "application/json",
+      "path": "v9.4/notation/syntax.json",
+      "revision": "v9.4",
+      "sha256": "0f7c5822cc221f893c7dc3b191f31fe73342e66013935467c6906d64a52ad0e2",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/notation/syntax.json"
+    },
+    {
+      "bytes": 1735,
+      "mime_type": "application/json",
+      "path": "v9.4/observer.json",
+      "revision": "v9.4",
+      "sha256": "6a496dfea1bacceecc5b901fcfc1ae736ca5b0971b62fb6c2b683a9da6b863c8",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/observer.json"
+    },
+    {
+      "bytes": 3819,
+      "mime_type": "application/json",
+      "path": "v9.4/time.json",
+      "revision": "v9.4",
+      "sha256": "f6c7244e041ad4fdbb5c862c18b129c2d6e96e9841a222bd33eeece2db915ffc",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/time.json"
+    },
+    {
+      "bytes": 813,
+      "mime_type": "text/markdown",
+      "path": "v9.4/visual/README.md",
+      "revision": "v9.4",
+      "sha256": "2e985b26bdb250998b35c8d545f04c58531023de93d09b7e8a3e9d10b07c16b2",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/visual/README.md"
+    },
+    {
+      "bytes": 39986,
+      "mime_type": "application/json",
+      "path": "v9.4/visual/symbols.json",
+      "revision": "v9.4",
+      "sha256": "7d35d3e855e94f7b77c8c52fa6bddc6265cae57576b1beb5b8869a4170c54656",
+      "source": "published_static_reference",
+      "uri": "https://cube.lunados.net/v9.4/visual/symbols.json"
+    }
+  ],
+  "role": "canonical_reference_snapshot_not_authority",
+  "source_archive": "AIAEAO_Pure_Cube_P1_Extended_Visual_Grammar.zip",
+  "verification": "sha256_vs_root_manifest_assets_and_git_blob_of_selected_files",
+  "verified_main_commit": "99efc506dbe2dd92a045bf72f4d1a905310b8154"
+}
