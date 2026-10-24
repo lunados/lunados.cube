@@ -1,0 +1,37 @@
+{
+  "format": "aiaeao.cube.vp02-local-test-report/1",
+  "status": "PASS_AUTOMATED_HUMAN_QA_OPEN",
+  "vp01_regressions": {
+    "passed": 29,
+    "total": 29
+  },
+  "vp02_regressions": {
+    "passed": 56,
+    "total": 56
+  },
+  "snapshot_svg": {
+    "passed": 6,
+    "total": 6
+  },
+  "snapshot_reports": {
+    "passed": 6,
+    "total": 6
+  },
+  "schemas": {
+    "structural_plans": "6/6",
+    "print_reports": "6/6",
+    "validator": "jsonschema Draft2020-12 independent optional oracle"
+  },
+  "view_fixture_counts": {
+    "cube.flow": 2,
+    "cube.diagramm": 2,
+    "cube.tree": 2
+  },
+  "reference_snapshot_count": 6,
+  "source_locks": "retained from VP-01: SHA256 verified by verify_lab.py",
+  "checksum_scope": "VP02_SHA256SUMS.txt lists all package files except itself",
+  "human_qa": "NOT_EVALUATED",
+  "cross_browser_fonts": "NOT_EVALUATED",
+  "svg_printer_does_not_validate_ACG": true,
+  "three_dimensional": "NOT_IMPLEMENTED"
+}

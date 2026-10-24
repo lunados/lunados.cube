@@ -1,0 +1,81 @@
+{
+  "format": "aiaeao.cube.vp04-projection-request/1",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reference_version": "v9.4",
+  "source_bundle": {
+    "format": "aiaeao.cube.vp03-lens-bundle/1",
+    "lens_profile": "P2-VP-LENSES/0.3.0",
+    "reference_version": "v9.4",
+    "source_view_sha256": "b4d3eb8216b5f4b4c9c23062fa57fbe0eb92d69c103a60c6f9a1d665f277c9ee",
+    "view_plan": {
+      "printer_profile": "P2-VP-VIEWS/0.2.0",
+      "reference_version": "v9.4",
+      "view": "cube.diagramm",
+      "lens": "neutral",
+      "granularity": "standard",
+      "title": "Comparative latency · Declared sample",
+      "subtitle": "Synthetic latency values · array order is not verified time order",
+      "plot": "line",
+      "metric": {
+        "id": "fixture.latency",
+        "unit": "ms",
+        "scale": "linear_zero_based",
+        "declaration_ref": "fixture:VP02/measurements/latency-v1",
+        "evidence_status": "declared_unverified"
+      },
+      "samples": [
+        {
+          "id": "s1",
+          "label": "Sample A",
+          "value": 16.2
+        },
+        {
+          "id": "s2",
+          "label": "Sample B",
+          "value": 13.75
+        },
+        {
+          "id": "s3",
+          "label": "Sample C",
+          "value": 9.5
+        },
+        {
+          "id": "s4",
+          "label": "Sample D",
+          "value": 12.1
+        },
+        {
+          "id": "s5",
+          "label": "Sample E",
+          "value": 8.25
+        }
+      ]
+    },
+    "facet_bindings": [
+      {
+        "lens": "cube.lens.semantics",
+        "target_kind": "sample",
+        "target_id": "s5",
+        "declaration_ref": "fixture:VP04/chart_line/semantics/s5",
+        "note": "Authored fixture emphasis",
+        "basis": "declared_unverified"
+      }
+    ],
+    "basis": "declared_unverified"
+  },
+  "source_bundle_sha256": "06a60f5ad8115c7593df71bb1c5c076dcfaa3368a44220a3cb8650badbd990d3",
+  "projection": {
+    "view": "cube.diagramm",
+    "lens": "cube.lens.semantics",
+    "granularity": "standard",
+    "focus": {
+      "kind": "sample",
+      "id": "s5"
+    },
+    "budget": {
+      "max_items": 4,
+      "max_edges": 0
+    },
+    "overflow": "summarize"
+  }
+}

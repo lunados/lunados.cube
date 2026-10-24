@@ -1,0 +1,30 @@
+{
+  "format": "aiaeao.cube.vp03-release-manifest/1",
+  "profile": "P2-VP-LENSES/0.3.0",
+  "reference_version": "v9.4",
+  "scope": "local_stateless_display_only",
+  "resource_count": 139,
+  "fixture_count": 3,
+  "snapshot_count": 15,
+  "checksum_ledger_sha256": "e0bb3088c87e8a8fc1802efb1ef57817411ddeeafd24dbe48e1a785c1980aca7",
+  "prior_scope": "P2-VP-VIEWS/0.2.0 + original P2-VP-2D/0.1.0 unchanged",
+  "lens_ids": [
+    "cube.lens.semantics",
+    "cube.lens.provenance",
+    "cube.lens.execution",
+    "cube.lens.governance",
+    "cube.lens.epistemology"
+  ],
+  "views": [
+    "cube.flow",
+    "cube.diagramm",
+    "cube.tree"
+  ],
+  "deferred": [
+    "VP-04 granularity",
+    "3D",
+    "deployed API",
+    "independent semantic evidence",
+    "cross-platform browser acceptance"
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "format": "aiaeao.cube.vp04-projection-request/1",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reference_version": "v9.4",
+  "source_bundle": {
+    "format": "aiaeao.cube.vp03-lens-bundle/1",
+    "lens_profile": "P2-VP-LENSES/0.3.0",
+    "reference_version": "v9.4",
+    "source_view_sha256": "309d8e41e37af240fd16ef3fd95b10d76cee2da3a58681430585e44c3b71c2c1",
+    "view_plan": {
+      "printer_profile": "P2-VP-VIEWS/0.2.0",
+      "reference_version": "v9.4",
+      "view": "cube.diagramm",
+      "lens": "neutral",
+      "granularity": "standard",
+      "title": "Resource inventory · Declared sample",
+      "subtitle": "Synthetic planning counts · NOT observations of any repository",
+      "plot": "bar",
+      "metric": {
+        "id": "fixture.resource_count",
+        "unit": "items",
+        "scale": "linear_zero_based",
+        "declaration_ref": "fixture:VP02/measurements/resource-counts-v1",
+        "evidence_status": "declared_unverified"
+      },
+      "samples": [
+        {
+          "id": "artifact",
+          "label": "Artifacts",
+          "value": 12
+        },
+        {
+          "id": "source",
+          "label": "Sources",
+          "value": 7
+        },
+        {
+          "id": "evidence",
+          "label": "Evidence",
+          "value": 9
+        },
+        {
+          "id": "revisions",
+          "label": "Revisions",
+          "value": 4
+        }
+      ]
+    },
+    "facet_bindings": [
+      {
+        "lens": "cube.lens.semantics",
+        "target_kind": "metric",
+        "target_id": "fixture.resource_count",
+        "declaration_ref": "fixture:VP03/chart_inventory/semantics/metric/fixture.resource_count",
+        "note": "Compare the declared metric definition",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.semantics",
+        "target_kind": "sample",
+        "target_id": "artifact",
+        "declaration_ref": "fixture:VP03/chart_inventory/semantics/sample/artifact",
+        "note": "Declared category identity",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.provenance",
+        "target_kind": "metric",
+        "target_id": "fixture.resource_count",
+        "declaration_ref": "fixture:VP03/chart_inventory/provenance/metric/fixture.resource_count",
+        "note": "Inspect source and declared unit",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.provenance",
+        "target_kind": "sample",
+        "target_id": "source",
+        "declaration_ref": "fixture:VP03/chart_inventory/provenance/sample/source",
+        "note": "Declared source category",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.execution",
+        "target_kind": "sample",
+        "target_id": "revisions",
+        "declaration_ref": "fixture:VP03/chart_inventory/execution/sample/revisions",
+        "note": "Illustrative operational-planning emphasis",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.governance",
+        "target_kind": "sample",
+        "target_id": "evidence",
+        "declaration_ref": "fixture:VP03/chart_inventory/governance/sample/evidence",
+        "note": "Illustrative audit focus, no policy evaluation",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.epistemology",
+        "target_kind": "sample",
+        "target_id": "artifact",
+        "declaration_ref": "fixture:VP03/chart_inventory/epistemology/sample/artifact",
+        "note": "Illustrative data quality focus",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.epistemology",
+        "target_kind": "sample",
+        "target_id": "evidence",
+        "declaration_ref": "fixture:VP03/chart_inventory/epistemology/sample/evidence",
+        "note": "Declared evidence category, not confirmed proof",
+        "basis": "declared_unverified"
+      }
+    ],
+    "basis": "declared_unverified"
+  },
+  "source_bundle_sha256": "545e2d0f60db41409efdddf2c35f84bbd949d64ae464b9dc7b3cc1617a9725f7",
+  "projection": {
+    "view": "cube.diagramm",
+    "lens": "cube.lens.provenance",
+    "granularity": "overview",
+    "focus": {
+      "kind": "metric",
+      "id": "fixture.resource_count"
+    },
+    "budget": {
+      "max_items": 2,
+      "max_edges": 0
+    },
+    "overflow": "summarize"
+  }
+}

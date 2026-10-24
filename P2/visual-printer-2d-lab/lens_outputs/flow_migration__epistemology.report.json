@@ -1,0 +1,64 @@
+{
+  "format": "aiaeao.cube.vp03-print-report/1",
+  "lens_profile": "P2-VP-LENSES/0.3.0",
+  "reference_version": "v9.4",
+  "view": "cube.flow",
+  "lens": "cube.lens.epistemology",
+  "granularity": "standard",
+  "source_view_sha256": "c12f05d3648dd5052e3b010dac4103941d8b064e82e1a1b0137caeb2cb2c2a5c",
+  "base_view_svg_sha256": "414a0eae1594c21ef13e9dc6ce792500214c0a5878931493e4ca79ddebd9f7d3",
+  "svg_sha256": "47d94890ae46f948f8c63b76b9701bbe2d45855bc22198de6be5ef48635bc4b6",
+  "render_status": "PASS",
+  "focus_status": "declared_unverified",
+  "highlighted": [
+    {
+      "lens": "cube.lens.epistemology",
+      "target_kind": "node",
+      "target_id": "resource",
+      "declaration_ref": "fixture:VP03/flow_migration/epistemology/node/resource",
+      "note": "Illustrative knowledge claim under review",
+      "basis": "declared_unverified"
+    }
+  ],
+  "original_vp02_report": {
+    "format": "aiaeao.cube.vp02-print-report/1",
+    "printer_profile": "P2-VP-VIEWS/0.2.0",
+    "reference_version": "v9.4",
+    "view": "cube.flow",
+    "lens": "neutral",
+    "granularity": "standard",
+    "render_status": "PASS",
+    "svg_sha256": "414a0eae1594c21ef13e9dc6ce792500214c0a5878931493e4ca79ddebd9f7d3",
+    "semantic_conformance": "NOT_EVALUATED",
+    "epistemic_warrant": "NOT_EVALUATED",
+    "current_authority": "NOT_EVALUATED",
+    "canonical_admission": "NOT_EVALUATED",
+    "content_status": "declared_unverified",
+    "notices": [
+      "All source declarations are unverified presentation inputs.",
+      "Layout order, geometry, color and arrowheads do not assert semantic typing, causation or time truth."
+    ],
+    "displayed_item_ids": [
+      "artifact",
+      "resource"
+    ],
+    "displayed_edges": [
+      {
+        "from": "artifact",
+        "to": "resource",
+        "predicate_id": "references",
+        "declaration_ref": "P1.1:fixture/migration.binding-context.json#predicate_contracts/references"
+      }
+    ]
+  },
+  "content_status": "declared_unverified",
+  "semantic_conformance": "NOT_EVALUATED",
+  "epistemic_warrant": "NOT_EVALUATED",
+  "current_authority": "NOT_EVALUATED",
+  "canonical_admission": "NOT_EVALUATED",
+  "notices": [
+    "Every source element remains visible; VP-03 changes visual emphasis only.",
+    "Facet bindings are authored display declarations, not evidence of operational facts.",
+    "Lens color, form, layout and focus neither grant authority nor assert truth."
+  ]
+}

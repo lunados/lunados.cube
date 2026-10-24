@@ -1,0 +1,40 @@
+{
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "view": "cube.flow",
+  "lens": "neutral",
+  "granularity": "standard",
+  "title": "Artifact → Resource · Migration",
+  "subtitle": "Fixture: P1 migration relation · typing must be checked separately",
+  "nodes": [
+    {
+      "id": "artifact",
+      "anchor_id": "resource-objects.artifact",
+      "label": "Artifact · migration A",
+      "form_id": "form.resource-card",
+      "semantic_ref": "Y:α:Artifact[\"migration-artifact\"]"
+    },
+    {
+      "id": "resource",
+      "anchor_id": "resource-objects.resource",
+      "label": "Resource · migration R",
+      "form_id": "form.resource-card",
+      "semantic_ref": "Y:α:Resource[\"migration-resource\"]"
+    }
+  ],
+  "order": [
+    "artifact",
+    "resource"
+  ],
+  "edges": [
+    {
+      "from": "artifact",
+      "to": "resource",
+      "predicate_id": "references",
+      "declaration_ref": "P1.1:fixture/migration.binding-context.json#predicate_contracts/references",
+      "arrow_anchor_id": "relation-arrows.reference"
+    }
+  ],
+  "direction": "left-to-right",
+  "declaration_status": "declared_unverified"
+}

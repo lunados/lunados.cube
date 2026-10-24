@@ -1,0 +1,44 @@
+{
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "view": "cube.diagramm",
+  "lens": "neutral",
+  "granularity": "standard",
+  "title": "Comparative latency · Declared sample",
+  "subtitle": "Synthetic latency values · array order is not verified time order",
+  "plot": "line",
+  "metric": {
+    "id": "fixture.latency",
+    "unit": "ms",
+    "scale": "linear_zero_based",
+    "declaration_ref": "fixture:VP02/measurements/latency-v1",
+    "evidence_status": "declared_unverified"
+  },
+  "samples": [
+    {
+      "id": "s1",
+      "label": "Sample A",
+      "value": 16.2
+    },
+    {
+      "id": "s2",
+      "label": "Sample B",
+      "value": 13.75
+    },
+    {
+      "id": "s3",
+      "label": "Sample C",
+      "value": 9.5
+    },
+    {
+      "id": "s4",
+      "label": "Sample D",
+      "value": 12.1
+    },
+    {
+      "id": "s5",
+      "label": "Sample E",
+      "value": 8.25
+    }
+  ]
+}

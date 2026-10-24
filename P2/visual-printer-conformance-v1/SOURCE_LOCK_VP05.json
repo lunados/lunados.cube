@@ -1,0 +1,15 @@
+{
+  "format": "aiaeao.cube.vp05-source-lock/1",
+  "reference_version": "v9.4",
+  "snapshots": {
+    "visual-printer-2d-lab": {
+      "file_count": 141,
+      "file_inventory_sha256": "08e31016e281e7a7d1236e4931a2c6483d46b36deabd9fac1795858e3e782857"
+    },
+    "visual-printer-granularity-v1": {
+      "file_count": 89,
+      "file_inventory_sha256": "f5c19e68dea30d5f3dc7e121f018cab0d9f8c0e1e20d5373bef9f5a694495914"
+    }
+  },
+  "meaning": "byte-identical locally frozen VP-01–VP-04 snapshots, including their release manifests and integrity ledgers"
+}

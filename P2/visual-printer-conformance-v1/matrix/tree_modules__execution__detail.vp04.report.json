@@ -1,0 +1,145 @@
+{
+  "budget": {
+    "max_edges": 6,
+    "max_items": 7
+  },
+  "canonical_admission": "NOT_EVALUATED",
+  "chart_axis_rescaled": false,
+  "chart_window": "not_applicable",
+  "completeness": "COMPLETE_INPUT_VIEW",
+  "content_status": "declared_unverified",
+  "counts": {
+    "edges_omitted": 0,
+    "edges_shown": 4,
+    "facet_bindings_omitted": 0,
+    "items_omitted": 0,
+    "items_shown": 5,
+    "source_edges": 4,
+    "source_items": 5
+  },
+  "current_authority": "NOT_EVALUATED",
+  "displayed_facet_bindings": [
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/semantics/node/core",
+      "lens": "cube.lens.semantics",
+      "note": "Authored structural concept",
+      "target_id": "core",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/semantics/node/adapter",
+      "lens": "cube.lens.semantics",
+      "note": "Declared module kind",
+      "target_id": "adapter",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/provenance/node/connector",
+      "lens": "cube.lens.provenance",
+      "note": "Inspect declared connector role",
+      "target_id": "connector",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/provenance/edge/e3",
+      "lens": "cube.lens.provenance",
+      "note": "Inspect authored hierarchy pointer",
+      "target_id": "e3",
+      "target_kind": "edge"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/execution/node/runtime",
+      "lens": "cube.lens.execution",
+      "note": "Conceptual runtime module, not executed",
+      "target_id": "runtime",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/execution/node/toolbox",
+      "lens": "cube.lens.execution",
+      "note": "Conceptual tool collection",
+      "target_id": "toolbox",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/governance/node/core",
+      "lens": "cube.lens.governance",
+      "note": "Illustrative boundary of the group",
+      "target_id": "core",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/governance/edge/e2",
+      "lens": "cube.lens.governance",
+      "note": "Inspect the declared grouping link",
+      "target_id": "e2",
+      "target_kind": "edge"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/epistemology/node/connector",
+      "lens": "cube.lens.epistemology",
+      "note": "Open design assumption for review",
+      "target_id": "connector",
+      "target_kind": "node"
+    }
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "focus": null,
+  "format": "aiaeao.cube.vp04-print-report/1",
+  "granularity": "detail",
+  "lens": "cube.lens.execution",
+  "lens_emphasis": "declared_unverified",
+  "notices": [
+    "Aggregated count is display-only: no virtual entity, predicate or measurement was synthesized.",
+    "Every omitted element and edge is retained by identifier in this report and SVG metadata.",
+    "Chart subset scaling must not be compared across levels unless chart_axis_rescaled=false.",
+    "Layouts, lens markers, focus and filtering never imply verified truth or granted authority."
+  ],
+  "omitted_edges": [],
+  "omitted_facet_bindings": [],
+  "omitted_item_ids": [],
+  "overflow": "summarize",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reduced_view_sha256": "27fbfe48db7518acc7927ea5f579a2ece0a2cd43e4f0fb6fa444bc4843e09444",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "shown_edges": [
+    {
+      "projected_edge_id": "e1",
+      "source_edge_id": "e1"
+    },
+    {
+      "projected_edge_id": "e2",
+      "source_edge_id": "e2"
+    },
+    {
+      "projected_edge_id": "e3",
+      "source_edge_id": "e3"
+    },
+    {
+      "projected_edge_id": "e4",
+      "source_edge_id": "e4"
+    }
+  ],
+  "shown_item_ids": [
+    "core",
+    "runtime",
+    "adapter",
+    "connector",
+    "toolbox"
+  ],
+  "source_bundle_sha256": "01d07868b1f71e03c2a240ac83e31627c63cf5aa84f09c211e704d762ae51e15",
+  "source_view_sha256": "27fbfe48db7518acc7927ea5f579a2ece0a2cd43e4f0fb6fa444bc4843e09444",
+  "svg_sha256": "95194411a87cbe1298b52d1f98ef987fee37cb3c9524d68141df0cd2acfe8373",
+  "view": "cube.tree"
+}

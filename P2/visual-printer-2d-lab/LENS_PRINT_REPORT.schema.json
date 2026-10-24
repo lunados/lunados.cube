@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:vp03:print-report:0.3.0",
+  "title": "VP-03 lens printing report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "lens_profile",
+    "reference_version",
+    "view",
+    "lens",
+    "granularity",
+    "source_view_sha256",
+    "base_view_svg_sha256",
+    "svg_sha256",
+    "render_status",
+    "focus_status",
+    "highlighted",
+    "original_vp02_report",
+    "content_status",
+    "semantic_conformance",
+    "epistemic_warrant",
+    "current_authority",
+    "canonical_admission",
+    "notices"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.vp03-print-report/1"
+    },
+    "lens_profile": {
+      "const": "P2-VP-LENSES/0.3.0"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "view": {
+      "enum": [
+        "cube.flow",
+        "cube.diagramm",
+        "cube.tree"
+      ]
+    },
+    "lens": {
+      "enum": [
+        "cube.lens.semantics",
+        "cube.lens.provenance",
+        "cube.lens.execution",
+        "cube.lens.governance",
+        "cube.lens.epistemology"
+      ]
+    },
+    "granularity": {
+      "const": "standard"
+    },
+    "source_view_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "base_view_svg_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "svg_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "render_status": {
+      "const": "PASS"
+    },
+    "focus_status": {
+      "const": "declared_unverified"
+    },
+    "highlighted": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "lens",
+          "target_kind",
+          "target_id",
+          "declaration_ref",
+          "note",
+          "basis"
+        ],
+        "properties": {
+          "lens": {
+            "enum": [
+              "cube.lens.semantics",
+              "cube.lens.provenance",
+              "cube.lens.execution",
+              "cube.lens.governance",
+              "cube.lens.epistemology"
+            ]
+          },
+          "target_kind": {
+            "enum": [
+              "node",
+              "edge",
+              "metric",
+              "sample"
+            ]
+          },
+          "target_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+          },
+          "declaration_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 180,
+            "pattern": "^(fixture:|decl:)"
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "basis": {
+            "const": "declared_unverified"
+          }
+        }
+      }
+    },
+    "original_vp02_report": {
+      "type": "object"
+    },
+    "content_status": {
+      "const": "declared_unverified"
+    },
+    "semantic_conformance": {
+      "const": "NOT_EVALUATED"
+    },
+    "epistemic_warrant": {
+      "const": "NOT_EVALUATED"
+    },
+    "current_authority": {
+      "const": "NOT_EVALUATED"
+    },
+    "canonical_admission": {
+      "const": "NOT_EVALUATED"
+    },
+    "notices": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

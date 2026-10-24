@@ -1,0 +1,235 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "completeness": "PARTIAL_EXPLICIT",
+  "conformance": {
+    "canonical_admission": "NOT_EVALUATED",
+    "chart_axis_rescaled": false,
+    "completeness": "PARTIAL_EXPLICIT",
+    "current_authority": "NOT_EVALUATED",
+    "decision": {
+      "action": "SINGLE_DISCLOSED",
+      "rationale": "intentional bounded reduction with explicit item/edge disclosure",
+      "status": "descriptive_display_only"
+    },
+    "dimensions": {
+      "granularity": "overview",
+      "lens": "cube.lens.governance",
+      "view": "cube.tree"
+    },
+    "displayed_item_ids": [
+      "core",
+      "runtime",
+      "adapter"
+    ],
+    "displayed_lens_declarations": 5,
+    "displayed_source_edge_ids": [
+      "e1",
+      "e2"
+    ],
+    "epistemic_warrant": "NOT_EVALUATED",
+    "format": "aiaeao.cube.vp05-conformance-report/1",
+    "invariants_passed": [
+      "SOURCE_SHA256_LOCK",
+      "CUBE_VIEW_NAMESPACE",
+      "DECLARED_LENS_ONLY",
+      "GRANULARITY_SCOPE",
+      "EXACT_ITEM_PARTITION",
+      "EXACT_EDGE_PARTITION",
+      "LOSS_LEDGER_BALANCED",
+      "ORIGINAL_ITEMS_UNCHANGED",
+      "ORIGINAL_EDGES_UNCHANGED",
+      "TREE_ANCESTOR_CLOSURE",
+      "LENS_EDGE_REMAP_DECLARED",
+      "EXACT_LENS_BINDING_PARTITION",
+      "SVG_SOURCE_LOCK",
+      "NO_ACTIVE_SVG_CONTENT",
+      "ONE_EMBEDDED_LOSS_LEDGER",
+      "EMBEDDED_REPORT_MATCH",
+      "NO_SEMANTIC_AUTHORITY_PROMOTION",
+      "SOURCE_IS_DECLARED_UNVERIFIED"
+    ],
+    "limits": [
+      "Split feasibility is a heuristic, not a generated multi-page export or optimal partition",
+      "Glyph rendering varies with installed fonts",
+      "P1 semantic conformance is not evaluated by the SVG printer"
+    ],
+    "omitted_item_ids": [
+      "connector",
+      "toolbox"
+    ],
+    "omitted_lens_declarations": 4,
+    "omitted_source_edge_ids": [
+      "e3",
+      "e4"
+    ],
+    "profile": "P2-VP-CONFORMANCE/0.5.0",
+    "reference_version": "v9.4",
+    "source_bundle_sha256": "01d07868b1f71e03c2a240ac83e31627c63cf5aa84f09c211e704d762ae51e15",
+    "source_status": "declared_unverified",
+    "split_feasibility": {
+      "estimated_panel_count": 3,
+      "is_minimum_proven": false,
+      "panels": [
+        {
+          "focus": null,
+          "shown_edge_ids": [
+            "e1",
+            "e2"
+          ],
+          "shown_item_ids": [
+            "adapter",
+            "core",
+            "runtime"
+          ]
+        },
+        {
+          "focus": {
+            "id": "e3",
+            "kind": "edge"
+          },
+          "shown_edge_ids": [
+            "e2",
+            "e3"
+          ],
+          "shown_item_ids": [
+            "adapter",
+            "connector",
+            "core"
+          ]
+        },
+        {
+          "focus": {
+            "id": "e4",
+            "kind": "edge"
+          },
+          "shown_edge_ids": [
+            "e2",
+            "e4"
+          ],
+          "shown_item_ids": [
+            "adapter",
+            "core",
+            "toolbox"
+          ]
+        }
+      ],
+      "panels_materialized": false,
+      "repeated_item_ids": [
+        "adapter",
+        "core"
+      ],
+      "status": "FEASIBLE",
+      "strategy": "focused_panels_from_immutable_source",
+      "unavailable_focus_count": 0,
+      "uncovered_edge_ids": [],
+      "uncovered_item_ids": []
+    },
+    "status": "PASS",
+    "svg_sha256": "e9bd5847f0f526d4a9551e139f2eb4c0259496a95399ca765707dde78ddc4a57",
+    "vp04_report_sha256": "79fa9c4ef6b301ab525ade6007e7b7bd3484f7b19f003b23130926c073b4548a"
+  },
+  "current_authority": "NOT_EVALUATED",
+  "decision": {
+    "action": "SINGLE_DISCLOSED",
+    "rationale": "intentional bounded reduction with explicit item/edge disclosure",
+    "status": "descriptive_display_only"
+  },
+  "dimensions": {
+    "granularity": "overview",
+    "lens": "cube.lens.governance",
+    "view": "cube.tree"
+  },
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp06-print-result/1",
+  "limitations": [
+    "The source and facet declarations are unverified",
+    "P1 semantic conformance is not evaluated",
+    "Font availability varies by rendering environment",
+    "Split feasibility is not an automatic multi-SVG export"
+  ],
+  "loss_ledger": {
+    "displayed_item_ids": [
+      "core",
+      "runtime",
+      "adapter"
+    ],
+    "displayed_lens_declarations": 5,
+    "displayed_source_edge_ids": [
+      "e1",
+      "e2"
+    ],
+    "omitted_item_ids": [
+      "connector",
+      "toolbox"
+    ],
+    "omitted_lens_declarations": 4,
+    "omitted_source_edge_ids": [
+      "e3",
+      "e4"
+    ]
+  },
+  "profile": "P2-VP/1.0.0-rc1",
+  "reference_version": "v9.4",
+  "request_sha256": "c9a1fe23829488c3883371aa6b1e054c0ded5aae539392d91d59c8e9f641158e",
+  "source_bundle_sha256": "01d07868b1f71e03c2a240ac83e31627c63cf5aa84f09c211e704d762ae51e15",
+  "split_feasibility": {
+    "estimated_panel_count": 3,
+    "is_minimum_proven": false,
+    "panels": [
+      {
+        "focus": null,
+        "shown_edge_ids": [
+          "e1",
+          "e2"
+        ],
+        "shown_item_ids": [
+          "adapter",
+          "core",
+          "runtime"
+        ]
+      },
+      {
+        "focus": {
+          "id": "e3",
+          "kind": "edge"
+        },
+        "shown_edge_ids": [
+          "e2",
+          "e3"
+        ],
+        "shown_item_ids": [
+          "adapter",
+          "connector",
+          "core"
+        ]
+      },
+      {
+        "focus": {
+          "id": "e4",
+          "kind": "edge"
+        },
+        "shown_edge_ids": [
+          "e2",
+          "e4"
+        ],
+        "shown_item_ids": [
+          "adapter",
+          "core",
+          "toolbox"
+        ]
+      }
+    ],
+    "panels_materialized": false,
+    "repeated_item_ids": [
+      "adapter",
+      "core"
+    ],
+    "status": "FEASIBLE",
+    "strategy": "focused_panels_from_immutable_source",
+    "unavailable_focus_count": 0,
+    "uncovered_edge_ids": [],
+    "uncovered_item_ids": []
+  },
+  "status": "PASS",
+  "svg_sha256": "e9bd5847f0f526d4a9551e139f2eb4c0259496a95399ca765707dde78ddc4a57"
+}

@@ -1,0 +1,29 @@
+{
+  "3d": false,
+  "auto_multisvg": false,
+  "baseline_tests": 191,
+  "date": "2026-10-24",
+  "delivery_mode": "offline_python_cli_plus_opt_in_static_metadata",
+  "file_count": 34,
+  "format": "aiaeao.cube.vp06-release-manifest/1",
+  "golden_svgs": 4,
+  "matrix_cases": 90,
+  "matrix_expected_rejections": 36,
+  "matrix_positive": 54,
+  "nonimplications": [
+    "not_P1_semantic_validation",
+    "not_empirical_proof",
+    "not_current_authority",
+    "not_admission",
+    "not_a_web_application"
+  ],
+  "profile": "P2-VP/1.0.0-rc1",
+  "public_overlay": "AIAEAO_Pure_Cube_P0_v9.4/validation/v1/visual/printer/v1/",
+  "publication_status": "local_release_candidate_unpublished",
+  "reference_version": "v9.4",
+  "remote_renderer_available": false,
+  "sha256_ledger_sha256": "b5409386be3efad7a4690c7f4cb30a49cd0151f583138f9ef17cf6ba11ee0969",
+  "source_lock": "VP06_SOURCE_LOCK.json",
+  "total_unit_tests": 237,
+  "vp06_tests": 46
+}

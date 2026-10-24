@@ -1,0 +1,17 @@
+{
+  "format": "aiaeao.cube.vp04-local-test-report/1",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "baseline_tests": 113,
+  "vp04_tests": 36,
+  "total_unit_tests": 149,
+  "golden_requests": 20,
+  "golden_svgs": 20,
+  "golden_json_reports": 20,
+  "draft_2020_12_validated_requests": 20,
+  "draft_2020_12_validated_reports": 20,
+  "raster_previews": 9,
+  "manual_visual_review": "NOT_EVALUATED",
+  "macos_safari_crossfont": "NOT_EVALUATED",
+  "p1_semantic_authority": "NOT_EVALUATED",
+  "scope": "bounded local fixture evaluation; no new 3D/web service/interactive app"
+}

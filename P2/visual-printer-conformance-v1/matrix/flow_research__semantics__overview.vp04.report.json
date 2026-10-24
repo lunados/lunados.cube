@@ -1,0 +1,77 @@
+{
+  "budget": {
+    "max_edges": 1,
+    "max_items": 2
+  },
+  "canonical_admission": "NOT_EVALUATED",
+  "chart_axis_rescaled": false,
+  "chart_window": "not_applicable",
+  "completeness": "PARTIAL_EXPLICIT",
+  "content_status": "declared_unverified",
+  "counts": {
+    "edges_omitted": 1,
+    "edges_shown": 1,
+    "facet_bindings_omitted": 0,
+    "items_omitted": 1,
+    "items_shown": 2,
+    "source_edges": 2,
+    "source_items": 3
+  },
+  "current_authority": "NOT_EVALUATED",
+  "displayed_facet_bindings": [
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP04/flow_research/semantics/annotation-c",
+      "lens": "cube.lens.semantics",
+      "note": "Authored fixture emphasis",
+      "target_id": "annotation-c",
+      "target_kind": "node"
+    }
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "focus": null,
+  "format": "aiaeao.cube.vp04-print-report/1",
+  "granularity": "overview",
+  "lens": "cube.lens.semantics",
+  "lens_emphasis": "declared_unverified",
+  "notices": [
+    "Aggregated count is display-only: no virtual entity, predicate or measurement was synthesized.",
+    "Every omitted element and edge is retained by identifier in this report and SVG metadata.",
+    "Chart subset scaling must not be compared across levels unless chart_axis_rescaled=false.",
+    "Layouts, lens markers, focus and filtering never imply verified truth or granted authority."
+  ],
+  "omitted_edges": [
+    {
+      "declaration_ref": "fixture:VP02/relations/e1",
+      "from": "annotation-a",
+      "predicate_id": "related",
+      "reason": "endpoint_omitted",
+      "source_edge_id": "e1",
+      "to": "annotation-b"
+    }
+  ],
+  "omitted_facet_bindings": [],
+  "omitted_item_ids": [
+    "annotation-a"
+  ],
+  "overflow": "summarize",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reduced_view_sha256": "e96df860900577a5a0f1abe43e630f577cc50794162735f5747cdeb633423c38",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "shown_edges": [
+    {
+      "projected_edge_id": "e1",
+      "source_edge_id": "e2"
+    }
+  ],
+  "shown_item_ids": [
+    "annotation-b",
+    "annotation-c"
+  ],
+  "source_bundle_sha256": "c1138e213496330d255da84cac03bebf77dac603dc2739fe4259a9fc6b048ee9",
+  "source_view_sha256": "9b8b1feea9772bead05dff5b8bf6c77f741714892fe205efc788d3993e721e7d",
+  "svg_sha256": "4983ba5795a475742851868a3d0478cba2da666420244d92653f6f3db5165b87",
+  "view": "cube.flow"
+}

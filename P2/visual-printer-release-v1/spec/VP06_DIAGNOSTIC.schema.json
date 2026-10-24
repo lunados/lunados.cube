@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"urn:aiaeao:vp06:diagnostic:1",
+  "title":"AIAEAO VP-06 local diagnostic",
+  "type":"object","additionalProperties":false,
+  "required":["format","profile","status","code","stage","message","files_written","epistemic_warrant","current_authority","canonical_admission"],
+  "properties":{
+    "format":{"const":"aiaeao.cube.vp06-diagnostic/1"},
+    "profile":{"const":"P2-VP/1.0.0-rc1"},
+    "status":{"const":"FAIL"},
+    "code":{"type":"string","pattern":"^VP06_[A-Z0-9_]+$"},
+    "stage":{"enum":["input","provenance","view","lens","granularity","projection","output"]},
+    "message":{"type":"string","minLength":1},
+    "files_written":{"const":false},
+    "epistemic_warrant":{"const":"NOT_EVALUATED"},
+    "current_authority":{"const":"NOT_EVALUATED"},
+    "canonical_admission":{"const":"NOT_EVALUATED"}
+  }
+}

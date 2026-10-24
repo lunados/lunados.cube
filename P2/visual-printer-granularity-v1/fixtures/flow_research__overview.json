@@ -1,0 +1,92 @@
+{
+  "format": "aiaeao.cube.vp04-projection-request/1",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reference_version": "v9.4",
+  "source_bundle": {
+    "format": "aiaeao.cube.vp03-lens-bundle/1",
+    "lens_profile": "P2-VP-LENSES/0.3.0",
+    "reference_version": "v9.4",
+    "source_view_sha256": "9b8b1feea9772bead05dff5b8bf6c77f741714892fe205efc788d3993e721e7d",
+    "view_plan": {
+      "printer_profile": "P2-VP-VIEWS/0.2.0",
+      "reference_version": "v9.4",
+      "view": "cube.flow",
+      "lens": "neutral",
+      "granularity": "standard",
+      "title": "Annotation links · Research",
+      "subtitle": "Illustrative extension of P1 metaphysics fixture · declarations unverified",
+      "nodes": [
+        {
+          "id": "annotation-a",
+          "anchor_id": "resource-objects.evidence",
+          "label": "Annotation / Claim A",
+          "form_id": "form.resource-card",
+          "semantic_ref": "fixture:metaphysics/annotation-a"
+        },
+        {
+          "id": "annotation-b",
+          "anchor_id": "resource-objects.evidence",
+          "label": "Annotation / Claim B",
+          "form_id": "form.resource-card",
+          "semantic_ref": "fixture:metaphysics/annotation-b"
+        },
+        {
+          "id": "annotation-c",
+          "anchor_id": "resource-objects.source",
+          "label": "Source / Claim C",
+          "form_id": "form.resource-card",
+          "semantic_ref": "fixture:metaphysics/source-c"
+        }
+      ],
+      "order": [
+        "annotation-a",
+        "annotation-b",
+        "annotation-c"
+      ],
+      "edges": [
+        {
+          "from": "annotation-a",
+          "to": "annotation-b",
+          "predicate_id": "related",
+          "declaration_ref": "fixture:VP02/relations/e1",
+          "arrow_anchor_id": "relation-arrows.reference"
+        },
+        {
+          "from": "annotation-b",
+          "to": "annotation-c",
+          "predicate_id": "references",
+          "declaration_ref": "fixture:VP02/relations/e2",
+          "arrow_anchor_id": "relation-arrows.reference"
+        }
+      ],
+      "direction": "top-down",
+      "declaration_status": "declared_unverified"
+    },
+    "facet_bindings": [
+      {
+        "lens": "cube.lens.semantics",
+        "target_kind": "node",
+        "target_id": "annotation-c",
+        "declaration_ref": "fixture:VP04/flow_research/semantics/annotation-c",
+        "note": "Authored fixture emphasis",
+        "basis": "declared_unverified"
+      }
+    ],
+    "basis": "declared_unverified"
+  },
+  "source_bundle_sha256": "c1138e213496330d255da84cac03bebf77dac603dc2739fe4259a9fc6b048ee9",
+  "projection": {
+    "view": "cube.flow",
+    "lens": "cube.lens.semantics",
+    "granularity": "overview",
+    "focus": {
+      "kind": "node",
+      "id": "annotation-c"
+    },
+    "budget": {
+      "max_items": 2,
+      "max_edges": 1
+    },
+    "overflow": "summarize"
+  }
+}

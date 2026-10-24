@@ -1,0 +1,52 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "content_status": "declared_unverified",
+  "current_authority": "NOT_EVALUATED",
+  "displayed_edges": [
+    {
+      "declaration_ref": "fixture:VP02/tree/t1",
+      "from": "core",
+      "predicate_id": "contains",
+      "to": "runtime"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t2",
+      "from": "core",
+      "predicate_id": "contains",
+      "to": "adapter"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t3",
+      "from": "core",
+      "predicate_id": "contains",
+      "to": "connector"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t4",
+      "from": "core",
+      "predicate_id": "contains",
+      "to": "toolbox"
+    }
+  ],
+  "displayed_item_ids": [
+    "core",
+    "runtime",
+    "adapter",
+    "connector",
+    "toolbox"
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp02-print-report/1",
+  "granularity": "standard",
+  "lens": "neutral",
+  "notices": [
+    "All source declarations are unverified presentation inputs.",
+    "Layout order, geometry, color and arrowheads do not assert semantic typing, causation or time truth."
+  ],
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "svg_sha256": "9d32ce3516f14270c98e0efd78dfd793ae6d991198d85aafb705c6b72a6293b5",
+  "view": "cube.tree"
+}

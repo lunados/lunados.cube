@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:vp04:projection-request:0.4.0",
+  "title": "AIAEAO VP-04 Projection Request",
+  "description": "Standalone envelope. The frozen VP03 bundle contract, cross-field budget ranges, source locks and graph invariants are validated programmatically by vpgranularity.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "profile",
+    "reference_version",
+    "source_bundle",
+    "source_bundle_sha256",
+    "projection"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.vp04-projection-request/1"
+    },
+    "profile": {
+      "const": "P2-VP-GRANULARITY/0.4.0"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "source_bundle": {
+      "type": "object",
+      "required": [
+        "format",
+        "lens_profile",
+        "reference_version",
+        "source_view_sha256",
+        "view_plan",
+        "facet_bindings",
+        "basis"
+      ]
+    },
+    "source_bundle_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "projection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "view",
+        "lens",
+        "granularity",
+        "focus",
+        "budget",
+        "overflow"
+      ],
+      "properties": {
+        "view": {
+          "enum": [
+            "cube.flow",
+            "cube.diagramm",
+            "cube.tree"
+          ]
+        },
+        "lens": {
+          "enum": [
+            "cube.lens.semantics",
+            "cube.lens.provenance",
+            "cube.lens.execution",
+            "cube.lens.governance",
+            "cube.lens.epistemology"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "overview",
+            "standard",
+            "detail"
+          ]
+        },
+        "focus": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "kind",
+                "id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "node",
+                    "edge",
+                    "sample",
+                    "metric"
+                  ]
+                },
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+                }
+              }
+            }
+          ]
+        },
+        "budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "max_items",
+            "max_edges"
+          ],
+          "properties": {
+            "max_items": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 7
+            },
+            "max_edges": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 8
+            }
+          }
+        },
+        "overflow": {
+          "enum": [
+            "summarize",
+            "reject"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "content_status": "declared_unverified",
+  "current_authority": "NOT_EVALUATED",
+  "displayed_edges": [
+    {
+      "declaration_ref": "fixture:VP02/relations/e1",
+      "from": "annotation-a",
+      "predicate_id": "related",
+      "to": "annotation-b"
+    },
+    {
+      "declaration_ref": "fixture:VP02/relations/e2",
+      "from": "annotation-b",
+      "predicate_id": "references",
+      "to": "annotation-c"
+    }
+  ],
+  "displayed_item_ids": [
+    "annotation-a",
+    "annotation-b",
+    "annotation-c"
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp02-print-report/1",
+  "granularity": "standard",
+  "lens": "neutral",
+  "notices": [
+    "All source declarations are unverified presentation inputs.",
+    "Layout order, geometry, color and arrowheads do not assert semantic typing, causation or time truth."
+  ],
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "svg_sha256": "63dffded2088a0ead5b1f655a907e6b8face4d5aaf0ede518ccb647388748dfe",
+  "view": "cube.flow"
+}

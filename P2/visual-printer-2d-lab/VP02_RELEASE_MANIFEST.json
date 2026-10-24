@@ -1,0 +1,78 @@
+{
+  "format": "aiaeao.cube.vp02-release-manifest/1",
+  "release": "VP-02",
+  "profile": "P2-VP-VIEWS/0.2.0",
+  "status": "local_experimental_automated_pass_visual_review_open",
+  "reference_version": "v9.4",
+  "baseline_profile": "P2-VP-2D/0.1.0",
+  "presentation_profile": "P1-VG-basic/1.0.0",
+  "views": [
+    "cube.flow",
+    "cube.diagramm",
+    "cube.tree"
+  ],
+  "planner_namespace_disjoint": true,
+  "frozen_projection": {
+    "lens": "neutral",
+    "granularity": "standard"
+  },
+  "svg_input_accepted": false,
+  "svg_output": true,
+  "stateful_application": false,
+  "network_runtime": false,
+  "canonical_ref_changes": false,
+  "three_dimensional": false,
+  "p1_semantic_conformance": "NOT_EVALUATED",
+  "reference_sources": {
+    "p0-concepts-v9.4.json": {
+      "sha256": "a15b0db3a3cfdb5874b8ab59de0ec9f4af08e8280e0634c48e3b37c3498000b8",
+      "bytes": 29731
+    },
+    "p0-core-v9.4.json": {
+      "sha256": "c8cefa62122e9256c553c2ba56a9d33359fc3e2e3065815484fc46d02d462e30",
+      "bytes": 4700
+    },
+    "p0-symbols-v9.4.json": {
+      "sha256": "7d35d3e855e94f7b77c8c52fa6bddc6265cae57576b1beb5b8869a4170c54656",
+      "bytes": 39986
+    },
+    "p1-anchors.json": {
+      "sha256": "1fdb6926d94600ca8d53069125d1d819ce2c727c85febb07b01ce16e7bdeffe2",
+      "bytes": 58903
+    },
+    "p1-form-color.json": {
+      "sha256": "27be9aed784c82d038d7f43b04ec06a4ea1eb3d2ffdf1e8e1a7eb6b501800200",
+      "bytes": 10137
+    },
+    "p1-render-plan.schema.json": {
+      "sha256": "af2b8f5847cfa67266eac3c8e04970b65ebf8d4f0bf3eaa2837edcc04e9a4711",
+      "bytes": 2399
+    }
+  },
+  "reference_counts": {
+    "unicode_anchors": 129,
+    "x_pairs": 5,
+    "baseline_svg_examples": 4
+  },
+  "test_coverage": {
+    "vp01_baseline_tests": 29,
+    "vp02_view_tests": 56,
+    "vp02_print_reports": 6,
+    "vp02_golden_svg": 6
+  },
+  "fixture_paths": [
+    "view_fixtures/01_cube_flow_migration.json",
+    "view_fixtures/02_cube_flow_research.json",
+    "view_fixtures/03_cube_diagramm_bar.json",
+    "view_fixtures/04_cube_diagramm_line.json",
+    "view_fixtures/05_cube_tree_modules.json",
+    "view_fixtures/06_cube_tree_resources.json"
+  ],
+  "image_reproducibility": "SVG byte-identical; PNG previews environment-dependent font rendering",
+  "release_files_excluding_manifests": 74,
+  "notes": [
+    "Do not overwrite P0 or P1; this is a self-contained local P2 lab.",
+    "The fixture values and relation declarations are not empirical facts.",
+    "Human visual QA remains to be completed on target browsers."
+  ]
+}

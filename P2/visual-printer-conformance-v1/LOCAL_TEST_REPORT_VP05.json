@@ -1,0 +1,22 @@
+{
+  "format": "aiaeao.cube.vp05-local-test-report/1",
+  "profile": "P2-VP-CONFORMANCE/0.5.0",
+  "baseline_tests": 149,
+  "new_tests": 42,
+  "total_tests": 191,
+  "matrix_total": 90,
+  "positive_cases": 54,
+  "expected_rejections": 36,
+  "positive_vp04_reports": 54,
+  "positive_vp05_reports": 54,
+  "decision_counts": {
+    "SINGLE_COMPLETE": 39,
+    "SINGLE_DISCLOSED": 13,
+    "SPLIT_RECOMMENDED": 2
+  },
+  "manual_visual_review": "NOT_EVALUATED",
+  "macos_font_conformance": "NOT_EVALUATED",
+  "auto_multipage_export": "NOT_IMPLEMENTED",
+  "P1_semantic_conformance": "NOT_EVALUATED",
+  "3D": "NOT_IMPLEMENTED"
+}

@@ -1,0 +1,32 @@
+{
+  "format": "aiaeao.cube.vp04-release-manifest/1",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reference_version": "v9.4",
+  "status": "local_conformance_pass_release_candidate",
+  "contains_immutable_vp03_baseline": true,
+  "baseline_tests": 113,
+  "new_unit_tests": 36,
+  "total_tests": 149,
+  "fixture_count": 20,
+  "golden_svg_count": 20,
+  "golden_report_count": 20,
+  "view_ids": [
+    "cube.flow",
+    "cube.diagramm",
+    "cube.tree"
+  ],
+  "granularity_ids": [
+    "overview",
+    "standard",
+    "detail"
+  ],
+  "file_count": 87,
+  "checksum_ledger_sha256": "6baec0767231b05ecbab59c797048182a91ca42cd460081c4d06d9ce0af897f3",
+  "release_eligibility": "local_review_only",
+  "authority_guards": [
+    "no_P1_ontology_or_validator_change",
+    "not_a_semantic_typing_proof",
+    "no_3D",
+    "no_app_or_server"
+  ]
+}

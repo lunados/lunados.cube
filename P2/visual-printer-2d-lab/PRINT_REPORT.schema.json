@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:vp02:print-report:1",
+  "title": "AIAEAO VP-02 print report / 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "printer_profile",
+    "reference_version",
+    "view",
+    "lens",
+    "granularity",
+    "render_status",
+    "svg_sha256",
+    "semantic_conformance",
+    "epistemic_warrant",
+    "current_authority",
+    "canonical_admission",
+    "content_status",
+    "notices"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.vp02-print-report/1"
+    },
+    "printer_profile": {
+      "const": "P2-VP-VIEWS/0.2.0"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "view": {
+      "enum": [
+        "cube.flow",
+        "cube.diagramm",
+        "cube.tree"
+      ]
+    },
+    "lens": {
+      "const": "neutral"
+    },
+    "granularity": {
+      "const": "standard"
+    },
+    "render_status": {
+      "const": "PASS"
+    },
+    "svg_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "semantic_conformance": {
+      "const": "NOT_EVALUATED"
+    },
+    "epistemic_warrant": {
+      "const": "NOT_EVALUATED"
+    },
+    "current_authority": {
+      "const": "NOT_EVALUATED"
+    },
+    "canonical_admission": {
+      "const": "NOT_EVALUATED"
+    },
+    "content_status": {
+      "const": "declared_unverified"
+    },
+    "notices": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2
+    },
+    "displayed_item_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+      }
+    },
+    "displayed_edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "predicate_id",
+          "declaration_ref"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+          },
+          "predicate_id": {
+            "type": "string"
+          },
+          "declaration_ref": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sample_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+      }
+    },
+    "measurement_ref": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "view": {
+            "const": "cube.diagramm"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "sample_ids",
+          "measurement_ref",
+          "unit"
+        ]
+      },
+      "else": {
+        "required": [
+          "displayed_item_ids",
+          "displayed_edges"
+        ]
+      }
+    }
+  ]
+}

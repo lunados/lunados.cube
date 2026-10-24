@@ -1,0 +1,37 @@
+{
+  "printer_profile": "P2-VP-2D/0.1.0",
+  "reference_version": "v9.4",
+  "view_id": "fixture.sequence",
+  "title": "Thread · Ordered declaration",
+  "subtitle": "Ordering and timestamps are fixture labels, not provenance or timing proof",
+  "template": "sequence_thread",
+  "sequence_basis": "explicit_fixture_order_unverified",
+  "items": [
+    {
+      "id": "run",
+      "anchor_id": "skeleton-planning.run",
+      "label": "Run · planned example",
+      "form_id": "form.planning-node",
+      "time_label": "step 1 · declared"
+    },
+    {
+      "id": "running",
+      "anchor_id": "action-lifecycle.running",
+      "label": "Running · claimed state",
+      "form_id": "form.state-badge",
+      "time_label": "step 2 · declared"
+    },
+    {
+      "id": "artifact",
+      "anchor_id": "resource-objects.artifact",
+      "label": "Artifact · expected",
+      "form_id": "form.resource-card",
+      "time_label": "step 3 · declared"
+    }
+  ],
+  "order": [
+    "run",
+    "running",
+    "artifact"
+  ]
+}

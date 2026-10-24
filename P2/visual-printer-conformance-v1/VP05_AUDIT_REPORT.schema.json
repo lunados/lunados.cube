@@ -1,0 +1,289 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:vp05:audit-report:0.5.0",
+  "title": "AIAEAO VP05 Display Conformance Audit Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "profile",
+    "reference_version",
+    "status",
+    "dimensions",
+    "source_bundle_sha256",
+    "svg_sha256",
+    "vp04_report_sha256",
+    "invariants_passed",
+    "displayed_item_ids",
+    "omitted_item_ids",
+    "displayed_source_edge_ids",
+    "omitted_source_edge_ids",
+    "displayed_lens_declarations",
+    "omitted_lens_declarations",
+    "chart_axis_rescaled",
+    "completeness",
+    "decision",
+    "split_feasibility",
+    "epistemic_warrant",
+    "current_authority",
+    "canonical_admission",
+    "source_status",
+    "limits"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.vp05-conformance-report/1"
+    },
+    "profile": {
+      "const": "P2-VP-CONFORMANCE/0.5.0"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "status": {
+      "const": "PASS"
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "view",
+        "lens",
+        "granularity"
+      ],
+      "properties": {
+        "view": {
+          "enum": [
+            "cube.flow",
+            "cube.diagramm",
+            "cube.tree"
+          ]
+        },
+        "lens": {
+          "enum": [
+            "cube.lens.semantics",
+            "cube.lens.provenance",
+            "cube.lens.execution",
+            "cube.lens.governance",
+            "cube.lens.epistemology"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "overview",
+            "standard",
+            "detail"
+          ]
+        }
+      }
+    },
+    "source_bundle_sha256": {
+      "$ref": "#/$defs/sha"
+    },
+    "svg_sha256": {
+      "$ref": "#/$defs/sha"
+    },
+    "vp04_report_sha256": {
+      "$ref": "#/$defs/sha"
+    },
+    "invariants_passed": {
+      "type": "array",
+      "minItems": 14,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z0-9_]+$"
+      }
+    },
+    "displayed_item_ids": {
+      "$ref": "#/$defs/ids"
+    },
+    "omitted_item_ids": {
+      "$ref": "#/$defs/ids"
+    },
+    "displayed_source_edge_ids": {
+      "$ref": "#/$defs/ids"
+    },
+    "omitted_source_edge_ids": {
+      "$ref": "#/$defs/ids"
+    },
+    "displayed_lens_declarations": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "omitted_lens_declarations": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "chart_axis_rescaled": {
+      "type": "boolean"
+    },
+    "completeness": {
+      "enum": [
+        "COMPLETE_INPUT_VIEW",
+        "PARTIAL_EXPLICIT"
+      ]
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "rationale",
+        "status"
+      ],
+      "properties": {
+        "action": {
+          "enum": [
+            "SINGLE_COMPLETE",
+            "SINGLE_DISCLOSED",
+            "SPLIT_RECOMMENDED",
+            "REFOCUS_OR_RAISE_BUDGET"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 8
+        },
+        "status": {
+          "enum": [
+            "proposal_not_printed",
+            "descriptive_display_only"
+          ]
+        }
+      }
+    },
+    "split_feasibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "strategy",
+        "estimated_panel_count",
+        "panels",
+        "uncovered_item_ids",
+        "uncovered_edge_ids",
+        "repeated_item_ids",
+        "unavailable_focus_count",
+        "is_minimum_proven",
+        "panels_materialized"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "NOT_REQUIRED",
+            "FEASIBLE",
+            "NOT_FEASIBLE"
+          ]
+        },
+        "strategy": {
+          "const": "focused_panels_from_immutable_source"
+        },
+        "estimated_panel_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "panels": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "focus",
+              "shown_item_ids",
+              "shown_edge_ids"
+            ],
+            "properties": {
+              "focus": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "id"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "node",
+                          "edge",
+                          "sample"
+                        ]
+                      },
+                      "id": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "shown_item_ids": {
+                "$ref": "#/$defs/ids"
+              },
+              "shown_edge_ids": {
+                "$ref": "#/$defs/ids"
+              }
+            }
+          }
+        },
+        "uncovered_item_ids": {
+          "$ref": "#/$defs/ids"
+        },
+        "uncovered_edge_ids": {
+          "$ref": "#/$defs/ids"
+        },
+        "repeated_item_ids": {
+          "$ref": "#/$defs/ids"
+        },
+        "unavailable_focus_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "is_minimum_proven": {
+          "const": false
+        },
+        "panels_materialized": {
+          "const": false
+        }
+      }
+    },
+    "epistemic_warrant": {
+      "const": "NOT_EVALUATED"
+    },
+    "current_authority": {
+      "const": "NOT_EVALUATED"
+    },
+    "canonical_admission": {
+      "const": "NOT_EVALUATED"
+    },
+    "source_status": {
+      "const": "declared_unverified"
+    },
+    "limits": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

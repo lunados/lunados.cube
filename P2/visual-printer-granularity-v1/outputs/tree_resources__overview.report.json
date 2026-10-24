@@ -1,0 +1,100 @@
+{
+  "budget": {
+    "max_edges": 2,
+    "max_items": 3
+  },
+  "canonical_admission": "NOT_EVALUATED",
+  "chart_axis_rescaled": false,
+  "chart_window": "not_applicable",
+  "completeness": "PARTIAL_EXPLICIT",
+  "content_status": "declared_unverified",
+  "counts": {
+    "edges_omitted": 3,
+    "edges_shown": 2,
+    "facet_bindings_omitted": 0,
+    "items_omitted": 3,
+    "items_shown": 3,
+    "source_edges": 5,
+    "source_items": 6
+  },
+  "current_authority": "NOT_EVALUATED",
+  "displayed_facet_bindings": [
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP04/tree_resources/semantics/evidence",
+      "lens": "cube.lens.semantics",
+      "note": "Authored fixture emphasis",
+      "target_id": "evidence",
+      "target_kind": "node"
+    }
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "focus": null,
+  "format": "aiaeao.cube.vp04-print-report/1",
+  "granularity": "overview",
+  "lens": "cube.lens.semantics",
+  "lens_emphasis": "declared_unverified",
+  "notices": [
+    "Aggregated count is display-only: no virtual entity, predicate or measurement was synthesized.",
+    "Every omitted element and edge is retained by identifier in this report and SVG metadata.",
+    "Chart subset scaling must not be compared across levels unless chart_axis_rescaled=false.",
+    "Layouts, lens markers, focus and filtering never imply verified truth or granted authority."
+  ],
+  "omitted_edges": [
+    {
+      "declaration_ref": "fixture:VP02/tree/t2.2",
+      "from": "resource",
+      "predicate_id": "groups",
+      "reason": "endpoint_omitted",
+      "source_edge_id": "e2",
+      "to": "source"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t2.3",
+      "from": "resource",
+      "predicate_id": "groups",
+      "reason": "endpoint_omitted",
+      "source_edge_id": "e3",
+      "to": "cache"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t2.4",
+      "from": "artifact",
+      "predicate_id": "groups",
+      "reason": "endpoint_omitted",
+      "source_edge_id": "e4",
+      "to": "revision"
+    }
+  ],
+  "omitted_facet_bindings": [],
+  "omitted_item_ids": [
+    "source",
+    "cache",
+    "revision"
+  ],
+  "overflow": "summarize",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reduced_view_sha256": "01aad34bb541224c1ec26cd4ba1e3a689bb47e46ee6b6bbc0f385201e46536c8",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "shown_edges": [
+    {
+      "projected_edge_id": "e1",
+      "source_edge_id": "e1"
+    },
+    {
+      "projected_edge_id": "e2",
+      "source_edge_id": "e5"
+    }
+  ],
+  "shown_item_ids": [
+    "resource",
+    "artifact",
+    "evidence"
+  ],
+  "source_bundle_sha256": "ccb1a5a6d611aa40f0bc0ab4c07e017ccbe74a59b4fe35a747f76078ab4579df",
+  "source_view_sha256": "5b9f121c28ca76974cc9c930944b9e5f638fc4230e8e2a44944405aa426922a6",
+  "svg_sha256": "22132dcdd03483cc8cb9756de11c12d9c56c1f720a9af72fd33898ee40f9392e",
+  "view": "cube.tree"
+}

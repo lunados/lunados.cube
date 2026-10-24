@@ -1,0 +1,94 @@
+{
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "view": "cube.tree",
+  "lens": "neutral",
+  "granularity": "standard",
+  "title": "Resource family · Illustration",
+  "subtitle": "Explicitly authored grouping · no universal containment signature claimed",
+  "nodes": [
+    {
+      "id": "resource",
+      "anchor_id": "resource-objects.resource",
+      "label": "Resource collection",
+      "form_id": "form.resource-card"
+    },
+    {
+      "id": "artifact",
+      "anchor_id": "resource-objects.artifact",
+      "label": "Artifact",
+      "form_id": "form.resource-card"
+    },
+    {
+      "id": "source",
+      "anchor_id": "resource-objects.source",
+      "label": "Source",
+      "form_id": "form.resource-card"
+    },
+    {
+      "id": "revision",
+      "anchor_id": "resource-objects.revision",
+      "label": "Revision",
+      "form_id": "form.resource-card"
+    },
+    {
+      "id": "evidence",
+      "anchor_id": "resource-objects.evidence",
+      "label": "Evidence",
+      "form_id": "form.resource-card"
+    },
+    {
+      "id": "cache",
+      "anchor_id": "resource-objects.cache",
+      "label": "Cache",
+      "form_id": "form.resource-card"
+    }
+  ],
+  "order": [
+    "resource",
+    "artifact",
+    "source",
+    "cache",
+    "revision",
+    "evidence"
+  ],
+  "root_id": "resource",
+  "declaration_status": "declared_unverified",
+  "edges": [
+    {
+      "from": "resource",
+      "to": "artifact",
+      "predicate_id": "groups",
+      "declaration_ref": "fixture:VP02/tree/t2.1",
+      "arrow_anchor_id": "relation-arrows.reference"
+    },
+    {
+      "from": "resource",
+      "to": "source",
+      "predicate_id": "groups",
+      "declaration_ref": "fixture:VP02/tree/t2.2",
+      "arrow_anchor_id": "relation-arrows.reference"
+    },
+    {
+      "from": "resource",
+      "to": "cache",
+      "predicate_id": "groups",
+      "declaration_ref": "fixture:VP02/tree/t2.3",
+      "arrow_anchor_id": "relation-arrows.reference"
+    },
+    {
+      "from": "artifact",
+      "to": "revision",
+      "predicate_id": "groups",
+      "declaration_ref": "fixture:VP02/tree/t2.4",
+      "arrow_anchor_id": "relation-arrows.reference"
+    },
+    {
+      "from": "artifact",
+      "to": "evidence",
+      "predicate_id": "groups",
+      "declaration_ref": "fixture:VP02/tree/t2.5",
+      "arrow_anchor_id": "relation-arrows.reference"
+    }
+  ]
+}

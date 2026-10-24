@@ -1,0 +1,31 @@
+name: Cube VP06 Offline Visual Printer Conformance
+on:
+  push:
+    paths:
+      - 'P2/**'
+      - 'AIAEAO_Pure_Cube_P0_v9.4/validation/v1/visual/printer/v1/**'
+      - '.github/workflows/cube-vp06-conformance.yml'
+  pull_request:
+    paths:
+      - 'P2/**'
+      - 'AIAEAO_Pure_Cube_P0_v9.4/validation/v1/visual/printer/v1/**'
+      - '.github/workflows/cube-vp06-conformance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-conformance:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install independent JSON Schema oracle
+        run: python -m pip install 'jsonschema>=4,<5'
+      - name: Run VP01-VP06 comprehensive offline release gates
+        run: python P2/visual-printer-release-v1/scripts/verify_vp06.py

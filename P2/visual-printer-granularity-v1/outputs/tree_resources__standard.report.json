@@ -1,0 +1,92 @@
+{
+  "budget": {
+    "max_edges": 4,
+    "max_items": 5
+  },
+  "canonical_admission": "NOT_EVALUATED",
+  "chart_axis_rescaled": false,
+  "chart_window": "not_applicable",
+  "completeness": "PARTIAL_EXPLICIT",
+  "content_status": "declared_unverified",
+  "counts": {
+    "edges_omitted": 1,
+    "edges_shown": 4,
+    "facet_bindings_omitted": 0,
+    "items_omitted": 1,
+    "items_shown": 5,
+    "source_edges": 5,
+    "source_items": 6
+  },
+  "current_authority": "NOT_EVALUATED",
+  "displayed_facet_bindings": [
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP04/tree_resources/semantics/evidence",
+      "lens": "cube.lens.semantics",
+      "note": "Authored fixture emphasis",
+      "target_id": "evidence",
+      "target_kind": "node"
+    }
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "focus": null,
+  "format": "aiaeao.cube.vp04-print-report/1",
+  "granularity": "standard",
+  "lens": "cube.lens.semantics",
+  "lens_emphasis": "declared_unverified",
+  "notices": [
+    "Aggregated count is display-only: no virtual entity, predicate or measurement was synthesized.",
+    "Every omitted element and edge is retained by identifier in this report and SVG metadata.",
+    "Chart subset scaling must not be compared across levels unless chart_axis_rescaled=false.",
+    "Layouts, lens markers, focus and filtering never imply verified truth or granted authority."
+  ],
+  "omitted_edges": [
+    {
+      "declaration_ref": "fixture:VP02/tree/t2.4",
+      "from": "artifact",
+      "predicate_id": "groups",
+      "reason": "endpoint_omitted",
+      "source_edge_id": "e4",
+      "to": "revision"
+    }
+  ],
+  "omitted_facet_bindings": [],
+  "omitted_item_ids": [
+    "revision"
+  ],
+  "overflow": "summarize",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reduced_view_sha256": "e6ae6f86e0ff8b8083e21665406027de29ccd7c8b09fc83b04ceca92b0bbd6fc",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "shown_edges": [
+    {
+      "projected_edge_id": "e1",
+      "source_edge_id": "e1"
+    },
+    {
+      "projected_edge_id": "e2",
+      "source_edge_id": "e2"
+    },
+    {
+      "projected_edge_id": "e3",
+      "source_edge_id": "e3"
+    },
+    {
+      "projected_edge_id": "e4",
+      "source_edge_id": "e5"
+    }
+  ],
+  "shown_item_ids": [
+    "resource",
+    "artifact",
+    "source",
+    "cache",
+    "evidence"
+  ],
+  "source_bundle_sha256": "ccb1a5a6d611aa40f0bc0ab4c07e017ccbe74a59b4fe35a747f76078ab4579df",
+  "source_view_sha256": "5b9f121c28ca76974cc9c930944b9e5f638fc4230e8e2a44944405aa426922a6",
+  "svg_sha256": "285cec8fbc0ad647b296ac55afd5e52e06e9b92b4ae6bae1bc64a718e2b16d19",
+  "view": "cube.tree"
+}

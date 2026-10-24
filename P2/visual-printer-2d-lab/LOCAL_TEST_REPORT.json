@@ -1,0 +1,104 @@
+{
+  "format": "aiaeao.vp2d.local-experiment-report/1",
+  "version": "P2-VP-2D/0.1.0",
+  "status": "LAB_PASS_HUMAN_QA_OPEN",
+  "implemented": [
+    "VP-00 reference+scope",
+    "VP-01 deterministic 2D printer"
+  ],
+  "partial": [
+    "VP-02 raster inspection and readability review"
+  ],
+  "not_started": [
+    "VP-03 2D hardening",
+    "VP-04 distribution",
+    "VP-3D only after explicit go/no-go"
+  ],
+  "tests": {
+    "unittest_cases": 29,
+    "passed": 29,
+    "failed": 0,
+    "source_sha_locks": 6,
+    "canonical_unicode_anchors": 129,
+    "svg_fixtures": 4,
+    "svg_byte_reproducible": 4,
+    "cli_positive_negative": 2,
+    "xml_wellformed": 4
+  },
+  "rasterization": {
+    "tool": "CairoSVG",
+    "version": "2.8.2",
+    "svg_to_png_previews": 4,
+    "additional_grayscale_preview": 1,
+    "visually_inspected": [
+      "01_contract_pairs.png",
+      "02_migration_relation.png",
+      "03_thread_sequence.png",
+      "04_topology_blocks.png"
+    ],
+    "finding": "Initial default-font raster showed missing glyph boxes; separate Unicode glyph fallback prioritizing FreeSerif corrected this local CairoSVG display. Font match and exact letterform depend on system installation."
+  },
+  "browser": {
+    "headless_chromium": "NOT_EVALUATED_timeout_environment",
+    "macos_safari": "NOT_EVALUATED",
+    "macos_chrome": "NOT_EVALUATED"
+  },
+  "semantics": {
+    "P1_reference": "snapshot_only",
+    "P1_validation_invoked": false,
+    "authority_or_admission_checks": "NOT_EVALUATED",
+    "diagram_edges": "declared-only illustrative data; not independently typechecked"
+  },
+  "outputs": [
+    {
+      "file": "01_contract_pairs.svg",
+      "bytes": 17404,
+      "sha256": "0e71fd876b7e1b5d1d8b33ba0003303b78b38bad984b28b1e7d05a4a71ee82ad"
+    },
+    {
+      "file": "02_migration_relation.svg",
+      "bytes": 5172,
+      "sha256": "9223f2da91106ebe747eef088f5ce38ea1adaeebb5d19fd2d840fe114ac8a039"
+    },
+    {
+      "file": "03_thread_sequence.svg",
+      "bytes": 6389,
+      "sha256": "13a6774ed344e32eca02e8cca0213ff9a961a9287be3b0d530f87732577547ee"
+    },
+    {
+      "file": "04_topology_blocks.svg",
+      "bytes": 6788,
+      "sha256": "d603776f8d9e2e7ddb44c41fdee630e08f7b208e5b47cc0b9b4d41df12817e8d"
+    }
+  ],
+  "previews": [
+    {
+      "file": "01_contract_pairs.png",
+      "bytes": 78871
+    },
+    {
+      "file": "01_contract_pairs_grayscale.png",
+      "bytes": 75355
+    },
+    {
+      "file": "02_migration_relation.png",
+      "bytes": 35144
+    },
+    {
+      "file": "03_thread_sequence.png",
+      "bytes": 49781
+    },
+    {
+      "file": "04_topology_blocks.png",
+      "bytes": 49959
+    }
+  ],
+  "limitations": [
+    "Only exactly one relation link with two nodes in prototype",
+    "No unbounded graph auto-layout or responsive SVG viewBoxes",
+    "Long source IDs may be visibly shortened with full ID retained in title/data-anchor-id",
+    "Potential font fallback variations across systems",
+    "Natural total Y/Z entity order not defined by this experiment"
+  ],
+  "next_decision": "VP-02 macOS/agent visual review (2D_GO, 2D_REVISE, 2D_STOP) before any 3D design"
+}

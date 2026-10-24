@@ -1,0 +1,9 @@
+{
+  "case_id": "chart_line__execution__overview",
+  "content_status": "declared_unverified",
+  "diagnostic": "LENS_DECLARATION_MISSING",
+  "format": "aiaeao.cube.vp05-expected-rejection/1",
+  "message": "selected lens has no explicit facet bindings: cannot infer relevance",
+  "semantic_conformance": "NOT_EVALUATED",
+  "status": "EXPECTED_REJECTION"
+}

@@ -1,0 +1,31 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "content_status": "declared_unverified",
+  "current_authority": "NOT_EVALUATED",
+  "displayed_edges": [
+    {
+      "declaration_ref": "P1.1:fixture/migration.binding-context.json#predicate_contracts/references",
+      "from": "artifact",
+      "predicate_id": "references",
+      "to": "resource"
+    }
+  ],
+  "displayed_item_ids": [
+    "artifact",
+    "resource"
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp02-print-report/1",
+  "granularity": "standard",
+  "lens": "neutral",
+  "notices": [
+    "All source declarations are unverified presentation inputs.",
+    "Layout order, geometry, color and arrowheads do not assert semantic typing, causation or time truth."
+  ],
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "svg_sha256": "414a0eae1594c21ef13e9dc6ce792500214c0a5878931493e4ca79ddebd9f7d3",
+  "view": "cube.flow"
+}

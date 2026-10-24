@@ -1,0 +1,68 @@
+{
+  "format": "aiaeao.cube.vp03-print-report/1",
+  "lens_profile": "P2-VP-LENSES/0.3.0",
+  "reference_version": "v9.4",
+  "view": "cube.diagramm",
+  "lens": "cube.lens.epistemology",
+  "granularity": "standard",
+  "source_view_sha256": "309d8e41e37af240fd16ef3fd95b10d76cee2da3a58681430585e44c3b71c2c1",
+  "base_view_svg_sha256": "a1f1758fd04e35cc5f575d53b989f9c725460e315723311dae1f69c5606d8a1a",
+  "svg_sha256": "ad72b347ec52069461792d170ecd3f595ad2ab8887b6914bb1a1fd922a9175a0",
+  "render_status": "PASS",
+  "focus_status": "declared_unverified",
+  "highlighted": [
+    {
+      "lens": "cube.lens.epistemology",
+      "target_kind": "sample",
+      "target_id": "artifact",
+      "declaration_ref": "fixture:VP03/chart_inventory/epistemology/sample/artifact",
+      "note": "Illustrative data quality focus",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.epistemology",
+      "target_kind": "sample",
+      "target_id": "evidence",
+      "declaration_ref": "fixture:VP03/chart_inventory/epistemology/sample/evidence",
+      "note": "Declared evidence category, not confirmed proof",
+      "basis": "declared_unverified"
+    }
+  ],
+  "original_vp02_report": {
+    "format": "aiaeao.cube.vp02-print-report/1",
+    "printer_profile": "P2-VP-VIEWS/0.2.0",
+    "reference_version": "v9.4",
+    "view": "cube.diagramm",
+    "lens": "neutral",
+    "granularity": "standard",
+    "render_status": "PASS",
+    "svg_sha256": "a1f1758fd04e35cc5f575d53b989f9c725460e315723311dae1f69c5606d8a1a",
+    "semantic_conformance": "NOT_EVALUATED",
+    "epistemic_warrant": "NOT_EVALUATED",
+    "current_authority": "NOT_EVALUATED",
+    "canonical_admission": "NOT_EVALUATED",
+    "content_status": "declared_unverified",
+    "notices": [
+      "All source declarations are unverified presentation inputs.",
+      "Layout order, geometry, color and arrowheads do not assert semantic typing, causation or time truth."
+    ],
+    "sample_ids": [
+      "artifact",
+      "source",
+      "evidence",
+      "revisions"
+    ],
+    "measurement_ref": "fixture:VP02/measurements/resource-counts-v1",
+    "unit": "items"
+  },
+  "content_status": "declared_unverified",
+  "semantic_conformance": "NOT_EVALUATED",
+  "epistemic_warrant": "NOT_EVALUATED",
+  "current_authority": "NOT_EVALUATED",
+  "canonical_admission": "NOT_EVALUATED",
+  "notices": [
+    "Every source element remains visible; VP-03 changes visual emphasis only.",
+    "Facet bindings are authored display declarations, not evidence of operational facts.",
+    "Lens color, form, layout and focus neither grant authority nor assert truth."
+  ]
+}
