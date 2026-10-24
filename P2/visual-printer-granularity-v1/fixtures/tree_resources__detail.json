@@ -1,0 +1,128 @@
+{
+  "format": "aiaeao.cube.vp04-projection-request/1",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reference_version": "v9.4",
+  "source_bundle": {
+    "format": "aiaeao.cube.vp03-lens-bundle/1",
+    "lens_profile": "P2-VP-LENSES/0.3.0",
+    "reference_version": "v9.4",
+    "source_view_sha256": "5b9f121c28ca76974cc9c930944b9e5f638fc4230e8e2a44944405aa426922a6",
+    "view_plan": {
+      "printer_profile": "P2-VP-VIEWS/0.2.0",
+      "reference_version": "v9.4",
+      "view": "cube.tree",
+      "lens": "neutral",
+      "granularity": "standard",
+      "title": "Resource family · Illustration",
+      "subtitle": "Explicitly authored grouping · no universal containment signature claimed",
+      "nodes": [
+        {
+          "id": "resource",
+          "anchor_id": "resource-objects.resource",
+          "label": "Resource collection",
+          "form_id": "form.resource-card"
+        },
+        {
+          "id": "artifact",
+          "anchor_id": "resource-objects.artifact",
+          "label": "Artifact",
+          "form_id": "form.resource-card"
+        },
+        {
+          "id": "source",
+          "anchor_id": "resource-objects.source",
+          "label": "Source",
+          "form_id": "form.resource-card"
+        },
+        {
+          "id": "revision",
+          "anchor_id": "resource-objects.revision",
+          "label": "Revision",
+          "form_id": "form.resource-card"
+        },
+        {
+          "id": "evidence",
+          "anchor_id": "resource-objects.evidence",
+          "label": "Evidence",
+          "form_id": "form.resource-card"
+        },
+        {
+          "id": "cache",
+          "anchor_id": "resource-objects.cache",
+          "label": "Cache",
+          "form_id": "form.resource-card"
+        }
+      ],
+      "order": [
+        "resource",
+        "artifact",
+        "source",
+        "cache",
+        "revision",
+        "evidence"
+      ],
+      "root_id": "resource",
+      "declaration_status": "declared_unverified",
+      "edges": [
+        {
+          "from": "resource",
+          "to": "artifact",
+          "predicate_id": "groups",
+          "declaration_ref": "fixture:VP02/tree/t2.1",
+          "arrow_anchor_id": "relation-arrows.reference"
+        },
+        {
+          "from": "resource",
+          "to": "source",
+          "predicate_id": "groups",
+          "declaration_ref": "fixture:VP02/tree/t2.2",
+          "arrow_anchor_id": "relation-arrows.reference"
+        },
+        {
+          "from": "resource",
+          "to": "cache",
+          "predicate_id": "groups",
+          "declaration_ref": "fixture:VP02/tree/t2.3",
+          "arrow_anchor_id": "relation-arrows.reference"
+        },
+        {
+          "from": "artifact",
+          "to": "revision",
+          "predicate_id": "groups",
+          "declaration_ref": "fixture:VP02/tree/t2.4",
+          "arrow_anchor_id": "relation-arrows.reference"
+        },
+        {
+          "from": "artifact",
+          "to": "evidence",
+          "predicate_id": "groups",
+          "declaration_ref": "fixture:VP02/tree/t2.5",
+          "arrow_anchor_id": "relation-arrows.reference"
+        }
+      ]
+    },
+    "facet_bindings": [
+      {
+        "lens": "cube.lens.semantics",
+        "target_kind": "node",
+        "target_id": "evidence",
+        "declaration_ref": "fixture:VP04/tree_resources/semantics/evidence",
+        "note": "Authored fixture emphasis",
+        "basis": "declared_unverified"
+      }
+    ],
+    "basis": "declared_unverified"
+  },
+  "source_bundle_sha256": "ccb1a5a6d611aa40f0bc0ab4c07e017ccbe74a59b4fe35a747f76078ab4579df",
+  "projection": {
+    "view": "cube.tree",
+    "lens": "cube.lens.semantics",
+    "granularity": "detail",
+    "focus": null,
+    "budget": {
+      "max_items": 7,
+      "max_edges": 6
+    },
+    "overflow": "summarize"
+  }
+}

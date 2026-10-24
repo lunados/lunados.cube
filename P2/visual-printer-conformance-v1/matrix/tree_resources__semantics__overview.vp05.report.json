@@ -1,0 +1,147 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "chart_axis_rescaled": false,
+  "completeness": "PARTIAL_EXPLICIT",
+  "current_authority": "NOT_EVALUATED",
+  "decision": {
+    "action": "SINGLE_DISCLOSED",
+    "rationale": "intentional bounded reduction with explicit item/edge disclosure",
+    "status": "descriptive_display_only"
+  },
+  "dimensions": {
+    "granularity": "overview",
+    "lens": "cube.lens.semantics",
+    "view": "cube.tree"
+  },
+  "displayed_item_ids": [
+    "resource",
+    "artifact",
+    "evidence"
+  ],
+  "displayed_lens_declarations": 1,
+  "displayed_source_edge_ids": [
+    "e1",
+    "e5"
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp05-conformance-report/1",
+  "invariants_passed": [
+    "SOURCE_SHA256_LOCK",
+    "CUBE_VIEW_NAMESPACE",
+    "DECLARED_LENS_ONLY",
+    "GRANULARITY_SCOPE",
+    "EXACT_ITEM_PARTITION",
+    "EXACT_EDGE_PARTITION",
+    "LOSS_LEDGER_BALANCED",
+    "ORIGINAL_ITEMS_UNCHANGED",
+    "ORIGINAL_EDGES_UNCHANGED",
+    "TREE_ANCESTOR_CLOSURE",
+    "EXACT_LENS_BINDING_PARTITION",
+    "SVG_SOURCE_LOCK",
+    "NO_ACTIVE_SVG_CONTENT",
+    "ONE_EMBEDDED_LOSS_LEDGER",
+    "EMBEDDED_REPORT_MATCH",
+    "NO_SEMANTIC_AUTHORITY_PROMOTION",
+    "SOURCE_IS_DECLARED_UNVERIFIED",
+    "INDEPENDENT_ORACLE_SOURCE_ITEMS",
+    "INDEPENDENT_ORACLE_SHOWN_ITEMS",
+    "INDEPENDENT_ORACLE_SHOWN_EDGES",
+    "INDEPENDENT_ORACLE_COMPLETENESS"
+  ],
+  "limits": [
+    "Split feasibility is a heuristic, not a generated multi-page export or optimal partition",
+    "Glyph rendering varies with installed fonts",
+    "P1 semantic conformance is not evaluated by the SVG printer"
+  ],
+  "omitted_item_ids": [
+    "source",
+    "cache",
+    "revision"
+  ],
+  "omitted_lens_declarations": 0,
+  "omitted_source_edge_ids": [
+    "e2",
+    "e3",
+    "e4"
+  ],
+  "profile": "P2-VP-CONFORMANCE/0.5.0",
+  "reference_version": "v9.4",
+  "source_bundle_sha256": "ccb1a5a6d611aa40f0bc0ab4c07e017ccbe74a59b4fe35a747f76078ab4579df",
+  "source_status": "declared_unverified",
+  "split_feasibility": {
+    "estimated_panel_count": 4,
+    "is_minimum_proven": false,
+    "panels": [
+      {
+        "focus": null,
+        "shown_edge_ids": [
+          "e1",
+          "e5"
+        ],
+        "shown_item_ids": [
+          "artifact",
+          "evidence",
+          "resource"
+        ]
+      },
+      {
+        "focus": {
+          "id": "e2",
+          "kind": "edge"
+        },
+        "shown_edge_ids": [
+          "e1",
+          "e2"
+        ],
+        "shown_item_ids": [
+          "artifact",
+          "resource",
+          "source"
+        ]
+      },
+      {
+        "focus": {
+          "id": "e3",
+          "kind": "edge"
+        },
+        "shown_edge_ids": [
+          "e1",
+          "e3"
+        ],
+        "shown_item_ids": [
+          "artifact",
+          "cache",
+          "resource"
+        ]
+      },
+      {
+        "focus": {
+          "id": "e4",
+          "kind": "edge"
+        },
+        "shown_edge_ids": [
+          "e1",
+          "e4"
+        ],
+        "shown_item_ids": [
+          "artifact",
+          "resource",
+          "revision"
+        ]
+      }
+    ],
+    "panels_materialized": false,
+    "repeated_item_ids": [
+      "artifact",
+      "resource"
+    ],
+    "status": "FEASIBLE",
+    "strategy": "focused_panels_from_immutable_source",
+    "unavailable_focus_count": 0,
+    "uncovered_edge_ids": [],
+    "uncovered_item_ids": []
+  },
+  "status": "PASS",
+  "svg_sha256": "22132dcdd03483cc8cb9756de11c12d9c56c1f720a9af72fd33898ee40f9392e",
+  "vp04_report_sha256": "9ed432a0e7028098c03a61d659a2b207cdd49f8638165e7d61db6e14f5b613a3"
+}

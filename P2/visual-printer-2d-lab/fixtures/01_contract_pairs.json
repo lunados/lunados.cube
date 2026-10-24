@@ -1,0 +1,9 @@
+{
+  "printer_profile": "P2-VP-2D/0.1.0",
+  "reference_version": "v9.4",
+  "view_id": "fixture.contract-pairs",
+  "title": "X · Five canonical contract pairs",
+  "subtitle": "Canonical v9.4 order · opening and complement · display only",
+  "template": "contract_pairs",
+  "items": []
+}

@@ -1,0 +1,130 @@
+{
+  "budget": {
+    "max_edges": 1,
+    "max_items": 2
+  },
+  "canonical_admission": "NOT_EVALUATED",
+  "chart_axis_rescaled": false,
+  "chart_window": "not_applicable",
+  "completeness": "COMPLETE_INPUT_VIEW",
+  "content_status": "declared_unverified",
+  "counts": {
+    "edges_omitted": 0,
+    "edges_shown": 1,
+    "facet_bindings_omitted": 0,
+    "items_omitted": 0,
+    "items_shown": 2,
+    "source_edges": 1,
+    "source_items": 2
+  },
+  "current_authority": "NOT_EVALUATED",
+  "displayed_facet_bindings": [
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/flow_migration/semantics/node/artifact",
+      "lens": "cube.lens.semantics",
+      "note": "Declared Artifact concept",
+      "target_id": "artifact",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/flow_migration/semantics/node/resource",
+      "lens": "cube.lens.semantics",
+      "note": "Declared Resource concept",
+      "target_id": "resource",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/flow_migration/semantics/edge/e1",
+      "lens": "cube.lens.semantics",
+      "note": "Declared references predicate",
+      "target_id": "e1",
+      "target_kind": "edge"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/flow_migration/provenance/node/artifact",
+      "lens": "cube.lens.provenance",
+      "note": "Review the declared source artifact",
+      "target_id": "artifact",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/flow_migration/provenance/edge/e1",
+      "lens": "cube.lens.provenance",
+      "note": "Review the reference declaration",
+      "target_id": "e1",
+      "target_kind": "edge"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/flow_migration/execution/node/resource",
+      "lens": "cube.lens.execution",
+      "note": "Illustrative target for a possible operation",
+      "target_id": "resource",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/flow_migration/governance/node/artifact",
+      "lens": "cube.lens.governance",
+      "note": "Inspect scope of declared object",
+      "target_id": "artifact",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/flow_migration/governance/edge/e1",
+      "lens": "cube.lens.governance",
+      "note": "Inspect declaration boundary, not grant",
+      "target_id": "e1",
+      "target_kind": "edge"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/flow_migration/epistemology/node/resource",
+      "lens": "cube.lens.epistemology",
+      "note": "Illustrative knowledge claim under review",
+      "target_id": "resource",
+      "target_kind": "node"
+    }
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "focus": null,
+  "format": "aiaeao.cube.vp04-print-report/1",
+  "granularity": "overview",
+  "lens": "cube.lens.semantics",
+  "lens_emphasis": "declared_unverified",
+  "notices": [
+    "Aggregated count is display-only: no virtual entity, predicate or measurement was synthesized.",
+    "Every omitted element and edge is retained by identifier in this report and SVG metadata.",
+    "Chart subset scaling must not be compared across levels unless chart_axis_rescaled=false.",
+    "Layouts, lens markers, focus and filtering never imply verified truth or granted authority."
+  ],
+  "omitted_edges": [],
+  "omitted_facet_bindings": [],
+  "omitted_item_ids": [],
+  "overflow": "summarize",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reduced_view_sha256": "c12f05d3648dd5052e3b010dac4103941d8b064e82e1a1b0137caeb2cb2c2a5c",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "shown_edges": [
+    {
+      "projected_edge_id": "e1",
+      "source_edge_id": "e1"
+    }
+  ],
+  "shown_item_ids": [
+    "artifact",
+    "resource"
+  ],
+  "source_bundle_sha256": "364e9b33d95ab0419410136287ac3f3e0d4e55ec8a7d5eaa66611dc26eaaf4ed",
+  "source_view_sha256": "c12f05d3648dd5052e3b010dac4103941d8b064e82e1a1b0137caeb2cb2c2a5c",
+  "svg_sha256": "c3308f9110d36934d091f45b7c3ac453ea7edbb251ccaf37fd611a1d347fd65d",
+  "view": "cube.flow"
+}

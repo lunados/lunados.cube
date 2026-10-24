@@ -1,0 +1,36 @@
+{
+  "assets": {
+    "agent_quickstart": "https://cube.lunados.net/validation/v1/visual/printer/v1/AGENT_QUICKSTART.md",
+    "capabilities": "https://cube.lunados.net/validation/v1/visual/printer/v1/capabilities.json",
+    "diagnostic_schema": "https://cube.lunados.net/validation/v1/visual/printer/v1/VP06_DIAGNOSTIC.schema.json",
+    "lens_bundle_schema": "https://cube.lunados.net/validation/v1/visual/printer/v1/VP03_LENS_BUNDLE.schema.json",
+    "print_job_schema": "https://cube.lunados.net/validation/v1/visual/printer/v1/VP04_PROJECTION_REQUEST.schema.json",
+    "print_result_schema": "https://cube.lunados.net/validation/v1/visual/printer/v1/VP06_PRINT_RESULT.schema.json"
+  },
+  "callable_api": false,
+  "canonical_morphology": "https://cube.lunados.net/v9.4/morphology.md",
+  "display_profile": "https://cube.lunados.net/validation/v1/visual/manifest.json",
+  "external_effects": false,
+  "format": "aiaeao.cube.vp06-static-printer-manifest/1",
+  "glyph_source": "https://cube.lunados.net/v9.4/visual/symbols.json",
+  "http_post_supported": false,
+  "implementation_package": "P2/visual-printer-release-v1 (GitHub repository checkout only)",
+  "input_job_format": "aiaeao.cube.vp04-projection-request/1",
+  "no_svg_assets_in_public_overlay": true,
+  "nonimplications": [
+    "no_online_svg_printing",
+    "no_semantic_truth",
+    "no_current_authority",
+    "no_admission",
+    "no_3d",
+    "no_general_acg_to_svg_mapping"
+  ],
+  "reference_version": "v9.4",
+  "renderer": "local_Python_cli_not_published",
+  "report_format": "aiaeao.cube.vp06-print-result/1",
+  "scope": "public_static_read_only_documentation",
+  "static_guide_only": true,
+  "status": "local_release_candidate_unpublished",
+  "validation_profile": "P1-VC/1.0.0 (separate; NOT invoked by printer)",
+  "version": "P2-VP/1.0.0-rc1"
+}

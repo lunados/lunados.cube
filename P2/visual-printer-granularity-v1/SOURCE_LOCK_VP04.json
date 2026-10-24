@@ -1,0 +1,19 @@
+{
+  "source_release": "AIAEAO_Visual_Printer_VP03_Lens_Profiles.zip",
+  "reference_version": "v9.4",
+  "status": "exact_immutable_snapshot",
+  "files_sha256": {
+    "VP03_RELEASE_MANIFEST.json": "c1d0c45f8b8effa85be541c18f1a9afe0a55b62415d077cef4d4c196788259c7",
+    "VP03_SHA256SUMS.txt": "e0bb3088c87e8a8fc1802efb1ef57817411ddeeafd24dbe48e1a785c1980aca7",
+    "vplenses/printer.py": "6c5f43181899e6935f86ecc49b99e5dbd313dffa9b2eb3322f20c9f34b8e7d6a",
+    "vpviews/printer.py": "25b291c7263a035387ea35de33a218f685229f08801811c08c105558a2892d4a",
+    "vp2d/printer.py": "403ca7223ca01534567f345eee29d1a4d5f62a3c170622afb3ad1a713bf31443",
+    "reference/p0-symbols-v9.4.json": "7d35d3e855e94f7b77c8c52fa6bddc6265cae57576b1beb5b8869a4170c54656",
+    "reference/p1-form-color.json": "27be9aed784c82d038d7f43b04ec06a4ea1eb3d2ffdf1e8e1a7eb6b501800200"
+  },
+  "nonimplications": [
+    "no_ontology_change",
+    "no_P1_contract_change",
+    "no_browser_visual_equivalence_claim"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "chart_axis_rescaled": false,
+  "completeness": "PARTIAL_EXPLICIT",
+  "current_authority": "NOT_EVALUATED",
+  "decision": {
+    "action": "SINGLE_DISCLOSED",
+    "rationale": "intentional bounded reduction with explicit item/edge disclosure",
+    "status": "descriptive_display_only"
+  },
+  "dimensions": {
+    "granularity": "overview",
+    "lens": "cube.lens.governance",
+    "view": "cube.diagramm"
+  },
+  "displayed_item_ids": [
+    "artifact",
+    "evidence"
+  ],
+  "displayed_lens_declarations": 6,
+  "displayed_source_edge_ids": [],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp05-conformance-report/1",
+  "invariants_passed": [
+    "SOURCE_SHA256_LOCK",
+    "CUBE_VIEW_NAMESPACE",
+    "DECLARED_LENS_ONLY",
+    "GRANULARITY_SCOPE",
+    "EXACT_ITEM_PARTITION",
+    "EXACT_EDGE_PARTITION",
+    "LOSS_LEDGER_BALANCED",
+    "ORIGINAL_ITEMS_UNCHANGED",
+    "BAR_MAXIMUM_PRESERVED",
+    "CHART_WINDOW_DECLARED",
+    "EXACT_LENS_BINDING_PARTITION",
+    "SVG_SOURCE_LOCK",
+    "NO_ACTIVE_SVG_CONTENT",
+    "ONE_EMBEDDED_LOSS_LEDGER",
+    "EMBEDDED_REPORT_MATCH",
+    "NO_SEMANTIC_AUTHORITY_PROMOTION",
+    "SOURCE_IS_DECLARED_UNVERIFIED",
+    "INDEPENDENT_ORACLE_SOURCE_ITEMS",
+    "INDEPENDENT_ORACLE_SHOWN_ITEMS",
+    "INDEPENDENT_ORACLE_SHOWN_EDGES",
+    "INDEPENDENT_ORACLE_COMPLETENESS"
+  ],
+  "limits": [
+    "Split feasibility is a heuristic, not a generated multi-page export or optimal partition",
+    "Glyph rendering varies with installed fonts",
+    "P1 semantic conformance is not evaluated by the SVG printer"
+  ],
+  "omitted_item_ids": [
+    "source",
+    "revisions"
+  ],
+  "omitted_lens_declarations": 2,
+  "omitted_source_edge_ids": [],
+  "profile": "P2-VP-CONFORMANCE/0.5.0",
+  "reference_version": "v9.4",
+  "source_bundle_sha256": "545e2d0f60db41409efdddf2c35f84bbd949d64ae464b9dc7b3cc1617a9725f7",
+  "source_status": "declared_unverified",
+  "split_feasibility": {
+    "estimated_panel_count": 3,
+    "is_minimum_proven": false,
+    "panels": [
+      {
+        "focus": null,
+        "shown_edge_ids": [],
+        "shown_item_ids": [
+          "artifact",
+          "evidence"
+        ]
+      },
+      {
+        "focus": {
+          "id": "source",
+          "kind": "sample"
+        },
+        "shown_edge_ids": [],
+        "shown_item_ids": [
+          "artifact",
+          "source"
+        ]
+      },
+      {
+        "focus": {
+          "id": "revisions",
+          "kind": "sample"
+        },
+        "shown_edge_ids": [],
+        "shown_item_ids": [
+          "artifact",
+          "revisions"
+        ]
+      }
+    ],
+    "panels_materialized": false,
+    "repeated_item_ids": [
+      "artifact"
+    ],
+    "status": "FEASIBLE",
+    "strategy": "focused_panels_from_immutable_source",
+    "unavailable_focus_count": 0,
+    "uncovered_edge_ids": [],
+    "uncovered_item_ids": []
+  },
+  "status": "PASS",
+  "svg_sha256": "c77a6dc89b66bc45b782109615b23d84ac5223d680cfdc8cb0776deed5c7eb9b",
+  "vp04_report_sha256": "643bf2cf654d771ed3fc34d13db3c2e0cf286511b52ec527fc492689d36c5371"
+}

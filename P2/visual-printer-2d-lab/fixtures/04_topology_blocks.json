@@ -1,0 +1,40 @@
+{
+  "printer_profile": "P2-VP-2D/0.1.0",
+  "reference_version": "v9.4",
+  "view_id": "fixture.topology",
+  "title": "Topology · Modules and boundary",
+  "subtitle": "Illustrative placement only · no run, connectivity or Admission implied",
+  "template": "topology_blocks",
+  "items": [
+    {
+      "id": "runtime",
+      "anchor_id": "module-bodies.runtime",
+      "label": "Runtime",
+      "form_id": "form.module-block"
+    },
+    {
+      "id": "adapter",
+      "anchor_id": "module-bodies.adapter",
+      "label": "Adapter",
+      "form_id": "form.module-block"
+    },
+    {
+      "id": "connector",
+      "anchor_id": "module-bodies.connector",
+      "label": "Connector",
+      "form_id": "form.module-block"
+    },
+    {
+      "id": "boundary",
+      "anchor_id": "governance-boundary.execution-boundary",
+      "label": "Execution Boundary",
+      "form_id": "form.boundary-frame"
+    },
+    {
+      "id": "zone",
+      "anchor_id": "resource-zones.resource-zone",
+      "label": "Resource Zone",
+      "form_id": "form.zone-region"
+    }
+  ]
+}

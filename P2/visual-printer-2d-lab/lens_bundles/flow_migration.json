@@ -1,0 +1,121 @@
+{
+  "format": "aiaeao.cube.vp03-lens-bundle/1",
+  "lens_profile": "P2-VP-LENSES/0.3.0",
+  "reference_version": "v9.4",
+  "source_view_sha256": "c12f05d3648dd5052e3b010dac4103941d8b064e82e1a1b0137caeb2cb2c2a5c",
+  "view_plan": {
+    "printer_profile": "P2-VP-VIEWS/0.2.0",
+    "reference_version": "v9.4",
+    "view": "cube.flow",
+    "lens": "neutral",
+    "granularity": "standard",
+    "title": "Artifact → Resource · Migration",
+    "subtitle": "Fixture: P1 migration relation · typing must be checked separately",
+    "nodes": [
+      {
+        "id": "artifact",
+        "anchor_id": "resource-objects.artifact",
+        "label": "Artifact · migration A",
+        "form_id": "form.resource-card",
+        "semantic_ref": "Y:α:Artifact[\"migration-artifact\"]"
+      },
+      {
+        "id": "resource",
+        "anchor_id": "resource-objects.resource",
+        "label": "Resource · migration R",
+        "form_id": "form.resource-card",
+        "semantic_ref": "Y:α:Resource[\"migration-resource\"]"
+      }
+    ],
+    "order": [
+      "artifact",
+      "resource"
+    ],
+    "edges": [
+      {
+        "from": "artifact",
+        "to": "resource",
+        "predicate_id": "references",
+        "declaration_ref": "P1.1:fixture/migration.binding-context.json#predicate_contracts/references",
+        "arrow_anchor_id": "relation-arrows.reference"
+      }
+    ],
+    "direction": "left-to-right",
+    "declaration_status": "declared_unverified"
+  },
+  "facet_bindings": [
+    {
+      "lens": "cube.lens.semantics",
+      "target_kind": "node",
+      "target_id": "artifact",
+      "declaration_ref": "fixture:VP03/flow_migration/semantics/node/artifact",
+      "note": "Declared Artifact concept",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.semantics",
+      "target_kind": "node",
+      "target_id": "resource",
+      "declaration_ref": "fixture:VP03/flow_migration/semantics/node/resource",
+      "note": "Declared Resource concept",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.semantics",
+      "target_kind": "edge",
+      "target_id": "e1",
+      "declaration_ref": "fixture:VP03/flow_migration/semantics/edge/e1",
+      "note": "Declared references predicate",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.provenance",
+      "target_kind": "node",
+      "target_id": "artifact",
+      "declaration_ref": "fixture:VP03/flow_migration/provenance/node/artifact",
+      "note": "Review the declared source artifact",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.provenance",
+      "target_kind": "edge",
+      "target_id": "e1",
+      "declaration_ref": "fixture:VP03/flow_migration/provenance/edge/e1",
+      "note": "Review the reference declaration",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.execution",
+      "target_kind": "node",
+      "target_id": "resource",
+      "declaration_ref": "fixture:VP03/flow_migration/execution/node/resource",
+      "note": "Illustrative target for a possible operation",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.governance",
+      "target_kind": "node",
+      "target_id": "artifact",
+      "declaration_ref": "fixture:VP03/flow_migration/governance/node/artifact",
+      "note": "Inspect scope of declared object",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.governance",
+      "target_kind": "edge",
+      "target_id": "e1",
+      "declaration_ref": "fixture:VP03/flow_migration/governance/edge/e1",
+      "note": "Inspect declaration boundary, not grant",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.epistemology",
+      "target_kind": "node",
+      "target_id": "resource",
+      "declaration_ref": "fixture:VP03/flow_migration/epistemology/node/resource",
+      "note": "Illustrative knowledge claim under review",
+      "basis": "declared_unverified"
+    }
+  ],
+  "basis": "declared_unverified"
+}

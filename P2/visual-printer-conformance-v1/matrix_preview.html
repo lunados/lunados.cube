@@ -1,0 +1,115 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIAEAO VP-05 · View × Lens × Granularity</title><style>
+body{font:15px system-ui,sans-serif;max-width:1420px;margin:auto;padding:32px;color:#142033;background:#f5f7fb}
+h1,h2{letter-spacing:-.025em}.note{padding:13px 17px;background:#fff;border-left:4px solid #64748b}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:#fff;border:1px solid #d8e1ed;border-radius:10px;overflow:hidden;min-width:0}
+.card img{width:100%;display:block;aspect-ratio:1.7;object-fit:contain;background:white}
+.label{font-size:12px;padding:10px 14px}.sub{color:#617084;font-size:12px}
+.rejected{display:flex;align-items:center;justify-content:center;aspect-ratio:1.7;background:#f1f4f7;color:#5c6678;padding:15px;text-align:center}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:550px){.grid{grid-template-columns:1fr}}
+</style></head><body><h1>VP-05 · Combinatorial Conformance</h1>
+<p class="note">Statische Prüfung der 90 Kombinationen: 54 gültige Projektionen und 36 erwartete Ablehnungen (fehlende Lens-Deklaration). Die SVGs und ihre JSON-Ledger stammen aus unveränderten VP-04-Quellen. Kein Editor, kein Server, keine 3D-Ausgabe.</p>
+<h2>cube.flow · flow_migration</h2><div class="grid">
+<div class="card"><img src="matrix/flow_migration__semantics__overview.svg" alt="flow_migration__semantics__overview SVG"><div class="label"><strong>semantics · overview</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__semantics__standard.svg" alt="flow_migration__semantics__standard SVG"><div class="label"><strong>semantics · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__semantics__detail.svg" alt="flow_migration__semantics__detail SVG"><div class="label"><strong>semantics · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__provenance__overview.svg" alt="flow_migration__provenance__overview SVG"><div class="label"><strong>provenance · overview</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__provenance__standard.svg" alt="flow_migration__provenance__standard SVG"><div class="label"><strong>provenance · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__provenance__detail.svg" alt="flow_migration__provenance__detail SVG"><div class="label"><strong>provenance · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__execution__overview.svg" alt="flow_migration__execution__overview SVG"><div class="label"><strong>execution · overview</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__execution__standard.svg" alt="flow_migration__execution__standard SVG"><div class="label"><strong>execution · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__execution__detail.svg" alt="flow_migration__execution__detail SVG"><div class="label"><strong>execution · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__governance__overview.svg" alt="flow_migration__governance__overview SVG"><div class="label"><strong>governance · overview</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__governance__standard.svg" alt="flow_migration__governance__standard SVG"><div class="label"><strong>governance · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__governance__detail.svg" alt="flow_migration__governance__detail SVG"><div class="label"><strong>governance · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__epistemology__overview.svg" alt="flow_migration__epistemology__overview SVG"><div class="label"><strong>epistemology · overview</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__epistemology__standard.svg" alt="flow_migration__epistemology__standard SVG"><div class="label"><strong>epistemology · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_migration__epistemology__detail.svg" alt="flow_migration__epistemology__detail SVG"><div class="label"><strong>epistemology · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+</div>
+<h2>cube.flow · flow_research</h2><div class="grid">
+<div class="card"><img src="matrix/flow_research__semantics__overview.svg" alt="flow_research__semantics__overview SVG"><div class="label"><strong>semantics · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/flow_research__semantics__standard.svg" alt="flow_research__semantics__standard SVG"><div class="label"><strong>semantics · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/flow_research__semantics__detail.svg" alt="flow_research__semantics__detail SVG"><div class="label"><strong>semantics · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>provenance · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>provenance · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>provenance · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>execution · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>execution · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>execution · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>governance · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>governance · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>governance · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>epistemology · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>epistemology · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>epistemology · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+</div>
+<h2>cube.diagramm · chart_inventory</h2><div class="grid">
+<div class="card"><img src="matrix/chart_inventory__semantics__overview.svg" alt="chart_inventory__semantics__overview SVG"><div class="label"><strong>semantics · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__semantics__standard.svg" alt="chart_inventory__semantics__standard SVG"><div class="label"><strong>semantics · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__semantics__detail.svg" alt="chart_inventory__semantics__detail SVG"><div class="label"><strong>semantics · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__provenance__overview.svg" alt="chart_inventory__provenance__overview SVG"><div class="label"><strong>provenance · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__provenance__standard.svg" alt="chart_inventory__provenance__standard SVG"><div class="label"><strong>provenance · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__provenance__detail.svg" alt="chart_inventory__provenance__detail SVG"><div class="label"><strong>provenance · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__execution__overview.svg" alt="chart_inventory__execution__overview SVG"><div class="label"><strong>execution · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__execution__standard.svg" alt="chart_inventory__execution__standard SVG"><div class="label"><strong>execution · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__execution__detail.svg" alt="chart_inventory__execution__detail SVG"><div class="label"><strong>execution · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__governance__overview.svg" alt="chart_inventory__governance__overview SVG"><div class="label"><strong>governance · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__governance__standard.svg" alt="chart_inventory__governance__standard SVG"><div class="label"><strong>governance · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__governance__detail.svg" alt="chart_inventory__governance__detail SVG"><div class="label"><strong>governance · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__epistemology__overview.svg" alt="chart_inventory__epistemology__overview SVG"><div class="label"><strong>epistemology · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__epistemology__standard.svg" alt="chart_inventory__epistemology__standard SVG"><div class="label"><strong>epistemology · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/chart_inventory__epistemology__detail.svg" alt="chart_inventory__epistemology__detail SVG"><div class="label"><strong>epistemology · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+</div>
+<h2>cube.diagramm · chart_line</h2><div class="grid">
+<div class="card"><img src="matrix/chart_line__semantics__overview.svg" alt="chart_line__semantics__overview SVG"><div class="label"><strong>semantics · overview</strong><div class="sub">SPLIT_RECOMMENDED</div></div></div>
+<div class="card"><img src="matrix/chart_line__semantics__standard.svg" alt="chart_line__semantics__standard SVG"><div class="label"><strong>semantics · standard</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/chart_line__semantics__detail.svg" alt="chart_line__semantics__detail SVG"><div class="label"><strong>semantics · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>provenance · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>provenance · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>provenance · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>execution · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>execution · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>execution · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>governance · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>governance · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>governance · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>epistemology · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>epistemology · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>epistemology · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+</div>
+<h2>cube.tree · tree_modules</h2><div class="grid">
+<div class="card"><img src="matrix/tree_modules__semantics__overview.svg" alt="tree_modules__semantics__overview SVG"><div class="label"><strong>semantics · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/tree_modules__semantics__standard.svg" alt="tree_modules__semantics__standard SVG"><div class="label"><strong>semantics · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/tree_modules__semantics__detail.svg" alt="tree_modules__semantics__detail SVG"><div class="label"><strong>semantics · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/tree_modules__provenance__overview.svg" alt="tree_modules__provenance__overview SVG"><div class="label"><strong>provenance · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/tree_modules__provenance__standard.svg" alt="tree_modules__provenance__standard SVG"><div class="label"><strong>provenance · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/tree_modules__provenance__detail.svg" alt="tree_modules__provenance__detail SVG"><div class="label"><strong>provenance · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/tree_modules__execution__overview.svg" alt="tree_modules__execution__overview SVG"><div class="label"><strong>execution · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/tree_modules__execution__standard.svg" alt="tree_modules__execution__standard SVG"><div class="label"><strong>execution · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/tree_modules__execution__detail.svg" alt="tree_modules__execution__detail SVG"><div class="label"><strong>execution · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/tree_modules__governance__overview.svg" alt="tree_modules__governance__overview SVG"><div class="label"><strong>governance · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/tree_modules__governance__standard.svg" alt="tree_modules__governance__standard SVG"><div class="label"><strong>governance · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/tree_modules__governance__detail.svg" alt="tree_modules__governance__detail SVG"><div class="label"><strong>governance · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/tree_modules__epistemology__overview.svg" alt="tree_modules__epistemology__overview SVG"><div class="label"><strong>epistemology · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/tree_modules__epistemology__standard.svg" alt="tree_modules__epistemology__standard SVG"><div class="label"><strong>epistemology · standard</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><img src="matrix/tree_modules__epistemology__detail.svg" alt="tree_modules__epistemology__detail SVG"><div class="label"><strong>epistemology · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+</div>
+<h2>cube.tree · tree_resources</h2><div class="grid">
+<div class="card"><img src="matrix/tree_resources__semantics__overview.svg" alt="tree_resources__semantics__overview SVG"><div class="label"><strong>semantics · overview</strong><div class="sub">SINGLE_DISCLOSED</div></div></div>
+<div class="card"><img src="matrix/tree_resources__semantics__standard.svg" alt="tree_resources__semantics__standard SVG"><div class="label"><strong>semantics · standard</strong><div class="sub">SPLIT_RECOMMENDED</div></div></div>
+<div class="card"><img src="matrix/tree_resources__semantics__detail.svg" alt="tree_resources__semantics__detail SVG"><div class="label"><strong>semantics · detail</strong><div class="sub">SINGLE_COMPLETE</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>provenance · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>provenance · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>provenance · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>execution · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>execution · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>execution · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>governance · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>governance · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>governance · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>epistemology · overview</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>epistemology · standard</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+<div class="card"><div class="rejected">Ausdrücklich keine Lens-Deklaration.<br>Keine automatische Relevanz-Inferenz.</div><div class="label"><strong>epistemology · detail</strong><div class="sub">LENS_DECLARATION_MISSING</div></div></div>
+</div>
+<p class="note">Quelle und Resultate sind deklarierte Fixtures, nicht empirisch verifiziert. Der Split-Hinweis generiert keine zusätzlichen SVG-Panels. Alle 90 JSON-Aufträge und Conformance-Berichte sind im Ordner <code>matrix/</code> enthalten.</p></body></html>

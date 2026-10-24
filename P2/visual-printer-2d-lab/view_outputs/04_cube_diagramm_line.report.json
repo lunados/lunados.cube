@@ -1,0 +1,28 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "content_status": "declared_unverified",
+  "current_authority": "NOT_EVALUATED",
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp02-print-report/1",
+  "granularity": "standard",
+  "lens": "neutral",
+  "measurement_ref": "fixture:VP02/measurements/latency-v1",
+  "notices": [
+    "All source declarations are unverified presentation inputs.",
+    "Layout order, geometry, color and arrowheads do not assert semantic typing, causation or time truth."
+  ],
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "sample_ids": [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5"
+  ],
+  "semantic_conformance": "NOT_EVALUATED",
+  "svg_sha256": "edb1454b3e1bb32dd41d81459cf16a5876956da4f6fd16d470921ee13177b480",
+  "unit": "ms",
+  "view": "cube.diagramm"
+}

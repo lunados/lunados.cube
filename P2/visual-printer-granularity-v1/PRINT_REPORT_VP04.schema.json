@@ -1,0 +1,319 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:vp04:print-report:0.4.0",
+  "title": "AIAEAO VP04 Print Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "profile",
+    "reference_version",
+    "render_status",
+    "view",
+    "lens",
+    "granularity",
+    "focus",
+    "budget",
+    "overflow",
+    "source_bundle_sha256",
+    "source_view_sha256",
+    "reduced_view_sha256",
+    "svg_sha256",
+    "counts",
+    "shown_item_ids",
+    "shown_edges",
+    "omitted_item_ids",
+    "omitted_edges",
+    "displayed_facet_bindings",
+    "omitted_facet_bindings",
+    "lens_emphasis",
+    "chart_axis_rescaled",
+    "chart_window",
+    "completeness",
+    "content_status",
+    "semantic_conformance",
+    "epistemic_warrant",
+    "current_authority",
+    "canonical_admission",
+    "notices"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.vp04-print-report/1"
+    },
+    "profile": {
+      "const": "P2-VP-GRANULARITY/0.4.0"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "render_status": {
+      "const": "PASS"
+    },
+    "view": {
+      "enum": [
+        "cube.flow",
+        "cube.diagramm",
+        "cube.tree"
+      ]
+    },
+    "lens": {
+      "enum": [
+        "cube.lens.semantics",
+        "cube.lens.provenance",
+        "cube.lens.execution",
+        "cube.lens.governance",
+        "cube.lens.epistemology"
+      ]
+    },
+    "granularity": {
+      "enum": [
+        "overview",
+        "standard",
+        "detail"
+      ]
+    },
+    "focus": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "id"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "enum": [
+                "node",
+                "edge",
+                "sample",
+                "metric"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+            }
+          }
+        }
+      ]
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_items",
+        "max_edges"
+      ],
+      "properties": {
+        "max_items": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 7
+        },
+        "max_edges": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        }
+      }
+    },
+    "overflow": {
+      "enum": [
+        "summarize",
+        "reject"
+      ]
+    },
+    "source_bundle_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_view_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reduced_view_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "svg_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_items",
+        "source_edges",
+        "items_omitted",
+        "edges_omitted",
+        "facet_bindings_omitted",
+        "items_shown",
+        "edges_shown"
+      ],
+      "properties": {
+        "source_items": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "source_edges": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "items_omitted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "edges_omitted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "facet_bindings_omitted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "items_shown": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "edges_shown": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "shown_item_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "shown_edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_edge_id",
+          "projected_edge_id"
+        ],
+        "properties": {
+          "source_edge_id": {
+            "type": "string",
+            "pattern": "^e[1-8]$"
+          },
+          "projected_edge_id": {
+            "type": "string",
+            "pattern": "^e[1-8]$"
+          }
+        }
+      }
+    },
+    "omitted_item_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "omitted_edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_edge_id",
+          "from",
+          "to",
+          "predicate_id",
+          "declaration_ref",
+          "reason"
+        ],
+        "properties": {
+          "source_edge_id": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "predicate_id": {
+            "type": "string"
+          },
+          "declaration_ref": {
+            "type": "string"
+          },
+          "reason": {
+            "enum": [
+              "endpoint_omitted",
+              "edge_budget"
+            ]
+          }
+        }
+      }
+    },
+    "displayed_facet_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "omitted_facet_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "lens_emphasis": {
+      "enum": [
+        "declared_unverified",
+        "no_visible_declared_targets"
+      ]
+    },
+    "chart_axis_rescaled": {
+      "type": "boolean"
+    },
+    "chart_window": {
+      "enum": [
+        "contiguous_window_only",
+        "not_applicable"
+      ]
+    },
+    "completeness": {
+      "enum": [
+        "COMPLETE_INPUT_VIEW",
+        "PARTIAL_EXPLICIT"
+      ]
+    },
+    "content_status": {
+      "const": "declared_unverified"
+    },
+    "semantic_conformance": {
+      "const": "NOT_EVALUATED"
+    },
+    "epistemic_warrant": {
+      "const": "NOT_EVALUATED"
+    },
+    "current_authority": {
+      "const": "NOT_EVALUATED"
+    },
+    "canonical_admission": {
+      "const": "NOT_EVALUATED"
+    },
+    "notices": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

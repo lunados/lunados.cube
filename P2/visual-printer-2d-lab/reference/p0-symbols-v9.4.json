@@ -1,0 +1,1600 @@
+{
+  "reference_version": "v9.4",
+  "role": "presentation_only",
+  "source_register": "VG v0.9.3 index reproduced by Morphology v9.4 Annex J",
+  "stable_identifiers": "id (semantic ID), not Unicode glyph or typography",
+  "glyph_count": 129,
+  "group_counts": {
+    "X": 22,
+    "Y": 63,
+    "Z": 31,
+    "UI": 13
+  },
+  "normalization_policy": "Never NFKC-normalize glyphs to derive Semantic IDs, hashes or object identity.",
+  "historical_aliases": [
+    {
+      "historical_id": "governance-boundary.authority",
+      "target_id": "contract-pairs.authority",
+      "meaning": "taxonomic_reference — **not** an unconditional semantic data-migration equivalence",
+      "automatic_data_migration_equivalence": false
+    },
+    {
+      "historical_id": "governance-boundary.admission",
+      "target_id": "contract-pairs.admission",
+      "meaning": "taxonomic_reference — **not** an unconditional semantic data-migration equivalence",
+      "automatic_data_migration_equivalence": false
+    },
+    {
+      "historical_id": "contract-pairs.outcome",
+      "target_id": "contract-pairs.conclusion",
+      "meaning": "historical_id_rename — **not** an unconditional semantic data-migration equivalence",
+      "automatic_data_migration_equivalence": false
+    },
+    {
+      "historical_id": "contract-pairs.preception",
+      "target_id": "contract-pairs.perception",
+      "meaning": "spelling_alias — **not** an unconditional semantic data-migration equivalence",
+      "automatic_data_migration_equivalence": false
+    }
+  ],
+  "no_implied_authority": [
+    "truth",
+    "identity",
+    "authorization",
+    "admission",
+    "verification",
+    "event",
+    "technical schema field"
+  ],
+  "unlisted_palette": "26 separately reserved mathematical operators are NOT reproduced in Annex J; do not invent their full registry.",
+  "anchors": [
+    {
+      "id": "contract-pairs.action",
+      "glyph": "⚐",
+      "codepoint": "U+2690",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "contract-pairs.admission",
+      "glyph": "⬬",
+      "codepoint": "U+2B2C",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "contract-pairs.authority",
+      "glyph": "⬭",
+      "codepoint": "U+2B2D",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "contract-pairs.completion",
+      "glyph": "☑",
+      "codepoint": "U+2611",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "contract-pairs.conclusion",
+      "glyph": "⭓",
+      "codepoint": "U+2B53",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "contract-pairs.delegation",
+      "glyph": "☐",
+      "codepoint": "U+2610",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "contract-pairs.expectation",
+      "glyph": "☆",
+      "codepoint": "U+2606",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "contract-pairs.perception",
+      "glyph": "⭔",
+      "codepoint": "U+2B54",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "contract-pairs.result",
+      "glyph": "⚑",
+      "codepoint": "U+2691",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "contract-pairs.satisfaction",
+      "glyph": "★",
+      "codepoint": "U+2605",
+      "group": "X",
+      "visual_role": "paired_concept_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "core-lenses.epistemology",
+      "glyph": "𝝭",
+      "codepoint": "U+1D76D",
+      "group": "X",
+      "visual_role": "dimension_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "core-lenses.execution",
+      "glyph": "𝝣",
+      "codepoint": "U+1D763",
+      "group": "X",
+      "visual_role": "dimension_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "core-lenses.governance",
+      "glyph": "𝝘",
+      "codepoint": "U+1D758",
+      "group": "X",
+      "visual_role": "dimension_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "core-lenses.provenance",
+      "glyph": "𝝥",
+      "codepoint": "U+1D765",
+      "group": "X",
+      "visual_role": "dimension_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "core-lenses.semantics",
+      "glyph": "𝝨",
+      "codepoint": "U+1D768",
+      "group": "X",
+      "visual_role": "dimension_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.policy",
+      "glyph": "⬥",
+      "codepoint": "U+2B25",
+      "group": "X",
+      "visual_role": "conceptual_judgement",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "logic-relations.authorization",
+      "glyph": "⬗",
+      "codepoint": "U+2B17",
+      "group": "X",
+      "visual_role": "conceptual_judgement",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "logic-relations.compatibility",
+      "glyph": "⬘",
+      "codepoint": "U+2B18",
+      "group": "X",
+      "visual_role": "conceptual_judgement",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "logic-relations.constraint",
+      "glyph": "⬙",
+      "codepoint": "U+2B19",
+      "group": "X",
+      "visual_role": "conceptual_judgement",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "logic-relations.invariant",
+      "glyph": "⟡",
+      "codepoint": "U+27E1",
+      "group": "X",
+      "visual_role": "conceptual_judgement",
+      "note": "mathematical reading: display-only",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "logic-relations.refutation",
+      "glyph": "⟣",
+      "codepoint": "U+27E3",
+      "group": "X",
+      "visual_role": "conceptual_judgement",
+      "note": "mathematical reading: display-only",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "logic-relations.verification",
+      "glyph": "⟢",
+      "codepoint": "U+27E2",
+      "group": "X",
+      "visual_role": "conceptual_judgement",
+      "note": "mathematical reading: display-only",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.failed",
+      "glyph": "⦻",
+      "codepoint": "U+29BB",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.idle",
+      "glyph": "⦵",
+      "codepoint": "U+29B5",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.not-authorized",
+      "glyph": "⦰",
+      "codepoint": "U+29B0",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.precondition-unmet",
+      "glyph": "⦸",
+      "codepoint": "U+29B8",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.requested",
+      "glyph": "⧀",
+      "codepoint": "U+29C0",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.running",
+      "glyph": "⧁",
+      "codepoint": "U+29C1",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.source-unavailable",
+      "glyph": "⦴",
+      "codepoint": "U+29B4",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.succeeded",
+      "glyph": "⦿",
+      "codepoint": "U+29BF",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.target-unavailable",
+      "glyph": "⦳",
+      "codepoint": "U+29B3",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.temporarily-unavailable",
+      "glyph": "⦲",
+      "codepoint": "U+29B2",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "execution-objects.outcome",
+      "glyph": "𝕺",
+      "codepoint": "U+1D57A",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": "aesthetic glyph candidate",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "identity-anchors.actor",
+      "glyph": "𝕬",
+      "codepoint": "U+1D56C",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "identity-anchors.adaptation-profile",
+      "glyph": "𝕴",
+      "codepoint": "U+1D574",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "identity-anchors.capability-profile",
+      "glyph": "𝕮",
+      "codepoint": "U+1D56E",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "identity-anchors.principal",
+      "glyph": "𝕻",
+      "codepoint": "U+1D57B",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "identity-anchors.role-binding",
+      "glyph": "𝕽",
+      "codepoint": "U+1D57D",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "identity-anchors.session-binding",
+      "glyph": "𝕾",
+      "codepoint": "U+1D57E",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.admits",
+      "glyph": "↪",
+      "codepoint": "U+21AA",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.causation",
+      "glyph": "⇰",
+      "codepoint": "U+21F0",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.derivation",
+      "glyph": "↦",
+      "codepoint": "U+21A6",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.executed-as",
+      "glyph": "⇛",
+      "codepoint": "U+21DB",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.observation",
+      "glyph": "↝",
+      "codepoint": "U+219D",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.performed-by",
+      "glyph": "↠",
+      "codepoint": "U+21A0",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.production",
+      "glyph": "⇥",
+      "codepoint": "U+21E5",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.projection",
+      "glyph": "⇉",
+      "codepoint": "U+21C9",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.reference",
+      "glyph": "→",
+      "codepoint": "U+2192",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.refuses",
+      "glyph": "↛",
+      "codepoint": "U+219B",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.selection",
+      "glyph": "↣",
+      "codepoint": "U+21A3",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "relation-arrows.uses-specification",
+      "glyph": "⇢",
+      "codepoint": "U+21E2",
+      "group": "Y",
+      "visual_role": "relation_operator",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-objects.artifact",
+      "glyph": "⌺",
+      "codepoint": "U+233A",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-objects.cache",
+      "glyph": "⍞",
+      "codepoint": "U+235E",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-objects.content",
+      "glyph": "⌻",
+      "codepoint": "U+233B",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-objects.evidence",
+      "glyph": "⌼",
+      "codepoint": "U+233C",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-objects.resource",
+      "glyph": "⌹",
+      "codepoint": "U+2339",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-objects.revision",
+      "glyph": "⍰",
+      "codepoint": "U+2370",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-objects.source",
+      "glyph": "⍠",
+      "codepoint": "U+2360",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-a.clean",
+      "glyph": "◵",
+      "codepoint": "U+25F5",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-a.conflict",
+      "glyph": "◑",
+      "codepoint": "U+25D1",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-a.dirty",
+      "glyph": "◶",
+      "codepoint": "U+25F6",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-a.fresh",
+      "glyph": "◝",
+      "codepoint": "U+25DD",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-a.loaded",
+      "glyph": "◘",
+      "codepoint": "U+25D8",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-a.not-loaded",
+      "glyph": "⧂",
+      "codepoint": "U+29C2",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-a.stale",
+      "glyph": "◷",
+      "codepoint": "U+25F7",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-b.cached-only",
+      "glyph": "⧕",
+      "codepoint": "U+29D5",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-b.degraded",
+      "glyph": "⧖",
+      "codepoint": "U+29D6",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-b.pending-sync",
+      "glyph": "⧒",
+      "codepoint": "U+29D2",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-b.read-only",
+      "glyph": "⧔",
+      "codepoint": "U+29D4",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-b.reconnect-pending",
+      "glyph": "⧗",
+      "codepoint": "U+29D7",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-b.unavailable",
+      "glyph": "⧑",
+      "codepoint": "U+29D1",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-states-b.writable",
+      "glyph": "⧓",
+      "codepoint": "U+29D3",
+      "group": "Y",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.ac",
+      "glyph": "◇",
+      "codepoint": "U+25C7",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.epic",
+      "glyph": "◙",
+      "codepoint": "U+25D9",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.file",
+      "glyph": "▪",
+      "codepoint": "U+25AA",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.folder",
+      "glyph": "▫",
+      "codepoint": "U+25AB",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.mile",
+      "glyph": "◎",
+      "codepoint": "U+25CE",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.milestone",
+      "glyph": "◉",
+      "codepoint": "U+25C9",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.repository",
+      "glyph": "▢",
+      "codepoint": "U+25A2",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.review-gate",
+      "glyph": "◈",
+      "codepoint": "U+25C8",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.roadmap",
+      "glyph": "◯",
+      "codepoint": "U+25EF",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.run",
+      "glyph": "▷",
+      "codepoint": "U+25B7",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.snapshot-rendered-view",
+      "glyph": "◌",
+      "codepoint": "U+25CC",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.story",
+      "glyph": "◚",
+      "codepoint": "U+25DA",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.task",
+      "glyph": "◛",
+      "codepoint": "U+25DB",
+      "group": "Y",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.available",
+      "glyph": "⦾",
+      "codepoint": "U+29BE",
+      "group": "Z",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "action-lifecycle.unavailable",
+      "glyph": "⦶",
+      "codepoint": "U+29B6",
+      "group": "Z",
+      "visual_role": "state_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.boundary",
+      "glyph": "⬠",
+      "codepoint": "U+2B20",
+      "group": "Z",
+      "visual_role": "boundary_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.capability",
+      "glyph": "⬒",
+      "codepoint": "U+2B12",
+      "group": "Z",
+      "visual_role": "boundary_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.capability-boundary",
+      "glyph": "⬓",
+      "codepoint": "U+2B13",
+      "group": "Z",
+      "visual_role": "boundary_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.execution-boundary",
+      "glyph": "⬔",
+      "codepoint": "U+2B14",
+      "group": "Z",
+      "visual_role": "boundary_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.grant",
+      "glyph": "⧨",
+      "codepoint": "U+29E8",
+      "group": "Z",
+      "visual_role": "boundary_marker",
+      "note": "mathematical reading: display-only",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.project-boundary",
+      "glyph": "⬕",
+      "codepoint": "U+2B15",
+      "group": "Z",
+      "visual_role": "boundary_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.refusal",
+      "glyph": "⧩",
+      "codepoint": "U+29E9",
+      "group": "Z",
+      "visual_role": "boundary_marker",
+      "note": "mathematical reading: display-only",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.thread-boundary",
+      "glyph": "⬖",
+      "codepoint": "U+2B16",
+      "group": "Z",
+      "visual_role": "boundary_marker",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "governance-boundary.visibility",
+      "glyph": "⧊",
+      "codepoint": "U+29CA",
+      "group": "Z",
+      "visual_role": "boundary_marker",
+      "note": "mathematical reading: display-only",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "module-bodies.adapter",
+      "glyph": "𝗔",
+      "codepoint": "U+1D5D4",
+      "group": "Z",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "module-bodies.connector",
+      "glyph": "𝗖",
+      "codepoint": "U+1D5D6",
+      "group": "Z",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "module-bodies.core",
+      "glyph": "𝗞",
+      "codepoint": "U+1D5DE",
+      "group": "Z",
+      "visual_role": "type_letter",
+      "note": null,
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "module-bodies.integration",
+      "glyph": "𝗜",
+      "codepoint": "U+1D5DC",
+      "group": "Z",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "module-bodies.provider",
+      "glyph": "𝗣",
+      "codepoint": "U+1D5E3",
+      "group": "Z",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "module-bodies.runtime",
+      "glyph": "𝗥",
+      "codepoint": "U+1D5E5",
+      "group": "Z",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "module-bodies.third-party-dependency",
+      "glyph": "𝗗",
+      "codepoint": "U+1D5D7",
+      "group": "Z",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "module-bodies.tool",
+      "glyph": "𝗧",
+      "codepoint": "U+1D5E7",
+      "group": "Z",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "module-bodies.toolbox",
+      "glyph": "𝗕",
+      "codepoint": "U+1D5D5",
+      "group": "Z",
+      "visual_role": "type_letter",
+      "note": "context review",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-zones.back-office",
+      "glyph": "◾",
+      "codepoint": "U+25FE",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-zones.front-office",
+      "glyph": "◻",
+      "codepoint": "U+25FB",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-zones.front-stage",
+      "glyph": "◽",
+      "codepoint": "U+25FD",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-zones.ownership",
+      "glyph": "⬦",
+      "codepoint": "U+2B26",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-zones.resource-zone",
+      "glyph": "⬧",
+      "codepoint": "U+2B27",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-zones.same-resource-across-zones",
+      "glyph": "⬨",
+      "codepoint": "U+2B28",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "resource-zones.zone-boundary",
+      "glyph": "⬪",
+      "codepoint": "U+2B2A",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.external-service",
+      "glyph": "◬",
+      "codepoint": "U+25EC",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.network",
+      "glyph": "△",
+      "codepoint": "U+25B3",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.workspace",
+      "glyph": "▣",
+      "codepoint": "U+25A3",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.worktree",
+      "glyph": "□",
+      "codepoint": "U+25A1",
+      "group": "Z",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-planning.artifact-slot",
+      "glyph": "▱",
+      "codepoint": "U+25B1",
+      "group": "UI",
+      "visual_role": "spatial_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.badge",
+      "glyph": "◳",
+      "codepoint": "U+25F3",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.button",
+      "glyph": "◍",
+      "codepoint": "U+25CD",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.card",
+      "glyph": "◿",
+      "codepoint": "U+25FF",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.chip",
+      "glyph": "◸",
+      "codepoint": "U+25F8",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.left-wing",
+      "glyph": "◧",
+      "codepoint": "U+25E7",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.main-surface",
+      "glyph": "▦",
+      "codepoint": "U+25A6",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.panel",
+      "glyph": "◱",
+      "codepoint": "U+25F1",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.prompt",
+      "glyph": "▭",
+      "codepoint": "U+25AD",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.rail",
+      "glyph": "▧",
+      "codepoint": "U+25A7",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.right-wing",
+      "glyph": "◨",
+      "codepoint": "U+25E8",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.section",
+      "glyph": "◲",
+      "codepoint": "U+25F2",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    },
+    {
+      "id": "skeleton-shell.tab",
+      "glyph": "◰",
+      "codepoint": "U+25F0",
+      "group": "UI",
+      "visual_role": "ui_marker",
+      "note": "not an independent ontology root",
+      "source": {
+        "reference": "morphology.md",
+        "section": "Annex J"
+      }
+    }
+  ]
+}

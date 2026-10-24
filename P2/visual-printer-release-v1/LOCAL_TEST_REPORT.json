@@ -1,0 +1,17 @@
+{
+  "3d": "NOT_IMPLEMENTED",
+  "baseline_vp01_vp05_unit_tests": 191,
+  "combinatorial_matrix_cases": 90,
+  "combined_unit_tests": 237,
+  "date": "2026-10-24",
+  "external_agent_compatibility": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp06-local-test-report/1",
+  "json_schema_gate": "4/4 schemas valid; 4/4 jobs, 4/4 VP03 bundles, 4/4 VP06 reports, 1/1 diagnostic validated with jsonschema",
+  "macos_svg_fonts": "NOT_EVALUATED",
+  "matrix_expected_rejections": 36,
+  "matrix_golden_positive": 54,
+  "status": "PASS",
+  "vp06_golden_examples": 4,
+  "vp06_unit_tests": 46,
+  "web_publication": "NOT_EVALUATED"
+}

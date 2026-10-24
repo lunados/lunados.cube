@@ -1,0 +1,59 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "content_status": "declared_unverified",
+  "current_authority": "NOT_EVALUATED",
+  "displayed_edges": [
+    {
+      "declaration_ref": "fixture:VP02/tree/t2.1",
+      "from": "resource",
+      "predicate_id": "groups",
+      "to": "artifact"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t2.2",
+      "from": "resource",
+      "predicate_id": "groups",
+      "to": "source"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t2.3",
+      "from": "resource",
+      "predicate_id": "groups",
+      "to": "cache"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t2.4",
+      "from": "artifact",
+      "predicate_id": "groups",
+      "to": "revision"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t2.5",
+      "from": "artifact",
+      "predicate_id": "groups",
+      "to": "evidence"
+    }
+  ],
+  "displayed_item_ids": [
+    "resource",
+    "artifact",
+    "source",
+    "cache",
+    "revision",
+    "evidence"
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp02-print-report/1",
+  "granularity": "standard",
+  "lens": "neutral",
+  "notices": [
+    "All source declarations are unverified presentation inputs.",
+    "Layout order, geometry, color and arrowheads do not assert semantic typing, causation or time truth."
+  ],
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "svg_sha256": "2f02a75566a50e68ec08c4b0cd8ae93ce26176b5d442a6df4cd502f1f045edaa",
+  "view": "cube.tree"
+}

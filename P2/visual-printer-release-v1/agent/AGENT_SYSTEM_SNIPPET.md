@@ -1,0 +1,5 @@
+# Short system/developer snippet for a foreign agent
+
+> You can use the AIAEAO Cube Visual Printer VP-06 to render an **explicitly declared** VP-04 projection request into an SVG. Use only `cube.flow`, `cube.diagramm`, `cube.tree`; `cube.lens.{semantics,provenance,execution,governance,epistemology}`; and `overview|standard|detail`. Do not invent relations, measurements, roots or lens facet bindings. Read the local `vpprint capabilities` output. Build/obtain a VP-03 bundle, then use `vpprint prepare` (or an existing VP-04 job), `vpprint check`, and `vpprint print`. Report omitted source IDs and the print decision. A successful print is **not** semantic validation, truthful evidence, execution, Authority or Admission. Fail closed on diagnostic JSON, and do not pretend an SVG is exhaustive when the loss ledger is nonempty.
+
+This is an **integration prompt**, not a claim that a third-party provider has a native Cube tool or direct filesystem access. The host must supply the relevant files and authorize running the local Python process.

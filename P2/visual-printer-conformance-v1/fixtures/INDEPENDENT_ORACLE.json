@@ -1,0 +1,14 @@
+{
+  "format": "aiaeao.cube.vp05-independent-expectations/1",
+  "status": "hand_authored_before_matrix_execution",
+  "principle": "Counts are predicted from declarative source cardinalities and documented VP04 hard caps; never calculated from printer output.",
+  "lenses": ["semantics", "provenance", "execution", "governance", "epistemology"],
+  "sources": {
+    "flow_migration": {"seed": "flow_migration__detail", "view": "cube.flow", "source_items": 2, "levels": {"overview": [2,1,"COMPLETE_INPUT_VIEW"], "standard": [2,1,"COMPLETE_INPUT_VIEW"], "detail": [2,1,"COMPLETE_INPUT_VIEW"]}},
+    "flow_research": {"seed": "flow_research__detail", "view": "cube.flow", "source_items": 3, "levels": {"overview": [2,1,"PARTIAL_EXPLICIT"], "standard": [3,2,"COMPLETE_INPUT_VIEW"], "detail": [3,2,"COMPLETE_INPUT_VIEW"]}},
+    "chart_inventory": {"seed": "chart_inventory__detail", "view": "cube.diagramm", "source_items": 4, "levels": {"overview": [2,0,"PARTIAL_EXPLICIT"], "standard": [4,0,"COMPLETE_INPUT_VIEW"], "detail": [4,0,"COMPLETE_INPUT_VIEW"]}},
+    "chart_line": {"seed": "chart_line__detail", "view": "cube.diagramm", "source_items": 5, "levels": {"overview": [2,0,"PARTIAL_EXPLICIT"], "standard": [4,0,"PARTIAL_EXPLICIT"], "detail": [5,0,"COMPLETE_INPUT_VIEW"]}},
+    "tree_modules": {"seed": "tree_modules__detail", "view": "cube.tree", "source_items": 5, "levels": {"overview": [3,2,"PARTIAL_EXPLICIT"], "standard": [5,4,"COMPLETE_INPUT_VIEW"], "detail": [5,4,"COMPLETE_INPUT_VIEW"]}},
+    "tree_resources": {"seed": "tree_resources__detail", "view": "cube.tree", "source_items": 6, "levels": {"overview": [3,2,"PARTIAL_EXPLICIT"], "standard": [5,4,"PARTIAL_EXPLICIT"], "detail": [6,5,"COMPLETE_INPUT_VIEW"]}}
+  }
+}

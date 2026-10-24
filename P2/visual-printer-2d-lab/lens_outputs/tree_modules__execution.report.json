@@ -1,0 +1,93 @@
+{
+  "format": "aiaeao.cube.vp03-print-report/1",
+  "lens_profile": "P2-VP-LENSES/0.3.0",
+  "reference_version": "v9.4",
+  "view": "cube.tree",
+  "lens": "cube.lens.execution",
+  "granularity": "standard",
+  "source_view_sha256": "27fbfe48db7518acc7927ea5f579a2ece0a2cd43e4f0fb6fa444bc4843e09444",
+  "base_view_svg_sha256": "9d32ce3516f14270c98e0efd78dfd793ae6d991198d85aafb705c6b72a6293b5",
+  "svg_sha256": "2e2b8c7f8262fbde0810dfec114eb8ab64ddf42fda4ce3919bcf8c2a970d9254",
+  "render_status": "PASS",
+  "focus_status": "declared_unverified",
+  "highlighted": [
+    {
+      "lens": "cube.lens.execution",
+      "target_kind": "node",
+      "target_id": "runtime",
+      "declaration_ref": "fixture:VP03/tree_modules/execution/node/runtime",
+      "note": "Conceptual runtime module, not executed",
+      "basis": "declared_unverified"
+    },
+    {
+      "lens": "cube.lens.execution",
+      "target_kind": "node",
+      "target_id": "toolbox",
+      "declaration_ref": "fixture:VP03/tree_modules/execution/node/toolbox",
+      "note": "Conceptual tool collection",
+      "basis": "declared_unverified"
+    }
+  ],
+  "original_vp02_report": {
+    "format": "aiaeao.cube.vp02-print-report/1",
+    "printer_profile": "P2-VP-VIEWS/0.2.0",
+    "reference_version": "v9.4",
+    "view": "cube.tree",
+    "lens": "neutral",
+    "granularity": "standard",
+    "render_status": "PASS",
+    "svg_sha256": "9d32ce3516f14270c98e0efd78dfd793ae6d991198d85aafb705c6b72a6293b5",
+    "semantic_conformance": "NOT_EVALUATED",
+    "epistemic_warrant": "NOT_EVALUATED",
+    "current_authority": "NOT_EVALUATED",
+    "canonical_admission": "NOT_EVALUATED",
+    "content_status": "declared_unverified",
+    "notices": [
+      "All source declarations are unverified presentation inputs.",
+      "Layout order, geometry, color and arrowheads do not assert semantic typing, causation or time truth."
+    ],
+    "displayed_item_ids": [
+      "core",
+      "runtime",
+      "adapter",
+      "connector",
+      "toolbox"
+    ],
+    "displayed_edges": [
+      {
+        "from": "core",
+        "to": "runtime",
+        "predicate_id": "contains",
+        "declaration_ref": "fixture:VP02/tree/t1"
+      },
+      {
+        "from": "core",
+        "to": "adapter",
+        "predicate_id": "contains",
+        "declaration_ref": "fixture:VP02/tree/t2"
+      },
+      {
+        "from": "core",
+        "to": "connector",
+        "predicate_id": "contains",
+        "declaration_ref": "fixture:VP02/tree/t3"
+      },
+      {
+        "from": "core",
+        "to": "toolbox",
+        "predicate_id": "contains",
+        "declaration_ref": "fixture:VP02/tree/t4"
+      }
+    ]
+  },
+  "content_status": "declared_unverified",
+  "semantic_conformance": "NOT_EVALUATED",
+  "epistemic_warrant": "NOT_EVALUATED",
+  "current_authority": "NOT_EVALUATED",
+  "canonical_admission": "NOT_EVALUATED",
+  "notices": [
+    "Every source element remains visible; VP-03 changes visual emphasis only.",
+    "Facet bindings are authored display declarations, not evidence of operational facts.",
+    "Lens color, form, layout and focus neither grant authority nor assert truth."
+  ]
+}

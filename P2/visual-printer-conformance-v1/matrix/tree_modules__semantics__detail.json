@@ -1,0 +1,178 @@
+{
+  "format": "aiaeao.cube.vp04-projection-request/1",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "projection": {
+    "budget": {
+      "max_edges": 6,
+      "max_items": 7
+    },
+    "focus": null,
+    "granularity": "detail",
+    "lens": "cube.lens.semantics",
+    "overflow": "summarize",
+    "view": "cube.tree"
+  },
+  "reference_version": "v9.4",
+  "source_bundle": {
+    "basis": "declared_unverified",
+    "facet_bindings": [
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "fixture:VP03/tree_modules/semantics/node/core",
+        "lens": "cube.lens.semantics",
+        "note": "Authored structural concept",
+        "target_id": "core",
+        "target_kind": "node"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "fixture:VP03/tree_modules/semantics/node/adapter",
+        "lens": "cube.lens.semantics",
+        "note": "Declared module kind",
+        "target_id": "adapter",
+        "target_kind": "node"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "fixture:VP03/tree_modules/provenance/node/connector",
+        "lens": "cube.lens.provenance",
+        "note": "Inspect declared connector role",
+        "target_id": "connector",
+        "target_kind": "node"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "fixture:VP03/tree_modules/provenance/edge/e3",
+        "lens": "cube.lens.provenance",
+        "note": "Inspect authored hierarchy pointer",
+        "target_id": "e3",
+        "target_kind": "edge"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "fixture:VP03/tree_modules/execution/node/runtime",
+        "lens": "cube.lens.execution",
+        "note": "Conceptual runtime module, not executed",
+        "target_id": "runtime",
+        "target_kind": "node"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "fixture:VP03/tree_modules/execution/node/toolbox",
+        "lens": "cube.lens.execution",
+        "note": "Conceptual tool collection",
+        "target_id": "toolbox",
+        "target_kind": "node"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "fixture:VP03/tree_modules/governance/node/core",
+        "lens": "cube.lens.governance",
+        "note": "Illustrative boundary of the group",
+        "target_id": "core",
+        "target_kind": "node"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "fixture:VP03/tree_modules/governance/edge/e2",
+        "lens": "cube.lens.governance",
+        "note": "Inspect the declared grouping link",
+        "target_id": "e2",
+        "target_kind": "edge"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "fixture:VP03/tree_modules/epistemology/node/connector",
+        "lens": "cube.lens.epistemology",
+        "note": "Open design assumption for review",
+        "target_id": "connector",
+        "target_kind": "node"
+      }
+    ],
+    "format": "aiaeao.cube.vp03-lens-bundle/1",
+    "lens_profile": "P2-VP-LENSES/0.3.0",
+    "reference_version": "v9.4",
+    "source_view_sha256": "27fbfe48db7518acc7927ea5f579a2ece0a2cd43e4f0fb6fa444bc4843e09444",
+    "view_plan": {
+      "declaration_status": "declared_unverified",
+      "edges": [
+        {
+          "arrow_anchor_id": "relation-arrows.reference",
+          "declaration_ref": "fixture:VP02/tree/t1",
+          "from": "core",
+          "predicate_id": "contains",
+          "to": "runtime"
+        },
+        {
+          "arrow_anchor_id": "relation-arrows.reference",
+          "declaration_ref": "fixture:VP02/tree/t2",
+          "from": "core",
+          "predicate_id": "contains",
+          "to": "adapter"
+        },
+        {
+          "arrow_anchor_id": "relation-arrows.reference",
+          "declaration_ref": "fixture:VP02/tree/t3",
+          "from": "core",
+          "predicate_id": "contains",
+          "to": "connector"
+        },
+        {
+          "arrow_anchor_id": "relation-arrows.reference",
+          "declaration_ref": "fixture:VP02/tree/t4",
+          "from": "core",
+          "predicate_id": "contains",
+          "to": "toolbox"
+        }
+      ],
+      "granularity": "standard",
+      "lens": "neutral",
+      "nodes": [
+        {
+          "anchor_id": "module-bodies.core",
+          "form_id": "form.module-block",
+          "id": "core",
+          "label": "Core (declared root)"
+        },
+        {
+          "anchor_id": "module-bodies.runtime",
+          "form_id": "form.module-block",
+          "id": "runtime",
+          "label": "Runtime"
+        },
+        {
+          "anchor_id": "module-bodies.adapter",
+          "form_id": "form.module-block",
+          "id": "adapter",
+          "label": "Adapter"
+        },
+        {
+          "anchor_id": "module-bodies.connector",
+          "form_id": "form.module-block",
+          "id": "connector",
+          "label": "Connector"
+        },
+        {
+          "anchor_id": "module-bodies.toolbox",
+          "form_id": "form.module-block",
+          "id": "toolbox",
+          "label": "Toolbox"
+        }
+      ],
+      "order": [
+        "core",
+        "runtime",
+        "adapter",
+        "connector",
+        "toolbox"
+      ],
+      "printer_profile": "P2-VP-VIEWS/0.2.0",
+      "reference_version": "v9.4",
+      "root_id": "core",
+      "subtitle": "Authored hierarchy · not a discovered or admitted runtime architecture",
+      "title": "Module containment · Illustration",
+      "view": "cube.tree"
+    }
+  },
+  "source_bundle_sha256": "01d07868b1f71e03c2a240ac83e31627c63cf5aa84f09c211e704d762ae51e15"
+}

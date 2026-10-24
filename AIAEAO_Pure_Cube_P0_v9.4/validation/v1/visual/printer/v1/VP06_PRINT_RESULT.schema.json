@@ -1,0 +1,27 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"urn:aiaeao:vp06:print-result:1",
+  "title":"AIAEAO VP-06 local print result",
+  "type":"object","additionalProperties":false,
+  "required":["format","profile","status","reference_version","request_sha256","source_bundle_sha256","svg_sha256","dimensions","completeness","decision","loss_ledger","split_feasibility","conformance","epistemic_warrant","current_authority","canonical_admission","limitations"],
+  "properties":{
+    "format":{"const":"aiaeao.cube.vp06-print-result/1"},
+    "profile":{"const":"P2-VP/1.0.0-rc1"},
+    "status":{"const":"PASS"},
+    "reference_version":{"const":"v9.4"},
+    "request_sha256":{"$ref":"#/$defs/digest"},
+    "source_bundle_sha256":{"$ref":"#/$defs/digest"},
+    "svg_sha256":{"$ref":"#/$defs/digest"},
+    "dimensions":{"type":"object","additionalProperties":false,"required":["view","lens","granularity"],"properties":{"view":{"enum":["cube.flow","cube.diagramm","cube.tree"]},"lens":{"enum":["cube.lens.semantics","cube.lens.provenance","cube.lens.execution","cube.lens.governance","cube.lens.epistemology"]},"granularity":{"enum":["overview","standard","detail"]}}},
+    "completeness":{"type":"string","minLength":1},
+    "decision":{"type":"object","required":["action","rationale","status"],"properties":{"action":{"enum":["SINGLE_COMPLETE","SINGLE_DISCLOSED","SPLIT_RECOMMENDED","REFOCUS_OR_RAISE_BUDGET"]},"rationale":{"type":"string"},"status":{"type":"string"}}},
+    "loss_ledger":{"type":"object","additionalProperties":false,"required":["displayed_item_ids","omitted_item_ids","displayed_source_edge_ids","omitted_source_edge_ids","displayed_lens_declarations","omitted_lens_declarations"],"properties":{"displayed_item_ids":{"$ref":"#/$defs/ids"},"omitted_item_ids":{"$ref":"#/$defs/ids"},"displayed_source_edge_ids":{"$ref":"#/$defs/ids"},"omitted_source_edge_ids":{"$ref":"#/$defs/ids"},"displayed_lens_declarations":{"type":"integer","minimum":0},"omitted_lens_declarations":{"type":"integer","minimum":0}}},
+    "split_feasibility":{"type":"object","required":["status","panels_materialized"],"properties":{"status":{"enum":["NOT_REQUIRED","FEASIBLE","NOT_FEASIBLE"]},"panels_materialized":{"const":false}}},
+    "conformance":{"type":"object","required":["format","profile","status","svg_sha256","source_bundle_sha256","decision","invariants_passed"],"properties":{"format":{"const":"aiaeao.cube.vp05-conformance-report/1"},"profile":{"const":"P2-VP-CONFORMANCE/0.5.0"},"status":{"const":"PASS"},"svg_sha256":{"$ref":"#/$defs/digest"},"source_bundle_sha256":{"$ref":"#/$defs/digest"},"decision":{"type":"object"},"invariants_passed":{"type":"array","items":{"type":"string"},"minItems":1}}},
+    "epistemic_warrant":{"const":"NOT_EVALUATED"},
+    "current_authority":{"const":"NOT_EVALUATED"},
+    "canonical_admission":{"const":"NOT_EVALUATED"},
+    "limitations":{"type":"array","minItems":1,"items":{"type":"string"}}
+  },
+  "$defs":{"digest":{"type":"string","pattern":"^[a-f0-9]{64}$"},"ids":{"type":"array","uniqueItems":true,"items":{"type":"string","minLength":1}}}
+}

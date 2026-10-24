@@ -1,0 +1,520 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:vp03:lens-bundle:0.3.0",
+  "title": "AIAEAO VP-03 lens bundle · display-only fixture declarations",
+  "description": "Self-contained VP-02 view plan plus explicit authored visual focus bindings; Python validates reference target consistency and hashes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "lens_profile",
+    "reference_version",
+    "source_view_sha256",
+    "view_plan",
+    "facet_bindings",
+    "basis"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.vp03-lens-bundle/1"
+    },
+    "lens_profile": {
+      "const": "P2-VP-LENSES/0.3.0"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "source_view_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "view_plan": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/flow"
+        },
+        {
+          "$ref": "#/$defs/chart"
+        },
+        {
+          "$ref": "#/$defs/tree"
+        }
+      ]
+    },
+    "facet_bindings": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 75,
+      "items": {
+        "$ref": "#/$defs/vp03_binding"
+      }
+    },
+    "basis": {
+      "const": "declared_unverified"
+    }
+  },
+  "$defs": {
+    "flow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "printer_profile",
+        "reference_version",
+        "lens",
+        "granularity",
+        "title",
+        "view",
+        "nodes",
+        "edges",
+        "order",
+        "direction",
+        "declaration_status"
+      ],
+      "properties": {
+        "printer_profile": {
+          "const": "P2-VP-VIEWS/0.2.0"
+        },
+        "reference_version": {
+          "const": "v9.4"
+        },
+        "lens": {
+          "const": "neutral"
+        },
+        "granularity": {
+          "const": "standard"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 78
+        },
+        "subtitle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 95
+        },
+        "view": {
+          "const": "cube.flow"
+        },
+        "nodes": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "anchor_id",
+              "label",
+              "form_id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+              },
+              "anchor_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "form_id": {
+                "type": "string",
+                "pattern": "^form\\."
+              },
+              "semantic_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "qualified_state_witness_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "time_label": {
+                "type": "string",
+                "maxLength": 40
+              },
+              "color_token": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "edges": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "from",
+              "to",
+              "predicate_id",
+              "declaration_ref",
+              "arrow_anchor_id"
+            ],
+            "properties": {
+              "from": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+              },
+              "to": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+              },
+              "predicate_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 140
+              },
+              "declaration_ref": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 140
+              },
+              "arrow_anchor_id": {
+                "const": "relation-arrows.reference"
+              }
+            }
+          }
+        },
+        "order": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "direction": {
+          "enum": [
+            "left-to-right",
+            "top-down"
+          ]
+        },
+        "declaration_status": {
+          "const": "declared_unverified"
+        }
+      }
+    },
+    "tree": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "printer_profile",
+        "reference_version",
+        "lens",
+        "granularity",
+        "title",
+        "view",
+        "nodes",
+        "edges",
+        "order",
+        "root_id",
+        "declaration_status"
+      ],
+      "properties": {
+        "printer_profile": {
+          "const": "P2-VP-VIEWS/0.2.0"
+        },
+        "reference_version": {
+          "const": "v9.4"
+        },
+        "lens": {
+          "const": "neutral"
+        },
+        "granularity": {
+          "const": "standard"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 78
+        },
+        "subtitle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 95
+        },
+        "view": {
+          "const": "cube.tree"
+        },
+        "nodes": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 7,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "anchor_id",
+              "label",
+              "form_id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+              },
+              "anchor_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 60
+              },
+              "form_id": {
+                "type": "string",
+                "pattern": "^form\\."
+              },
+              "semantic_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "qualified_state_witness_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "time_label": {
+                "type": "string",
+                "maxLength": 40
+              },
+              "color_token": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "edges": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "from",
+              "to",
+              "predicate_id",
+              "declaration_ref",
+              "arrow_anchor_id"
+            ],
+            "properties": {
+              "from": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+              },
+              "to": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+              },
+              "predicate_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 140
+              },
+              "declaration_ref": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 140
+              },
+              "arrow_anchor_id": {
+                "const": "relation-arrows.reference"
+              }
+            }
+          }
+        },
+        "order": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 7,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "root_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+        },
+        "declaration_status": {
+          "const": "declared_unverified"
+        }
+      }
+    },
+    "chart": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "printer_profile",
+        "reference_version",
+        "lens",
+        "granularity",
+        "title",
+        "view",
+        "plot",
+        "metric",
+        "samples"
+      ],
+      "properties": {
+        "printer_profile": {
+          "const": "P2-VP-VIEWS/0.2.0"
+        },
+        "reference_version": {
+          "const": "v9.4"
+        },
+        "lens": {
+          "const": "neutral"
+        },
+        "granularity": {
+          "const": "standard"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 78
+        },
+        "subtitle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 95
+        },
+        "view": {
+          "const": "cube.diagramm"
+        },
+        "plot": {
+          "enum": [
+            "bar",
+            "line"
+          ]
+        },
+        "metric": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "unit",
+            "scale",
+            "declaration_ref",
+            "evidence_status"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 24
+            },
+            "scale": {
+              "const": "linear_zero_based"
+            },
+            "declaration_ref": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 180
+            },
+            "evidence_status": {
+              "const": "declared_unverified"
+            }
+          }
+        },
+        "samples": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label",
+              "value"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 24
+              },
+              "value": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1000000000
+              }
+            }
+          }
+        }
+      }
+    },
+    "vp03_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lens",
+        "target_kind",
+        "target_id",
+        "declaration_ref",
+        "note",
+        "basis"
+      ],
+      "properties": {
+        "lens": {
+          "enum": [
+            "cube.lens.semantics",
+            "cube.lens.provenance",
+            "cube.lens.execution",
+            "cube.lens.governance",
+            "cube.lens.epistemology"
+          ]
+        },
+        "target_kind": {
+          "enum": [
+            "node",
+            "edge",
+            "metric",
+            "sample"
+          ]
+        },
+        "target_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_.:-]{0,99}$"
+        },
+        "declaration_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180,
+          "pattern": "^(fixture:|decl:)"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "basis": {
+          "const": "declared_unverified"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "view": "cube.diagramm",
+  "lens": "neutral",
+  "granularity": "standard",
+  "title": "Resource inventory · Declared sample",
+  "subtitle": "Synthetic planning counts · NOT observations of any repository",
+  "plot": "bar",
+  "metric": {
+    "id": "fixture.resource_count",
+    "unit": "items",
+    "scale": "linear_zero_based",
+    "declaration_ref": "fixture:VP02/measurements/resource-counts-v1",
+    "evidence_status": "declared_unverified"
+  },
+  "samples": [
+    {
+      "id": "artifact",
+      "label": "Artifacts",
+      "value": 12
+    },
+    {
+      "id": "source",
+      "label": "Sources",
+      "value": 7
+    },
+    {
+      "id": "evidence",
+      "label": "Evidence",
+      "value": 9
+    },
+    {
+      "id": "revisions",
+      "label": "Revisions",
+      "value": 4
+    }
+  ]
+}

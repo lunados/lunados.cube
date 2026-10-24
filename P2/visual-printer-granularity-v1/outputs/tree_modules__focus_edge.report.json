@@ -1,0 +1,159 @@
+{
+  "budget": {
+    "max_edges": 2,
+    "max_items": 3
+  },
+  "canonical_admission": "NOT_EVALUATED",
+  "chart_axis_rescaled": false,
+  "chart_window": "not_applicable",
+  "completeness": "PARTIAL_EXPLICIT",
+  "content_status": "declared_unverified",
+  "counts": {
+    "edges_omitted": 2,
+    "edges_shown": 2,
+    "facet_bindings_omitted": 2,
+    "items_omitted": 2,
+    "items_shown": 3,
+    "source_edges": 4,
+    "source_items": 5
+  },
+  "current_authority": "NOT_EVALUATED",
+  "displayed_facet_bindings": [
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/semantics/node/core",
+      "lens": "cube.lens.semantics",
+      "note": "Authored structural concept",
+      "target_id": "core",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/semantics/node/adapter",
+      "lens": "cube.lens.semantics",
+      "note": "Declared module kind",
+      "target_id": "adapter",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/provenance/node/connector",
+      "lens": "cube.lens.provenance",
+      "note": "Inspect declared connector role",
+      "target_id": "connector",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/provenance/edge/e3",
+      "lens": "cube.lens.provenance",
+      "note": "Inspect authored hierarchy pointer",
+      "target_id": "e2",
+      "target_kind": "edge"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/governance/node/core",
+      "lens": "cube.lens.governance",
+      "note": "Illustrative boundary of the group",
+      "target_id": "core",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/governance/edge/e2",
+      "lens": "cube.lens.governance",
+      "note": "Inspect the declared grouping link",
+      "target_id": "e1",
+      "target_kind": "edge"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/epistemology/node/connector",
+      "lens": "cube.lens.epistemology",
+      "note": "Open design assumption for review",
+      "target_id": "connector",
+      "target_kind": "node"
+    }
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "focus": {
+    "id": "e3",
+    "kind": "edge"
+  },
+  "format": "aiaeao.cube.vp04-print-report/1",
+  "granularity": "overview",
+  "lens": "cube.lens.governance",
+  "lens_emphasis": "declared_unverified",
+  "notices": [
+    "Aggregated count is display-only: no virtual entity, predicate or measurement was synthesized.",
+    "Every omitted element and edge is retained by identifier in this report and SVG metadata.",
+    "Chart subset scaling must not be compared across levels unless chart_axis_rescaled=false.",
+    "Layouts, lens markers, focus and filtering never imply verified truth or granted authority."
+  ],
+  "omitted_edges": [
+    {
+      "declaration_ref": "fixture:VP02/tree/t1",
+      "from": "core",
+      "predicate_id": "contains",
+      "reason": "endpoint_omitted",
+      "source_edge_id": "e1",
+      "to": "runtime"
+    },
+    {
+      "declaration_ref": "fixture:VP02/tree/t4",
+      "from": "core",
+      "predicate_id": "contains",
+      "reason": "endpoint_omitted",
+      "source_edge_id": "e4",
+      "to": "toolbox"
+    }
+  ],
+  "omitted_facet_bindings": [
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/execution/node/runtime",
+      "lens": "cube.lens.execution",
+      "note": "Conceptual runtime module, not executed",
+      "target_id": "runtime",
+      "target_kind": "node"
+    },
+    {
+      "basis": "declared_unverified",
+      "declaration_ref": "fixture:VP03/tree_modules/execution/node/toolbox",
+      "lens": "cube.lens.execution",
+      "note": "Conceptual tool collection",
+      "target_id": "toolbox",
+      "target_kind": "node"
+    }
+  ],
+  "omitted_item_ids": [
+    "runtime",
+    "toolbox"
+  ],
+  "overflow": "summarize",
+  "profile": "P2-VP-GRANULARITY/0.4.0",
+  "reduced_view_sha256": "adc592917a292f28a660a2e1e898dcd1ffa60672199afa1d5330264545f16f96",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "shown_edges": [
+    {
+      "projected_edge_id": "e1",
+      "source_edge_id": "e2"
+    },
+    {
+      "projected_edge_id": "e2",
+      "source_edge_id": "e3"
+    }
+  ],
+  "shown_item_ids": [
+    "core",
+    "adapter",
+    "connector"
+  ],
+  "source_bundle_sha256": "01d07868b1f71e03c2a240ac83e31627c63cf5aa84f09c211e704d762ae51e15",
+  "source_view_sha256": "27fbfe48db7518acc7927ea5f579a2ece0a2cd43e4f0fb6fa444bc4843e09444",
+  "svg_sha256": "2556877968f0115e62c0b4d7109547f3138d0f466f089bd2bca9af580cdfbf27",
+  "view": "cube.tree"
+}

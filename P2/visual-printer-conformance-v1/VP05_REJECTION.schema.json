@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:vp05:expected-rejection:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "case_id",
+    "status",
+    "diagnostic",
+    "message",
+    "content_status",
+    "semantic_conformance"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.vp05-expected-rejection/1"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "status": {
+      "const": "EXPECTED_REJECTION"
+    },
+    "diagnostic": {
+      "const": "LENS_DECLARATION_MISSING"
+    },
+    "message": {
+      "type": "string",
+      "minLength": 10
+    },
+    "content_status": {
+      "const": "declared_unverified"
+    },
+    "semantic_conformance": {
+      "const": "NOT_EVALUATED"
+    }
+  }
+}

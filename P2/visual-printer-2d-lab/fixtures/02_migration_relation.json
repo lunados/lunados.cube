@@ -1,0 +1,33 @@
+{
+  "printer_profile": "P2-VP-2D/0.1.0",
+  "reference_version": "v9.4",
+  "view_id": "fixture.migration",
+  "title": "Migration · Declared Artifact reference",
+  "subtitle": "Illustrative declaration, not independent evidence or P1 validation",
+  "template": "relation_graph",
+  "items": [
+    {
+      "id": "artifact",
+      "anchor_id": "resource-objects.artifact",
+      "label": "Artifact · example A",
+      "form_id": "form.resource-card",
+      "semantic_ref": "Y:α:Artifact[\"migration-artifact\"]"
+    },
+    {
+      "id": "resource",
+      "anchor_id": "resource-objects.resource",
+      "label": "Resource · example R",
+      "form_id": "form.resource-card",
+      "semantic_ref": "Y:α:Resource[\"migration-resource\"]"
+    }
+  ],
+  "links": [
+    {
+      "from": "artifact",
+      "to": "resource",
+      "arrow_anchor_id": "relation-arrows.reference",
+      "predicate_id": "references",
+      "declaration_ref": "fixture:migration.binding-context.json#predicate_contracts/references"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cube.lunados.net/validation/v1/visual/render-plan.schema.json",
+  "title": "AIAEAO P1 Basic Visual Grammar render plan",
+  "description": "Presentation contract; not an ontology or effect authorization",
+  "type": "object",
+  "required": [
+    "profile",
+    "reference_version",
+    "items"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "profile": {
+      "const": "P1-VG-basic/1.0.0"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "anchor_id",
+          "label",
+          "form_id"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "anchor_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "form_id": {
+            "enum": [
+              "form.boundary-frame",
+              "form.contract-anchor",
+              "form.glyph-only",
+              "form.identity-chip",
+              "form.lens-marker",
+              "form.module-block",
+              "form.planning-node",
+              "form.relation-edge",
+              "form.resource-card",
+              "form.shell-surface",
+              "form.state-badge",
+              "form.zone-region"
+            ]
+          },
+          "color_token": {
+            "enum": [
+              "domain.epistemology",
+              "domain.execution",
+              "domain.governance",
+              "domain.provenance",
+              "domain.semantics",
+              "relation.default",
+              "status.cached",
+              "status.danger",
+              "status.dirty",
+              "status.inactive",
+              "status.info",
+              "status.neutral",
+              "status.pending",
+              "status.selected",
+              "status.success",
+              "status.warning",
+              "surface.muted"
+            ]
+          },
+          "semantic_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "qualified_state_witness_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "baseline_snapshots": {
+    "visual-printer-2d-lab": {
+      "file_count": 141,
+      "sha256_inventory": "08e31016e281e7a7d1236e4931a2c6483d46b36deabd9fac1795858e3e782857"
+    },
+    "visual-printer-conformance-v1": {
+      "file_count": 318,
+      "sha256_inventory": "44f8969c67252dd21a93501c34d1bd166f81ec9854d58d43cbd7e1db293c5ef8"
+    },
+    "visual-printer-granularity-v1": {
+      "file_count": 89,
+      "sha256_inventory": "f5c19e68dea30d5f3dc7e121f018cab0d9f8c0e1e20d5373bef9f5a694495914"
+    }
+  },
+  "format": "aiaeao.cube.vp06-source-lock/1",
+  "provenance": "direct copy from local VP05 full release; no baseline edits",
+  "reference_version": "v9.4"
+}

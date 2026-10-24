@@ -1,0 +1,90 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "chart_axis_rescaled": false,
+  "completeness": "COMPLETE_INPUT_VIEW",
+  "current_authority": "NOT_EVALUATED",
+  "decision": {
+    "action": "SINGLE_COMPLETE",
+    "rationale": "entire declared source is visible in this projection",
+    "status": "descriptive_display_only"
+  },
+  "dimensions": {
+    "granularity": "detail",
+    "lens": "cube.lens.semantics",
+    "view": "cube.flow"
+  },
+  "displayed_item_ids": [
+    "annotation-a",
+    "annotation-b",
+    "annotation-c"
+  ],
+  "displayed_lens_declarations": 1,
+  "displayed_source_edge_ids": [
+    "e1",
+    "e2"
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp05-conformance-report/1",
+  "invariants_passed": [
+    "SOURCE_SHA256_LOCK",
+    "CUBE_VIEW_NAMESPACE",
+    "DECLARED_LENS_ONLY",
+    "GRANULARITY_SCOPE",
+    "EXACT_ITEM_PARTITION",
+    "EXACT_EDGE_PARTITION",
+    "LOSS_LEDGER_BALANCED",
+    "ORIGINAL_ITEMS_UNCHANGED",
+    "ORIGINAL_EDGES_UNCHANGED",
+    "EXACT_LENS_BINDING_PARTITION",
+    "SVG_SOURCE_LOCK",
+    "NO_ACTIVE_SVG_CONTENT",
+    "ONE_EMBEDDED_LOSS_LEDGER",
+    "EMBEDDED_REPORT_MATCH",
+    "NO_SEMANTIC_AUTHORITY_PROMOTION",
+    "SOURCE_IS_DECLARED_UNVERIFIED",
+    "INDEPENDENT_ORACLE_SOURCE_ITEMS",
+    "INDEPENDENT_ORACLE_SHOWN_ITEMS",
+    "INDEPENDENT_ORACLE_SHOWN_EDGES",
+    "INDEPENDENT_ORACLE_COMPLETENESS"
+  ],
+  "limits": [
+    "Split feasibility is a heuristic, not a generated multi-page export or optimal partition",
+    "Glyph rendering varies with installed fonts",
+    "P1 semantic conformance is not evaluated by the SVG printer"
+  ],
+  "omitted_item_ids": [],
+  "omitted_lens_declarations": 0,
+  "omitted_source_edge_ids": [],
+  "profile": "P2-VP-CONFORMANCE/0.5.0",
+  "reference_version": "v9.4",
+  "source_bundle_sha256": "c1138e213496330d255da84cac03bebf77dac603dc2739fe4259a9fc6b048ee9",
+  "source_status": "declared_unverified",
+  "split_feasibility": {
+    "estimated_panel_count": 1,
+    "is_minimum_proven": false,
+    "panels": [
+      {
+        "focus": null,
+        "shown_edge_ids": [
+          "e1",
+          "e2"
+        ],
+        "shown_item_ids": [
+          "annotation-a",
+          "annotation-b",
+          "annotation-c"
+        ]
+      }
+    ],
+    "panels_materialized": false,
+    "repeated_item_ids": [],
+    "status": "NOT_REQUIRED",
+    "strategy": "focused_panels_from_immutable_source",
+    "unavailable_focus_count": 0,
+    "uncovered_edge_ids": [],
+    "uncovered_item_ids": []
+  },
+  "status": "PASS",
+  "svg_sha256": "698d201715d89ef8feaf81ee95a197e86b5447bad99fb0301cf6916282098b38",
+  "vp04_report_sha256": "a41a484cb1243f8e6764923b45954121017581554b9ea19c598f662df9039914"
+}

@@ -1,0 +1,55 @@
+{
+  "printer_profile": "P2-VP-VIEWS/0.2.0",
+  "reference_version": "v9.4",
+  "view": "cube.flow",
+  "lens": "neutral",
+  "granularity": "standard",
+  "title": "Annotation links · Research",
+  "subtitle": "Illustrative extension of P1 metaphysics fixture · declarations unverified",
+  "nodes": [
+    {
+      "id": "annotation-a",
+      "anchor_id": "resource-objects.evidence",
+      "label": "Annotation / Claim A",
+      "form_id": "form.resource-card",
+      "semantic_ref": "fixture:metaphysics/annotation-a"
+    },
+    {
+      "id": "annotation-b",
+      "anchor_id": "resource-objects.evidence",
+      "label": "Annotation / Claim B",
+      "form_id": "form.resource-card",
+      "semantic_ref": "fixture:metaphysics/annotation-b"
+    },
+    {
+      "id": "annotation-c",
+      "anchor_id": "resource-objects.source",
+      "label": "Source / Claim C",
+      "form_id": "form.resource-card",
+      "semantic_ref": "fixture:metaphysics/source-c"
+    }
+  ],
+  "order": [
+    "annotation-a",
+    "annotation-b",
+    "annotation-c"
+  ],
+  "edges": [
+    {
+      "from": "annotation-a",
+      "to": "annotation-b",
+      "predicate_id": "related",
+      "declaration_ref": "fixture:VP02/relations/e1",
+      "arrow_anchor_id": "relation-arrows.reference"
+    },
+    {
+      "from": "annotation-b",
+      "to": "annotation-c",
+      "predicate_id": "references",
+      "declaration_ref": "fixture:VP02/relations/e2",
+      "arrow_anchor_id": "relation-arrows.reference"
+    }
+  ],
+  "direction": "top-down",
+  "declaration_status": "declared_unverified"
+}

@@ -1,0 +1,81 @@
+{
+  "3d": false,
+  "auto_multisvg": false,
+  "budgets": {
+    "detail": {
+      "cube.diagramm": {
+        "max_edges": 0,
+        "max_items": 6
+      },
+      "cube.flow": {
+        "max_edges": 8,
+        "max_items": 4
+      },
+      "cube.tree": {
+        "max_edges": 6,
+        "max_items": 7
+      }
+    },
+    "overview": {
+      "cube.diagramm": {
+        "max_edges": 0,
+        "max_items": 2
+      },
+      "cube.flow": {
+        "max_edges": 1,
+        "max_items": 2
+      },
+      "cube.tree": {
+        "max_edges": 2,
+        "max_items": 3
+      }
+    },
+    "standard": {
+      "cube.diagramm": {
+        "max_edges": 0,
+        "max_items": 4
+      },
+      "cube.flow": {
+        "max_edges": 4,
+        "max_items": 4
+      },
+      "cube.tree": {
+        "max_edges": 4,
+        "max_items": 5
+      }
+    }
+  },
+  "format": "aiaeao.cube.vp06-capabilities/1",
+  "granularities": [
+    "overview",
+    "standard",
+    "detail"
+  ],
+  "lenses": [
+    "cube.lens.semantics",
+    "cube.lens.provenance",
+    "cube.lens.execution",
+    "cube.lens.governance",
+    "cube.lens.epistemology"
+  ],
+  "network_api": false,
+  "operations": [
+    "prepare",
+    "check",
+    "print",
+    "capabilities"
+  ],
+  "output": "SVG + JSON report (local filesystem only)",
+  "p1_validation_included": false,
+  "print_job_input": "aiaeao.cube.vp04-projection-request/1",
+  "profile": "P2-VP/1.0.0-rc1",
+  "projection_semantics": "declared_unverified_display_only",
+  "reference_version": "v9.4",
+  "source_input": "aiaeao.cube.vp03-lens-bundle/1",
+  "transport": "local_cli_only",
+  "views": [
+    "cube.flow",
+    "cube.diagramm",
+    "cube.tree"
+  ]
+}

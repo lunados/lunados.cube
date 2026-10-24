@@ -1,0 +1,53 @@
+{
+  "format": "aiaeao.cube.vp05-release-manifest/1",
+  "profile": "P2-VP-CONFORMANCE/0.5.0",
+  "reference_version": "v9.4",
+  "status": "local_conformance_pass_release_candidate",
+  "baseline_tests": 149,
+  "new_tests": 42,
+  "total_unit_tests": 191,
+  "matrix_total": 90,
+  "positive_cases": 54,
+  "expected_rejections": 36,
+  "view_ids": [
+    "cube.flow",
+    "cube.diagramm",
+    "cube.tree"
+  ],
+  "lens_ids": [
+    "cube.lens.semantics",
+    "cube.lens.provenance",
+    "cube.lens.execution",
+    "cube.lens.governance",
+    "cube.lens.epistemology"
+  ],
+  "granularity_ids": [
+    "overview",
+    "standard",
+    "detail"
+  ],
+  "file_count": 316,
+  "checksum_ledger_sha256": "194c65a1c174f2166ebf3d8245d61422a94512760d88821893baf0fc21a2cb75",
+  "source_snapshots": {
+    "visual-printer-2d-lab": {
+      "file_count": 141,
+      "file_inventory_sha256": "08e31016e281e7a7d1236e4931a2c6483d46b36deabd9fac1795858e3e782857"
+    },
+    "visual-printer-granularity-v1": {
+      "file_count": 89,
+      "file_inventory_sha256": "f5c19e68dea30d5f3dc7e121f018cab0d9f8c0e1e20d5373bef9f5a694495914"
+    }
+  },
+  "decision_counts": {
+    "SINGLE_COMPLETE": 39,
+    "SINGLE_DISCLOSED": 13,
+    "SPLIT_RECOMMENDED": 2
+  },
+  "release_eligibility": "local_review_only",
+  "nonimplications": [
+    "not_P1_semantic_admission",
+    "not_a_web_app",
+    "not_an_auto_multi_svg_printer",
+    "not_3D"
+  ]
+}

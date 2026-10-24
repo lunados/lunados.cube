@@ -1,0 +1,34 @@
+{
+  "profile": "P2-VP-2D/0.1.0",
+  "status": "experimental_local_only",
+  "sources": {
+    "p0-concepts-v9.4.json": {
+      "sha256": "a15b0db3a3cfdb5874b8ab59de0ec9f4af08e8280e0634c48e3b37c3498000b8",
+      "bytes": 29731
+    },
+    "p0-core-v9.4.json": {
+      "sha256": "c8cefa62122e9256c553c2ba56a9d33359fc3e2e3065815484fc46d02d462e30",
+      "bytes": 4700
+    },
+    "p0-symbols-v9.4.json": {
+      "sha256": "7d35d3e855e94f7b77c8c52fa6bddc6265cae57576b1beb5b8869a4170c54656",
+      "bytes": 39986
+    },
+    "p1-anchors.json": {
+      "sha256": "1fdb6926d94600ca8d53069125d1d819ce2c727c85febb07b01ce16e7bdeffe2",
+      "bytes": 58903
+    },
+    "p1-form-color.json": {
+      "sha256": "27be9aed784c82d038d7f43b04ec06a4ea1eb3d2ffdf1e8e1a7eb6b501800200",
+      "bytes": 10137
+    },
+    "p1-render-plan.schema.json": {
+      "sha256": "af2b8f5847cfa67266eac3c8e04970b65ebf8d4f0bf3eaa2837edcc04e9a4711",
+      "bytes": 2399
+    }
+  },
+  "notes": [
+    "Reference snapshots are byte-identical P0/P1 files; P0 and P1 unmodified.",
+    "Historical VG v0.9.3 supplies design lineage only; v9.4 governs Unicode."
+  ]
+}
