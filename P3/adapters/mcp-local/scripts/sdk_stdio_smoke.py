@@ -26,7 +26,7 @@ async def main():
     async with Client(stdio_client(params),mode='2026-07-28') as client:
         listed=await client.list_tools()
         names=[tool.name for tool in listed.tools]
-        expected=['cube_get_capabilities','cube_prepare_print','cube_check_print','cube_render_svg']
+        expected=['cube_get_capabilities','cube_prepare_print','cube_check_print','cube_render_svg','cube_read_reference','cube_validate','cube_discover_surface']
         assert names==expected,(names,expected)
         card=await client.call_tool('cube_get_capabilities',{})
         assert not card.is_error

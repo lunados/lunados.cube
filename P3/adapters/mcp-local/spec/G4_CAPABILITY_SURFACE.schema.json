@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:cube:p3:g4:capability-surface:1",
+  "title": "AIAEAO Local MCP Whole-Cube Capability Surface",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "release", "mcp", "domains", "compatibility", "deployment", "cross_domain"],
+  "properties": {
+    "format": {"const": "aiaeao.cube.mcp-capability-surface/1"},
+    "release": {"type":"object", "required":["name","version","status","architecture","reference_version"], "properties": {"version":{"const":"P3-MCP-LOCAL/0.2.0-rc1"},"status":{"const":"release_candidate"},"reference_version":{"const":"v9.4"}}},
+    "mcp": {"type":"object", "required":["transport","tools","resource_uris","host_resource_visibility"], "properties": {"transport":{"const":"stdio"},"tools":{"type":"array","minItems":7,"maxItems":7,"uniqueItems":true,"items":{"type":"string"}},"resource_uris":{"type":"array","minItems":14,"maxItems":14,"uniqueItems":true,"items":{"type":"string"}}}},
+    "domains": {"type":"object", "required":["P0","P1","P2"], "additionalProperties":false, "properties":{"P0":{"type":"object","required":["resource_count","snapshot_lock_sha256","source_warrant"],"properties":{"resource_count":{"const":14},"snapshot_lock_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}}},"P1":{"type":"object","required":["core_profile","statuses","checks"],"properties":{"core_profile":{"const":"P1-VC/1.0.0"},"statuses":{"const":["PASS","FAIL","UNRESOLVED"]},"checks":{"type":"array","minItems":8,"maxItems":8,"uniqueItems":true}}},"P2":{"type":"object","required":["core_profile","tools","views","lenses","granularity","p1_validation_included"],"properties":{"core_profile":{"const":"P2-VP/1.0.0-rc1"},"p1_validation_included":{"const":false}}}}},
+    "compatibility":{"type":"object","required":["cube_get_capabilities_scope","legacy_adapter_card_tools"],"properties":{"cube_get_capabilities_scope":{"const":"legacy_P2_printer_only"},"legacy_adapter_card_tools":{"type":"array","minItems":4,"maxItems":4}}},
+    "deployment":{"type":"object","required":["local_mcp_available","remote_mcp_available","http_api_available","webmcp_available"],"properties":{"remote_mcp_available":{"const":false},"http_api_available":{"const":false},"webmcp_available":{"const":false}}},
+    "cross_domain":{"type":"object","required":["overall_status","epistemic_warrant","current_authority","canonical_admission"],"properties":{"overall_status":{"const":"NOT_DEFINED"},"epistemic_warrant":{"const":"NOT_EVALUATED"},"current_authority":{"const":"NOT_EVALUATED"},"canonical_admission":{"const":"NOT_EVALUATED"}}}
+  }
+}

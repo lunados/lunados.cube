@@ -1,0 +1,19 @@
+{
+  "format": "aiaeao.cube.p3-g4-prior-acceptance/1",
+  "g4_claude_host_validation": "PENDING",
+  "g4_sdk_host_validation": "PENDING",
+  "prior_gates": {
+    "G0": "ACCEPTED_USER",
+    "G1": "ACCEPTED_USER_WITH_RESOURCE_BRIDGE_LIMITATION",
+    "G2": "ACCEPTED_USER",
+    "G3": "ACCEPTED_USER"
+  },
+  "recorded": "2026-10-24",
+  "user_reported_proofs": [
+    "MCP SDK v2 local stdio for G1/G2/G3",
+    "Claude G1 tool fallback P0",
+    "Claude G2 semantic PASS/FAIL/UNRESOLVED",
+    "Claude G3 cross-domain independence"
+  ],
+  "warning": "Prior user-supplied reports are attestations, not independently executed G4 host tests."
+}

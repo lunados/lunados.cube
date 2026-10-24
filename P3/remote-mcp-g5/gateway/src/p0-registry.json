@@ -1,0 +1,75 @@
+{
+  "format": "aiaeao.g5-p0-registry/1",
+  "resources": [
+    {
+      "name": "p0-01",
+      "uri": "https://cube.lunados.net/manifest.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-02",
+      "uri": "https://cube.lunados.net/v9.4/core.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-03",
+      "uri": "https://cube.lunados.net/v9.4/grammar/concepts.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-04",
+      "uri": "https://cube.lunados.net/v9.4/grammar/constraints.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-05",
+      "uri": "https://cube.lunados.net/v9.4/grammar/relations.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-06",
+      "uri": "https://cube.lunados.net/v9.4/morphology.md",
+      "mime_type": "text/markdown"
+    },
+    {
+      "name": "p0-07",
+      "uri": "https://cube.lunados.net/v9.4/notation/ast.schema.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-08",
+      "uri": "https://cube.lunados.net/v9.4/notation/grammar.ebnf",
+      "mime_type": "text/plain"
+    },
+    {
+      "name": "p0-09",
+      "uri": "https://cube.lunados.net/v9.4/notation/syntax.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-10",
+      "uri": "https://cube.lunados.net/v9.4/observer.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-11",
+      "uri": "https://cube.lunados.net/v9.4/time.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-12",
+      "uri": "https://cube.lunados.net/v9.4/visual/README.md",
+      "mime_type": "text/markdown"
+    },
+    {
+      "name": "p0-13",
+      "uri": "https://cube.lunados.net/v9.4/visual/symbols.json",
+      "mime_type": "application/json"
+    },
+    {
+      "name": "p0-index",
+      "uri": "aiaeao://p0/resources/v1",
+      "mime_type": "application/json"
+    }
+  ]
+}

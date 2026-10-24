@@ -21,7 +21,7 @@ async def main():
     async with Client(mcp, mode='2026-07-28') as client:
         listed=await client.list_tools()
         names=[tool.name for tool in listed.tools]
-        assert names==list(TOOL_NAMES),(names,TOOL_NAMES)
+        assert names==list(TOOL_NAMES)+['cube_read_reference','cube_validate','cube_discover_surface'],(names,TOOL_NAMES)
         card=await client.call_tool('cube_get_capabilities',{})
         assert not card.is_error
         assert card.structured_content['adapter']['remote_available'] is False

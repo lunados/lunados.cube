@@ -1,0 +1,49 @@
+{
+  "claude_host": {
+    "criteria": {
+      "R4.1": "PASS_WITH_MIME_FINDING",
+      "R4.2": "PASS",
+      "R4.3": "PASS",
+      "R4.4": "PASS",
+      "R4.5": "PASS_PARTIALLY_INDEPENDENT",
+      "R4.6": "PASS",
+      "R4.7": "PASS",
+      "R4.8": "NOT_FULLY_VERIFIABLE"
+    },
+    "endpoint": "AIAEAO Cube G5 Remote via Cloudflare streamable_http",
+    "mimes_pre_fix": "morphology.md and visual/README.md registered text/plain instead of pinned text/markdown",
+    "number_of_actual_calls": 27,
+    "overall": "INCOMPLETE",
+    "plus_previous_discovery": 1,
+    "report": "USER_PROVIDED_CLAUDE_REPORT"
+  },
+  "cloudflare": {
+    "core_upload": "PASS_USER_REPORTED",
+    "exact_output": "PASS G5 ACTUAL REMOTE MCP: auth, Origin, 7 tools, 14 resources, P0, P1, VP06 byte parity",
+    "gateway_https_health": "PASS_USER_REPORTED",
+    "remote_python_sdk_smoke": "PASS_USER_REPORTED"
+  },
+  "date": "2026-10-24",
+  "format": "aiaeao.cube.g5-release-evidence/1",
+  "local": {
+    "full_npm_audit_after_security_update": "GREEN_USER_REPORTED_NO_LOG",
+    "g5_offline_17_python_tests": "PASS_USER_REPORTED",
+    "gateway_security_4_node_tests": "PASS_USER_REPORTED"
+  },
+  "not_claimed": [
+    "G5-R4 formal PASS",
+    "MIME parity on the redeployed gateway",
+    "dependency lock committed",
+    "production authorization",
+    "third-party multi-tenant OAuth support",
+    "post-freeze new live smoke"
+  ],
+  "patches": {
+    "gateway_handler_fetch": "PASSED_USER_REMOTE_TEST",
+    "mime_parity": "SOURCE_FIXED_PENDING_REMOTE_RETEST",
+    "p0_asset_packaging": "PASSED_USER_REMOTE_TEST",
+    "p1_p2_asset_packaging": "PASSED_USER_REMOTE_TEST"
+  },
+  "production_status": "G5_PROOF_NOT_PRODUCTION_AUTHORIZED",
+  "project": "AIAEAO Cube G5 remote MCP Cloudflare"
+}

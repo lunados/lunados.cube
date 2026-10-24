@@ -1,0 +1,10 @@
+{
+  "name": "aiaeao-cube-g5-gateway",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-10-24",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "services": [{"binding":"CORE","service":"aiaeao-cube-g5-core"}],
+  "observability": {"enabled": true}
+}

@@ -1,0 +1,51 @@
+{
+  "format": "aiaeao.cube.g5-operation-handbook/1",
+  "as_of": "2026-10-24",
+  "profile": "P3-MCP-REMOTE/0.1.0-proof",
+  "production_authorized": false,
+  "endpoint": "https://aiaeao-cube-g5-gateway.jo-885.workers.dev/mcp",
+  "gateway_version_id": "4cd84f5b-0dd1-4361-aa97-eca964c32dc5",
+  "gateway_authentication": {
+    "mode": "shared_bearer_proof",
+    "header": "Authorization",
+    "value_format": "Bearer <secret>",
+    "secret_name": "MCP_BEARER_TOKEN",
+    "per_client_identity": false,
+    "oauth": false
+  },
+  "capabilities": {
+    "tools": 7,
+    "resources": 14,
+    "core_public": false,
+    "transport": "streamable_http"
+  },
+  "host_proofs": {
+    "claude": {
+      "status": "FUNCTIONAL_PASS_FORMAL_INCOMPLETE",
+      "remote_tested": true,
+      "final_mime_host_recheck": false
+    },
+    "zed": {
+      "status": "NOT_TESTED_G5_HOST",
+      "remote_tested": false
+    },
+    "independent_python_sdk": {
+      "status": "PASS_USER_REPORTED_POST_CONSOLIDATION",
+      "remote_tested": true
+    },
+    "other_agents": {
+      "status": "NOT_TESTED",
+      "remote_tested": false
+    }
+  },
+  "gates": {
+    "R1": "PASS_USER_REPORTED",
+    "R2": "PASS_USER_REPORTED",
+    "R3": "PASS_USER_REPORTED",
+    "R4": "FORMAL_INCOMPLETE",
+    "source_freeze": "VERIFIED_USER_REPORTED",
+    "github_tag": "NOT_CLAIMED",
+    "production": "NOT_AUTHORIZED"
+  },
+  "documentation_only": true
+}

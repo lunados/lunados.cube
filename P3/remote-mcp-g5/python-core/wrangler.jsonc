@@ -1,0 +1,43 @@
+{
+  "name": "aiaeao-cube-g5-core",
+  "main": "entry.py",
+  "compatibility_date": "2026-10-24",
+  "compatibility_flags": [
+    "python_workers"
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true
+  },
+  "find_additional_modules": true,
+  "rules": [
+    {
+      "type": "Text",
+      "globs": [
+        "P3/adapters/mcp-local/p0_snapshot/*.json",
+        "P3/adapters/mcp-local/p0_snapshot/**/*.json",
+        "P3/adapters/mcp-local/p0_snapshot/*.md",
+        "P3/adapters/mcp-local/p0_snapshot/**/*.md",
+        "P3/adapters/mcp-local/p0_snapshot/*.ebnf",
+        "P3/adapters/mcp-local/p0_snapshot/**/*.ebnf",
+        "P1/semantic-validator-v1/baseline/*.json",
+        "P1/semantic-validator-v1/baseline/**/*.json",
+        "P1/semantic-validator-v1/baseline/*.md",
+        "P1/semantic-validator-v1/baseline/**/*.md",
+        "P1/semantic-validator-v1/baseline/*.ebnf",
+        "P1/semantic-validator-v1/baseline/**/*.ebnf",
+        "P1/semantic-validator-v1/baseline/*.txt",
+        "P1/semantic-validator-v1/baseline/**/*.txt",
+        "P2/visual-printer-2d-lab/reference/*.json",
+        "P2/visual-printer-2d-lab/reference/**/*.json",
+        "P2/visual-printer-2d-lab/reference/*.md",
+        "P2/visual-printer-2d-lab/reference/**/*.md",
+        "P2/visual-printer-2d-lab/reference/*.ebnf",
+        "P2/visual-printer-2d-lab/reference/**/*.ebnf",
+        "P2/visual-printer-2d-lab/reference/*.txt",
+        "P2/visual-printer-2d-lab/reference/**/*.txt"
+      ]
+    }
+  ]
+}

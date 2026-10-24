@@ -1,0 +1,296 @@
+{
+  "reference_version": "v9.4",
+  "rule_role": "Reference-level prohibitions and interpretation obligations, not production policy engine",
+  "unknown_semantics": "not_established",
+  "effect_with_missing_admission": "refuse",
+  "rules": [
+    {
+      "id": "C001",
+      "topic": "single-home",
+      "rule": "Every canonical concept has exactly one X/Y/Z primary definition home",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.5; 6.1"
+      }
+    },
+    {
+      "id": "C002",
+      "topic": "qualifiers",
+      "rule": "T/F/M/O are not new primary ontology homes",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.1"
+      }
+    },
+    {
+      "id": "C003",
+      "topic": "x-pairs",
+      "rule": "Exactly five X dimensions; each has exactly one Scope and exactly two complementary endpoints",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2"
+      }
+    },
+    {
+      "id": "C004",
+      "topic": "identity",
+      "rule": "Actor, Role Binding, Principal, Session Binding and Capability Profile are not interchangeable",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.3; 6.3.1"
+      }
+    },
+    {
+      "id": "C005",
+      "topic": "authority",
+      "rule": "Capability and Role Binding do not grant Authority",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.3; 6.2.2"
+      }
+    },
+    {
+      "id": "C006",
+      "topic": "authorization",
+      "rule": "Admission is a concrete request gate; neither visible information nor a selected Action establishes Admission",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.2.2"
+      }
+    },
+    {
+      "id": "C007",
+      "topic": "effects",
+      "rule": "Only admitted Core ingestion changes canonical Thread state",
+      "source": {
+        "reference": "morphology.md",
+        "section": "7.1; 7.5"
+      }
+    },
+    {
+      "id": "C008",
+      "topic": "result",
+      "rule": "Result, Outcome, Completion, Verification, Conclusion and Satisfaction are distinct",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.3; 6.2"
+      }
+    },
+    {
+      "id": "C009",
+      "topic": "provenance",
+      "rule": "Artifact and Evidence do not automatically become verified truth",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2"
+      }
+    },
+    {
+      "id": "C010",
+      "topic": "claims",
+      "rule": "A subject-qualified claim/hypothesis is a Y Annotation; a freestanding thesis may be Y Content",
+      "source": {
+        "reference": "morphology.md",
+        "section": "6.3.2.11"
+      }
+    },
+    {
+      "id": "C011",
+      "topic": "reference",
+      "rule": "Referent binding requires a compatible, identified instance and declared resolution context",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.9"
+      }
+    },
+    {
+      "id": "C012",
+      "topic": "dimension",
+      "rule": "X dimensions Ψ/Γ/Σ/Ξ/Π are non-instantiable viewpoints; X:α:Σ[\"q\"] invalid",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.9"
+      }
+    },
+    {
+      "id": "C013",
+      "topic": "time",
+      "rule": "Distinct occurrence, recording, observation, assessment and validity time roles must not collapse",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.6"
+      }
+    },
+    {
+      "id": "C014",
+      "topic": "chronology",
+      "rule": "Chronology and logical clock partial order do not establish causation",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.6; 7.7"
+      }
+    },
+    {
+      "id": "C015",
+      "topic": "observation",
+      "rule": "Available != permitted != delivered != perceived != concluded",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.10; 4.9"
+      }
+    },
+    {
+      "id": "C016",
+      "topic": "projection",
+      "rule": "Projection, compression and summary may be lossy; do not imply complete historical reconstruction",
+      "source": {
+        "reference": "morphology.md",
+        "section": "4.3; 5.8"
+      }
+    },
+    {
+      "id": "C017",
+      "topic": "relations",
+      "rule": "Bidirectional navigation does not imply symmetric or invertible predicate",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.8"
+      }
+    },
+    {
+      "id": "C018",
+      "topic": "inference",
+      "rule": "Typed path composition does not infer a new relationship predicate",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.11"
+      }
+    },
+    {
+      "id": "C019",
+      "topic": "proof",
+      "rule": "An internally valid proof is distinct from trusted premises or independently verified external truth",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.7; 5.11"
+      }
+    },
+    {
+      "id": "C020",
+      "topic": "operational",
+      "rule": "Missing authority => refuse effect; unsupported inference => not-established, not empirically false",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.14"
+      }
+    },
+    {
+      "id": "C021",
+      "topic": "mode",
+      "rule": "Loose/Transitional/Strict are illustrative VG interpretive labels, not authorized runtime MODE values",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.10"
+      }
+    },
+    {
+      "id": "C022",
+      "topic": "layer",
+      "rule": "Alpha/Beta/Zeta descriptions must preserve O/T witnesses rather than erasing historical qualification",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.12"
+      }
+    },
+    {
+      "id": "C023",
+      "topic": "shape",
+      "rule": "Morphology coordinates are not a numeric ML feature space by default",
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.9"
+      }
+    },
+    {
+      "id": "C024",
+      "topic": "measurement",
+      "rule": "Metric, nominal, ordinal, interval and ratio semantic constraints remain separate from epistemic trust and permission",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.12"
+      }
+    },
+    {
+      "id": "C025",
+      "topic": "parameter",
+      "rule": "Changed parameter/revision alone does not prove changed effect; require activation and effect path",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.8"
+      }
+    },
+    {
+      "id": "C026",
+      "topic": "foreign",
+      "rule": "Foreign IDs are not authenticated local Principals; foreign mappings may lose information but must disclose it",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.19"
+      }
+    },
+    {
+      "id": "C027",
+      "topic": "historical",
+      "rule": "A Canonical Thread is not a Relay Thread or a runtime session; no automatic promotion",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.3; 5.4"
+      }
+    },
+    {
+      "id": "C028",
+      "topic": "glyph",
+      "rule": "Visual anchor identity does not prove concept/instance identity, truth, Admission or schema contract",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.9; 7.40"
+      }
+    },
+    {
+      "id": "C029",
+      "topic": "cache",
+      "rule": "Cache availability/fingerprint does not prove freshness or current Authorization",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.14"
+      }
+    },
+    {
+      "id": "C030",
+      "topic": "methods",
+      "rule": "An admissible formula or function discovery is not permission to execute an effectful Tool",
+      "source": {
+        "reference": "morphology.md",
+        "section": "5.12"
+      }
+    },
+    {
+      "id": "C031",
+      "topic": "normalization",
+      "rule": "Do not use NFKC-folded glyphs as machine identifiers",
+      "source": {
+        "reference": "morphology.md",
+        "section": "2.9"
+      }
+    },
+    {
+      "id": "C032",
+      "topic": "migration",
+      "rule": "No automatic legacy Thread migration or real production conformance implied",
+      "source": {
+        "reference": "morphology.md",
+        "section": "1; 7.5"
+      }
+    }
+  ]
+}

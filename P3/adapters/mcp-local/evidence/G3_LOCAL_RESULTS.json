@@ -1,0 +1,43 @@
+{
+  "claude_host_cross_domain": "PENDING",
+  "cloudflare_deployed": false,
+  "contradictory_p1_fail_p2_pass": "PASS",
+  "cross_domain_link": "NOT_ESTABLISHED",
+  "date": "2026-10-24",
+  "format": "aiaeao.cube.g3-local-results/1",
+  "frozen_p15_release": {
+    "status": "PASS"
+  },
+  "g2_existing_p3_tests": {
+    "count": 137,
+    "status": "PASS"
+  },
+  "gate": "G3",
+  "github_deployed": false,
+  "golden_svg_report_job_parity": {
+    "status": "PASS"
+  },
+  "local_cross_domain_tests": {
+    "count": 41,
+    "status": "PASS"
+  },
+  "official_sdk_stdio_mac": "PENDING",
+  "p0_integrity": {
+    "bytes": 29731,
+    "sha256": "a15b0db3a3cfdb5874b8ab59de0ec9f4af08e8280e0634c48e3b37c3498000b8",
+    "status": "PASS",
+    "uri": "https://cube.lunados.net/v9.4/grammar/concepts.json"
+  },
+  "p1_statuses": [
+    "PASS",
+    "FAIL",
+    "UNRESOLVED"
+  ],
+  "proof_version": "P3-MCP-G3/0.1.0-proof",
+  "unmodified_domains": [
+    "P0",
+    "P1",
+    "P2",
+    "existing six MCP tools"
+  ]
+}

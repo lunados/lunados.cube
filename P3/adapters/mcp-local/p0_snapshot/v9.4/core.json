@@ -1,0 +1,202 @@
+{
+  "reference_version": "v9.4",
+  "view": "core",
+  "coordinates": [
+    "X",
+    "Y",
+    "Z",
+    "F",
+    "M"
+  ],
+  "ontology_definition_homes": [
+    "X",
+    "Y",
+    "Z"
+  ],
+  "qualifying_coordinates": [
+    "F",
+    "M"
+  ],
+  "source": {
+    "reference": "morphology.md",
+    "section": "3.1–3.13; 6.1–6.4"
+  },
+  "ontology": {
+    "X": {
+      "name": "Semantic Dimensions",
+      "question": "What holds?",
+      "dimensions": [
+        "Epistemology",
+        "Governance",
+        "Semantics",
+        "Execution",
+        "Provenance"
+      ],
+      "pairs": [
+        {
+          "dimension": "X:dimension:epistemology",
+          "scope": "X:scope:observation",
+          "opening": "X:endpoint:perception",
+          "complement": "X:endpoint:conclusion",
+          "source": {
+            "reference": "morphology.md",
+            "section": "6.2.1"
+          }
+        },
+        {
+          "dimension": "X:dimension:governance",
+          "scope": "X:scope:policy",
+          "opening": "X:endpoint:authority",
+          "complement": "X:endpoint:admission",
+          "source": {
+            "reference": "morphology.md",
+            "section": "6.2.2"
+          }
+        },
+        {
+          "dimension": "X:dimension:semantics",
+          "scope": "X:scope:conversation",
+          "opening": "X:endpoint:expectation",
+          "complement": "X:endpoint:satisfaction",
+          "source": {
+            "reference": "morphology.md",
+            "section": "6.2.3"
+          }
+        },
+        {
+          "dimension": "X:dimension:execution",
+          "scope": "X:scope:contract",
+          "opening": "X:endpoint:delegation",
+          "complement": "X:endpoint:completion",
+          "source": {
+            "reference": "morphology.md",
+            "section": "6.2.4"
+          }
+        },
+        {
+          "dimension": "X:dimension:provenance",
+          "scope": "X:scope:event",
+          "opening": "X:endpoint:action",
+          "complement": "X:endpoint:result",
+          "source": {
+            "reference": "morphology.md",
+            "section": "6.2.5"
+          }
+        }
+      ]
+    },
+    "Y": {
+      "name": "Identity & Objects",
+      "question": "Who or what is identified?",
+      "families": [
+        "identity-anchor",
+        "resource-object",
+        "identified-object",
+        "relation-arrow"
+      ],
+      "primary_home_rule": true
+    },
+    "Z": {
+      "name": "Materialization & Boundary",
+      "question": "Where / within what limit is the referent situated or bounded?",
+      "families": [
+        "module-body",
+        "boundary",
+        "zone"
+      ],
+      "primary_home_rule": true
+    }
+  },
+  "qualifiers": {
+    "F": {
+      "name": "Functional Composition",
+      "question": "How / by which method?",
+      "methods": [
+        "decision",
+        "dialectics",
+        "experimentation",
+        "exploration",
+        "evaluation",
+        "feedback/regulation",
+        "projection",
+        "promotion"
+      ],
+      "method_profile_required_for_binding": true,
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.7; 5.18"
+      }
+    },
+    "M": {
+      "name": "Mode",
+      "question": "In which interaction/operating regime?",
+      "interpretive_examples": [
+        "Loose",
+        "Transitional",
+        "Strict"
+      ],
+      "interpretive_examples_are_runtime_enum": false,
+      "does_not_grant_authority": true,
+      "source": {
+        "reference": "morphology.md",
+        "section": "3.10"
+      }
+    }
+  },
+  "layer_model": {
+    "alpha": {
+      "free": [
+        "X",
+        "Y",
+        "Z",
+        "F",
+        "M",
+        "T",
+        "O"
+      ],
+      "meaning": "Morphology"
+    },
+    "beta": {
+      "free": [
+        "X",
+        "Y",
+        "Z",
+        "F",
+        "M",
+        "T"
+      ],
+      "meaning": "Topology / observer-bound rules"
+    },
+    "zeta": {
+      "free": [
+        "X",
+        "Y",
+        "Z",
+        "F",
+        "M"
+      ],
+      "meaning": "Canonical Thread / temporally bound witnesses"
+    },
+    "binding_not_information_erasure": true,
+    "source": {
+      "reference": "morphology.md",
+      "section": "3.12"
+    }
+  },
+  "shared_catalogs": {
+    "concepts": "grammar/concepts.json",
+    "relations": "grammar/relations.json",
+    "constraints": "grammar/constraints.json"
+  },
+  "companion_views": {
+    "T": "time.json",
+    "O": "observer.json"
+  },
+  "never_infer": [
+    "X/Y/Z = independent storage containers",
+    "X/Y/Z/F/M = numeric feature vector",
+    "Capability = Authority",
+    "verified Result = satisfied Expectation",
+    "event occurred because its representation exists"
+  ]
+}
