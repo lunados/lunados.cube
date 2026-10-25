@@ -19,6 +19,7 @@ FILES={
  'P1/semantic-validator-v1/cube_semantic':'*',
  'P1/semantic-validator-v1/baseline':'*',
  'P1/instantiation-profile-v1/cube_p16':'*',
+ 'P1/simulation-profile-v1/cube_p18':'*',
  'P2/visual-printer-release-v1/vpprint':'*',
  'P2/visual-printer-conformance-v1/vpconformance':'*',
  'P2/visual-printer-granularity-v1/vpgranularity':'*',
@@ -65,9 +66,15 @@ def main():
     fixture=json.loads((REPO/'P1/instantiation-profile-v1/fixtures/valid_conclusion_context_v2.json').read_text('utf-8'))
     p16=dispatch('cube_validate',{'input_text':'X:α:Conclusion["c1"]','context':fixture})
     assert p16['ok'] and p16['result']['report']['overall_status']=='PASS',p16
+    vectors=json.loads((REPO/'P1/simulation-profile-v1/fixtures/s01_s17_materialized.json').read_text('utf-8'))['cases']
+    s16=next(c for c in vectors if c['id']=='S-16')
+    p18=dispatch('cube_validate',{'input_text':s16['input_text'],'context':s16['context']})
+    assert p18['ok'] and p18['result']['report']['overall_status']=='PASS',p18
+    assert p18['result']['evaluation_performed_by_cube'] is False,p18
+    assert dispatch('cube_discover_surface')['result']['p18_simulation']['profile']=='P1.8/simulation-profile-v1'
     (OUT/'G5_SOURCE_MANIFEST.json').write_text(json.dumps({'format':'aiaeao.cube.g5-assembly/1',
          'files':manifest,'p0_snapshot_lock':report['lock_sha256']},sort_keys=True,indent=2)+'\n','utf-8')
-    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6); pinned P0 %s' % (len(manifest),report['lock_sha256']))
+    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8); pinned P0 %s' % (len(manifest),report['lock_sha256']))
     print('Deployable candidate assembled at: '+str(OUT))
 
 if __name__=='__main__': main()

@@ -14,6 +14,7 @@ sys.dont_write_bytecode = True
 REPO = Path(__file__).resolve().parents[4]
 P1 = REPO / 'P1' / 'semantic-validator-v1'
 P16 = REPO / 'P1' / 'instantiation-profile-v1'
+P18 = REPO / 'P1' / 'simulation-profile-v1'
 if not P1.is_dir():
     raise RuntimeError('P1-VC/1.0.0 reference validator must be installed as sibling P1 tree')
 if str(P1) not in sys.path:
@@ -52,11 +53,24 @@ def _json_bytes(obj: Any) -> bytes:
 
 
 def _validator_for(context: dict | None):
-    """Explicit /2 dispatch, no v1 auto-upgrade or hidden version negotiation.
+    """Explicit /2 and /3 dispatch, no auto-upgrade or hidden version negotiation.
 
-    P1.6 is lazy-loaded so a legacy /1 installation works unchanged. A /2
-    request without the P1.6 module fails closed as an MCP adapter error.
+    P1.6 and P1.8 are lazy-loaded so a legacy /1 installation works unchanged.
+    A /2 or /3 request without its module fails closed as an MCP adapter error.
     """
+    if context is not None and context.get('format') == 'aiaeao.cube.binding-context/3':
+        if not (P16.is_dir() and P18.is_dir()):
+            _error('P1_MCP_P18_UNAVAILABLE', 'P1.8 validator is not installed')
+        for path in (P16, P18):
+            if str(path) not in sys.path:
+                sys.path.insert(0, str(path))
+        try:
+            from cube_p18.validator import P18Validator
+        except ImportError:
+            _error('P1_MCP_P18_UNAVAILABLE', 'P1.8 validator cannot be loaded')
+        validator = P18Validator()
+        validator.validate_context(context)
+        return validator
     if context is None or context.get('format') != 'aiaeao.cube.binding-context/2':
         if context is not None:
             validate_context(context)
@@ -119,7 +133,11 @@ def validate(input_text: str, input_format: str='acg_text', context: dict | None
         _error('P1_MCP_RESULT_INVALID', 'P1 input digest does not match submitted UTF-8 text')
     return {
         **({'binding_context_profile': 'P1.6/instantiation-profile-v1'}
-           if context is not None and context.get('format')=='aiaeao.cube.binding-context/2' else {}),
+           if context is not None and context.get('format') in
+              ('aiaeao.cube.binding-context/2', 'aiaeao.cube.binding-context/3') else {}),
+        **({'simulation_profile': 'P1.8/simulation-profile-v1',
+            'evaluation_performed_by_cube': False}
+           if context is not None and context.get('format')=='aiaeao.cube.binding-context/3' else {}),
         'report': report,  # EXACT P1-VC/1.0.0 structure; no fields added or removed.
         'transport': 'local_mcp_stdio',
         'core_profile': 'P1-VC/1.0.0',  # underlying frozen P1 report schema for both context versions
