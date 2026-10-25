@@ -1,0 +1,2184 @@
+{
+  "cases": [
+    {
+      "context": {
+        "context_id": "p16-runtime-conclusion",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:conclusion",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "X:endpoint:perception",
+                  "Y:resource-object:evidence"
+                ],
+                "kind": "ref",
+                "name": "basis_refs",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identified-object:annotation"
+                ],
+                "kind": "ref",
+                "name": "proposition_ref",
+                "required": true
+              },
+              {
+                "kind": "enum",
+                "name": "disposition",
+                "required": true,
+                "values": [
+                  "verifies",
+                  "refutes",
+                  "unresolved"
+                ]
+              },
+              {
+                "kind": "string",
+                "name": "method",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:perception",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:perception",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor",
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "observer_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "Y:resource-object:evidence",
+                  "Y:resource-object:artifact",
+                  "Y:resource-object:content",
+                  "X:endpoint:result"
+                ],
+                "kind": "ref",
+                "name": "observed_refs",
+                "required": true
+              },
+              {
+                "kind": "string",
+                "name": "limits",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "X:endpoint:conclusion"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "fixture:v1",
+            "scope": "scope-observation",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:perception",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:perception",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "observed_refs": [
+                "item-3"
+              ],
+              "observer_ref": "item-2",
+              "pair_scope_ref": "scope-observation"
+            }
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-4",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:conclusion",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "basis_refs": [
+                "item-1"
+              ],
+              "disposition": "unresolved",
+              "pair_scope_ref": "scope-observation",
+              "proposition_ref": "item-4"
+            }
+          },
+          {
+            "concept_id": "X:scope:observation",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-observation",
+            "scope_ref": "scope-observation"
+          }
+        ],
+        "scope_ref": "scope-observation",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "R-01",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"item-3\"],X:α:Conclusion[\"primary\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-conclusion",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:conclusion",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "X:endpoint:perception",
+                  "Y:resource-object:evidence"
+                ],
+                "kind": "ref",
+                "name": "basis_refs",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identified-object:annotation"
+                ],
+                "kind": "ref",
+                "name": "proposition_ref",
+                "required": true
+              },
+              {
+                "kind": "enum",
+                "name": "disposition",
+                "required": true,
+                "values": [
+                  "verifies",
+                  "refutes",
+                  "unresolved"
+                ]
+              },
+              {
+                "kind": "string",
+                "name": "method",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:perception",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:perception",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor",
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "observer_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "Y:resource-object:evidence",
+                  "Y:resource-object:artifact",
+                  "Y:resource-object:content",
+                  "X:endpoint:result"
+                ],
+                "kind": "ref",
+                "name": "observed_refs",
+                "required": true
+              },
+              {
+                "kind": "string",
+                "name": "limits",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:perception",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:perception",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "observed_refs": [
+                "item-3"
+              ],
+              "observer_ref": "item-2",
+              "pair_scope_ref": "scope-observation"
+            }
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-4",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:conclusion",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "disposition": "unresolved",
+              "pair_scope_ref": "scope-observation",
+              "proposition_ref": "item-4"
+            }
+          },
+          {
+            "concept_id": "X:scope:observation",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-observation",
+            "scope_ref": "scope-observation"
+          }
+        ],
+        "scope_ref": "scope-observation",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "R-02",
+      "input_format": "acg_text",
+      "input_text": "X:α:Conclusion[\"primary\"]",
+      "required_codes": [
+        "P1_INSTANTIATION_SLOT_MISSING"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-satisfaction",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:satisfaction",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:satisfaction",
+            "revision": "fixture/v1",
+            "scope": "scope-conversation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:conversation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:expectation"
+                ],
+                "kind": "ref",
+                "name": "expectation_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identified-object:annotation"
+                ],
+                "kind": "ref",
+                "name": "criteria_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:resource-object:source",
+                  "Y:resource-object:evidence"
+                ],
+                "kind": "ref",
+                "name": "measurement_source_ref",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:expectation",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:expectation",
+            "revision": "fixture/v1",
+            "scope": "scope-conversation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:conversation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identified-object:work-item"
+                ],
+                "kind": "ref",
+                "name": "work_item_ref",
+                "required": false
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:expectation"
+                ],
+                "kind": "ref",
+                "name": "supersedes_ref",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:completion",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:expectation",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-conversation",
+            "slots": {
+              "pair_scope_ref": "scope-conversation"
+            }
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-conversation"
+          },
+          {
+            "concept_id": "X:endpoint:satisfaction",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:satisfaction",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-conversation",
+            "slots": {
+              "criteria_ref": "item-2",
+              "expectation_ref": "item-1",
+              "pair_scope_ref": "scope-conversation"
+            }
+          },
+          {
+            "concept_id": "X:scope:conversation",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-conversation",
+            "scope_ref": "scope-conversation"
+          }
+        ],
+        "scope_ref": "scope-conversation",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "R-03",
+      "input_format": "acg_text",
+      "input_text": "X:α:Satisfaction[\"primary\"]",
+      "required_codes": [
+        "P1_INSTANTIATION_SLOT_TYPE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-conclusion",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:conclusion",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "X:endpoint:perception",
+                  "Y:resource-object:evidence"
+                ],
+                "kind": "ref",
+                "name": "basis_refs",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identified-object:annotation"
+                ],
+                "kind": "ref",
+                "name": "proposition_ref",
+                "required": true
+              },
+              {
+                "kind": "enum",
+                "name": "disposition",
+                "required": true,
+                "values": [
+                  "verifies",
+                  "refutes",
+                  "unresolved"
+                ]
+              },
+              {
+                "kind": "string",
+                "name": "method",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:perception",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:perception",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor",
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "observer_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "Y:resource-object:evidence",
+                  "Y:resource-object:artifact",
+                  "Y:resource-object:content",
+                  "X:endpoint:result"
+                ],
+                "kind": "ref",
+                "name": "observed_refs",
+                "required": true
+              },
+              {
+                "kind": "string",
+                "name": "limits",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:perception",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:perception",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "observed_refs": [
+                "item-3"
+              ],
+              "observer_ref": "item-2",
+              "pair_scope_ref": "scope-observation"
+            }
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-4",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:conclusion",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "basis_refs": [
+                "bad-satisfaction"
+              ],
+              "disposition": "verifies",
+              "pair_scope_ref": "scope-observation",
+              "proposition_ref": "item-4"
+            }
+          },
+          {
+            "concept_id": "X:scope:observation",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-observation",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "X:endpoint:satisfaction",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "bad-satisfaction",
+            "scope_ref": "scope-observation"
+          }
+        ],
+        "scope_ref": "scope-observation",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "R-04",
+      "input_format": "acg_text",
+      "input_text": "X:α:Conclusion[\"primary\"]",
+      "required_codes": [
+        "P1_INSTANTIATION_SLOT_TYPE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-conclusion",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:conclusion",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "X:endpoint:perception",
+                  "Y:resource-object:evidence"
+                ],
+                "kind": "ref",
+                "name": "basis_refs",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identified-object:annotation"
+                ],
+                "kind": "ref",
+                "name": "proposition_ref",
+                "required": true
+              },
+              {
+                "kind": "enum",
+                "name": "disposition",
+                "required": true,
+                "values": [
+                  "verifies",
+                  "refutes",
+                  "unresolved"
+                ]
+              },
+              {
+                "kind": "string",
+                "name": "method",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:perception",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:perception",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor",
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "observer_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "Y:resource-object:evidence",
+                  "Y:resource-object:artifact",
+                  "Y:resource-object:content",
+                  "X:endpoint:result"
+                ],
+                "kind": "ref",
+                "name": "observed_refs",
+                "required": true
+              },
+              {
+                "kind": "string",
+                "name": "limits",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:perception",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:perception",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "observed_refs": [
+                "item-3"
+              ],
+              "observer_ref": "item-2",
+              "pair_scope_ref": "scope-observation"
+            }
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-4",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:conclusion",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "basis_refs": [
+                "item-1"
+              ],
+              "disposition": "verifies",
+              "pair_scope_ref": "scope-observation",
+              "proposition_ref": "item-4"
+            }
+          },
+          {
+            "concept_id": "X:scope:observation",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-observation",
+            "scope_ref": "scope-observation"
+          }
+        ],
+        "scope_ref": "scope-observation",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "R-05",
+      "input_format": "acg_text",
+      "input_text": "X:α:Conclusion[\"primary\"]",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-authority",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:authority",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:authority",
+            "revision": "fixture/v1",
+            "scope": "scope-policy",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:policy"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor"
+                ],
+                "kind": "ref",
+                "name": "holder_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Z:boundary:grant"
+                ],
+                "kind": "ref",
+                "name": "source_ref",
+                "required": true
+              },
+              {
+                "kind": "string",
+                "name": "action_kind",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:resource-object:resource",
+                  "Z:boundary:project-boundary",
+                  "Z:boundary:thread-boundary"
+                ],
+                "kind": "ref",
+                "name": "resource_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:authority"
+                ],
+                "kind": "ref",
+                "name": "delegated_from_ref",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "Z:boundary:grant",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "X:endpoint:authority",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:authority",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-policy",
+            "slots": {
+              "action_kind": "declared-action",
+              "holder_ref": "item-1",
+              "pair_scope_ref": "scope-policy",
+              "resource_scope_ref": "item-3",
+              "source_ref": "cap"
+            }
+          },
+          {
+            "concept_id": "X:scope:policy",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-policy",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "Z:boundary:capability",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "cap",
+            "scope_ref": "scope-policy"
+          }
+        ],
+        "scope_ref": "scope-policy",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "R-06",
+      "input_format": "acg_text",
+      "input_text": "X:α:Authority[\"primary\"]",
+      "required_codes": [
+        "P1_INSTANTIATION_SLOT_TYPE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-authority",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:authority",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:authority",
+            "revision": "fixture/v1",
+            "scope": "scope-policy",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:policy"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor"
+                ],
+                "kind": "ref",
+                "name": "holder_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Z:boundary:grant"
+                ],
+                "kind": "ref",
+                "name": "source_ref",
+                "required": true
+              },
+              {
+                "kind": "string",
+                "name": "action_kind",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:resource-object:resource",
+                  "Z:boundary:project-boundary",
+                  "Z:boundary:thread-boundary"
+                ],
+                "kind": "ref",
+                "name": "resource_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:authority"
+                ],
+                "kind": "ref",
+                "name": "delegated_from_ref",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "Z:boundary:grant",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "X:endpoint:authority",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:authority",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-policy",
+            "slots": {
+              "action_kind": "declared-action",
+              "holder_ref": "item-1",
+              "pair_scope_ref": "scope-policy",
+              "resource_scope_ref": "item-3",
+              "source_ref": "role"
+            }
+          },
+          {
+            "concept_id": "X:scope:policy",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-policy",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "Y:identity-anchor:role-binding",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "role",
+            "scope_ref": "scope-policy"
+          }
+        ],
+        "scope_ref": "scope-policy",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "R-07",
+      "input_format": "acg_text",
+      "input_text": "X:α:Authority[\"primary\"]",
+      "required_codes": [
+        "P1_INSTANTIATION_SLOT_TYPE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-admission",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:admission",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:admission",
+            "revision": "fixture/v1",
+            "scope": "scope-policy",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:policy"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:action"
+                ],
+                "kind": "ref",
+                "name": "request_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "principal_ref",
+                "required": true
+              },
+              {
+                "kind": "enum",
+                "name": "decision",
+                "required": true,
+                "values": [
+                  "admitted",
+                  "refused"
+                ]
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:authority"
+                ],
+                "kind": "ref",
+                "name": "authority_ref",
+                "required": false
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Z:boundary:refusal"
+                ],
+                "kind": "ref",
+                "name": "refusal_ref",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:action",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:action",
+            "revision": "fixture/v1",
+            "scope": "scope-event",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:event"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor"
+                ],
+                "kind": "ref",
+                "name": "performed_by_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "executed_as_ref",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:action",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:action",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-event",
+            "slots": {
+              "pair_scope_ref": "scope-event",
+              "performed_by_ref": "item-2"
+            }
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-event"
+          },
+          {
+            "concept_id": "Y:identity-anchor:principal",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "Z:boundary:refusal",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-4",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "X:endpoint:admission",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:admission",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-policy",
+            "slots": {
+              "decision": "admitted",
+              "pair_scope_ref": "scope-policy",
+              "principal_ref": "item-3",
+              "request_ref": "item-1"
+            }
+          },
+          {
+            "concept_id": "X:scope:event",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-event",
+            "scope_ref": "scope-event"
+          },
+          {
+            "concept_id": "X:scope:policy",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-policy",
+            "scope_ref": "scope-policy"
+          }
+        ],
+        "scope_ref": "scope-policy",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "R-08",
+      "input_format": "acg_text",
+      "input_text": "X:α:Admission[\"primary\"]",
+      "required_codes": [
+        "P1_INSTANTIATION_CONDITION"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-admission",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:admission",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:admission",
+            "revision": "fixture/v1",
+            "scope": "scope-policy",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:policy"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:action"
+                ],
+                "kind": "ref",
+                "name": "request_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "principal_ref",
+                "required": true
+              },
+              {
+                "kind": "enum",
+                "name": "decision",
+                "required": true,
+                "values": [
+                  "admitted",
+                  "refused"
+                ]
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:authority"
+                ],
+                "kind": "ref",
+                "name": "authority_ref",
+                "required": false
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Z:boundary:refusal"
+                ],
+                "kind": "ref",
+                "name": "refusal_ref",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:action",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:action",
+            "revision": "fixture/v1",
+            "scope": "scope-event",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:event"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor"
+                ],
+                "kind": "ref",
+                "name": "performed_by_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "executed_as_ref",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:action",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:action",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-event",
+            "slots": {
+              "pair_scope_ref": "scope-event",
+              "performed_by_ref": "item-2"
+            }
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-event"
+          },
+          {
+            "concept_id": "Y:identity-anchor:principal",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "Z:boundary:refusal",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-4",
+            "scope_ref": "scope-policy"
+          },
+          {
+            "concept_id": "X:endpoint:admission",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:admission",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-policy",
+            "slots": {
+              "decision": "refused",
+              "pair_scope_ref": "scope-policy",
+              "principal_ref": "item-3",
+              "refusal_ref": "item-4",
+              "request_ref": "item-1"
+            }
+          },
+          {
+            "concept_id": "X:scope:event",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-event",
+            "scope_ref": "scope-event"
+          },
+          {
+            "concept_id": "X:scope:policy",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-policy",
+            "scope_ref": "scope-policy"
+          }
+        ],
+        "scope_ref": "scope-policy",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "R-09",
+      "input_format": "acg_text",
+      "input_text": "X:α:Admission[\"primary\"]",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-result",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:result",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:result",
+            "revision": "fixture/v1",
+            "scope": "scope-event",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:event"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:action"
+                ],
+                "kind": "ref",
+                "name": "action_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "Y:resource-object:artifact",
+                  "Y:resource-object:evidence"
+                ],
+                "kind": "ref",
+                "name": "artifact_refs",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:action",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:action",
+            "revision": "fixture/v1",
+            "scope": "scope-event",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:event"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor"
+                ],
+                "kind": "ref",
+                "name": "performed_by_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "executed_as_ref",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:action",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:action",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-event",
+            "slots": {
+              "pair_scope_ref": "scope-event",
+              "performed_by_ref": "item-2"
+            }
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-event"
+          },
+          {
+            "concept_id": "X:endpoint:result",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:result",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-event",
+            "slots": {
+              "pair_scope_ref": "scope-event"
+            }
+          },
+          {
+            "concept_id": "X:scope:event",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-event",
+            "scope_ref": "scope-event"
+          }
+        ],
+        "scope_ref": "scope-event",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "R-10",
+      "input_format": "acg_text",
+      "input_text": "X:α:Result[\"primary\"]",
+      "required_codes": [
+        "P1_INSTANTIATION_SLOT_MISSING"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-perception",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:perception",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:perception",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor",
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "observer_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "Y:resource-object:evidence",
+                  "Y:resource-object:artifact",
+                  "Y:resource-object:content",
+                  "X:endpoint:result"
+                ],
+                "kind": "ref",
+                "name": "observed_refs",
+                "required": true
+              },
+              {
+                "kind": "string",
+                "name": "limits",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "X:endpoint:perception",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:perception",
+            "layers": [
+              "ζ"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-observation",
+            "slots": {}
+          },
+          {
+            "concept_id": "X:scope:observation",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-observation",
+            "scope_ref": "scope-observation"
+          }
+        ],
+        "scope_ref": "scope-observation",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "R-11",
+      "input_format": "acg_text",
+      "input_text": "X:ζ:Perception[\"primary\"]",
+      "required_codes": [
+        "P1_LAYER_WITNESS_MISSING"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-conclusion",
+        "format": "aiaeao.cube.binding-context/1",
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:perception",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-4",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "X:scope:observation",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-observation",
+            "scope_ref": "scope-observation"
+          }
+        ],
+        "scope_ref": "scope-observation",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "R-12",
+      "input_format": "acg_text",
+      "input_text": "X:α:Conclusion[\"primary\"]",
+      "required_codes": [
+        "P1_INSTANTIATION_PROFILE_REQUIRED"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p16-runtime-conclusion",
+        "format": "aiaeao.cube.binding-context/2",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:conclusion",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "X:endpoint:perception",
+                  "Y:resource-object:evidence"
+                ],
+                "kind": "ref",
+                "name": "basis_refs",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identified-object:annotation"
+                ],
+                "kind": "ref",
+                "name": "proposition_ref",
+                "required": true
+              },
+              {
+                "kind": "enum",
+                "name": "disposition",
+                "required": true,
+                "values": [
+                  "verifies",
+                  "refutes",
+                  "unresolved"
+                ]
+              },
+              {
+                "kind": "string",
+                "name": "method",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:perception",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:perception",
+            "revision": "fixture/v1",
+            "scope": "scope-observation",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:observation"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor",
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "observer_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "Y:resource-object:evidence",
+                  "Y:resource-object:artifact",
+                  "Y:resource-object:content",
+                  "X:endpoint:result"
+                ],
+                "kind": "ref",
+                "name": "observed_refs",
+                "required": true
+              },
+              {
+                "kind": "string",
+                "name": "limits",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "X:endpoint:perception",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:perception",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-1",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "observed_refs": [
+                "item-3"
+              ],
+              "observer_ref": "item-2",
+              "pair_scope_ref": "scope-observation"
+            }
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-2",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-3",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "item-4",
+            "scope_ref": "scope-observation"
+          },
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:conclusion",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "primary",
+            "scope_ref": "scope-observation",
+            "slots": {
+              "basis_refs": [
+                "item-1"
+              ],
+              "disposition": "unresolved",
+              "pair_scope_ref": "scope-observation",
+              "proposition_ref": "item-4"
+            }
+          },
+          {
+            "concept_id": "X:scope:observation",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-observation",
+            "scope_ref": "scope-observation"
+          }
+        ],
+        "scope_ref": "scope-observation",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "R-13",
+      "input_format": "acg_text",
+      "input_text": "Z:α:Ownership[\"primary\"]",
+      "required_codes": [
+        "P1_INSTANTIATION_PROFILE_REQUIRED"
+      ]
+    }
+  ],
+  "format": "aiaeao.cube.p16.charge3.materialized-vectors/1",
+  "source": "P1.6 Charge 2 fixture-constructor derived, statically materialized for Charge 3 transport-only conformance; expected outcomes copied from independent_r01_r13.json"
+}

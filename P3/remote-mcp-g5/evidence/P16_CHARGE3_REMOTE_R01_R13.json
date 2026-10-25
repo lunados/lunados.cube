@@ -1,0 +1,101 @@
+{
+  "canonical_admission_evaluated": false,
+  "config_error_is_mcp_error": true,
+  "current_authority_evaluated": false,
+  "epistemic_warrant_evaluated": false,
+  "fixtures_sha256": "0623c6840680496cc0d22140c9fb1deb5dc5e46330b4e227589a9b18c2645149",
+  "format": "aiaeao.cube.p16.charge3-remote-acceptance/1",
+  "observed_utc": "2026-10-25T17:34:55.985133+00:00",
+  "p16_vectors": [
+    {
+      "codes_present": [],
+      "id": "R-01",
+      "status": "PASS"
+    },
+    {
+      "codes_present": [
+        "P1_INSTANTIATION_SLOT_MISSING"
+      ],
+      "id": "R-02",
+      "status": "UNRESOLVED"
+    },
+    {
+      "codes_present": [
+        "P1_INSTANTIATION_SLOT_TYPE"
+      ],
+      "id": "R-03",
+      "status": "FAIL"
+    },
+    {
+      "codes_present": [
+        "P1_INSTANTIATION_SLOT_TYPE"
+      ],
+      "id": "R-04",
+      "status": "FAIL"
+    },
+    {
+      "codes_present": [],
+      "id": "R-05",
+      "status": "PASS"
+    },
+    {
+      "codes_present": [
+        "P1_INSTANTIATION_SLOT_TYPE"
+      ],
+      "id": "R-06",
+      "status": "FAIL"
+    },
+    {
+      "codes_present": [
+        "P1_INSTANTIATION_SLOT_TYPE"
+      ],
+      "id": "R-07",
+      "status": "FAIL"
+    },
+    {
+      "codes_present": [
+        "P1_INSTANTIATION_CONDITION"
+      ],
+      "id": "R-08",
+      "status": "FAIL"
+    },
+    {
+      "codes_present": [],
+      "id": "R-09",
+      "status": "PASS"
+    },
+    {
+      "codes_present": [
+        "P1_INSTANTIATION_SLOT_MISSING"
+      ],
+      "id": "R-10",
+      "status": "UNRESOLVED"
+    },
+    {
+      "codes_present": [
+        "P1_LAYER_WITNESS_MISSING"
+      ],
+      "id": "R-11",
+      "status": "UNRESOLVED"
+    },
+    {
+      "codes_present": [
+        "P1_INSTANTIATION_PROFILE_REQUIRED"
+      ],
+      "id": "R-12",
+      "status": "UNRESOLVED"
+    },
+    {
+      "codes_present": [
+        "P1_INSTANTIATION_PROFILE_REQUIRED"
+      ],
+      "id": "R-13",
+      "status": "UNRESOLVED"
+    }
+  ],
+  "production_authorized": false,
+  "resource_count": 14,
+  "security_scope": "existing_protected_G5_proof_endpoint",
+  "status": "PASS",
+  "tools_count": 7
+}

@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:cube:p1:instantiation-profiles:1",
+  "title": "P1.6 instantiation caller profiles (P1 vocabulary, non-authoritative)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_ref",
+    "concept_id",
+    "revision",
+    "scope",
+    "origin",
+    "slots"
+  ],
+  "properties": {
+    "profile_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "concept_id": {
+      "type": "string",
+      "pattern": "^X:endpoint:[a-z][a-z-]*$"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "origin": {
+      "enum": [
+        "illustrative_fixture",
+        "external_declaration_unverified"
+      ]
+    },
+    "slots": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/slot"
+      },
+      "minItems": 1,
+      "maxItems": 32
+    }
+  },
+  "$defs": {
+    "slot": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "kind",
+            "required",
+            "cardinality",
+            "concept_ids"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "const": "ref"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "cardinality": {
+              "enum": [
+                "one",
+                "many"
+              ]
+            },
+            "concept_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "kind",
+            "required",
+            "values"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "const": "enum"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "kind",
+            "required"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "const": "string"
+            },
+            "required": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

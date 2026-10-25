@@ -1,0 +1,24 @@
+{
+  "auth_wrong_token_rejected": true,
+  "date": "2026-10-25T17:34:46.809871+00:00",
+  "format": "aiaeao.cube.g5-r3-remote-check/1",
+  "p0_index_sha256": "bdba91a702803a609100064e78411f5d4689471ffa2c1d4e4bca220f2d9e4187",
+  "p1_invalid_config_is_mcp_error": true,
+  "p1_semantic_statuses": [
+    "UNRESOLVED",
+    "PASS",
+    "FAIL"
+  ],
+  "profile": "P3-MCP-REMOTE/0.1.0-proof",
+  "remote_discovery": true,
+  "repeated_svg_matches_exact_bytes": true,
+  "resource_mime_matches_p0_lock": true,
+  "resources_count": 14,
+  "status": "PASS",
+  "svg_bytes": 8763,
+  "svg_matches_local_golden_bytes": true,
+  "svg_sha256_client_computed": "4fd7fc3ff8067e45ae184810c0b9a85578f3ef17ecb0b7c1263f4ea9e18b9fb9",
+  "test": "actual_remote_mcp",
+  "tools_count": 7,
+  "wrong_origin_rejected": true
+}

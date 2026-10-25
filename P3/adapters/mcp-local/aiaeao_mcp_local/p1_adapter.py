@@ -13,6 +13,7 @@ from typing import Any
 sys.dont_write_bytecode = True
 REPO = Path(__file__).resolve().parents[4]
 P1 = REPO / 'P1' / 'semantic-validator-v1'
+P16 = REPO / 'P1' / 'instantiation-profile-v1'
 if not P1.is_dir():
     raise RuntimeError('P1-VC/1.0.0 reference validator must be installed as sibling P1 tree')
 if str(P1) not in sys.path:
@@ -50,6 +51,28 @@ def _json_bytes(obj: Any) -> bytes:
         _error('P1_MCP_INPUT_INVALID', 'Arguments must contain finite UTF-8 JSON values')
 
 
+def _validator_for(context: dict | None):
+    """Explicit /2 dispatch, no v1 auto-upgrade or hidden version negotiation.
+
+    P1.6 is lazy-loaded so a legacy /1 installation works unchanged. A /2
+    request without the P1.6 module fails closed as an MCP adapter error.
+    """
+    if context is None or context.get('format') != 'aiaeao.cube.binding-context/2':
+        if context is not None:
+            validate_context(context)
+        return SemanticValidator()
+    if not P16.is_dir():
+        _error('P1_MCP_P16_UNAVAILABLE', 'P1.6 validator is not installed')
+    if str(P16) not in sys.path:
+        sys.path.insert(0,str(P16))
+    try:
+        from cube_p16.validator import P16Validator, validate_context as validate_p16_context
+    except ImportError:
+        _error('P1_MCP_P16_UNAVAILABLE', 'P1.6 validator cannot be loaded')
+    validate_p16_context(context)
+    return P16Validator()
+
+
 def validate(input_text: str, input_format: str='acg_text', context: dict | None=None,
              qualification_profiles: dict | None=None) -> dict:
     """Return the exact frozen P1 report inside a transport metadata envelope.
@@ -76,14 +99,13 @@ def validate(input_text: str, input_format: str='acg_text', context: dict | None
     if len(raw) > MAX_P1_TEXT_BYTES:
         _error('P1_MCP_TEXT_TOO_LARGE', 'P1 input exceeds 1 MiB')
     try:
-        if context is not None:
-            validate_context(context)
+        validator = _validator_for(context)
         if qualification_profiles is not None:
             validate_qualification_profiles(qualification_profiles)
-        report = SemanticValidator().validate_bytes(
+        report = validator.validate_bytes(
             raw, input_format=input_format, context=context,
             qualification_profiles=qualification_profiles)
-    except (ContextError, ContractError, ProfileError, ValueError, TypeError, RecursionError, OSError):
+    except (ContextError, ContractError, ProfileError, ValueError, TypeError, RecursionError, OSError, KeyError, AttributeError, IndexError):
         # CLI exit-3 analogue: no raw exceptions, local paths or payload echoed.
         _error('P1_MCP_CONFIG_INVALID', 'P1 input context, profile, or local reference is invalid')
     if report.get('overall_status') not in ('PASS', 'FAIL', 'UNRESOLVED'):
@@ -96,9 +118,11 @@ def validate(input_text: str, input_format: str='acg_text', context: dict | None
     if report.get('input_sha256') != hashlib.sha256(raw).hexdigest():
         _error('P1_MCP_RESULT_INVALID', 'P1 input digest does not match submitted UTF-8 text')
     return {
+        **({'binding_context_profile': 'P1.6/instantiation-profile-v1'}
+           if context is not None and context.get('format')=='aiaeao.cube.binding-context/2' else {}),
         'report': report,  # EXACT P1-VC/1.0.0 structure; no fields added or removed.
         'transport': 'local_mcp_stdio',
-        'core_profile': 'P1-VC/1.0.0',
+        'core_profile': 'P1-VC/1.0.0',  # underlying frozen P1 report schema for both context versions
         'source_warrant': 'declared_unverified',
         'input_encoding': 'utf-8',
         'declared_context_sha256': hashlib.sha256(_json_bytes(context)).hexdigest() if context is not None else None,

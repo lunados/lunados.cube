@@ -1,0 +1,96 @@
+{
+  "artifacts": [
+    {
+      "bytes": 786,
+      "origin": "user_uploaded_sanitized_sdk_evidence",
+      "path": "P3/remote-mcp-g5/evidence/G5_R3_P16_RECHECK.json",
+      "role": "g5_r3_remote_sdk",
+      "sha256": "d1fb9aa1c6821a05358738a65ba5557c7dfcb8fb469a08dcb07b9fca4e3c2a3d"
+    },
+    {
+      "bytes": 2112,
+      "origin": "user_uploaded_sanitized_sdk_evidence",
+      "path": "P3/remote-mcp-g5/evidence/P16_CHARGE3_REMOTE_R01_R13.json",
+      "role": "p16_remote_sdk",
+      "sha256": "93eb2f778ef1bb4e17db856417d7b7250b4bc780338fb15a995e00884491a98f"
+    },
+    {
+      "bytes": 8535,
+      "origin": "user_uploaded_claude_host_attestation",
+      "path": "P3/remote-mcp-g5/evidence/G5_R4_P16_HOST_REPORT.md",
+      "role": "g5_r4_host_report",
+      "sha256": "b29319d4ad8749d2f2e492442ba9c4a6bdcb27e4dcf43d0099f6033b4584b22a"
+    },
+    {
+      "bytes": 66195,
+      "origin": "prior_charge3_v1_1_materialized_fixture",
+      "path": "P3/charge3-p16/fixtures/r01_r13_materialized.json",
+      "role": "p16_fixture",
+      "sha256": "0623c6840680496cc0d22140c9fb1deb5dc5e46330b4e227589a9b18c2645149"
+    },
+    {
+      "bytes": 4798,
+      "origin": "prior_user_cube_snapshot",
+      "path": "P3/adapters/mcp-local/p0_snapshot/lock.json",
+      "role": "p0_lock",
+      "sha256": "cb259c5962a61c507ace6260d37ae364cf6658794a115052e3bc4fefdca477a1"
+    },
+    {
+      "bytes": 10926,
+      "origin": "prior_user_cube_snapshot",
+      "path": "P2/visual-printer-release-v1/examples/tree_governance_overview.svg",
+      "role": "p2_golden_svg",
+      "sha256": "e9bd5847f0f526d4a9551e139f2eb4c0259496a95399ca765707dde78ddc4a57"
+    },
+    {
+      "bytes": 1524,
+      "origin": "prior_charge3_v1_1_source_lock",
+      "path": "P3/charge3-p16/CHARGE3_SOURCE_SHA256SUMS.txt",
+      "role": "charge3_source_checksums",
+      "sha256": "3603c1f3c5a8198cfdde80772a74e41f94dad93982573fade1f4140c0e918af3"
+    }
+  ],
+  "cross_checks": {
+    "g5_tool_count": 7,
+    "p0_resource_count": 14,
+    "p0_snapshot_lock_sha256": "cb259c5962a61c507ace6260d37ae364cf6658794a115052e3bc4fefdca477a1",
+    "p16_r01_r13_fixture_sha256": "0623c6840680496cc0d22140c9fb1deb5dc5e46330b4e227589a9b18c2645149",
+    "r3_svg_sha256": "4fd7fc3ff8067e45ae184810c0b9a85578f3ef17ecb0b7c1263f4ea9e18b9fb9",
+    "r4_authoritative_fixture_calls": [
+      "R-01",
+      "R-04",
+      "R-12"
+    ],
+    "r4_prior_replacement_vectors_are_non_authoritative": true,
+    "r4_svg_golden_sha256": "e9bd5847f0f526d4a9551e139f2eb4c0259496a95399ca765707dde78ddc4a57"
+  },
+  "deployment_reported_but_not_byte_attested": {
+    "cloudflare_version_id": "77189c21-218a-4f83-b292-e4ed73a38bf7",
+    "core_worker_name": "aiaeao-cube-g5-core",
+    "no_public_core_targets": true
+  },
+  "evidence_cut": "2026-10-25",
+  "format": "aiaeao.cube.p16.charge3-release-evidence/1",
+  "gate_results": {
+    "charge3_offline": "PASS_USER_REPORTED_PRIOR_SESSION",
+    "g5_r3_remote_sdk": "PASS_USER_UPLOADED_EVIDENCE",
+    "g5_r4_independent_host": "PASS_HOST_REPORTED_AND_SOURCE_CROSSCHECKED",
+    "git_commit_and_tag": "NOT_ATTESTED",
+    "p16_r01_r13_remote_sdk": "PASS_USER_UPLOADED_EVIDENCE",
+    "production": "NOT_AUTHORIZED"
+  },
+  "historical_package": {
+    "charge3_patch_filename": "AIAEAO_Cube_P1_6_Charge_3_MCP_G5_v1_1.zip",
+    "sha256": "5d49c43923c6f8722173974b89114d20320b0914be710b841414253b9a57a781"
+  },
+  "limitations": [
+    "R4 host calls reported in markdown; full MCP raw transcript not present",
+    "morphology.md MIME from host listing and index; no ReadMcpResource full read",
+    "git commit, repo tree ID, gateway deploy ID not attested",
+    "not a production security assessment"
+  ],
+  "p16_profile": "P1.6/instantiation-profile-v1",
+  "production_authorized": false,
+  "release_profile": "P3-MCP-REMOTE/0.1.0-proof",
+  "review_disposition": "REMOTE_PROOF_EVIDENCE_ACCEPTED; GIT_FREEZE_PENDING"
+}

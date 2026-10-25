@@ -1,0 +1,13 @@
+{
+  "anchors": {
+    "P1/instantiation-profile-v1/cube_p16/instantiation.py": "e6792de771264272fbae7553683b3222eb0a998c6d3b95ef430332b99c4acb84",
+    "P1/instantiation-profile-v1/cube_p16/validator.py": "d9847f2e94223eb76a5f5a204a2258f2822e976f14fefc1ac8b0d0a2ec8666f1",
+    "P1/instantiation-profile-v1/instantiation_reference_v1.json": "58a20c38487d9b7edee2f1a5e6b69a26528957191c642e0ef50b46563e1b65f1",
+    "P1/semantic-validator-v1/cube_semantic/validator.py": "8bb28455d16a260120a62e2be2695c52ae724e5075ea7f026a05bb07cf28e533",
+    "P3/adapters/mcp-local/aiaeao_mcp_local/surface.py": "76a4630321e9c1a088cdadd7f04a3264362b135a4599313531635fb44df9eaba",
+    "P3/adapters/mcp-local/spec/G4_CAPABILITY_SURFACE.schema.json": "d9cf395c302cab7a5e9e34e66780a8e0ff82120014cc0f5773a66f55fba2b4fc",
+    "P3/remote-mcp-g5/gateway/src/index.mjs": "8162ee36e2fce50508c16763b9bd178d60809541c5e73e78e6f2832ac9ac84dc"
+  },
+  "baseline_zip_sha256": "6100b246b1796a79dd61fee682cf21a893ab08d0861a3ff1e671eb4857e61d79",
+  "format": "aiaeao.cube.charge3-baseline-lock/1"
+}

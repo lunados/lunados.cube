@@ -1,0 +1,20 @@
+{
+  "format": "aiaeao.cube.p1.6.independent-oracle/1",
+  "reference_version": "v9.4",
+  "independence": "Expected values transcribed before executing validator; no generation from validator output",
+  "cases": [
+    {"id":"R-01","profile":"conclusion","concept":"X:endpoint:conclusion","expected_overall":"PASS","required_codes":[]},
+    {"id":"R-02","profile":"conclusion","concept":"X:endpoint:conclusion","expected_overall":"UNRESOLVED","required_codes":["P1_INSTANTIATION_SLOT_MISSING"]},
+    {"id":"R-03","profile":"satisfaction","concept":"X:endpoint:satisfaction","expected_overall":"FAIL","required_codes":["P1_INSTANTIATION_SLOT_TYPE"]},
+    {"id":"R-04","profile":"conclusion","concept":"X:endpoint:conclusion","expected_overall":"FAIL","required_codes":["P1_INSTANTIATION_SLOT_TYPE"]},
+    {"id":"R-05","profile":"conclusion","concept":"X:endpoint:conclusion","expected_overall":"PASS","required_codes":[]},
+    {"id":"R-06","profile":"authority","concept":"X:endpoint:authority","expected_overall":"FAIL","required_codes":["P1_INSTANTIATION_SLOT_TYPE"]},
+    {"id":"R-07","profile":"authority","concept":"X:endpoint:authority","expected_overall":"FAIL","required_codes":["P1_INSTANTIATION_SLOT_TYPE"]},
+    {"id":"R-08","profile":"admission","concept":"X:endpoint:admission","expected_overall":"FAIL","required_codes":["P1_INSTANTIATION_CONDITION"]},
+    {"id":"R-09","profile":"admission","concept":"X:endpoint:admission","expected_overall":"PASS","required_codes":[]},
+    {"id":"R-10","profile":"result","concept":"X:endpoint:result","expected_overall":"UNRESOLVED","required_codes":["P1_INSTANTIATION_SLOT_MISSING"]},
+    {"id":"R-11","profile":"perception","concept":"X:endpoint:perception","expected_overall":"UNRESOLVED","required_codes":["P1_LAYER_WITNESS_MISSING"]},
+    {"id":"R-12","profile":"none","concept":"X:endpoint:conclusion","expected_overall":"UNRESOLVED","required_codes":["P1_INSTANTIATION_PROFILE_REQUIRED"]},
+    {"id":"R-13","profile":"zone","concept":"Z:zone:ownership","expected_overall":"UNRESOLVED","required_codes":["P1_INSTANTIATION_PROFILE_REQUIRED"]}
+  ]
+}

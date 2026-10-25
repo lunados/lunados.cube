@@ -1,0 +1,15 @@
+{
+  "format": "aiaeao.cube.p1.6.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P1 validator vocabulary; descriptive only",
+  "rules": [
+    {"id":"P16-X10","coverage":"enforced_subset","source":"Morphology §6.2.1–6.2.5","implementation":"10 exact endpoint slot tables and matching pair scopes"},
+    {"id":"P16-NOSUB","coverage":"enforced_subset","source":"Morphology §§6.2.1–6.2.5, 6.3.1–6.3.2","implementation":"typed reference restriction; widening profiles invalid input"},
+    {"id":"P16-ADMISSION","coverage":"enforced_subset","source":"Morphology §6.2.2","implementation":"admitted/refused conditional slots; no actual admission decision"},
+    {"id":"P16-WITNESS","coverage":"noninference_guard","source":"Morphology §§3.12, 7.37","implementation":"β/ζ declared witness pointer required, witness truth never verified"},
+    {"id":"P16-NOPROMOTION","coverage":"noninference_guard","source":"Morphology §§6.2.1–6.2.5","implementation":"P1.1 report schema unchanged; authority/admission/warrant stay NOT_EVALUATED"},
+    {"id":"P16-V1REGRESSION","coverage":"enforced_subset","source":"P1.1/P1.5 frozen acceptance","implementation":"/1 dispatch directly to frozen SemanticValidator, full P1.5 gate unchanged"},
+    {"id":"P16-ZDEFERRED","coverage":"reference_only","source":"Morphology §6.4","implementation":"seven Z zones retain legacy PROFILE_REQUIRED status"},
+    {"id":"P16-P17DEFERRED","coverage":"reference_only","source":"Morphology §6.3.1 and governance §6.2.2","implementation":"Principal/Authority holder chain not checked (P1.7 candidate)"}
+  ]
+}
