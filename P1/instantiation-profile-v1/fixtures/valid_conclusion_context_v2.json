@@ -1,0 +1,113 @@
+{
+  "format": "aiaeao.cube.binding-context/2",
+  "reference_version": "v9.4",
+  "context_id": "p16-fixture-conclusion-01",
+  "source_kind": "illustrative_fixture",
+  "scope_ref": "obs1",
+  "referents": [
+    {
+      "ref": "obs1",
+      "concept_id": "X:scope:observation",
+      "home": "X",
+      "layers": [
+        "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "obs1"
+    },
+    {
+      "ref": "ev1",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+        "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "obs1"
+    },
+    {
+      "ref": "claim1",
+      "concept_id": "Y:identified-object:annotation",
+      "home": "Y",
+      "layers": [
+        "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "obs1"
+    },
+    {
+      "ref": "c1",
+      "concept_id": "X:endpoint:conclusion",
+      "home": "X",
+      "layers": [
+        "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "obs1",
+      "instantiation_profile_ref": "probe:X-conclusion/v1",
+      "slots": {
+        "pair_scope_ref": "obs1",
+        "basis_refs": [
+          "ev1"
+        ],
+        "proposition_ref": "claim1",
+        "disposition": "unresolved"
+      }
+    }
+  ],
+  "predicate_contracts": [],
+  "instantiation_profiles": [
+    {
+      "profile_ref": "probe:X-conclusion/v1",
+      "concept_id": "X:endpoint:conclusion",
+      "revision": "probe:inst/1",
+      "scope": "obs1",
+      "origin": "illustrative_fixture",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:observation"
+          ]
+        },
+        {
+          "name": "basis_refs",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "many",
+          "concept_ids": [
+            "X:endpoint:perception",
+            "Y:resource-object:evidence"
+          ]
+        },
+        {
+          "name": "proposition_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identified-object:annotation"
+          ]
+        },
+        {
+          "name": "disposition",
+          "kind": "enum",
+          "required": true,
+          "values": [
+            "verifies",
+            "refutes",
+            "unresolved"
+          ]
+        },
+        {
+          "name": "method",
+          "kind": "string",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "format": "aiaeao.cube.p1.6.diagnostic-extension/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "disposition": "Additive P1.6 only. Frozen P1.1/P1.4 registers remain byte-identical.",
+  "codes": [
+    {"code":"P1_INSTANTIATION_SLOT_MISSING","stage":"referent_binding","default_status":"UNRESOLVED","reference_rule":"Morphology v9.4 §6.2 / P1.6 required slot"},
+    {"code":"P1_INSTANTIATION_SLOT_TYPE","stage":"referent_binding","default_status":"FAIL","reference_rule":"Morphology v9.4 §6.2 / P1.6 typed slot / non-substitution"},
+    {"code":"P1_INSTANTIATION_SLOT_SIGNATURE","stage":"referent_binding","default_status":"FAIL","reference_rule":"P1.6 slot descriptor: cardinality/enumeration/extra name"},
+    {"code":"P1_INSTANTIATION_CONDITION","stage":"referent_binding","default_status":"FAIL","reference_rule":"Morphology v9.4 §6.2.2 / P1.6 admission conditions"},
+    {"code":"P1_INSTANTIATION_CYCLE","stage":"referent_binding","default_status":"FAIL","reference_rule":"P1.6 declared X endpoint reference cycle"},
+    {"code":"P1_INSTANTIATION_PROFILE_AMBIGUOUS","stage":"referent_binding","default_status":"UNRESOLVED","reference_rule":"P1.6 exact, scoped caller-profile selection"}
+  ],
+  "inherited_codes": ["P1_INSTANTIATION_PROFILE_REQUIRED", "P1_BINDING_CONTEXT_REQUIRED", "P1_LAYER_WITNESS_MISSING", "P1_SCOPE_CONFLICT", "P1_REFERENT_MISMATCH"]
+}

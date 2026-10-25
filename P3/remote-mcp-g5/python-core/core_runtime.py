@@ -58,6 +58,16 @@ def _remote_surface():
         'webmcp_available': False,
         'filesystem_side_effects_from_mcp_tools': False,
     }
+    result['p16_instantiation'] = {
+        'profile': 'P1.6/instantiation-profile-v1',
+        'binding_context_formats': ['aiaeao.cube.binding-context/1',
+                                    'aiaeao.cube.binding-context/2'],
+        'activation': 'explicit_context_format_2_only',
+        'scope': 'declared_X_endpoint_slots',
+        'epistemic_warrant': 'NOT_EVALUATED',
+        'current_authority': 'NOT_EVALUATED',
+        'canonical_admission': 'NOT_EVALUATED',
+    }
     result['remote_adapter'] = {'name':'aiaeao-cube-mcp-g5',
         'version':'P3-MCP-REMOTE/0.1.0-proof',
         'profile':'remote_service_binding_to_frozen_P0_P1_P2'}

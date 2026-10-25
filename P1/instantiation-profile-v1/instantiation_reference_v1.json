@@ -1,0 +1,499 @@
+{
+  "format": "aiaeao.cube.p1.instantiation-reference/1",
+  "reference_version": "v9.4",
+  "profile": "P1.6-X-INSTANTIATION/1.1",
+  "authority": "P1 validator vocabulary profile derived from Morphology v9.4 §6.2; NOT a new P0 catalog or operational authorization",
+  "pair_scope_rule": "pair_scope_ref must reference the declared X scope referent that matches the endpoint and the scoped profile",
+  "endpoints": [
+    {
+      "concept_id": "X:endpoint:perception",
+      "pair_scope_concept_id": "X:scope:observation",
+      "morphology": "§6.2.1",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:observation"
+          ]
+        },
+        {
+          "name": "observer_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identity-anchor:actor",
+            "Y:identity-anchor:principal"
+          ]
+        },
+        {
+          "name": "observed_refs",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "many",
+          "concept_ids": [
+            "Y:resource-object:evidence",
+            "Y:resource-object:artifact",
+            "Y:resource-object:content",
+            "X:endpoint:result"
+          ]
+        },
+        {
+          "name": "limits",
+          "kind": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "concept_id": "X:endpoint:conclusion",
+      "pair_scope_concept_id": "X:scope:observation",
+      "morphology": "§6.2.1",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:observation"
+          ]
+        },
+        {
+          "name": "basis_refs",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "many",
+          "concept_ids": [
+            "X:endpoint:perception",
+            "Y:resource-object:evidence"
+          ]
+        },
+        {
+          "name": "proposition_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identified-object:annotation"
+          ]
+        },
+        {
+          "name": "disposition",
+          "kind": "enum",
+          "required": true,
+          "values": [
+            "verifies",
+            "refutes",
+            "unresolved"
+          ]
+        },
+        {
+          "name": "method",
+          "kind": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "concept_id": "X:endpoint:authority",
+      "pair_scope_concept_id": "X:scope:policy",
+      "morphology": "§6.2.2",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:policy"
+          ]
+        },
+        {
+          "name": "holder_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identity-anchor:actor"
+          ]
+        },
+        {
+          "name": "source_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Z:boundary:grant"
+          ]
+        },
+        {
+          "name": "action_kind",
+          "kind": "string",
+          "required": true
+        },
+        {
+          "name": "resource_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:resource-object:resource",
+            "Z:boundary:project-boundary",
+            "Z:boundary:thread-boundary"
+          ]
+        },
+        {
+          "name": "delegated_from_ref",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:endpoint:authority"
+          ]
+        }
+      ]
+    },
+    {
+      "concept_id": "X:endpoint:admission",
+      "pair_scope_concept_id": "X:scope:policy",
+      "morphology": "§6.2.2",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:policy"
+          ]
+        },
+        {
+          "name": "request_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:endpoint:action"
+          ]
+        },
+        {
+          "name": "principal_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identity-anchor:principal"
+          ]
+        },
+        {
+          "name": "decision",
+          "kind": "enum",
+          "required": true,
+          "values": [
+            "admitted",
+            "refused"
+          ]
+        },
+        {
+          "name": "authority_ref",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:endpoint:authority"
+          ]
+        },
+        {
+          "name": "refusal_ref",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "one",
+          "concept_ids": [
+            "Z:boundary:refusal"
+          ]
+        }
+      ]
+    },
+    {
+      "concept_id": "X:endpoint:expectation",
+      "pair_scope_concept_id": "X:scope:conversation",
+      "morphology": "§6.2.3",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:conversation"
+          ]
+        },
+        {
+          "name": "work_item_ref",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identified-object:work-item"
+          ]
+        },
+        {
+          "name": "supersedes_ref",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:endpoint:expectation"
+          ]
+        }
+      ]
+    },
+    {
+      "concept_id": "X:endpoint:satisfaction",
+      "pair_scope_concept_id": "X:scope:conversation",
+      "morphology": "§6.2.3",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:conversation"
+          ]
+        },
+        {
+          "name": "expectation_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:endpoint:expectation"
+          ]
+        },
+        {
+          "name": "criteria_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identified-object:annotation"
+          ]
+        },
+        {
+          "name": "measurement_source_ref",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:resource-object:source",
+            "Y:resource-object:evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "concept_id": "X:endpoint:delegation",
+      "pair_scope_concept_id": "X:scope:contract",
+      "morphology": "§6.2.4",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:contract"
+          ]
+        },
+        {
+          "name": "delegator_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identity-anchor:actor"
+          ]
+        },
+        {
+          "name": "delegatee_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identity-anchor:actor"
+          ]
+        },
+        {
+          "name": "authority_source_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:endpoint:authority",
+            "Z:boundary:grant"
+          ]
+        },
+        {
+          "name": "expectation_ref",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:endpoint:expectation"
+          ]
+        },
+        {
+          "name": "work_item_ref",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identified-object:work-item"
+          ]
+        }
+      ]
+    },
+    {
+      "concept_id": "X:endpoint:completion",
+      "pair_scope_concept_id": "X:scope:contract",
+      "morphology": "§6.2.4",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:contract"
+          ]
+        },
+        {
+          "name": "delegation_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:endpoint:delegation"
+          ]
+        },
+        {
+          "name": "basis_refs",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "many",
+          "concept_ids": [
+            "Y:resource-object:evidence",
+            "Y:identified-object:outcome",
+            "X:endpoint:result"
+          ]
+        }
+      ]
+    },
+    {
+      "concept_id": "X:endpoint:action",
+      "pair_scope_concept_id": "X:scope:event",
+      "morphology": "§6.2.5",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:event"
+          ]
+        },
+        {
+          "name": "performed_by_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identity-anchor:actor"
+          ]
+        },
+        {
+          "name": "executed_as_ref",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "one",
+          "concept_ids": [
+            "Y:identity-anchor:principal"
+          ]
+        }
+      ]
+    },
+    {
+      "concept_id": "X:endpoint:result",
+      "pair_scope_concept_id": "X:scope:event",
+      "morphology": "§6.2.5",
+      "slots": [
+        {
+          "name": "pair_scope_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:scope:event"
+          ]
+        },
+        {
+          "name": "action_ref",
+          "kind": "ref",
+          "required": true,
+          "cardinality": "one",
+          "concept_ids": [
+            "X:endpoint:action"
+          ]
+        },
+        {
+          "name": "artifact_refs",
+          "kind": "ref",
+          "required": false,
+          "cardinality": "many",
+          "concept_ids": [
+            "Y:resource-object:artifact",
+            "Y:resource-object:evidence"
+          ]
+        }
+      ]
+    }
+  ],
+  "acyclic_edges": [
+    {
+      "concept_id": "X:endpoint:authority",
+      "slot": "delegated_from_ref",
+      "reason": "no recursive authority provenance or self-delegation"
+    },
+    {
+      "concept_id": "X:endpoint:expectation",
+      "slot": "supersedes_ref",
+      "reason": "supersession is an acyclic lineage, not a self-referential replacement"
+    }
+  ],
+  "conditions": [
+    {
+      "code": "C-ADM-1",
+      "if": "decision=refused",
+      "require": "refusal_ref",
+      "diagnostic": "P1_INSTANTIATION_CONDITION"
+    },
+    {
+      "code": "C-ADM-1",
+      "if": "decision=admitted",
+      "require": "authority_ref",
+      "diagnostic": "P1_INSTANTIATION_CONDITION"
+    },
+    {
+      "code": "C-ADM-2",
+      "if": "decision=admitted",
+      "forbid": "refusal_ref",
+      "diagnostic": "P1_INSTANTIATION_CONDITION"
+    }
+  ]
+}

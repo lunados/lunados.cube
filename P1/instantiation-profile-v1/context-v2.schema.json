@@ -1,0 +1,412 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:cube:p1:binding-context:2",
+  "title": "P1.6 fixture-scoped binding context /2 (additive to /1, not an authority declaration)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "reference_version",
+    "context_id",
+    "source_kind",
+    "referents",
+    "predicate_contracts"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.binding-context/2"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "context_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_kind": {
+      "enum": [
+        "illustrative_fixture",
+        "external_declaration_unverified"
+      ]
+    },
+    "scope_ref": {
+      "type": "string"
+    },
+    "referents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/referent"
+      },
+      "maxItems": 10000
+    },
+    "predicate_contracts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/predicate"
+      },
+      "maxItems": 512
+    },
+    "method_contracts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/method"
+      },
+      "maxItems": 512
+    },
+    "profile_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "instantiation_profiles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/profile"
+      },
+      "maxItems": 512
+    }
+  },
+  "$defs": {
+    "referent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "concept_id",
+        "home",
+        "layers",
+        "provenance_status"
+      ],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "home": {
+          "enum": [
+            "X",
+            "Y",
+            "Z"
+          ]
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "α",
+              "β",
+              "ζ"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "provenance_status": {
+          "const": "declared_unverified"
+        },
+        "scope_ref": {
+          "type": "string"
+        },
+        "witness_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instantiation_profile_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slots": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "minLength": 1
+          },
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "maxProperties": 32
+        }
+      }
+    },
+    "method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method_id",
+        "revision",
+        "scope",
+        "origin",
+        "argument_min",
+        "argument_max"
+      ],
+      "properties": {
+        "method_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*/v[1-9][0-9]*$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "argument_min": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "argument_max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "argument_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "effect_class": {
+          "enum": [
+            "pure_declarative",
+            "unknown",
+            "effectful_declared"
+          ]
+        }
+      }
+    },
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicate_id",
+        "revision",
+        "scope",
+        "origin",
+        "subject_concept_ids",
+        "object_concept_ids",
+        "direction"
+      ],
+      "properties": {
+        "predicate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "subject_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "object_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "direction": {
+          "const": "subject_to_object"
+        },
+        "required_qualifiers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "T",
+              "F",
+              "M",
+              "O"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "additional_constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_ref",
+        "concept_id",
+        "revision",
+        "scope",
+        "origin",
+        "slots"
+      ],
+      "properties": {
+        "profile_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept_id": {
+          "type": "string",
+          "pattern": "^X:endpoint:[a-z][a-z-]*$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/slot"
+          },
+          "minItems": 1,
+          "maxItems": 32
+        }
+      }
+    },
+    "slot": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "kind",
+            "required",
+            "cardinality",
+            "concept_ids"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "const": "ref"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "cardinality": {
+              "enum": [
+                "one",
+                "many"
+              ]
+            },
+            "concept_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "kind",
+            "required",
+            "values"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "const": "enum"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "kind",
+            "required"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "const": "string"
+            },
+            "required": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
