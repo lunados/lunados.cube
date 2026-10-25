@@ -157,4 +157,37 @@ class ReportSchema(unittest.TestCase):
             val.validate(run(c['input_text'],c['context']))
 
 
+class Golden(unittest.TestCase):
+    """P1.8-15: EXP-010 and EXP-024 as declared reference cases, with negative controls."""
+    G={n:json.loads((HERE/f'fixtures/golden_{n}.json').read_text()) for n in ('exp010','exp024')}
+    def g(self,n): c=self.G[n]; return c['input_text'], copy.deepcopy(c['context'])
+    def test_goldens_pass_without_promotion(self):
+        for n,c in self.G.items():
+            with self.subTest(n=n):
+                r=run(c['input_text'],c['context'])
+                self.assertEqual((r['overall_status'],r['diagnostics']),('PASS',[]))
+                for k in NOPROMO: self.assertEqual(r[k],'NOT_EVALUATED')
+                self.assertTrue(c['reference']['sources'])
+    def test_exp010_operative_mode_fails(self):
+        t,c=self.g('exp010'); c['scenarios'][0]['mode']='operative'
+        self.assertIn('P1_SCENARIO_MODE',codes(run(t,c)))
+    def test_exp010_claim_outside_world_fails(self):
+        t,c=self.g('exp010'); c['scenarios'][0]['world_refs'].remove('exp010:claim-ac-saving')
+        self.assertIn('P1_SCENARIO_WORLD_VIOLATION',codes(run(t,c)))
+    def test_exp010_without_witness_unresolved(self):
+        t,c=self.g('exp010'); del c['evaluation_records'][0]['witness_ref']
+        self.assertEqual(run(t,c)['overall_status'],'UNRESOLVED')
+    def test_exp024_selection_as_conclusion_fails(self):
+        t,c=self.g('exp024'); c['referents'].append({'ref':'exp024:selected','concept_id':'X:endpoint:conclusion','home':'X',
+            'layers':['\u03b1'],'provenance_status':'declared_unverified','scope_ref':'exp024'})
+        c['scenarios'][0]['world_refs'].append('exp024:selected'); c['evaluation_records'][0]['output_refs']=['exp024:selected']
+        self.assertIn('P1_EVALUATION_OUTPUT_TYPE',codes(run(t,c)))
+    def test_exp024_result_without_run_unresolved(self):
+        t,c=self.g('exp024'); del next(r for r in c['referents'] if r['ref']=='exp024:result-dominates')['slots']['action_ref']
+        self.assertIn('P1_INSTANTIATION_SLOT_MISSING',codes(run(t,c)))
+    def test_exp024_return_type_must_match_predicate(self):
+        t,c=self.g('exp024'); c['method_contracts'][0]['return_concept_ids']=['Y:resource-object:evidence']
+        self.assertIn('P1_METHOD_RETURN_TYPE',codes(run(t,c)))
+
+
 if __name__=='__main__': unittest.main()

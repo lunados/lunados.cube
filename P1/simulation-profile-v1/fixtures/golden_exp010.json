@@ -1,0 +1,188 @@
+{
+  "context": {
+    "context_id": "golden-exp010",
+    "evaluation_frame": {
+      "scenario_ref": "exp010-eval-central"
+    },
+    "evaluation_records": [
+      {
+        "evaluator_ref": "eval:exp010-sim010",
+        "input_digest": "sha256:8028b18822f87abef10011b835e2101ec5ad3fae66251725c0e9da5d0fd066dc",
+        "method_id": "verify.composite-certificate/v1",
+        "output_refs": [
+          "exp010:metrics"
+        ],
+        "record_id": "exp010-central-eval",
+        "scenario_ref": "exp010-eval-central",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Seven_Ways_to_Verify_Experiment_010/metrics.json#sha256=60f0740564df154a159b717f7db7eecf881a1bcf10bfd7d5a22bc20a3fc672f9"
+      }
+    ],
+    "evaluators": [
+      {
+        "evaluator_id": "eval:exp010-sim010",
+        "kind": "local_script",
+        "method_ids": [
+          "verify.composite-certificate/v1"
+        ],
+        "origin": "external_declaration_unverified",
+        "output_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "sim010.py@sha256:a16c68534367b6982780510003567f65703f0cb3b12895678a9e1af87a50a3fd",
+        "scope": "exp010"
+      }
+    ],
+    "format": "aiaeao.cube.binding-context/3",
+    "method_contracts": [
+      {
+        "argument_concept_ids": [
+          "Y:resource-object:artifact"
+        ],
+        "argument_max": 1,
+        "argument_min": 1,
+        "effect_class": "pure_declarative",
+        "method_id": "verify.composite-certificate/v1",
+        "origin": "external_declaration_unverified",
+        "return_cardinality": "one",
+        "return_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "exp010:010AC_batch",
+        "scope": "exp010"
+      }
+    ],
+    "predicate_contracts": [
+      {
+        "additional_constraints": [
+          "Support is declared by the archived run; the Cube does not verify it."
+        ],
+        "direction": "subject_to_object",
+        "object_concept_ids": [
+          "Y:identified-object:annotation"
+        ],
+        "origin": "external_declaration_unverified",
+        "predicate_id": "supports",
+        "revision": "golden:v1",
+        "scope": "exp010",
+        "subject_concept_ids": [
+          "Y:resource-object:evidence"
+        ]
+      }
+    ],
+    "profile_limitations": [
+      "Synthetic simulation; generator known; not a blinded or real-world holdout (PREREGISTRATION_010 validation_warning).",
+      "Cube validates the declaration only; numbers are archived, never recomputed or verified."
+    ],
+    "reference_version": "v9.4",
+    "referents": [
+      {
+        "concept_id": "Y:resource-object:artifact",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp010:eval-worlds",
+        "scope_ref": "exp010"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp010:metrics",
+        "scope_ref": "exp010"
+      },
+      {
+        "concept_id": "Y:identified-object:annotation",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp010:claim-ac-saving",
+        "scope_ref": "exp010"
+      },
+      {
+        "concept_id": "Y:identified-object:annotation",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp010:assumption-known-generator",
+        "scope_ref": "exp010"
+      }
+    ],
+    "scenarios": [
+      {
+        "assumption_refs": [
+          "exp010:assumption-known-generator"
+        ],
+        "method_ids": [
+          "verify.composite-certificate/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "control": "009-D Fixed Certified",
+          "cost_profile": "central",
+          "evaluation_seeds": "8-11",
+          "events_per_world": 25,
+          "policy": "010AC_batch",
+          "worlds": 64
+        },
+        "revision": "prereg-0.1",
+        "scenario_id": "exp010-eval-central",
+        "scope": "exp010",
+        "world_refs": [
+          "exp010:eval-worlds",
+          "exp010:metrics",
+          "exp010:claim-ac-saving",
+          "exp010:assumption-known-generator"
+        ]
+      }
+    ],
+    "scope_ref": "exp010",
+    "source_kind": "external_declaration_unverified"
+  },
+  "expected_overall": "PASS",
+  "id": "GOLDEN-EXP010",
+  "input_format": "acg_text",
+  "input_text": "rel(\"supports\",verify.composite-certificate/v1(Y:α:Artifact[\"exp010:eval-worlds\"]),Y:α:Annotation[\"exp010:claim-ac-saving\"])",
+  "reference": {
+    "assumption_ref": "exp010:assumption-known-generator",
+    "claim_ref": "exp010:claim-ac-saving",
+    "declared_finding": "Central profile, seeds 8-11, 64 worlds x 25 events: 010-AC composite 31.864306 vs 009-D Fixed Certified 32.722279 modeled work/event (saving 2.622 %), coverage 100 % of fixed-reachable synthetic findings.",
+    "experiment": "EXP-010 Qualification-Aware Incremental Verification",
+    "library_ref": "omitted: no Functions Library entry exists for this method (P1.8 D-3 optional)",
+    "not_claimed": [
+      "universal correctness",
+      "measured runtime",
+      "real-world holdout"
+    ],
+    "sources": {
+      "metrics": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Seven_Ways_to_Verify_Experiment_010/metrics.json",
+        "sha256": "60f0740564df154a159b717f7db7eecf881a1bcf10bfd7d5a22bc20a3fc672f9"
+      },
+      "preregistration": {
+        "path": "lunados.space:web/docs/experiment/experiment013/reference/PREREGISTRATION_010.json",
+        "sha256": "8028b18822f87abef10011b835e2101ec5ad3fae66251725c0e9da5d0fd066dc"
+      },
+      "readme": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Seven_Ways_to_Verify_Experiment_010/README.md",
+        "sha256": "90fea76061b30c70c40a89d96c98768b434c85ac8fa1de3eab3a215709b338de"
+      },
+      "simulator": {
+        "path": "lunados.space:web/docs/experiment/experiment013/reference/sim010.py",
+        "sha256": "a16c68534367b6982780510003567f65703f0cb3b12895678a9e1af87a50a3fd"
+      }
+    }
+  },
+  "required_codes": [],
+  "title": "EXP-010 composite certificate (010-AC) as declared simulation"
+}

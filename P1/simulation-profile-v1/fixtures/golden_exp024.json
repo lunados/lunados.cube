@@ -1,0 +1,310 @@
+{
+  "context": {
+    "context_id": "golden-exp024-dominates",
+    "evaluation_frame": {
+      "scenario_ref": "exp024-dominates-replay"
+    },
+    "evaluation_records": [
+      {
+        "evaluator_ref": "eval:decision.pareto/v0.1",
+        "input_digest": "sha256:ebcc15c2336f6a03a991bef74e58be70e3c5b23c5b641294a3f3c90963eceac8",
+        "method_id": "decision.compare/v1",
+        "output_refs": [
+          "exp024:result-dominates"
+        ],
+        "record_id": "exp024-charge3-dominates",
+        "scenario_ref": "exp024-dominates-replay",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/results/dominates.expected.json#sha256=68bc2c1b58f35d70f1d3f6c3fc952216c52aa53f218b5e7a668e4f2e7725c40a"
+      }
+    ],
+    "evaluators": [
+      {
+        "evaluator_id": "eval:decision.pareto/v0.1",
+        "kind": "local_script",
+        "method_ids": [
+          "decision.compare/v1"
+        ],
+        "origin": "external_declaration_unverified",
+        "output_concept_ids": [
+          "X:endpoint:result",
+          "Y:resource-object:evidence"
+        ],
+        "revision": "decision_pareto.py@sha256:819c719b61210c5043118376dd00c59e5c75ee3d730f0fd438123272c40e0075",
+        "scope": "exp024"
+      }
+    ],
+    "format": "aiaeao.cube.binding-context/3",
+    "instantiation_profiles": [
+      {
+        "concept_id": "X:endpoint:result",
+        "origin": "external_declaration_unverified",
+        "profile_ref": "p16-X:endpoint:result",
+        "revision": "golden/v1",
+        "scope": "exp024-event",
+        "slots": [
+          {
+            "cardinality": "one",
+            "concept_ids": [
+              "X:scope:event"
+            ],
+            "kind": "ref",
+            "name": "pair_scope_ref",
+            "required": true
+          },
+          {
+            "cardinality": "one",
+            "concept_ids": [
+              "X:endpoint:action"
+            ],
+            "kind": "ref",
+            "name": "action_ref",
+            "required": true
+          },
+          {
+            "cardinality": "many",
+            "concept_ids": [
+              "Y:resource-object:artifact",
+              "Y:resource-object:evidence"
+            ],
+            "kind": "ref",
+            "name": "artifact_refs",
+            "required": false
+          }
+        ]
+      },
+      {
+        "concept_id": "X:endpoint:action",
+        "origin": "external_declaration_unverified",
+        "profile_ref": "p16-X:endpoint:action",
+        "revision": "golden/v1",
+        "scope": "exp024-event",
+        "slots": [
+          {
+            "cardinality": "one",
+            "concept_ids": [
+              "X:scope:event"
+            ],
+            "kind": "ref",
+            "name": "pair_scope_ref",
+            "required": true
+          },
+          {
+            "cardinality": "one",
+            "concept_ids": [
+              "Y:identity-anchor:actor"
+            ],
+            "kind": "ref",
+            "name": "performed_by_ref",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "method_contracts": [
+      {
+        "argument_concept_ids": [
+          "Y:resource-object:artifact",
+          "Y:resource-object:artifact"
+        ],
+        "argument_max": 2,
+        "argument_min": 2,
+        "effect_class": "pure_declarative",
+        "method_id": "decision.compare/v1",
+        "origin": "external_declaration_unverified",
+        "return_cardinality": "one",
+        "return_concept_ids": [
+          "Y:identified-object:annotation"
+        ],
+        "revision": "exp024:decision.compare/v0.1",
+        "scope": "exp024"
+      }
+    ],
+    "predicate_contracts": [
+      {
+        "additional_constraints": [
+          "A dominance assessment is neither preference, selection nor authority."
+        ],
+        "direction": "subject_to_object",
+        "object_concept_ids": [
+          "Y:resource-object:artifact"
+        ],
+        "origin": "external_declaration_unverified",
+        "predicate_id": "assesses",
+        "revision": "golden:v1",
+        "scope": "exp024",
+        "subject_concept_ids": [
+          "Y:identified-object:annotation"
+        ]
+      }
+    ],
+    "profile_limitations": [
+      "Authored domain fixture, not an empirical decision; evaluator and oracle share project mathematics.",
+      "Replay of an archived result; the Cube does not dispatch the evaluator, select an alternative or grant authority."
+    ],
+    "reference_version": "v9.4",
+    "referents": [
+      {
+        "concept_id": "Y:resource-object:artifact",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp024:alternatives",
+        "scope_ref": "exp024"
+      },
+      {
+        "concept_id": "Y:resource-object:artifact",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp024:criteria",
+        "scope_ref": "exp024"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp024:expected-result",
+        "scope_ref": "exp024-event"
+      },
+      {
+        "concept_id": "X:scope:event",
+        "home": "X",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp024-event",
+        "scope_ref": "exp024-event"
+      },
+      {
+        "concept_id": "Y:identity-anchor:actor",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp024:evaluator-actor",
+        "scope_ref": "exp024-event"
+      },
+      {
+        "concept_id": "X:endpoint:action",
+        "home": "X",
+        "instantiation_profile_ref": "p16-X:endpoint:action",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp024:run-dominates",
+        "scope_ref": "exp024-event",
+        "slots": {
+          "pair_scope_ref": "exp024-event",
+          "performed_by_ref": "exp024:evaluator-actor"
+        }
+      },
+      {
+        "concept_id": "X:endpoint:result",
+        "home": "X",
+        "instantiation_profile_ref": "p16-X:endpoint:result",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp024:result-dominates",
+        "scope_ref": "exp024-event",
+        "slots": {
+          "action_ref": "exp024:run-dominates",
+          "artifact_refs": [
+            "exp024:expected-result"
+          ],
+          "pair_scope_ref": "exp024-event"
+        }
+      }
+    ],
+    "scenarios": [
+      {
+        "method_ids": [
+          "decision.compare/v1"
+        ],
+        "mode": "replay",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "a_cost": 100,
+          "a_duration": 5,
+          "b_cost": 120,
+          "b_duration": 7,
+          "methods": "pareto-dominance-exact",
+          "tradeoff_policy": "retain-noncomparability"
+        },
+        "revision": "charge3-v0.1",
+        "scenario_id": "exp024-dominates-replay",
+        "scope": "exp024",
+        "world_refs": [
+          "exp024:alternatives",
+          "exp024:criteria",
+          "exp024:expected-result",
+          "exp024-event",
+          "exp024:evaluator-actor",
+          "exp024:run-dominates",
+          "exp024:result-dominates"
+        ]
+      }
+    ],
+    "scope_ref": "exp024",
+    "source_kind": "external_declaration_unverified"
+  },
+  "expected_overall": "PASS",
+  "id": "GOLDEN-EXP024",
+  "input_format": "acg_text",
+  "input_text": "rel(\"assesses\",decision.compare/v1(Y:α:Artifact[\"exp024:alternatives\"],Y:α:Artifact[\"exp024:criteria\"]),Y:α:Artifact[\"exp024:alternatives\"])",
+  "reference": {
+    "declared_finding": "A (cost 100, duration 5) Pareto-dominates B (120, 7): relation a_dominates_b, selected_alternative null, runtime_authority not-evaluated.",
+    "experiment": "EXP-024 Charge 3 Five Envelopes - Decision",
+    "method_id_mapping": {
+      "golden": "decision.compare/v1",
+      "original": "decision.compare/v0.1",
+      "reason": "P1 method IDs require /v[1-9]..."
+    },
+    "not_claimed": [
+      "human preference",
+      "selection",
+      "authority",
+      "external ground truth"
+    ],
+    "sources": {
+      "alternatives": {
+        "path": "lunados.space:web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/data/dominates.alternatives.json",
+        "sha256": "0491e518b6f0144f243b81297420b7d4f3bacd1eb9586cfd733825c10efd8361"
+      },
+      "criteria": {
+        "path": "lunados.space:web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/data/criteria.json",
+        "sha256": "ecaa06b9aead561f7b991d396b186377e01f982869a92d2ec5f627094ce2ab5a"
+      },
+      "evaluator": {
+        "path": "lunados.space:web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/evaluators/decision_pareto.py",
+        "sha256": "819c719b61210c5043118376dd00c59e5c75ee3d730f0fd438123272c40e0075"
+      },
+      "expected": {
+        "path": "lunados.space:web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/results/dominates.expected.json",
+        "sha256": "68bc2c1b58f35d70f1d3f6c3fc952216c52aa53f218b5e7a668e4f2e7725c40a"
+      },
+      "oracle": {
+        "path": "lunados.space:web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/oracle/decision_oracle.py",
+        "sha256": "7f814afd549beafb1d6a230b92da2ba8260adb4f1fe6793a21f79b57bee046bf"
+      },
+      "scenario": {
+        "path": "lunados.space:web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/scenarios/dominates.json",
+        "sha256": "ebcc15c2336f6a03a991bef74e58be70e3c5b23c5b641294a3f3c90963eceac8"
+      }
+    }
+  },
+  "required_codes": [],
+  "title": "EXP-024 Charge 3 decision \"dominates\" as declared replay with P1.6 Result"
+}
