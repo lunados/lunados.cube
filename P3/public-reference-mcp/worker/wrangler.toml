@@ -1,0 +1,5 @@
+name = "lunados-cube-public-reference"
+main = "src/worker.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = true
+preview_urls = false
