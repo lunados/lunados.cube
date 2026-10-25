@@ -1,0 +1,2303 @@
+{
+  "cases": [
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "S-01",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "S-02",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_METHOD_RETURN_UNDECLARED"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "S-03",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_METHOD_RETURN_TYPE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "S-04",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",rel(\"supports\",Y:α:Evidence[\"ev-out\"],Y:α:Annotation[\"claim1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_PREDICATE_PROFILE_MISSING"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "S-05",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "S-06",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_SCENARIO_WORLD_VIOLATION"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "effectful_declared",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "S-07",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_SCENARIO_MODE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "operative",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "S-08",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_SCENARIO_MODE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:exp010-python",
+            "input_digest": "sha256:10eeb03beaaa466c08614f69d2574c378d05a2026f695d2178504d95b58a59ea",
+            "method_id": "verify.qualified-reuse/v1",
+            "output_refs": [
+              "ev-out"
+            ],
+            "record_id": "run-1",
+            "scenario_ref": "sc-010-central",
+            "status": "declared",
+            "witness_ref": "witness:exp010/RESULTS.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:exp010-python",
+            "kind": "local_script",
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence",
+              "Y:resource-object:artifact"
+            ],
+            "revision": "v1",
+            "scope": "sim"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "S-09",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:exp010-python",
+            "input_digest": "sha256:10eeb03beaaa466c08614f69d2574c378d05a2026f695d2178504d95b58a59ea",
+            "method_id": "verify.qualified-reuse/v1",
+            "output_refs": [
+              "ev-out"
+            ],
+            "record_id": "run-1",
+            "scenario_ref": "sc-010-central",
+            "status": "declared"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:exp010-python",
+            "kind": "local_script",
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence",
+              "Y:resource-object:artifact"
+            ],
+            "revision": "v1",
+            "scope": "sim"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "S-10",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_EVALUATION_WITNESS_MISSING"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:exp010-python",
+            "input_digest": "sha256:10eeb03beaaa466c08614f69d2574c378d05a2026f695d2178504d95b58a59ea",
+            "method_id": "verify.qualified-reuse/v1",
+            "output_refs": [
+              "ev-out"
+            ],
+            "record_id": "run-1",
+            "scenario_ref": "sc-010-central",
+            "status": "declared",
+            "witness_ref": "witness:exp010/RESULTS.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:exp010-python",
+            "kind": "local_script",
+            "method_ids": [
+              "other.method/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence",
+              "Y:resource-object:artifact"
+            ],
+            "revision": "v1",
+            "scope": "sim"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "S-11",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_EVALUATOR_UNDECLARED"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:exp010-python",
+            "input_digest": "sha256:10eeb03beaaa466c08614f69d2574c378d05a2026f695d2178504d95b58a59ea",
+            "method_id": "verify.qualified-reuse/v1",
+            "output_refs": [
+              "concl-out"
+            ],
+            "record_id": "run-1",
+            "scenario_ref": "sc-010-central",
+            "status": "declared",
+            "witness_ref": "witness:exp010/RESULTS.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:exp010-python",
+            "kind": "local_script",
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence",
+              "Y:resource-object:artifact"
+            ],
+            "revision": "v1",
+            "scope": "sim"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "concl-out",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1",
+              "concl-out"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "S-12",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_EVALUATION_OUTPUT_TYPE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:exp010-python",
+            "input_digest": "md5:0123456789abcdef0123456789abcdef",
+            "method_id": "verify.qualified-reuse/v1",
+            "output_refs": [
+              "ev-out"
+            ],
+            "record_id": "run-1",
+            "scenario_ref": "sc-010-central",
+            "status": "declared",
+            "witness_ref": "witness:exp010/RESULTS.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:exp010-python",
+            "kind": "local_script",
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence",
+              "Y:resource-object:artifact"
+            ],
+            "revision": "v1",
+            "scope": "sim"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "S-13",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_EVALUATION_RECORD_INCONSISTENT"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "format": "aiaeao.cube.binding-context/2",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "MCP_ERROR",
+      "id": "S-14",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_MCP_CONFIG_INVALID"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-missing"
+        },
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "S-15",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_SCENARIO_REQUIRED"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:exp010-python",
+            "input_digest": "sha256:10eeb03beaaa466c08614f69d2574c378d05a2026f695d2178504d95b58a59ea",
+            "method_id": "verify.qualified-reuse/v1",
+            "output_refs": [
+              "res-out"
+            ],
+            "record_id": "run-1",
+            "scenario_ref": "sc-010-central",
+            "status": "declared",
+            "witness_ref": "witness:exp010/RESULTS.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:exp010-python",
+            "kind": "local_script",
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence",
+              "Y:resource-object:artifact",
+              "X:endpoint:result"
+            ],
+            "revision": "v1",
+            "scope": "sim"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/3",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:result",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:result",
+            "revision": "fixture/v1",
+            "scope": "scope-event",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:event"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:action"
+                ],
+                "kind": "ref",
+                "name": "action_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "Y:resource-object:artifact",
+                  "Y:resource-object:evidence"
+                ],
+                "kind": "ref",
+                "name": "artifact_refs",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:action",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:action",
+            "revision": "fixture/v1",
+            "scope": "scope-event",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:event"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor"
+                ],
+                "kind": "ref",
+                "name": "performed_by_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "executed_as_ref",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "X:scope:event",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-event",
+            "scope_ref": "scope-event"
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "eval-actor",
+            "scope_ref": "scope-event"
+          },
+          {
+            "concept_id": "X:endpoint:action",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:action",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "run-1-action",
+            "scope_ref": "scope-event",
+            "slots": {
+              "pair_scope_ref": "scope-event",
+              "performed_by_ref": "eval-actor"
+            }
+          },
+          {
+            "concept_id": "X:endpoint:result",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:result",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "res-out",
+            "scope_ref": "scope-event",
+            "slots": {
+              "action_ref": "run-1-action",
+              "pair_scope_ref": "scope-event"
+            }
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1",
+              "scope-event",
+              "eval-actor",
+              "run-1-action",
+              "res-out"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "S-16",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p18-sim",
+        "evaluation_frame": {
+          "scenario_ref": "sc-010-central"
+        },
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:exp010-python",
+            "input_digest": "sha256:10eeb03beaaa466c08614f69d2574c378d05a2026f695d2178504d95b58a59ea",
+            "method_id": "verify.qualified-reuse/v1",
+            "output_refs": [
+              "res-out"
+            ],
+            "record_id": "run-1",
+            "scenario_ref": "sc-010-central",
+            "status": "declared",
+            "witness_ref": "witness:exp010/RESULTS.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:exp010-python",
+            "kind": "local_script",
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence",
+              "Y:resource-object:artifact",
+              "X:endpoint:result"
+            ],
+            "revision": "v1",
+            "scope": "sim"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/3",
+        "instantiation_profiles": [
+          {
+            "concept_id": "X:endpoint:result",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:result",
+            "revision": "fixture/v1",
+            "scope": "scope-event",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:event"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:endpoint:action"
+                ],
+                "kind": "ref",
+                "name": "action_ref",
+                "required": true
+              },
+              {
+                "cardinality": "many",
+                "concept_ids": [
+                  "Y:resource-object:artifact",
+                  "Y:resource-object:evidence"
+                ],
+                "kind": "ref",
+                "name": "artifact_refs",
+                "required": false
+              }
+            ]
+          },
+          {
+            "concept_id": "X:endpoint:action",
+            "origin": "illustrative_fixture",
+            "profile_ref": "p16-X:endpoint:action",
+            "revision": "fixture/v1",
+            "scope": "scope-event",
+            "slots": [
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "X:scope:event"
+                ],
+                "kind": "ref",
+                "name": "pair_scope_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:actor"
+                ],
+                "kind": "ref",
+                "name": "performed_by_ref",
+                "required": true
+              },
+              {
+                "cardinality": "one",
+                "concept_ids": [
+                  "Y:identity-anchor:principal"
+                ],
+                "kind": "ref",
+                "name": "executed_as_ref",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "library_ref": {
+              "entry_id": "verify.qualified_reuse",
+              "library_id": "aiaeao.functions",
+              "revision": "v1",
+              "sha256": "468ce9facab6aef41bbb5f9f98be5026dc43d1100625eeb19dbb4e9987f05a05"
+            },
+            "method_id": "verify.qualified-reuse/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "lib:v1",
+            "scope": "sim"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p18:v1",
+            "scope": "sim",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "a1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-out",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim1",
+            "scope_ref": "sim"
+          },
+          {
+            "concept_id": "X:scope:event",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "scope-event",
+            "scope_ref": "scope-event"
+          },
+          {
+            "concept_id": "Y:identity-anchor:actor",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "eval-actor",
+            "scope_ref": "scope-event"
+          },
+          {
+            "concept_id": "X:endpoint:action",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:action",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "run-1-action",
+            "scope_ref": "scope-event",
+            "slots": {
+              "pair_scope_ref": "scope-event",
+              "performed_by_ref": "eval-actor"
+            }
+          },
+          {
+            "concept_id": "X:endpoint:result",
+            "home": "X",
+            "instantiation_profile_ref": "p16-X:endpoint:result",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "res-out",
+            "scope_ref": "scope-event",
+            "slots": {
+              "pair_scope_ref": "scope-event"
+            }
+          }
+        ],
+        "scenarios": [
+          {
+            "assumption_refs": [
+              "claim1"
+            ],
+            "method_ids": [
+              "verify.qualified-reuse/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "cost_profile": "central",
+              "seed": 8
+            },
+            "revision": "exp010:v1",
+            "scenario_id": "sc-010-central",
+            "scope": "sim",
+            "world_refs": [
+              "a1",
+              "ev-out",
+              "claim1",
+              "scope-event",
+              "eval-actor",
+              "run-1-action",
+              "res-out"
+            ]
+          }
+        ],
+        "scope_ref": "sim",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "S-17",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",verify.qualified-reuse/v1(Y:α:Artifact[\"a1\"]),Y:α:Annotation[\"claim1\"])",
+      "required_codes": [
+        "P1_INSTANTIATION_SLOT_MISSING"
+      ]
+    }
+  ],
+  "format": "aiaeao.cube.p1.8-vectors/1",
+  "reference_version": "v9.4",
+  "source": "P1_8_ACCEPTANCE_SPEC.md §5 + oracles/independent_s01_s17.json"
+}

@@ -1,0 +1,61 @@
+{
+ "format": "aiaeao.cube.p1.8.rule-coverage/1",
+ "reference_version": "v9.4",
+ "authority": "Non-authoritative P1 validator vocabulary; descriptive only",
+ "rules": [
+  {
+   "id": "P18-RETURN",
+   "coverage": "enforced_subset",
+   "source": "Morphology §§5.14, 7.12–7.13",
+   "implementation": "declared return types for relation operands; sound subset check; no nested rel typing"
+  },
+  {
+   "id": "P18-NOJUDGMENT",
+   "coverage": "noninference_guard",
+   "source": "Morphology §6.2",
+   "implementation": "methods and evaluators never return Conclusion/Satisfaction/Completion/Admission/Authority"
+  },
+  {
+   "id": "P18-SCENARIO",
+   "coverage": "enforced_subset",
+   "source": "Morphology §3.1 (M)",
+   "implementation": "closed world, simulation/replay only, pure declared methods; M qualifier unchanged"
+  },
+  {
+   "id": "P18-EVALUATION",
+   "coverage": "enforced_subset",
+   "source": "Morphology §§6.2.5, 6.3.2",
+   "implementation": "declared evaluator, typed outputs, witness pointer, digest format"
+  },
+  {
+   "id": "P18-RESULT",
+   "coverage": "enforced_subset",
+   "source": "Morphology §6.2.5 / P1.6",
+   "implementation": "X Result outputs instantiated via P1.6 (EV-3a)"
+  },
+  {
+   "id": "P18-NOEXECUTION",
+   "coverage": "noninference_guard",
+   "source": "P1.8 §3.4",
+   "implementation": "Cube never runs, verifies or scores; evaluation_performed_by_cube=false"
+  },
+  {
+   "id": "P18-LIBRARY",
+   "coverage": "reference_only",
+   "source": "P1.8 D-3",
+   "implementation": "library_ref format-checked, never resolved"
+  },
+  {
+   "id": "P18-V12REGRESSION",
+   "coverage": "enforced_subset",
+   "source": "P1.6 / P1.5 frozen acceptance",
+   "implementation": "/1 and /2 dispatch unchanged"
+  },
+  {
+   "id": "P18-REPLAYDEFERRED",
+   "coverage": "reference_only",
+   "source": "P1.8 D-5",
+   "implementation": "replay without prior-record check; P1.9 candidate"
+  }
+ ]
+}

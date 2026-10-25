@@ -1,0 +1,69 @@
+{
+ "format": "aiaeao.cube.p1.8.diagnostic-extension/1",
+ "reference_version": "v9.4",
+ "validation_profile": "P1-VC/1.0.0",
+ "disposition": "Additive P1.8 only. Frozen P1.1/P1.4 and P1.6 registers remain byte-identical.",
+ "codes": [
+  {
+   "code": "P1_METHOD_RETURN_UNDECLARED",
+   "stage": "predicate_typing",
+   "default_status": "UNRESOLVED",
+   "reference_rule": "P1.8 MR: application operand without declared return type"
+  },
+  {
+   "code": "P1_METHOD_RETURN_TYPE",
+   "stage": "predicate_typing",
+   "default_status": "FAIL",
+   "reference_rule": "P1.8 MR-2: declared return type/cardinality not admitted by predicate side"
+  },
+  {
+   "code": "P1_SCENARIO_REQUIRED",
+   "stage": "scope_consistency",
+   "default_status": "UNRESOLVED",
+   "reference_rule": "P1.8 SC: evaluation_frame names no declared scenario"
+  },
+  {
+   "code": "P1_SCENARIO_WORLD_VIOLATION",
+   "stage": "scope_consistency",
+   "default_status": "FAIL",
+   "reference_rule": "P1.8 SC-1/EV-3: referent outside the closed scenario world"
+  },
+  {
+   "code": "P1_SCENARIO_MODE",
+   "stage": "scope_consistency",
+   "default_status": "FAIL",
+   "reference_rule": "Morphology v9.4 §3.1 M / P1.8 SC-2, SC-3: non-operative mode, pure declared methods only"
+  },
+  {
+   "code": "P1_EVALUATOR_UNDECLARED",
+   "stage": "referent_binding",
+   "default_status": "UNRESOLVED",
+   "reference_rule": "P1.8 EV-2: evaluator not declared for method"
+  },
+  {
+   "code": "P1_EVALUATION_OUTPUT_TYPE",
+   "stage": "referent_binding",
+   "default_status": "FAIL",
+   "reference_rule": "Morphology v9.4 §6.2 / P1.8 EV-3, MR-4: output type; never an X judgment"
+  },
+  {
+   "code": "P1_EVALUATION_WITNESS_MISSING",
+   "stage": "referent_binding",
+   "default_status": "UNRESOLVED",
+   "reference_rule": "P1.8 EV-4: declared witness pointer required"
+  },
+  {
+   "code": "P1_EVALUATION_RECORD_INCONSISTENT",
+   "stage": "referent_binding",
+   "default_status": "FAIL",
+   "reference_rule": "P1.8 EV-5: digest format, scenario/method consistency"
+  }
+ ],
+ "inherited_codes": [
+  "P1_PREDICATE_PROFILE_MISSING",
+  "P1_METHOD_SIGNATURE",
+  "P1_INSTANTIATION_SLOT_MISSING",
+  "P1_BINDING_CONTEXT_REQUIRED",
+  "P1_MCP_CONFIG_INVALID"
+ ]
+}
