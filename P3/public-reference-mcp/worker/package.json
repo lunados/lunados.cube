@@ -1,0 +1,12 @@
+{
+  "name": "lunados-cube-public-reference-mcp",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check:syntax": "node --check src/worker.mjs",
+    "deploy": "npx --yes wrangler@4.152.0 deploy",
+    "dry-run": "npx --yes wrangler@4.152.0 deploy --dry-run --outdir dist"
+  }
+}

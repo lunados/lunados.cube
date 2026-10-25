@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "email": "jo@lunados.com",
+    "name": "Johannes Klapproth"
+  },
+  "description": "Liest die öffentliche Lunados Cube Referenz über ein serverseitiges MCP-Lesetool, ohne lokale Shell.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [],
+        "defaultPrompt": "Lade das aktuelle Cube-Manifest und erkläre mir die Referenz.",
+        "developerName": "Johannes Klapproth",
+        "displayName": "Lunados Cube",
+        "longDescription": "Liest das aktuelle öffentliche Cube-Manifest und die darin verzeichneten Artefakte mit einem read-only MCP-Tool. Validiert SHA-256 relativ zum aktuellen Manifest und benötigt keine lokale Shell, keine Anmeldung und keinen privaten G5-Connector.",
+        "shortDescription": "Cube-Referenz über MCP"
+      }
+    }
+  },
+  "homepage": "https://cube.lunados.net",
+  "name": "lunados-cube",
+  "version": "0.2.0"
+}

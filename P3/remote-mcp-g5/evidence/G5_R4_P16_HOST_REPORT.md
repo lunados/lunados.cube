@@ -99,3 +99,45 @@ Der vom Server gemeldete `svg_sha256` ist nicht in den Vergleich eingeflossen. D
 | **Gesamt** | **PASS** |
 
 Dieses PASS bestätigt das beobachtete Verhalten des G5-Host-Connectors für die genannten Fälle. Es ist keine Production Authorization: G5 bleibt `G5_PROOF_NOT_PRODUCTION_AUTHORIZED`.
+
+---
+
+## Anhang A — Restliche Vektoren R-02, R-03, R-05 bis R-11, R-13 (Nachlauf 2026-10-25, ca. 20:00 MEZ)
+
+**Status Anhang A: PASS (10/10).** Zusammen mit §4 sind damit alle 13 Vektoren R-01 bis R-13 live gegen G5 bestätigt. Dieser Anhang ersetzt den Punkt „Nicht geprüft: R-02, R-03, R-05 bis R-11 und R-13“ in §7.3.
+
+**Quelle:** `P3/charge3-p16/fixtures/r01_r13_materialized.json` im Arbeitsbereich `~/SitesHeroku/lunados.cube`, nur gelesen. `input_text`, `input_format` und `context` habe ich unverändert gesendet. Connector: ausschließlich `AIAEAO Cube G5 Remote`, 10 Aufrufe `cube_validate` (Aufrufe 15–24).
+
+| ID | Herkunft | `input_text` | Erwartet | Beobachtet | Diagnosepfad | `declared_context_sha256` | Status |
+|---|---|---|---|---|---|---|---|
+| R-02 | EXP-011 | `X:α:Conclusion["primary"]` | UNRESOLVED · `P1_INSTANTIATION_SLOT_MISSING` | UNRESOLVED · `P1_INSTANTIATION_SLOT_MISSING` | `/referents/4/slots/basis_refs` | `101f579b84cd7c0b66c861d51465d31bc9c2566dbc6ac2ccd88807e399bffd96` | PASS |
+| R-03 | EXP-014-M02 | `X:α:Satisfaction["primary"]` | FAIL · `P1_INSTANTIATION_SLOT_TYPE` | FAIL · `P1_INSTANTIATION_SLOT_TYPE` | `/referents/2/slots/expectation_ref` | `9164bfc21302d2134484c06c8dc7c4fb7527c2743c75afecd4902c90acfc9f41` | PASS |
+| R-05 | EXP-014-M04 | `X:α:Conclusion["primary"]` | PASS | PASS, `diagnostics: []` | — | `93759b2662617cab708116b069ee354f8a42ad5d7dac4a3087f03e7c9271723b` | PASS |
+| R-06 | RCP-01 | `X:α:Authority["primary"]` | FAIL · `P1_INSTANTIATION_SLOT_TYPE` | FAIL · `P1_INSTANTIATION_SLOT_TYPE` | `/referents/3/slots/source_ref` (Capability) | `abd7fffb9d67c2063ae6cf7fc7af0c36a42563db5bd50579806b7f0be49e99f7` | PASS |
+| R-07 | RCP-02 | `X:α:Authority["primary"]` | FAIL · `P1_INSTANTIATION_SLOT_TYPE` | FAIL · `P1_INSTANTIATION_SLOT_TYPE` | `/referents/3/slots/source_ref` (Role Binding) | `2bf5040a02c8650efb7fe15f45aa3a023f2911199cc4da0a327361d3a1f83a52` | PASS |
+| R-08 | RCP-09 / EXP-014-M03 | `X:α:Admission["primary"]` | FAIL · `P1_INSTANTIATION_CONDITION` | FAIL · `P1_INSTANTIATION_CONDITION` („Admitted decision must declare authority_ref“) | `/referents/4/slots/authority_ref` | `d4574fcdb13c42f73da85979bb5f0a29880004bbe39f7f72a27fbf128a9ee513` | PASS |
+| R-09 | RCP-09 | `X:α:Admission["primary"]` | PASS | PASS, `diagnostics: []` | — | `d0dc3a7400e17089d3821b438b187f4c47b48b0f2ef202a9f212993e2b82cb44` | PASS |
+| R-10 | EXP-014-S08 | `X:α:Result["primary"]` | UNRESOLVED · `P1_INSTANTIATION_SLOT_MISSING` | UNRESOLVED · `P1_INSTANTIATION_SLOT_MISSING` | `/referents/2/slots/action_ref` | `9e08c126a17ae8f03321b38dcbbc2abfd45c802f9decb28f3127de1a73267bcf` | PASS |
+| R-11 | EXP-015-H3 | `X:ζ:Perception["primary"]` | UNRESOLVED · `P1_LAYER_WITNESS_MISSING` | UNRESOLVED · `P1_LAYER_WITNESS_MISSING` („…before slots“) | `/referents/2/witness_ref` | `c0e7320db072fbd5a1e5641c66f6c926ce895af20cd8385ecc96290ad11eae5b` | PASS |
+| R-13 | Scope-Grenze (Z-Zonen) | `Z:α:Ownership["primary"]` | UNRESOLVED · `P1_INSTANTIATION_PROFILE_REQUIRED` | UNRESOLVED · `P1_INSTANTIATION_PROFILE_REQUIRED` | `/` | `3db7eb42506b7eee034b11a67b2809eaa22460267f35b2093bdfbadd55cca1db` | PASS |
+
+**Keine Hochstufung:** In allen zehn Reports stehen `epistemic_warrant`, `current_authority` und `canonical_admission` auf `NOT_EVALUATED`, und `source_warrant` ist `declared_unverified`. Auch die PASS-Fälle R-05 (Conclusion `verifies`) und R-09 (Admission `refused`) leiten weder Warrant noch Admission ab. Alle zehn Reports tragen `binding_context_profile: P1.6/instantiation-profile-v1`.
+
+### A.1 Beobachtungen ohne Einfluss auf das Ergebnis
+
+1. **R-13, Meldungstext:** Die Diagnose lautet „…requires an explicit instantiation profile not defined by binding-context/1“, obwohl der Kontext `binding-context/2` ist. Der Code ist korrekt, der Text ist für Z-Zonen unter /2 missverständlich.
+2. **R-03, Profil-Konzept-Abweichung nicht gemeldet:** Der Hilfsreferent `item-1` hat `concept_id = X:endpoint:completion`, verweist aber per `instantiation_profile_ref` auf `p16-X:endpoint:expectation`. Gemeldet wird nur der Slot-Typfehler am primären Satisfaction-Referenten. Eine eigene Diagnose für diese Abweichung zwischen Profil und Konzept eines nicht-primären Referenten erscheint nicht. Mögliche Lücke, Kandidat für P1.7.
+
+### A.2 Gesamtbild nach Anhang A
+
+| Bereich | Belegt durch |
+|---|---|
+| EXP-011 (Evidence → Conclusion, fehlende Basis) | R-01, R-02 |
+| EXP-014 M02 / M03 / M04 / S08 | R-03, R-08, R-04/R-05, R-10 |
+| EXP-015 H3 (Witness vor Slots) | R-11 |
+| EXP-019-RCP, strukturelle Vorbedingungen 01 / 02 / 09 | R-06, R-07, R-08/R-09 |
+| Rückwärtskompatibilität und Scope-Grenze | R-12, R-13, A2 |
+
+Die RCP-Effekt-Probes (reale Grants, Admission Point, Effekt-Zähler) sind dadurch nicht berührt und bleiben Echtbetrieb.
+
+**Gesamtstatus des Berichts inklusive Anhang A: PASS.**

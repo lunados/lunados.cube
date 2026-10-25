@@ -1,0 +1,30 @@
+{
+  "format": "aiaeao.cube.p1.8-oracle/1",
+  "reference_version": "v9.4",
+  "independence": "Expected values transcribed from P1_8_ACCEPTANCE_SPEC.md §5 before any P1.8 runtime code existed; no generation from validator output",
+  "transcribed_at": "2026-10-25",
+  "cases": [
+    {"id": "S-01", "expected_overall": "PASS", "required_codes": []},
+    {"id": "S-02", "expected_overall": "UNRESOLVED", "required_codes": ["P1_METHOD_RETURN_UNDECLARED"]},
+    {"id": "S-03", "expected_overall": "FAIL", "required_codes": ["P1_METHOD_RETURN_TYPE"]},
+    {"id": "S-04", "expected_overall": "UNRESOLVED", "required_codes": ["P1_PREDICATE_PROFILE_MISSING"]},
+    {"id": "S-05", "expected_overall": "PASS", "required_codes": []},
+    {"id": "S-06", "expected_overall": "FAIL", "required_codes": ["P1_SCENARIO_WORLD_VIOLATION"]},
+    {"id": "S-07", "expected_overall": "FAIL", "required_codes": ["P1_SCENARIO_MODE"]},
+    {"id": "S-08", "expected_overall": "FAIL", "required_codes": ["P1_SCENARIO_MODE"]},
+    {"id": "S-09", "expected_overall": "PASS", "required_codes": [], "envelope": {"evaluation_performed_by_cube": false}},
+    {"id": "S-10", "expected_overall": "UNRESOLVED", "required_codes": ["P1_EVALUATION_WITNESS_MISSING"]},
+    {"id": "S-11", "expected_overall": "UNRESOLVED", "required_codes": ["P1_EVALUATOR_UNDECLARED"]},
+    {"id": "S-12", "expected_overall": "FAIL", "required_codes": ["P1_EVALUATION_OUTPUT_TYPE"]},
+    {"id": "S-13", "expected_overall": "FAIL", "required_codes": ["P1_EVALUATION_RECORD_INCONSISTENT"]},
+    {"id": "S-14", "expected_overall": "MCP_ERROR", "required_codes": ["P1_MCP_CONFIG_INVALID"]},
+    {"id": "S-15", "expected_overall": "UNRESOLVED", "required_codes": ["P1_SCENARIO_REQUIRED"]},
+    {"id": "S-16", "expected_overall": "PASS", "required_codes": []},
+    {"id": "S-17", "expected_overall": "UNRESOLVED", "required_codes": ["P1_INSTANTIATION_SLOT_MISSING"]}
+  ],
+  "invariants_every_case": {
+    "epistemic_warrant": "NOT_EVALUATED",
+    "current_authority": "NOT_EVALUATED",
+    "canonical_admission": "NOT_EVALUATED"
+  }
+}

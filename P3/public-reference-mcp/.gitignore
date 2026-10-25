@@ -1,0 +1,6 @@
+worker/node_modules/
+worker/dist/
+**/__pycache__/
+*.pyc
+*.zip
+.DS_Store

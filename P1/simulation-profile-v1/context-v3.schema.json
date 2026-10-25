@@ -1,0 +1,689 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiaeao:cube:p1:binding-context:3",
+  "title": "P1.8 declared simulation binding context /3 (strict superset of /2; descriptive only, never executed)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "reference_version",
+    "context_id",
+    "source_kind",
+    "referents",
+    "predicate_contracts"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.binding-context/3"
+    },
+    "reference_version": {
+      "const": "v9.4"
+    },
+    "context_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_kind": {
+      "enum": [
+        "illustrative_fixture",
+        "external_declaration_unverified"
+      ]
+    },
+    "scope_ref": {
+      "type": "string"
+    },
+    "referents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/referent"
+      },
+      "maxItems": 10000
+    },
+    "predicate_contracts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/predicate"
+      },
+      "maxItems": 512
+    },
+    "method_contracts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/method"
+      },
+      "maxItems": 512
+    },
+    "profile_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "instantiation_profiles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/profile"
+      },
+      "maxItems": 512
+    },
+    "evaluation_frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenario_ref"
+      ],
+      "properties": {
+        "scenario_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "$ref": "#/$defs/scenario"
+      }
+    },
+    "evaluators": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "$ref": "#/$defs/evaluator"
+      }
+    },
+    "evaluation_records": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "$ref": "#/$defs/evaluation_record"
+      }
+    }
+  },
+  "$defs": {
+    "referent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "concept_id",
+        "home",
+        "layers",
+        "provenance_status"
+      ],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "home": {
+          "enum": [
+            "X",
+            "Y",
+            "Z"
+          ]
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "α",
+              "β",
+              "ζ"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "provenance_status": {
+          "const": "declared_unverified"
+        },
+        "scope_ref": {
+          "type": "string"
+        },
+        "witness_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instantiation_profile_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slots": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "minLength": 1
+          },
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "maxProperties": 32
+        }
+      }
+    },
+    "method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method_id",
+        "revision",
+        "scope",
+        "origin",
+        "argument_min",
+        "argument_max"
+      ],
+      "properties": {
+        "method_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)*/v[1-9][0-9]*$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "argument_min": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "argument_max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "argument_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "effect_class": {
+          "enum": [
+            "pure_declarative",
+            "unknown",
+            "effectful_declared"
+          ]
+        },
+        "return_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "return_cardinality": {
+          "enum": [
+            "one",
+            "many"
+          ]
+        },
+        "library_ref": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "library_id",
+            "entry_id",
+            "revision",
+            "sha256"
+          ],
+          "properties": {
+            "library_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "entry_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      },
+      "dependentRequired": {
+        "return_cardinality": [
+          "return_concept_ids"
+        ],
+        "return_concept_ids": [
+          "return_cardinality"
+        ]
+      }
+    },
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicate_id",
+        "revision",
+        "scope",
+        "origin",
+        "subject_concept_ids",
+        "object_concept_ids",
+        "direction"
+      ],
+      "properties": {
+        "predicate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "subject_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "object_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "direction": {
+          "const": "subject_to_object"
+        },
+        "required_qualifiers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "T",
+              "F",
+              "M",
+              "O"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "additional_constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_ref",
+        "concept_id",
+        "revision",
+        "scope",
+        "origin",
+        "slots"
+      ],
+      "properties": {
+        "profile_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept_id": {
+          "type": "string",
+          "pattern": "^X:endpoint:[a-z][a-z-]*$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/slot"
+          },
+          "minItems": 1,
+          "maxItems": 32
+        }
+      }
+    },
+    "slot": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "kind",
+            "required",
+            "cardinality",
+            "concept_ids"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "const": "ref"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "cardinality": {
+              "enum": [
+                "one",
+                "many"
+              ]
+            },
+            "concept_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "kind",
+            "required",
+            "values"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "const": "enum"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "kind",
+            "required"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "kind": {
+              "const": "string"
+            },
+            "required": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenario_id",
+        "revision",
+        "scope",
+        "origin",
+        "mode",
+        "world_refs",
+        "method_ids"
+      ],
+      "properties": {
+        "scenario_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "mode": {
+          "enum": [
+            "simulation",
+            "replay",
+            "operative"
+          ],
+          "description": "operative is schema-valid but always FAIL P1_SCENARIO_MODE in P1.8"
+        },
+        "world_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "method_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "parameters": {
+          "type": "object",
+          "maxProperties": 64,
+          "additionalProperties": {
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "assumption_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "evaluator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evaluator_id",
+        "revision",
+        "scope",
+        "origin",
+        "kind",
+        "method_ids",
+        "output_concept_ids"
+      ],
+      "properties": {
+        "evaluator_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "enum": [
+            "illustrative_fixture",
+            "external_declaration_unverified"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "local_script",
+            "external_simulator",
+            "proof_tool",
+            "human_review"
+          ]
+        },
+        "method_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "output_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "evaluation_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_id",
+        "scenario_ref",
+        "evaluator_ref",
+        "method_id",
+        "input_digest",
+        "output_refs",
+        "status"
+      ],
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evaluator_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_digest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "witness_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "declared",
+            "unresolved"
+          ]
+        }
+      }
+    }
+  }
+}
