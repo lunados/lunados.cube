@@ -1,6 +1,6 @@
 # P1.9 — Declared Comparison Profile · Acceptance specification
 
-**Status:** DRAFT 2026-10-25 — decisions D-1…D-6 open (§6). Not ready for implementation until they are resolved.
+**Status:** SPECIFIED, decisions D-1…D-6 resolved 2026-10-25 (all as proposed) — ready for implementation.
 **Numbering:** P1.7 stays reserved for the Principal → Authority holder chain. P1.9 builds on P1.8 and does not depend on P1.7.
 **Basis:** Morphology v9.4 §5.16 (Comparison Protocol, partial comparability), §5.17 (comparative trust), §5.18 (specification vs. run vs. comparison), §7.32 item 4 and §7.38 item 6 (fair control, equally safe competitor), Annex E.2 (do not mix holdouts); P1.8 declared simulation profile, decision D-5 (replay-against-record deferred to P1.9).
 **Motivation:** The most informative experiments are not single runs but **paired comparisons under identical conditions**:
@@ -46,7 +46,8 @@ P1.8 can declare every arm as a scenario with an evaluation record. It cannot de
     ],
     "equivalence_margin": {"mean_work": 0.0},
     "non_comparability": "report_incomparable",
-    "aggregation": "none"
+    "aggregation": "none",
+    "required_parity": ["coverage"]
   }],
   "comparisons": [{
     "comparison_id": "cmp-009d-r05", "protocol_ref": "cp-009d", "scope": "exp009d",
@@ -55,8 +56,9 @@ P1.8 can declare every arm as a scenario with an evaluation record. It cannot de
       {"arm_id": "cutoff6", "scenario_ref": "sc-009d-cutoff6-r05", "role": "treatment"}
     ],
     "pairing": {"unit": "world", "units_ref": "exp009d:holdout-worlds", "shared_parameters": ["switch_rate", "epochs", "split"], "varied_parameters": ["strategy"]},
-    "parity": [{"parity_id": "full-coverage", "kind": "coverage", "witness_ref": "lunados.space:…/results/verdict.json#sha256=…"}],
+    "parity": [{"parity_id": "full-coverage", "kind": "coverage", "arm_refs": ["cutoff6"], "witness_ref": "lunados.space:…/results/verdict.json#sha256=…"}],
     "splits": ["calibration", "holdout"],
+    "design": {"factors": {"switch_rate": [0.0, 0.05, 0.1]}},
     "outcomes": [{
       "outcome_id": "o-1", "a": "fixed-cert", "b": "cutoff6", "metric_id": "mean_work",
       "scope": {"switch_rate": 0.05}, "split": "holdout",
@@ -79,12 +81,12 @@ Arms are ordinary P1.8 scenarios with their own evaluation records; the comparis
 | An arm scenario does not contain the paired `units_ref` in its `world_refs`, or arms differ in mode | FAIL | `P1_COMPARISON_PAIRING` |
 | A parameter differs between arms but is not listed in `varied_parameters`, or a `shared_parameters` key is missing in one arm | FAIL | `P1_COMPARISON_CONFOUNDED` |
 | Protocol or comparison requires parity and an arm has no parity witness | UNRESOLVED | `P1_COMPARISON_PARITY_MISSING` |
-| Outcome value outside the §5.16 vocabulary, or `equivalent_under_criteria` without an equivalence margin for that metric | FAIL | `P1_COMPARISON_OUTCOME_INVALID` |
+| Outcome value outside the §5.16 vocabulary, a preference on a metric with direction `none`, `equivalent_under_criteria` without an equivalence margin, or a scope key / level not declared in `design.factors` | FAIL | `P1_COMPARISON_OUTCOME_INVALID` |
 | Declared statistic sign contradicts the outcome under the metric direction (D-3) | FAIL | `P1_COMPARISON_OUTCOME_INCONSISTENT` |
-| Outcome spans several metrics while `aggregation = none`, or names more than two arms | FAIL | `P1_COMPARISON_AGGREGATION_UNDECLARED` |
+| Outcome spans several metrics (`metric_ids`) while `aggregation = none` | FAIL | `P1_COMPARISON_AGGREGATION_UNDECLARED` |
 | Splits declared but an outcome names none, names an undeclared one, or mixes two | FAIL | `P1_COMPARISON_SPLIT_MIXED` |
 | Two outcomes for the same (arms, metric, scope, split) with different values | FAIL | `P1_COMPARISON_OUTCOME_CONFLICT` |
-| `annotation_ref` not a Y Annotation world member, or typed as an X judgment endpoint | FAIL | `P1_COMPARISON_OUTCOME_TYPE` |
+| `annotation_ref` is a declared referent but not a Y Annotation (incl. any X judgment endpoint) | FAIL | `P1_COMPARISON_OUTCOME_TYPE` |
 | Outcome without `witness_ref` | UNRESOLVED | `P1_EVALUATION_WITNESS_MISSING` (P1.8, reused) |
 | `replay_of` names an undeclared record, or the replayed record differs in `method_id`, evaluator or `input_digest` | FAIL | `P1_REPLAY_RECORD_MISMATCH` |
 | Replay record declares `status: declared` with `output_digest` different from the original's (D-5) | FAIL | `P1_REPLAY_DIVERGENT` |
@@ -101,6 +103,7 @@ Precedence follows P1.4-14, P1.6 and P1.8: FAIL outranks UNRESOLVED, and NOT_EVA
 - CP-2: `aggregation` is `none` or a declared `method_id` of a `pure_declarative` method contract. Weights live in that method, never in the protocol (§5.16: a numerical calculation does not choose weights).
 - CP-3: `equivalence_margin` is optional per metric; without it, `equivalent_under_criteria` is not available for that metric.
 - CP-4: `non_comparability` ∈ {report_incomparable, report_undetermined}. Incomparability is never equality, and equal assessment is never falsification (§§5.16, 5.17).
+- CP-5: `required_parity` (optional) lists parity kinds every comparison under this protocol must declare for each treatment arm.
 
 ### 3.2 Arms and pairing (AR)
 
@@ -108,15 +111,15 @@ Precedence follows P1.4-14, P1.6 and P1.8: FAIL outranks UNRESOLVED, and NOT_EVA
 - AR-2: Every arm scenario contains the declared `pairing.units_ref` (an Artifact listing the paired units) in its `world_refs`. `unit` ∈ {world, seed, cell, world_seed}. The unit list itself is not opened or compared.
 - AR-3: For every key in `shared_parameters`, all arms carry the key with an identical JSON scalar. Any other key whose values differ must be in `varied_parameters`. Parameters stay uninterpreted (P1.8 SC-4); only equality is checked.
 - AR-4: All arms share one scenario `mode`. A `simulation` arm is not compared with a `replay` arm in one comparison.
-- AR-5: `parity` entries have `kind` ∈ {result_equivalence, coverage, digest_equal, declared_other} and a `witness_ref`. If the protocol or comparison lists any parity, each treatment arm needs it. The Cube never checks that parity holds.
+- AR-5: `parity` entries have `kind` ∈ {result_equivalence, coverage, digest_equal, declared_other}, a `witness_ref` and optional `arm_refs` (default: all treatment arms). For every kind in the protocol's `required_parity`, each treatment arm must be covered by an entry of that kind with a witness. The Cube never checks that parity holds.
 
 ### 3.3 Outcomes (OC)
 
 - OC-1: `outcome` ∈ {a_preferred, b_preferred, equivalent_under_criteria, incomparable_under_criteria, undetermined_with_available_evidence} — the §5.16 vocabulary, adopted here as a **profile-local** value set, not as a Morphology enum (D-2).
-- OC-2: An outcome compares exactly two arms (`a`, `b`) on exactly one metric, unless `aggregation` names a method; rankings over more arms are sets of pairwise outcomes (D-4).
-- OC-3: `scope` maps declared design factors to levels; an outcome without scope covers the whole design. Different scopes may carry different outcomes — a ranking flip is two scoped outcomes, not a conflict.
-- OC-4 (D-3): If `statistic.declared_value` is present and the metric has a direction, its sign must agree with the outcome: for `mean_delta_a_minus_b` under `lower_better`, a negative value requires `a_preferred`, a positive one `b_preferred`; zero or a value inside the equivalence margin is compatible only with `equivalent_under_criteria` or `undetermined_with_available_evidence`. The Cube checks the sign of the declared number only. It never computes it.
-- OC-5: `annotation_ref` is a Y Annotation world member (Morphology v9.4 D.4: claims are Y Annotation). An outcome is never an X Conclusion, Selection, Admission or Authority, and `a_preferred` is not a decision (§5.18).
+- OC-2: An outcome compares exactly two arms (`a`, `b`, enforced by shape) on one `metric_id`; `metric_ids` with several metrics requires a declared `aggregation` method. Rankings over more arms are sets of pairwise outcomes (D-4).
+- OC-3: `scope` maps factors declared in the comparison's `design.factors` to one of their levels; an outcome without scope covers the whole design. Different scopes may carry different outcomes — a ranking flip is two scoped outcomes, not a conflict.
+- OC-4 (D-3): `statistic.kind` ∈ {delta_a_minus_b, ratio_a_over_b, interval_a_minus_b, declared_other}. If the metric has a direction, the declared value must agree with the outcome. For a delta under `lower_better`, a value below −margin requires `a_preferred`, above +margin `b_preferred`, inside the margin only `equivalent_under_criteria` or `undetermined_with_available_evidence` (mirrored for `higher_better`; a ratio is compared with 1). An interval `[lo, hi]` supports a preference only if it lies entirely on that side, equivalence only if it lies entirely inside the margin, and `undetermined_with_available_evidence` only if it does not lie entirely on one side. `declared_other` is not sign-checked. The Cube checks the declared numbers only; it never computes them.
+- OC-5: `annotation_ref` is a declared Y Annotation referent (Morphology v9.4 D.4: claims are Y Annotation); an undeclared one is `P1_COMPARISON_REFERENCE_MISSING`. An outcome is never an X Conclusion, Selection, Admission or Authority, and `a_preferred` is not a decision (§5.18).
 - OC-6: If `splits` are declared, every outcome names exactly one (Annex E.2). Calibration and holdout results are never merged in one outcome.
 
 ### 3.4 Replay against record (RR)
@@ -182,9 +185,9 @@ Expected statuses fixed **before** implementation. Base case C-01: two `simulati
 
 Not expected to change, stated explicitly: any statistic, interval or significance; whether parity actually held; whether a control was really equally safe; the MILE-075 product-value disposition; the external gates of EXP-017/018/022.
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-25, all as proposed)
 
-| Decision | Options | Proposal | Consequence of the proposal |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Context version | (a) new `/4` superset · (b) optional fields in `/3` | **(a) /4** | /3 stays frozen as deployed with P1.8; G5 needs one new profile, not a changed one. |
 | D-2 Outcome vocabulary | (a) §5.16 five values, profile-local · (b) free text · (c) Morphology enum | **(a)** | Machine-checkable without adopting an enum in v9.4; a later Morphology version may adopt or rename it. |
