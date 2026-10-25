@@ -1,0 +1,61 @@
+{
+  "format": "aiaeao.cube.p1.9.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P1 validator vocabulary; descriptive only",
+  "rules": [
+    {
+      "id": "P19-PROTOCOL",
+      "coverage": "enforced_subset",
+      "source": "Morphology v9.4 §5.16",
+      "implementation": "criteria with direction, equivalence margin, non-comparability policy; aggregation only via a declared pure_declarative method"
+    },
+    {
+      "id": "P19-ARMS",
+      "coverage": "enforced_subset",
+      "source": "Morphology v9.4 §7.32(4), §7.38(6)",
+      "implementation": ">= 2 arms with a control; distinct scenarios; one scenario mode"
+    },
+    {
+      "id": "P19-PAIRING",
+      "coverage": "enforced_subset",
+      "source": "Morphology v9.4 §7.32(4)",
+      "implementation": "paired unit list is a member of every arm world; shared parameters equal, only declared parameters vary (equality only, no interpretation)"
+    },
+    {
+      "id": "P19-PARITY",
+      "coverage": "declaration_only",
+      "source": "Morphology v9.4 §7.32(4)",
+      "implementation": "required parity kinds declared with witness per treatment arm; parity itself NOT_EVALUATED"
+    },
+    {
+      "id": "P19-OUTCOME",
+      "coverage": "enforced_subset",
+      "source": "Morphology v9.4 §§5.16, 5.17",
+      "implementation": "profile-local five-value vocabulary; pairwise; scoped to declared design levels; no conflict per (arms, metric, scope, split)"
+    },
+    {
+      "id": "P19-SIGN",
+      "coverage": "enforced_subset",
+      "source": "P1.9 OC-4 (D-3)",
+      "implementation": "sign of declared delta/ratio/interval agrees with outcome under direction and margin; nothing computed"
+    },
+    {
+      "id": "P19-NOJUDGMENT",
+      "coverage": "noninference_guard",
+      "source": "Morphology v9.4 D.4, §5.18",
+      "implementation": "outcomes are Y Annotation claims, never Conclusion, selection, Admission or Authority"
+    },
+    {
+      "id": "P19-HOLDOUT",
+      "coverage": "enforced_subset",
+      "source": "Morphology v9.4 Annex E.2",
+      "implementation": "one declared split per outcome; calibration and holdout never merged"
+    },
+    {
+      "id": "P19-REPLAY",
+      "coverage": "enforced_subset",
+      "source": "P1.8 D-5 / P1.9 RR",
+      "implementation": "replay_of matches method, evaluator and input digest by string; declared output divergence surfaced; digests never recomputed"
+    }
+  ]
+}

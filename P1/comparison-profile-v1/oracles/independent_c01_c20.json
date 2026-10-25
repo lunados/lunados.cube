@@ -1,0 +1,140 @@
+{
+ "format": "aiaeao.cube.p1.9-oracle/1",
+ "reference_version": "v9.4",
+ "independence": "Expected values transcribed from P1_9_ACCEPTANCE_SPEC.md \u00a75 before any P1.9 runtime code existed; no generation from validator output",
+ "transcribed_at": "2026-10-25",
+ "cases": [
+  {
+   "id": "C-01",
+   "expected_overall": "PASS",
+   "required_codes": []
+  },
+  {
+   "id": "C-02",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_ARMS"
+   ]
+  },
+  {
+   "id": "C-03",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_ARMS"
+   ]
+  },
+  {
+   "id": "C-04",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_PAIRING"
+   ]
+  },
+  {
+   "id": "C-05",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_CONFOUNDED"
+   ]
+  },
+  {
+   "id": "C-06",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_CONFOUNDED"
+   ]
+  },
+  {
+   "id": "C-07",
+   "expected_overall": "PASS",
+   "required_codes": []
+  },
+  {
+   "id": "C-08",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_OUTCOME_INVALID"
+   ]
+  },
+  {
+   "id": "C-09",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_OUTCOME_INVALID"
+   ]
+  },
+  {
+   "id": "C-10",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_OUTCOME_INCONSISTENT"
+   ]
+  },
+  {
+   "id": "C-11",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_AGGREGATION_UNDECLARED"
+   ]
+  },
+  {
+   "id": "C-12",
+   "expected_overall": "PASS",
+   "required_codes": []
+  },
+  {
+   "id": "C-13",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_OUTCOME_CONFLICT"
+   ]
+  },
+  {
+   "id": "C-14",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_SPLIT_MIXED"
+   ]
+  },
+  {
+   "id": "C-15",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_COMPARISON_OUTCOME_TYPE"
+   ]
+  },
+  {
+   "id": "C-16",
+   "expected_overall": "PASS",
+   "required_codes": []
+  },
+  {
+   "id": "C-17",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_REPLAY_RECORD_MISMATCH"
+   ]
+  },
+  {
+   "id": "C-18",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_REPLAY_DIVERGENT"
+   ]
+  },
+  {
+   "id": "C-19",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_REPLAY_DIVERGENT"
+   ]
+  },
+  {
+   "id": "C-20",
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ]
+  }
+ ]
+}

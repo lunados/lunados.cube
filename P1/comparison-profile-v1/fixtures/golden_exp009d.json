@@ -1,0 +1,1661 @@
+{
+  "context": {
+    "comparison_protocols": [
+      {
+        "aggregation": "none",
+        "criteria": [
+          {
+            "direction": "lower_better",
+            "metric_id": "mean_work",
+            "unit": "modelled work per event"
+          }
+        ],
+        "equivalence_margin": {
+          "mean_work": 0.0
+        },
+        "non_comparability": "report_undetermined",
+        "origin": "external_declaration_unverified",
+        "protocol_id": "cp-009d",
+        "required_parity": [
+          "coverage"
+        ],
+        "revision": "prereg:2026-10-14",
+        "scope": "exp009d"
+      }
+    ],
+    "comparisons": [
+      {
+        "arms": [
+          {
+            "arm_id": "morph_fixed_certified-r00",
+            "role": "control",
+            "scenario_ref": "exp009d-morph_fixed_certified-r00"
+          },
+          {
+            "arm_id": "cutoff4-r00",
+            "role": "treatment",
+            "scenario_ref": "exp009d-cutoff4-r00"
+          },
+          {
+            "arm_id": "cutoff5-r00",
+            "role": "treatment",
+            "scenario_ref": "exp009d-cutoff5-r00"
+          },
+          {
+            "arm_id": "cutoff6-r00",
+            "role": "treatment",
+            "scenario_ref": "exp009d-cutoff6-r00"
+          },
+          {
+            "arm_id": "morph_fixed_native-r00",
+            "role": "treatment",
+            "scenario_ref": "exp009d-morph_fixed_native-r00"
+          },
+          {
+            "arm_id": "typed_native_relevant-r00",
+            "role": "treatment",
+            "scenario_ref": "exp009d-typed_native_relevant-r00"
+          }
+        ],
+        "comparison_id": "cmp-009d-r00",
+        "origin": "external_declaration_unverified",
+        "outcomes": [
+          {
+            "a": "cutoff4-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff4-r00-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 3.26343,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff5-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff5-r00-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 2.95255,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff6-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff6-r00-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 0.44013,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "morph_fixed_native-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "morph_fixed_native-r00-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 3.26343,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "typed_native_relevant-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "typed_native_relevant-r00-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 3.69193,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff4-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff4-r00-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 3.11664,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff5-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff5-r00-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 2.78123,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff6-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff6-r00-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 0.47739,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "morph_fixed_native-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "morph_fixed_native-r00-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 3.11664,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "typed_native_relevant-r00",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r00",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "typed_native_relevant-r00-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 3.5212,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          }
+        ],
+        "pairing": {
+          "shared_parameters": [
+            "calibration_seeds",
+            "epochs",
+            "holdout_seeds",
+            "worlds",
+            "switch_rate"
+          ],
+          "unit": "world",
+          "units_ref": "exp009d:units",
+          "varied_parameters": [
+            "strategy"
+          ]
+        },
+        "parity": [
+          {
+            "kind": "coverage",
+            "parity_id": "full-fixed-achievable-coverage",
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          }
+        ],
+        "protocol_ref": "cp-009d",
+        "scope": "exp009d",
+        "splits": [
+          "calibration",
+          "holdout"
+        ]
+      },
+      {
+        "arms": [
+          {
+            "arm_id": "morph_fixed_certified-r05",
+            "role": "control",
+            "scenario_ref": "exp009d-morph_fixed_certified-r05"
+          },
+          {
+            "arm_id": "cutoff4-r05",
+            "role": "treatment",
+            "scenario_ref": "exp009d-cutoff4-r05"
+          },
+          {
+            "arm_id": "cutoff5-r05",
+            "role": "treatment",
+            "scenario_ref": "exp009d-cutoff5-r05"
+          },
+          {
+            "arm_id": "cutoff6-r05",
+            "role": "treatment",
+            "scenario_ref": "exp009d-cutoff6-r05"
+          },
+          {
+            "arm_id": "morph_fixed_native-r05",
+            "role": "treatment",
+            "scenario_ref": "exp009d-morph_fixed_native-r05"
+          },
+          {
+            "arm_id": "typed_native_relevant-r05",
+            "role": "treatment",
+            "scenario_ref": "exp009d-typed_native_relevant-r05"
+          }
+        ],
+        "comparison_id": "cmp-009d-r05",
+        "origin": "external_declaration_unverified",
+        "outcomes": [
+          {
+            "a": "cutoff4-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff4-r05-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 4.85393,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff5-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff5-r05-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 3.01578,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff6-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff6-r05-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 1.41248,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "morph_fixed_native-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "morph_fixed_native-r05-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 3.26343,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "typed_native_relevant-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "typed_native_relevant-r05-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 3.69193,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff4-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff4-r05-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 4.57562,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff5-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff5-r05-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 2.84586,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff6-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff6-r05-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 1.35612,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "morph_fixed_native-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "morph_fixed_native-r05-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 3.11664,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "typed_native_relevant-r05",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r05",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "typed_native_relevant-r05-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 3.5212,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          }
+        ],
+        "pairing": {
+          "shared_parameters": [
+            "calibration_seeds",
+            "epochs",
+            "holdout_seeds",
+            "worlds",
+            "switch_rate"
+          ],
+          "unit": "world",
+          "units_ref": "exp009d:units",
+          "varied_parameters": [
+            "strategy"
+          ]
+        },
+        "parity": [
+          {
+            "kind": "coverage",
+            "parity_id": "full-fixed-achievable-coverage",
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          }
+        ],
+        "protocol_ref": "cp-009d",
+        "scope": "exp009d",
+        "splits": [
+          "calibration",
+          "holdout"
+        ]
+      },
+      {
+        "arms": [
+          {
+            "arm_id": "morph_fixed_certified-r10",
+            "role": "control",
+            "scenario_ref": "exp009d-morph_fixed_certified-r10"
+          },
+          {
+            "arm_id": "cutoff4-r10",
+            "role": "treatment",
+            "scenario_ref": "exp009d-cutoff4-r10"
+          },
+          {
+            "arm_id": "cutoff5-r10",
+            "role": "treatment",
+            "scenario_ref": "exp009d-cutoff5-r10"
+          },
+          {
+            "arm_id": "cutoff6-r10",
+            "role": "treatment",
+            "scenario_ref": "exp009d-cutoff6-r10"
+          },
+          {
+            "arm_id": "morph_fixed_native-r10",
+            "role": "treatment",
+            "scenario_ref": "exp009d-morph_fixed_native-r10"
+          },
+          {
+            "arm_id": "typed_native_relevant-r10",
+            "role": "treatment",
+            "scenario_ref": "exp009d-typed_native_relevant-r10"
+          }
+        ],
+        "comparison_id": "cmp-009d-r10",
+        "origin": "external_declaration_unverified",
+        "outcomes": [
+          {
+            "a": "cutoff4-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff4-r10-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 6.44442,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff5-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff5-r10-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 3.07901,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff6-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff6-r10-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 2.28494,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "morph_fixed_native-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "morph_fixed_native-r10-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 3.26343,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "typed_native_relevant-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "typed_native_relevant-r10-calibration",
+            "split": "calibration",
+            "statistic": {
+              "declared_value": 3.69193,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff4-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff4-r10-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 6.03459,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff5-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff5-r10-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 2.91049,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "cutoff6-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "cutoff6-r10-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 2.15058,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "morph_fixed_native-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "morph_fixed_native-r10-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 3.11664,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          },
+          {
+            "a": "typed_native_relevant-r10",
+            "annotation_ref": "exp009d:claim-comparison",
+            "b": "morph_fixed_certified-r10",
+            "metric_id": "mean_work",
+            "outcome": "b_preferred",
+            "outcome_id": "typed_native_relevant-r10-holdout",
+            "split": "holdout",
+            "statistic": {
+              "declared_value": 3.5212,
+              "kind": "delta_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          }
+        ],
+        "pairing": {
+          "shared_parameters": [
+            "calibration_seeds",
+            "epochs",
+            "holdout_seeds",
+            "worlds",
+            "switch_rate"
+          ],
+          "unit": "world",
+          "units_ref": "exp009d:units",
+          "varied_parameters": [
+            "strategy"
+          ]
+        },
+        "parity": [
+          {
+            "kind": "coverage",
+            "parity_id": "full-fixed-achievable-coverage",
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+          }
+        ],
+        "protocol_ref": "cp-009d",
+        "scope": "exp009d",
+        "splits": [
+          "calibration",
+          "holdout"
+        ]
+      }
+    ],
+    "context_id": "golden-exp009d-comparison",
+    "evaluation_records": [
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-morph_fixed_certified-r00"
+        ],
+        "record_id": "rec-morph_fixed_certified-r00",
+        "scenario_ref": "exp009d-morph_fixed_certified-r00",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-cutoff4-r00"
+        ],
+        "record_id": "rec-cutoff4-r00",
+        "scenario_ref": "exp009d-cutoff4-r00",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-cutoff5-r00"
+        ],
+        "record_id": "rec-cutoff5-r00",
+        "scenario_ref": "exp009d-cutoff5-r00",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-cutoff6-r00"
+        ],
+        "record_id": "rec-cutoff6-r00",
+        "scenario_ref": "exp009d-cutoff6-r00",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-morph_fixed_native-r00"
+        ],
+        "record_id": "rec-morph_fixed_native-r00",
+        "scenario_ref": "exp009d-morph_fixed_native-r00",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-typed_native_relevant-r00"
+        ],
+        "record_id": "rec-typed_native_relevant-r00",
+        "scenario_ref": "exp009d-typed_native_relevant-r00",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-morph_fixed_certified-r05"
+        ],
+        "record_id": "rec-morph_fixed_certified-r05",
+        "scenario_ref": "exp009d-morph_fixed_certified-r05",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-cutoff4-r05"
+        ],
+        "record_id": "rec-cutoff4-r05",
+        "scenario_ref": "exp009d-cutoff4-r05",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-cutoff5-r05"
+        ],
+        "record_id": "rec-cutoff5-r05",
+        "scenario_ref": "exp009d-cutoff5-r05",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-cutoff6-r05"
+        ],
+        "record_id": "rec-cutoff6-r05",
+        "scenario_ref": "exp009d-cutoff6-r05",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-morph_fixed_native-r05"
+        ],
+        "record_id": "rec-morph_fixed_native-r05",
+        "scenario_ref": "exp009d-morph_fixed_native-r05",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-typed_native_relevant-r05"
+        ],
+        "record_id": "rec-typed_native_relevant-r05",
+        "scenario_ref": "exp009d-typed_native_relevant-r05",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-morph_fixed_certified-r10"
+        ],
+        "record_id": "rec-morph_fixed_certified-r10",
+        "scenario_ref": "exp009d-morph_fixed_certified-r10",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-cutoff4-r10"
+        ],
+        "record_id": "rec-cutoff4-r10",
+        "scenario_ref": "exp009d-cutoff4-r10",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-cutoff5-r10"
+        ],
+        "record_id": "rec-cutoff5-r10",
+        "scenario_ref": "exp009d-cutoff5-r10",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-cutoff6-r10"
+        ],
+        "record_id": "rec-cutoff6-r10",
+        "scenario_ref": "exp009d-cutoff6-r10",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-morph_fixed_native-r10"
+        ],
+        "record_id": "rec-morph_fixed_native-r10",
+        "scenario_ref": "exp009d-morph_fixed_native-r10",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61",
+        "method_id": "simulate.switch-costs/v1",
+        "output_refs": [
+          "exp009d:out-typed_native_relevant-r10"
+        ],
+        "record_id": "rec-typed_native_relevant-r10",
+        "scenario_ref": "exp009d-typed_native_relevant-r10",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv#sha256=56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:acc63259b6f3502590039d47cc859702da567464683115bc4c7c260fa5c53322",
+        "method_id": "simulate.switch-costs/v1",
+        "output_digest": "sha256:604108541773cb32104ffd1ebe1e108de0d85eb55e3094e2171b56ff17569d03",
+        "output_refs": [
+          "exp009d:out-009-original"
+        ],
+        "record_id": "rec-009-original",
+        "scenario_ref": "exp009d-baseline-replay",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/reference_009/ORIGINAL-009-SUMMARY.csv#sha256=c7063c6a74ff048119e51f8cd1548d2109ee004d004491c781bba0c3516ae356"
+      },
+      {
+        "evaluator_ref": "eval:exp009d",
+        "input_digest": "sha256:acc63259b6f3502590039d47cc859702da567464683115bc4c7c260fa5c53322",
+        "method_id": "simulate.switch-costs/v1",
+        "output_digest": "sha256:604108541773cb32104ffd1ebe1e108de0d85eb55e3094e2171b56ff17569d03",
+        "output_refs": [
+          "exp009d:out-009d-baseline"
+        ],
+        "record_id": "rec-009d-baseline",
+        "replay_of": "rec-009-original",
+        "scenario_ref": "exp009d-baseline-replay",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/verdict.json#sha256=0b839e2672c39d49d857fce215a77a2bb3d44500d864eaf8bab41424d7b46d14"
+      }
+    ],
+    "evaluators": [
+      {
+        "evaluator_id": "eval:exp009d",
+        "kind": "local_script",
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "origin": "external_declaration_unverified",
+        "output_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "sim009d.py@sha256:dc9f9579647cd04a15bfac9c41fa5d775e8c42f7ff4399f1d02f64f15c01d0ff",
+        "scope": "exp009d"
+      }
+    ],
+    "format": "aiaeao.cube.binding-context/4",
+    "method_contracts": [
+      {
+        "argument_concept_ids": [
+          "Y:resource-object:artifact"
+        ],
+        "argument_max": 1,
+        "argument_min": 1,
+        "effect_class": "pure_declarative",
+        "method_id": "simulate.switch-costs/v1",
+        "origin": "external_declaration_unverified",
+        "return_cardinality": "one",
+        "return_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "sim009d.py@sha256:dc9f9579647cd04a15bfac9c41fa5d775e8c42f7ff4399f1d02f64f15c01d0ff",
+        "scope": "exp009d"
+      }
+    ],
+    "predicate_contracts": [
+      {
+        "additional_constraints": [
+          "Support is declared by the archived run; the Cube does not verify it."
+        ],
+        "direction": "subject_to_object",
+        "object_concept_ids": [
+          "Y:identified-object:annotation"
+        ],
+        "origin": "external_declaration_unverified",
+        "predicate_id": "supports",
+        "revision": "golden:v1",
+        "scope": "exp009d",
+        "subject_concept_ids": [
+          "Y:resource-object:evidence"
+        ]
+      }
+    ],
+    "profile_limitations": [
+      "Modelled work units on the original synthetic 009 generator; holdout seeds were used before (not blind).",
+      "Coverage parity is declared from the archived summary; arms without full coverage are excluded, not hidden.",
+      "Replay output digests hash the transcribed baseline means (canonical JSON), not the archived files."
+    ],
+    "reference_version": "v9.4",
+    "referents": [
+      {
+        "concept_id": "Y:resource-object:artifact",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:units",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:result-summary",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:identified-object:annotation",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:claim-comparison",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-morph_fixed_certified-r00",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-cutoff4-r00",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-cutoff5-r00",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-cutoff6-r00",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-morph_fixed_native-r00",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-typed_native_relevant-r00",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-morph_fixed_certified-r05",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-cutoff4-r05",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-cutoff5-r05",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-cutoff6-r05",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-morph_fixed_native-r05",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-typed_native_relevant-r05",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-morph_fixed_certified-r10",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-cutoff4-r10",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-cutoff5-r10",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-cutoff6-r10",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-morph_fixed_native-r10",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-typed_native_relevant-r10",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-009-original",
+        "scope_ref": "exp009d"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp009d:out-009d-baseline",
+        "scope_ref": "exp009d"
+      }
+    ],
+    "scenarios": [
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "morph_fixed_certified",
+          "switch_rate": 0.0,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-morph_fixed_certified-r00",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-morph_fixed_certified-r00"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "cutoff4",
+          "switch_rate": 0.0,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-cutoff4-r00",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-cutoff4-r00"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "cutoff5",
+          "switch_rate": 0.0,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-cutoff5-r00",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-cutoff5-r00"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "cutoff6",
+          "switch_rate": 0.0,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-cutoff6-r00",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-cutoff6-r00"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "morph_fixed_native",
+          "switch_rate": 0.0,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-morph_fixed_native-r00",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-morph_fixed_native-r00"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "typed_native_relevant",
+          "switch_rate": 0.0,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-typed_native_relevant-r00",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-typed_native_relevant-r00"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "morph_fixed_certified",
+          "switch_rate": 0.05,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-morph_fixed_certified-r05",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-morph_fixed_certified-r05"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "cutoff4",
+          "switch_rate": 0.05,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-cutoff4-r05",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-cutoff4-r05"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "cutoff5",
+          "switch_rate": 0.05,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-cutoff5-r05",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-cutoff5-r05"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "cutoff6",
+          "switch_rate": 0.05,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-cutoff6-r05",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-cutoff6-r05"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "morph_fixed_native",
+          "switch_rate": 0.05,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-morph_fixed_native-r05",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-morph_fixed_native-r05"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "typed_native_relevant",
+          "switch_rate": 0.05,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-typed_native_relevant-r05",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-typed_native_relevant-r05"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "morph_fixed_certified",
+          "switch_rate": 0.1,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-morph_fixed_certified-r10",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-morph_fixed_certified-r10"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "cutoff4",
+          "switch_rate": 0.1,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-cutoff4-r10",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-cutoff4-r10"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "cutoff5",
+          "switch_rate": 0.1,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-cutoff5-r10",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-cutoff5-r10"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "cutoff6",
+          "switch_rate": 0.1,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-cutoff6-r10",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-cutoff6-r10"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "morph_fixed_native",
+          "switch_rate": 0.1,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-morph_fixed_native-r10",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-morph_fixed_native-r10"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "calibration_seeds": "0-3",
+          "epochs": 25,
+          "holdout_seeds": "4-7",
+          "strategy": "typed_native_relevant",
+          "switch_rate": 0.1,
+          "worlds": 128
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-typed_native_relevant-r10",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-typed_native_relevant-r10"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.switch-costs/v1"
+        ],
+        "mode": "replay",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "policies": "typed_native_relevant,morph_fixed_native,morph_reactive_native",
+          "split": "holdout",
+          "stress": 0
+        },
+        "revision": "archived",
+        "scenario_id": "exp009d-baseline-replay",
+        "scope": "exp009d",
+        "world_refs": [
+          "exp009d:units",
+          "exp009d:out-009-original",
+          "exp009d:out-009d-baseline"
+        ]
+      }
+    ],
+    "scope_ref": "exp009d",
+    "source_kind": "external_declaration_unverified"
+  },
+  "expected_overall": "PASS",
+  "id": "GOLDEN-EXP009D-COMPARISON",
+  "input_format": "acg_text",
+  "input_text": "rel(\"supports\",Y:α:Evidence[\"exp009d:result-summary\"],Y:α:Annotation[\"exp009d:claim-comparison\"])",
+  "reference": {
+    "declared_finding": "On the holdout worlds the certified Fixed control is cheaper than every full-coverage strategy at all three switch-cost rates. The 009 baseline means are reproduced exactly (replay_of).",
+    "excluded_arms_without_full_coverage": [
+      "morph_reactive_native"
+    ],
+    "experiment": "EXP-009-D Final switch costs — strategies vs certified Fixed",
+    "not_claimed": [
+      "a unique dynamic advantage",
+      "independent blinded holdout",
+      "general certificate semantics"
+    ],
+    "replay_baseline": {
+      "original_009": {
+        "morph_fixed_native": 33.21531,
+        "morph_reactive_native": 21.30561,
+        "typed_native_relevant": 33.61987
+      },
+      "replayed_009d": {
+        "morph_fixed_native": 33.21531,
+        "morph_reactive_native": 21.30561,
+        "typed_native_relevant": 33.61987
+      }
+    },
+    "sources": {
+      "manifest": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/MANIFEST.sha256",
+        "sha256": "b78fe27a708c6274a082b191ba191a5043208f3ee85ad1d89a1bc5bdfee44714"
+      },
+      "original_009": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/reference_009/ORIGINAL-009-SUMMARY.csv",
+        "sha256": "c7063c6a74ff048119e51f8cd1548d2109ee004d004491c781bba0c3516ae356"
+      },
+      "paired_worlds": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/paired_worlds.csv",
+        "sha256": "84ad6b1ba177a732c5e80591b2fe8a5e4c17f64b09d361d5f7d41e7d21987f77"
+      },
+      "preregistration": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/data/PREREGISTRATION.json",
+        "sha256": "efb503fd28e9b92387567caf560fb03a27bf108d2c3e511eee620302c695fd61"
+      },
+      "simulator": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/src/sim009d.py",
+        "sha256": "dc9f9579647cd04a15bfac9c41fa5d775e8c42f7ff4399f1d02f64f15c01d0ff"
+      },
+      "summary": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/summary.csv",
+        "sha256": "56ea4607404a037072dab31cf87b20093e44b6fa9b91f458dd054f6a23b0db5d"
+      },
+      "verdict": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_009D_Final_Switch_Costs/results/verdict.json",
+        "sha256": "0b839e2672c39d49d857fce215a77a2bb3d44500d864eaf8bab41424d7b46d14"
+      }
+    },
+    "transcription": "Numbers are copied from the pinned result files; nothing is recomputed by the Cube."
+  },
+  "required_codes": [],
+  "title": "EXP-009-D Final switch costs — strategies vs certified Fixed"
+}

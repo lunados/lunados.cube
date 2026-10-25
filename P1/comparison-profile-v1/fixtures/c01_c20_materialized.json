@@ -1,0 +1,4221 @@
+{
+  "cases": [
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "C-01",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-02",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_ARMS"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "treatment",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-03",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_ARMS"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-04",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_PAIRING"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-21",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-05",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_CONFOUNDED"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "horizon": 1,
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "horizon": 8,
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-06",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_CONFOUNDED"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy",
+                "horizon"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "horizon": 1,
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "horizon": 8,
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "C-07",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "winner",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-08",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_OUTCOME_INVALID"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "equivalent_under_criteria",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": 0.0,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-09",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_OUTCOME_INVALID"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": 2.0,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-10",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_OUTCOME_INCONSISTENT"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_ids": [
+                  "cost",
+                  "time"
+                ],
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-11",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_AGGREGATION_UNDECLARED"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "design": {
+              "factors": {
+                "depth": [
+                  4,
+                  20
+                ]
+              }
+            },
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-4",
+                "scope": {
+                  "depth": 4
+                },
+                "statistic": {
+                  "declared_value": -1.0,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              },
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "b_preferred",
+                "outcome_id": "o-20",
+                "scope": {
+                  "depth": 20
+                },
+                "statistic": {
+                  "declared_value": 3.0,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "C-12",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "design": {
+              "factors": {
+                "depth": [
+                  4,
+                  20
+                ]
+              }
+            },
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-4",
+                "scope": {
+                  "depth": 4
+                },
+                "statistic": {
+                  "declared_value": -1.0,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              },
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "b_preferred",
+                "outcome_id": "o-20",
+                "scope": {
+                  "depth": 4
+                },
+                "statistic": {
+                  "declared_value": 3.0,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-13",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_OUTCOME_CONFLICT"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp",
+            "splits": [
+              "calibration",
+              "holdout"
+            ]
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-14",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_SPLIT_MIXED"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "concl",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "X:endpoint:conclusion",
+            "home": "X",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "concl",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-15",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_COMPARISON_OUTCOME_TYPE"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:fixture",
+            "input_digest": "sha256:32381523e63197c929b67f793a8098bed0ae3a6fa902634fdbcc6fa4567f3346",
+            "method_id": "compare.fixture-run/v1",
+            "output_digest": "sha256:7b8c56be0a5f71be141f0cfaa9195e2ff8d1ef89e380560b579a82fd841429c1",
+            "output_refs": [
+              "ev-trt"
+            ],
+            "record_id": "orig",
+            "scenario_ref": "sc-trt",
+            "status": "declared",
+            "witness_ref": "witness:cmp/orig.json"
+          },
+          {
+            "evaluator_ref": "eval:fixture",
+            "input_digest": "sha256:32381523e63197c929b67f793a8098bed0ae3a6fa902634fdbcc6fa4567f3346",
+            "method_id": "compare.fixture-run/v1",
+            "output_digest": "sha256:7b8c56be0a5f71be141f0cfaa9195e2ff8d1ef89e380560b579a82fd841429c1",
+            "output_refs": [
+              "ev-trt"
+            ],
+            "record_id": "rep",
+            "replay_of": "orig",
+            "scenario_ref": "sc-trt",
+            "status": "declared",
+            "witness_ref": "witness:cmp/rep.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:fixture",
+            "kind": "local_script",
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "replay",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "replay",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "C-16",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:fixture",
+            "input_digest": "sha256:32381523e63197c929b67f793a8098bed0ae3a6fa902634fdbcc6fa4567f3346",
+            "method_id": "compare.fixture-run/v1",
+            "output_digest": "sha256:7b8c56be0a5f71be141f0cfaa9195e2ff8d1ef89e380560b579a82fd841429c1",
+            "output_refs": [
+              "ev-trt"
+            ],
+            "record_id": "orig",
+            "scenario_ref": "sc-trt",
+            "status": "declared",
+            "witness_ref": "witness:cmp/orig.json"
+          },
+          {
+            "evaluator_ref": "eval:fixture",
+            "input_digest": "sha256:d283dc51c6631531da9caaa7ce5696705ceb9bbe9652195714d749b0c8e9ba4c",
+            "method_id": "compare.fixture-run/v1",
+            "output_digest": "sha256:7b8c56be0a5f71be141f0cfaa9195e2ff8d1ef89e380560b579a82fd841429c1",
+            "output_refs": [
+              "ev-trt"
+            ],
+            "record_id": "rep",
+            "replay_of": "orig",
+            "scenario_ref": "sc-trt",
+            "status": "declared",
+            "witness_ref": "witness:cmp/rep.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:fixture",
+            "kind": "local_script",
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "replay",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "replay",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-17",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_REPLAY_RECORD_MISMATCH"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:fixture",
+            "input_digest": "sha256:32381523e63197c929b67f793a8098bed0ae3a6fa902634fdbcc6fa4567f3346",
+            "method_id": "compare.fixture-run/v1",
+            "output_digest": "sha256:7b8c56be0a5f71be141f0cfaa9195e2ff8d1ef89e380560b579a82fd841429c1",
+            "output_refs": [
+              "ev-trt"
+            ],
+            "record_id": "orig",
+            "scenario_ref": "sc-trt",
+            "status": "declared",
+            "witness_ref": "witness:cmp/orig.json"
+          },
+          {
+            "evaluator_ref": "eval:fixture",
+            "input_digest": "sha256:32381523e63197c929b67f793a8098bed0ae3a6fa902634fdbcc6fa4567f3346",
+            "method_id": "compare.fixture-run/v1",
+            "output_digest": "sha256:cc9e51c123f4f6cf0466f58416c60c9b1c27be9181d49ccdf6feaaa9d8e9b3ff",
+            "output_refs": [
+              "ev-trt"
+            ],
+            "record_id": "rep",
+            "replay_of": "orig",
+            "scenario_ref": "sc-trt",
+            "status": "declared",
+            "witness_ref": "witness:cmp/rep.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:fixture",
+            "kind": "local_script",
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "replay",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "replay",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "C-18",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_REPLAY_DIVERGENT"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "evaluation_records": [
+          {
+            "evaluator_ref": "eval:fixture",
+            "input_digest": "sha256:32381523e63197c929b67f793a8098bed0ae3a6fa902634fdbcc6fa4567f3346",
+            "method_id": "compare.fixture-run/v1",
+            "output_digest": "sha256:7b8c56be0a5f71be141f0cfaa9195e2ff8d1ef89e380560b579a82fd841429c1",
+            "output_refs": [
+              "ev-trt"
+            ],
+            "record_id": "orig",
+            "scenario_ref": "sc-trt",
+            "status": "declared",
+            "witness_ref": "witness:cmp/orig.json"
+          },
+          {
+            "evaluator_ref": "eval:fixture",
+            "input_digest": "sha256:32381523e63197c929b67f793a8098bed0ae3a6fa902634fdbcc6fa4567f3346",
+            "method_id": "compare.fixture-run/v1",
+            "output_digest": "sha256:cc9e51c123f4f6cf0466f58416c60c9b1c27be9181d49ccdf6feaaa9d8e9b3ff",
+            "output_refs": [
+              "ev-trt"
+            ],
+            "record_id": "rep",
+            "replay_of": "orig",
+            "scenario_ref": "sc-trt",
+            "status": "unresolved",
+            "witness_ref": "witness:cmp/rep.json"
+          }
+        ],
+        "evaluators": [
+          {
+            "evaluator_id": "eval:fixture",
+            "kind": "local_script",
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "origin": "illustrative_fixture",
+            "output_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "format": "aiaeao.cube.binding-context/4",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "replay",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "replay",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "C-19",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_REPLAY_DIVERGENT"
+      ]
+    },
+    {
+      "context": {
+        "comparison_protocols": [
+          {
+            "aggregation": "none",
+            "criteria": [
+              {
+                "direction": "lower_better",
+                "metric_id": "cost",
+                "unit": "work/event"
+              },
+              {
+                "direction": "lower_better",
+                "metric_id": "time",
+                "unit": "ms"
+              }
+            ],
+            "non_comparability": "report_incomparable",
+            "origin": "illustrative_fixture",
+            "protocol_id": "cp-1",
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "comparisons": [
+          {
+            "arms": [
+              {
+                "arm_id": "ctl",
+                "role": "control",
+                "scenario_ref": "sc-ctl"
+              },
+              {
+                "arm_id": "trt",
+                "role": "treatment",
+                "scenario_ref": "sc-trt"
+              }
+            ],
+            "comparison_id": "cmp-1",
+            "origin": "illustrative_fixture",
+            "outcomes": [
+              {
+                "a": "trt",
+                "annotation_ref": "claim",
+                "b": "ctl",
+                "metric_id": "cost",
+                "outcome": "a_preferred",
+                "outcome_id": "o-1",
+                "statistic": {
+                  "declared_value": -1.5,
+                  "kind": "delta_a_minus_b"
+                },
+                "witness_ref": "witness:cmp/summary.json"
+              }
+            ],
+            "pairing": {
+              "shared_parameters": [
+                "seed_set",
+                "split"
+              ],
+              "unit": "world",
+              "units_ref": "units",
+              "varied_parameters": [
+                "strategy"
+              ]
+            },
+            "protocol_ref": "cp-1",
+            "scope": "cmp"
+          }
+        ],
+        "context_id": "p19-cmp",
+        "format": "aiaeao.cube.binding-context/3",
+        "method_contracts": [
+          {
+            "argument_concept_ids": [
+              "Y:resource-object:artifact"
+            ],
+            "argument_max": 1,
+            "argument_min": 1,
+            "effect_class": "pure_declarative",
+            "method_id": "compare.fixture-run/v1",
+            "origin": "illustrative_fixture",
+            "return_cardinality": "one",
+            "return_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "revision": "v1",
+            "scope": "cmp"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Y:identified-object:annotation"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "supports",
+            "revision": "p19:v1",
+            "scope": "cmp",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:artifact",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "units",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-ctl",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "ev-trt",
+            "scope_ref": "cmp"
+          },
+          {
+            "concept_id": "Y:identified-object:annotation",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "claim",
+            "scope_ref": "cmp"
+          }
+        ],
+        "scenarios": [
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "fixed"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-ctl",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-ctl"
+            ]
+          },
+          {
+            "method_ids": [
+              "compare.fixture-run/v1"
+            ],
+            "mode": "simulation",
+            "origin": "illustrative_fixture",
+            "parameters": {
+              "seed_set": "s-20",
+              "split": "holdout",
+              "strategy": "dynamic"
+            },
+            "revision": "cmp:v1",
+            "scenario_id": "sc-trt",
+            "scope": "cmp",
+            "world_refs": [
+              "units",
+              "ev-trt"
+            ]
+          }
+        ],
+        "scope_ref": "cmp",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "MCP_ERROR",
+      "id": "C-20",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supports\",Y:α:Evidence[\"ev-trt\"],Y:α:Annotation[\"claim\"])",
+      "required_codes": [
+        "P1_MCP_CONFIG_INVALID"
+      ]
+    }
+  ],
+  "format": "aiaeao.cube.p1.9-vectors/1",
+  "reference_version": "v9.4",
+  "source": "P1_9_ACCEPTANCE_SPEC.md §5 + oracles/independent_c01_c20.json"
+}
