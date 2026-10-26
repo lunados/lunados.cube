@@ -8,7 +8,7 @@ import copy
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
+from .common import (PROFILE, P071, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
                      sha_json, encode, load_json, VP07Error, need, publish_dir, no_active_content, MUTED)
 from .phases import PhasesPrinter, BUDGET, lanes_for
 from .source import validate_source, as_plan
@@ -141,8 +141,9 @@ def render_input(inp):
     if inp.get('edge_styles') is None:
         return result, base
     styles = {s['predicate_id']: s for s in inp['edge_styles']}
-    svg, ledger = apply_styles(base, styles)
-    return {'format': 'aiaeao.cube.vp07-styled-print-result/1', 'profile': PROFILE, 'base_svg_sha256': sha_bytes(base),
+    prof = inp.get('profile', PROFILE)
+    svg, ledger = apply_styles(base, styles, profile=prof)
+    return {'format': 'aiaeao.cube.vp07-styled-print-result/1', 'profile': prof, 'base_svg_sha256': sha_bytes(base),
             'svg_sha256': sha_bytes(svg), 'edge_style_ledger': ledger, 'vp06_result': result,
             'warnings': [{'code': 'VP07_EDGE_STYLE_DEFAULT', 'predicate_id': p} for p in ledger['unstyled']], **NOT_EVALUATED}, svg
 
@@ -159,9 +160,66 @@ def _all_units(src):
     return sorted(f"{c['id']}@{s}" for c in src['cells'] for s in c['steps'])
 
 
+def parse_partition(partition, view, profile):
+    """NP-1: one key (0.7.0) or `outer,inner` (0.7.1 only, distinct keys, step outer only for cube.phases)."""
+    need(isinstance(partition, str), 'VP07_PANEL_PARTITION', 'partition must be a string', 'partition')
+    if ',' not in partition:
+        return None
+    ks = partition.split(',')
+    need(profile == P071, 'VP07_PANEL_PARTITION', 'nested partition needs a '+P071+' source', 'partition')
+    need(len(ks) == 2, 'VP07_PANEL_PARTITION', 'nested partition takes exactly two keys (D-2), got '+repr(partition), 'partition')
+    need(all(k in PARTITIONS for k in ks), 'VP07_PANEL_PARTITION', 'partition keys must be subject|object|step|track, got '+repr(partition), 'partition')
+    need(ks[0] != ks[1], 'VP07_PANEL_PARTITION', 'nested partition repeats key '+repr(ks[0]), 'partition')
+    need(not (view == 'cube.flow' and ks[0] == 'step'), 'VP07_PANEL_PARTITION', 'cube.flow panels are per step already; step cannot be the outer key (D-3)', 'partition')
+    return ks
+
+
+def _phase_sets(src, d, cells, partition, steps, granularity, tracks, label=None):
+    """0.7.0 single-key packing for cube.phases (PE-2), applied to `cells` over `steps`."""
+    idx = d['index']
+    if partition == 'step':
+        scap = BUDGET[granularity][1]
+        windows = [steps[i:i+scap] for i in range(0, len(steps), scap)]
+        plan_sets = []
+        for w in windows:
+            ids = {s['id'] for s in w}
+            cs = []
+            for c in cells:
+                st = [s for s in c['steps'] if s in ids]
+                if st:
+                    cs.append({**c, 'steps': st})
+            if cs:
+                need(_phases_fits(idx, granularity, len(w))(cs), 'VP07_PANEL_PARTITION',
+                     (label+' / ' if label else '')+f'step window {w[0]["id"]}–{w[-1]["id"]} alone exceeds the panel budget', 'partition')
+                plan_sets.append(([w[0]['id']+'–'+w[-1]['id']], cs, w))
+        return plan_sets
+    packed = _pack(_groups(cells, partition, tracks), _phases_fits(idx, granularity, len(steps)),
+                   (label+' / ' if label else '')+partition)
+    return [(k, cs, steps) for k, cs in packed]
+
+
+def _outer_groups(d, outer, steps, granularity, tracks):
+    """NP-2: outer groups in declared order; `step` (cube.phases only) groups by budget-sized step windows."""
+    if outer != 'step':
+        return [(k, cs, steps) for k, cs in _groups(d['cells'], outer, tracks)]
+    scap = BUDGET[granularity][1]
+    out = []
+    for i in range(0, len(steps), scap):
+        w = steps[i:i+scap]
+        ids = {s['id'] for s in w}
+        cs = [{**c, 'steps': [s for s in c['steps'] if s in ids]} for c in d['cells'] if set(c['steps']) & ids]
+        if cs:
+            out.append((w[0]['id']+'–'+w[-1]['id'], cs, w))
+    return out
+
+
 def build_panels(src, view, partition, granularity, lens=None):
     v = validate_source(src)
     need(view in VIEWS, 'VP07_PANEL_PARTITION', 'view must be cube.flow or cube.phases', 'partition')
+    nested = parse_partition(partition, view, src['profile'])
+    if nested is not None:
+        need(granularity in LEVELS, 'VP07_PANEL_PARTITION', 'granularity must be overview|standard|detail', 'partition')
+        return v, _build_nested(src, v, view, nested, granularity, lens)
     need(partition in PARTITIONS, 'VP07_PANEL_PARTITION', 'partition key must be subject|object|step|track, got '+repr(partition), 'partition')
     need(granularity in LEVELS, 'VP07_PANEL_PARTITION', 'granularity must be overview|standard|detail', 'partition')
     d = v['derived']
@@ -197,8 +255,8 @@ def build_panels(src, view, partition, granularity, lens=None):
                     rows.append(c['row'])
             title = excerpt(src['title'], 56)+f' · panel {i+1:02d}/{n:02d}'
             sub = excerpt(f'{partition}: '+', '.join(str(x) for x in k), 95)
-            plan = as_plan(src, rows, cs, w, granularity, title, sub)
-            inputs.append({'format': INPUT_FORMAT, 'profile': PROFILE, 'view': view, 'partition': partition, 'key_values': k, 'plan': plan})
+            plan = as_plan(src, rows, cs, w, granularity, title, sub, ends=v.get('declared_ends'))
+            inputs.append({'format': INPUT_FORMAT, 'profile': src['profile'], 'view': view, 'partition': partition, 'key_values': k, 'plan': plan})
     else:
         need(lens in LENSES, 'VP07_PANEL_PARTITION', 'cube.flow panels need --lens cube.lens.* (VP-03 rule)', 'lens')
         refs = [c['declaration_ref'] for c in d['cells']]
@@ -221,7 +279,7 @@ def build_panels(src, view, partition, granularity, lens=None):
             sub = excerpt(f"step {s['label']} · {partition}: "+', '.join(str(x) for x in k), 95)
             bundle = _flow_bundle(src, cs, title, sub)
             job = _vp06(make_job, bundle, lens, granularity, 'reject')
-            inp = {'format': INPUT_FORMAT, 'profile': PROFILE, 'view': view, 'partition': partition, 'key_values': k,
+            inp = {'format': INPUT_FORMAT, 'profile': src['profile'], 'view': view, 'partition': partition, 'key_values': k,
                    'step': s['id'], 'job': job}
             if 'edge_styles' in src:
                 inp['edge_styles'] = copy.deepcopy(src['edge_styles'])
@@ -230,23 +288,117 @@ def build_panels(src, view, partition, granularity, lens=None):
     return v, inputs
 
 
-def _index_svg(src, view, partition, granularity, entries, coverage):
+def _build_nested(src, v, view, nested, granularity, lens):
+    outer, inner = nested
+    d = v['derived']
+    steps = src['steps']
+    prof = src['profile']
+    ends = v.get('declared_ends')
+    sets = []  # (outer_value, inner key values, cells, steps-or-step)
+    if view == 'cube.phases':
+        need(lens in (None, 'neutral'), 'VP07_PHASES_LENS', 'cube.phases supports lens neutral only (PV-7)', 'lens')
+        for ov, cs, w in _outer_groups(d, outer, steps, granularity, v['tracks']):
+            for k, pcs, pw in _phase_sets(src, d, cs, inner, w, granularity, v['tracks'], f'{outer} {ov!r}'):
+                sets.append((ov, k, pcs, pw))
+    else:
+        need(lens in LENSES, 'VP07_PANEL_PARTITION', 'cube.flow panels need --lens cube.lens.* (VP-03 rule)', 'lens')
+        refs = [c['declaration_ref'] for c in d['cells']]
+        need(len(set(refs)) == len(refs), 'VP07_PANEL_PARTITION', 'cube.flow panels need unique cell declaration_refs', 'partition')
+        fits = _flow_fits(granularity)
+        for ov, cs in _groups(d['cells'], outer, v['tracks']):
+            for s in steps:
+                active = [c for c in cs if s['id'] in c['steps']]
+                if not active:
+                    continue
+                if inner == 'step':
+                    need(fits(active), 'VP07_PANEL_PARTITION', f'{outer} {ov!r} / step {s["id"]} alone exceeds the flow budget', 'partition')
+                    sets.append((ov, [s['id']], active, s))
+                else:
+                    for k, pcs in _pack(_groups(active, inner, v['tracks']), fits, f'{outer} {ov!r} / {inner}'):
+                        sets.append((ov, k, pcs, s))
+    n = len(sets)
+    need(n <= MAX_PANELS, 'VP07_PANEL_PARTITION', f'{n} panels exceed {MAX_PANELS}', 'partition')
+    inputs = []
+    for i, (ov, k, cs, w) in enumerate(sets):
+        title = excerpt(src['title'], 56)+f' · panel {i+1:02d}/{n:02d}'
+        base = {'format': INPUT_FORMAT, 'profile': prof, 'view': view, 'partition': [outer, inner], 'outer_value': ov, 'key_values': k}
+        if view == 'cube.phases':
+            rows = list(dict.fromkeys(c['row'] for c in cs))
+            sub = excerpt(f'{outer}: {ov} · {inner}: '+', '.join(str(x) for x in k), 95)
+            inputs.append({**base, 'plan': as_plan(src, rows, cs, w, granularity, title, sub, ends=ends)})
+        else:
+            sub = excerpt(f"step {w['label']} · {outer}: {ov} · {inner}: "+', '.join(str(x) for x in k), 95)
+            job = _vp06(make_job, _flow_bundle(src, cs, title, sub), lens, granularity, 'reject')
+            inp = {**base, 'step': w['id'], 'job': job}
+            if 'edge_styles' in src:
+                inp['edge_styles'] = copy.deepcopy(src['edge_styles'])
+            inputs.append(inp)
+    need(inputs, 'VP07_PANEL_PARTITION', 'source yields no panel', 'partition')
+    return inputs
+
+
+def _outer_of(src, outer, granularity, tracks):
+    """Map every source unit (cell@step) to its outer value (NP-3)."""
+    out = {}
+    if outer == 'step':
+        scap = BUDGET[granularity][1]
+        steps = src['steps']
+        for i in range(0, len(steps), scap):
+            w = steps[i:i+scap]
+            for s in w:
+                for c in src['cells']:
+                    if s['id'] in c['steps']:
+                        out[f"{c['id']}@{s['id']}"] = w[0]['id']+'–'+w[-1]['id']
+        return out
+    for c in src['cells']:
+        ov = _key_of(outer, c, tracks)
+        for s in c['steps']:
+            out[f"{c['id']}@{s}"] = ov
+    return out
+
+
+def _outer_ledger(src, outer, granularity, tracks, entries):
+    owner = _outer_of(src, outer, granularity, tracks)
+    order = list(dict.fromkeys(owner.values()))
+    led = []
+    for ov in order:
+        total = sorted(u for u, o in owner.items() if o == ov)
+        panels = [e['panel'] for e in entries if e.get('outer_value') == ov]
+        units = {u for e in entries if e.get('outer_value') == ov for u in e['units']}
+        covered = sorted(units & set(total))
+        ok = covered == total and units <= set(total)
+        led.append({'outer_value': ov, 'panels': panels, 'units_total': len(total), 'units_covered': len(covered),
+                    'status': 'COMPLETE' if ok else 'INCOMPLETE'})
+    return led
+
+
+def _index_svg(src, view, partition, granularity, entries, coverage, outer_ledger=None):
     base = Printer()
-    h = 260+len(entries)*24+60
+    h = 260+len(entries)*24+60+(len(outer_ledger)*30 if outer_ledger else 0)
+    if isinstance(partition, list):
+        partition = ','.join(partition)
     root = base._root({'view_id': 'vp07.panel-index', 'title': excerpt('Panels · '+src['title'], 72),
                        'subtitle': excerpt(f'VP-07 · {view} · partition {partition} · {granularity} · text-only index, no thumbnails', 105)}, h)
-    root.set('data-printer-profile', PROFILE)
+    root.set('data-printer-profile', src['profile'])
     root.set('data-vp07-index', 'display-only')
     text(root, 60, 129, 'PANEL INDEX · coverage of declared (cell, step) units · not a verdict', 13, MUTED, 'bold')
     y = 160
-    for e in entries:
-        g = add(root, 'g', **{'data-vp07-panel': e['panel']})
-        text(g, 68, y, e['panel'], 12, '#0F172A', 'bold')
-        text(g, 170, y, excerpt(', '.join(str(x) for x in e['key_values']), 52), 12, '#334155')
-        text(g, 600, y, (f"step {e['step']} · " if e.get('step') else '')+f"{len(e['shown_row_ids'])} rows · {len(e['shown_cell_ids'])} cells",
-             12, '#334155')
-        text(g, 900, y, e['svg_sha256'][:16]+'…', 10, MUTED)
-        y += 24
+    groups = [(None, entries)] if not outer_ledger else \
+        [(o, [e for e in entries if e['outer_value'] == o['outer_value']]) for o in outer_ledger]
+    for o, es in groups:
+        if o is not None:  # NP-5: panels grouped under their outer value
+            og = add(root, 'g', **{'data-vp07-outer': str(o['outer_value'])})
+            text(og, 62, y+6, excerpt(f"{o['outer_value']} · {len(o['panels'])} panels · {o['units_covered']}/{o['units_total']} units · "
+                                      f"{o['status']}", 100), 13, '#0F172A', 'bold')
+            y += 30
+        for e in es:
+            g = add(root, 'g', **{'data-vp07-panel': e['panel']})
+            text(g, 68, y, e['panel'], 12, '#0F172A', 'bold')
+            text(g, 170, y, excerpt(', '.join(str(x) for x in e['key_values']), 52), 12, '#334155')
+            text(g, 600, y, (f"step {e['step']} · " if e.get('step') else '')+f"{len(e['shown_row_ids'])} rows · {len(e['shown_cell_ids'])} cells",
+                 12, '#334155')
+            text(g, 900, y, e['svg_sha256'][:16]+'…', 10, MUTED)
+            y += 24
     line(root, 60, y, 1140, y, '#E2E8F0')
     text(root, 68, y+28, f"Coverage {coverage['status']} · {coverage['units_covered']}/{coverage['units_total']} units · "
          f"{len(coverage['repeated_row_ids'])} repeated rows · {len(coverage['repeated_cell_ids'])} repeated cells", 12, MUTED, 'bold')
@@ -285,17 +437,27 @@ def print_panels(src, view, partition, granularity, lens=None):
             rows = list(dict.fromkeys(c['row'] for c in cs))
             cells = [c['id'] for c in cs]
         warnings += [dict(w, panel=name) for w in rep.get('warnings', [])]
-        entries.append({'panel': name, 'key_values': inp['key_values'], 'step': inp.get('step'), 'shown_row_ids': rows,
+        extra = {'outer_value': inp['outer_value']} if 'outer_value' in inp else {}
+        entries.append({'panel': name, **extra, 'key_values': inp['key_values'], 'step': inp.get('step'), 'shown_row_ids': rows,
                         'shown_cell_ids': cells, 'units': units_of(inp, src), 'svg_sha256': sha_bytes(svg),
                         'input_sha256': sha_bytes(raw), 'panel_report': rep})
     cov = _coverage(src, entries)
     need(cov['status'] == 'COMPLETE', 'VP07_PANEL_COVERAGE', 'panels do not cover units: '+', '.join(cov['uncovered_units'][:10]), 'coverage')
-    files['index.svg'] = _index_svg(src, view, partition, granularity, entries, cov)
+    nested = parse_partition(partition, view, src['profile'])
+    outer = None
+    if nested is not None:
+        outer = _outer_ledger(src, nested[0], granularity, v['tracks'], entries)
+        bad = [o['outer_value'] for o in outer if o['status'] != 'COMPLETE']
+        need(not bad, 'VP07_PANEL_COVERAGE', 'outer groups not covered by their own panels: '+', '.join(map(str, bad)), 'coverage')
+    files['index.svg'] = _index_svg(src, view, nested or partition, granularity, entries, cov, outer)
     conflicts = PhasesPrinter.conflicts(v['derived'])
-    report = {'format': REPORT_FORMAT, 'profile': PROFILE, 'reference_version': 'v9.4', 'status': 'PASS',
-              'migration_view_profile': PROFILE, 'view': view, 'partition': partition, 'granularity': granularity, 'lens': lens,
+    prof = src['profile']
+    report = {'format': REPORT_FORMAT, 'profile': prof, 'reference_version': 'v9.4', 'status': 'PASS',
+              'migration_view_profile': prof, 'view': view, 'partition': nested or partition, 'granularity': granularity, 'lens': lens,
               'source_sha256': sha_json(src), 'source': src, 'panel_count': len(entries), 'panel_ledger': entries,
               'coverage': cov, 'declared_conflicts': conflicts, 'warnings': warnings,
+              **({'outer_ledger': outer, 'declared_gaps': PhasesPrinter.gaps(v['derived'])} if nested is not None else
+                 {'declared_gaps': PhasesPrinter.gaps(v['derived'])} if prof == P071 else {}),
               'files': {k: sha_bytes(b) for k, b in sorted(files.items())},
               'source_status': 'declared_unverified', **NOT_EVALUATED,
               'notices': ['Panels repeat rows for context; every repetition is listed.',
@@ -319,7 +481,7 @@ def check_panels(directory):
     src = rep['source']
     need(sha_json(src) == rep['source_sha256'], 'VP07_PANEL_COVERAGE', 'embedded source digest mismatch', 'coverage')
     try:
-        validate_source(src)
+        vs = validate_source(src)
     except VP07Error as e:
         raise VP07Error('VP07_PANEL_COVERAGE', 'embedded source invalid: '+str(e), 'coverage') from e
     entries = rep['panel_ledger']
@@ -337,5 +499,17 @@ def check_panels(directory):
     cov = _coverage(src, entries)
     need(cov['status'] == 'COMPLETE' and cov == rep['coverage'], 'VP07_PANEL_COVERAGE',
          'union of panels does not reproduce the recorded complete coverage', 'coverage')
-    return {'format': CHECK_FORMAT, 'profile': PROFILE, 'status': 'PASS', 'panels': len(entries), 'coverage': cov,
+    extra = {}
+    if isinstance(rep.get('partition'), list):
+        outer = rep['partition'][0]
+        recomputed = []
+        for e in entries:  # NP-4: the outer value comes from the panel input, not from the ledger
+            inp = load_json(d/(e['panel']+'.input.json'), 'VP07_PANEL_COVERAGE')
+            need(inp.get('outer_value') == e.get('outer_value'), 'VP07_PANEL_COVERAGE', e['panel']+': outer value differs from its input', 'coverage')
+            recomputed.append({'panel': e['panel'], 'outer_value': inp.get('outer_value'), 'units': units_of(inp, src)})
+        ol = _outer_ledger(src, outer, rep['granularity'], vs['tracks'], recomputed)
+        need(ol == rep.get('outer_ledger') and all(o['status'] == 'COMPLETE' for o in ol), 'VP07_PANEL_COVERAGE',
+             'outer ledger differs from the panels or is incomplete (NP-4)', 'coverage')
+        extra = {'outer_ledger': ol}
+    return {'format': CHECK_FORMAT, 'profile': rep.get('profile', PROFILE), **extra, 'status': 'PASS', 'panels': len(entries), 'coverage': cov,
             'source_sha256': rep['source_sha256'], **NOT_EVALUATED}

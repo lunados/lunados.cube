@@ -1,6 +1,6 @@
 # VP-07.1 — Migration Plan Views, nested panels and marker legibility · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-8 resolved 2026-10-26 (all as proposed; D-7 aligned with the released P1.10.1 rule, see GM-1…GM-5) — ready for implementation.
+**Status:** IMPLEMENTED 2026-10-26 (W-01…W-17 17/17, 0.7.0 digests 14/14 byte-identical); decisions D-1…D-8 resolved 2026-10-26 (all as proposed; D-7 aligned with the released P1.10.1 rule, see GM-1…GM-5).
 **Profile:** `P2-VP-MIGRATION/0.7.1`, follow-up to `P2-VP-MIGRATION/0.7.0` (VP-07, PR #12).
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` (PV-1…PV-7, PE-1…PE-6, MS-1…MS-3, D-1…D-11), `vpmigration/phases.py` (transition markers, legend), `vpmigration/panels.py` (`_groups`, `_pack`, coverage ledger), `vpmigration/source.py`; P1.10.1 draft (`P1/migration-profile-v2/P1_10_1_ACCEPTANCE_SPEC.md`, requirement C-7) for item (d).
 **Motivation:** A field test of P1.10 + VP-07 with a real migration inventory (2026-10-26; about 33 referents, 47 dependencies, 4 steps p0–p3, 3 workstreams; client details withheld) produced requirement C-6:
