@@ -1,0 +1,55 @@
+{
+  "format": "aiaeao.cube.vp08.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P2 display vocabulary; descriptive only",
+  "rules": [
+    {
+      "id": "VP08-SOURCE",
+      "coverage": "enforced",
+      "source": "SS-1…SS-5, D-2",
+      "implementation": "declared source only; hard limits; canonical anchors and recommended forms; nothing derived from cube.flow, code or logs"
+    },
+    {
+      "id": "VP08-MESSAGES",
+      "coverage": "enforced",
+      "source": "SM-1…SM-4, D-4, D-8",
+      "implementation": "closed kind set with distinct line/head styles; depth-first numbering; labels wrapped to two lines, never truncated; fixed pitch; returns only when declared; no time axis"
+    },
+    {
+      "id": "VP08-FRAGMENTS",
+      "coverage": "enforced",
+      "source": "SF-1…SF-3, D-5",
+      "implementation": "alt/opt/loop, depth <= 2; guards and bounds are declared text, never evaluated; frames span the touched participants"
+    },
+    {
+      "id": "VP08-BUDGETS",
+      "coverage": "enforced",
+      "source": "SS-6, D-6, D-7",
+      "implementation": "participants/messages/depth per window; summarize windows between top-level items; detail never continues; depth never summarized"
+    },
+    {
+      "id": "VP08-PANELS",
+      "coverage": "enforced",
+      "source": "ST-1…ST-4",
+      "implementation": "one panel per trigger window; (trigger, message) coverage; check-panels re-renders every input; text-only trigger index"
+    },
+    {
+      "id": "VP08-RETURNS",
+      "coverage": "enforced_subset",
+      "source": "D-4",
+      "implementation": "RETURN_UNMATCHED / RETURN_UNDECLARED warnings from declared messages only"
+    },
+    {
+      "id": "VP08-NONIMPLICATION",
+      "coverage": "enforced",
+      "source": "§0, D-8, D-9",
+      "implementation": "neutral lens only; declared_unverified; no causation, success, authority or time is drawn or reported"
+    },
+    {
+      "id": "VP08-TRANSPORT",
+      "coverage": "enforced",
+      "source": "D-1, D-10",
+      "implementation": "own package vpsequence; local CLI only; no G4/G5/MCP change"
+    }
+  ]
+}

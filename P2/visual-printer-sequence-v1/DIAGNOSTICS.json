@@ -1,0 +1,92 @@
+{
+  "format": "aiaeao.cube.vp08.diagnostics/1",
+  "profile": "P2-VP-SEQUENCE/0.8.0",
+  "reference_version": "v9.4",
+  "disposition": "Additive VP-08 only. VP-01…VP-07.1 registers unchanged.",
+  "codes": [
+    {
+      "code": "VP08_SOURCE_INVALID",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 §2 rows 1–2, SS-1…SS-5: wrong format/profile, unknown keys, hard limits, unknown anchor or form, duplicate IDs"
+    },
+    {
+      "code": "VP08_SEQUENCE_REFERENCE",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 §2 row 3: message names an undeclared participant; self with from ≠ to; non-self with from = to"
+    },
+    {
+      "code": "VP08_TRIGGER_INVALID",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 §2 row 4, ST-1, D-3: trigger kind outside the closed set, enters not a participant, unknown trigger"
+    },
+    {
+      "code": "VP08_FRAGMENT_INVALID",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 §2 row 5, SF-1…SF-3, D-5: alt < 2 operands, opt/loop ≠ 1, empty operand, missing guard/bound, depth > 2"
+    },
+    {
+      "code": "VP08_SEQUENCE_BUDGET",
+      "stage": "budget",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 §2 row 6, SS-6, D-6, D-7: over budget with reject or detail; fragment depth over budget; one top-level item over budget"
+    },
+    {
+      "code": "VP08_SEQUENCE_CONTINUED",
+      "stage": "report",
+      "default_status": "WARNING",
+      "reference_rule": "VP-08 §2 row 7, D-7: rendered as message windows with continuation markers; never a verdict"
+    },
+    {
+      "code": "VP08_RETURN_UNMATCHED",
+      "stage": "report",
+      "default_status": "WARNING",
+      "reference_rule": "VP-08 §2 row 8, D-4: declared return without an open declared call on the pair; never a verdict"
+    },
+    {
+      "code": "VP08_RETURN_UNDECLARED",
+      "stage": "report",
+      "default_status": "WARNING",
+      "reference_rule": "VP-08 §2 row 9, D-4: call without declared return where the trigger declares returns: expected; never a verdict"
+    },
+    {
+      "code": "VP08_METHOD_UNKNOWN",
+      "stage": "report",
+      "default_status": "WARNING",
+      "reference_rule": "VP-08 §2 row 10: method_id not in the supplied method_contracts list; display check only, never P1 validation"
+    },
+    {
+      "code": "VP08_PANEL_COVERAGE",
+      "stage": "coverage",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 §2 row 11, ST-3: files, digests, inputs, units or coverage differ from a deterministic re-render; unknown partition"
+    },
+    {
+      "code": "VP08_AUDIT",
+      "stage": "audit",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 §2 row 12: active SVG content, embedded ledger mismatch, drawn messages differ, message partition not exact"
+    },
+    {
+      "code": "VP08_INPUT_INVALID",
+      "stage": "input",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 VP-07 rule: unreadable, oversized, duplicate-key or non-finite JSON"
+    },
+    {
+      "code": "VP08_OUTPUT_EXISTS",
+      "stage": "output",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 VP-06 PE-5 rule: output already exists"
+    },
+    {
+      "code": "VP08_OUTPUT_IO",
+      "stage": "output",
+      "default_status": "FAIL",
+      "reference_rule": "VP-08 VP-06 PE-5 rule: staging or publish failed"
+    }
+  ]
+}

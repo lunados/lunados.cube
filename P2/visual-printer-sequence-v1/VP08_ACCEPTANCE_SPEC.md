@@ -1,6 +1,6 @@
 # VP-08 — Sequence Views per trigger · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-10 resolved 2026-10-26 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-26 (S-01…S-20 20/20); decisions D-1…D-10 resolved 2026-10-26 (all as proposed).
 **Profile:** `P2-VP-SEQUENCE/0.8.0`, additive to the frozen `P2-VP/1.0.0-rc1` facade (VP-06) and independent of `P2-VP-MIGRATION/0.7.x` (VP-07, VP-07.1).
 **Basis:** Morphology v9.4 visual anchors (`module-bodies.*`, `identity-anchors.*`, `relation-arrows.*`); VP-01 printer primitives; VP-05 audit rules (`NO_ACTIVE_SVG_CONTENT`); VP-06 budgets and publish rules; VP-07 panel export with (unit) coverage ledger, text index and declaration ledger; P1.8 `method_contracts` (optional reference only).
 **Motivation:** `cube.flow` shows *who depends on whom* in a use case, but not *in which order* modules talk to each other when a user presses a button. Edges have no order, no call/return distinction and no alternative paths. VP-08 adds a sequence view: modules as lifelines, declared messages as numbered arrows, `alt`/`opt`/`loop` frames, one sequence per declared trigger (button, schedule, webhook …). Everything shown stays `declared_unverified`: order is the declared list order, never a measured time, and an arrow never asserts causation, success or authority.

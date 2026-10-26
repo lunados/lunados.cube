@@ -1,0 +1,440 @@
+{
+ "expected": {
+  "checkout_frames": {
+   "f-items": "loop",
+   "f-pay": "alt"
+  },
+  "checkout_numbering": {
+   "c1": 1,
+   "c2": 2,
+   "c3": 3,
+   "c4": 4,
+   "c5": 5,
+   "c6": 6,
+   "c7": 7
+  },
+  "messages": 34,
+  "panels_trigger_standard": {
+   "continued_trigger": "sched-reminder",
+   "coverage": "COMPLETE",
+   "panels": 5,
+   "units": 34,
+   "windows": 2
+  },
+  "participants": 5,
+  "triggers": 4,
+  "ui_buttons": 3,
+  "warnings": [
+   {
+    "code": "VP08_SEQUENCE_CONTINUED",
+    "trigger_id": "sched-reminder"
+   }
+  ]
+ },
+ "format": "aiaeao.cube.vp08-golden/1",
+ "reference_version": "v9.4",
+ "sequence_source": {
+  "declaration_status": "declared_unverified",
+  "format": "aiaeao.cube.vp08-sequence-source/1",
+  "method_contracts": [
+   {
+    "method_id": "pay.charge/v1"
+   },
+   {
+    "method_id": "pay.refund/v1"
+   }
+  ],
+  "participants": [
+   {
+    "anchor_id": "identity-anchors.actor",
+    "form_id": "form.identity-chip",
+    "id": "customer",
+    "label": "customer"
+   },
+   {
+    "anchor_id": "module-bodies.adapter",
+    "form_id": "form.module-block",
+    "id": "web",
+    "label": "web shop UI"
+   },
+   {
+    "anchor_id": "module-bodies.core",
+    "form_id": "form.module-block",
+    "id": "orders",
+    "label": "order service"
+   },
+   {
+    "anchor_id": "module-bodies.third-party-dependency",
+    "form_id": "form.module-block",
+    "id": "pay",
+    "label": "payment provider"
+   },
+   {
+    "anchor_id": "module-bodies.provider",
+    "form_id": "form.module-block",
+    "id": "mail",
+    "label": "mail service"
+   }
+  ],
+  "profile": "P2-VP-SEQUENCE/0.8.0",
+  "reference_version": "v9.4",
+  "source_id": "golden-vp08",
+  "title": "Acme shop · order flows",
+  "triggers": [
+   {
+    "declaration_ref": "fixture:vp08-golden/btn-checkout",
+    "enters": "web",
+    "id": "btn-checkout",
+    "kind": "ui_button",
+    "label": "Checkout",
+    "returns": "expected",
+    "sequence": [
+     {
+      "declaration_ref": "fixture:vp08-golden/c1",
+      "from": "web",
+      "id": "c1",
+      "kind": "call",
+      "label": "create order from cart",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/c2",
+      "from": "orders",
+      "id": "c2",
+      "kind": "self",
+      "label": "reserve stock",
+      "to": "orders"
+     },
+     {
+      "fragment": "alt",
+      "id": "f-pay",
+      "operands": [
+       {
+        "guard": "payment accepted",
+        "sequence": [
+         {
+          "declaration_ref": "fixture:vp08-golden/c3",
+          "from": "orders",
+          "id": "c3",
+          "kind": "call",
+          "label": "charge card",
+          "method_id": "pay.charge/v1",
+          "to": "pay"
+         },
+         {
+          "declaration_ref": "fixture:vp08-golden/c4",
+          "from": "pay",
+          "id": "c4",
+          "kind": "return",
+          "label": "receipt",
+          "to": "orders"
+         },
+         {
+          "fragment": "loop",
+          "id": "f-items",
+          "operands": [
+           {
+            "bound": "for each ordered item",
+            "sequence": [
+             {
+              "declaration_ref": "fixture:vp08-golden/c5",
+              "from": "orders",
+              "id": "c5",
+              "kind": "async",
+              "label": "queue item confirmation",
+              "to": "mail"
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "guard": "payment declined",
+        "sequence": [
+         {
+          "declaration_ref": "fixture:vp08-golden/c6",
+          "from": "orders",
+          "id": "c6",
+          "kind": "self",
+          "label": "release stock",
+          "to": "orders"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/c7",
+      "from": "orders",
+      "id": "c7",
+      "kind": "return",
+      "label": "order status",
+      "to": "web"
+     }
+    ],
+    "use_case": "uc-order"
+   },
+   {
+    "declaration_ref": "fixture:vp08-golden/btn-cancel",
+    "enters": "web",
+    "id": "btn-cancel",
+    "kind": "ui_button",
+    "label": "Cancel order",
+    "sequence": [
+     {
+      "declaration_ref": "fixture:vp08-golden/x1",
+      "from": "web",
+      "id": "x1",
+      "kind": "call",
+      "label": "cancel order",
+      "to": "orders"
+     },
+     {
+      "fragment": "opt",
+      "id": "f-refund",
+      "operands": [
+       {
+        "guard": "already charged",
+        "sequence": [
+         {
+          "declaration_ref": "fixture:vp08-golden/x2",
+          "from": "orders",
+          "id": "x2",
+          "kind": "call",
+          "label": "refund",
+          "method_id": "pay.refund/v1",
+          "to": "pay"
+         },
+         {
+          "declaration_ref": "fixture:vp08-golden/x3",
+          "from": "pay",
+          "id": "x3",
+          "kind": "return",
+          "label": "refund receipt",
+          "to": "orders"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/x4",
+      "from": "orders",
+      "id": "x4",
+      "kind": "async",
+      "label": "send cancellation",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/x5",
+      "from": "orders",
+      "id": "x5",
+      "kind": "return",
+      "label": "cancelled",
+      "to": "web"
+     }
+    ],
+    "use_case": "uc-order"
+   },
+   {
+    "declaration_ref": "fixture:vp08-golden/btn-track",
+    "enters": "web",
+    "id": "btn-track",
+    "kind": "ui_button",
+    "label": "Track order",
+    "sequence": [
+     {
+      "declaration_ref": "fixture:vp08-golden/t1",
+      "from": "web",
+      "id": "t1",
+      "kind": "call",
+      "label": "get order status",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/t2",
+      "from": "orders",
+      "id": "t2",
+      "kind": "return",
+      "label": "status",
+      "to": "web"
+     }
+    ],
+    "use_case": "uc-track"
+   },
+   {
+    "declaration_ref": "fixture:vp08-golden/sched-reminder",
+    "enters": "orders",
+    "id": "sched-reminder",
+    "kind": "schedule",
+    "label": "Daily reminders",
+    "sequence": [
+     {
+      "declaration_ref": "fixture:vp08-golden/e01",
+      "from": "orders",
+      "id": "e01",
+      "kind": "call",
+      "label": "send reminder batch 1",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e02",
+      "from": "mail",
+      "id": "e02",
+      "kind": "return",
+      "label": "batch 1 accepted",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e03",
+      "from": "orders",
+      "id": "e03",
+      "kind": "call",
+      "label": "send reminder batch 2",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e04",
+      "from": "mail",
+      "id": "e04",
+      "kind": "return",
+      "label": "batch 2 accepted",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e05",
+      "from": "orders",
+      "id": "e05",
+      "kind": "call",
+      "label": "send reminder batch 3",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e06",
+      "from": "mail",
+      "id": "e06",
+      "kind": "return",
+      "label": "batch 3 accepted",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e07",
+      "from": "orders",
+      "id": "e07",
+      "kind": "call",
+      "label": "send reminder batch 4",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e08",
+      "from": "mail",
+      "id": "e08",
+      "kind": "return",
+      "label": "batch 4 accepted",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e09",
+      "from": "orders",
+      "id": "e09",
+      "kind": "call",
+      "label": "send reminder batch 5",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e10",
+      "from": "mail",
+      "id": "e10",
+      "kind": "return",
+      "label": "batch 5 accepted",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e11",
+      "from": "orders",
+      "id": "e11",
+      "kind": "call",
+      "label": "send reminder batch 6",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e12",
+      "from": "mail",
+      "id": "e12",
+      "kind": "return",
+      "label": "batch 6 accepted",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e13",
+      "from": "orders",
+      "id": "e13",
+      "kind": "call",
+      "label": "send reminder batch 7",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e14",
+      "from": "mail",
+      "id": "e14",
+      "kind": "return",
+      "label": "batch 7 accepted",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e15",
+      "from": "orders",
+      "id": "e15",
+      "kind": "call",
+      "label": "send reminder batch 8",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e16",
+      "from": "mail",
+      "id": "e16",
+      "kind": "return",
+      "label": "batch 8 accepted",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e17",
+      "from": "orders",
+      "id": "e17",
+      "kind": "call",
+      "label": "send reminder batch 9",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e18",
+      "from": "mail",
+      "id": "e18",
+      "kind": "return",
+      "label": "batch 9 accepted",
+      "to": "orders"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e19",
+      "from": "orders",
+      "id": "e19",
+      "kind": "call",
+      "label": "send reminder batch 10",
+      "to": "mail"
+     },
+     {
+      "declaration_ref": "fixture:vp08-golden/e20",
+      "from": "mail",
+      "id": "e20",
+      "kind": "return",
+      "label": "batch 10 accepted",
+      "to": "orders"
+     }
+    ],
+    "use_case": "uc-remind"
+   }
+  ]
+ },
+ "source": "synthetic; no client data"
+}
