@@ -109,6 +109,17 @@ Index (synthetic): a drawn table — `Checkout (ui_button) · uc-order · 6 mess
 - ST-3: Coverage unit `(trigger_id, message_id)`; every unit is shown in at least one panel; continued windows repeat the participant header and show a continuation marker (`… continued from 12`).
 - ST-4: The index is text-only: per trigger its label, kind, use case, message count and panel names (VP-07 PE-5 style, no thumbnails).
 
+### 3.5 Source format and limits (SS)
+
+Clarification transcribed together with the oracle (no decision changed).
+
+- SS-1: Source keys: required `format`, `profile`, `reference_version` (`v9.4`), `source_id`, `title`, `participants`, `triggers`, `declaration_status` (`declared_unverified`); optional `subtitle`, `method_contracts` (array of `{method_id}`, display check only, §2).
+- SS-2: Participant: `id`, `anchor_id`, `form_id`, `label` (≤ 60), optional `semantic_ref`; anchor canonical, form recommended for the anchor (VP-01 rule).
+- SS-3: Trigger: `id`, `kind`, `label` (≤ 60), `enters`, `declaration_ref`, `sequence`; optional `use_case`, `returns` (`expected`).
+- SS-4: Message: `id`, `kind`, `from`, `to`, `label` (≤ 120), `declaration_ref` (`decl:`/`fixture:`, ≤ 180); optional `method_id`. Fragment: `fragment` ∈ {`alt`, `opt`, `loop`}, `id`, `operands` = array of `{guard | bound, sequence}` (`guard` for `alt`/`opt`, `bound` for `loop`, ≤ 60).
+- SS-5: Hard limits (FAIL `VP08_SOURCE_INVALID`): participants ≤ 40, triggers ≤ 100, messages per trigger ≤ 300, messages per source ≤ 3000. IDs are stable IDs, unique per source (participants, triggers, messages and fragments share one namespace per trigger).
+- SS-6: Budget per drawn window (D-6): participants / messages / fragment depth — overview 4/8/1, standard 7/16/2, detail 10/30/2. Over budget: `reject` or `detail` → FAIL `VP08_SEQUENCE_BUDGET`; `summarize` → message windows in declared order that each fit; windows break only between top-level items of the trigger sequence (a fragment is never split), and a single top-level item over budget FAILs with `VP08_SEQUENCE_BUDGET`. Fragment depth is never summarized.
+
 ## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |

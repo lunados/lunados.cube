@@ -1,0 +1,2340 @@
+{
+ "cases": [
+  {
+   "expect": {
+    "messages_drawn": 2,
+    "trigger_arrow": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-01",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "return",
+         "label": "return m2",
+         "to": "a"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-02",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.unknown",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_SOURCE_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-03",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "zz"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_SEQUENCE_REFERENCE"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-04",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "self",
+         "label": "self m1",
+         "to": "b"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_SEQUENCE_REFERENCE"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-05",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "cron",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_TRIGGER_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-06",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p01",
+       "label": "module 1"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p02",
+       "label": "module 2"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p03",
+       "label": "module 3"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p04",
+       "label": "module 4"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p05",
+       "label": "module 5"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p06",
+       "label": "module 6"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p07",
+       "label": "module 7"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p08",
+       "label": "module 8"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p09",
+       "label": "module 9"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p10",
+       "label": "module 10"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p11",
+       "label": "module 11"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p12",
+       "label": "module 12"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p13",
+       "label": "module 13"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p14",
+       "label": "module 14"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p15",
+       "label": "module 15"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p16",
+       "label": "module 16"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p17",
+       "label": "module 17"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p18",
+       "label": "module 18"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p19",
+       "label": "module 19"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p20",
+       "label": "module 20"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p21",
+       "label": "module 21"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p22",
+       "label": "module 22"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p23",
+       "label": "module 23"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p24",
+       "label": "module 24"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p25",
+       "label": "module 25"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p26",
+       "label": "module 26"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p27",
+       "label": "module 27"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p28",
+       "label": "module 28"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p29",
+       "label": "module 29"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p30",
+       "label": "module 30"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p31",
+       "label": "module 31"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p32",
+       "label": "module 32"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p33",
+       "label": "module 33"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p34",
+       "label": "module 34"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p35",
+       "label": "module 35"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p36",
+       "label": "module 36"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p37",
+       "label": "module 37"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p38",
+       "label": "module 38"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p39",
+       "label": "module 39"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p40",
+       "label": "module 40"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "p41",
+       "label": "module 41"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "p01",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "p01",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "p02"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_SOURCE_INVALID"
+   ]
+  },
+  {
+   "expect": {
+    "distinct_kind_styles": [
+     "call",
+     "return",
+     "async",
+     "self"
+    ],
+    "legend_kinds_once": [
+     "call",
+     "return",
+     "async",
+     "self"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-07",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "self",
+         "label": "self m2",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m3",
+         "from": "b",
+         "id": "m3",
+         "kind": "async",
+         "label": "async m3",
+         "to": "c"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m4",
+         "from": "b",
+         "id": "m4",
+         "kind": "return",
+         "label": "return m4",
+         "to": "a"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "numbering": {
+     "m1": 1,
+     "m2": 2,
+     "m3": 3,
+     "m4": 4,
+     "m5": 5
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-08",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "fragment": "alt",
+         "id": "f1",
+         "operands": [
+          {
+           "guard": "accepted",
+           "sequence": [
+            {
+             "declaration_ref": "fixture:vp08/m2",
+             "from": "b",
+             "id": "m2",
+             "kind": "call",
+             "label": "call m2",
+             "to": "c"
+            },
+            {
+             "declaration_ref": "fixture:vp08/m3",
+             "from": "c",
+             "id": "m3",
+             "kind": "return",
+             "label": "return m3",
+             "to": "b"
+            }
+           ]
+          },
+          {
+           "guard": "declined",
+           "sequence": [
+            {
+             "declaration_ref": "fixture:vp08/m4",
+             "from": "b",
+             "id": "m4",
+             "kind": "return",
+             "label": "return m4",
+             "to": "a"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "declaration_ref": "fixture:vp08/m5",
+         "from": "b",
+         "id": "m5",
+         "kind": "return",
+         "label": "return m5",
+         "to": "a"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "full_label_in_title": "m1",
+    "label_lines": {
+     "lines": 2,
+     "message": "m1"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-09",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "submit the completed order form together with the selected delivery option and voucher cod",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "return",
+         "label": "return m2",
+         "to": "a"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-10",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "b",
+         "id": "m1",
+         "kind": "return",
+         "label": "return m1",
+         "to": "a"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_RETURN_UNMATCHED"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-11",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "method_contracts": [
+      {
+       "method_id": "x.known/v1"
+      }
+     ],
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "method_id": "x.unknown/v1",
+         "to": "b"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_METHOD_UNKNOWN"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-12",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "fragment": "alt",
+         "id": "f1",
+         "operands": [
+          {
+           "guard": "only",
+           "sequence": [
+            {
+             "declaration_ref": "fixture:vp08/m1",
+             "from": "a",
+             "id": "m1",
+             "kind": "call",
+             "label": "call m1",
+             "to": "b"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_FRAGMENT_INVALID"
+   ]
+  },
+  {
+   "expect": {
+    "frame_spans": {
+     "frame": "f1",
+     "participants": [
+      "b",
+      "c"
+     ]
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-13",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "fragment": "loop",
+         "id": "f1",
+         "operands": [
+          {
+           "bound": "for each item",
+           "sequence": [
+            {
+             "declaration_ref": "fixture:vp08/m2",
+             "from": "b",
+             "id": "m2",
+             "kind": "call",
+             "label": "call m2",
+             "to": "c"
+            },
+            {
+             "declaration_ref": "fixture:vp08/m3",
+             "from": "c",
+             "id": "m3",
+             "kind": "return",
+             "label": "return m3",
+             "to": "b"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "declaration_ref": "fixture:vp08/m4",
+         "from": "b",
+         "id": "m4",
+         "kind": "return",
+         "label": "return m4",
+         "to": "a"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-14",
+   "input": {
+    "granularity": "detail",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "fragment": "alt",
+         "id": "f1",
+         "operands": [
+          {
+           "guard": "x",
+           "sequence": [
+            {
+             "fragment": "opt",
+             "id": "f2",
+             "operands": [
+              {
+               "guard": "inner",
+               "sequence": [
+                {
+                 "fragment": "loop",
+                 "id": "f3",
+                 "operands": [
+                  {
+                   "bound": "each",
+                   "sequence": [
+                    {
+                     "declaration_ref": "fixture:vp08/m1",
+                     "from": "a",
+                     "id": "m1",
+                     "kind": "call",
+                     "label": "call m1",
+                     "to": "b"
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "guard": "y",
+           "sequence": [
+            {
+             "declaration_ref": "fixture:vp08/m2",
+             "from": "a",
+             "id": "m2",
+             "kind": "call",
+             "label": "call m2",
+             "to": "b"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_FRAGMENT_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-15",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "fragment": "opt",
+         "id": "f1",
+         "operands": [
+          {
+           "sequence": [
+            {
+             "declaration_ref": "fixture:vp08/m1",
+             "from": "a",
+             "id": "m1",
+             "kind": "call",
+             "label": "call m1",
+             "to": "b"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_FRAGMENT_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-16",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "return",
+         "label": "return m2",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m3",
+         "from": "a",
+         "id": "m3",
+         "kind": "call",
+         "label": "call m3",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m4",
+         "from": "b",
+         "id": "m4",
+         "kind": "return",
+         "label": "return m4",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m5",
+         "from": "a",
+         "id": "m5",
+         "kind": "call",
+         "label": "call m5",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m6",
+         "from": "b",
+         "id": "m6",
+         "kind": "return",
+         "label": "return m6",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m7",
+         "from": "a",
+         "id": "m7",
+         "kind": "call",
+         "label": "call m7",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m8",
+         "from": "b",
+         "id": "m8",
+         "kind": "return",
+         "label": "return m8",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m9",
+         "from": "a",
+         "id": "m9",
+         "kind": "call",
+         "label": "call m9",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m10",
+         "from": "b",
+         "id": "m10",
+         "kind": "return",
+         "label": "return m10",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m11",
+         "from": "a",
+         "id": "m11",
+         "kind": "call",
+         "label": "call m11",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m12",
+         "from": "b",
+         "id": "m12",
+         "kind": "return",
+         "label": "return m12",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m13",
+         "from": "a",
+         "id": "m13",
+         "kind": "call",
+         "label": "call m13",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m14",
+         "from": "b",
+         "id": "m14",
+         "kind": "return",
+         "label": "return m14",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m15",
+         "from": "a",
+         "id": "m15",
+         "kind": "call",
+         "label": "call m15",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m16",
+         "from": "b",
+         "id": "m16",
+         "kind": "return",
+         "label": "return m16",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m17",
+         "from": "a",
+         "id": "m17",
+         "kind": "call",
+         "label": "call m17",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m18",
+         "from": "b",
+         "id": "m18",
+         "kind": "return",
+         "label": "return m18",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m19",
+         "from": "a",
+         "id": "m19",
+         "kind": "call",
+         "label": "call m19",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m20",
+         "from": "b",
+         "id": "m20",
+         "kind": "return",
+         "label": "return m20",
+         "to": "a"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_SEQUENCE_BUDGET"
+   ]
+  },
+  {
+   "expect": {
+    "windows_cover_all": true,
+    "windows_min": 2
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-17",
+   "input": {
+    "granularity": "standard",
+    "overflow": "summarize",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "return",
+         "label": "return m2",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m3",
+         "from": "a",
+         "id": "m3",
+         "kind": "call",
+         "label": "call m3",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m4",
+         "from": "b",
+         "id": "m4",
+         "kind": "return",
+         "label": "return m4",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m5",
+         "from": "a",
+         "id": "m5",
+         "kind": "call",
+         "label": "call m5",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m6",
+         "from": "b",
+         "id": "m6",
+         "kind": "return",
+         "label": "return m6",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m7",
+         "from": "a",
+         "id": "m7",
+         "kind": "call",
+         "label": "call m7",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m8",
+         "from": "b",
+         "id": "m8",
+         "kind": "return",
+         "label": "return m8",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m9",
+         "from": "a",
+         "id": "m9",
+         "kind": "call",
+         "label": "call m9",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m10",
+         "from": "b",
+         "id": "m10",
+         "kind": "return",
+         "label": "return m10",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m11",
+         "from": "a",
+         "id": "m11",
+         "kind": "call",
+         "label": "call m11",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m12",
+         "from": "b",
+         "id": "m12",
+         "kind": "return",
+         "label": "return m12",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m13",
+         "from": "a",
+         "id": "m13",
+         "kind": "call",
+         "label": "call m13",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m14",
+         "from": "b",
+         "id": "m14",
+         "kind": "return",
+         "label": "return m14",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m15",
+         "from": "a",
+         "id": "m15",
+         "kind": "call",
+         "label": "call m15",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m16",
+         "from": "b",
+         "id": "m16",
+         "kind": "return",
+         "label": "return m16",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m17",
+         "from": "a",
+         "id": "m17",
+         "kind": "call",
+         "label": "call m17",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m18",
+         "from": "b",
+         "id": "m18",
+         "kind": "return",
+         "label": "return m18",
+         "to": "a"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m19",
+         "from": "a",
+         "id": "m19",
+         "kind": "call",
+         "label": "call m19",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m20",
+         "from": "b",
+         "id": "m20",
+         "kind": "return",
+         "label": "return m20",
+         "to": "a"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": [
+    "VP08_SEQUENCE_CONTINUED"
+   ]
+  },
+  {
+   "expect": {
+    "coverage_complete": true,
+    "index_triggers": 4,
+    "panel_count_min": 4
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-18",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "partition": "trigger",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-checkout",
+       "enters": "a",
+       "id": "btn-checkout",
+       "kind": "ui_button",
+       "label": "btn checkout",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "call",
+         "label": "call m2",
+         "to": "c"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m3",
+         "from": "c",
+         "id": "m3",
+         "kind": "return",
+         "label": "return m3",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m4",
+         "from": "b",
+         "id": "m4",
+         "kind": "return",
+         "label": "return m4",
+         "to": "a"
+        }
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp08/btn-cancel",
+       "enters": "a",
+       "id": "btn-cancel",
+       "kind": "ui_button",
+       "label": "btn cancel",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "async",
+         "label": "async m2",
+         "to": "c"
+        }
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp08/btn-track",
+       "enters": "a",
+       "id": "btn-track",
+       "kind": "ui_button",
+       "label": "btn track",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "return",
+         "label": "return m2",
+         "to": "a"
+        }
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp08/sched-reminder",
+       "enters": "c",
+       "id": "sched-reminder",
+       "kind": "schedule",
+       "label": "sched reminder",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "c",
+         "id": "m1",
+         "kind": "async",
+         "label": "async m1",
+         "to": "d"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "op": "panels",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-19",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "partition": "trigger",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-checkout",
+       "enters": "a",
+       "id": "btn-checkout",
+       "kind": "ui_button",
+       "label": "btn checkout",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "call",
+         "label": "call m2",
+         "to": "c"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m3",
+         "from": "c",
+         "id": "m3",
+         "kind": "return",
+         "label": "return m3",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m4",
+         "from": "b",
+         "id": "m4",
+         "kind": "return",
+         "label": "return m4",
+         "to": "a"
+        }
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp08/btn-cancel",
+       "enters": "a",
+       "id": "btn-cancel",
+       "kind": "ui_button",
+       "label": "btn cancel",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "async",
+         "label": "async m2",
+         "to": "c"
+        }
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp08/btn-track",
+       "enters": "a",
+       "id": "btn-track",
+       "kind": "ui_button",
+       "label": "btn track",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "declaration_ref": "fixture:vp08/m2",
+         "from": "b",
+         "id": "m2",
+         "kind": "return",
+         "label": "return m2",
+         "to": "a"
+        }
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp08/sched-reminder",
+       "enters": "c",
+       "id": "sched-reminder",
+       "kind": "schedule",
+       "label": "sched reminder",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "c",
+         "id": "m1",
+         "kind": "async",
+         "label": "async m1",
+         "to": "d"
+        }
+       ]
+      }
+     ]
+    },
+    "tamper": "drop_message"
+   },
+   "op": "panels",
+   "required_codes": [
+    "VP08_PANEL_COVERAGE"
+   ]
+  },
+  {
+   "expect": {
+    "no_active_content": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-20",
+   "input": {
+    "granularity": "standard",
+    "overflow": "reject",
+    "source": {
+     "declaration_status": "declared_unverified",
+     "format": "aiaeao.cube.vp08-sequence-source/1",
+     "participants": [
+      {
+       "anchor_id": "identity-anchors.actor",
+       "form_id": "form.identity-chip",
+       "id": "a",
+       "label": "customer"
+      },
+      {
+       "anchor_id": "module-bodies.adapter",
+       "form_id": "form.module-block",
+       "id": "b",
+       "label": "web UI"
+      },
+      {
+       "anchor_id": "module-bodies.core",
+       "form_id": "form.module-block",
+       "id": "c",
+       "label": "order service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "d",
+       "label": "mail service"
+      }
+     ],
+     "profile": "P2-VP-SEQUENCE/0.8.0",
+     "reference_version": "v9.4",
+     "source_id": "fixture-seq",
+     "title": "Fixture sequences",
+     "triggers": [
+      {
+       "declaration_ref": "fixture:vp08/btn-1",
+       "enters": "a",
+       "id": "btn-1",
+       "kind": "ui_button",
+       "label": "btn 1",
+       "sequence": [
+        {
+         "declaration_ref": "fixture:vp08/m1",
+         "from": "a",
+         "id": "m1",
+         "kind": "call",
+         "label": "call m1",
+         "to": "b"
+        },
+        {
+         "fragment": "loop",
+         "id": "f1",
+         "operands": [
+          {
+           "bound": "for each item",
+           "sequence": [
+            {
+             "declaration_ref": "fixture:vp08/m2",
+             "from": "b",
+             "id": "m2",
+             "kind": "call",
+             "label": "call m2",
+             "to": "c"
+            },
+            {
+             "declaration_ref": "fixture:vp08/m3",
+             "from": "c",
+             "id": "m3",
+             "kind": "return",
+             "label": "return m3",
+             "to": "b"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "declaration_ref": "fixture:vp08/m4",
+         "from": "b",
+         "id": "m4",
+         "kind": "return",
+         "label": "return m4",
+         "to": "a"
+        }
+       ]
+      }
+     ]
+    },
+    "trigger": "btn-1"
+   },
+   "op": "sequence",
+   "required_codes": []
+  }
+ ],
+ "format": "aiaeao.cube.vp08-vectors/1",
+ "reference_version": "v9.4",
+ "source": "VP08_ACCEPTANCE_SPEC.md §5 + oracles/independent_s01_s20.json"
+}
