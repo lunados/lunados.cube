@@ -22,8 +22,8 @@ if not rules or any(x.get('type')!='Text' for x in rules):
 patterns=[s for rule in rules for s in rule.get('globs',[])]
 manifest=json.loads(MANIFEST.read_text('utf-8'))
 assets={x['path']:x['sha256'] for x in manifest['files'] if Path(x['path']).suffix != '.py'}
-if len(assets)!=41:
-    sys.exit(f'FAIL: expected 40 frozen plus 1 P1.6 non-Python assets, found {len(assets)}')
+if len(assets)!=42:
+    sys.exit(f'FAIL: expected 40 frozen plus 1 P1.6 and 1 P1.10 non-Python assets, found {len(assets)}')
 matched={p.relative_to(RT).as_posix() for pattern in patterns for p in RT.glob(pattern) if p.is_file()}
 missing=sorted(set(assets)-matched)
 if missing:sys.exit('FAIL: missing Wrangler Text coverage: '+', '.join(missing))
@@ -36,13 +36,15 @@ from collections import Counter
 counts=Counter('P0' if x.startswith('P3/adapters/mcp-local/p0_snapshot/') else
                'P1' if x.startswith('P1/semantic-validator-v1/baseline/') else
                'P16' if x == 'P1/instantiation-profile-v1/instantiation_reference_v1.json' else
+               'P110' if x == 'P1/migration-profile-v1/cube_p110/profiles/migration-predicates-v1.json' else
                'P2' if x.startswith('P2/visual-printer-2d-lab/reference/') else 'OTHER'
                for x in assets)
-if counts!={'P0':14,'P1':20,'P2':6,'P16':1}:
+if counts!={'P0':14,'P1':20,'P2':6,'P16':1,'P110':1}:
     sys.exit(f'FAIL: unexpected asset family counts {dict(counts)}')
 # Explicitly check the exact resources loaded by P1 Resolver and VP-06 Printer.
 critical=[
 'P1/instantiation-profile-v1/instantiation_reference_v1.json',
+'P1/migration-profile-v1/cube_p110/profiles/migration-predicates-v1.json',
 'P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/contract/source_lock.json',
 'P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/contract/concept_keys.json',
 'P1/semantic-validator-v1/baseline/P0_reference/grammar/concepts.json',
@@ -54,6 +56,6 @@ critical=[
 ]
 if any(f not in assets or f not in matched for f in critical):
     sys.exit('FAIL: critical frozen P1/P2 resource is not included in Wrangler Text rules')
-print('PASS G5 offline packaging coverage: 40 frozen + 1 P1.6 asset (P0=14, P1=20, P2=6, P16=1); SHA-256 verified')
+print('PASS G5 offline packaging coverage: 40 frozen + 1 P1.6 + 1 P1.10 asset (P0=14, P1=20, P2=6, P16=1, P110=1); SHA-256 verified')
 print('PASS G5 private Worker and module rules match the assembled runtime config')
 print('NOT PROVEN: Cloudflare Pyodide read/validation/render until re-deployment and remote smoke')

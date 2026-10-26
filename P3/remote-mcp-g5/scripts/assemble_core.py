@@ -21,6 +21,7 @@ FILES={
  'P1/instantiation-profile-v1/cube_p16':'*',
  'P1/simulation-profile-v1/cube_p18':'*',
  'P1/comparison-profile-v1/cube_p19':'*',
+ 'P1/migration-profile-v1/cube_p110':'*',
  'P2/visual-printer-release-v1/vpprint':'*',
  'P2/visual-printer-conformance-v1/vpconformance':'*',
  'P2/visual-printer-granularity-v1/vpgranularity':'*',
@@ -79,9 +80,22 @@ def main():
         assert p19['ok'] and p19['result']['report']['overall_status']==want,(cid,p19)
         assert p19['result']['comparison_profile']=='P1.9/comparison-profile-v1',p19
     assert dispatch('cube_discover_surface')['result']['p19_comparison']['profile']=='P1.9/comparison-profile-v1'
+    mvec={c['id']:c for c in json.loads((REPO/'P1/migration-profile-v1/fixtures/m01_m22_materialized.json').read_text('utf-8'))['cases']}
+    for mid,want in (('M-01','PASS'),('M-18','PASS'),('M-17','FAIL'),('M-10','UNRESOLVED')):
+        p110=dispatch('cube_validate',{'input_text':mvec[mid]['input_text'],'context':mvec[mid]['context'],
+                                       'qualification_profiles':mvec[mid].get('qualification_profiles')})
+        assert p110['ok'] and p110['result']['report']['overall_status']==want,(mid,p110)
+        assert p110['result']['migration_profile']=='P1.10/migration-profile-v1',p110
+        assert p110['result']['evaluation_performed_by_cube'] is False,p110
+    assert dispatch('cube_validate',{'input_text':mvec['M-02']['input_text'],'context':mvec['M-02']['context']})['ok'] is False
+    gold={c['id']:c for c in json.loads((REPO/'P1/migration-profile-v1/fixtures/golden_migration_synthetic.json').read_text('utf-8'))['cases']}
+    for gid,c in gold.items():
+        g=dispatch('cube_validate',{'input_text':c['input_text'],'context':c['context'],'qualification_profiles':c['qualification_profiles']})
+        assert g['ok'] and g['result']['report']['overall_status']==c['expected_overall'],(gid,g)
+    assert dispatch('cube_discover_surface')['result']['p110_migration']['profile']=='P1.10/migration-profile-v1'
     (OUT/'G5_SOURCE_MANIFEST.json').write_text(json.dumps({'format':'aiaeao.cube.g5-assembly/1',
          'files':manifest,'p0_snapshot_lock':report['lock_sha256']},sort_keys=True,indent=2)+'\n','utf-8')
-    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9); pinned P0 %s' % (len(manifest),report['lock_sha256']))
+    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9 + P1.10); pinned P0 %s' % (len(manifest),report['lock_sha256']))
     print('Deployable candidate assembled at: '+str(OUT))
 
 if __name__=='__main__': main()
