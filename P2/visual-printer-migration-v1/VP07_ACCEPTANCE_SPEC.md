@@ -87,6 +87,8 @@ All diagnostics follow VP-06: one JSON object on stderr, exit 2, no output direc
 | `from-plan` referent concept without a mapping row (§3.4), or a `ref` that is not a valid display ID / exceeds 60 chars without a label-map entry (D-11) | FAIL | `VP07_ADAPTER_MAPPING` |
 | Track or label map not declared JSON, maps an unknown subject, or assigns a subject twice | FAIL | `VP07_ADAPTER_INPUT` |
 | Any VP-06 rule violated by a generated bundle | FAIL | existing VP-06 code |
+| Malformed `cube.phases` plan or styled envelope (keys, profile, IDs, labels, `declaration_ref` scope) | FAIL | `VP07_PHASES_PLAN`, `VP07_ENVELOPE_INVALID` |
+| Unreadable input, > 2 MiB, duplicate key, existing output, failed publish, internal audit invariant | FAIL | `VP07_INPUT_INVALID`, `VP07_OUTPUT_EXISTS`, `VP07_OUTPUT_IO`, `VP07_AUDIT` |
 
 `VP07_DECLARED_CONFLICT` and `VP07_DECLARED_PREMATURE` mirror P1.10 `P1_MIGRATION_DANGLING_DEPENDENCY` and `P1_MIGRATION_PREMATURE_DEPENDENCY` visually; they are computed from the declared cells and transitions only and never replace the P1 report.
 

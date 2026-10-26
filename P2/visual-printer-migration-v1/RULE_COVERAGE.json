@@ -1,0 +1,55 @@
+{
+  "format": "aiaeao.cube.vp07.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P2 display vocabulary; descriptive only",
+  "rules": [
+    {
+      "id": "VP07-PHASES",
+      "coverage": "enforced",
+      "source": "PV-1…PV-7, D-1",
+      "implementation": "budgets with lanes per row; detail never omits; steps never summarized; neutral lens only"
+    },
+    {
+      "id": "VP07-CONFLICTS",
+      "coverage": "enforced_subset",
+      "source": "PV-5, D-7",
+      "implementation": "computed from declared cells/transitions only; hatches are explicit lines; never replaces the P1 report"
+    },
+    {
+      "id": "VP07-EDGE-STYLES",
+      "coverage": "enforced",
+      "source": "ES-1…ES-6, D-9",
+      "implementation": "closed style set; post-processing of an unchanged VP-06 result; arrowhead and colours untouched"
+    },
+    {
+      "id": "VP07-SOURCE",
+      "coverage": "enforced",
+      "source": "MS-1…MS-3, D-10",
+      "implementation": "hard limits; every row/object referenced; facet targets declared"
+    },
+    {
+      "id": "VP07-ADAPTER",
+      "coverage": "enforced_subset",
+      "source": "AD-1…AD-9, D-3, D-5, D-11",
+      "implementation": "fixed concept table; labels verbatim or declared label map; tracks and witness prefixes only from declared files; no P1 validation"
+    },
+    {
+      "id": "VP07-PANELS",
+      "coverage": "enforced",
+      "source": "PE-1…PE-6",
+      "implementation": "deterministic packing in declared order; (cell, step) coverage proven per run and by check-panels; text-only index"
+    },
+    {
+      "id": "VP07-NONPROMOTION",
+      "coverage": "enforced",
+      "source": "§3.6",
+      "implementation": "epistemic_warrant, current_authority, canonical_admission stay NOT_EVALUATED; source_status declared_unverified"
+    },
+    {
+      "id": "VP07-FROZEN",
+      "coverage": "enforced",
+      "source": "VP07-01",
+      "implementation": "VP-01…VP-06 byte-identical; vpprint unchanged; VP-06 examples re-render identically"
+    }
+  ]
+}
