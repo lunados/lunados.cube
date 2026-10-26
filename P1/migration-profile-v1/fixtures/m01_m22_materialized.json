@@ -1,0 +1,2737 @@
+{
+  "cases": [
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "M-01",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/unknown-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "MCP_ERROR",
+      "id": "M-02",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MCP_CONFIG_INVALID"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Z:module-body:third-party-dependency"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "depends-on",
+            "revision": "local:v1",
+            "scope": "mig",
+            "subject_concept_ids": [
+              "Z:module-body:integration"
+            ]
+          }
+        ],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "MCP_ERROR",
+      "id": "M-03",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MCP_CONFIG_INVALID"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "intermediate"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-04",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_PHASES"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "target"
+              },
+              {
+                "phase_id": "p2",
+                "role": "intermediate"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-05",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_PHASES"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p9",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "M-06",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_REFERENCE_MISSING"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              },
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p2",
+                "introduces": [],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t2",
+                "witness_ref": "witness:mig/t2"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-07",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_TRANSITION_CONFLICT"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "M-08",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_QUALIFIER_PROFILE_MISSING"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-09",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_DANGLING_DEPENDENCY"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "M-10",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_SUCCESSOR_MISSING"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "dropped": true,
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "M-11",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "interim",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              },
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p2",
+                "introduces": [],
+                "retires": [
+                  "interim"
+                ],
+                "transition_id": "t2",
+                "witness_ref": "witness:mig/t2"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "interim",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-12",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_SUCCESSOR_INVALID"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p0",
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-13",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_PREMATURE_DEPENDENCY"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "sends-via",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "sends-via",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-14",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_PREDICATE_SIGNATURE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "M-15",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_EVALUATION_WITNESS_MISSING"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              },
+              {
+                "dependency_id": "d9",
+                "holds_in": [
+                  "p0",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "stable",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d9"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "stable",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-16",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_PHASES"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              },
+              {
+                "dependency_id": "d3",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "account",
+                "object": "old",
+                "predicate_id": "recovers-via",
+                "subject": "mailbox",
+                "witness_ref": "witness:mig/d3"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "mailbox",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-17",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_DANGLING_DEPENDENCY"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "PASS",
+      "id": "M-18",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supersedes\",Z:α:Provider[\"new\"],Z:α:ThirdPartyDependency[\"old\"]) @T(role=\"scheduling\",witness_ref=\"witness:mig/cutover\")",
+      "qualification_profiles": {
+        "format": "aiaeao.cube.qualifier-profiles/1",
+        "origin": "illustrative_fixture",
+        "profile_id": "mig:qualifiers",
+        "qualifiers": [
+          {
+            "allowed_parameters": [
+              "role",
+              "witness_ref"
+            ],
+            "allowed_values": {
+              "role": [
+                "scheduling"
+              ]
+            },
+            "coordinate": "T",
+            "profile_ref": "mig:T-scheduling/v1",
+            "required_parameters": [
+              "role",
+              "witness_ref"
+            ],
+            "requires_witness": true
+          }
+        ],
+        "reference_version": "v9.4",
+        "scope": "mig",
+        "witness_refs": [
+          "witness:mig/cutover"
+        ]
+      },
+      "required_codes": []
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "FAIL",
+      "id": "M-19",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supersedes\",Z:α:ThirdPartyDependency[\"old\"],Z:α:Provider[\"new\"]) @T(role=\"scheduling\",witness_ref=\"witness:mig/cutover\")",
+      "qualification_profiles": {
+        "format": "aiaeao.cube.qualifier-profiles/1",
+        "origin": "illustrative_fixture",
+        "profile_id": "mig:qualifiers",
+        "qualifiers": [
+          {
+            "allowed_parameters": [
+              "role",
+              "witness_ref"
+            ],
+            "allowed_values": {
+              "role": [
+                "scheduling"
+              ]
+            },
+            "coordinate": "T",
+            "profile_ref": "mig:T-scheduling/v1",
+            "required_parameters": [
+              "role",
+              "witness_ref"
+            ],
+            "requires_witness": true
+          }
+        ],
+        "reference_version": "v9.4",
+        "scope": "mig",
+        "witness_refs": [
+          "witness:mig/cutover"
+        ]
+      },
+      "required_codes": [
+        "P1_PREDICATE_SIGNATURE"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/4",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "direction": "subject_to_object",
+            "object_concept_ids": [
+              "Z:module-body:third-party-dependency",
+              "Z:module-body:provider"
+            ],
+            "origin": "illustrative_fixture",
+            "predicate_id": "depends-on",
+            "revision": "local:v1",
+            "scope": "mig",
+            "subject_concept_ids": [
+              "Z:module-body:integration"
+            ]
+          }
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "MCP_ERROR",
+      "id": "M-20",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MCP_CONFIG_INVALID"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "other-scope",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "M-21",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_MIGRATION_SCOPE_MISMATCH"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "p110-mig",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d1",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "old",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "successor_ref": "d2",
+                "witness_ref": "witness:mig/d1"
+              },
+              {
+                "dependency_id": "d2",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "new",
+                "predicate_id": "depends-on",
+                "subject": "job",
+                "witness_ref": "witness:mig/d2"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-1",
+            "revision": "v1",
+            "scope": "mig",
+            "transitions": [
+              {
+                "T": {
+                  "role": "effective-interval",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "new"
+                ],
+                "retires": [
+                  "old"
+                ],
+                "transition_id": "t1",
+                "witness_ref": "witness:mig/t1"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "job",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "old",
+            "scope_ref": "mig"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "new",
+            "scope_ref": "mig"
+          }
+        ],
+        "scope_ref": "mig",
+        "source_kind": "illustrative_fixture"
+      },
+      "expected_overall": "UNRESOLVED",
+      "id": "M-22",
+      "input_format": "acg_text",
+      "input_text": "rel(\"depends-on\",Z:α:Integration[\"job\"],Z:α:ThirdPartyDependency[\"old\"])",
+      "required_codes": [
+        "P1_QUALIFIER_PROFILE_MISSING"
+      ]
+    }
+  ],
+  "format": "aiaeao.cube.p1.10-vectors/1",
+  "reference_version": "v9.4",
+  "source": "P1_10_ACCEPTANCE_SPEC.md §5 + oracles/independent_m01_m22.json"
+}

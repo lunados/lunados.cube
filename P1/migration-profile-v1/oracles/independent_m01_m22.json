@@ -1,0 +1,156 @@
+{
+ "format": "aiaeao.cube.p1.10-oracle/1",
+ "reference_version": "v9.4",
+ "independence": "Expected values transcribed from P1_10_ACCEPTANCE_SPEC.md §5 (commit 3e890b6) before any P1.10 runtime code existed; no generation from validator output",
+ "transcribed_at": "2026-10-26",
+ "cases": [
+  {
+   "id": "M-01",
+   "expected_overall": "PASS",
+   "required_codes": []
+  },
+  {
+   "id": "M-02",
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ]
+  },
+  {
+   "id": "M-03",
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ]
+  },
+  {
+   "id": "M-04",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_PHASES"
+   ]
+  },
+  {
+   "id": "M-05",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_PHASES"
+   ]
+  },
+  {
+   "id": "M-06",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_REFERENCE_MISSING"
+   ]
+  },
+  {
+   "id": "M-07",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_TRANSITION_CONFLICT"
+   ]
+  },
+  {
+   "id": "M-08",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_QUALIFIER_PROFILE_MISSING"
+   ]
+  },
+  {
+   "id": "M-09",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_DANGLING_DEPENDENCY"
+   ]
+  },
+  {
+   "id": "M-10",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_SUCCESSOR_MISSING"
+   ]
+  },
+  {
+   "id": "M-11",
+   "expected_overall": "PASS",
+   "required_codes": []
+  },
+  {
+   "id": "M-12",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_SUCCESSOR_INVALID"
+   ]
+  },
+  {
+   "id": "M-13",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_PREMATURE_DEPENDENCY"
+   ]
+  },
+  {
+   "id": "M-14",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_PREDICATE_SIGNATURE"
+   ]
+  },
+  {
+   "id": "M-15",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_EVALUATION_WITNESS_MISSING"
+   ]
+  },
+  {
+   "id": "M-16",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_PHASES"
+   ]
+  },
+  {
+   "id": "M-17",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_DANGLING_DEPENDENCY"
+   ]
+  },
+  {
+   "id": "M-18",
+   "expected_overall": "PASS",
+   "required_codes": []
+  },
+  {
+   "id": "M-19",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_PREDICATE_SIGNATURE"
+   ]
+  },
+  {
+   "id": "M-20",
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ]
+  },
+  {
+   "id": "M-21",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_SCOPE_MISMATCH"
+   ]
+  },
+  {
+   "id": "M-22",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_QUALIFIER_PROFILE_MISSING"
+   ]
+  }
+ ]
+}
