@@ -1,0 +1,14 @@
+{
+  "format": "aiaeao.cube.p1.10.1.diagnostic-extension/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "disposition": "Additive P1.10.1 only. Frozen P1.1…P1.10 registers remain byte-identical. P1_MIGRATION_SUCCESSOR_INVALID is reused from P1.10 for gap ends (D-5).",
+  "codes": [
+    {
+      "code": "P1_MIGRATION_DEPENDENCY_GAP",
+      "stage": "scope_consistency",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology v9.4 §5.10 / P1.10.1 DG-1…DG-6: dependency ends before the target phase without retirement of its object or subject, successor_ref, dropped or a declared ends_reason"
+    }
+  ]
+}

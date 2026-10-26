@@ -17,6 +17,7 @@ P16 = REPO / 'P1' / 'instantiation-profile-v1'
 P18 = REPO / 'P1' / 'simulation-profile-v1'
 P19 = REPO / 'P1' / 'comparison-profile-v1'
 P110 = REPO / 'P1' / 'migration-profile-v1'
+P1101 = REPO / 'P1' / 'migration-profile-v2'
 if not P1.is_dir():
     raise RuntimeError('P1-VC/1.0.0 reference validator must be installed as sibling P1 tree')
 if str(P1) not in sys.path:
@@ -55,11 +56,24 @@ def _json_bytes(obj: Any) -> bytes:
 
 
 def _validator_for(context: dict | None):
-    """Explicit /2, /3, /4 and /5 dispatch, no auto-upgrade or hidden version negotiation.
+    """Explicit /2 ... /6 dispatch, no auto-upgrade or hidden version negotiation.
 
-    P1.6, P1.8, P1.9 and P1.10 are lazy-loaded so a legacy /1 installation works unchanged.
-    A /2 ... /5 request without its module fails closed as an MCP adapter error.
+    P1.6, P1.8, P1.9, P1.10 and P1.10.1 are lazy-loaded so a legacy /1 installation works unchanged.
+    A /2 ... /6 request without its module fails closed as an MCP adapter error.
     """
+    if context is not None and context.get('format') == 'aiaeao.cube.binding-context/6':
+        if not (P16.is_dir() and P18.is_dir() and P19.is_dir() and P110.is_dir() and P1101.is_dir()):
+            _error('P1_MCP_P1101_UNAVAILABLE', 'P1.10.1 validator is not installed')
+        for path in (P16, P18, P19, P110, P1101):
+            if str(path) not in sys.path:
+                sys.path.insert(0, str(path))
+        try:
+            from cube_p1101.validator import P1101Validator
+        except ImportError:
+            _error('P1_MCP_P1101_UNAVAILABLE', 'P1.10.1 validator cannot be loaded')
+        validator = P1101Validator()
+        validator.validate_context(context)
+        return validator
     if context is not None and context.get('format') == 'aiaeao.cube.binding-context/5':
         if not (P16.is_dir() and P18.is_dir() and P19.is_dir() and P110.is_dir()):
             _error('P1_MCP_P110_UNAVAILABLE', 'P1.10 validator is not installed')
@@ -163,17 +177,21 @@ def validate(input_text: str, input_format: str='acg_text', context: dict | None
         **({'binding_context_profile': 'P1.6/instantiation-profile-v1'}
            if context is not None and context.get('format') in
               ('aiaeao.cube.binding-context/2', 'aiaeao.cube.binding-context/3',
-               'aiaeao.cube.binding-context/4', 'aiaeao.cube.binding-context/5') else {}),
+               'aiaeao.cube.binding-context/4', 'aiaeao.cube.binding-context/5',
+               'aiaeao.cube.binding-context/6') else {}),
         **({'simulation_profile': 'P1.8/simulation-profile-v1',
             'evaluation_performed_by_cube': False}
            if context is not None and context.get('format') in
               ('aiaeao.cube.binding-context/3', 'aiaeao.cube.binding-context/4',
-               'aiaeao.cube.binding-context/5') else {}),
+               'aiaeao.cube.binding-context/5', 'aiaeao.cube.binding-context/6') else {}),
         **({'comparison_profile': 'P1.9/comparison-profile-v1'}
            if context is not None and context.get('format') in
-              ('aiaeao.cube.binding-context/4', 'aiaeao.cube.binding-context/5') else {}),
+              ('aiaeao.cube.binding-context/4', 'aiaeao.cube.binding-context/5',
+               'aiaeao.cube.binding-context/6') else {}),
         **({'migration_profile': 'P1.10/migration-profile-v1'}
            if context is not None and context.get('format')=='aiaeao.cube.binding-context/5' else {}),
+        **({'migration_profile': 'P1.10.1/migration-profile-v2'}
+           if context is not None and context.get('format')=='aiaeao.cube.binding-context/6' else {}),
         'report': report,  # EXACT P1-VC/1.0.0 structure; no fields added or removed.
         'transport': 'local_mcp_stdio',
         'core_profile': 'P1-VC/1.0.0',  # underlying frozen P1 report schema for both context versions
