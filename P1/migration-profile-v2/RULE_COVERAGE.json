@@ -1,0 +1,37 @@
+{
+  "format": "aiaeao.cube.p1.10.1.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P1 validator vocabulary; descriptive only",
+  "rules": [
+    {
+      "id": "P1101-GAP",
+      "coverage": "enforced_subset",
+      "source": "Morphology v9.4 §5.10; P1.10.1 DG-1…DG-5, D-2, D-3",
+      "implementation": "dependency ending before target must be explained by object or subject retirement at the next phase, successor_ref, dropped or ends_reason; start gaps not covered"
+    },
+    {
+      "id": "P1101-ENDS-REASON",
+      "coverage": "enforced",
+      "source": "P1.10.1 DG-6, D-4",
+      "implementation": "optional string; explains only scope_end|replaced_outside_plan|other with witness_ref; other values reported as gap"
+    },
+    {
+      "id": "P1101-SUCCESSOR",
+      "coverage": "enforced",
+      "source": "P1.10 DP-4 / P1.10.1 D-5",
+      "implementation": "successor of a gap end shares subject and predicate and starts at the next phase"
+    },
+    {
+      "id": "P1101-NO-DOUBLE-REPORT",
+      "coverage": "enforced",
+      "source": "P1.10.1 DG-7, DG-8",
+      "implementation": "no gap for dangling, successor-missing, transition-conflict referents, invalid phases or undeclared successors"
+    },
+    {
+      "id": "P1101-FROZEN",
+      "coverage": "enforced",
+      "source": "P1.10.1 D-1",
+      "implementation": "/1…/5 delegated to P1.10 byte-identically; /6 runs P1.10 on a lossless /5 projection"
+    }
+  ]
+}

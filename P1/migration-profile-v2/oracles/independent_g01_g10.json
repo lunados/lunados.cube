@@ -1,0 +1,83 @@
+{
+ "format": "aiaeao.cube.p1.10.1-oracle/1",
+ "reference_version": "v9.4",
+ "independence": "Expected values transcribed from P1_10_1_ACCEPTANCE_SPEC.md §5 (commit 875b08b) before any P1.10.1 runtime code existed; no generation from validator output",
+ "transcribed_at": "2026-10-26",
+ "cases": [
+  {
+   "id": "G-01",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_DEPENDENCY_GAP"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "G-02",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "G-03",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "G-04",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "G-05",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_SUCCESSOR_MISSING"
+   ],
+   "forbidden_codes": [
+    "P1_MIGRATION_DEPENDENCY_GAP"
+   ]
+  },
+  {
+   "id": "G-06",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_DEPENDENCY_GAP"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "G-07",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "G-08",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "G-09",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_SUCCESSOR_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "G-10",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  }
+ ],
+ "regression": {
+  "id": "P1.10.1-06",
+  "rule": "M-01..M-22 re-run with format binding-context/6 yield the P1.10 oracle result (overall and required codes); M-20 stays a /4 context; no M case lists a gap",
+  "source": "P1/migration-profile-v1/oracles/independent_m01_m22.json"
+ }
+}
