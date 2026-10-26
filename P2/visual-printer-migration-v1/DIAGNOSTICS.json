@@ -1,0 +1,122 @@
+{
+  "format": "aiaeao.cube.vp07.diagnostics/1",
+  "profile": "P2-VP-MIGRATION/0.7.0",
+  "reference_version": "v9.4",
+  "disposition": "Additive VP-07 only. VP-01…VP-06 registers unchanged. VP06_* codes from the frozen facade pass through unchanged (Path F, flow panels).",
+  "codes": [
+    {
+      "code": "VP07_PHASES_STEPS",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 PV-2, §2: < 2 steps, duplicate step, cell steps out of declared order or not contiguous"
+    },
+    {
+      "code": "VP07_PHASES_REFERENCE",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 §2: cell or transition references an unknown row, object or step"
+    },
+    {
+      "code": "VP07_PHASES_BUDGET",
+      "stage": "granularity",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 PV-1, D-1: rows/cells/lanes over budget with reject, any overflow at detail, or too many steps"
+    },
+    {
+      "code": "VP07_PHASES_LENS",
+      "stage": "lens",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 PV-7: cube.phases is lens neutral only in 0.7.0"
+    },
+    {
+      "code": "VP07_PHASES_PLAN",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 §1.1 plan structure (keys, profile, IDs, labels, declaration_ref scope)"
+    },
+    {
+      "code": "VP07_DECLARED_CONFLICT",
+      "stage": "report",
+      "default_status": "WARNING",
+      "reference_rule": "VP-07 PV-5, D-7; mirrors P1.10 P1_MIGRATION_DANGLING_DEPENDENCY visually; never a verdict"
+    },
+    {
+      "code": "VP07_DECLARED_PREMATURE",
+      "stage": "report",
+      "default_status": "WARNING",
+      "reference_rule": "VP-07 PV-5, D-7; mirrors P1.10 P1_MIGRATION_PREMATURE_DEPENDENCY visually; never a verdict"
+    },
+    {
+      "code": "VP07_EDGE_STYLE",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 ES-1, ES-3: style outside closed set, predicate styled twice, legend missing or > 40"
+    },
+    {
+      "code": "VP07_EDGE_STYLE_DEFAULT",
+      "stage": "report",
+      "default_status": "WARNING",
+      "reference_rule": "VP-07 §2: predicate without style entry rendered solid, legend row unstyled"
+    },
+    {
+      "code": "VP07_ENVELOPE_INVALID",
+      "stage": "input",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 ES-4, D-9: styled print envelope structure"
+    },
+    {
+      "code": "VP07_PANEL_PARTITION",
+      "stage": "partition",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 PE-1, PE-2: undeclared partition key, missing lens/track, or one group exceeds the panel budget"
+    },
+    {
+      "code": "VP07_PANEL_COVERAGE",
+      "stage": "coverage",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 PE-3, PE-6: union of panels incomplete, or file/digest/ledger mismatch in check-panels"
+    },
+    {
+      "code": "VP07_SOURCE_INVALID",
+      "stage": "input",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 MS-1…MS-3, D-10: not a migration source, above hard limits, or unreferenced rows/objects"
+    },
+    {
+      "code": "VP07_ADAPTER_INPUT",
+      "stage": "input",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 AD-1, AD-5: not binding-context/5, unknown plan, empty slice, invalid track/label/prefix map"
+    },
+    {
+      "code": "VP07_ADAPTER_MAPPING",
+      "stage": "input",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 AD-2, AD-7, D-11: concept without mapping row, ref not a valid display ID without label entry"
+    },
+    {
+      "code": "VP07_AUDIT",
+      "stage": "audit",
+      "default_status": "FAIL",
+      "reference_rule": "VP-07 §3.6: internal audit invariant (partition, embedded ledger, no active SVG content)"
+    },
+    {
+      "code": "VP07_INPUT_INVALID",
+      "stage": "input",
+      "default_status": "FAIL",
+      "reference_rule": "VP-06 load rules: unreadable, > 2 MiB, duplicate key, nonfinite number"
+    },
+    {
+      "code": "VP07_OUTPUT_EXISTS",
+      "stage": "output",
+      "default_status": "FAIL",
+      "reference_rule": "VP-06 PE-5 rule: output never overwritten"
+    },
+    {
+      "code": "VP07_OUTPUT_IO",
+      "stage": "output",
+      "default_status": "FAIL",
+      "reference_rule": "VP-06 PE-5 rule: staging or publish failed"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+ "format": "aiaeao.cube.vp07-oracle/1",
+ "reference_version": "v9.4",
+ "independence": "Expected values transcribed from VP07_ACCEPTANCE_SPEC.md §5 (after the §5 consistency fix of 2026-10-26) before any vpmigration runtime code existed; no generation from printer output",
+ "transcribed_at": "2026-10-26",
+ "cases": [
+  {
+   "id": "V-01",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "expect": {}
+  },
+  {
+   "id": "V-02",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PHASES_STEPS"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-03",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PHASES_STEPS"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-04",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PHASES_REFERENCE"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-05",
+   "expected_status": "PASS",
+   "required_codes": [
+    "VP07_DECLARED_CONFLICT"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-06",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PHASES_BUDGET"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-07",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "expect": {
+    "omitted_cells_nonempty": true
+   }
+  },
+  {
+   "id": "V-08",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PHASES_STEPS"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-09",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "expect": {
+    "legend_rendered": true
+   }
+  },
+  {
+   "id": "V-10",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_EDGE_STYLE"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-11",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_EDGE_STYLE"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-12",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "expect": {
+    "svg_byte_identical_to_vp06": true
+   }
+  },
+  {
+   "id": "V-13",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "expect": {
+    "coverage_complete": true
+   }
+  },
+  {
+   "id": "V-14",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PANEL_PARTITION"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-15",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PANEL_PARTITION"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-16",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PANEL_COVERAGE"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-17",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "expect": {}
+  },
+  {
+   "id": "V-18",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ADAPTER_INPUT"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-19",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ADAPTER_MAPPING"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-20",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "expect": {
+    "coverage_complete": true
+   }
+  },
+  {
+   "id": "V-21",
+   "expected_status": "PASS",
+   "required_codes": [
+    "VP07_DECLARED_PREMATURE"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-22",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PHASES_BUDGET"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-23",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PHASES_LENS"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-24",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_SOURCE_INVALID"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-25",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_PANEL_COVERAGE"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-26",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "expect": {
+    "base_svg_equals_vp06": true
+   }
+  },
+  {
+   "id": "V-27",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ADAPTER_MAPPING"
+   ],
+   "expect": {}
+  },
+  {
+   "id": "V-28",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ADAPTER_INPUT"
+   ],
+   "expect": {}
+  }
+ ]
+}
