@@ -1,6 +1,6 @@
 # P1.10.1 — Declared Migration Profile, revision: dependency gap · Acceptance specification
 
-**Status:** DRAFT 2026-10-26 — decisions D-1…D-7 open (§6). Not ready for implementation until they are resolved.
+**Status:** SPECIFIED, decisions D-1…D-7 resolved 2026-10-26 (all as proposed) — ready for implementation.
 **Numbering:** Revision of P1.10 (`P1.10/migration-profile-v1`, released with PR #10/#11, G5 core `0.4.0-proof`). P1.10 stays frozen; P1.10.1 is a new, explicitly activated profile (D-1). P1.7 stays reserved for the Principal → Authority holder chain.
 **Basis:** `P1/migration-profile-v1/P1_10_ACCEPTANCE_SPEC.md` (PH-1, TR-1…TR-3, DP-1…DP-6, D-1…D-8), `cube_p110/validator.py` (`_plan`: DP-3, DP-4 only when the object is retired at the next phase); Morphology v9.4 §5.10 (local precedence, no total order), §7.6.1 (R01-AC02); VP-07.1 draft (`P2/visual-printer-migration-v1/VP07_1_ACCEPTANCE_SPEC.md`, item (d) / D-7).
 **Motivation:** A field test of P1.10 + VP-07 with a real migration inventory (2026-10-26; about 33 referents, 47 dependencies, 4 steps p0–p3; client details withheld) produced requirement C-7:
@@ -75,6 +75,9 @@ Precedence follows P1.10: FAIL outranks UNRESOLVED; a dependency already reporte
 - DG-3: Object retired at a phase later than *k+1* does **not** explain the end (the object still exists at *k+1*).
 - DG-4: Ending at *t* never produces a gap. A dependency that ends at the retiring phase of its object stays P1.10 DP-4 territory (no double report).
 - DG-5: The check is declarative only; `ends_reason` and `dropped` are declarations, not proof.
+- DG-6: `ends_reason` is an optional string on a dependency (schema: nonempty, ≤ 40 chars). Only `scope_end`, `replaced_outside_plan` and `other` explain an end, and only if the dependency carries `witness_ref`; any other value is reported as gap (§2), never as a configuration error.
+- DG-7: Objects or subjects in a P1.10 `TRANSITION_CONFLICT`, and dependencies already reported as `DANGLING_DEPENDENCY` or `SUCCESSOR_MISSING`, are not checked for gaps (no double report).
+- DG-8: A `successor_ref` that names an undeclared dependency stays P1.10 `REFERENCE_MISSING`; DG adds nothing.
 
 ## 4. Acceptance criteria
 
@@ -110,9 +113,9 @@ Base case G-01: four phases p0…p3; `import-job depends-on mailbox-x`, `holds_i
 
 G-05 shows the boundary to P1.10: the end is explained by the retirement, the missing successor stays a DP-4 finding, and no gap is added.
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-26, all as proposed)
 
-| Decision | Options | Proposal | Consequence of the proposal |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Activation and naming | (a) new context `binding-context/6`, profile `P1.10.1/migration-profile-v2`, directory `P1/migration-profile-v2/` · (b) opt-in field in `/5` · (c) change `/5` | **(a)** | `/5` stays frozen as deployed (a new field in `/5` would turn today's MCP error into a different result); same pattern as P1.8 → P1.9 → P1.10. |
 | D-2 Status | (a) UNRESOLVED (coverage gap, like `SUCCESSOR_MISSING`) · (b) FAIL | **(a)** | The declaration is incomplete, not contradictory; consistent with DP-4. |
