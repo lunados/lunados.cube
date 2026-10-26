@@ -1,0 +1,84 @@
+{
+  "format": "aiaeao.cube.p1.10.diagnostic-extension/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "disposition": "Additive P1.10 only. Frozen P1.1/P1.4, P1.6, P1.8 and P1.9 registers remain byte-identical. P1_PREDICATE_SIGNATURE, P1_PREDICATE_PROFILE_MISSING and P1_QUALIFIER_PROFILE_MISSING are reused from P1.1/P1.4, P1_EVALUATION_WITNESS_MISSING from P1.8; for plan findings they carry a P1.10 reference_rule.",
+  "codes": [
+    {
+      "code": "P1_MIGRATION_PHASES",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology v9.4 §5.10 / P1.10 PH-1, DP-1: one current first, one target last, unique phases, contiguous holds_in"
+    },
+    {
+      "code": "P1_MIGRATION_REFERENCE_MISSING",
+      "stage": "referent_binding",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology v9.4 §2.9 / C011 / P1.10 TR-1, DP-2, DP-4: phase, referent or dependency not declared"
+    },
+    {
+      "code": "P1_MIGRATION_DANGLING_DEPENDENCY",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "P1.10 DP-3: dependency holds in or after the phase that retires its object"
+    },
+    {
+      "code": "P1_MIGRATION_SUCCESSOR_MISSING",
+      "stage": "scope_consistency",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "P1.10 DP-4: dependency ends at a retiring phase without successor_ref or dropped"
+    },
+    {
+      "code": "P1_MIGRATION_SUCCESSOR_INVALID",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "P1.10 DP-4: successor must share subject and predicate, start at the retiring phase, point at an existing referent"
+    },
+    {
+      "code": "P1_MIGRATION_PREMATURE_DEPENDENCY",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "P1.10 TR-1, DP-3: dependency holds before its object is introduced"
+    },
+    {
+      "code": "P1_MIGRATION_TRANSITION_CONFLICT",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "P1.10 TR-2: retired or introduced at most once; introduce before retire"
+    },
+    {
+      "code": "P1_MIGRATION_SCOPE_MISMATCH",
+      "stage": "scope_consistency",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "P1.10 PP-5 / D-8: plan scope must equal the context scope_ref"
+    },
+    {
+      "code": "P1_MIGRATION_EXPRESSION_MISMATCH",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "P1.10 D-5: a supersedes claim must match a declared transition"
+    }
+  ],
+  "reused": [
+    {
+      "code": "P1_QUALIFIER_PROFILE_MISSING",
+      "stage": "qualifier_typing",
+      "reference_rule_for_plan_findings": "Morphology v9.4 §3.6 / P1.10 TR-3, D-4: transition needs T role scheduling and a witness"
+    },
+    {
+      "code": "P1_PREDICATE_PROFILE_MISSING",
+      "stage": "predicate_typing",
+      "reference_rule_for_plan_findings": "Morphology v9.4 §7.6.1 R01-AC02 / P1.10 DP-2: no single scoped contract for the dependency predicate"
+    },
+    {
+      "code": "P1_PREDICATE_SIGNATURE",
+      "stage": "predicate_typing",
+      "reference_rule_for_plan_findings": "Morphology v9.4 §7.6.1 R01-AC02 / P1.10 DP-2: dependency violates the declared signature"
+    },
+    {
+      "code": "P1_EVALUATION_WITNESS_MISSING",
+      "stage": "referent_binding",
+      "reference_rule_for_plan_findings": "P1.8 EV-4 / P1.10 DP-4: dependency requires a declared witness pointer"
+    }
+  ]
+}

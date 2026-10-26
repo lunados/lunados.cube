@@ -1,0 +1,131 @@
+{
+  "format": "aiaeao.cube.p1.10.predicate-profile/1",
+  "reference_version": "v9.4",
+  "profile_id": "P1.10/migration-predicates-v1",
+  "revision": "v1",
+  "origin": "profile_declaration_unverified",
+  "scope_binding": "importing_context_scope_ref",
+  "notes": [
+    "Profile-local predicates (PP-4); no adoption into Morphology v9.4 implied.",
+    "supersedes is narrowed to one provider replacing another; not the record/assertion history sense of §7.6.1.2 / R01-AC04.",
+    "Principal is deliberately not admitted in v1 (P1.7 reserved, D-1)."
+  ],
+  "contracts": [
+    {
+      "predicate_id": "depends-on",
+      "revision": "P1.10/migration-predicates-v1",
+      "origin": "profile_declaration_unverified",
+      "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Y:identity-anchor:actor",
+        "Z:module-body:runtime"
+      ],
+      "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency",
+        "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object"
+    },
+    {
+      "predicate_id": "sends-via",
+      "revision": "P1.10/migration-predicates-v1",
+      "origin": "profile_declaration_unverified",
+      "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+      ],
+      "direction": "subject_to_object"
+    },
+    {
+      "predicate_id": "syncs-with",
+      "revision": "P1.10/migration-predicates-v1",
+      "origin": "profile_declaration_unverified",
+      "subject_concept_ids": [
+        "Z:module-body:integration"
+      ],
+      "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+      ],
+      "direction": "subject_to_object"
+    },
+    {
+      "predicate_id": "stores-in",
+      "revision": "P1.10/migration-predicates-v1",
+      "origin": "profile_declaration_unverified",
+      "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+      ],
+      "direction": "subject_to_object"
+    },
+    {
+      "predicate_id": "references",
+      "revision": "P1.10/migration-predicates-v1",
+      "origin": "profile_declaration_unverified",
+      "subject_concept_ids": [
+        "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency",
+        "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object"
+    },
+    {
+      "predicate_id": "hosted-by",
+      "revision": "P1.10/migration-predicates-v1",
+      "origin": "profile_declaration_unverified",
+      "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Z:module-body:runtime",
+        "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+      ],
+      "direction": "subject_to_object"
+    },
+    {
+      "predicate_id": "recovers-via",
+      "revision": "P1.10/migration-predicates-v1",
+      "origin": "profile_declaration_unverified",
+      "subject_concept_ids": [
+        "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency",
+        "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object"
+    },
+    {
+      "predicate_id": "supersedes",
+      "revision": "P1.10/migration-predicates-v1",
+      "origin": "profile_declaration_unverified",
+      "subject_concept_ids": [
+        "Z:module-body:provider"
+      ],
+      "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [
+        "T"
+      ]
+    }
+  ]
+}

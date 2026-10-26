@@ -22,6 +22,7 @@
         "P3/adapters/mcp-local/p0_snapshot/*.ebnf",
         "P3/adapters/mcp-local/p0_snapshot/**/*.ebnf",
         "P1/instantiation-profile-v1/instantiation_reference_v1.json",
+        "P1/migration-profile-v1/cube_p110/profiles/*.json",
         "P1/semantic-validator-v1/baseline/*.json",
         "P1/semantic-validator-v1/baseline/**/*.json",
         "P1/semantic-validator-v1/baseline/*.md",

@@ -1,0 +1,67 @@
+{
+  "format": "aiaeao.cube.p1.10.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P1 validator vocabulary; descriptive only",
+  "rules": [
+    {
+      "id": "P110-PROFILE",
+      "coverage": "enforced_subset",
+      "source": "Morphology v9.4 §7.6.1 R01-AC02; P1.1 predicate_registry (no built-in signatures)",
+      "implementation": "pinned profile file (SHA-256 in code and SHA256SUMS.txt); unknown profile, local redefinition (D-2) and library_ref SHA mismatch (D-3) are config errors"
+    },
+    {
+      "id": "P110-SCOPE",
+      "coverage": "enforced",
+      "source": "P1.10 PP-5 / D-8",
+      "implementation": "imported contracts take the context scope_ref; import without scope_ref is a config error; plan scope must equal scope_ref"
+    },
+    {
+      "id": "P110-PHASES",
+      "coverage": "enforced",
+      "source": "Morphology v9.4 §5.10; P1.10 PH-1, DP-1",
+      "implementation": "one current first, one target last, unique ids, contiguous holds_in; order is declared sequence, no dates compared"
+    },
+    {
+      "id": "P110-TRANSITIONS",
+      "coverage": "enforced_subset",
+      "source": "Morphology v9.4 §3.6 (D.2); P1.10 TR-1..TR-3, D-4",
+      "implementation": "declared referents and phases; retire/introduce at most once, introduce before retire; T role scheduling and witness pointer present (T value uninterpreted)"
+    },
+    {
+      "id": "P110-TYPING",
+      "coverage": "enforced",
+      "source": "Morphology v9.4 §7.6.1 R01-AC02; P1.10 DP-2",
+      "implementation": "dependency subject/object concept IDs checked against exactly one scoped imported or local contract; required qualifiers cannot be met by a dependency"
+    },
+    {
+      "id": "P110-DANGLING",
+      "coverage": "enforced_subset",
+      "source": "P1.10 DP-3",
+      "implementation": "object retired at p and dependency holds in p or later; subject retirement is not checked in v1"
+    },
+    {
+      "id": "P110-PREMATURE",
+      "coverage": "enforced_subset",
+      "source": "P1.10 TR-1, DP-3",
+      "implementation": "object introduced at p and dependency holds before p; subject introduction is not checked in v1"
+    },
+    {
+      "id": "P110-SUCCESSOR",
+      "coverage": "enforced",
+      "source": "P1.10 DP-4",
+      "implementation": "dependency ending at the retiring phase needs successor_ref or dropped; successor shares subject and predicate, starts at the retiring phase, object present in every phase"
+    },
+    {
+      "id": "P110-EXPRESSION",
+      "coverage": "enforced_subset",
+      "source": "P1.10 D-5",
+      "implementation": "every rel(\"supersedes\", Y, X) with reference operands must match a transition retiring X and introducing Y; other predicates are not compared with the plan"
+    },
+    {
+      "id": "P110-NONPROMOTION",
+      "coverage": "enforced",
+      "source": "P1.10 §3.4",
+      "implementation": "canonical_admission, current_authority, epistemic_warrant stay NOT_EVALUATED; a PASS plan is a consistent declaration, not a safe or executed migration"
+    }
+  ]
+}
