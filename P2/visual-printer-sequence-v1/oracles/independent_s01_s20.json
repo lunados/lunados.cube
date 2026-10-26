@@ -1,0 +1,221 @@
+{
+ "cases": [
+  {
+   "expect": {
+    "messages_drawn": 2,
+    "trigger_arrow": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-01",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-02",
+   "required_codes": [
+    "VP08_SOURCE_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-03",
+   "required_codes": [
+    "VP08_SEQUENCE_REFERENCE"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-04",
+   "required_codes": [
+    "VP08_SEQUENCE_REFERENCE"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-05",
+   "required_codes": [
+    "VP08_TRIGGER_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-06",
+   "required_codes": [
+    "VP08_SOURCE_INVALID"
+   ]
+  },
+  {
+   "expect": {
+    "distinct_kind_styles": [
+     "call",
+     "return",
+     "async",
+     "self"
+    ],
+    "legend_kinds_once": [
+     "call",
+     "return",
+     "async",
+     "self"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-07",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "numbering": {
+     "m1": 1,
+     "m2": 2,
+     "m3": 3,
+     "m4": 4,
+     "m5": 5
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-08",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "full_label_in_title": "m1",
+    "label_lines": {
+     "lines": 2,
+     "message": "m1"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-09",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-10",
+   "required_codes": [
+    "VP08_RETURN_UNMATCHED"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-11",
+   "required_codes": [
+    "VP08_METHOD_UNKNOWN"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-12",
+   "required_codes": [
+    "VP08_FRAGMENT_INVALID"
+   ]
+  },
+  {
+   "expect": {
+    "frame_spans": {
+     "frame": "f1",
+     "participants": [
+      "b",
+      "c"
+     ]
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-13",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-14",
+   "required_codes": [
+    "VP08_FRAGMENT_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-15",
+   "required_codes": [
+    "VP08_FRAGMENT_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-16",
+   "required_codes": [
+    "VP08_SEQUENCE_BUDGET"
+   ]
+  },
+  {
+   "expect": {
+    "windows_cover_all": true,
+    "windows_min": 2
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-17",
+   "required_codes": [
+    "VP08_SEQUENCE_CONTINUED"
+   ]
+  },
+  {
+   "expect": {
+    "coverage_complete": true,
+    "index_triggers": 4,
+    "panel_count_min": 4
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-18",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "S-19",
+   "required_codes": [
+    "VP08_PANEL_COVERAGE"
+   ]
+  },
+  {
+   "expect": {
+    "no_active_content": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "S-20",
+   "required_codes": []
+  }
+ ],
+ "format": "aiaeao.cube.vp08-oracle/1",
+ "independence": "Expected values transcribed from VP08_ACCEPTANCE_SPEC.md §5 (decisions commit a45ea73, §3.5 clarification) before any VP-08 runtime code existed; no generation from printer output",
+ "reference_version": "v9.4",
+ "transcribed_at": "2026-10-26"
+}

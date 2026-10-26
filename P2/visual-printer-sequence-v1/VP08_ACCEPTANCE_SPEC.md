@@ -1,7 +1,7 @@
 # VP-08 — Sequence Views per trigger · Acceptance specification
 
-**Status:** DRAFT 2026-10-26 — decisions D-1…D-10 open, no code.
-**Profile (proposed):** `P2-VP-SEQUENCE/0.8.0`, additive to the frozen `P2-VP/1.0.0-rc1` facade (VP-06) and independent of `P2-VP-MIGRATION/0.7.x` (VP-07, VP-07.1).
+**Status:** IMPLEMENTED 2026-10-26 (S-01…S-20 20/20); decisions D-1…D-10 resolved 2026-10-26 (all as proposed).
+**Profile:** `P2-VP-SEQUENCE/0.8.0`, additive to the frozen `P2-VP/1.0.0-rc1` facade (VP-06) and independent of `P2-VP-MIGRATION/0.7.x` (VP-07, VP-07.1).
 **Basis:** Morphology v9.4 visual anchors (`module-bodies.*`, `identity-anchors.*`, `relation-arrows.*`); VP-01 printer primitives; VP-05 audit rules (`NO_ACTIVE_SVG_CONTENT`); VP-06 budgets and publish rules; VP-07 panel export with (unit) coverage ledger, text index and declaration ledger; P1.8 `method_contracts` (optional reference only).
 **Motivation:** `cube.flow` shows *who depends on whom* in a use case, but not *in which order* modules talk to each other when a user presses a button. Edges have no order, no call/return distinction and no alternative paths. VP-08 adds a sequence view: modules as lifelines, declared messages as numbered arrows, `alt`/`opt`/`loop` frames, one sequence per declared trigger (button, schedule, webhook …). Everything shown stays `declared_unverified`: order is the declared list order, never a measured time, and an arrow never asserts causation, success or authority.
 
@@ -64,7 +64,7 @@
 
 Index (synthetic): a drawn table — `Checkout (ui_button) · uc-order · 6 messages · panel-01`, `daily reminder (schedule) · uc-remind · … · panel-02`.
 
-## 2. Status and diagnostic rules (proposed codes)
+## 2. Status and diagnostic rules
 
 | Situation | Result | Diagnostic |
 |---|---|---|
@@ -109,6 +109,17 @@ Index (synthetic): a drawn table — `Checkout (ui_button) · uc-order · 6 mess
 - ST-3: Coverage unit `(trigger_id, message_id)`; every unit is shown in at least one panel; continued windows repeat the participant header and show a continuation marker (`… continued from 12`).
 - ST-4: The index is text-only: per trigger its label, kind, use case, message count and panel names (VP-07 PE-5 style, no thumbnails).
 
+### 3.5 Source format and limits (SS)
+
+Clarification transcribed together with the oracle (no decision changed).
+
+- SS-1: Source keys: required `format`, `profile`, `reference_version` (`v9.4`), `source_id`, `title`, `participants`, `triggers`, `declaration_status` (`declared_unverified`); optional `subtitle`, `method_contracts` (array of `{method_id}`, display check only, §2).
+- SS-2: Participant: `id`, `anchor_id`, `form_id`, `label` (≤ 60), optional `semantic_ref`; anchor canonical, form recommended for the anchor (VP-01 rule).
+- SS-3: Trigger: `id`, `kind`, `label` (≤ 60), `enters`, `declaration_ref`, `sequence`; optional `use_case`, `returns` (`expected`).
+- SS-4: Message: `id`, `kind`, `from`, `to`, `label` (≤ 120), `declaration_ref` (`decl:`/`fixture:`, ≤ 180); optional `method_id`. Fragment: `fragment` ∈ {`alt`, `opt`, `loop`}, `id`, `operands` = array of `{guard | bound, sequence}` (`guard` for `alt`/`opt`, `bound` for `loop`, ≤ 60).
+- SS-5: Hard limits (FAIL `VP08_SOURCE_INVALID`): participants ≤ 40, triggers ≤ 100, messages per trigger ≤ 300, messages per source ≤ 3000. IDs are stable IDs, unique per source (participants, triggers, messages and fragments share one namespace per trigger).
+- SS-6: Budget per drawn window (D-6): participants / messages / fragment depth — overview 4/8/1, standard 7/16/2, detail 10/30/2. Over budget: `reject` or `detail` → FAIL `VP08_SEQUENCE_BUDGET`; `summarize` → message windows in declared order that each fit; windows break only between top-level items of the trigger sequence (a fragment is never split), and a single top-level item over budget FAILs with `VP08_SEQUENCE_BUDGET`. Fragment depth is never summarized.
+
 ## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
@@ -122,7 +133,7 @@ Index (synthetic): a drawn table — `Checkout (ui_button) · uc-order · 6 mess
 | VP08-07 | Synthetic golden: 5 participants, 4 triggers (3 buttons, 1 schedule), one `alt` with nested `loop`, one sequence long enough to continue at standard | `fixtures/golden_sequence.json` |
 | VP08-08 | No client data in fixtures, examples or previews | review |
 
-## 5. Alignment vectors (exit check, draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -147,19 +158,19 @@ Index (synthetic): a drawn table — `Checkout (ui_button) · uc-order · 6 mess
 | S-19 | `check-panels` after deleting one message from a panel input | FAIL · `VP08_PANEL_COVERAGE` |
 | S-20 | SVG audit: no `<script>`, `<a>`, `<use>`, `<pattern>`, event attributes | PASS · `NO_ACTIVE_SVG_CONTENT` |
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-26, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Package and profile | (a) new package `P2/visual-printer-sequence-v1`, profile `P2-VP-SEQUENCE/0.8.0`, own CLI `python3 -m vpsequence` · (b) extend `vpmigration` | **(a)** | VP-07.x stays untouched; shared helpers are imported, not copied (as VP-07 imports VP-01…VP-06). |
-| D-2 Where sequences come from | (a) declared VP-08 source only (hand-written or exported by a later tool) · (b) first a P1 interaction profile (`binding-context/7`, "P1.11") with an adapter · (c) derive from `cube.flow` edges or code | **(a)** now, (b) as a possible follow-up | No P1 change; (c) is excluded because it would infer order. |
+| D-2 Where sequences come from | (a) declared VP-08 source only (hand-written or exported by a later tool) · (b) first a P1 interaction profile (`binding-context/7`, "P1.11") with an adapter · (c) derive from `cube.flow` edges or code | **(a)**; (b) remains a possible follow-up | No P1 change; (c) is excluded because it would infer order. |
 | D-3 Trigger model | (a) one sequence per trigger, closed kind set (ST-1), optional `use_case` grouping · (b) one sequence per use case with several entry points | **(a)** | "Sequence per button" is the unit of the index and of coverage. |
 | D-4 Returns | (a) drawn only when declared; optional per-trigger flag `returns: expected` enables `VP08_RETURN_UNDECLARED` · (b) implied returns drawn automatically | **(a)** | Nothing is inferred; missing returns are visible as a warning only where the author asked for it. |
 | D-5 Fragments | (a) `alt`, `opt`, `loop`, nesting depth ≤ 2 · (b) also `par`, `break`, `critical`, `ref` · (c) none in 0.8.0 | **(a)** | Covers decision paths and repetition; `ref` (sub-sequence) is the most likely 0.8.x addition. |
 | D-6 Budgets (participants / messages / fragment depth) | (a) overview 4/8/1, standard 7/16/2, detail 10/30/2 · (b) single budget | **(a)** | Same three-level scheme as VP-04/VP-07; detail never omits. |
 | D-7 Long sequences | (a) `summarize` splits into message windows with continuation markers and repeated headers · (b) reject only | **(a)** | Real button flows stay printable; coverage stays provable per message. |
 | D-8 Time | (a) none: order is declared, never a time axis; no durations · (b) optional declared durations as text | **(a)** | Consistent with VP-07 ("step order is declared, not a time axis"); measured timing belongs to an evaluator, not the printer. |
-| D-9 Lens | (a) `neutral` plus `cube.lens.provenance` (witness per message) · (b) neutral only · (c) all VP-03 lenses | **(b)** for 0.8.0 | Declaration ledger already shows `declaration_ref`; lens facets can follow. |
+| D-9 Lens | (a) `neutral` plus `cube.lens.provenance` (witness per message) · (b) neutral only · (c) all VP-03 lenses | **(b)** | Declaration ledger already shows `declaration_ref`; lens facets can follow. |
 | D-10 Transport | (a) local CLI only, MCP tool later · (b) G5 tool in the same step | **(a)** | No G4/G5 change, no deploy; follows VP-07 D-6. |
 
 ## 7. Not part of VP-08
