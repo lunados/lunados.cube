@@ -1,0 +1,1258 @@
+{
+  "cases": [
+    {
+      "context": {
+        "context_id": "golden-migration-synthetic",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d01",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "job",
+                "object": "acme:legacy-system-mail",
+                "predicate_id": "sends-via",
+                "schedule": "every 1m",
+                "subject": "acme:contact-form",
+                "successor_ref": "d01b",
+                "witness_ref": "synthetic:inventory#d01"
+              },
+              {
+                "dependency_id": "d01b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "acme:new-mail",
+                "predicate_id": "sends-via",
+                "schedule": "every 1m",
+                "subject": "acme:contact-form",
+                "witness_ref": "synthetic:inventory#d01b"
+              },
+              {
+                "dependency_id": "d02",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "acme:legacy-mail",
+                "predicate_id": "sends-via",
+                "subject": "acme:newsletter-job",
+                "successor_ref": "d02b",
+                "witness_ref": "synthetic:inventory#d02"
+              },
+              {
+                "dependency_id": "d02b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "acme:new-mail",
+                "predicate_id": "sends-via",
+                "subject": "acme:newsletter-job",
+                "witness_ref": "synthetic:inventory#d02b"
+              },
+              {
+                "dependency_id": "d03",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "sync",
+                "object": "acme:legacy-calendar",
+                "predicate_id": "syncs-with",
+                "subject": "acme:calendar-sync",
+                "successor_ref": "d03b",
+                "witness_ref": "synthetic:inventory#d03"
+              },
+              {
+                "dependency_id": "d03b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "sync",
+                "object": "acme:new-calendar",
+                "predicate_id": "syncs-with",
+                "subject": "acme:calendar-sync",
+                "witness_ref": "synthetic:inventory#d03b"
+              },
+              {
+                "dependency_id": "d04",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "sync",
+                "object": "acme:legacy-files",
+                "predicate_id": "syncs-with",
+                "subject": "acme:file-sync",
+                "successor_ref": "d04b",
+                "witness_ref": "synthetic:inventory#d04"
+              },
+              {
+                "dependency_id": "d04b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "sync",
+                "object": "acme:new-files",
+                "predicate_id": "syncs-with",
+                "subject": "acme:file-sync",
+                "witness_ref": "synthetic:inventory#d04b"
+              },
+              {
+                "dependency_id": "d05",
+                "dropped": true,
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "data",
+                "object": "acme:legacy-files",
+                "predicate_id": "stores-in",
+                "subject": "acme:backup-job",
+                "witness_ref": "synthetic:inventory#d05"
+              },
+              {
+                "dependency_id": "d06",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "api",
+                "object": "acme:legacy-chat",
+                "predicate_id": "depends-on",
+                "subject": "acme:chat-bot",
+                "successor_ref": "d06b",
+                "witness_ref": "synthetic:inventory#d06"
+              },
+              {
+                "dependency_id": "d06b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "api",
+                "object": "acme:new-chat",
+                "predicate_id": "depends-on",
+                "subject": "acme:chat-bot",
+                "witness_ref": "synthetic:inventory#d06b"
+              },
+              {
+                "dependency_id": "d07",
+                "holds_in": [
+                  "p0",
+                  "p1",
+                  "p2"
+                ],
+                "kind": "dns",
+                "object": "acme:dns",
+                "predicate_id": "hosted-by",
+                "subject": "acme:website",
+                "witness_ref": "synthetic:inventory#d07"
+              },
+              {
+                "dependency_id": "d08",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "api",
+                "object": "acme:legacy-mail",
+                "predicate_id": "depends-on",
+                "subject": "acme:crm-sync",
+                "successor_ref": "d08b",
+                "witness_ref": "synthetic:inventory#d08"
+              },
+              {
+                "dependency_id": "d08b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "api",
+                "object": "acme:new-mail",
+                "predicate_id": "depends-on",
+                "subject": "acme:crm-sync",
+                "witness_ref": "synthetic:inventory#d08b"
+              },
+              {
+                "dependency_id": "d09",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "account",
+                "object": "acme:legacy-mail",
+                "predicate_id": "recovers-via",
+                "subject": "acme:system-mailbox",
+                "successor_ref": "d09b",
+                "witness_ref": "synthetic:inventory#d09"
+              },
+              {
+                "dependency_id": "d09b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "account",
+                "object": "acme:admin-mailbox",
+                "predicate_id": "recovers-via",
+                "subject": "acme:system-mailbox",
+                "witness_ref": "synthetic:inventory#d09b"
+              },
+              {
+                "dependency_id": "d10",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "account",
+                "object": "acme:legacy-system-mail",
+                "predicate_id": "stores-in",
+                "subject": "acme:admin-mailbox",
+                "successor_ref": "d10b",
+                "witness_ref": "synthetic:inventory#d10"
+              },
+              {
+                "dependency_id": "d10b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "account",
+                "object": "acme:new-mail",
+                "predicate_id": "stores-in",
+                "subject": "acme:admin-mailbox",
+                "witness_ref": "synthetic:inventory#d10b"
+              },
+              {
+                "dependency_id": "d11",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "data",
+                "object": "acme:legacy-files",
+                "predicate_id": "stores-in",
+                "subject": "acme:shared-drive",
+                "successor_ref": "d11b",
+                "witness_ref": "synthetic:inventory#d11"
+              },
+              {
+                "dependency_id": "d11b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "data",
+                "object": "acme:new-files",
+                "predicate_id": "stores-in",
+                "subject": "acme:shared-drive",
+                "witness_ref": "synthetic:inventory#d11b"
+              },
+              {
+                "dependency_id": "d12",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "docs",
+                "object": "acme:legacy-files",
+                "predicate_id": "references",
+                "subject": "acme:doc-archive",
+                "successor_ref": "d12b",
+                "witness_ref": "synthetic:inventory#d12"
+              },
+              {
+                "dependency_id": "d12b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "docs",
+                "object": "acme:new-files",
+                "predicate_id": "references",
+                "subject": "acme:doc-archive",
+                "witness_ref": "synthetic:inventory#d12b"
+              },
+              {
+                "dependency_id": "d13",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "acme:legacy-mail",
+                "predicate_id": "sends-via",
+                "subject": "acme:website",
+                "successor_ref": "d13b",
+                "witness_ref": "synthetic:inventory#d13"
+              },
+              {
+                "dependency_id": "d13b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "acme:new-mail",
+                "predicate_id": "sends-via",
+                "subject": "acme:website",
+                "witness_ref": "synthetic:inventory#d13b"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-acme",
+            "revision": "synthetic:v1",
+            "scope": "acme:migration",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "acme:new-mail",
+                  "acme:new-calendar",
+                  "acme:new-files"
+                ],
+                "retires": [
+                  "acme:legacy-mail",
+                  "acme:legacy-calendar"
+                ],
+                "transition_id": "t-mail",
+                "witness_ref": "synthetic:contract#scope"
+              },
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p2",
+                "introduces": [
+                  "acme:new-chat"
+                ],
+                "retires": [
+                  "acme:legacy-system-mail",
+                  "acme:legacy-files",
+                  "acme:legacy-chat"
+                ],
+                "transition_id": "t-final",
+                "witness_ref": "synthetic:contract#scope"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-mail",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-system-mail",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-calendar",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-files",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-chat",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:new-mail",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:new-calendar",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:new-files",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:new-chat",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:dns",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:contact-form",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:newsletter-job",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:calendar-sync",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:file-sync",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:backup-job",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:chat-bot",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:website",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:crm-sync",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:system-mailbox",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:admin-mailbox",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:shared-drive",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:doc-archive",
+            "scope_ref": "acme:migration"
+          }
+        ],
+        "scope_ref": "acme:migration",
+        "source_kind": "illustrative_fixture"
+      },
+      "description": "negative control: d09 recovers via acme:legacy-mail in p1, where it is retired",
+      "expected_overall": "FAIL",
+      "id": "G-neg",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supersedes\",Z:α:Provider[\"acme:new-mail\"],Z:α:ThirdPartyDependency[\"acme:legacy-mail\"]) @T(role=\"scheduling\",witness_ref=\"synthetic:contract#scope\")",
+      "qualification_profiles": {
+        "format": "aiaeao.cube.qualifier-profiles/1",
+        "origin": "illustrative_fixture",
+        "profile_id": "acme:qualifiers",
+        "qualifiers": [
+          {
+            "allowed_parameters": [
+              "role",
+              "witness_ref"
+            ],
+            "allowed_values": {
+              "role": [
+                "scheduling"
+              ]
+            },
+            "coordinate": "T",
+            "profile_ref": "acme:T-scheduling/v1",
+            "required_parameters": [
+              "role",
+              "witness_ref"
+            ],
+            "requires_witness": true
+          }
+        ],
+        "reference_version": "v9.4",
+        "scope": "acme:migration",
+        "witness_refs": [
+          "synthetic:contract#scope"
+        ]
+      },
+      "required_codes": [
+        "P1_MIGRATION_DANGLING_DEPENDENCY"
+      ]
+    },
+    {
+      "context": {
+        "context_id": "golden-migration-synthetic",
+        "format": "aiaeao.cube.binding-context/5",
+        "migration_plans": [
+          {
+            "dependencies": [
+              {
+                "dependency_id": "d01",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "job",
+                "object": "acme:legacy-system-mail",
+                "predicate_id": "sends-via",
+                "schedule": "every 1m",
+                "subject": "acme:contact-form",
+                "successor_ref": "d01b",
+                "witness_ref": "synthetic:inventory#d01"
+              },
+              {
+                "dependency_id": "d01b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "acme:new-mail",
+                "predicate_id": "sends-via",
+                "schedule": "every 1m",
+                "subject": "acme:contact-form",
+                "witness_ref": "synthetic:inventory#d01b"
+              },
+              {
+                "dependency_id": "d02",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "acme:legacy-mail",
+                "predicate_id": "sends-via",
+                "subject": "acme:newsletter-job",
+                "successor_ref": "d02b",
+                "witness_ref": "synthetic:inventory#d02"
+              },
+              {
+                "dependency_id": "d02b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "acme:new-mail",
+                "predicate_id": "sends-via",
+                "subject": "acme:newsletter-job",
+                "witness_ref": "synthetic:inventory#d02b"
+              },
+              {
+                "dependency_id": "d03",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "sync",
+                "object": "acme:legacy-calendar",
+                "predicate_id": "syncs-with",
+                "subject": "acme:calendar-sync",
+                "successor_ref": "d03b",
+                "witness_ref": "synthetic:inventory#d03"
+              },
+              {
+                "dependency_id": "d03b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "sync",
+                "object": "acme:new-calendar",
+                "predicate_id": "syncs-with",
+                "subject": "acme:calendar-sync",
+                "witness_ref": "synthetic:inventory#d03b"
+              },
+              {
+                "dependency_id": "d04",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "sync",
+                "object": "acme:legacy-files",
+                "predicate_id": "syncs-with",
+                "subject": "acme:file-sync",
+                "successor_ref": "d04b",
+                "witness_ref": "synthetic:inventory#d04"
+              },
+              {
+                "dependency_id": "d04b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "sync",
+                "object": "acme:new-files",
+                "predicate_id": "syncs-with",
+                "subject": "acme:file-sync",
+                "witness_ref": "synthetic:inventory#d04b"
+              },
+              {
+                "dependency_id": "d05",
+                "dropped": true,
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "data",
+                "object": "acme:legacy-files",
+                "predicate_id": "stores-in",
+                "subject": "acme:backup-job",
+                "witness_ref": "synthetic:inventory#d05"
+              },
+              {
+                "dependency_id": "d06",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "api",
+                "object": "acme:legacy-chat",
+                "predicate_id": "depends-on",
+                "subject": "acme:chat-bot",
+                "successor_ref": "d06b",
+                "witness_ref": "synthetic:inventory#d06"
+              },
+              {
+                "dependency_id": "d06b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "api",
+                "object": "acme:new-chat",
+                "predicate_id": "depends-on",
+                "subject": "acme:chat-bot",
+                "witness_ref": "synthetic:inventory#d06b"
+              },
+              {
+                "dependency_id": "d07",
+                "holds_in": [
+                  "p0",
+                  "p1",
+                  "p2"
+                ],
+                "kind": "dns",
+                "object": "acme:dns",
+                "predicate_id": "hosted-by",
+                "subject": "acme:website",
+                "witness_ref": "synthetic:inventory#d07"
+              },
+              {
+                "dependency_id": "d08",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "api",
+                "object": "acme:legacy-mail",
+                "predicate_id": "depends-on",
+                "subject": "acme:crm-sync",
+                "successor_ref": "d08b",
+                "witness_ref": "synthetic:inventory#d08"
+              },
+              {
+                "dependency_id": "d08b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "api",
+                "object": "acme:new-mail",
+                "predicate_id": "depends-on",
+                "subject": "acme:crm-sync",
+                "witness_ref": "synthetic:inventory#d08b"
+              },
+              {
+                "dependency_id": "d09",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "account",
+                "object": "acme:legacy-mail",
+                "predicate_id": "recovers-via",
+                "subject": "acme:system-mailbox",
+                "successor_ref": "d09b",
+                "witness_ref": "synthetic:inventory#d09"
+              },
+              {
+                "dependency_id": "d09b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "account",
+                "object": "acme:admin-mailbox",
+                "predicate_id": "recovers-via",
+                "subject": "acme:system-mailbox",
+                "witness_ref": "synthetic:inventory#d09b"
+              },
+              {
+                "dependency_id": "d10",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "account",
+                "object": "acme:legacy-system-mail",
+                "predicate_id": "stores-in",
+                "subject": "acme:admin-mailbox",
+                "successor_ref": "d10b",
+                "witness_ref": "synthetic:inventory#d10"
+              },
+              {
+                "dependency_id": "d10b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "account",
+                "object": "acme:new-mail",
+                "predicate_id": "stores-in",
+                "subject": "acme:admin-mailbox",
+                "witness_ref": "synthetic:inventory#d10b"
+              },
+              {
+                "dependency_id": "d11",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "data",
+                "object": "acme:legacy-files",
+                "predicate_id": "stores-in",
+                "subject": "acme:shared-drive",
+                "successor_ref": "d11b",
+                "witness_ref": "synthetic:inventory#d11"
+              },
+              {
+                "dependency_id": "d11b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "data",
+                "object": "acme:new-files",
+                "predicate_id": "stores-in",
+                "subject": "acme:shared-drive",
+                "witness_ref": "synthetic:inventory#d11b"
+              },
+              {
+                "dependency_id": "d12",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "kind": "docs",
+                "object": "acme:legacy-files",
+                "predicate_id": "references",
+                "subject": "acme:doc-archive",
+                "successor_ref": "d12b",
+                "witness_ref": "synthetic:inventory#d12"
+              },
+              {
+                "dependency_id": "d12b",
+                "holds_in": [
+                  "p2"
+                ],
+                "kind": "docs",
+                "object": "acme:new-files",
+                "predicate_id": "references",
+                "subject": "acme:doc-archive",
+                "witness_ref": "synthetic:inventory#d12b"
+              },
+              {
+                "dependency_id": "d13",
+                "holds_in": [
+                  "p0"
+                ],
+                "kind": "job",
+                "object": "acme:legacy-mail",
+                "predicate_id": "sends-via",
+                "subject": "acme:website",
+                "successor_ref": "d13b",
+                "witness_ref": "synthetic:inventory#d13"
+              },
+              {
+                "dependency_id": "d13b",
+                "holds_in": [
+                  "p1",
+                  "p2"
+                ],
+                "kind": "job",
+                "object": "acme:new-mail",
+                "predicate_id": "sends-via",
+                "subject": "acme:website",
+                "witness_ref": "synthetic:inventory#d13b"
+              }
+            ],
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "intermediate"
+              },
+              {
+                "phase_id": "p2",
+                "role": "target"
+              }
+            ],
+            "plan_id": "mp-acme",
+            "revision": "synthetic:v1",
+            "scope": "acme:migration",
+            "transitions": [
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p1",
+                "introduces": [
+                  "acme:new-mail",
+                  "acme:new-calendar",
+                  "acme:new-files"
+                ],
+                "retires": [
+                  "acme:legacy-mail",
+                  "acme:legacy-calendar"
+                ],
+                "transition_id": "t-mail",
+                "witness_ref": "synthetic:contract#scope"
+              },
+              {
+                "T": {
+                  "role": "scheduling",
+                  "value": "TBD"
+                },
+                "at_phase": "p2",
+                "introduces": [
+                  "acme:new-chat"
+                ],
+                "retires": [
+                  "acme:legacy-system-mail",
+                  "acme:legacy-files",
+                  "acme:legacy-chat"
+                ],
+                "transition_id": "t-final",
+                "witness_ref": "synthetic:contract#scope"
+              }
+            ]
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "reference_version": "v9.4",
+        "referents": [
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-mail",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-system-mail",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-calendar",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-files",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:third-party-dependency",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:legacy-chat",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:new-mail",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:new-calendar",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:new-files",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:new-chat",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:dns",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:contact-form",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:newsletter-job",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:calendar-sync",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:file-sync",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:backup-job",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:chat-bot",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:website",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:crm-sync",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:system-mailbox",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:admin-mailbox",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:shared-drive",
+            "scope_ref": "acme:migration"
+          },
+          {
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "ref": "acme:doc-archive",
+            "scope_ref": "acme:migration"
+          }
+        ],
+        "scope_ref": "acme:migration",
+        "source_kind": "illustrative_fixture"
+      },
+      "description": "corrected: recovery moves to acme:admin-mailbox at p1 (d09b)",
+      "expected_overall": "PASS",
+      "id": "G-pos",
+      "input_format": "acg_text",
+      "input_text": "rel(\"supersedes\",Z:α:Provider[\"acme:new-mail\"],Z:α:ThirdPartyDependency[\"acme:legacy-mail\"]) @T(role=\"scheduling\",witness_ref=\"synthetic:contract#scope\")",
+      "qualification_profiles": {
+        "format": "aiaeao.cube.qualifier-profiles/1",
+        "origin": "illustrative_fixture",
+        "profile_id": "acme:qualifiers",
+        "qualifiers": [
+          {
+            "allowed_parameters": [
+              "role",
+              "witness_ref"
+            ],
+            "allowed_values": {
+              "role": [
+                "scheduling"
+              ]
+            },
+            "coordinate": "T",
+            "profile_ref": "acme:T-scheduling/v1",
+            "required_parameters": [
+              "role",
+              "witness_ref"
+            ],
+            "requires_witness": true
+          }
+        ],
+        "reference_version": "v9.4",
+        "scope": "acme:migration",
+        "witness_refs": [
+          "synthetic:contract#scope"
+        ]
+      },
+      "required_codes": []
+    }
+  ],
+  "format": "aiaeao.cube.p1.10-golden/1",
+  "reference_version": "v9.4",
+  "source": "synthetic (D-7); shape modelled on the 2026-10-26 test case without client data"
+}
