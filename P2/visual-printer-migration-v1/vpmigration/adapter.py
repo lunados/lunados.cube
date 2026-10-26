@@ -5,10 +5,11 @@ a declared context, track map, label map or witness prefix list.
 """
 from __future__ import annotations
 
-from .common import PROFILE, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
+from .common import PROFILE, PROFILES, P071, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
 from .source import FORMAT as SOURCE_FORMAT, validate_source
 
 CONTEXT_FORMAT = 'aiaeao.cube.binding-context/5'
+CONTEXT_FORMATS_071 = (CONTEXT_FORMAT, 'aiaeao.cube.binding-context/6')  # VP-07.1: /6 adds ends_reason
 TRACK_FORMAT = 'aiaeao.cube.vp07-track-map/1'
 LABEL_FORMAT = 'aiaeao.cube.vp07-label-map/1'
 PREFIX_FORMAT = 'aiaeao.cube.vp07-witness-prefixes/1'
@@ -69,10 +70,57 @@ def _prefixes(doc):
     return doc['prefixes']
 
 
+def _declared_ends(plan, pids):
+    """GM-3: per dependency, the declaration that explains its end on the FULL plan (transcription, not P1 validation).
+    Order mirrors P1.10.1 DG-2…DG-7; dependencies with invalid phases or conflicted referents get no entry."""
+    idx = {p: i for i, p in enumerate(pids)}
+    roles = [p.get('role') for p in plan.get('phases', [])]
+    target = max(i for i, r in enumerate(roles) if r == 'target') if 'target' in roles else len(pids)-1
+    retire, intro = {}, {}
+    for t in plan.get('transitions', []):
+        k = idx.get(t.get('at_phase'))
+        if k is None:
+            continue
+        for r in t.get('retires', []):
+            retire.setdefault(r, []).append(k)
+        for r in t.get('introduces', []):
+            intro.setdefault(r, []).append(k)
+    conflict = {r for r in set(retire) | set(intro) if len(retire.get(r, [])) > 1 or len(intro.get(r, [])) > 1
+                or (r in retire and r in intro and min(retire[r]) <= min(intro[r]))}
+    R = {r: min(v) for r, v in retire.items()}
+    out = {}
+    for d in plan.get('dependencies', []):
+        ks = sorted(idx[p] for p in d['holds_in'] if p in idx)
+        if not ks or len(ks) != len(d['holds_in']) or ks != list(range(ks[0], ks[-1]+1)):
+            continue
+        k, o, s = ks[-1], d['object'], d['subject']
+        if k >= target:
+            e = 'target'
+        elif o in conflict or s in conflict:
+            continue
+        elif o in R and R[o] <= k+1:
+            e = 'object_retired'
+        elif s in R and R[s] <= k+1:
+            e = 'subject_retired'
+        elif d.get('dropped'):
+            e = 'dropped'
+        elif d.get('successor_ref') is not None:
+            e = 'successor'
+        elif d.get('ends_reason') in END_REASONS and d.get('witness_ref'):
+            e = 'ends_reason'
+        else:
+            e = 'unexplained'
+        out[d['dependency_id']] = e
+    return out, pids[target]
+
+
 def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None, subjects=None, edge_styles=None,
-              witness_prefixes=None):
-    need(isinstance(context, dict) and context.get('format') == CONTEXT_FORMAT, 'VP07_ADAPTER_INPUT',
-         'context must be '+CONTEXT_FORMAT+' (got '+repr(context.get('format') if isinstance(context, dict) else None)+')')
+              witness_prefixes=None, profile=LATEST):
+    need(profile in PROFILES, 'VP07_ADAPTER_INPUT', 'profile must be one of '+', '.join(PROFILES))
+    v71 = profile == P071
+    formats = CONTEXT_FORMATS_071 if v71 else (CONTEXT_FORMAT,)
+    need(isinstance(context, dict) and context.get('format') in formats, 'VP07_ADAPTER_INPUT',
+         'context must be '+' or '.join(formats)+' (got '+repr(context.get('format') if isinstance(context, dict) else None)+')')
     ctx_id = context.get('context_id')
     need(clean(ctx_id, 80), 'VP07_ADAPTER_INPUT', 'context_id must be clean text')
     plans = context.get('migration_plans')
@@ -136,6 +184,7 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
         need(prev is None or prev[0] == ref, 'VP07_ADAPTER_MAPPING', 'two refs map to display id '+repr(ident))
         items[ident] = (ref, out, r.get('concept_id'))
         return out
+    ends, target_step = _declared_ends(plan, pids) if v71 else ({}, None)
     rows, objects, cells, facets, deps_out = [], [], [], [], []
     row_ids, obj_ids = [], []
     for j, d, st in selected:
@@ -153,7 +202,17 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
         pointer = f'/migration_plans/{pi}/dependencies/{j}'
         ref = f'decl:{ctx_id}#{pointer}'
         need(len(ref) <= MAX_DECL_REF, 'VP07_ADAPTER_MAPPING', 'declaration_ref exceeds 140 chars; shorten context_id')
-        cells.append({'id': did, 'row': s['id'], 'object': o['id'], 'predicate_id': d['predicate_id'], 'steps': st, 'declaration_ref': ref})
+        cell = {'id': did, 'row': s['id'], 'object': o['id'], 'predicate_id': d['predicate_id'], 'steps': st, 'declaration_ref': ref}
+        if v71:
+            if d.get('dropped') is True:
+                cell['dropped'] = True
+            elif isinstance(d.get('successor_ref'), str) and KEY.fullmatch(d['successor_ref']) is not None:
+                cell['successor'] = d['successor_ref']
+            if isinstance(d.get('ends_reason'), str) and clean(d['ends_reason'], 40):
+                cell['ends_reason'] = d['ends_reason']
+            if did in ends:
+                cell['declared_end'] = ends[did]
+        cells.append(cell)
         deps_out.append({'dependency_id': did, 'pointer': pointer, 'steps': st})
         # AD-4 facets: declared fields only
         exe = []
@@ -177,26 +236,32 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
     for k, t in enumerate(plan.get('transitions', [])):
         ret = [items_id(items, r) for r in t.get('retires', [])]
         intro = [items_id(items, r) for r in t.get('introduces', [])]
-        ret = [x for x in ret if x in obj_ids]
-        intro = [x for x in intro if x in obj_ids]
+        vis = set(obj_ids) | (set(row_ids) if v71 else set())  # VP-07.1 GM-2: transitions may retire subjects
+        ret = [x for x in ret if x in vis]
+        intro = [x for x in intro if x in vis]
         tid = t.get('transition_id')
         if t.get('at_phase') not in window or not (ret or intro):
             dropped.append({'transition_id': tid, 'reason': 'outside_slice'}); continue
         need(isinstance(tid, str) and KEY.fullmatch(tid) is not None, 'VP07_ADAPTER_MAPPING', 'transition_id '+repr(tid)+' is not a valid display ID')
-        transitions.append({'id': tid, 'at': t['at_phase'], 'retires': ret, 'introduces': intro,
-                            'declaration_ref': f'decl:{ctx_id}#/migration_plans/{pi}/transitions/{k}'})
+        tr = {'id': tid, 'at': t['at_phase'], 'retires': ret, 'introduces': intro,
+              'declaration_ref': f'decl:{ctx_id}#/migration_plans/{pi}/transitions/{k}'}
+        if v71:
+            tr['code'] = 'T'+str(k+1)  # PD-3: full-plan order, stable across slices
+        transitions.append(tr)
     role = {p['phase_id']: p.get('role', '') for p in phases}
     step_list = [{'id': p, 'label': excerpt(f'{p} · {role[p]}', 40)} for p in window]
     ctx_sha = sha_json(context)
-    src = {'format': SOURCE_FORMAT, 'profile': PROFILE, 'reference_version': 'v9.4', 'context_id': ctx_id, 'plan_id': plan_id,
+    src = {'format': SOURCE_FORMAT, 'profile': profile, 'reference_version': 'v9.4', 'context_id': ctx_id, 'plan_id': plan_id,
            'source_context_sha256': ctx_sha, 'title': excerpt(f'{plan_id} · {window[0]} → {window[-1]}', 78), 'steps': step_list,
            'rows': rows, 'objects': objects, 'cells': cells, 'transitions': transitions, 'facet_bindings': facets,
            'declaration_status': 'declared_unverified'}
+    if v71:
+        src['target_step'] = target_step
     if styles is not None:
         src['edge_styles'] = edge_styles
     validate_source(src)
     used_steps = {p for c in cells for p in c['steps']}
-    mapping = {'format': MAPPING_FORMAT, 'profile': PROFILE, 'source_context_sha256': ctx_sha, 'context_id': ctx_id, 'plan_id': plan_id,
+    mapping = {'format': MAPPING_FORMAT, 'profile': profile, 'source_context_sha256': ctx_sha, 'context_id': ctx_id, 'plan_id': plan_id,
                'slice': {'steps': window, 'subjects': sorted(wanted) if wanted else None, 'track': track},
                'track_map_sha256': sha_json(tracks) if tracks is not None else None,
                'label_map_sha256': sha_json(labels) if labels is not None else None,

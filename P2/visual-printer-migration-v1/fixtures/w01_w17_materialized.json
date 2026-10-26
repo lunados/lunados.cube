@@ -1,0 +1,2877 @@
+{
+ "cases": [
+  {
+   "expect": {
+    "no_panel_mixes_outer": true,
+    "outer_ledger_complete": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-01",
+   "input": {
+    "granularity": "standard",
+    "partition": "track,subject",
+    "source": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/mail-1-a",
+       "id": "mail-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-1-b",
+       "id": "mail-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-a",
+       "id": "mail-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-b",
+       "id": "mail-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-a",
+       "id": "mail-3-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-b",
+       "id": "mail-3-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-a",
+       "id": "file-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-b",
+       "id": "file-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-a",
+       "id": "file-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-b",
+       "id": "file-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "context_id": "fixture-ctx",
+     "declaration_status": "declared_unverified",
+     "facet_bindings": [],
+     "format": "aiaeao.cube.vp07-migration-source/1",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new service"
+      }
+     ],
+     "plan_id": "mp-fixture",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-1",
+       "label": "mail 1",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-2",
+       "label": "mail 2",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-3",
+       "label": "mail 3",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-1",
+       "label": "file 1",
+       "track": "files"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-2",
+       "label": "file 2",
+       "track": "files"
+      }
+     ],
+     "source_context_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "target_step": "p3",
+     "title": "Fixture migration 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "code": "T1",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ]
+    },
+    "view": "cube.phases"
+   },
+   "op": "panels",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "outer_ledger_complete": true,
+    "outer_panel_count": {
+     "mail": 2
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-02",
+   "input": {
+    "granularity": "standard",
+    "partition": "track,subject",
+    "source": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/mail-1-a",
+       "id": "mail-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-a",
+       "id": "mail-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-a",
+       "id": "mail-3-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-4-a",
+       "id": "mail-4-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-4",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-5-a",
+       "id": "mail-5-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-5",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-6-a",
+       "id": "mail-6-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-6",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-7-a",
+       "id": "mail-7-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-7",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-8-a",
+       "id": "mail-8-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-8",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-9-a",
+       "id": "mail-9-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-9",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-a",
+       "id": "file-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-a",
+       "id": "file-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      }
+     ],
+     "context_id": "fixture-ctx",
+     "declaration_status": "declared_unverified",
+     "facet_bindings": [],
+     "format": "aiaeao.cube.vp07-migration-source/1",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy service"
+      }
+     ],
+     "plan_id": "mp-fixture",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-1",
+       "label": "mail 1",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-2",
+       "label": "mail 2",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-3",
+       "label": "mail 3",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-4",
+       "label": "mail 4",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-5",
+       "label": "mail 5",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-6",
+       "label": "mail 6",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-7",
+       "label": "mail 7",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-8",
+       "label": "mail 8",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-9",
+       "label": "mail 9",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-1",
+       "label": "file 1",
+       "track": "files"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-2",
+       "label": "file 2",
+       "track": "files"
+      }
+     ],
+     "source_context_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "target_step": "p3",
+     "title": "Fixture migration 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "code": "T1",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [],
+       "retires": [
+        "old"
+       ]
+      }
+     ]
+    },
+    "view": "cube.phases"
+   },
+   "op": "panels",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "W-03",
+   "input": {
+    "granularity": "standard",
+    "partition": "track,subject,object",
+    "source": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/mail-1-a",
+       "id": "mail-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-1-b",
+       "id": "mail-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-a",
+       "id": "mail-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-b",
+       "id": "mail-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-a",
+       "id": "mail-3-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-b",
+       "id": "mail-3-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-a",
+       "id": "file-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-b",
+       "id": "file-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-a",
+       "id": "file-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-b",
+       "id": "file-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "context_id": "fixture-ctx",
+     "declaration_status": "declared_unverified",
+     "facet_bindings": [],
+     "format": "aiaeao.cube.vp07-migration-source/1",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new service"
+      }
+     ],
+     "plan_id": "mp-fixture",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-1",
+       "label": "mail 1",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-2",
+       "label": "mail 2",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-3",
+       "label": "mail 3",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-1",
+       "label": "file 1",
+       "track": "files"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-2",
+       "label": "file 2",
+       "track": "files"
+      }
+     ],
+     "source_context_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "target_step": "p3",
+     "title": "Fixture migration 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "code": "T1",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ]
+    },
+    "view": "cube.phases"
+   },
+   "op": "panels",
+   "required_codes": [
+    "VP07_PANEL_PARTITION"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "W-04",
+   "input": {
+    "granularity": "standard",
+    "partition": "subject,subject",
+    "source": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/mail-1-a",
+       "id": "mail-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-1-b",
+       "id": "mail-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-a",
+       "id": "mail-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-b",
+       "id": "mail-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-a",
+       "id": "mail-3-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-b",
+       "id": "mail-3-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-a",
+       "id": "file-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-b",
+       "id": "file-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-a",
+       "id": "file-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-b",
+       "id": "file-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "context_id": "fixture-ctx",
+     "declaration_status": "declared_unverified",
+     "facet_bindings": [],
+     "format": "aiaeao.cube.vp07-migration-source/1",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new service"
+      }
+     ],
+     "plan_id": "mp-fixture",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-1",
+       "label": "mail 1",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-2",
+       "label": "mail 2",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-3",
+       "label": "mail 3",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-1",
+       "label": "file 1",
+       "track": "files"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-2",
+       "label": "file 2",
+       "track": "files"
+      }
+     ],
+     "source_context_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "target_step": "p3",
+     "title": "Fixture migration 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "code": "T1",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ]
+    },
+    "view": "cube.phases"
+   },
+   "op": "panels",
+   "required_codes": [
+    "VP07_PANEL_PARTITION"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "W-05",
+   "input": {
+    "granularity": "standard",
+    "partition": "track,subject",
+    "source": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/mail-1-a",
+       "id": "mail-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-1-b",
+       "id": "mail-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-a",
+       "id": "mail-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-b",
+       "id": "mail-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-a",
+       "id": "mail-3-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-b",
+       "id": "mail-3-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-a",
+       "id": "file-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-b",
+       "id": "file-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-a",
+       "id": "file-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-b",
+       "id": "file-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "context_id": "fixture-ctx",
+     "declaration_status": "declared_unverified",
+     "facet_bindings": [],
+     "format": "aiaeao.cube.vp07-migration-source/1",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new service"
+      }
+     ],
+     "plan_id": "mp-fixture",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-1",
+       "label": "mail 1"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-2",
+       "label": "mail 2",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-3",
+       "label": "mail 3",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-1",
+       "label": "file 1",
+       "track": "files"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-2",
+       "label": "file 2",
+       "track": "files"
+      }
+     ],
+     "source_context_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "target_step": "p3",
+     "title": "Fixture migration 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "code": "T1",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ]
+    },
+    "view": "cube.phases"
+   },
+   "op": "panels",
+   "required_codes": [
+    "VP07_PANEL_PARTITION"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "W-06",
+   "input": {
+    "granularity": "standard",
+    "partition": "track,subject",
+    "source": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/mail-1-a",
+       "id": "mail-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-1-b",
+       "id": "mail-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-a",
+       "id": "mail-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-b",
+       "id": "mail-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-a",
+       "id": "mail-3-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-b",
+       "id": "mail-3-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-a",
+       "id": "file-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-b",
+       "id": "file-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-a",
+       "id": "file-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-b",
+       "id": "file-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "context_id": "fixture-ctx",
+     "declaration_status": "declared_unverified",
+     "facet_bindings": [],
+     "format": "aiaeao.cube.vp07-migration-source/1",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new service"
+      }
+     ],
+     "plan_id": "mp-fixture",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-1",
+       "label": "mail 1",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-2",
+       "label": "mail 2",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-3",
+       "label": "mail 3",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-1",
+       "label": "file 1",
+       "track": "files"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-2",
+       "label": "file 2",
+       "track": "files"
+      }
+     ],
+     "source_context_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "target_step": "p3",
+     "title": "Fixture migration 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "code": "T1",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ]
+    },
+    "tamper": "outer_ledger",
+    "view": "cube.phases"
+   },
+   "op": "panels",
+   "required_codes": [
+    "VP07_PANEL_COVERAGE"
+   ]
+  },
+  {
+   "expect": {
+    "full_id_in_legend_and_title": "transition-team-mail-cut",
+    "marker_code": {
+     "code": "T1",
+     "transition": "transition-team-mail-cut"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-07",
+   "input": {
+    "plan": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/c1",
+       "id": "c1",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/c2",
+       "id": "c2",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "declaration_status": "declared_unverified",
+     "granularity": "standard",
+     "lens": "neutral",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy mail service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new mail service"
+      }
+     ],
+     "printer_profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "outbox",
+       "label": "contact outbox"
+      }
+     ],
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "title": "Outbound mail · 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/transition-team-mail-cut",
+       "id": "transition-team-mail-cut",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ],
+     "view": "cube.phases"
+    }
+   },
+   "op": "phases",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "markers_no_overlap": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-08",
+   "input": {
+    "plan": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/c1",
+       "id": "c1",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/c2",
+       "id": "c2",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "declaration_status": "declared_unverified",
+     "granularity": "standard",
+     "lens": "neutral",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy mail service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new mail service"
+      }
+     ],
+     "printer_profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "outbox",
+       "label": "contact outbox"
+      }
+     ],
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "title": "Outbound mail · 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t-ret",
+       "id": "t-ret",
+       "introduces": [],
+       "retires": [
+        "old"
+       ]
+      },
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t-intro",
+       "id": "t-intro",
+       "introduces": [
+        "new"
+       ],
+       "retires": []
+      }
+     ],
+     "view": "cube.phases"
+    }
+   },
+   "op": "phases",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "both_glyphs_one_code": "t1"
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-09",
+   "input": {
+    "plan": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/c1",
+       "id": "c1",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/c2",
+       "id": "c2",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "declaration_status": "declared_unverified",
+     "granularity": "standard",
+     "lens": "neutral",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy mail service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new mail service"
+      }
+     ],
+     "printer_profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "outbox",
+       "label": "contact outbox"
+      }
+     ],
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "title": "Outbound mail · 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ],
+     "view": "cube.phases"
+    }
+   },
+   "op": "phases",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "same_code_in_panels": {
+     "code": "T2",
+     "transition": "t-x"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-10",
+   "input": {
+    "granularity": "overview",
+    "partition": "subject",
+    "source": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/s1-a",
+       "id": "s1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "s1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/s1-b",
+       "id": "s1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "s1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/s2-a",
+       "id": "s2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "s2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/s2-b",
+       "id": "s2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "s2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/s3-a",
+       "id": "s3-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "s3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/s3-b",
+       "id": "s3-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "s3",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/s1-c",
+       "id": "s1-c",
+       "object": "arc",
+       "predicate_id": "stores-in",
+       "row": "s1",
+       "steps": [
+        "p1",
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "context_id": "fixture-ctx",
+     "declaration_status": "declared_unverified",
+     "facet_bindings": [],
+     "format": "aiaeao.cube.vp07-migration-source/1",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new service"
+      },
+      {
+       "anchor_id": "resource-objects.resource",
+       "form_id": "form.resource-card",
+       "id": "arc",
+       "label": "archive"
+      }
+     ],
+     "plan_id": "mp-fixture",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "s1",
+       "label": "s1"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "s2",
+       "label": "s2"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "s3",
+       "label": "s3"
+      }
+     ],
+     "source_context_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "target_step": "p3",
+     "title": "Fixture migration 0.7.1",
+     "transitions": [
+      {
+       "at": "p1",
+       "code": "T1",
+       "declaration_ref": "fixture:vp071/t-a",
+       "id": "t-a",
+       "introduces": [
+        "arc"
+       ],
+       "retires": []
+      },
+      {
+       "at": "p2",
+       "code": "T2",
+       "declaration_ref": "fixture:vp071/t-x",
+       "id": "t-x",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ]
+    },
+    "view": "cube.phases"
+   },
+   "op": "panels",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "W-11",
+   "input": {
+    "plan": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/c1",
+       "id": "c1",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/c2",
+       "id": "c2",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/k1",
+       "id": "k1",
+       "object": "o1",
+       "predicate_id": "stores-in",
+       "row": "r1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/k2",
+       "id": "k2",
+       "object": "o2",
+       "predicate_id": "stores-in",
+       "row": "r2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/k3",
+       "id": "k3",
+       "object": "o3",
+       "predicate_id": "stores-in",
+       "row": "r3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/k4",
+       "id": "k4",
+       "object": "o4",
+       "predicate_id": "stores-in",
+       "row": "r4",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/k5",
+       "id": "k5",
+       "object": "o5",
+       "predicate_id": "stores-in",
+       "row": "r5",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      }
+     ],
+     "declaration_status": "declared_unverified",
+     "granularity": "detail",
+     "lens": "neutral",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy mail service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new mail service"
+      },
+      {
+       "anchor_id": "resource-objects.resource",
+       "form_id": "form.resource-card",
+       "id": "o1",
+       "label": "object 1"
+      },
+      {
+       "anchor_id": "resource-objects.resource",
+       "form_id": "form.resource-card",
+       "id": "o2",
+       "label": "object 2"
+      },
+      {
+       "anchor_id": "resource-objects.resource",
+       "form_id": "form.resource-card",
+       "id": "o3",
+       "label": "object 3"
+      },
+      {
+       "anchor_id": "resource-objects.resource",
+       "form_id": "form.resource-card",
+       "id": "o4",
+       "label": "object 4"
+      },
+      {
+       "anchor_id": "resource-objects.resource",
+       "form_id": "form.resource-card",
+       "id": "o5",
+       "label": "object 5"
+      }
+     ],
+     "printer_profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "outbox",
+       "label": "contact outbox"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "r1",
+       "label": "job 1"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "r2",
+       "label": "job 2"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "r3",
+       "label": "job 3"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "r4",
+       "label": "job 4"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "r5",
+       "label": "job 5"
+      }
+     ],
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "title": "Outbound mail · 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [],
+       "retires": [
+        "o1"
+       ]
+      },
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t2",
+       "id": "t2",
+       "introduces": [],
+       "retires": [
+        "o2"
+       ]
+      },
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t3",
+       "id": "t3",
+       "introduces": [],
+       "retires": [
+        "o3"
+       ]
+      },
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t4",
+       "id": "t4",
+       "introduces": [],
+       "retires": [
+        "o4"
+       ]
+      },
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t5",
+       "id": "t5",
+       "introduces": [],
+       "retires": [
+        "o5"
+       ]
+      }
+     ],
+     "view": "cube.phases"
+    }
+   },
+   "op": "phases",
+   "required_codes": [
+    "VP07_PHASES_BUDGET"
+   ]
+  },
+  {
+   "expect": {
+    "legend_rows": [
+     "Hatch A (diagonal lines rising) — declared to hold after its object is retired",
+     "Hatch B (diagonal lines falling) — declared to hold before its object is introduced"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-12",
+   "input": {
+    "plan": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/c1",
+       "id": "c1",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p0",
+        "p1",
+        "p2"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/c2",
+       "id": "c2",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p1",
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "declaration_status": "declared_unverified",
+     "granularity": "standard",
+     "lens": "neutral",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy mail service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new mail service"
+      }
+     ],
+     "printer_profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "outbox",
+       "label": "contact outbox"
+      }
+     ],
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "title": "Outbound mail · 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ],
+     "view": "cube.phases"
+    }
+   },
+   "op": "phases",
+   "required_codes": [
+    "VP07_DECLARED_CONFLICT",
+    "VP07_DECLARED_PREMATURE"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-13",
+   "input": {
+    "plan": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/c1",
+       "id": "c1",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/c2",
+       "id": "c2",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "declaration_status": "declared_unverified",
+     "granularity": "standard",
+     "lens": "neutral",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy mail service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new mail service"
+      }
+     ],
+     "printer_profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "outbox",
+       "label": "contact outbox"
+      }
+     ],
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "title": "Outbound mail · 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": []
+      }
+     ],
+     "view": "cube.phases"
+    }
+   },
+   "op": "phases",
+   "required_codes": [
+    "VP07_DECLARED_GAP"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "PASS",
+   "forbidden_codes": [
+    "VP07_DECLARED_GAP"
+   ],
+   "id": "W-14",
+   "input": {
+    "plan": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/c1",
+       "dropped": true,
+       "id": "c1",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/c2",
+       "id": "c2",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "declaration_status": "declared_unverified",
+     "granularity": "standard",
+     "lens": "neutral",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy mail service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new mail service"
+      }
+     ],
+     "printer_profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "outbox",
+       "label": "contact outbox"
+      }
+     ],
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "title": "Outbound mail · 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": []
+      }
+     ],
+     "view": "cube.phases"
+    }
+   },
+   "op": "phases",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "PASS",
+   "forbidden_codes": [
+    "VP07_DECLARED_GAP"
+   ],
+   "id": "W-15",
+   "input": {
+    "plan": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/c1",
+       "id": "c1",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/c2",
+       "id": "c2",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "outbox",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "declaration_status": "declared_unverified",
+     "granularity": "standard",
+     "lens": "neutral",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy mail service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new mail service"
+      }
+     ],
+     "printer_profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "outbox",
+       "label": "contact outbox"
+      }
+     ],
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "title": "Outbound mail · 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ],
+     "view": "cube.phases"
+    }
+   },
+   "op": "phases",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-16",
+   "input": {
+    "context": {
+     "context_id": "p1101-gap",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d-import",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "mailbox-x",
+         "predicate_id": "depends-on",
+         "subject": "import-job",
+         "witness_ref": "repo:example/jobs/d-import"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-acme",
+       "revision": "v1",
+       "scope": "acme:migration",
+       "transitions": []
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "import-job",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "mailbox-x",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "mailbox-y",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "plan_id": "mp-acme",
+    "steps": "p0:p1",
+    "then": {
+     "granularity": "standard",
+     "partition": "subject",
+     "view": "cube.phases"
+    }
+   },
+   "op": "from-plan",
+   "required_codes": [
+    "VP07_DECLARED_GAP"
+   ]
+  },
+  {
+   "expect": {
+    "matches_pinned_070": "V-13"
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "W-17",
+   "input": {
+    "granularity": "overview",
+    "partition": "subject",
+    "source": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp07/s1-a",
+       "id": "s1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "s1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s1-b",
+       "id": "s1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "s1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s1-c",
+       "id": "s1-c",
+       "object": "arc",
+       "predicate_id": "stores-in",
+       "row": "s1",
+       "steps": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s2-a",
+       "id": "s2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "s2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s2-b",
+       "id": "s2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "s2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s2-c",
+       "id": "s2-c",
+       "object": "arc",
+       "predicate_id": "stores-in",
+       "row": "s2",
+       "steps": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s3-a",
+       "id": "s3-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "s3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s3-b",
+       "id": "s3-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "s3",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s3-c",
+       "id": "s3-c",
+       "object": "arc",
+       "predicate_id": "stores-in",
+       "row": "s3",
+       "steps": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s4-a",
+       "id": "s4-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "s4",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s4-b",
+       "id": "s4-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "s4",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp07/s4-c",
+       "id": "s4-c",
+       "object": "arc",
+       "predicate_id": "stores-in",
+       "row": "s4",
+       "steps": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "context_id": "fixture-ctx",
+     "declaration_status": "declared_unverified",
+     "facet_bindings": [],
+     "format": "aiaeao.cube.vp07-migration-source/1",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new service"
+      },
+      {
+       "anchor_id": "resource-objects.resource",
+       "form_id": "form.resource-card",
+       "id": "arc",
+       "label": "archive"
+      }
+     ],
+     "plan_id": "mp-fixture",
+     "profile": "P2-VP-MIGRATION/0.7.0",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "s1",
+       "label": "s1"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "s2",
+       "label": "s2"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "s3",
+       "label": "s3"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "s4",
+       "label": "s4"
+      }
+     ],
+     "source_context_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "title": "Fixture migration",
+     "transitions": [
+      {
+       "at": "p2",
+       "declaration_ref": "fixture:vp07/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ]
+    },
+    "view": "cube.phases"
+   },
+   "op": "panels",
+   "required_codes": []
+  }
+ ],
+ "format": "aiaeao.cube.vp07.1-vectors/1",
+ "reference_version": "v9.4",
+ "source": "VP07_1_ACCEPTANCE_SPEC.md §5 + oracles/independent_w01_w17.json"
+}

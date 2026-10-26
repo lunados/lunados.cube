@@ -50,6 +50,36 @@
       "coverage": "enforced",
       "source": "VP07-01",
       "implementation": "VP-01…VP-06 byte-identical; vpprint unchanged; VP-06 examples re-render identically"
+    },
+    {
+      "id": "VP071-PROFILE-DISPATCH",
+      "coverage": "enforced",
+      "source": "VP-07.1 PD-1…PD-4, D-1",
+      "implementation": "0.7.0 documents keep the 0.7.0 code path; 14 pinned 0.7.0 output digests reproduced byte for byte; from-plan emits 0.7.1 unless --profile 0.7.0"
+    },
+    {
+      "id": "VP071-NESTED-PARTITION",
+      "coverage": "enforced",
+      "source": "VP-07.1 NP-1…NP-5, D-2, D-3",
+      "implementation": "outer,inner with distinct keys; outer groups in declared order, inner packing as PE-2; outer_ledger per outer value recomputed by check-panels; index grouped by outer value"
+    },
+    {
+      "id": "VP071-MARKERS",
+      "coverage": "enforced",
+      "source": "VP-07.1 TM-1…TM-5, D-4, D-5, D-6",
+      "implementation": "codes T1…Tn (source order, stable across panels and slices); 11 px code text; up to 4 per boundary at 16 px pitch; transition legend below the grid, wrapped, full text in <title>"
+    },
+    {
+      "id": "VP071-LEGEND-WORDING",
+      "coverage": "enforced",
+      "source": "VP-07.1 LW-1, LW-2",
+      "implementation": "Hatch A / Hatch B wording; swatch and text separate elements"
+    },
+    {
+      "id": "VP071-GAP",
+      "coverage": "enforced_subset",
+      "source": "VP-07.1 GM-1…GM-5, D-7",
+      "implementation": "computed from declared cells, transitions and target_step, or transcribed declared_end (slice-safe); end cap without colour; VP07_DECLARED_GAP warning; never replaces the P1.10.1 report"
     }
   ]
 }

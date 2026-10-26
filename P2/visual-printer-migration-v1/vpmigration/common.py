@@ -22,7 +22,14 @@ from vp2d.printer import Printer, PrintError as VP01Error, NS, add, line, rect, 
 from vpviews.printer import wrap_label, excerpt  # noqa: E402
 from vplenses.printer import source_digest, cjson, PROFILES as LENSES  # noqa: E402
 
-PROFILE = 'P2-VP-MIGRATION/0.7.0'
+P070 = 'P2-VP-MIGRATION/0.7.0'
+P071 = 'P2-VP-MIGRATION/0.7.1'
+PROFILES = (P070, P071)
+PROFILE = P070  # base profile of the unchanged 0.7.0 code path and diagnostics (VP-07.1 PD-1)
+LATEST = P071
+CODE = re.compile(r'^T[0-9]{1,3}$')
+END_REASONS = ('scope_end', 'replaced_outside_plan', 'other')
+DECLARED_ENDS = ('target', 'object_retired', 'subject_retired', 'successor', 'dropped', 'ends_reason', 'unexplained')
 ERROR_FORMAT = 'aiaeao.cube.vp07-diagnostic/1'
 MAX_INPUT_BYTES = 2*1024*1024
 KEY = re.compile(r'^[A-Za-z][A-Za-z0-9_.:-]{0,99}$')
