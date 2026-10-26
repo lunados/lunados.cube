@@ -76,7 +76,7 @@ All diagnostics follow VP-06: one JSON object on stderr, exit 2, no output direc
 | Cell `steps` not contiguous | FAIL | `VP07_PHASES_STEPS` |
 | A cell holds in a step at or after the transition that retires its object | Rendered, cell marked with hatch A; report lists it | `VP07_DECLARED_CONFLICT` (warning, not a verdict) |
 | A cell holds in a step before the transition that introduces its object (D-7) | Rendered, cell marked with hatch B; report lists it | `VP07_DECLARED_PREMATURE` (warning, not a verdict) |
-| A row exceeds the lane cap of its granularity (§3.1) | as budget overflow (`summarize` \| `reject`) | `VP07_PHASES_BUDGET` |
+| `cube.phases` above its budget (rows, cells or lanes per row, §3.1) with overflow `reject`, any overflow at `detail`, or more steps than the level allows (steps are never summarized) | FAIL | `VP07_PHASES_BUDGET` |
 | `cube.phases` with a lens other than `neutral` | FAIL | `VP07_PHASES_LENS` |
 | `edge_styles` uses a style outside the closed set, maps one predicate twice, or has no legend | FAIL | `VP07_EDGE_STYLE` |
 | `edge_styles` present but an edge's predicate has no entry | Rendered `solid`, legend row "unstyled" | `VP07_EDGE_STYLE_DEFAULT` (warning) |
@@ -166,22 +166,22 @@ All diagnostics follow VP-06: one JSON object on stderr, exit 2, no output direc
 | ID | Case | Expected |
 |---|---|---|
 | V-01 | `cube.phases`, 1 row, 4 steps, 2 cells, 1 transition | PASS |
-| V-02 | Steps out of declared order | FAIL · `VP07_PHASES_STEPS` |
+| V-02 | Cell steps listed out of the declared step order | FAIL · `VP07_PHASES_STEPS` |
 | V-03 | Cell with non-contiguous steps | FAIL · `VP07_PHASES_STEPS` |
 | V-04 | Cell references unknown object | FAIL · `VP07_PHASES_REFERENCE` |
 | V-05 | Cell holds after its object's retirement | PASS + `VP07_DECLARED_CONFLICT` |
-| V-06 | Standard budget exceeded, overflow `reject` | FAIL (VP-04 code) |
+| V-06 | Standard budget exceeded, overflow `reject` | FAIL · `VP07_PHASES_BUDGET` |
 | V-07 | Standard budget exceeded, overflow `summarize` | PASS, loss ledger lists omitted cells |
 | V-08 | Only one step | FAIL · `VP07_PHASES_STEPS` |
 | V-09 | `cube.flow` with `edge_styles` solid/dashed | PASS, legend rendered |
 | V-10 | Style `red` | FAIL · `VP07_EDGE_STYLE` |
 | V-11 | Predicate styled twice | FAIL · `VP07_EDGE_STYLE` |
 | V-12 | VP-06 example without `edge_styles` | PASS, SVG byte-identical to VP-06 |
-| V-13 | 12-cell `cube.phases`, `--partition subject` | PASS, panels cover all cells |
-| V-14 | Partition key `colour` | FAIL · `VP07_PANEL_PARTITION` |
-| V-15 | Single subject exceeding the panel budget | FAIL · `VP07_PANEL_PARTITION` |
-| V-16 | Tampered panel ledger (item missing) | FAIL · `VP07_PANEL_COVERAGE` |
-| V-17 | `from-plan` on P1.10 M-01 context, `--view cube.flow` | PASS |
+| V-13 | 12-cell migration source, `print-panels --view cube.phases --partition subject` | PASS, panels cover all cells |
+| V-14 | `print-panels` with partition key `colour` | FAIL · `VP07_PANEL_PARTITION` |
+| V-15 | `print-panels --partition subject`, one subject alone exceeds the panel budget | FAIL · `VP07_PANEL_PARTITION` |
+| V-16 | `check-panels` on a directory whose report ledger lost one cell ID | FAIL · `VP07_PANEL_COVERAGE` |
+| V-17 | `from-plan` on P1.10 M-01 context, then `print-panels --view cube.flow --partition step` | PASS |
 | V-18 | `from-plan` on a /4 context | FAIL · `VP07_ADAPTER_INPUT` |
 | V-19 | `from-plan` with an unmapped concept | FAIL · `VP07_ADAPTER_MAPPING` |
 | V-20 | `from-plan` on P1.10 golden, then `print-panels --view cube.phases` | PASS, coverage complete |
