@@ -43,7 +43,7 @@ def _sanitized_error(exc):
 def _remote_surface():
     result = copy.deepcopy(surface.discover_surface())
     result['release'] = {**result['release'], 'name':'aiaeao-cube-mcp-remote-g5',
-        'version':'P3-MCP-REMOTE/0.2.0-proof',
+        'version':'P3-MCP-REMOTE/0.3.0-proof',
         'status':'remote_proof_not_accepted',
         'local_surface_profile':'P3-MCP-LOCAL/0.2.0-rc1'}
     result['mcp'] = {**result['mcp'], 'transport':'streamable_http',
@@ -80,8 +80,21 @@ def _remote_surface():
         'current_authority': 'NOT_EVALUATED',
         'canonical_admission': 'NOT_EVALUATED',
     }
+    result['p19_comparison'] = {
+        'profile': 'P1.9/comparison-profile-v1',
+        'binding_context_formats': ['aiaeao.cube.binding-context/4'],
+        'activation': 'explicit_context_format_4_only',
+        'scope': 'declared_comparison_protocols_arms_pairing_parity_outcomes_replay_of',
+        'outcome_vocabulary': ['a_preferred', 'b_preferred', 'equivalent_under_criteria',
+                               'incomparable_under_criteria', 'undetermined_with_available_evidence'],
+        'statistics_computed_by_cube': False,
+        'evaluation_performed_by_cube': False,
+        'epistemic_warrant': 'NOT_EVALUATED',
+        'current_authority': 'NOT_EVALUATED',
+        'canonical_admission': 'NOT_EVALUATED',
+    }
     result['remote_adapter'] = {'name':'aiaeao-cube-mcp-g5',
-        'version':'P3-MCP-REMOTE/0.2.0-proof',
+        'version':'P3-MCP-REMOTE/0.3.0-proof',
         'profile':'remote_service_binding_to_frozen_P0_P1_P2'}
     return result
 
@@ -103,7 +116,7 @@ def dispatch(operation, arguments=None):
             result = copy.deepcopy(bridge.get_capabilities())
             result['remote_adapter'] = {'transport':'streamable_http',
                 'remote_available':True,'name':'aiaeao-cube-mcp-g5',
-                'version':'P3-MCP-REMOTE/0.2.0-proof'}
+                'version':'P3-MCP-REMOTE/0.3.0-proof'}
         elif operation == 'cube_discover_surface':
             result = _remote_surface()
         elif operation == 'cube_prepare_print':

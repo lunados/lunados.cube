@@ -1,0 +1,404 @@
+{
+  "context": {
+    "comparison_protocols": [
+      {
+        "aggregation": "none",
+        "criteria": [
+          {
+            "direction": "lower_better",
+            "metric_id": "brier",
+            "unit": "Brier score"
+          },
+          {
+            "direction": "lower_better",
+            "metric_id": "net_loss",
+            "unit": "decision loss incl. compute cost"
+          }
+        ],
+        "non_comparability": "report_incomparable",
+        "origin": "external_declaration_unverified",
+        "protocol_id": "cp-003",
+        "revision": "synthetic.v1",
+        "scope": "exp003"
+      }
+    ],
+    "comparisons": [
+      {
+        "arms": [
+          {
+            "arm_id": "static",
+            "role": "control",
+            "scenario_ref": "exp003-static"
+          },
+          {
+            "arm_id": "rule",
+            "role": "reference",
+            "scenario_ref": "exp003-rule"
+          },
+          {
+            "arm_id": "adaptive",
+            "role": "treatment",
+            "scenario_ref": "exp003-adaptive"
+          }
+        ],
+        "comparison_id": "cmp-003-projections",
+        "origin": "external_declaration_unverified",
+        "outcomes": [
+          {
+            "a": "adaptive",
+            "annotation_ref": "exp003:claim-comparison",
+            "b": "rule",
+            "metric_id": "brier",
+            "outcome": "a_preferred",
+            "outcome_id": "adaptive-vs-rule-brier",
+            "statistic": {
+              "declared_value": [
+                -0.01475573881107486,
+                -0.000664016371536042
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/summary.json#sha256=3eaf7411c5730357c8d23f11802d50e76e19d70db9f8bde687034dfbf9c6c5d1"
+          },
+          {
+            "a": "adaptive",
+            "annotation_ref": "exp003:claim-comparison",
+            "b": "rule",
+            "metric_id": "net_loss",
+            "outcome": "a_preferred",
+            "outcome_id": "adaptive-vs-rule-net_loss",
+            "statistic": {
+              "declared_value": [
+                -31.654722222222237,
+                -12.531111111111128
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/summary.json#sha256=3eaf7411c5730357c8d23f11802d50e76e19d70db9f8bde687034dfbf9c6c5d1"
+          },
+          {
+            "a": "adaptive",
+            "annotation_ref": "exp003:claim-comparison",
+            "b": "static",
+            "metric_id": "brier",
+            "outcome": "b_preferred",
+            "outcome_id": "adaptive-vs-static-brier",
+            "statistic": {
+              "declared_value": [
+                0.009585911382925907,
+                0.03157885035468242
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/summary.json#sha256=3eaf7411c5730357c8d23f11802d50e76e19d70db9f8bde687034dfbf9c6c5d1"
+          },
+          {
+            "a": "adaptive",
+            "annotation_ref": "exp003:claim-comparison",
+            "b": "static",
+            "metric_id": "net_loss",
+            "outcome": "b_preferred",
+            "outcome_id": "adaptive-vs-static-net_loss",
+            "statistic": {
+              "declared_value": [
+                32.789444444444435,
+                94.72555555555554
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/summary.json#sha256=3eaf7411c5730357c8d23f11802d50e76e19d70db9f8bde687034dfbf9c6c5d1"
+          }
+        ],
+        "pairing": {
+          "shared_parameters": [
+            "scenario_cells",
+            "seeds",
+            "tasks_per_topic",
+            "topics"
+          ],
+          "unit": "cell",
+          "units_ref": "exp003:units",
+          "varied_parameters": [
+            "method"
+          ]
+        },
+        "parity": [
+          {
+            "kind": "declared_other",
+            "parity_id": "same-world-streams",
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/design.json#sha256=4cf76e7872dd76e73f46fbdc95f9242a1c072e7fd57e0c5be86e7f70007c825b"
+          }
+        ],
+        "protocol_ref": "cp-003",
+        "scope": "exp003"
+      }
+    ],
+    "context_id": "golden-exp003-comparison",
+    "evaluation_records": [
+      {
+        "evaluator_ref": "eval:exp003",
+        "input_digest": "sha256:4cf76e7872dd76e73f46fbdc95f9242a1c072e7fd57e0c5be86e7f70007c825b",
+        "method_id": "simulate.dialectical-projection/v1",
+        "output_refs": [
+          "exp003:out-static"
+        ],
+        "record_id": "rec-static",
+        "scenario_ref": "exp003-static",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/summary.json#sha256=3eaf7411c5730357c8d23f11802d50e76e19d70db9f8bde687034dfbf9c6c5d1"
+      },
+      {
+        "evaluator_ref": "eval:exp003",
+        "input_digest": "sha256:4cf76e7872dd76e73f46fbdc95f9242a1c072e7fd57e0c5be86e7f70007c825b",
+        "method_id": "simulate.dialectical-projection/v1",
+        "output_refs": [
+          "exp003:out-rule"
+        ],
+        "record_id": "rec-rule",
+        "scenario_ref": "exp003-rule",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/summary.json#sha256=3eaf7411c5730357c8d23f11802d50e76e19d70db9f8bde687034dfbf9c6c5d1"
+      },
+      {
+        "evaluator_ref": "eval:exp003",
+        "input_digest": "sha256:4cf76e7872dd76e73f46fbdc95f9242a1c072e7fd57e0c5be86e7f70007c825b",
+        "method_id": "simulate.dialectical-projection/v1",
+        "output_refs": [
+          "exp003:out-adaptive"
+        ],
+        "record_id": "rec-adaptive",
+        "scenario_ref": "exp003-adaptive",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/summary.json#sha256=3eaf7411c5730357c8d23f11802d50e76e19d70db9f8bde687034dfbf9c6c5d1"
+      }
+    ],
+    "evaluators": [
+      {
+        "evaluator_id": "eval:exp003",
+        "kind": "local_script",
+        "method_ids": [
+          "simulate.dialectical-projection/v1"
+        ],
+        "origin": "external_declaration_unverified",
+        "output_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "simulate.py@sha256:a24eceae905f427a6e388218662ff0b3ecadffaef48989ca9c55455c2f8a04b8",
+        "scope": "exp003"
+      }
+    ],
+    "format": "aiaeao.cube.binding-context/4",
+    "method_contracts": [
+      {
+        "argument_concept_ids": [
+          "Y:resource-object:artifact"
+        ],
+        "argument_max": 1,
+        "argument_min": 1,
+        "effect_class": "pure_declarative",
+        "method_id": "simulate.dialectical-projection/v1",
+        "origin": "external_declaration_unverified",
+        "return_cardinality": "one",
+        "return_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "simulate.py@sha256:a24eceae905f427a6e388218662ff0b3ecadffaef48989ca9c55455c2f8a04b8",
+        "scope": "exp003"
+      }
+    ],
+    "predicate_contracts": [
+      {
+        "additional_constraints": [
+          "Support is declared by the archived run; the Cube does not verify it."
+        ],
+        "direction": "subject_to_object",
+        "object_concept_ids": [
+          "Y:identified-object:annotation"
+        ],
+        "origin": "external_declaration_unverified",
+        "predicate_id": "supports",
+        "revision": "golden:v1",
+        "scope": "exp003",
+        "subject_concept_ids": [
+          "Y:resource-object:evidence"
+        ]
+      }
+    ],
+    "profile_limitations": [
+      "Exploratory synthetic simulation, not a canonical v6 implementation (design.json status).",
+      "Per-metric outcomes only; the experiment deliberately reports no overall score (aggregation: none)."
+    ],
+    "reference_version": "v9.4",
+    "referents": [
+      {
+        "concept_id": "Y:resource-object:artifact",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp003:units",
+        "scope_ref": "exp003"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp003:result-summary",
+        "scope_ref": "exp003"
+      },
+      {
+        "concept_id": "Y:identified-object:annotation",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp003:claim-comparison",
+        "scope_ref": "exp003"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp003:out-static",
+        "scope_ref": "exp003"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp003:out-rule",
+        "scope_ref": "exp003"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp003:out-adaptive",
+        "scope_ref": "exp003"
+      }
+    ],
+    "scenarios": [
+      {
+        "method_ids": [
+          "simulate.dialectical-projection/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "method": "STATIC",
+          "scenario_cells": 24,
+          "seeds": 30,
+          "tasks_per_topic": 48,
+          "topics": 3
+        },
+        "revision": "archived",
+        "scenario_id": "exp003-static",
+        "scope": "exp003",
+        "world_refs": [
+          "exp003:units",
+          "exp003:out-static"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.dialectical-projection/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "method": "RULE",
+          "scenario_cells": 24,
+          "seeds": 30,
+          "tasks_per_topic": 48,
+          "topics": 3
+        },
+        "revision": "archived",
+        "scenario_id": "exp003-rule",
+        "scope": "exp003",
+        "world_refs": [
+          "exp003:units",
+          "exp003:out-rule"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.dialectical-projection/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "method": "ADAPTIVE",
+          "scenario_cells": 24,
+          "seeds": 30,
+          "tasks_per_topic": 48,
+          "topics": 3
+        },
+        "revision": "archived",
+        "scenario_id": "exp003-adaptive",
+        "scope": "exp003",
+        "world_refs": [
+          "exp003:units",
+          "exp003:out-adaptive"
+        ]
+      }
+    ],
+    "scope_ref": "exp003",
+    "source_kind": "external_declaration_unverified"
+  },
+  "expected_overall": "PASS",
+  "id": "GOLDEN-EXP003-COMPARISON",
+  "input_format": "acg_text",
+  "input_text": "rel(\"supports\",Y:α:Evidence[\"exp003:result-summary\"],Y:α:Annotation[\"exp003:claim-comparison\"])",
+  "reference": {
+    "declared_finding": "ADAPTIVE beats RULE on Brier score and net loss, but STATIC beats ADAPTIVE on both (paired scenario bootstrap, 95 %).",
+    "experiment": "EXP-003 Dialectical quality — STATIC, RULE, ADAPTIVE",
+    "not_claimed": [
+      "a total ranking of the three methods",
+      "real-world calibration",
+      "knowledge capability of any Cube"
+    ],
+    "sources": {
+      "design": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/design.json",
+        "sha256": "4cf76e7872dd76e73f46fbdc95f9242a1c072e7fd57e0c5be86e7f70007c825b"
+      },
+      "manifest": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/MANIFEST.sha256",
+        "sha256": "82c0e39ec6faf4510270c4cd08629b54d425c255ae187f2551207477e9f60d32"
+      },
+      "paired": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/paired.csv",
+        "sha256": "4d38582a92b469578a6d9e3af6d7b7eec3dfb9735fc24f104aaae7f2c722e4e8"
+      },
+      "readme": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/README.md",
+        "sha256": "6b5baf1ae4e7d7a195bc2a84e8b09924aca106fc17d22e7ca943ba40916be647"
+      },
+      "simulator": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/simulate.py",
+        "sha256": "a24eceae905f427a6e388218662ff0b3ecadffaef48989ca9c55455c2f8a04b8"
+      },
+      "summary": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_003/results/summary.json",
+        "sha256": "3eaf7411c5730357c8d23f11802d50e76e19d70db9f8bde687034dfbf9c6c5d1"
+      }
+    },
+    "transcription": "Numbers are copied from the pinned result files; nothing is recomputed by the Cube."
+  },
+  "required_codes": [],
+  "title": "EXP-003 Dialectical quality — STATIC, RULE, ADAPTIVE"
+}

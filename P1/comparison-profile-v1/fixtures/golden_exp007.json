@@ -1,0 +1,492 @@
+{
+  "context": {
+    "comparison_protocols": [
+      {
+        "aggregation": "none",
+        "criteria": [
+          {
+            "direction": "lower_better",
+            "metric_id": "total_ms",
+            "unit": "ms per world (synthetic, in-process)"
+          }
+        ],
+        "non_comparability": "report_undetermined",
+        "origin": "external_declaration_unverified",
+        "protocol_id": "cp-007",
+        "required_parity": [
+          "result_equivalence"
+        ],
+        "revision": "0.1.0",
+        "scope": "exp007"
+      }
+    ],
+    "comparisons": [
+      {
+        "arms": [
+          {
+            "arm_id": "direct",
+            "role": "control",
+            "scenario_ref": "exp007-direct"
+          },
+          {
+            "arm_id": "bitset",
+            "role": "treatment",
+            "scenario_ref": "exp007-bitset"
+          },
+          {
+            "arm_id": "adaptive",
+            "role": "treatment",
+            "scenario_ref": "exp007-adaptive"
+          },
+          {
+            "arm_id": "native_memo",
+            "role": "treatment",
+            "scenario_ref": "exp007-native_memo"
+          },
+          {
+            "arm_id": "midi_memo",
+            "role": "treatment",
+            "scenario_ref": "exp007-midi_memo"
+          }
+        ],
+        "comparison_id": "cmp-007-selectivity",
+        "origin": "external_declaration_unverified",
+        "outcomes": [
+          {
+            "a": "bitset",
+            "annotation_ref": "exp007:claim-comparison",
+            "b": "direct",
+            "metric_id": "total_ms",
+            "outcome": "a_preferred",
+            "outcome_id": "bitset-vs-direct",
+            "statistic": {
+              "declared_value": [
+                -36.3415,
+                -15.9047
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json#sha256=b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+          },
+          {
+            "a": "adaptive",
+            "annotation_ref": "exp007:claim-comparison",
+            "b": "direct",
+            "metric_id": "total_ms",
+            "outcome": "a_preferred",
+            "outcome_id": "adaptive-vs-direct",
+            "statistic": {
+              "declared_value": [
+                -36.7224,
+                -17.2145
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json#sha256=b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+          },
+          {
+            "a": "native_memo",
+            "annotation_ref": "exp007:claim-comparison",
+            "b": "direct",
+            "metric_id": "total_ms",
+            "outcome": "a_preferred",
+            "outcome_id": "native_memo-vs-direct",
+            "statistic": {
+              "declared_value": [
+                -60.0748,
+                -38.3291
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json#sha256=b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+          },
+          {
+            "a": "midi_memo",
+            "annotation_ref": "exp007:claim-comparison",
+            "b": "direct",
+            "metric_id": "total_ms",
+            "outcome": "a_preferred",
+            "outcome_id": "midi_memo-vs-direct",
+            "statistic": {
+              "declared_value": [
+                -57.1801,
+                -34.4617
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json#sha256=b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+          }
+        ],
+        "pairing": {
+          "shared_parameters": [
+            "query_events_per_world",
+            "seeds",
+            "worlds"
+          ],
+          "unit": "world",
+          "units_ref": "exp007:units",
+          "varied_parameters": [
+            "strategy"
+          ]
+        },
+        "parity": [
+          {
+            "kind": "result_equivalence",
+            "parity_id": "exact-query-results",
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/summary.json#sha256=770282635b9664f5f6f77a888887aa9f116f9786cf4b3c9bd3477f75fe565165"
+          }
+        ],
+        "protocol_ref": "cp-007",
+        "scope": "exp007"
+      }
+    ],
+    "context_id": "golden-exp007-comparison",
+    "evaluation_records": [
+      {
+        "evaluator_ref": "eval:exp007",
+        "input_digest": "sha256:df4bde05e458f4887f4e0e6a0b505f2c73570010822f86632df09acee1bbb3d2",
+        "method_id": "simulate.selectivity/v1",
+        "output_refs": [
+          "exp007:out-direct"
+        ],
+        "record_id": "rec-direct",
+        "scenario_ref": "exp007-direct",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json#sha256=b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+      },
+      {
+        "evaluator_ref": "eval:exp007",
+        "input_digest": "sha256:df4bde05e458f4887f4e0e6a0b505f2c73570010822f86632df09acee1bbb3d2",
+        "method_id": "simulate.selectivity/v1",
+        "output_refs": [
+          "exp007:out-bitset"
+        ],
+        "record_id": "rec-bitset",
+        "scenario_ref": "exp007-bitset",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json#sha256=b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+      },
+      {
+        "evaluator_ref": "eval:exp007",
+        "input_digest": "sha256:df4bde05e458f4887f4e0e6a0b505f2c73570010822f86632df09acee1bbb3d2",
+        "method_id": "simulate.selectivity/v1",
+        "output_refs": [
+          "exp007:out-adaptive"
+        ],
+        "record_id": "rec-adaptive",
+        "scenario_ref": "exp007-adaptive",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json#sha256=b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+      },
+      {
+        "evaluator_ref": "eval:exp007",
+        "input_digest": "sha256:df4bde05e458f4887f4e0e6a0b505f2c73570010822f86632df09acee1bbb3d2",
+        "method_id": "simulate.selectivity/v1",
+        "output_refs": [
+          "exp007:out-native_memo"
+        ],
+        "record_id": "rec-native_memo",
+        "scenario_ref": "exp007-native_memo",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json#sha256=b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+      },
+      {
+        "evaluator_ref": "eval:exp007",
+        "input_digest": "sha256:df4bde05e458f4887f4e0e6a0b505f2c73570010822f86632df09acee1bbb3d2",
+        "method_id": "simulate.selectivity/v1",
+        "output_refs": [
+          "exp007:out-midi_memo"
+        ],
+        "record_id": "rec-midi_memo",
+        "scenario_ref": "exp007-midi_memo",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json#sha256=b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+      }
+    ],
+    "evaluators": [
+      {
+        "evaluator_id": "eval:exp007",
+        "kind": "local_script",
+        "method_ids": [
+          "simulate.selectivity/v1"
+        ],
+        "origin": "external_declaration_unverified",
+        "output_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "run007.py@sha256:599af719c7b0e634bc170aba8bef149f25f9d94a164bd78599919b0174319b83",
+        "scope": "exp007"
+      }
+    ],
+    "format": "aiaeao.cube.binding-context/4",
+    "method_contracts": [
+      {
+        "argument_concept_ids": [
+          "Y:resource-object:artifact"
+        ],
+        "argument_max": 1,
+        "argument_min": 1,
+        "effect_class": "pure_declarative",
+        "method_id": "simulate.selectivity/v1",
+        "origin": "external_declaration_unverified",
+        "return_cardinality": "one",
+        "return_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "run007.py@sha256:599af719c7b0e634bc170aba8bef149f25f9d94a164bd78599919b0174319b83",
+        "scope": "exp007"
+      }
+    ],
+    "predicate_contracts": [
+      {
+        "additional_constraints": [
+          "Support is declared by the archived run; the Cube does not verify it."
+        ],
+        "direction": "subject_to_object",
+        "object_concept_ids": [
+          "Y:identified-object:annotation"
+        ],
+        "origin": "external_declaration_unverified",
+        "predicate_id": "supports",
+        "revision": "golden:v1",
+        "scope": "exp007",
+        "subject_concept_ids": [
+          "Y:resource-object:evidence"
+        ]
+      }
+    ],
+    "profile_limitations": [
+      "Synthetic controlled pilot; in-process timings; MIDI hardware not measured.",
+      "Result equivalence is declared by the archived run (query_result_exact_parity); the Cube does not check it."
+    ],
+    "reference_version": "v9.4",
+    "referents": [
+      {
+        "concept_id": "Y:resource-object:artifact",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp007:units",
+        "scope_ref": "exp007"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp007:result-summary",
+        "scope_ref": "exp007"
+      },
+      {
+        "concept_id": "Y:identified-object:annotation",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp007:claim-comparison",
+        "scope_ref": "exp007"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp007:out-direct",
+        "scope_ref": "exp007"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp007:out-bitset",
+        "scope_ref": "exp007"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp007:out-adaptive",
+        "scope_ref": "exp007"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp007:out-native_memo",
+        "scope_ref": "exp007"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp007:out-midi_memo",
+        "scope_ref": "exp007"
+      }
+    ],
+    "scenarios": [
+      {
+        "method_ids": [
+          "simulate.selectivity/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "query_events_per_world": 180,
+          "seeds": 2,
+          "strategy": "direct",
+          "worlds": 108
+        },
+        "revision": "archived",
+        "scenario_id": "exp007-direct",
+        "scope": "exp007",
+        "world_refs": [
+          "exp007:units",
+          "exp007:out-direct"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.selectivity/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "query_events_per_world": 180,
+          "seeds": 2,
+          "strategy": "bitset",
+          "worlds": 108
+        },
+        "revision": "archived",
+        "scenario_id": "exp007-bitset",
+        "scope": "exp007",
+        "world_refs": [
+          "exp007:units",
+          "exp007:out-bitset"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.selectivity/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "query_events_per_world": 180,
+          "seeds": 2,
+          "strategy": "adaptive",
+          "worlds": 108
+        },
+        "revision": "archived",
+        "scenario_id": "exp007-adaptive",
+        "scope": "exp007",
+        "world_refs": [
+          "exp007:units",
+          "exp007:out-adaptive"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.selectivity/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "query_events_per_world": 180,
+          "seeds": 2,
+          "strategy": "native_memo",
+          "worlds": 108
+        },
+        "revision": "archived",
+        "scenario_id": "exp007-native_memo",
+        "scope": "exp007",
+        "world_refs": [
+          "exp007:units",
+          "exp007:out-native_memo"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.selectivity/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "query_events_per_world": 180,
+          "seeds": 2,
+          "strategy": "midi_memo",
+          "worlds": 108
+        },
+        "revision": "archived",
+        "scenario_id": "exp007-midi_memo",
+        "scope": "exp007",
+        "world_refs": [
+          "exp007:units",
+          "exp007:out-midi_memo"
+        ]
+      }
+    ],
+    "scope_ref": "exp007",
+    "source_kind": "external_declaration_unverified"
+  },
+  "expected_overall": "PASS",
+  "id": "GOLDEN-EXP007-COMPARISON",
+  "input_format": "acg_text",
+  "input_text": "rel(\"supports\",Y:α:Evidence[\"exp007:result-summary\"],Y:α:Annotation[\"exp007:claim-comparison\"])",
+  "reference": {
+    "declared_finding": "All four strategies are faster than direct evaluation at exact result parity (95 % bootstrap intervals entirely below zero).",
+    "experiment": "EXP-007 Computational selectivity — four strategies vs direct",
+    "not_claimed": [
+      "real MIDI transport",
+      "speed-up outside the 108 synthetic worlds",
+      "authority from bitset candidates"
+    ],
+    "sources": {
+      "intervals": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_intervals.json",
+        "sha256": "b00a6a744dd61c2b446a2b53b29df62b59431910e76b950382314684631eac9b"
+      },
+      "manifest": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/SHA256SUMS.txt",
+        "sha256": "a1da36f584201915d0842b435f17152b85510d1919689a32ae7093f11e8ba376"
+      },
+      "paired_by_world": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/paired_by_world.csv",
+        "sha256": "a81162738d35e81c0bba712d0e3fce5f0bc8b1a7d3a0bfbe7735bde4ec240306"
+      },
+      "protocol": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/EXPERIMENT-PROTOCOL.json",
+        "sha256": "df4bde05e458f4887f4e0e6a0b505f2c73570010822f86632df09acee1bbb3d2"
+      },
+      "runner": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/src/run007.py",
+        "sha256": "599af719c7b0e634bc170aba8bef149f25f9d94a164bd78599919b0174319b83"
+      },
+      "summary": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_007/results/summary.json",
+        "sha256": "770282635b9664f5f6f77a888887aa9f116f9786cf4b3c9bd3477f75fe565165"
+      }
+    },
+    "transcription": "Numbers are copied from the pinned result files; nothing is recomputed by the Cube."
+  },
+  "required_codes": [],
+  "title": "EXP-007 Computational selectivity — four strategies vs direct"
+}

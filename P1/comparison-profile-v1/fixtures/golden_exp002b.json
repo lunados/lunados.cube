@@ -1,0 +1,1015 @@
+{
+  "context": {
+    "comparison_protocols": [
+      {
+        "aggregation": "none",
+        "criteria": [
+          {
+            "direction": "lower_better",
+            "metric_id": "total_cost",
+            "unit": "cumulative scalar cost per world stream"
+          },
+          {
+            "direction": "lower_better",
+            "metric_id": "errors",
+            "unit": "errors per world stream"
+          }
+        ],
+        "non_comparability": "report_undetermined",
+        "origin": "external_declaration_unverified",
+        "protocol_id": "cp-002b",
+        "revision": "analysis.v1",
+        "scope": "exp002b"
+      }
+    ],
+    "comparisons": [
+      {
+        "arms": [
+          {
+            "arm_id": "adm",
+            "role": "control",
+            "scenario_ref": "exp002b-adm"
+          },
+          {
+            "arm_id": "mpc",
+            "role": "treatment",
+            "scenario_ref": "exp002b-mpc"
+          }
+        ],
+        "comparison_id": "cmp-002b-adm-mpc",
+        "design": {
+          "factors": {
+            "case": [
+              "base",
+              "risk_strict",
+              "risk_relaxed",
+              "fresh_strict",
+              "fresh_relaxed",
+              "cost_first",
+              "fresh_first",
+              "cost_target_strict",
+              "loss_x3",
+              "loss_x6",
+              "hazard_under",
+              "hazard_over",
+              "horizon_4",
+              "horizon_16",
+              "horizon_32",
+              "schedule_naive",
+              "loss_x3_hazard_under",
+              "loss_x3_hazard_over"
+            ]
+          }
+        },
+        "origin": "external_declaration_unverified",
+        "outcomes": [
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "base-cost",
+            "scope": {
+              "case": "base"
+            },
+            "statistic": {
+              "declared_value": [
+                279.8233,
+                503.6387
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "base-errors",
+            "scope": {
+              "case": "base"
+            },
+            "statistic": {
+              "declared_value": [
+                -3.414861,
+                -2.3
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "a_preferred",
+            "outcome_id": "cost_first-cost",
+            "scope": {
+              "case": "cost_first"
+            },
+            "statistic": {
+              "declared_value": [
+                -3260.082,
+                -1923.738
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "cost_first-errors",
+            "scope": {
+              "case": "cost_first"
+            },
+            "statistic": {
+              "declared_value": [
+                -93.49181,
+                -68.59477
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "cost_target_strict-cost",
+            "scope": {
+              "case": "cost_target_strict"
+            },
+            "statistic": {
+              "declared_value": [
+                275.8122,
+                502.4956
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "cost_target_strict-errors",
+            "scope": {
+              "case": "cost_target_strict"
+            },
+            "statistic": {
+              "declared_value": [
+                -3.359282,
+                -2.292569
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "fresh_first-cost",
+            "scope": {
+              "case": "fresh_first"
+            },
+            "statistic": {
+              "declared_value": [
+                278.134,
+                510.5059
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "fresh_first-errors",
+            "scope": {
+              "case": "fresh_first"
+            },
+            "statistic": {
+              "declared_value": [
+                -3.410255,
+                -2.314815
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "fresh_relaxed-cost",
+            "scope": {
+              "case": "fresh_relaxed"
+            },
+            "statistic": {
+              "declared_value": [
+                287.5394,
+                510.4746
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "fresh_relaxed-errors",
+            "scope": {
+              "case": "fresh_relaxed"
+            },
+            "statistic": {
+              "declared_value": [
+                -3.500046,
+                -2.278704
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "fresh_strict-cost",
+            "scope": {
+              "case": "fresh_strict"
+            },
+            "statistic": {
+              "declared_value": [
+                381.3386,
+                628.2999
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "fresh_strict-errors",
+            "scope": {
+              "case": "fresh_strict"
+            },
+            "statistic": {
+              "declared_value": [
+                -2.80375,
+                -1.961088
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "hazard_over-cost",
+            "scope": {
+              "case": "hazard_over"
+            },
+            "statistic": {
+              "declared_value": [
+                335.2996,
+                628.3419
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "hazard_over-errors",
+            "scope": {
+              "case": "hazard_over"
+            },
+            "statistic": {
+              "declared_value": [
+                -2.299074,
+                -1.385185
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "hazard_under-cost",
+            "scope": {
+              "case": "hazard_under"
+            },
+            "statistic": {
+              "declared_value": [
+                327.8905,
+                646.4762
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "hazard_under-errors",
+            "scope": {
+              "case": "hazard_under"
+            },
+            "statistic": {
+              "declared_value": [
+                -6.196481,
+                -3.914792
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "horizon_16-cost",
+            "scope": {
+              "case": "horizon_16"
+            },
+            "statistic": {
+              "declared_value": [
+                414.114,
+                627.2686
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "horizon_16-errors",
+            "scope": {
+              "case": "horizon_16"
+            },
+            "statistic": {
+              "declared_value": [
+                -4.115764,
+                -2.781481
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "horizon_32-cost",
+            "scope": {
+              "case": "horizon_32"
+            },
+            "statistic": {
+              "declared_value": [
+                535.974,
+                714.7586
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "horizon_32-errors",
+            "scope": {
+              "case": "horizon_32"
+            },
+            "statistic": {
+              "declared_value": [
+                -3.418519,
+                -2.396273
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "horizon_4-cost",
+            "scope": {
+              "case": "horizon_4"
+            },
+            "statistic": {
+              "declared_value": [
+                203.2911,
+                496.4792
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "horizon_4-errors",
+            "scope": {
+              "case": "horizon_4"
+            },
+            "statistic": {
+              "declared_value": [
+                -2.848171,
+                -1.949051
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "loss_x3-cost",
+            "scope": {
+              "case": "loss_x3"
+            },
+            "statistic": {
+              "declared_value": [
+                18.41615,
+                218.6384
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "loss_x3-errors",
+            "scope": {
+              "case": "loss_x3"
+            },
+            "statistic": {
+              "declared_value": [
+                -3.611111,
+                -2.470347
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "loss_x3_hazard_over-cost",
+            "scope": {
+              "case": "loss_x3_hazard_over"
+            },
+            "statistic": {
+              "declared_value": [
+                214.0501,
+                448.0122
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "loss_x3_hazard_over-errors",
+            "scope": {
+              "case": "loss_x3_hazard_over"
+            },
+            "statistic": {
+              "declared_value": [
+                -2.362963,
+                -1.418449
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "undetermined_with_available_evidence",
+            "outcome_id": "loss_x3_hazard_under-cost",
+            "scope": {
+              "case": "loss_x3_hazard_under"
+            },
+            "statistic": {
+              "declared_value": [
+                -218.7347,
+                109.8627
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "loss_x3_hazard_under-errors",
+            "scope": {
+              "case": "loss_x3_hazard_under"
+            },
+            "statistic": {
+              "declared_value": [
+                -6.40838,
+                -4.09162
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "a_preferred",
+            "outcome_id": "loss_x6-cost",
+            "scope": {
+              "case": "loss_x6"
+            },
+            "statistic": {
+              "declared_value": [
+                -614.3885,
+                -208.6367
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "loss_x6-errors",
+            "scope": {
+              "case": "loss_x6"
+            },
+            "statistic": {
+              "declared_value": [
+                -4.611134,
+                -2.807407
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "risk_relaxed-cost",
+            "scope": {
+              "case": "risk_relaxed"
+            },
+            "statistic": {
+              "declared_value": [
+                231.4155,
+                354.9978
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "risk_relaxed-errors",
+            "scope": {
+              "case": "risk_relaxed"
+            },
+            "statistic": {
+              "declared_value": [
+                -4.733403,
+                -3.211088
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "risk_strict-cost",
+            "scope": {
+              "case": "risk_strict"
+            },
+            "statistic": {
+              "declared_value": [
+                410.9631,
+                838.1174
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "risk_strict-errors",
+            "scope": {
+              "case": "risk_strict"
+            },
+            "statistic": {
+              "declared_value": [
+                -2.139838,
+                -1.293495
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "total_cost",
+            "outcome": "b_preferred",
+            "outcome_id": "schedule_naive-cost",
+            "scope": {
+              "case": "schedule_naive"
+            },
+            "statistic": {
+              "declared_value": [
+                869.8145,
+                1605.025
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          },
+          {
+            "a": "mpc",
+            "annotation_ref": "exp002b:claim-comparison",
+            "b": "adm",
+            "metric_id": "errors",
+            "outcome": "a_preferred",
+            "outcome_id": "schedule_naive-errors",
+            "scope": {
+              "case": "schedule_naive"
+            },
+            "statistic": {
+              "declared_value": [
+                -5.394444,
+                -4.080486
+              ],
+              "kind": "interval_a_minus_b"
+            },
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+          }
+        ],
+        "pairing": {
+          "shared_parameters": [
+            "scenario_cells",
+            "seeds",
+            "tasks",
+            "world_generator",
+            "worlds"
+          ],
+          "unit": "world_seed",
+          "units_ref": "exp002b:units",
+          "varied_parameters": [
+            "horizon",
+            "policy"
+          ]
+        },
+        "parity": [
+          {
+            "kind": "declared_other",
+            "parity_id": "same-worlds",
+            "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/analysis.json#sha256=b99acbd3d6513ceab5812f73ccd931648a102aa21a2b092e84d41599b7bd082f"
+          }
+        ],
+        "protocol_ref": "cp-002b",
+        "scope": "exp002b"
+      }
+    ],
+    "context_id": "golden-exp002b-comparison",
+    "evaluation_records": [
+      {
+        "evaluator_ref": "eval:exp002b",
+        "input_digest": "sha256:c6e00037a485d352681e97860991b25a3e10ee18d8670df54e7a8692cd7bc4e2",
+        "method_id": "simulate.planning-depth/v1",
+        "output_refs": [
+          "exp002b:out-adm"
+        ],
+        "record_id": "rec-adm",
+        "scenario_ref": "exp002b-adm",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+      },
+      {
+        "evaluator_ref": "eval:exp002b",
+        "input_digest": "sha256:c6e00037a485d352681e97860991b25a3e10ee18d8670df54e7a8692cd7bc4e2",
+        "method_id": "simulate.planning-depth/v1",
+        "output_refs": [
+          "exp002b:out-mpc"
+        ],
+        "record_id": "rec-mpc",
+        "scenario_ref": "exp002b-mpc",
+        "status": "declared",
+        "witness_ref": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv#sha256=ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+      }
+    ],
+    "evaluators": [
+      {
+        "evaluator_id": "eval:exp002b",
+        "kind": "local_script",
+        "method_ids": [
+          "simulate.planning-depth/v1"
+        ],
+        "origin": "external_declaration_unverified",
+        "output_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "run_experiment.js@sha256:e4c0f8c8227c8d0c0cc8e16ee7233482fb16d2d0716d1354ec7a1ff40b41ce0f",
+        "scope": "exp002b"
+      }
+    ],
+    "format": "aiaeao.cube.binding-context/4",
+    "method_contracts": [
+      {
+        "argument_concept_ids": [
+          "Y:resource-object:artifact"
+        ],
+        "argument_max": 1,
+        "argument_min": 1,
+        "effect_class": "pure_declarative",
+        "method_id": "simulate.planning-depth/v1",
+        "origin": "external_declaration_unverified",
+        "return_cardinality": "one",
+        "return_concept_ids": [
+          "Y:resource-object:evidence"
+        ],
+        "revision": "run_experiment.js@sha256:e4c0f8c8227c8d0c0cc8e16ee7233482fb16d2d0716d1354ec7a1ff40b41ce0f",
+        "scope": "exp002b"
+      }
+    ],
+    "predicate_contracts": [
+      {
+        "additional_constraints": [
+          "Support is declared by the archived run; the Cube does not verify it."
+        ],
+        "direction": "subject_to_object",
+        "object_concept_ids": [
+          "Y:identified-object:annotation"
+        ],
+        "origin": "external_declaration_unverified",
+        "predicate_id": "supports",
+        "revision": "golden:v1",
+        "scope": "exp002b",
+        "subject_concept_ids": [
+          "Y:resource-object:evidence"
+        ]
+      }
+    ],
+    "profile_limitations": [
+      "Synthetic certainty-equivalent rollout, not exact MPC; deterministic fixed seeds; not field evidence.",
+      "Cost intervals are descriptive bootstrap intervals over 54 scenario-cell means (analysis.json).",
+      "Loss multipliers change the cost scale; outcomes are scoped per case and never compared across cases."
+    ],
+    "reference_version": "v9.4",
+    "referents": [
+      {
+        "concept_id": "Y:resource-object:artifact",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp002b:units",
+        "scope_ref": "exp002b"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp002b:result-summary",
+        "scope_ref": "exp002b"
+      },
+      {
+        "concept_id": "Y:identified-object:annotation",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp002b:claim-comparison",
+        "scope_ref": "exp002b"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp002b:out-adm",
+        "scope_ref": "exp002b"
+      },
+      {
+        "concept_id": "Y:resource-object:evidence",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "ref": "exp002b:out-mpc",
+        "scope_ref": "exp002b"
+      }
+    ],
+    "scenarios": [
+      {
+        "method_ids": [
+          "simulate.planning-depth/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "horizon": 1,
+          "policy": "ADM",
+          "scenario_cells": 54,
+          "seeds": 20,
+          "tasks": 256,
+          "world_generator": "002-A deterministic",
+          "worlds": 1080
+        },
+        "revision": "archived",
+        "scenario_id": "exp002b-adm",
+        "scope": "exp002b",
+        "world_refs": [
+          "exp002b:units",
+          "exp002b:out-adm"
+        ]
+      },
+      {
+        "method_ids": [
+          "simulate.planning-depth/v1"
+        ],
+        "mode": "simulation",
+        "origin": "external_declaration_unverified",
+        "parameters": {
+          "horizon": 8,
+          "policy": "MPC",
+          "scenario_cells": 54,
+          "seeds": 20,
+          "tasks": 256,
+          "world_generator": "002-A deterministic",
+          "worlds": 1080
+        },
+        "revision": "archived",
+        "scenario_id": "exp002b-mpc",
+        "scope": "exp002b",
+        "world_refs": [
+          "exp002b:units",
+          "exp002b:out-mpc"
+        ]
+      }
+    ],
+    "scope_ref": "exp002b",
+    "source_kind": "external_declaration_unverified"
+  },
+  "expected_overall": "PASS",
+  "id": "GOLDEN-EXP002B-COMPARISON",
+  "input_format": "acg_text",
+  "input_text": "rel(\"supports\",Y:α:Evidence[\"exp002b:result-summary\"],Y:α:Annotation[\"exp002b:claim-comparison\"])",
+  "reference": {
+    "declared_finding": "MPC makes fewer errors in every case. On total cost ADM is preferred in the reference case; the ranking flips to MPC in ['cost_first', 'loss_x6'], and stays undetermined in ['loss_x3_hazard_under'].",
+    "experiment": "EXP-002B ADM vs MPC — robustness and sensitivity",
+    "not_claimed": [
+      "real-world planning benefit",
+      "exact MPC",
+      "a winner across cases",
+      "runtime latencies"
+    ],
+    "ranking_flip_cases": [
+      "cost_first",
+      "loss_x6"
+    ],
+    "sources": {
+      "analysis": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/analysis.json",
+        "sha256": "b99acbd3d6513ceab5812f73ccd931648a102aa21a2b092e84d41599b7bd082f"
+      },
+      "design": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/design.json",
+        "sha256": "c6e00037a485d352681e97860991b25a3e10ee18d8670df54e7a8692cd7bc4e2"
+      },
+      "manifest": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/MANIFEST.sha256",
+        "sha256": "d954e531bd1cb39910e7097afb37af9e665a28db58a34917eaa435ba9feaadd2"
+      },
+      "paired_summary": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/results/paired_summary.csv",
+        "sha256": "ce0261744d1aae1328e0696a7355edb498906af9f4e9a7e8825e90419257843e"
+      },
+      "readme": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/README.md",
+        "sha256": "cf41d1184e34006b2dee292eeba05da8fa98e99b306c68fd86661efe2d1e9c2c"
+      },
+      "runner": {
+        "path": "lunados.space:web/docs/experiment/AIAEAO_Experiment_002B/run_experiment.js",
+        "sha256": "e4c0f8c8227c8d0c0cc8e16ee7233482fb16d2d0716d1354ec7a1ff40b41ce0f"
+      }
+    },
+    "transcription": "Numbers are copied from the pinned result files; nothing is recomputed by the Cube.",
+    "undetermined_cases": [
+      "loss_x3_hazard_under"
+    ]
+  },
+  "required_codes": [],
+  "title": "EXP-002B ADM vs MPC — robustness and sensitivity"
+}

@@ -1,0 +1,86 @@
+{
+  "format": "aiaeao.cube.p1.9.diagnostic-extension/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "disposition": "Additive P1.9 only. Frozen P1.1/P1.4, P1.6 and P1.8 registers remain byte-identical. P1_EVALUATION_WITNESS_MISSING and P1_SCENARIO_MODE are reused from P1.8.",
+  "codes": [
+    {
+      "code": "P1_COMPARISON_REFERENCE_MISSING",
+      "stage": "referent_binding",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "Morphology v9.4 §5.16 / P1.9: protocol, arm, metric or annotation not declared"
+    },
+    {
+      "code": "P1_COMPARISON_ARMS",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology v9.4 §7.32(4) / P1.9 AR-1: >= 2 arms incl. a control"
+    },
+    {
+      "code": "P1_COMPARISON_PAIRING",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "P1.9 AR-2, AR-4: shared paired units and one scenario mode"
+    },
+    {
+      "code": "P1_COMPARISON_CONFOUNDED",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology v9.4 §7.32(4) / P1.9 AR-3: only declared parameters may differ"
+    },
+    {
+      "code": "P1_COMPARISON_PARITY_MISSING",
+      "stage": "referent_binding",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "P1.9 AR-5, CP-5: required parity witness per treatment arm"
+    },
+    {
+      "code": "P1_COMPARISON_OUTCOME_INVALID",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology v9.4 §5.16 / P1.9 OC-1, OC-3, CP-1, CP-3"
+    },
+    {
+      "code": "P1_COMPARISON_OUTCOME_INCONSISTENT",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "P1.9 OC-4: declared value contradicts outcome under metric direction"
+    },
+    {
+      "code": "P1_COMPARISON_AGGREGATION_UNDECLARED",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology v9.4 §5.16 / P1.9 OC-2, CP-2: no implicit total order"
+    },
+    {
+      "code": "P1_COMPARISON_SPLIT_MIXED",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology v9.4 Annex E.2 / P1.9 OC-6"
+    },
+    {
+      "code": "P1_COMPARISON_OUTCOME_CONFLICT",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "P1.9 OC-3: one outcome per (arms, metric, scope, split)"
+    },
+    {
+      "code": "P1_COMPARISON_OUTCOME_TYPE",
+      "stage": "referent_binding",
+      "default_status": "FAIL",
+      "reference_rule": "Morphology v9.4 D.4, §5.18 / P1.9 OC-5: outcome is a Y Annotation, never a judgment"
+    },
+    {
+      "code": "P1_REPLAY_RECORD_MISMATCH",
+      "stage": "referent_binding",
+      "default_status": "FAIL",
+      "reference_rule": "P1.9 RR-1, RR-2: replay must match method, evaluator and input"
+    },
+    {
+      "code": "P1_REPLAY_DIVERGENT",
+      "stage": "referent_binding",
+      "default_status": "FAIL (UNRESOLVED when record status is unresolved)",
+      "reference_rule": "P1.9 RR-3: declared output digests differ"
+    }
+  ]
+}
