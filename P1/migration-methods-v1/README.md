@@ -56,5 +56,5 @@ python3 P1/migration-methods-v1/scripts/parity_g4_g5.py                   # 15/1
 
 ## Not part of this stage
 
-Live G5 host acceptance (after deploy, `P3/remote-mcp-g5/evidence/`); VP-07 transcription of bindings and
+VP-07 transcription of bindings and
 VP-09 F axes (P2).
