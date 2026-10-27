@@ -1,0 +1,593 @@
+{
+ "context": {
+  "context_id": "golden-vp072",
+  "format": "aiaeao.cube.binding-context/6",
+  "migration_plans": [
+   {
+    "dependencies": [
+     {
+      "dependency_id": "a1",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "admin-mailbox",
+      "predicate_id": "depends-on",
+      "subject": "support-team",
+      "witness_ref": "repo:example/a1"
+     },
+     {
+      "dependency_id": "a2",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "billing-mailbox",
+      "predicate_id": "depends-on",
+      "subject": "finance-team",
+      "witness_ref": "repo:example/a2"
+     },
+     {
+      "dependency_id": "c1",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "admin-mailbox",
+      "predicate_id": "depends-on",
+      "subject": "crm-sync",
+      "witness_ref": "repo:example/c1"
+     },
+     {
+      "dependency_id": "c2",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "mail-dns",
+      "predicate_id": "depends-on",
+      "subject": "crm-sync",
+      "witness_ref": "repo:example/c2"
+     },
+     {
+      "dependency_id": "r1",
+      "holds_in": [
+       "p0",
+       "p1"
+      ],
+      "kind": "job",
+      "object": "legacy-mail",
+      "predicate_id": "sends-via",
+      "subject": "report-job",
+      "successor_ref": "r2",
+      "witness_ref": "repo:example/r1"
+     },
+     {
+      "dependency_id": "r2",
+      "holds_in": [
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "new-mail",
+      "predicate_id": "sends-via",
+      "subject": "report-job",
+      "witness_ref": "repo:example/r2"
+     },
+     {
+      "dependency_id": "b1",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2"
+      ],
+      "kind": "job",
+      "object": "legacy-files",
+      "predicate_id": "syncs-with",
+      "subject": "backup-job",
+      "successor_ref": "b2",
+      "witness_ref": "repo:example/b1"
+     },
+     {
+      "dependency_id": "b2",
+      "holds_in": [
+       "p3"
+      ],
+      "kind": "job",
+      "object": "new-files",
+      "predicate_id": "syncs-with",
+      "subject": "backup-job",
+      "witness_ref": "repo:example/b2"
+     },
+     {
+      "dependency_id": "b3",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "file-share",
+      "predicate_id": "depends-on",
+      "subject": "backup-job",
+      "witness_ref": "repo:example/b3"
+     },
+     {
+      "dependency_id": "b4",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "cdn",
+      "predicate_id": "depends-on",
+      "subject": "backup-job",
+      "witness_ref": "repo:example/b4"
+     },
+     {
+      "dependency_id": "i1",
+      "holds_in": [
+       "p0",
+       "p1"
+      ],
+      "kind": "job",
+      "object": "legacy-mail",
+      "predicate_id": "sends-via",
+      "subject": "invoice-job",
+      "successor_ref": "i2",
+      "witness_ref": "repo:example/i1"
+     },
+     {
+      "dependency_id": "i2",
+      "holds_in": [
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "new-mail",
+      "predicate_id": "sends-via",
+      "subject": "invoice-job",
+      "witness_ref": "repo:example/i2"
+     },
+     {
+      "dependency_id": "i3",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "billing-mailbox",
+      "predicate_id": "depends-on",
+      "subject": "invoice-job",
+      "witness_ref": "repo:example/i3"
+     },
+     {
+      "dependency_id": "s1",
+      "holds_in": [
+       "p0",
+       "p1"
+      ],
+      "kind": "job",
+      "object": "legacy-mail",
+      "predicate_id": "sends-via",
+      "subject": "shop",
+      "successor_ref": "s2",
+      "witness_ref": "repo:example/s1"
+     },
+     {
+      "dependency_id": "s2",
+      "holds_in": [
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "new-mail",
+      "predicate_id": "sends-via",
+      "subject": "shop",
+      "witness_ref": "repo:example/s2"
+     },
+     {
+      "dependency_id": "s3",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "dns-zone",
+      "predicate_id": "depends-on",
+      "subject": "shop",
+      "witness_ref": "repo:example/s3"
+     },
+     {
+      "dependency_id": "s4",
+      "holds_in": [
+       "p0",
+       "p1",
+       "p2",
+       "p3"
+      ],
+      "kind": "job",
+      "object": "hosting",
+      "predicate_id": "depends-on",
+      "subject": "shop",
+      "witness_ref": "repo:example/s4"
+     }
+    ],
+    "origin": "illustrative_fixture",
+    "phases": [
+     {
+      "phase_id": "p0",
+      "role": "current"
+     },
+     {
+      "phase_id": "p1",
+      "role": "intermediate"
+     },
+     {
+      "phase_id": "p2",
+      "role": "intermediate"
+     },
+     {
+      "phase_id": "p3",
+      "role": "target"
+     }
+    ],
+    "plan_id": "mp-acme",
+    "revision": "synthetic:v1",
+    "scope": "acme:migration",
+    "transitions": [
+     {
+      "T": {
+       "role": "scheduling",
+       "value": "TBD"
+      },
+      "at_phase": "p1",
+      "introduces": [
+       "new-mail",
+       "new-files"
+      ],
+      "retires": [],
+      "transition_id": "t-intro",
+      "witness_ref": "synthetic:contract#scope"
+     },
+     {
+      "T": {
+       "role": "scheduling",
+       "value": "TBD"
+      },
+      "at_phase": "p2",
+      "introduces": [],
+      "retires": [
+       "legacy-mail"
+      ],
+      "transition_id": "t-mail",
+      "witness_ref": "synthetic:contract#scope"
+     },
+     {
+      "T": {
+       "role": "scheduling",
+       "value": "TBD"
+      },
+      "at_phase": "p3",
+      "introduces": [],
+      "retires": [
+       "legacy-files"
+      ],
+      "transition_id": "t-files",
+      "witness_ref": "synthetic:contract#scope"
+     }
+    ]
+   }
+  ],
+  "predicate_contracts": [],
+  "predicate_profile_refs": [
+   "P1.10/migration-predicates-v1"
+  ],
+  "reference_version": "v9.4",
+  "referents": [
+   {
+    "concept_id": "Y:identity-anchor:actor",
+    "home": "Y",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "support-team",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Y:identity-anchor:actor",
+    "home": "Y",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "finance-team",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:integration",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "shop",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:integration",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "crm-sync",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:integration",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "backup-job",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:integration",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "report-job",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:integration",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "invoice-job",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Y:resource-object:resource",
+    "home": "Y",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "admin-mailbox",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Y:resource-object:resource",
+    "home": "Y",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "billing-mailbox",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Y:resource-object:resource",
+    "home": "Y",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "file-share",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:third-party-dependency",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "legacy-mail",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:provider",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "new-mail",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:third-party-dependency",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "legacy-files",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:provider",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "new-files",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:third-party-dependency",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "dns-zone",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:third-party-dependency",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "mail-dns",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:third-party-dependency",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "hosting",
+    "scope_ref": "acme:migration"
+   },
+   {
+    "concept_id": "Z:module-body:third-party-dependency",
+    "home": "Z",
+    "layers": [
+     "α"
+    ],
+    "provenance_status": "declared_unverified",
+    "ref": "cdn",
+    "scope_ref": "acme:migration"
+   }
+  ],
+  "scope_ref": "acme:migration",
+  "source_kind": "illustrative_fixture"
+ },
+ "expected": {
+  "dependencies": 17,
+  "flow_shop_p0": {
+   "caption": [
+    "platform",
+    "dns",
+    "provider",
+    "system"
+   ],
+   "order": [
+    "hosting",
+    "dns-zone",
+    "legacy-mail",
+    "shop"
+   ]
+  },
+  "layers": 6,
+  "row_order": [
+   "shop",
+   "invoice-job",
+   "crm-sync",
+   "report-job",
+   "backup-job",
+   "finance-team",
+   "support-team"
+  ],
+  "track_layer_standard": {
+   "coverage": "COMPLETE",
+   "one_layer_per_panel": true,
+   "outer_values": [
+    "shop",
+    "crm",
+    "files"
+   ]
+  },
+  "tracks": 3,
+  "unassigned": []
+ },
+ "format": "aiaeao.cube.vp072-golden/1",
+ "layers": {
+  "format": "aiaeao.cube.vp07-layer-map/1",
+  "layer_order": [
+   "platform",
+   "dns",
+   "provider",
+   "account",
+   "system",
+   "actor"
+  ],
+  "layers": {
+   "account": [
+    "admin-mailbox",
+    "billing-mailbox",
+    "file-share"
+   ],
+   "actor": [
+    "finance-team",
+    "support-team"
+   ],
+   "dns": [
+    "dns-zone",
+    "mail-dns"
+   ],
+   "platform": [
+    "hosting",
+    "cdn"
+   ],
+   "provider": [
+    "legacy-mail",
+    "new-mail",
+    "legacy-files",
+    "new-files"
+   ],
+   "system": [
+    "shop",
+    "invoice-job",
+    "crm-sync",
+    "report-job",
+    "backup-job"
+   ]
+  }
+ },
+ "reference_version": "v9.4",
+ "source": "synthetic (D-8); no client data",
+ "tracks": {
+  "format": "aiaeao.cube.vp07-track-map/1",
+  "tracks": {
+   "crm": [
+    "crm-sync",
+    "report-job",
+    "support-team"
+   ],
+   "files": [
+    "backup-job"
+   ],
+   "shop": [
+    "shop",
+    "invoice-job",
+    "finance-team"
+   ]
+  }
+ }
+}

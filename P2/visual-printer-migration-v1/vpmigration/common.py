@@ -24,9 +24,12 @@ from vplenses.printer import source_digest, cjson, PROFILES as LENSES  # noqa: E
 
 P070 = 'P2-VP-MIGRATION/0.7.0'
 P071 = 'P2-VP-MIGRATION/0.7.1'
-PROFILES = (P070, P071)
+P072 = 'P2-VP-MIGRATION/0.7.2'
+PROFILES = (P070, P071, P072)
+V71UP = (P071, P072)  # profiles with the VP-07.1 features
+UNASSIGNED = 'unassigned'  # VP-07.2 D-4 reserved layer name
 PROFILE = P070  # base profile of the unchanged 0.7.0 code path and diagnostics (VP-07.1 PD-1)
-LATEST = P071
+LATEST = P072
 CODE = re.compile(r'^T[0-9]{1,3}$')
 END_REASONS = ('scope_end', 'replaced_outside_plan', 'other')
 DECLARED_ENDS = ('target', 'object_retired', 'subject_retired', 'successor', 'dropped', 'ends_reason', 'unexplained')

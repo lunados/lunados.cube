@@ -293,7 +293,7 @@ class Cli(unittest.TestCase):
             self.assertEqual(r.returncode, 2)
             self.assertEqual(json.loads(r.stderr)['code'], 'VP07_ADAPTER_INPUT')
             cap = json.loads(self.run_cli('capabilities').stdout)
-            self.assertEqual(cap['profiles'], [P070, P071]); self.assertEqual(cap['latest_profile'], P071)
+            self.assertEqual(cap['profiles'][:2], [P070, P071]); self.assertIn(cap['latest_profile'], cap['profiles'])  # later profiles append (VP-07.2)
 
 
 if __name__ == '__main__':

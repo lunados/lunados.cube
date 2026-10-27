@@ -2,7 +2,7 @@
   "format": "aiaeao.cube.vp07.diagnostics/1",
   "profile": "P2-VP-MIGRATION/0.7.0",
   "reference_version": "v9.4",
-  "disposition": "Additive VP-07 only. VP-01…VP-06 registers unchanged. VP06_* codes from the frozen facade pass through unchanged (Path F, flow panels). VP-07.1 (0.7.1) adds VP07_DECLARED_GAP only; existing codes keep their meaning and gain the 0.7.1 situations of VP07_1_ACCEPTANCE_SPEC.md §2.",
+  "disposition": "Additive VP-07 only. VP-01…VP-06 registers unchanged. VP06_* codes from the frozen facade pass through unchanged (Path F, flow panels). VP-07.1 (0.7.1) adds VP07_DECLARED_GAP only; existing codes keep their meaning and gain the 0.7.1 situations of VP07_1_ACCEPTANCE_SPEC.md §2. VP-07.2 (0.7.2) adds VP07_LAYER_UNASSIGNED only.",
   "codes": [
     {
       "code": "VP07_PHASES_STEPS",
@@ -56,6 +56,15 @@
       "reference_rule": "VP-07.1 GM-1…GM-5, D-7; cell ends before the target step without retirement of object or subject, successor, drop or listed end reason; mirrors P1.10.1 P1_MIGRATION_DEPENDENCY_GAP visually; never a verdict"
     },
     {
+      "code": "VP07_LAYER_UNASSIGNED",
+      "stage": "report",
+      "default_status": "WARNING",
+      "profiles": [
+        "P2-VP-MIGRATION/0.7.2"
+      ],
+      "reference_rule": "VP-07.2 D-4, LS-3: a shown referent has no entry in the declared layer map and is placed in the trailing layer unassigned; never a verdict"
+    },
+    {
       "code": "VP07_EDGE_STYLE",
       "stage": "validation",
       "default_status": "FAIL",
@@ -77,7 +86,7 @@
       "code": "VP07_PANEL_PARTITION",
       "stage": "partition",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 PE-1, PE-2: undeclared partition key, missing lens/track, or one group exceeds the panel budget; 0.7.1 NP-1: more than two keys, repeated key, step as outer key for cube.flow, nested partition on a 0.7.0 source, inner group over budget (message names outer and inner value)"
+      "reference_rule": "VP-07 PE-1, PE-2: undeclared partition key, missing lens/track, or one group exceeds the panel budget; 0.7.1 NP-1: more than two keys, repeated key, step as outer key for cube.flow, nested partition on a 0.7.0 source, inner group over budget (message names outer and inner value); 0.7.2: partition layer on a source without declared layers"
     },
     {
       "code": "VP07_PANEL_COVERAGE",
@@ -89,13 +98,13 @@
       "code": "VP07_SOURCE_INVALID",
       "stage": "input",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 MS-1…MS-3, D-10: not a migration source, above hard limits, or unreferenced rows/objects; 0.7.1 §2: gap fields, target_step or transition codes in a 0.7.0 source"
+      "reference_rule": "VP-07 MS-1…MS-3, D-10: not a migration source, above hard limits, or unreferenced rows/objects; 0.7.1 §2: gap fields, target_step or transition codes in a 0.7.0 source; 0.7.2 LS-2: layer fields inconsistent or present in a 0.7.0/0.7.1 source"
     },
     {
       "code": "VP07_ADAPTER_INPUT",
       "stage": "input",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 AD-1, AD-5: not binding-context/5, unknown plan, empty slice, invalid track/label/prefix map"
+      "reference_rule": "VP-07 AD-1, AD-5: not binding-context/5, unknown plan, empty slice, invalid track/label/prefix map; 0.7.2 LM-1…LM-3, LS-1: invalid layer map, ref in two layers, undeclared ref, reserved name unassigned, layer map with profile 0.7.0/0.7.1"
     },
     {
       "code": "VP07_ADAPTER_MAPPING",
@@ -130,6 +139,7 @@
   ],
   "profiles": [
     "P2-VP-MIGRATION/0.7.0",
-    "P2-VP-MIGRATION/0.7.1"
+    "P2-VP-MIGRATION/0.7.1",
+    "P2-VP-MIGRATION/0.7.2"
   ]
 }

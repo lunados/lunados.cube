@@ -8,15 +8,15 @@ import copy
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, P071, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
+from .common import (PROFILE, P071, P072, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
                      sha_json, encode, load_json, VP07Error, need, publish_dir, no_active_content, MUTED)
 from .phases import PhasesPrinter, BUDGET, lanes_for
-from .source import validate_source, as_plan
+from .source import validate_source, as_plan, layer_key
 from .styles import apply_styles
 from vpprint.core import make_job, render_job, PrintError as VP06PrintError
 from vpgranularity import CAPS
 
-PARTITIONS = ('subject', 'object', 'step', 'track')
+PARTITIONS = ('subject', 'object', 'step', 'track', 'layer')
 VIEWS = ('cube.flow', 'cube.phases')
 REPORT_FORMAT = 'aiaeao.cube.vp07-panel-report/1'
 INPUT_FORMAT = 'aiaeao.cube.vp07-panel-input/1'
@@ -32,6 +32,10 @@ def _key_of(partition, cell, tracks):
     if partition == 'track':
         need(cell['row'] in tracks, 'VP07_PANEL_PARTITION', 'partition track: row '+repr(cell['row'])+' has no declared track', 'partition')
         return tracks[cell['row']]
+    if partition == 'layer':  # VP-07.2: declared layer of the row
+        lay = getattr(tracks, 'layers', None)
+        need(lay is not None, 'VP07_PANEL_PARTITION', 'partition layer needs a '+P072+' source with a declared layer map', 'partition')
+        return lay[cell['row']]
     return None
 
 
@@ -43,6 +47,17 @@ def _groups(cells, partition, tracks):
             order.append(k); groups[k] = []
         groups[k].append(c)
     return [(k, groups[k]) for k in order]
+
+
+def _pack_key(cells, partition, tracks, fits, label):
+    """PE-2 packing by one key; VP-07.2: `layer` never merges layers and splits a large layer by subject."""
+    if partition != 'layer':
+        return _pack(_groups(cells, partition, tracks), fits, label)
+    out = []
+    for lay, cs in _groups(cells, 'layer', tracks):
+        for _, pcs in _pack(_groups(cs, 'subject', tracks), fits, f'{label} {lay!r} / subject'):
+            out.append(([lay], pcs))
+    return out
 
 
 def _pack(groups, fits, label):
@@ -93,7 +108,7 @@ def _vp06(fn, *a, **k):
         raise VP07Error(e.code, str(e), e.stage) from e
 
 
-def _flow_bundle(src, cells, title, subtitle):
+def _flow_bundle(src, cells, title, subtitle, layers=None):
     rows = {r['id']: r for r in src['rows']}
     objs = {o['id']: o for o in src['objects']}
     order = []
@@ -103,10 +118,12 @@ def _flow_bundle(src, cells, title, subtitle):
     for c in cells:
         if c['object'] not in order:
             order.append(c['object'])
+    if layers:  # VP-07.2 LS-4: node order follows the declared layer sequence
+        order.sort(key=lambda i: layer_key(layers, i))
     nodes = []
     for i in order:
         n = rows.get(i) or objs[i]
-        nodes.append({k: v for k, v in n.items() if k != 'track'})
+        nodes.append({k: v for k, v in n.items() if k not in ('track', 'layer')})
     edges = [{'from': c['row'], 'to': c['object'], 'predicate_id': c['predicate_id'], 'declaration_ref': c['declaration_ref'],
               'arrow_anchor_id': 'relation-arrows.reference'} for c in cells]
     target = {}
@@ -138,14 +155,36 @@ def render_input(inp):
         svg, pr = p.render(inp['plan'], 'reject')
         return p.report(inp['plan'], svg, pr), svg
     result, base = _vp06(render_job, inp['job'])
-    if inp.get('edge_styles') is None:
-        return result, base
-    styles = {s['predicate_id']: s for s in inp['edge_styles']}
-    prof = inp.get('profile', PROFILE)
-    svg, ledger = apply_styles(base, styles, profile=prof)
-    return {'format': 'aiaeao.cube.vp07-styled-print-result/1', 'profile': prof, 'base_svg_sha256': sha_bytes(base),
-            'svg_sha256': sha_bytes(svg), 'edge_style_ledger': ledger, 'vp06_result': result,
-            'warnings': [{'code': 'VP07_EDGE_STYLE_DEFAULT', 'predicate_id': p} for p in ledger['unstyled']], **NOT_EVALUATED}, svg
+    if inp.get('edge_styles') is not None:
+        styles = {s['predicate_id']: s for s in inp['edge_styles']}
+        prof = inp.get('profile', PROFILE)
+        svg, ledger = apply_styles(base, styles, profile=prof)
+        result, base = {'format': 'aiaeao.cube.vp07-styled-print-result/1', 'profile': prof, 'base_svg_sha256': sha_bytes(base),
+                        'svg_sha256': sha_bytes(svg), 'edge_style_ledger': ledger, 'vp06_result': result,
+                        'warnings': [{'code': 'VP07_EDGE_STYLE_DEFAULT', 'predicate_id': p} for p in ledger['unstyled']], **NOT_EVALUATED}, svg
+    if inp.get('layer_caption'):
+        svg = _caption(base, inp['layer_caption'])
+        result = {'format': 'aiaeao.cube.vp07-layered-print-result/1', 'profile': inp['profile'], 'base_svg_sha256': sha_bytes(base),
+                  'svg_sha256': sha_bytes(svg), 'layer_caption': inp['layer_caption'], 'inner_result': result,
+                  'warnings': result.get('warnings', []), **NOT_EVALUATED}
+        return result, svg
+    return result, base
+
+
+def _caption(svg, layers):
+    """VP-07.2 LD-2: one caption line naming the declared layers of the flow panel, left to right (post-processing)."""
+    root = ET.fromstring(svg)
+    g = add(root, 'g', **{'data-vp07-layers': ' '.join(layers)})
+    text(g, 60, 178, excerpt('LAYERS (declared, left to right) · '+' · '.join(layers), 150), 11, MUTED, 'bold')
+    out = ET.tostring(root, encoding='utf-8', xml_declaration=True, short_empty_elements=True)+b'\n'
+    need(no_active_content(ET.fromstring(out)), 'VP07_AUDIT', 'layered SVG contains active content', 'audit')
+    return out
+
+
+def _layer_caption(src, cells, layers):
+    rows = [c['row'] for c in cells]+[c['object'] for c in cells]
+    ids = sorted(set(rows), key=lambda i: layer_key(layers, i))
+    return list(dict.fromkeys(layers['of'][i] for i in ids))
 
 
 def units_of(inp, src):
@@ -166,7 +205,7 @@ def parse_partition(partition, view, profile):
     if ',' not in partition:
         return None
     ks = partition.split(',')
-    need(profile == P071, 'VP07_PANEL_PARTITION', 'nested partition needs a '+P071+' source', 'partition')
+    need(profile in V71UP, 'VP07_PANEL_PARTITION', 'nested partition needs a '+P071+' or later source', 'partition')
     need(len(ks) == 2, 'VP07_PANEL_PARTITION', 'nested partition takes exactly two keys (D-2), got '+repr(partition), 'partition')
     need(all(k in PARTITIONS for k in ks), 'VP07_PANEL_PARTITION', 'partition keys must be subject|object|step|track, got '+repr(partition), 'partition')
     need(ks[0] != ks[1], 'VP07_PANEL_PARTITION', 'nested partition repeats key '+repr(ks[0]), 'partition')
@@ -193,7 +232,7 @@ def _phase_sets(src, d, cells, partition, steps, granularity, tracks, label=None
                      (label+' / ' if label else '')+f'step window {w[0]["id"]}–{w[-1]["id"]} alone exceeds the panel budget', 'partition')
                 plan_sets.append(([w[0]['id']+'–'+w[-1]['id']], cs, w))
         return plan_sets
-    packed = _pack(_groups(cells, partition, tracks), _phases_fits(idx, granularity, len(steps)),
+    packed = _pack_key(cells, partition, tracks, _phases_fits(idx, granularity, len(steps)),
                    (label+' / ' if label else '')+partition)
     return [(k, cs, steps) for k, cs in packed]
 
@@ -215,6 +254,9 @@ def _outer_groups(d, outer, steps, granularity, tracks):
 
 def build_panels(src, view, partition, granularity, lens=None):
     v = validate_source(src)
+    if v['layers']:  # VP-07.2 LS-4: cells ordered by the declared layer of their row (stable within a row)
+        lay = v['layers']
+        v['derived'] = {**v['derived'], 'cells': sorted(v['derived']['cells'], key=lambda c: layer_key(lay, c['row']))}
     need(view in VIEWS, 'VP07_PANEL_PARTITION', 'view must be cube.flow or cube.phases', 'partition')
     nested = parse_partition(partition, view, src['profile'])
     if nested is not None:
@@ -244,7 +286,7 @@ def build_panels(src, view, partition, granularity, lens=None):
                          f'step window {w[0]["id"]}–{w[-1]["id"]} alone exceeds the panel budget', 'partition')
                     plan_sets.append(([w[0]['id']+'–'+w[-1]['id']], cs, w))
         else:
-            packed = _pack(_groups(d['cells'], partition, v['tracks']), _phases_fits(idx, granularity, len(steps)), partition)
+            packed = _pack_key(d['cells'], partition, v['tracks'], _phases_fits(idx, granularity, len(steps)), partition)
             plan_sets = [(k, cs, steps) for k, cs in packed]
         n = len(plan_sets)
         need(n <= MAX_PANELS, 'VP07_PANEL_PARTITION', f'{n} panels exceed {MAX_PANELS}', 'partition')
@@ -270,17 +312,19 @@ def build_panels(src, view, partition, granularity, lens=None):
                 need(_flow_fits(granularity)(active), 'VP07_PANEL_PARTITION', f'step {s["id"]} alone exceeds the flow budget', 'partition')
                 sets.append((s, [s['id']], active))
             else:
-                for k, cs in _pack(_groups(active, partition, v['tracks']), _flow_fits(granularity), partition):
+                for k, cs in _pack_key(active, partition, v['tracks'], _flow_fits(granularity), partition):
                     sets.append((s, k, cs))
         n = len(sets)
         need(n <= MAX_PANELS, 'VP07_PANEL_PARTITION', f'{n} panels exceed {MAX_PANELS}', 'partition')
         for i, (s, k, cs) in enumerate(sets):
             title = excerpt(src['title'], 56)+f' · panel {i+1:02d}/{n:02d}'
             sub = excerpt(f"step {s['label']} · {partition}: "+', '.join(str(x) for x in k), 95)
-            bundle = _flow_bundle(src, cs, title, sub)
+            bundle = _flow_bundle(src, cs, title, sub, v['layers'])
             job = _vp06(make_job, bundle, lens, granularity, 'reject')
             inp = {'format': INPUT_FORMAT, 'profile': src['profile'], 'view': view, 'partition': partition, 'key_values': k,
                    'step': s['id'], 'job': job}
+            if v['layers']:
+                inp['layer_caption'] = _layer_caption(src, cs, v['layers'])
             if 'edge_styles' in src:
                 inp['edge_styles'] = copy.deepcopy(src['edge_styles'])
             inputs.append(inp)
@@ -314,7 +358,7 @@ def _build_nested(src, v, view, nested, granularity, lens):
                     need(fits(active), 'VP07_PANEL_PARTITION', f'{outer} {ov!r} / step {s["id"]} alone exceeds the flow budget', 'partition')
                     sets.append((ov, [s['id']], active, s))
                 else:
-                    for k, pcs in _pack(_groups(active, inner, v['tracks']), fits, f'{outer} {ov!r} / {inner}'):
+                    for k, pcs in _pack_key(active, inner, v['tracks'], fits, f'{outer} {ov!r} / {inner}'):
                         sets.append((ov, k, pcs, s))
     n = len(sets)
     need(n <= MAX_PANELS, 'VP07_PANEL_PARTITION', f'{n} panels exceed {MAX_PANELS}', 'partition')
@@ -328,8 +372,10 @@ def _build_nested(src, v, view, nested, granularity, lens):
             inputs.append({**base, 'plan': as_plan(src, rows, cs, w, granularity, title, sub, ends=ends)})
         else:
             sub = excerpt(f"step {w['label']} · {outer}: {ov} · {inner}: "+', '.join(str(x) for x in k), 95)
-            job = _vp06(make_job, _flow_bundle(src, cs, title, sub), lens, granularity, 'reject')
+            job = _vp06(make_job, _flow_bundle(src, cs, title, sub, v['layers']), lens, granularity, 'reject')
             inp = {**base, 'step': w['id'], 'job': job}
+            if v['layers']:
+                inp['layer_caption'] = _layer_caption(src, cs, v['layers'])
             if 'edge_styles' in src:
                 inp['edge_styles'] = copy.deepcopy(src['edge_styles'])
             inputs.append(inp)
@@ -359,7 +405,7 @@ def _outer_of(src, outer, granularity, tracks):
 
 def _outer_ledger(src, outer, granularity, tracks, entries):
     owner = _outer_of(src, outer, granularity, tracks)
-    order = list(dict.fromkeys(owner.values()))
+    order = list(dict.fromkeys([e['outer_value'] for e in entries if e.get('outer_value') in set(owner.values())]+list(owner.values())))
     led = []
     for ov in order:
         total = sorted(u for u, o in owner.items() if o == ov)
@@ -374,7 +420,7 @@ def _outer_ledger(src, outer, granularity, tracks, entries):
 
 def _index_svg(src, view, partition, granularity, entries, coverage, outer_ledger=None):
     base = Printer()
-    h = 260+len(entries)*24+60+(len(outer_ledger)*30 if outer_ledger else 0)
+    h = 260+len(entries)*24+60+(len(outer_ledger)*30 if outer_ledger else 0)+sum(12 for e in entries if e.get('layers'))
     if isinstance(partition, list):
         partition = ','.join(partition)
     root = base._root({'view_id': 'vp07.panel-index', 'title': excerpt('Panels · '+src['title'], 72),
@@ -397,6 +443,10 @@ def _index_svg(src, view, partition, granularity, entries, coverage, outer_ledge
             text(g, 170, y, excerpt(', '.join(str(x) for x in e['key_values']), 52), 12, '#334155')
             text(g, 600, y, (f"step {e['step']} · " if e.get('step') else '')+f"{len(e['shown_row_ids'])} rows · {len(e['shown_cell_ids'])} cells",
                  12, '#334155')
+            if e.get('layers'):
+                g.set('data-vp07-layers', ' '.join(e['layers']))
+                text(g, 170, y+13, excerpt('layers: '+' · '.join(e['layers']), 70), 10, MUTED)
+                y += 12
             text(g, 900, y, e['svg_sha256'][:16]+'…', 10, MUTED)
             y += 24
     line(root, 60, y, 1140, y, '#E2E8F0')
@@ -438,11 +488,16 @@ def print_panels(src, view, partition, granularity, lens=None):
             cells = [c['id'] for c in cs]
         warnings += [dict(w, panel=name) for w in rep.get('warnings', [])]
         extra = {'outer_value': inp['outer_value']} if 'outer_value' in inp else {}
+        if v['layers']:  # VP-07.2 LD-3: declared layers of the rows shown in the panel
+            ids = sorted(set(rows), key=lambda i: layer_key(v['layers'], i))
+            extra['layers'] = list(dict.fromkeys(v['layers']['of'][i] for i in ids))
         entries.append({'panel': name, **extra, 'key_values': inp['key_values'], 'step': inp.get('step'), 'shown_row_ids': rows,
                         'shown_cell_ids': cells, 'units': units_of(inp, src), 'svg_sha256': sha_bytes(svg),
                         'input_sha256': sha_bytes(raw), 'panel_report': rep})
     cov = _coverage(src, entries)
     need(cov['status'] == 'COMPLETE', 'VP07_PANEL_COVERAGE', 'panels do not cover units: '+', '.join(cov['uncovered_units'][:10]), 'coverage')
+    if v['layers']:  # VP-07.2 LS-3
+        warnings += [{'code': 'VP07_LAYER_UNASSIGNED', 'item_id': i} for i, lay in v['layers']['of'].items() if lay == UNASSIGNED]
     nested = parse_partition(partition, view, src['profile'])
     outer = None
     if nested is not None:
@@ -457,7 +512,8 @@ def print_panels(src, view, partition, granularity, lens=None):
               'source_sha256': sha_json(src), 'source': src, 'panel_count': len(entries), 'panel_ledger': entries,
               'coverage': cov, 'declared_conflicts': conflicts, 'warnings': warnings,
               **({'outer_ledger': outer, 'declared_gaps': PhasesPrinter.gaps(v['derived'])} if nested is not None else
-                 {'declared_gaps': PhasesPrinter.gaps(v['derived'])} if prof == P071 else {}),
+                 {'declared_gaps': PhasesPrinter.gaps(v['derived'])} if prof in V71UP else {}),
+              **({'layer_order': v['layers']['order']} if v['layers'] else {}),
               'files': {k: sha_bytes(b) for k, b in sorted(files.items())},
               'source_status': 'declared_unverified', **NOT_EVALUATED,
               'notices': ['Panels repeat rows for context; every repetition is listed.',

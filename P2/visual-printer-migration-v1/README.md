@@ -1,4 +1,4 @@
-# VP-07 — Migration Plan Views (`P2-VP-MIGRATION/0.7.0`, `0.7.1`)
+# VP-07 — Migration Plan Views (`P2-VP-MIGRATION/0.7.0`, `0.7.1`, `0.7.2`)
 
 Additive to the frozen `P2-VP/1.0.0-rc1` facade (VP-06). Shows declared P1.10 migration plans:
 the view `cube.phases` (subjects × declared steps), declared edge styles for `cube.flow` / `cube.tree`,
@@ -12,6 +12,12 @@ transition legend, the corrected hatch wording (Hatch A / Hatch B) and the decla
 render byte-identically; `from-plan` emits `0.7.1` unless `--profile P2-VP-MIGRATION/0.7.0` is given and also
 accepts P1.10.1 `binding-context/6`.
 
+VP-07.2 (`0.7.2`, `VP07_2_ACCEPTANCE_SPEC.md`, D-1…D-8 resolved) adds a declared layer map
+(`aiaeao.cube.vp07-layer-map/1`, `from-plan --layers`): rows of `cube.phases` and nodes of `cube.flow` follow the
+declared layers (e.g. platform → dns → provider → account → system → actor), `cube.phases` draws a layer band per
+run of rows, `cube.flow` panels get a layer caption, and `--partition layer` (also nested) never mixes layers.
+Layers are never derived from concept IDs or the graph. Without `--layers`, `from-plan` emits 0.7.1 exactly as before.
+
 ## Layout
 
 | Path | Purpose |
@@ -22,7 +28,7 @@ accepts P1.10.1 `binding-context/6`.
 | `vpmigration/adapter.py` | `from-plan`: P1.10 `binding-context/5` (0.7.1 also `/6`) → migration source + `mapping.json`; 0.7.1 transcribes `declared_end` on the full plan (GM-3) |
 | `vpmigration/panels.py` | `print-panels` (deterministic packing, coverage ledger, text index) and `check-panels` |
 | `vpmigration/__main__.py` | CLI `python3 -m vpmigration` (`vpprint` unchanged) |
-| `DIAGNOSTICS.json`, `RULE_COVERAGE.json` | 20 VP-07 codes (VP-07.1 adds `VP07_DECLARED_GAP`), 13 rules |
+| `DIAGNOSTICS.json`, `RULE_COVERAGE.json` | 21 VP-07 codes (VP-07.1 adds `VP07_DECLARED_GAP`, VP-07.2 `VP07_LAYER_UNASSIGNED`), 14 rules |
 | `oracles/independent_v01_v28.json` | expectations transcribed from spec §5 before code (commit `7a069f2`) |
 | `fixtures/v01_v28_materialized.json` | 28 synthetic vectors (`scripts/materialize_v01_v28.py`) |
 | `fixtures/golden_migration_views.json` | synthetic golden: 31 dependencies, 4 steps, 2 tracks, 1 declared conflict (`scripts/build_golden.py`) |
@@ -33,6 +39,12 @@ accepts P1.10.1 `binding-context/6`.
 | `fixtures/w01_w17_materialized.json` | 17 synthetic VP-07.1 vectors (`scripts/materialize_w01_w17.py`) |
 | `fixtures/golden_v071.json` | VP-07.1 golden: 3 workstreams (one with 9 subjects), 3 transitions at p2, 1 declared gap (`scripts/build_golden_v071.py`) |
 | `scripts/run_vectors_w.py` | W-01…W-17 against the oracle |
+| `fixtures/regression_071_digests.json` | VP-07.2 VP072-01: SHA-256 of 16 0.7.1 outputs, pinned before any 0.7.2 code (`scripts/pin_071_digests.py`) |
+| `oracles/independent_l01_l13.json` | VP-07.2 expectations transcribed from spec §5 before code (commit `6b06b14`) |
+| `fixtures/l01_l13_materialized.json` | 13 synthetic VP-07.2 vectors (`scripts/materialize_l01_l13.py`) |
+| `fixtures/golden_v072.json` | VP-07.2 golden: 6 layers × 3 tracks, inventory listed against the layer order (`scripts/build_golden_v072.py`) |
+| `scripts/run_vectors_l.py` | L-01…L-13 against the oracle |
+| `tests/test_vp072.py` | 17 tests: oracle, pinned 0.7.0/0.7.1 digests, §2 rows, layer partition, lanes, golden, CLI |
 | `tests/test_vp071.py` | 24 tests: oracle, pinned 0.7.0 digests, §2 rows, gap rules, markers, nested flow/phases, golden, P1.10.1 agreement, CLI |
 
 ## Run
@@ -44,6 +56,9 @@ python3 scripts/run_vectors.py                         # 28/28
 python3 tests/test_vp071.py
 python3 scripts/run_vectors_w.py                       # 17/17 (VP-07.1)
 python3 scripts/pin_070_digests.py --check             # 14/14 0.7.0 outputs byte-identical
+python3 tests/test_vp072.py
+python3 scripts/run_vectors_l.py                       # 13/13 (VP-07.2)
+python3 scripts/pin_071_digests.py --check             # 16/16 0.7.1 outputs byte-identical
 python3 -m vpmigration from-plan --context ctx.json --plan mp-acme --tracks tracks.json --out src.json
 python3 -m vpmigration print-panels --source src.json --view cube.phases --partition subject --granularity standard --out panels/
 python3 -m vpmigration check-panels --dir panels/
@@ -69,6 +84,15 @@ python3 -m vpmigration print-panels --source src.json --view cube.phases --parti
   outer group COMPLETE. The one declared gap (`g01`) carries the end cap in exactly one panel; P1.10.1 reports the
   same dependency as `P1_MIGRATION_DEPENDENCY_GAP`. A three-subject slice shows the three p2 transitions stacked
   as `T2…T4` without overlap.
+
+## Local results VP-07.2 (2026-10-27)
+
+- L-01…L-13: 13/13 match the independent oracle; the four FAIL vectors fail for the stated reason.
+- Regression: 0.7.0 14/14 and 0.7.1 16/16 pinned digests byte-identical; V 28/28, W 17/17; `test_vp07` 19/19, `test_vp071` 24/24.
+- 17/17 VP-07.2 unit tests.
+- Golden: rows read shop → invoice-job → crm-sync → report-job → backup-job → finance-team → support-team although the
+  inventory lists actors first; `track,layer` at standard covers everything with one layer per panel; the shop flow
+  panel at p0 reads hosting → dns-zone → legacy-mail → shop (platform · dns · provider · system).
 
 ## Not part of this stage
 

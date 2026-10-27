@@ -5,12 +5,13 @@ a declared context, track map, label map or witness prefix list.
 """
 from __future__ import annotations
 
-from .common import PROFILE, PROFILES, P071, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
+from .common import PROFILE, PROFILES, P071, P072, V71UP, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
 from .source import FORMAT as SOURCE_FORMAT, validate_source
 
 CONTEXT_FORMAT = 'aiaeao.cube.binding-context/5'
 CONTEXT_FORMATS_071 = (CONTEXT_FORMAT, 'aiaeao.cube.binding-context/6')  # VP-07.1: /6 adds ends_reason
 TRACK_FORMAT = 'aiaeao.cube.vp07-track-map/1'
+LAYER_FORMAT = 'aiaeao.cube.vp07-layer-map/1'
 LABEL_FORMAT = 'aiaeao.cube.vp07-label-map/1'
 PREFIX_FORMAT = 'aiaeao.cube.vp07-witness-prefixes/1'
 MAPPING_FORMAT = 'aiaeao.cube.vp07-mapping/1'
@@ -40,6 +41,26 @@ def _tracks(doc):
             need(r not in owner, 'VP07_ADAPTER_INPUT', 'subject '+repr(r)+' assigned to two tracks ('+str(owner.get(r))+', '+name+')')
             owner[r] = name
     return owner
+
+
+def _layer_map(doc, refs):
+    """VP-07.2 LM-1…LM-3: declared layer order and ref → layer assignment (presentation input only)."""
+    keys(doc, ('format', 'layer_order', 'layers'), (), 'VP07_ADAPTER_INPUT', 'layer map')
+    need(doc['format'] == LAYER_FORMAT, 'VP07_ADAPTER_INPUT', 'layer map format must be '+LAYER_FORMAT)
+    lo = doc['layer_order']
+    need(isinstance(lo, list) and 1 <= len(lo) <= 12 and all(clean(x, 24) for x in lo) and len(set(lo)) == len(lo), 'VP07_ADAPTER_INPUT',
+         'layer_order must be 1…12 distinct clean names <= 24 (LM-1)')
+    need(UNASSIGNED not in lo, 'VP07_ADAPTER_INPUT', 'layer name unassigned is reserved (D-4)')
+    need(isinstance(doc['layers'], dict), 'VP07_ADAPTER_INPUT', 'layers must map layer names to ref lists')
+    owner = {}
+    for name, rs in doc['layers'].items():
+        need(name in lo, 'VP07_ADAPTER_INPUT', 'layer '+repr(name)+' is not in layer_order (LM-2)')
+        need(isinstance(rs, list) and all(isinstance(r, str) for r in rs), 'VP07_ADAPTER_INPUT', 'layer '+name+' needs a ref list')
+        for r in rs:
+            need(r not in owner, 'VP07_ADAPTER_INPUT', 'ref '+repr(r)+' assigned to two layers ('+str(owner.get(r))+', '+name+')')
+            need(r in refs, 'VP07_ADAPTER_INPUT', 'layer map names undeclared referent '+repr(r))
+            owner[r] = name
+    return lo, owner
 
 
 def _labels(doc):
@@ -115,9 +136,12 @@ def _declared_ends(plan, pids):
 
 
 def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None, subjects=None, edge_styles=None,
-              witness_prefixes=None, profile=LATEST):
+              witness_prefixes=None, profile=None, layers=None):
+    if profile is None:  # VP-07.2 LS-1: 0.7.2 only when a layer map is given
+        profile = P072 if layers is not None else P071
     need(profile in PROFILES, 'VP07_ADAPTER_INPUT', 'profile must be one of '+', '.join(PROFILES))
-    v71 = profile == P071
+    need(layers is None or profile == P072, 'VP07_ADAPTER_INPUT', 'a layer map needs profile '+P072+' (LS-1)')
+    v71 = profile in V71UP
     formats = CONTEXT_FORMATS_071 if v71 else (CONTEXT_FORMAT,)
     need(isinstance(context, dict) and context.get('format') in formats, 'VP07_ADAPTER_INPUT',
          'context must be '+' or '.join(formats)+' (got '+repr(context.get('format') if isinstance(context, dict) else None)+')')
@@ -135,6 +159,7 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
     prefixes = _prefixes(witness_prefixes)
     styles = check_edge_styles(edge_styles) if edge_styles is not None else None
     refs = {r['ref']: r for r in context.get('referents', []) if isinstance(r, dict) and 'ref' in r}
+    lmap = _layer_map(layers, refs) if layers is not None else None
     for r in owner:
         need(r in refs, 'VP07_ADAPTER_INPUT', 'track map names unknown subject '+repr(r))
     # slice: steps
@@ -248,6 +273,21 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
         if v71:
             tr['code'] = 'T'+str(k+1)  # PD-3: full-plan order, stable across slices
         transitions.append(tr)
+    lwarn, lorder, lseq = [], None, None
+    if lmap is not None:  # VP-07.2 LS-2: transcribe declared layers, order rows/objects by them
+        lorder, owner_of = list(lmap[0]), lmap[1]
+        shown = list(dict.fromkeys(row_ids+obj_ids))
+        layer_of = {i: owner_of.get(items[i][0], UNASSIGNED) for i in shown}
+        lseq = [items_id(items, r) for name in lorder for r in layers['layers'].get(name, []) if items_id(items, r) in layer_of]
+        lseq += [i for i in shown if layer_of[i] == UNASSIGNED]
+        if any(v == UNASSIGNED for v in layer_of.values()):
+            lorder.append(UNASSIGNED)
+            lwarn = [{'code': 'VP07_LAYER_UNASSIGNED', 'item_id': i} for i in shown if layer_of[i] == UNASSIGNED]
+        pos = {i: k for k, i in enumerate(lseq)}
+        for coll in (rows, objects):
+            for it in coll:
+                it['layer'] = layer_of[it['id']]
+            coll.sort(key=lambda it: pos[it['id']])
     role = {p['phase_id']: p.get('role', '') for p in phases}
     step_list = [{'id': p, 'label': excerpt(f'{p} · {role[p]}', 40)} for p in window]
     ctx_sha = sha_json(context)
@@ -257,6 +297,9 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
            'declaration_status': 'declared_unverified'}
     if v71:
         src['target_step'] = target_step
+    if lmap is not None:
+        src['layer_order'] = lorder
+        src['layer_sequence'] = lseq
     if styles is not None:
         src['edge_styles'] = edge_styles
     validate_source(src)
@@ -271,6 +314,8 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
                'dependencies': deps_out, 'empty_steps': [p for p in window if p not in used_steps],
                'dropped_transitions': dropped, 'facets_generated': len(facets),
                'p1_validation_performed': False, 'declaration_status': 'declared_unverified'}
+    if lmap is not None:
+        mapping.update(layer_map_sha256=sha_json(layers), warnings=lwarn)
     return src, mapping
 
 
