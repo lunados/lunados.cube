@@ -1,6 +1,6 @@
 # P1.11 — Migration method catalog · Acceptance specification
 
-**Status:** DRAFT 2026-10-27 — decisions D-1…D-9 open, no code.
+**Status:** SPECIFIED, decisions D-1…D-9 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
 **Numbering:** P1.7 stays reserved for the Principal → Authority holder chain. P1.11 builds on P1.10.1 (`binding-context/6`) and does not depend on P1.7.
 **Requirement:** C-10 from the running migration field test (2026-10-27; about 37 referents, 56 dependencies, steps p0–p3; client details withheld). Prerequisite for F axes in the declared axes view (VP-09, C-8).
 **Basis:** Morphology v9.4 §3.7 (F describes methods over qualified referents; candidate families decision, dialectics, experimentation, exploration, evaluation, feedback/regulation, projection, promotion are compositions, not objects), §5.7 (primitive families incl. *Transition / supersession* `state/version₁ → state/version₂`; composite patterns), §5.18 (Decision Trace), §7.12.1 (PAT-* Pattern Contract: roles, required predicates, qualifiers, output claims, permitted side effects), §3.13 (F stays a candidate, no accepted registry or calculation authority), `core.json` `qualifiers.F.method_profile_required_for_binding = true`; P1.4-11 (F qualifier needs one scoped `pure_declarative` method contract); P1.8 `method_contracts` (argument and return typing, `library_ref`); P1.10 predicate profile import (PP-1…PP-5, D-2, D-8).
@@ -72,7 +72,7 @@ Catalog entry (abridged):
  "notes": ["Names an external operation; the Cube neither runs nor admits it (D-5)."]}
 ```
 
-## 2. Status and diagnostic rules (proposed)
+## 2. Status and diagnostic rules
 
 | Situation | Status | Diagnostic |
 |---|---|---|
@@ -118,7 +118,7 @@ Catalog entry (abridged):
 - MP-4: `migrate.reconfigure` (if adopted): the argument is neither retired nor introduced by that transition.
 - MP-5: No rule compares methods with each other or derives an order from them.
 
-## 4. Acceptance criteria (draft)
+## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
 |---|---|---|
@@ -132,7 +132,7 @@ Catalog entry (abridged):
 | P1.11-08 | Synthetic golden: three workstreams, every transition and successor bound to a method, one deliberate misfit | fixture |
 | P1.11-09 | No client data | review |
 
-## 5. Alignment vectors (draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -157,15 +157,15 @@ Catalog entry (abridged):
 
 The eight candidate families of §3.7 (decision, dialectics, experimentation, exploration, evaluation, feedback/regulation, projection, promotion — the requirement text lists seven; *dialectics* is the eighth) are **composite patterns** (§5.7): Decision = judgment → selection → admission → action; Promotion = candidate + evidence + review + authority → admitted change; and so on. Migration operations such as import, rebuild, retire or rewrite are of a different kind: each describes one **state/version change of a referent**, which §5.7 lists as the primitive family *Transition / supersession* (`state/version₁ → state/version₂`; "not destructive overwrite").
 
-Consequences, proposed for D-3:
+Consequences (D-3):
 
 - The migration methods form their **own profile-local layer** below the composite families. Each entry declares `primitive: transition_supersession` (or `derivation` for `import`, D-3) as documentary metadata; no new family, no new coordinate, no change to §3.7.
 - The composite families stay available for what *surrounds* a migration: choosing a method is a **decision** (§5.18 Decision Trace, out of scope as in P1.10), checking a cutover is an **evaluation**, the dual-run phase can be **feedback/regulation**, releasing the target is a **promotion**. P1.11 does not model these; a later profile could reference catalog bindings as their inputs.
 - §7.12.1 PAT-* is the technical home a catalog entry approximates (roles, required predicates, permitted side effects). P1.11 implements only roles, typing and plan fit; side effects stay declared text (D-5).
 
-## 7. Decisions (open)
+## 7. Decisions (resolved 2026-10-27, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Placement and version | (a) new P1 profile P1.11, context `/7`, package `P1/migration-methods-v1` · (b) revision P1.10.2 inside `migration-profile-v2` | **(a)** | Separate pinned catalog and import; P1.10.1 stays frozen. |
 | D-2 Catalog contents v1 | (a) `migrate.import`, `migrate.rebuild`, `migrate.retire`, `migrate.rewrite` · (b) (a) + `migrate.reconfigure` (settings/DNS change of a kept referent) · (c) (b) + `migrate.dual-run` (parallel operation over a phase range) | **(b)** | Covers the field-test operations; dual-run is a phase-range property better expressed by overlapping dependencies, so it waits. |

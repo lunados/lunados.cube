@@ -1,9 +1,9 @@
 # VP-09 — Declared axes view · Acceptance specification
 
-**Status:** DRAFT 2026-10-27 — decisions D-1…D-11 open, no code.
-**Profile (proposed):** `P2-VP-AXES/0.9.0`, new package `P2/visual-printer-axes-v1` (`vpaxes`), additive to VP-06 and reading VP-07 migration sources.
+**Status:** SPECIFIED, decisions D-1…D-11 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Profile:** `P2-VP-AXES/0.9.0`, new package `P2/visual-printer-axes-v1` (`vpaxes`), additive to VP-06 and reading VP-07 migration sources.
 **Requirement:** C-8 from the running migration field test (2026-10-27; about 37 referents, 56 dependencies, steps p0–p3; client details withheld).
-**Basis:** Morphology v9.4 §3.1 (seven coordinates; X/Y/Z primary homes, T/F/M/O cross-cutting qualifiers), §3.2 (declared reading order per axis: X Ψ → Γ → Σ → Ξ → Π; Y identity anchors, then resource chain; Z module bodies Core → … → Third-party Dependency), §3.3 (Dimension × Identity Anchor: a categorical matrix whose "blank cells do not impose an artificial relationship"), §3.8 (presentation order), §3.9 ("no automatic morpho-to-feature-space mapping"), §3.10/§3.13 (M has no frozen enum; Loose/Transitional/Strict are interpretive labels; O ≠ Ψ Observation); `core.json` `never_infer` ("X/Y/Z = independent storage containers", "X/Y/Z/F/M = numeric feature vector"); VP-03 lens profiles (five lenses = five X dimensions); VP-07 migration source; P1.11 draft (method bindings, C-10).
+**Basis:** Morphology v9.4 §3.1 (seven coordinates; X/Y/Z primary homes, T/F/M/O cross-cutting qualifiers), §3.2 (declared reading order per axis: X Ψ → Γ → Σ → Ξ → Π; Y identity anchors, then resource chain; Z module bodies Core → … → Third-party Dependency), §3.3 (Dimension × Identity Anchor: a categorical matrix whose "blank cells do not impose an artificial relationship"), §3.8 (presentation order), §3.9 ("no automatic morpho-to-feature-space mapping"), §3.10/§3.13 (M has no frozen enum; Loose/Transitional/Strict are interpretive labels; O ≠ Ψ Observation); `core.json` `never_infer` ("X/Y/Z = independent storage containers", "X/Y/Z/F/M = numeric feature vector"); VP-03 lens profiles (five lenses = five X dimensions); VP-07 migration source; P1.11 (method bindings, C-10).
 **Motivation:** The field test needs overviews that a dependency list and `cube.phases` do not give at a glance: which provider or module is involved in which step, which method applies to which component, how accounts and resources live through the steps. These are two-way tables over declared material: a categorical matrix with two chosen axes, each cell listing declared statements. Nothing is measured, ranked or placed at a distance.
 
 ## 0. Scope
@@ -45,7 +45,7 @@ Z · Third-party Dep.
 
 (Rendered as SVG: equal cells, text only, one legend: "cell lists declared dependencies naming the row referent in the column step; blank = nothing declared".)
 
-## 2. Status and diagnostic rules (proposed codes)
+## 2. Status and diagnostic rules
 
 | Situation | Result | Diagnostic |
 |---|---|---|
@@ -89,7 +89,7 @@ Z · Third-party Dep.
 - AD-3: Entries are text (ID or short label), ≥ 11 px, never truncated within the visible count; overflow line `+n more` names the count as a cardinality of declared entries, not a score.
 - AD-4: Legend states the membership rule of the pair (CM table) and "blank = nothing declared, not 'no relation'".
 
-## 4. Acceptance criteria (draft)
+## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
 |---|---|---|
@@ -102,7 +102,7 @@ Z · Third-party Dep.
 | VP09-07 | Synthetic golden: field-test-like source, Z × T, Y × T and (with P1.11) F × Z complete over panels | fixture |
 | VP09-08 | No client data | review |
 
-## 5. Alignment vectors (draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -127,9 +127,9 @@ Z · Third-party Dep.
 | A-19 | Same with panels | PASS, coverage COMPLETE |
 | A-20 | `check-panels` after removing an entry from a panel input | FAIL · `VP09_PANEL_COVERAGE` |
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-27, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Package and profile | (a) new package `vpaxes`, `P2-VP-AXES/0.9.0` · (b) view inside `vpmigration` | **(a)** | The view is not migration-specific (X × X, Y × Z); it reads migration sources first. |
 | D-2 Pairs in 0.9.0 | (a) closed list in priority order: Z × T, Y × T, Y × Z, X × X, X × Z now; F × Z, F × T once P1.11 bindings reach the source · (b) any pair of the axis set | **(a)** | Each pair has a written membership rule (CM table); an arbitrary pair would need ad-hoc semantics. |

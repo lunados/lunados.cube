@@ -1,7 +1,7 @@
 # VP-07.2 — Declared layers as row order · Acceptance specification
 
-**Status:** DRAFT 2026-10-27 — decisions D-1…D-8 open, no code.
-**Profile (proposed):** `P2-VP-MIGRATION/0.7.2`, follow-up to `0.7.1` (VP-07.1, PR #15) in the same package (profile dispatch as VP-07.1 PD-1…PD-4).
+**Status:** SPECIFIED, decisions D-1…D-8 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Profile:** `P2-VP-MIGRATION/0.7.2`, follow-up to `0.7.1` (VP-07.1, PR #15) in the same package (profile dispatch as VP-07.1 PD-1…PD-4).
 **Requirement:** C-9 from the running migration field test (2026-10-27; about 37 referents, 56 dependencies, steps p0–p3, several workstreams; client details withheld).
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` PV-6 ("row order = declared order; no sorting by inferred importance"), AD-5 (declared track map), PE-2 (packing); `VP07_1_ACCEPTANCE_SPEC.md` NP-1…NP-5 (nested partition), PD-1…PD-4; VP-02 `VIEW_GRAMMAR.md` ("`cube.flow` requires an explicit, order-preserving full `order` … display order only, never derived chronology"); Morphology v9.4 §3.8 (presentation order is a derived projection and may vary without redefining canon; it never reassigns homes).
 **Motivation:** In 0.7.1 rows follow the order of the dependency inventory in the context. In the field test this order looks random and hides the functional chain (platform → DNS → provider → account → system → actor). The author knows the chain but cannot declare it to the printer.
@@ -56,7 +56,7 @@ vpmigration from-plan --context ctx.json --plan mp-acme --tracks tracks.json --l
 vpmigration print-panels --source src.json --view cube.phases --partition track,layer --granularity standard --out panels/
 ```
 
-## 2. Status and diagnostic rules (proposed)
+## 2. Status and diagnostic rules
 
 | Situation | Result | Diagnostic |
 |---|---|---|
@@ -88,7 +88,7 @@ vpmigration print-panels --source src.json --view cube.phases --partition track,
 - LD-2: `cube.flow`: one caption line `layers: platform · dns · provider` under the node row (only the layers present in the panel).
 - LD-3: The panel index lists the layers of each panel.
 
-## 4. Acceptance criteria (draft)
+## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
 |---|---|---|
@@ -100,7 +100,7 @@ vpmigration print-panels --source src.json --view cube.phases --partition track,
 | VP072-06 | Synthetic golden: 6 layers, 3 tracks, `--partition track,layer` covers everything; flow panel reads platform → actor left to right | fixture |
 | VP072-07 | No client data in fixtures, examples or previews | review |
 
-## 5. Alignment vectors (draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -118,15 +118,15 @@ vpmigration print-panels --source src.json --view cube.phases --partition track,
 | L-12 | `--partition track,layer` | PASS, outer ledger COMPLETE |
 | L-13 | `--partition layer` on a source without layers | FAIL · `VP07_PANEL_PARTITION` |
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-27, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Placement | (a) VP-07.2 in `vpmigration` (profile `0.7.2`, dispatch) · (b) separate package | **(a)** | One CLI; same pattern as VP-07.1. |
 | D-2 Where layers are declared | (a) separate layer map file (like the track map) · (b) new P1 context field · (c) both | **(a)** | No P1 change; a context can be shown with different layer maps for different audiences. |
 | D-3 Order within a layer | (a) the order of the refs in the layer's list · (b) the inventory order of the context | **(a)** | The author controls the chain completely; (b) keeps the "random" order the field test complains about. |
 | D-4 Unassigned referents | (a) collected in a trailing layer `unassigned` + warning `VP07_LAYER_UNASSIGNED` · (b) FAIL · (c) leading layer | **(a)** | Nothing disappears; the gap in the map is visible. `--strict-layers` could turn it into FAIL. |
-| D-5 Barycentre / crossing reduction within a layer | (a) not in 0.7.2: the declared list order is final · (b) opt-in `--within-layer barycenter` for `cube.flow` only, deterministic, ledger states `presentation_order: derived:barycenter` · (c) default | **(a)**, (b) as follow-up | `cube.phases` has no edges between rows, so crossings do not arise there; in `cube.flow` panels (≤ 4 nodes) the gain is small. Morphology §3.8 would allow (b) as a presentation order, but PV-6 and the VP-02 rule favour declared order. |
+| D-5 Barycentre / crossing reduction within a layer | (a) not in 0.7.2: the declared list order is final · (b) opt-in `--within-layer barycenter` for `cube.flow` only, deterministic, ledger states `presentation_order: derived:barycenter` · (c) default | **(a)**; (b) remains a possible follow-up | `cube.phases` has no edges between rows, so crossings do not arise there; in `cube.flow` panels (≤ 4 nodes) the gain is small. Morphology §3.8 would allow (b) as a presentation order, but PV-6 and the VP-02 rule favour declared order. |
 | D-6 Objects in `cube.phases` | (a) layers order rows only; lanes keep declared cell order · (b) also order lanes by object layer | **(a)** | Lanes stay stable between 0.7.1 and 0.7.2; (b) changes bar positions for every layer change. |
 | D-7 Layer bands | (a) left band + rules · (b) rules only · (c) none, order only | **(a)** | The chain is readable without a legend entry. |
 | D-8 Golden | (a) synthetic, 6 layers × 3 tracks · (b) field-test inventory | **(a)** | Client data stays out. |
