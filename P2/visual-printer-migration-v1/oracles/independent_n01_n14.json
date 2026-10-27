@@ -7,7 +7,8 @@
   "bars": "rewrite: d1 (shop→legacy-mail, p0–p1), d5 (support→old-store, p0–p1); local acme.archive/v1: d4 (crm-sync→admin-mailbox); none: d2, d3, d6, d7, d8",
   "transitions": "all at p2: T1 t-mail retires legacy-mail, introduces new-mail [retire, import]; T2 t-store retires old-store, introduces new-store [import, retire]; T3 t-box retires mailbox-x [retire]",
   "flow_p2_by_subject": "shop: nodes shop, new-mail, hosting → T1 (i); crm-sync: nodes crm-sync, admin-mailbox, new-mail → T1 (i), T3 via d7 crm-sync→mailbox-x holding at p1 (ii); support: nodes support, new-store → T2 (i)",
-  "n11": "flow --partition object at standard; the p2 panel of object admin-mailbox has row crm-sync, which holds 12 box objects plus mailbox-x at p1, each retired at p2 → 13 transitions in its line"
+  "n11": "flow --partition object at standard; the p2 panel of object admin-mailbox has row crm-sync, which holds 12 box objects plus mailbox-x at p1, each retired at p2 → 13 transitions in its line",
+  "n11_correction": "2026-10-27, after the first run: a single `object` partition packs several objects into one panel (admin-mailbox with new-store), so the vector now isolates the panel by `object,subject` (outer admin-mailbox, inner crm-sync). Expected count unchanged: 13."
  },
  "cases": [
   {"id": "N-01", "expected_status": "PASS", "required_codes": [], "forbidden_codes": [],
@@ -33,7 +34,7 @@
   {"id": "N-10", "expected_status": "PASS", "required_codes": [], "forbidden_codes": [],
    "expect": {"line": {"step": "p2", "key": "crm-sync", "codes": ["T1", "T3"], "contains": ["T3 t-box"], "excludes": ["T3 t-box · retire"]}}},
   {"id": "N-11", "expected_status": "PASS", "required_codes": [], "forbidden_codes": [],
-   "expect": {"line_overflow": {"step": "p2", "key": "admin-mailbox", "codes_total": 13, "max_text_lines": 2}}},
+   "expect": {"line_overflow": {"step": "p2", "outer": "admin-mailbox", "key": "crm-sync", "codes_total": 13, "max_text_lines": 2}}},
   {"id": "N-12", "expected_status": "PASS", "required_codes": [], "forbidden_codes": [],
    "expect": {"edge_method": {"step": "p0", "key": "shop", "cell": "d1", "method": "migrate.rewrite/v1"}, "edge_geometry_as_073": true}},
   {"id": "N-13", "expected_status": "FAIL", "required_codes": ["VP07_PANEL_COVERAGE"], "forbidden_codes": [], "expect": {}},

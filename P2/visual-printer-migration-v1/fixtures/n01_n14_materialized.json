@@ -5193,8 +5193,9 @@
    "expect": {
     "line_overflow": {
      "codes_total": 13,
-     "key": "admin-mailbox",
+     "key": "crm-sync",
      "max_text_lines": 2,
+     "outer": "admin-mailbox",
      "step": "p2"
     }
    },
@@ -6096,7 +6097,7 @@
     "then": {
      "granularity": "standard",
      "lens": "cube.lens.execution",
-     "partition": "object",
+     "partition": "object,subject",
      "view": "cube.flow"
     }
    },

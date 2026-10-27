@@ -80,7 +80,7 @@ def build():
     x['N-09'] = v(FL('subject'), profile=P074)
     c = base(); del M.plan(c)['transitions'][2]['methods']
     x['N-10'] = v(FL('subject'), ctx=c, profile=P074)
-    x['N-11'] = v(FL('object'), ctx=many_boxes(), profile=P074)
+    x['N-11'] = v(FL('object,subject'), ctx=many_boxes(), profile=P074)  # oracle n11_correction
     x['N-12'] = v(FL('subject'), profile=P074)
     x['N-13'] = v(FL('subject'), profile=P074, tamper='edit_methods_line')
     x['N-14'] = v(FL('subject'), profile=P074, layers=M.LAYERS)
