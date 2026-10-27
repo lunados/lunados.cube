@@ -1,6 +1,6 @@
 # VP-07.3 — Declared methods at transitions and bars · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-8 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-27 (M-01…M-12 12/12; 0.7.0, 0.7.1 and 0.7.2 outputs byte-identical); decisions D-1…D-8 resolved 2026-10-27 (all as proposed).
 **Profile:** `P2-VP-MIGRATION/0.7.3`, follow-up to `0.7.2` (VP-07.2) in the same package `vpmigration` (profile dispatch as VP-07.1 PD-1…PD-4).
 **Requirement:** C-11 item 3 (optional) from the running migration field test (2026-10-27; client details withheld). Items 1 and 2 are VP-09.1.
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` (PV-4 transition markers, MS-1 source, AD-1…AD-9 adapter), `VP07_1_ACCEPTANCE_SPEC.md` (TM-1…TM-5 coded markers and transition legend, PD-1…PD-4), `VP07_2_ACCEPTANCE_SPEC.md` (LS-1…LS-5); `P1/migration-methods-v1/P1_11_ACCEPTANCE_SPEC.md` (bindings on transitions `methods[]` and on dependencies `method`, MP-5, MI-3); `P2/visual-printer-axes-v1/VP09_1_ACCEPTANCE_SPEC.md` (method check FM-1…FM-3, shared with this spec).

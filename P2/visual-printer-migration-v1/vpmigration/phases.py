@@ -7,7 +7,7 @@ from __future__ import annotations
 import copy
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, PROFILES, P071, P072, V71UP, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
+from .common import (PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, method_short, method_sorted, check_binding, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
                      add, line, rect, text, wrap_label, excerpt, source_digest, cjson, sha_bytes, VP07Error, need, keys,
                      clean, check_edge_styles, no_active_content, fmt)
 
@@ -92,9 +92,10 @@ class PhasesPrinter:
     # -- validation ---------------------------------------------------------
     def validate(self, plan):
         v71 = isinstance(plan, dict) and plan.get('printer_profile') in V71UP
-        v72 = v71 and plan.get('printer_profile') == P072
-        keys(plan, PLAN_REQUIRED, PLAN_OPTIONAL+(('target_step',) if v71 else ())+(('layer_order', 'row_layers') if v72 else ()),
-             'VP07_PHASES_PLAN', 'cube.phases plan')
+        v72 = v71 and plan.get('printer_profile') in V72UP
+        v73 = v71 and plan.get('printer_profile') == P073
+        keys(plan, PLAN_REQUIRED, PLAN_OPTIONAL+(('target_step',) if v71 else ())+(('layer_order', 'row_layers') if v72 else ())
+             + (('local_methods',) if v73 else ()), 'VP07_PHASES_PLAN', 'cube.phases plan')
         need(plan['printer_profile'] in PROFILES, 'VP07_PHASES_PLAN', 'printer_profile must be '+' or '.join(PROFILES))
         need(plan['reference_version'] == 'v9.4', 'VP07_PHASES_PLAN', 'reference_version must be v9.4')
         need(plan['view'] == 'cube.phases', 'VP07_PHASES_PLAN', 'view must be cube.phases')
@@ -142,7 +143,8 @@ class PhasesPrinter:
         out_cells = []
         seen = set()
         for i, c in enumerate(cells):
-            keys(c, ('row', 'object', 'predicate_id', 'steps', 'declaration_ref'), ('id',)+(CELL_071 if v71 else ()), 'VP07_PHASES_PLAN', 'cell')
+            keys(c, ('row', 'object', 'predicate_id', 'steps', 'declaration_ref'), ('id',)+(CELL_071 if v71 else ())+(('method',) if v73 else ()),
+                 'VP07_PHASES_PLAN', 'cell')
             c = dict(c)
             c.setdefault('id', 'c'+str(i+1))
             need(isinstance(c['id'], str) and KEY.fullmatch(c['id']) is not None, 'VP07_PHASES_PLAN', 'cell id must be a stable ID')
@@ -162,13 +164,20 @@ class PhasesPrinter:
             need(idx == list(range(idx[0], idx[-1]+1)), 'VP07_PHASES_STEPS', 'cell '+c['id']+' steps not contiguous')
             if v71:
                 self._cell071(c)
+            if v73 and 'method' in c:
+                check_binding(c['method'], plan.get('local_methods', []), 'cell '+c['id'], 'VP07_PHASES_PLAN')
             out_cells.append(c)
         trs = plan['transitions']
         need(isinstance(trs, list), 'VP07_PHASES_PLAN', 'transitions must be an array')
         tseen = set()
         codes, cseen = {}, set()
         for ti, t in enumerate(trs):
-            keys(t, ('id', 'at', 'retires', 'introduces', 'declaration_ref'), ('code',) if v71 else (), 'VP07_PHASES_PLAN', 'transition')
+            keys(t, ('id', 'at', 'retires', 'introduces', 'declaration_ref'), (('code',) if v71 else ())+(('methods',) if v73 else ()),
+                 'VP07_PHASES_PLAN', 'transition')
+            if v73 and 'methods' in t:
+                need(isinstance(t['methods'], list) and t['methods'], 'VP07_PHASES_PLAN', 'transition methods must be a nonempty array')
+                for b in t['methods']:
+                    check_binding(b, plan.get('local_methods', []), 'transition '+str(t['id']), 'VP07_PHASES_PLAN')
             need(isinstance(t['id'], str) and KEY.fullmatch(t['id']) is not None and t['id'] not in tseen, 'VP07_PHASES_PLAN',
                  'transition id must be a unique stable ID')
             tseen.add(t['id'])
@@ -190,7 +199,7 @@ class PhasesPrinter:
         if v71:
             target = plan.get('target_step', steps[-1]['id'])
             need(isinstance(target, str) and KEY.fullmatch(target) is not None, 'VP07_PHASES_PLAN', 'target_step must be a stable ID (GM-2)')
-            d.update(v71=True, codes=codes, target=target, tindex=index.get(target, len(steps)))
+            d.update(v71=True, codes=codes, target=target, tindex=index.get(target, len(steps)), v73=v73)
             d['layers'] = self._layers072(plan, rmap) if v72 else None
         else:
             d['v71'] = False
@@ -359,7 +368,13 @@ class PhasesPrinter:
         a = self.base.by_id[o['anchor_id']]
         g = add(p, 'g', **{'data-cell-id': c['id'], 'data-object-id': c['object'], 'data-predicate-id': c['predicate_id'],
                            'data-declaration-ref': c['declaration_ref'], 'data-vp07-edge-style': style})
-        add(g, 'title').text = f"{c['row']} → {c['object']} | {c['predicate_id']} | {', '.join(c['steps'])} | {c['declaration_ref']}"
+        title = add(g, 'title')
+        title.text = f"{c['row']} → {c['object']} | {c['predicate_id']} | {', '.join(c['steps'])} | {c['declaration_ref']}"
+        m = c.get('method') if d.get('v73') else None
+        if m:                                              # VP-07.3 MD-2: full text and method ID in the title
+            g.set('data-vp07-method', m['method_id'])
+            leg = (d['styles'] or {}).get(c['predicate_id'], {}).get('legend', c['predicate_id'])
+            title.text += f" | {o['label']} · {leg} · {m['method_id']}"
         r = rect(g, fmt(x), fmt(y), fmt(w), BAR_H, STROKE, '#F8FAFC', 5)
         if style in DASH:
             r.set('stroke-dasharray', DASH[style])
@@ -369,8 +384,12 @@ class PhasesPrinter:
             hatch(g, x0, y, w0, BAR_H, '/' if kind == 'holds_after_retirement' else '\\')
         legend = (d['styles'] or {}).get(c['predicate_id'], {}).get('legend', c['predicate_id'])
         chars = max(6, int((w-34)/6.6))
+        label = excerpt(o['label']+' · '+legend, chars)
+        if m:                                              # MD-2: the method is never cut; object and predicate shorten first
+            suffix = ' · '+method_short(m['method_id'])
+            label = excerpt(o['label']+' · '+legend, max(4, chars-len(suffix)))+suffix
         for t in (text(g, fmt(x+14), fmt(y+18), a['unicode'], 14, INK, anchor='middle', glyph=True),
-                  text(g, fmt(x+28), fmt(y+17), excerpt(o['label']+' · '+legend, chars), 11, '#1E293B')):
+                  text(g, fmt(x+28), fmt(y+17), label, 11, '#1E293B')):
             # light halo keeps the declared label legible over a hatch (no colour semantics)
             t.set('stroke', '#F8FAFC'); t.set('stroke-width', '3'); t.set('paint-order', 'stroke')
         return g
@@ -435,6 +454,8 @@ class PhasesPrinter:
                 parts.append('retires '+', '.join(lab(x) for x in t['retires']))
             if t['introduces']:
                 parts.append('introduces '+', '.join(lab(x) for x in t['introduces']))
+            if d.get('v73') and t.get('methods'):         # VP-07.3 D-2/D-4: methods of the transition, catalog order
+                parts.append(', '.join(method_short(m) for m in method_sorted(b['method_id'] for b in t['methods'])))
             body = f"{t['id']} · at {steps[t['at']]} · "+' · '.join(parts)
             code = d['codes'][t['id']]
             out.append((code, t['id'], wrap_words(body, 110), code+' · '+body+' · '+t['declaration_ref']))
@@ -474,6 +495,9 @@ class PhasesPrinter:
             (1 if any(x['kind'] == 'holds_before_introduction' for x in shown_conf) else 0)
         ledger_lines = len(pr['cells'])
         height = int(grid_bottom+70+legend_lines*22+40+ledger_lines*19+70)
+        shown_methods = d.get('v73') and (any(t.get('methods') for t in pr['transitions']) or any(c.get('method') for c in pr['cells']))
+        if shown_methods:
+            height += 22
         if v71:
             height += (22 if shown_gaps else 0)+(44+sum(18*(len(e[2])-1)+24 for e in tlegend) if tlegend else 0)
         root = self.base._root({'view_id': 'cube.phases', 'title': plan['title'],
@@ -539,6 +563,8 @@ class PhasesPrinter:
             add(tg, 'title').text = f"{t['id']} at {t['at']} | retires {', '.join(t['retires']) or '–'} | introduces {', '.join(t['introduces']) or '–'}"
             if v71:
                 self._marker(tg, t, d['codes'][t['id']], x, 146+dy-off*STACK_PITCH, off, grid_bottom, 186+dy)
+                if d.get('v73') and t.get('methods'):     # MD-1: marker shape unchanged, methods as metadata only
+                    tg.set('data-vp07-methods', ' '.join(method_sorted(b['method_id'] for b in t['methods'])))
                 continue
             line(tg, fmt(x), 186, fmt(x), fmt(grid_bottom), '#94A3B8')
             mx = x+8+off*30
@@ -582,6 +608,11 @@ class PhasesPrinter:
             rect(lg, 70, fmt(y-14), 48, 14, STROKE, '#F8FAFC', 2)
             self._cap(lg, 124, y-16, 18)
             text(lg, 142, fmt(y), GAP_LEGEND, 12, '#334155')
+            y += 22
+        if shown_methods:                                  # MD-3: words only, no colour, hatch or glyph for methods
+            text(lg, 70, fmt(y), '· verb', 12, INK, 'bold')
+            text(lg, 142, fmt(y), 'method · declared P1.11 binding on a transition (legend) or bar (suffix) · display only, not checked here',
+                 12, '#334155')
             y += 22
         if tlegend:
             y += 22
@@ -632,6 +663,9 @@ class PhasesPrinter:
                        transition_codes={t['id']: pr['derived']['codes'][t['id']] for t in pr['transitions']})
         if pr['derived'].get('layers'):
             led['row_layers'] = {r: pr['derived']['layers']['rows'][r] for r in pr['rows']}
+        if pr['derived'].get('v73'):                       # VP-07.3 §1.6: methods of every shown transition and bar
+            led['methods'] = {'transitions': {t['id']: t['methods'] for t in pr['transitions'] if t.get('methods')},
+                              'cells': {c['id']: c['method'] for c in pr['cells'] if c.get('method')}}
         return led
 
     def report(self, plan, svg, pr):

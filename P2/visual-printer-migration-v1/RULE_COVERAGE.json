@@ -86,6 +86,12 @@
       "coverage": "enforced",
       "source": "VP-07.2 LM-1…LM-3, LO-1…LO-4, LD-1…LD-3, LS-1…LS-5, D-1…D-8",
       "implementation": "declared layer map only (never derived); rows and flow nodes ordered by (layer, declared position); cell order within a row unchanged; layer bands without fill; flow caption; partition layer never merges layers; 0.7.0/0.7.1 outputs byte-identical (30 pinned scenarios)"
+    },
+    {
+      "id": "VP073-METHODS",
+      "coverage": "enforced",
+      "source": "VP-07.3 MT-1…MT-3, MD-1…MD-4, D-1…D-8",
+      "implementation": "binding-context/7 selects 0.7.3; P1.11 bindings transcribed with declaration_ref onto shown transitions and bars (refs outside the slice kept and marked hidden); methods in the transition legend in catalog order and as a bar suffix that is never cut; markers unchanged apart from metadata; no colour, hatch or glyph for methods; catalog constant shared with VP-09; 0.7.0/0.7.1/0.7.2 outputs byte-identical (43 pinned scenarios)"
     }
   ]
 }

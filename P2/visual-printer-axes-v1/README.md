@@ -22,6 +22,7 @@ Requirement C-11. `from-plan --profile P2-VP-AXES/0.9.1` writes an axes input th
 - **F × T** places a `rewrite` on a dependency at the first step of its successor, i.e. in the column of the cut.
 - An F axis without bindings (/5, /6) gives an empty table and `VP09_METHODS_NONE` instead of FAIL.
 - Display only: whether a binding fits its plan is P1.11's job (MP-1…MP-4).
+- Since VP-07.3 the catalog IDs come from `vpmigration.common.METHOD_CATALOG` (one copy on P2, VP-07.3 D-6); outputs unchanged.
 
 ## Axes and pairs
 

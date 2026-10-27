@@ -5,11 +5,12 @@ a declared context, track map, label map or witness prefix list.
 """
 from __future__ import annotations
 
-from .common import PROFILE, PROFILES, P071, P072, V71UP, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
+from .common import PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, METHOD_PROFILE_REF, check_binding, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
 from .source import FORMAT as SOURCE_FORMAT, validate_source
 
 CONTEXT_FORMAT = 'aiaeao.cube.binding-context/5'
 CONTEXT_FORMATS_071 = (CONTEXT_FORMAT, 'aiaeao.cube.binding-context/6')  # VP-07.1: /6 adds ends_reason
+CONTEXT_FORMAT_7 = 'aiaeao.cube.binding-context/7'  # VP-07.3: P1.11 method bindings
 TRACK_FORMAT = 'aiaeao.cube.vp07-track-map/1'
 LAYER_FORMAT = 'aiaeao.cube.vp07-layer-map/1'
 LABEL_FORMAT = 'aiaeao.cube.vp07-label-map/1'
@@ -137,12 +138,14 @@ def _declared_ends(plan, pids):
 
 def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None, subjects=None, edge_styles=None,
               witness_prefixes=None, profile=None, layers=None):
-    if profile is None:  # VP-07.2 LS-1: 0.7.2 only when a layer map is given
-        profile = P072 if layers is not None else P071
+    is7 = isinstance(context, dict) and context.get('format') == CONTEXT_FORMAT_7
+    if profile is None:  # VP-07.2 LS-1: 0.7.2 only when a layer map is given; VP-07.3 D-1: a /7 context selects 0.7.3
+        profile = P073 if is7 else P072 if layers is not None else P071
     need(profile in PROFILES, 'VP07_ADAPTER_INPUT', 'profile must be one of '+', '.join(PROFILES))
-    need(layers is None or profile == P072, 'VP07_ADAPTER_INPUT', 'a layer map needs profile '+P072+' (LS-1)')
+    need(layers is None or profile in V72UP, 'VP07_ADAPTER_INPUT', 'a layer map needs profile '+P072+' (LS-1)')  # 0.7.3 includes 0.7.2
     v71 = profile in V71UP
-    formats = CONTEXT_FORMATS_071 if v71 else (CONTEXT_FORMAT,)
+    v73 = profile == P073
+    formats = CONTEXT_FORMATS_071+(CONTEXT_FORMAT_7,) if v73 else CONTEXT_FORMATS_071 if v71 else (CONTEXT_FORMAT,)
     need(isinstance(context, dict) and context.get('format') in formats, 'VP07_ADAPTER_INPUT',
          'context must be '+' or '.join(formats)+' (got '+repr(context.get('format') if isinstance(context, dict) else None)+')')
     ctx_id = context.get('context_id')
@@ -152,6 +155,7 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
     pi = next((i for i, p in enumerate(plans) if isinstance(p, dict) and p.get('plan_id') == plan_id), None)
     need(pi is not None, 'VP07_ADAPTER_INPUT', 'unknown plan_id '+repr(plan_id))
     plan = plans[pi]
+    local = _methods_in(context, plan, pi, ctx_id) if is7 else []
     phases = plan.get('phases', [])
     pids = [p['phase_id'] for p in phases]
     owner = _tracks(tracks)
@@ -273,6 +277,7 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
         if v71:
             tr['code'] = 'T'+str(k+1)  # PD-3: full-plan order, stable across slices
         transitions.append(tr)
+    mwarn = _attach_methods(plan, pi, ctx_id, items, cells, transitions) if is7 else []
     lwarn, lorder, lseq = [], None, None
     if lmap is not None:  # VP-07.2 LS-2: transcribe declared layers, order rows/objects by them
         lorder, owner_of = list(lmap[0]), lmap[1]
@@ -297,6 +302,8 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
            'declaration_status': 'declared_unverified'}
     if v71:
         src['target_step'] = target_step
+    if v73:
+        src['local_methods'] = local
     if lmap is not None:
         src['layer_order'] = lorder
         src['layer_sequence'] = lseq
@@ -316,7 +323,62 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
                'p1_validation_performed': False, 'declaration_status': 'declared_unverified'}
     if lmap is not None:
         mapping.update(layer_map_sha256=sha_json(layers), warnings=lwarn)
+    if v73:
+        mapping['warnings'] = lwarn+mwarn
     return src, mapping
+
+
+def _methods_in(context, plan, pi, ctx_id):
+    """VP-07.3 MT-1, D-6: a /7 context imports P1.11 only; every binding of the plan names a catalog or local method."""
+    need(context.get('method_profile_refs') == [METHOD_PROFILE_REF], 'VP07_ADAPTER_INPUT',
+         f'method_profile_refs must be [{METHOD_PROFILE_REF!r}] (VP-07.3 §2)')
+    local = [m['method_id'] for m in context.get('method_contracts') or [] if isinstance(m, dict) and isinstance(m.get('method_id'), str)]
+    for ptr, b in _bindings(plan, pi):
+        need(isinstance(b, dict) and isinstance(b.get('arguments'), dict), 'VP07_ADAPTER_INPUT', f'binding at {ptr} is not a P1.11 binding')
+        check_binding({'method_id': b.get('method_id'), 'arguments': {}, 'declaration_ref': f'decl:{ctx_id}#{ptr}'}, local, ptr, 'VP07_ADAPTER_INPUT')
+    return local
+
+
+def _bindings(plan, pi):
+    for k, t in enumerate(plan.get('transitions', [])):
+        for n, b in enumerate(t.get('methods', []) if isinstance(t, dict) else []):
+            yield f'/migration_plans/{pi}/transitions/{k}/methods/{n}', b
+    for j, d in enumerate(plan.get('dependencies', [])):
+        if isinstance(d, dict) and 'method' in d:
+            yield f'/migration_plans/{pi}/dependencies/{j}/method', d['method']
+
+
+def _attach_methods(plan, pi, ctx_id, items, cells, transitions):
+    """MT-2/MT-3: declared bindings onto the shown transitions and cells; refs → display IDs; refs outside the slice stay
+    as declared ref text and are marked hidden (D-7)."""
+    warn = []
+
+    def conv(owner, b, ptr):
+        args, hidden = {}, []
+        for role, r in b['arguments'].items():
+            ident = items_id(items, r)
+            args[role] = ident if ident is not None else r
+            if ident is None:
+                hidden.append(role)
+                warn.append({'code': 'VP07_METHOD_ARGUMENT_HIDDEN', 'owner': owner, 'method_id': b['method_id'], 'role': role, 'ref': r,
+                             'declaration_ref': f'decl:{ctx_id}#{ptr}'})
+        out = {'method_id': b['method_id'], 'arguments': args, 'declaration_ref': f'decl:{ctx_id}#{ptr}'}
+        if isinstance(b.get('witness_ref'), str) and clean(b['witness_ref'], 120):
+            out['witness_ref'] = b['witness_ref']
+        if hidden:
+            out['hidden_roles'] = hidden
+        return out
+    shown_t = {t['id']: t for t in transitions}
+    shown_c = {c['id']: c for c in cells}
+    for k, t in enumerate(plan.get('transitions', [])):
+        tr = shown_t.get(t.get('transition_id'))
+        if tr is not None and t.get('methods'):
+            tr['methods'] = [conv(tr['id'], b, f'/migration_plans/{pi}/transitions/{k}/methods/{n}') for n, b in enumerate(t['methods'])]
+    for j, d in enumerate(plan.get('dependencies', [])):
+        c = shown_c.get(d.get('dependency_id'))
+        if c is not None and 'method' in d:
+            c['method'] = conv(c['id'], d['method'], f'/migration_plans/{pi}/dependencies/{j}/method')
+    return warn
 
 
 def items_id(items, ref):
