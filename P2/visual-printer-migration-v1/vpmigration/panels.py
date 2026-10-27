@@ -8,15 +8,15 @@ import copy
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, P071, P072, P073, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
-                     sha_json, encode, load_json, VP07Error, need, publish_dir, no_active_content, MUTED)
+from .common import (PROFILE, P071, P072, P073, P074, V73UP, NONE_GROUP, METHOD_CATALOG, method_short, method_sorted, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
+                     sha_json, encode, load_json, VP07Error, need, publish_dir, no_active_content, MUTED, NS)
 from .phases import PhasesPrinter, BUDGET, lanes_for
 from .source import validate_source, as_plan, layer_key
 from .styles import apply_styles
 from vpprint.core import make_job, render_job, PrintError as VP06PrintError
 from vpgranularity import CAPS
 
-PARTITIONS = ('subject', 'object', 'step', 'track', 'layer')
+PARTITIONS = ('subject', 'object', 'step', 'track', 'layer', 'method')
 VIEWS = ('cube.flow', 'cube.phases')
 REPORT_FORMAT = 'aiaeao.cube.vp07-panel-report/1'
 INPUT_FORMAT = 'aiaeao.cube.vp07-panel-input/1'
@@ -36,7 +36,20 @@ def _key_of(partition, cell, tracks):
         lay = getattr(tracks, 'layers', None)
         need(lay is not None, 'VP07_PANEL_PARTITION', 'partition layer needs a '+P072+' source with a declared layer map', 'partition')
         return lay[cell['row']]
+    if partition == 'method':  # VP-07.4 PM-1: the bar's own declared method; bars without one form the group `none`
+        need(getattr(tracks, 'methods', False), 'VP07_PANEL_PARTITION', 'partition method needs a '+P073+' or later source', 'partition')
+        return cell['method']['method_id'] if 'method' in cell else NONE_GROUP
     return None
+
+
+def _method_rank(keys):
+    """PM-2: catalog order, local methods in first appearance, `none` last (no rank, MP-5)."""
+    return method_sorted([k for k in keys if k != NONE_GROUP])+([NONE_GROUP] if NONE_GROUP in keys else [])
+
+
+def _kv(partition, x):
+    """PM-5: subtitles read the short name of a method group; ledger and index keep the full ID."""
+    return method_short(x) if partition == 'method' and x != NONE_GROUP else str(x)
 
 
 def _groups(cells, partition, tracks):
@@ -46,15 +59,17 @@ def _groups(cells, partition, tracks):
         if k not in groups:
             order.append(k); groups[k] = []
         groups[k].append(c)
+    if partition == 'method':
+        order = _method_rank(order)
     return [(k, groups[k]) for k in order]
 
 
 def _pack_key(cells, partition, tracks, fits, label):
     """PE-2 packing by one key; VP-07.2: `layer` never merges layers and splits a large layer by subject."""
-    if partition != 'layer':
+    if partition not in ('layer', 'method'):
         return _pack(_groups(cells, partition, tracks), fits, label)
-    out = []
-    for lay, cs in _groups(cells, 'layer', tracks):
+    out = []  # VP-07.4 PM-3: `method` like `layer` — groups never merged, a large group split by subject
+    for lay, cs in _groups(cells, partition, tracks):
         for _, pcs in _pack(_groups(cs, 'subject', tracks), fits, f'{label} {lay!r} / subject'):
             out.append(([lay], pcs))
     return out
@@ -167,8 +182,125 @@ def render_input(inp):
         result = {'format': 'aiaeao.cube.vp07-layered-print-result/1', 'profile': inp['profile'], 'base_svg_sha256': sha_bytes(base),
                   'svg_sha256': sha_bytes(svg), 'layer_caption': inp['layer_caption'], 'inner_result': result,
                   'warnings': result.get('warnings', []), **NOT_EVALUATED}
+        if 'methods_line' not in inp and 'edge_methods' not in inp:
+            return result, svg
+        base = svg
+    if 'methods_line' in inp or 'edge_methods' in inp:  # VP-07.4 FL / FE: post-processing, inner result kept (FL-4)
+        svg, methods = _methods_post(base, inp)
+        result = {'format': 'aiaeao.cube.vp07-methods-print-result/1', 'profile': inp['profile'], 'base_svg_sha256': sha_bytes(base),
+                  'svg_sha256': sha_bytes(svg), 'methods': methods, 'inner_result': result,
+                  'warnings': result.get('warnings', []), **NOT_EVALUATED}
         return result, svg
     return result, base
+
+
+ML_X0, ML_X1, ML_Y = 60, 820, (147, 162)  # VP-07.4 FL-3 / D-7 (reopened): strip above the layer caption, left of the lens box
+ML_CHARS = 118
+
+
+def _flow_methods(src, cells, step_id):
+    """VP-07.4 FL-1/FL-2 and FE-1 from declared fields only: transitions at the panel's step that concern the panel,
+    and the edges whose bar declares a method."""
+    rows = {c['row'] for c in cells}
+    nodes = rows | {c['object'] for c in cells}
+    of_rows = {c['object'] for c in src['cells'] if c['row'] in rows}  # FL-1 (ii), D-5 amended: any step of a panel row
+    line_ = []
+    for j, t in enumerate(src['transitions']):
+        if t['at'] == step_id and (set(t['retires']) | set(t['introduces'])) & (nodes | of_rows):
+            line_.append({'code': t.get('code', 'T'+str(j+1)), 'id': t['id'],
+                          'methods': method_sorted(b['method_id'] for b in t.get('methods', []))})
+    edges = {c['declaration_ref']: c['method']['method_id'] for c in cells if 'method' in c}
+    return line_, edges
+
+
+def _flow_method_fields(src, cells, step_id):
+    if src['profile'] != P074:  # D-1: only 0.7.4 sources get the line and the edge metadata
+        return {}
+    line_, edges = _flow_methods(src, cells, step_id)
+    out = {}
+    if line_:
+        out['methods_line'] = {'step': step_id, 'transitions': line_}
+    if edges:
+        out['edge_methods'] = edges
+    return out
+
+
+def _entry(t):
+    return f"{t['code']} {t['id']}"+(' · '+', '.join(method_short(m) for m in t['methods']) if t['methods'] else '')
+
+
+def _line_texts(ml):
+    """FL-3: whole entries on at most two lines of ML_CHARS, then `+n more`; the full list stays in title and ledger."""
+    entries = [_entry(t) for t in ml['transitions']]
+    lines, cur, i = [], f"TRANSITIONS AT {ml['step']} (declared)", 0
+    while i < len(entries):
+        cand = cur+' · '+entries[i]
+        if len(cand) <= ML_CHARS:
+            cur, i = cand, i+1
+            continue
+        if len(lines) == 1:
+            break
+        lines.append(cur); cur = '   '+entries[i] if len('   '+entries[i]) <= ML_CHARS else excerpt('   '+entries[i], ML_CHARS); i += 1
+    rest = len(entries)-i
+    if rest:
+        tail = f' · +{rest} more'
+        while len(cur)+len(tail) > ML_CHARS and ' · ' in cur.strip():
+            cur = cur[:cur.rindex(' · ')]; rest += 1; tail = f' · +{rest} more'
+        cur += tail
+    lines.append(cur)
+    return lines, entries
+
+
+def _overlaps(root, box):
+    """Conservative boxes of drawn text and rects; True if any intersects `box` = (x0, y0, x1, y1)."""
+    x0, y0, x1, y1 = box
+    for e in root.iter():
+        tag = e.tag.split('}')[-1]
+        try:
+            if tag == 'rect' and e.get('width') and e.get('height'):
+                ex, ey, ew, eh = (float(e.get(k)) for k in ('x', 'y', 'width', 'height'))
+                if ew >= 1200 and eh >= 500:
+                    continue                                   # page background
+                b = (ex, ey, ex+ew, ey+eh)
+            elif tag == 'text' and e.get('x') and e.get('y'):
+                size = float(e.get('font-size', 12)); ex, ey = float(e.get('x')), float(e.get('y'))
+                w = len(e.text or '')*size*0.62
+                ex = ex-w/2 if e.get('text-anchor') == 'middle' else ex-w if e.get('text-anchor') == 'end' else ex
+                b = (ex, ey-size, ex+w, ey+size*0.3)
+            else:
+                continue
+        except ValueError:
+            continue
+        if b[0] < x1 and b[2] > x0 and b[1] < y1 and b[3] > y0:
+            return True
+    return False
+
+
+def _methods_post(svg, inp):
+    """FL-1…FL-4, FE-1: add the methods line and edge metadata to a finished flow panel; nothing is moved."""
+    root = ET.fromstring(svg)
+    edges = inp.get('edge_methods', {})
+    for g in root.iter(f'{{{NS}}}g'):
+        mid = edges.get(g.get('data-declaration-ref')) if g.get('data-edge-id') else None
+        if mid:
+            g.set('data-vp07-method', mid)
+            t = g.find(f'{{{NS}}}title')
+            if t is not None:
+                t.text = (t.text or '')+' | method '+method_short(mid)
+    methods = {'edges': dict(edges)}
+    ml = inp.get('methods_line')
+    if ml:
+        lines, entries = _line_texts(ml)
+        need(not _overlaps(root, (ML_X0, ML_Y[0]-12, ML_X1, ML_Y[len(lines)-1]+4)), 'VP07_AUDIT',
+             'methods line would overlap the drawn panel (VP-07.4 D-7)', 'audit')
+        g = add(root, 'g', **{'data-vp07-methods-line': ' '.join(t['code'] for t in ml['transitions']), 'data-step-id': ml['step']})
+        add(g, 'title').text = f"transitions at {ml['step']} (declared): "+' · '.join(entries)
+        for y, s in zip(ML_Y, lines):
+            text(g, ML_X0, y, s, 11, MUTED, 'bold')
+        methods.update(step=ml['step'], transitions=ml['transitions'])
+    out = ET.tostring(root, encoding='utf-8', xml_declaration=True, short_empty_elements=True)+b'\n'
+    need(no_active_content(ET.fromstring(out)), 'VP07_AUDIT', 'methods SVG contains active content', 'audit')
+    return out, methods
 
 
 def _caption(svg, layers):
@@ -296,7 +428,7 @@ def build_panels(src, view, partition, granularity, lens=None):
                 if c['row'] not in rows:
                     rows.append(c['row'])
             title = excerpt(src['title'], 56)+f' · panel {i+1:02d}/{n:02d}'
-            sub = excerpt(f'{partition}: '+', '.join(str(x) for x in k), 95)
+            sub = excerpt(f'{partition}: '+', '.join(_kv(partition, x) for x in k), 95)
             plan = as_plan(src, rows, cs, w, granularity, title, sub, ends=v.get('declared_ends'))
             inputs.append({'format': INPUT_FORMAT, 'profile': src['profile'], 'view': view, 'partition': partition, 'key_values': k, 'plan': plan})
     else:
@@ -318,7 +450,7 @@ def build_panels(src, view, partition, granularity, lens=None):
         need(n <= MAX_PANELS, 'VP07_PANEL_PARTITION', f'{n} panels exceed {MAX_PANELS}', 'partition')
         for i, (s, k, cs) in enumerate(sets):
             title = excerpt(src['title'], 56)+f' · panel {i+1:02d}/{n:02d}'
-            sub = excerpt(f"step {s['label']} · {partition}: "+', '.join(str(x) for x in k), 95)
+            sub = excerpt(f"step {s['label']} · {partition}: "+', '.join(_kv(partition, x) for x in k), 95)
             bundle = _flow_bundle(src, cs, title, sub, v['layers'])
             job = _vp06(make_job, bundle, lens, granularity, 'reject')
             inp = {'format': INPUT_FORMAT, 'profile': src['profile'], 'view': view, 'partition': partition, 'key_values': k,
@@ -327,6 +459,7 @@ def build_panels(src, view, partition, granularity, lens=None):
                 inp['layer_caption'] = _layer_caption(src, cs, v['layers'])
             if 'edge_styles' in src:
                 inp['edge_styles'] = copy.deepcopy(src['edge_styles'])
+            inp.update(_flow_method_fields(src, cs, s['id']))
             inputs.append(inp)
     need(inputs, 'VP07_PANEL_PARTITION', 'source yields no panel', 'partition')
     return v, inputs
@@ -368,16 +501,17 @@ def _build_nested(src, v, view, nested, granularity, lens):
         base = {'format': INPUT_FORMAT, 'profile': prof, 'view': view, 'partition': [outer, inner], 'outer_value': ov, 'key_values': k}
         if view == 'cube.phases':
             rows = list(dict.fromkeys(c['row'] for c in cs))
-            sub = excerpt(f'{outer}: {ov} · {inner}: '+', '.join(str(x) for x in k), 95)
+            sub = excerpt(f'{outer}: {_kv(outer, ov)} · {inner}: '+', '.join(_kv(inner, x) for x in k), 95)
             inputs.append({**base, 'plan': as_plan(src, rows, cs, w, granularity, title, sub, ends=ends)})
         else:
-            sub = excerpt(f"step {w['label']} · {outer}: {ov} · {inner}: "+', '.join(str(x) for x in k), 95)
+            sub = excerpt(f"step {w['label']} · {outer}: {_kv(outer, ov)} · {inner}: "+', '.join(_kv(inner, x) for x in k), 95)
             job = _vp06(make_job, _flow_bundle(src, cs, title, sub, v['layers']), lens, granularity, 'reject')
             inp = {**base, 'step': w['id'], 'job': job}
             if v['layers']:
                 inp['layer_caption'] = _layer_caption(src, cs, v['layers'])
             if 'edge_styles' in src:
                 inp['edge_styles'] = copy.deepcopy(src['edge_styles'])
+            inp.update(_flow_method_fields(src, cs, w['id']))
             inputs.append(inp)
     need(inputs, 'VP07_PANEL_PARTITION', 'source yields no panel', 'partition')
     return inputs
@@ -498,7 +632,7 @@ def print_panels(src, view, partition, granularity, lens=None):
     need(cov['status'] == 'COMPLETE', 'VP07_PANEL_COVERAGE', 'panels do not cover units: '+', '.join(cov['uncovered_units'][:10]), 'coverage')
     if v['layers']:  # VP-07.2 LS-3
         warnings += [{'code': 'VP07_LAYER_UNASSIGNED', 'item_id': i} for i, lay in v['layers']['of'].items() if lay == UNASSIGNED]
-    if src['profile'] == P073:  # VP-07.3 D-7: arguments outside the slice, once per binding role
+    if src['profile'] in V73UP:  # VP-07.3 D-7: arguments outside the slice, once per binding role
         owned = [(t['id'], b) for t in src['transitions'] for b in t.get('methods', [])]+[(c['id'], c['method']) for c in src['cells'] if 'method' in c]
         warnings += [{'code': 'VP07_METHOD_ARGUMENT_HIDDEN', 'owner': o, 'method_id': b['method_id'], 'role': r, 'ref': b['arguments'][r],
                       'declaration_ref': b['declaration_ref']} for o, b in owned for r in b.get('hidden_roles', [])]
@@ -554,6 +688,12 @@ def check_panels(directory):
              e['panel']+': SVG differs from deterministic re-render of its input', 'coverage')
         units = units_of(inp, src)
         need(units == e['units'], 'VP07_PANEL_COVERAGE', e['panel']+': ledger units differ from the panel input', 'coverage')
+        if inp['view'] == 'cube.flow' and src['profile'] == P074:  # VP-07.4: line and edge metadata follow from the source
+            byref = {c['declaration_ref']: c for c in src['cells']}
+            cs = [byref[x['declaration_ref']] for x in inp['job']['source_bundle']['view_plan']['edges']]
+            want = _flow_method_fields(src, cs, inp['step'])
+            need({k: inp[k] for k in ('methods_line', 'edge_methods') if k in inp} == want, 'VP07_PANEL_COVERAGE',
+                 e['panel']+': methods line or edge methods differ from the embedded source (VP-07.4)', 'coverage')
         shown = sorted({u.rsplit('@', 1)[0] for u in units})
         need(shown == sorted(e['shown_cell_ids']), 'VP07_PANEL_COVERAGE', e['panel']+': ledger cell IDs differ from the panel input', 'coverage')
     cov = _coverage(src, entries)

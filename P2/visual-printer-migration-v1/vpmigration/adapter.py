@@ -5,7 +5,7 @@ a declared context, track map, label map or witness prefix list.
 """
 from __future__ import annotations
 
-from .common import PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, METHOD_PROFILE_REF, check_binding, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
+from .common import PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, V73UP, METHOD_PROFILE_REF, check_binding, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
 from .source import FORMAT as SOURCE_FORMAT, validate_source
 
 CONTEXT_FORMAT = 'aiaeao.cube.binding-context/5'
@@ -144,7 +144,7 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
     need(profile in PROFILES, 'VP07_ADAPTER_INPUT', 'profile must be one of '+', '.join(PROFILES))
     need(layers is None or profile in V72UP, 'VP07_ADAPTER_INPUT', 'a layer map needs profile '+P072+' (LS-1)')  # 0.7.3 includes 0.7.2
     v71 = profile in V71UP
-    v73 = profile == P073
+    v73 = profile in V73UP  # VP-07.4 D-1: 0.7.4 only via an explicit profile; a /7 context still selects 0.7.3
     formats = CONTEXT_FORMATS_071+(CONTEXT_FORMAT_7,) if v73 else CONTEXT_FORMATS_071 if v71 else (CONTEXT_FORMAT,)
     need(isinstance(context, dict) and context.get('format') in formats, 'VP07_ADAPTER_INPUT',
          'context must be '+' or '.join(formats)+' (got '+repr(context.get('format') if isinstance(context, dict) else None)+')')

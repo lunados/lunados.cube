@@ -92,6 +92,18 @@
       "coverage": "enforced",
       "source": "VP-07.3 MT-1…MT-3, MD-1…MD-4, D-1…D-8",
       "implementation": "binding-context/7 selects 0.7.3; P1.11 bindings transcribed with declaration_ref onto shown transitions and bars (refs outside the slice kept and marked hidden); methods in the transition legend in catalog order and as a bar suffix that is never cut; markers unchanged apart from metadata; no colour, hatch or glyph for methods; catalog constant shared with VP-09; 0.7.0/0.7.1/0.7.2 outputs byte-identical (43 pinned scenarios)"
+    },
+    {
+      "id": "VP074-PARTITION-METHOD",
+      "coverage": "enforced",
+      "source": "VP-07.4 PM-1…PM-5, D-1…D-4",
+      "implementation": "key = the bar's own declared method, else the reserved group none; groups in catalog order, local methods, none last; groups never merged, large groups split by subject; single and nested; works on 0.7.3 and 0.7.4 sources; subtitles short name, ledger full ID"
+    },
+    {
+      "id": "VP074-FLOW-METHODS",
+      "coverage": "enforced",
+      "source": "VP-07.4 FL-1…FL-4, FE-1, FE-2, D-5 (amended), D-6, D-7 (reopened)",
+      "implementation": "only 0.7.4 sources: transitions at the panel step whose items are panel nodes or objects of a panel row at any step, listed in code order with methods in catalog order, in the strip above the layer caption (two lines, then +n more, full list in title and ledger), audit FAIL on overlap; edges of bars with a method get data-vp07-method and a title suffix; check-panels recomputes line and edge methods from the embedded source; 0.7.0…0.7.3 outputs byte-identical (57 pinned scenarios)"
     }
   ]
 }

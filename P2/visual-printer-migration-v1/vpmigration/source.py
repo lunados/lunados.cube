@@ -2,7 +2,7 @@
 from __future__ import annotations
 import copy
 
-from .common import (PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, UNASSIGNED, KEY, HEX64, LENSES, VP07Error, need, keys, clean,
+from .common import (PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, V73UP, UNASSIGNED, KEY, HEX64, LENSES, VP07Error, need, keys, clean,
                      check_edge_styles, check_binding)
 from .phases import PhasesPrinter, CELL_071
 
@@ -18,7 +18,7 @@ def validate_source(src):
          'input is not an '+FORMAT+' document (a VP-04 request or VP-03 bundle cannot be partitioned, D-10)')
     v71 = src.get('profile') in V71UP
     v72 = src.get('profile') in V72UP
-    v73 = src.get('profile') == P073
+    v73 = src.get('profile') in V73UP
     keys(src, REQUIRED, OPTIONAL+(('target_step',) if v71 else ())+(('layer_order', 'layer_sequence') if v72 else ())
          + (('local_methods',) if v73 else ()), 'VP07_SOURCE_INVALID', 'migration source')
     need(src['profile'] in PROFILES and src['reference_version'] == 'v9.4', 'VP07_SOURCE_INVALID', 'wrong profile or reference_version')
@@ -46,6 +46,7 @@ def validate_source(src):
     layers = _layers072(src) if v72 else None
     tracks = Tracks()
     tracks.layers = layers['rows'] if layers else None
+    tracks.methods = v73  # VP-07.4 PM-1: partition key `method` needs declared method fields (0.7.3+)
     for r in src['rows']:
         if 'track' in r:
             need(clean(r['track'], 40), 'VP07_SOURCE_INVALID', 'row track must be clean text <= 40')
@@ -97,8 +98,10 @@ def _methods073(src):
 
 
 class Tracks(dict):
-    """Declared track map (row → track); `.layers` carries the VP-07.2 row → layer map (None before 0.7.2)."""
+    """Declared track map (row → track); `.layers` carries the VP-07.2 row → layer map (None before 0.7.2);
+    `.methods` is True for sources with VP-07.3 method fields."""
     layers = None
+    methods = False
 
 
 def _layers072(src):
@@ -184,7 +187,7 @@ def as_plan(src, row_ids, cells, steps, granularity, title, subtitle=None, full=
                 c.setdefault('declared_end', ends[c['id']])  # GM-3: end explained on the full source
     if v71:
         plan['target_step'] = src.get('target_step', src['steps'][-1]['id'])
-    if src.get('profile') == P073 and src.get('local_methods'):
+    if src.get('profile') in V73UP and src.get('local_methods'):
         plan['local_methods'] = list(src['local_methods'])
     if src.get('profile') in V72UP and 'layer_order' in src:
         plan['layer_order'] = list(src['layer_order'])

@@ -15,6 +15,7 @@ def capabilities():
     return {'format': 'aiaeao.cube.vp07-capabilities/1', 'profile': PROFILE, 'profiles': list(PROFILES), 'latest_profile': LATEST,
             'reference_version': 'v9.4', 'nested_partition': 'outer,inner (0.7.1+ sources)', 'layer_map': 'aiaeao.cube.vp07-layer-map/1 (0.7.2)',
             'method_bindings': 'P1.11 binding-context/7 → 0.7.3: methods in the transition legend and as bar suffix (display only)',
+            'methods_line': 'cube.flow, 0.7.4 (from-plan --profile): declared transitions of the step with their methods; edge metadata',
             'views': ['cube.phases'], 'styled_views': ['cube.flow', 'cube.tree'], 'lens_cube_phases': ['neutral'],
             'flow_lenses': list(LENSES), 'granularities': list(LEVELS),
             'phases_budgets': {k: dict(zip(('rows', 'steps', 'cells', 'lanes_per_row'), v)) for k, v in BUDGET.items()},

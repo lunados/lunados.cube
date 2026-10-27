@@ -203,7 +203,9 @@ class Cli(unittest.TestCase):
             self.assertEqual(r.returncode, 0, r.stderr)
             r = run('check-panels', '--dir', str(t/'p'))
             self.assertEqual(json.loads(r.stdout)['status'], 'PASS')
-            self.assertEqual(json.loads(run('capabilities').stdout)['latest_profile'], P073)
+            caps = json.loads(run('capabilities').stdout)
+            self.assertIn(P073, caps['profiles'])                    # VP-07.4: latest may be a later profile
+            self.assertGreaterEqual(caps['profiles'].index(caps['latest_profile']), caps['profiles'].index(P073))
 
 
 if __name__ == '__main__':

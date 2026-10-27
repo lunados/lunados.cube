@@ -1,4 +1,4 @@
-# VP-07 — Migration Plan Views (`P2-VP-MIGRATION/0.7.0`, `0.7.1`, `0.7.2`, `0.7.3`)
+# VP-07 — Migration Plan Views (`P2-VP-MIGRATION/0.7.0`, `0.7.1`, `0.7.2`, `0.7.3`, `0.7.4`)
 
 Additive to the frozen `P2-VP/1.0.0-rc1` facade (VP-06). Shows declared P1.10 migration plans:
 the view `cube.phases` (subjects × declared steps), declared edge styles for `cube.flow` / `cube.tree`,
@@ -28,6 +28,15 @@ lives here and VP-09 imports it, D-6); arguments outside a slice keep their decl
 `VP07_METHOD_ARGUMENT_HIDDEN`. Layers work as in 0.7.2. `/5` and `/6` contexts behave exactly as before. Display only:
 whether a method fits its transition is P1.11's job.
 
+VP-07.4 (`0.7.4`, `VP07_4_ACCEPTANCE_SPEC.md`) adds `--partition method` (single or nested, also on 0.7.3 sources):
+every bar goes to the group of its own declared method, bars without one to `none`; groups follow catalog order,
+`none` last, are never merged and split by subject when large. With `from-plan --profile P2-VP-MIGRATION/0.7.4`
+(a /7 context still yields 0.7.3 by default) `cube.flow` panels get a methods line in the strip above the layer
+caption — `TRANSITIONS AT p2 (declared) · T1 t-mail · import, retire · T3 t-box · retire` — listing the transitions
+of the panel's step whose items are panel nodes or objects of a panel row at any step; two lines, then `+n more`,
+full list in title and ledger. Edges of bars with a method carry `data-vp07-method`. Nothing is moved; the audit
+fails if the line would overlap the panel. D-5 and D-7 were reopened at implementation and decided by the user.
+
 ## Layout
 
 | Path | Purpose |
@@ -38,7 +47,7 @@ whether a method fits its transition is P1.11's job.
 | `vpmigration/adapter.py` | `from-plan`: P1.10 `binding-context/5` (0.7.1 also `/6`) → migration source + `mapping.json`; 0.7.1 transcribes `declared_end` on the full plan (GM-3) |
 | `vpmigration/panels.py` | `print-panels` (deterministic packing, coverage ledger, text index) and `check-panels` |
 | `vpmigration/__main__.py` | CLI `python3 -m vpmigration` (`vpprint` unchanged) |
-| `DIAGNOSTICS.json`, `RULE_COVERAGE.json` | 23 VP-07 codes (VP-07.1 adds `VP07_DECLARED_GAP`, VP-07.2 `VP07_LAYER_UNASSIGNED`, VP-07.3 `VP07_METHOD_UNKNOWN`, `VP07_METHOD_ARGUMENT_HIDDEN`), 15 rules |
+| `DIAGNOSTICS.json`, `RULE_COVERAGE.json` | 23 VP-07 codes (VP-07.1 adds `VP07_DECLARED_GAP`, VP-07.2 `VP07_LAYER_UNASSIGNED`, VP-07.3 `VP07_METHOD_UNKNOWN`, `VP07_METHOD_ARGUMENT_HIDDEN`; VP-07.4 none), 17 rules |
 | `oracles/independent_v01_v28.json` | expectations transcribed from spec §5 before code (commit `7a069f2`) |
 | `fixtures/v01_v28_materialized.json` | 28 synthetic vectors (`scripts/materialize_v01_v28.py`) |
 | `fixtures/golden_migration_views.json` | synthetic golden: 31 dependencies, 4 steps, 2 tracks, 1 declared conflict (`scripts/build_golden.py`) |
@@ -61,6 +70,12 @@ whether a method fits its transition is P1.11's job.
 | `fixtures/golden_v073.json` | VP-07.3 golden: P1.11 GM-pos (4 transitions with methods, 16 `rewrite` bars; `scripts/build_golden_v073.py`) |
 | `scripts/run_vectors_m.py` | M-01…M-12 against the oracle |
 | `tests/test_vp073.py` | 16 tests: oracle, pinned 0.7.0/0.7.1/0.7.2 digests, catalog pin, §2 rows, unchanged markers, ledger, flow, golden, CLI |
+| `fixtures/regression_073_digests.json` | VP-07.4 VP074-01: SHA-256 of 14 0.7.3 scenarios (phases and flow), pinned before any 0.7.4 code (`scripts/pin_073_digests.py`) |
+| `oracles/independent_n01_n14.json` | VP-07.4 expectations transcribed before code (commit `fc5f3ff`); N-11 panel selection corrected (`7bcca0a`) and count amended with D-5 (`c9dccd0`), both documented in the file |
+| `fixtures/n01_n14_materialized.json` | 14 synthetic VP-07.4 vectors (`scripts/materialize_n01_n14.py`) |
+| `fixtures/golden_v074.json` | VP-07.4 golden: GM-pos, method groups rewrite/none, flow lines T1 at p1, T2…T4 at p2 (`scripts/build_golden_v074.py`) |
+| `scripts/run_vectors_n.py` | N-01…N-14 against the oracle |
+| `tests/test_vp074.py` | 12 tests: oracle, pinned 0.7.0…0.7.3 digests, profile selection, partition on 0.7.3/0.7.4, PM-5, consistent forgery caught by check-panels, overlap audit, line bounds, inner result, golden, CLI |
 | `tests/test_vp071.py` | 24 tests: oracle, pinned 0.7.0 digests, §2 rows, gap rules, markers, nested flow/phases, golden, P1.10.1 agreement, CLI |
 
 ## Run
@@ -77,6 +92,8 @@ python3 scripts/run_vectors_l.py                       # 13/13 (VP-07.2)
 python3 scripts/pin_071_digests.py --check             # 16/16 0.7.1 outputs byte-identical
 python3 scripts/run_vectors_m.py                       # 12/12 (VP-07.3)
 python3 scripts/pin_072_digests.py --check             # 13/13 0.7.2 outputs byte-identical
+python3 scripts/run_vectors_n.py                       # 14/14 (VP-07.4)
+python3 scripts/pin_073_digests.py --check             # 14/14 0.7.3 scenarios byte-identical
 python3 -m vpmigration from-plan --context ctx.json --plan mp-acme --tracks tracks.json --out src.json
 python3 -m vpmigration print-panels --source src.json --view cube.phases --partition subject --granularity standard --out panels/
 python3 -m vpmigration check-panels --dir panels/
@@ -121,8 +138,16 @@ python3 -m vpmigration print-panels --source src.json --view cube.phases --parti
 - Golden (GM-pos): 33 dependencies, 3 panels by subject, coverage COMPLETE; legend reads T1 rebuild, T2/T3 import,
   retire, T4 rebuild, retire; 16 bars end in `rewrite`; markers identical to the same plan without methods.
 
+## Local results VP-07.4 (2026-10-27)
+
+- N-01…N-14: 14/14 match the oracle; N-06 and N-13 fail for the stated reason. Every synthetic context passes P1.11.
+- Regression: pinned 0.7.0 14/14, 0.7.1 16/16, 0.7.2 13/13, 0.7.3 14/14; V 28/28, W 17/17, L 13/13, M 12/12; 88/88 VP-07 tests
+  (the VP-07.3 capability test now accepts a later latest profile, as VP-07.2 did for VP-07.1).
+- Golden (GM-pos): method groups rewrite (16 bars) and none; flow lines list T1 at p1 and T2…T4 at p2, which needed the
+  amended D-5 (T1 introduces new-mail, used from p2).
+
 ## Not part of this stage
 
 MCP tool `cube_render_plan` (D-6, follow-up with paging); G4/G5 are unchanged by VP-07. Methods in `cube.flow` and
-VP-08 views, partition by method (VP-07.3 §7). Visual acceptance
+VP-08 views (VP-07.4 §7); colours or hatches per method; showing P1.11 fit results. Visual acceptance
 across fonts and browsers is a separate user decision (VP-06 `VISUAL_REVIEW_CHECKLIST.md`).

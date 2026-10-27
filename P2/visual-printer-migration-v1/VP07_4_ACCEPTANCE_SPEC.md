@@ -1,6 +1,6 @@
 # VP-07.4 — Partition by method and methods line in `cube.flow` · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-8 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-27 (N-01…N-14 14/14; 0.7.0…0.7.3 outputs byte-identical); decisions D-1…D-8 resolved 2026-10-27 (all as proposed), D-5 and D-7 reopened and decided by the user at implementation.
 **Profile:** `P2-VP-MIGRATION/0.7.4`, follow-up to `0.7.3` (VP-07.3, PR #23) in the same package `vpmigration` (profile dispatch as VP-07.1 PD-1…PD-4).
 **Requirement:** follow-up to C-11 (2026-10-27): two items that VP-07.3 §7 left out — `--partition method` and methods in `cube.flow` panels. Methods in VP-08, colours or hatches per method, and any statement on whether a method fits its transition stay out (§7).
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` (PE-1…PE-6 panels and coverage, Path F flow panels per step), `VP07_1_ACCEPTANCE_SPEC.md` (NP-1…NP-5 nested partition, TM-1 codes), `VP07_2_ACCEPTANCE_SPEC.md` (LS-5 partition `layer`, LD-2 flow caption by post-processing), `VP07_3_ACCEPTANCE_SPEC.md` (MT-1…MT-3, MD-1…MD-4, D-3 short names, D-4 catalog order); `VP09_1_ACCEPTANCE_SPEC.md` D-3 (step of a dependency binding); P1.11 MP-5 (no order or rank from methods); VP-02 frozen (`cube.flow` printer unchanged).
