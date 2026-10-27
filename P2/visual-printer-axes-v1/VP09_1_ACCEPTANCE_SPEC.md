@@ -1,7 +1,7 @@
 # VP-09.1 — F axes from P1.11 bindings, complete · Acceptance specification
 
-**Status:** DRAFT 2026-10-27 — decisions D-1…D-9 open, no code.
-**Profile (proposed):** `P2-VP-AXES/0.9.1`, follow-up to `0.9.0` (VP-09, PR #21) in the same package `vpaxes`.
+**Status:** SPECIFIED, decisions D-1…D-9 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Profile:** `P2-VP-AXES/0.9.1`, follow-up to `0.9.0` (VP-09, PR #21) in the same package `vpaxes`.
 **Requirement:** C-11 from the running migration field test (2026-10-27; an inventory of about 37 referents, 56 dependencies, 3 transitions and 32 method bindings, all PASS under P1.11; client details withheld). Items 1 and 2 of C-11 (F × Z, F × T); item 3 (VP-07) is VP-07.3.
 **Basis:** `VP09_ACCEPTANCE_SPEC.md` (AX-1…AX-3, AQ-1…AQ-6, CM table, D-2, D-7, D-9); `P1/migration-methods-v1/P1_11_ACCEPTANCE_SPEC.md` (catalog MC-1…MC-4, MI-3 local method contracts, MP-3 rewrite needs `successor_ref`, MP-5 no order from methods, `P1_MIGRATION_METHOD_UNKNOWN` = UNRESOLVED); Morphology v9.4 §3.7 (F is a qualifier over qualified referents), `core.json` `never_infer` (X/Y/Z/F/M are not a numeric vector).
 **Motivation:** VP-09 0.9.0 already reads F from `binding-context/7`. Run against the synthetic P1.11 golden (GM-pos: 23 bindings, 41 arguments), F × T passes and F × Z covers all 41 arguments over 4 panels. The field test still needs a hand-written Markdown table, because of the gaps below.
@@ -68,13 +68,13 @@ migrate.rewrite/v1    d1 · dependant  –               d1 · new_object      �
 off axis (Y): t-box · retired → mailbox-x (see F × Y)
 ```
 
-## 2. Status and diagnostic rules (proposed, 0.9.1 only)
+## 2. Status and diagnostic rules (0.9.1 only)
 
 | Situation | Result | Diagnostic |
 |---|---|---|
 | `method_id` neither in the catalog nor in `local_methods` | FAIL, message names `method_id` and `declaration_ref` | `VP09_METHOD_UNKNOWN` (new) |
 | `method_profile_refs` names a profile other than `P1.11/migration-methods-v1` | FAIL | `VP09_ADAPTER_INPUT` (existing) |
-| F axis, input declares no bindings | PASS, header row and notice, no cells | `VP09_METHODS_NONE` (new, warning) — per D-4 |
+| F axis, input declares no bindings | PASS, header row and notice, no cells | `VP09_METHODS_NONE` (new, warning) |
 | Argument whose referent has a home other than the column axis | PASS, not drawn, listed in the binding ledger | `VP09_ARGUMENT_OFF_AXIS` (new, warning) |
 | Binding or argument outside the plan slice | PASS, listed in `dropped_arguments` | `VP09_ARGUMENT_OUT_OF_SLICE` (new, warning) |
 | Binding ledger does not account for every `(binding, role)` exactly once | FAIL | `VP09_PANEL_COVERAGE` (existing) |
@@ -107,7 +107,7 @@ off axis (Y): t-box · retired → mailbox-x (see F × Y)
 - FL-2: For one rendering, every unit has exactly one state: `drawn` (cell key listed), `off_axis` (home of the referent, e.g. `Y`), `out_of_slice`. In F × T every in-slice binding counts once (unit `(binding, *)`).
 - FL-3: Report fields: `binding_ledger` (units with state), `binding_coverage` `{units_total, drawn, off_axis, out_of_slice, status}`; SVG embeds the same ledger. `check-panels` recomputes it.
 
-## 4. Acceptance criteria (draft)
+## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
 |---|---|---|
@@ -120,7 +120,7 @@ off axis (Y): t-box · retired → mailbox-x (see F × Y)
 | VP091-07 | Every row in §2 yields exactly the stated result and code | one test per row |
 | VP091-08 | No client data in fixtures, examples or previews | review |
 
-## 5. Alignment vectors (draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -132,7 +132,7 @@ off axis (Y): t-box · retired → mailbox-x (see F × Y)
 | B-06 | F × Y on a context with `import` source/target = two resources | PASS, both Y columns filled |
 | B-07 | F × Z on the same context | PASS · `VP09_ARGUMENT_OFF_AXIS`, both arguments listed off-axis (home Y) |
 | B-08 | F × Y:kind | PASS, column `Resource` |
-| B-09 | F axis on a /5 context | per D-4 (proposal: PASS · `VP09_METHODS_NONE`, no cells) |
+| B-09 | F axis on a /5 context | PASS · `VP09_METHODS_NONE`, no cells (D-4) |
 | B-10 | Entry text F × Z | `t-mail · source` |
 | B-11 | F × T, `rewrite` on d1 (holds p0–p1), successor d2 (holds p2–p3) | PASS, entry `d1` in column p2, `step_rule: successor_first` |
 | B-12 | F × T, local method on a dependency without `successor_ref` | PASS, fallback step, `step_rule` per D-3 |
@@ -145,9 +145,9 @@ off axis (Y): t-box · retired → mailbox-x (see F × Y)
 | B-19 | GM-pos, F × Z, standard, panels | PASS, 41/41 units, 0 off-axis |
 | B-20 | GM-pos, F × T, standard | PASS, 23 units; all 16 `rewrite` entries at p2 |
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-27, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Profile selection | (a) default stays 0.9.0, `--profile 0.9.1` explicit · (b) default 0.9.1, A-vectors pinned under `--profile 0.9.0` · (c) automatic | **(a)** | The same command line keeps producing the same bytes; there is no input feature that could select automatically (A-vectors already use /7). Switching the default can follow later as its own step. |
 | D-2 Y arguments | (a) new pair F × Y; F × Z lists Y arguments as off-axis · (b) F × Z gets a second column group for Y referents · (c) both | **(a)** | Every VP-09 axis keeps one home (AX-2); the ledger makes the missing half visible and points to F × Y. (b) mixes two homes on one axis. |

@@ -1,7 +1,7 @@
 # VP-07.3 — Declared methods at transitions and bars · Acceptance specification
 
-**Status:** DRAFT 2026-10-27 — decisions D-1…D-8 open, no code.
-**Profile (proposed):** `P2-VP-MIGRATION/0.7.3`, follow-up to `0.7.2` (VP-07.2) in the same package `vpmigration` (profile dispatch as VP-07.1 PD-1…PD-4).
+**Status:** SPECIFIED, decisions D-1…D-8 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Profile:** `P2-VP-MIGRATION/0.7.3`, follow-up to `0.7.2` (VP-07.2) in the same package `vpmigration` (profile dispatch as VP-07.1 PD-1…PD-4).
 **Requirement:** C-11 item 3 (optional) from the running migration field test (2026-10-27; client details withheld). Items 1 and 2 are VP-09.1.
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` (PV-4 transition markers, MS-1 source, AD-1…AD-9 adapter), `VP07_1_ACCEPTANCE_SPEC.md` (TM-1…TM-5 coded markers and transition legend, PD-1…PD-4), `VP07_2_ACCEPTANCE_SPEC.md` (LS-1…LS-5); `P1/migration-methods-v1/P1_11_ACCEPTANCE_SPEC.md` (bindings on transitions `methods[]` and on dependencies `method`, MP-5, MI-3); `P2/visual-printer-axes-v1/VP09_1_ACCEPTANCE_SPEC.md` (method check FM-1…FM-3, shared with this spec).
 **Motivation:** In `cube.phases` the reader sees *that* a transition retires or introduces something and *which* bars end or start, but not *how* the step is done (import, rebuild, rewrite …). The P1.11 bindings carry exactly that, and VP-07 refuses a `binding-context/7` today (`VP07_ADAPTER_INPUT`).
@@ -60,7 +60,7 @@ T2  t-mail-cut         p2   retires legacy-mail · new-mail  import, retire
 bar: legacy-mail · sends-via · rewrite
 ```
 
-## 2. Status and diagnostic rules (proposed, 0.7.3 only)
+## 2. Status and diagnostic rules (0.7.3 only)
 
 | Situation | Result | Diagnostic |
 |---|---|---|
@@ -86,7 +86,7 @@ bar: legacy-mail · sends-via · rewrite
 - MD-3: No colour, hatch or glyph for methods; the legend gets one line "method · declared P1.11 binding, display only, not checked here".
 - MD-4: Panel plans keep the methods of the transitions and cells they show; `check-panels` re-renders as before.
 
-## 4. Acceptance criteria (draft)
+## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
 |---|---|---|
@@ -98,7 +98,7 @@ bar: legacy-mail · sends-via · rewrite
 | VP073-06 | Synthetic golden: GM-pos context, `cube.phases` with all 4 transitions and 16 `rewrite` bars labelled | fixture |
 | VP073-07 | No client data in fixtures, examples or previews | review |
 
-## 5. Alignment vectors (draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -107,7 +107,7 @@ bar: legacy-mail · sends-via · rewrite
 | M-03 | Unknown `method_id` | FAIL · `VP07_METHOD_UNKNOWN` |
 | M-04 | Local method contract bound to a transition | PASS, full ID in the legend |
 | M-05 | Method fields in a 0.7.2 source | FAIL · `VP07_SOURCE_INVALID` |
-| M-06 | Transition with import and retire | PASS, legend line `… import, retire` (order per D-4) |
+| M-06 | Transition with import and retire | PASS, legend line `… import, retire` (catalog order, D-4) |
 | M-07 | Dependency with `rewrite` | PASS, bar label ends `· rewrite` |
 | M-08 | Long object label with `rewrite` | PASS, object shortened, `rewrite` intact; full text in `<title>` |
 | M-09 | `data-vp07-methods` on marker groups; no new fill colour | PASS |
@@ -115,9 +115,9 @@ bar: legacy-mail · sends-via · rewrite
 | M-11 | `print-panels --partition track` | PASS, panel ledgers carry methods, coverage COMPLETE |
 | M-12 | `--track` slice hides one argument | PASS · `VP07_METHOD_ARGUMENT_HIDDEN` |
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-27, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Profile selection | (a) a /7 context yields 0.7.3 automatically; /5, /6 unchanged · (b) explicit `--profile 0.7.3` | **(a)** | /7 is refused today, so no existing output changes; same pattern as VP-07.2 (layers select 0.7.2). |
 | D-2 Where methods appear at transitions | (a) transition legend line + metadata, marker unchanged · (b) text next to the marker code · (c) both | **(a)** | Markers stack at fixed pitch with codes ≤ 4 characters (TM-3, TM-4); text at the marker would collide in stacks. The legend line already has the form C-11 asks for (`T2 · …`). |
