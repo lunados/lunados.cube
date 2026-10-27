@@ -1,0 +1,268 @@
+{
+ "cases": [
+  {
+   "expect": {
+    "rendered": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-01",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "A-02",
+   "required_codes": [
+    "VP09_AXIS_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "A-03",
+   "required_codes": [
+    "VP09_AXIS_INVALID"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "A-04",
+   "required_codes": [
+    "VP09_AXIS_EMPTY"
+   ]
+  },
+  {
+   "expect": {
+    "row_order": [
+     "Integration",
+     "Provider",
+     "ThirdPartyDependency"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-05",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "kind_members": {
+     "kind": "Integration",
+     "order": [
+      "crm-sync",
+      "shop",
+      "job-01",
+      "job-02",
+      "job-03",
+      "job-04",
+      "job-05",
+      "job-06"
+     ]
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-06",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "cells_of_entry": {
+     "cells": [
+      [
+       "shop",
+       "p0"
+      ],
+      [
+       "shop",
+       "p1"
+      ],
+      [
+       "legacy-mail",
+       "p0"
+      ],
+      [
+       "legacy-mail",
+       "p1"
+      ]
+     ],
+     "entry": "d1"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-07",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "cell_contains": [
+     {
+      "col": "p2",
+      "entry": "retired by t-box",
+      "row": "mailbox-x"
+     }
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-08",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "cell_contains": [
+     {
+      "col": "legacy-mail",
+      "entry": "t-mail (source)",
+      "row": "migrate.import/v1"
+     },
+     {
+      "col": "new-mail",
+      "entry": "t-mail (target)",
+      "row": "migrate.import/v1"
+     }
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-09",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "cell_contains": [
+     {
+      "col": "provenance",
+      "entry": "d1",
+      "row": "execution"
+     }
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-10",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "cell_contains": [
+     {
+      "col": "crm-sync",
+      "entry": "d4 · depends-on",
+      "row": "admin-mailbox"
+     }
+    ],
+    "entry_once": "d4 · depends-on"
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-11",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "blank_cell": {
+     "col": "hosting",
+     "row": "support"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-12",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "blank_cell": {
+     "col": "crm-sync",
+     "row": "support"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-13",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "equal_cells": true,
+    "uniform_fill": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-14",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "equal_columns": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-15",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "no_active_content": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-16",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "ledger_count": {
+     "col": "p0",
+     "n": 7,
+     "row": "hosting"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-17",
+   "required_codes": [
+    "VP09_CELL_OVERFLOW"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "A-18",
+   "required_codes": [
+    "VP09_AXES_BUDGET"
+   ]
+  },
+  {
+   "expect": {
+    "coverage_complete": true,
+    "panels_min": 2
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "A-19",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "A-20",
+   "required_codes": [
+    "VP09_PANEL_COVERAGE"
+   ]
+  }
+ ],
+ "format": "aiaeao.cube.vp09-oracle/1",
+ "independence": "Expected values transcribed from VP09_ACCEPTANCE_SPEC.md §5 (decisions commit 1e91106, §3.4 clarification) before any VP-09 runtime code existed; no generation from printer output",
+ "reference_version": "v9.4",
+ "transcribed_at": "2026-10-27"
+}

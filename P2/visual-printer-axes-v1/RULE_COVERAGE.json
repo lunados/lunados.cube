@@ -1,0 +1,55 @@
+{
+  "format": "aiaeao.cube.vp09.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P2 display vocabulary; descriptive only",
+  "rules": [
+    {
+      "id": "VP09-AXES",
+      "coverage": "enforced",
+      "source": "AX-1…AX-4, AQ-6, D-4, D-5, D-6",
+      "implementation": "closed axis set; homes and kinds from semantic_ref only; X only through declared facets; M/O reserved"
+    },
+    {
+      "id": "VP09-PAIRS",
+      "coverage": "enforced",
+      "source": "D-2, AQ-2, CM table",
+      "implementation": "seven declared pairs in either orientation, each with a written membership rule"
+    },
+    {
+      "id": "VP09-MEMBERSHIP",
+      "coverage": "enforced",
+      "source": "CM-1, CM-2, AQ-4",
+      "implementation": "declared fields only, no transitive closure; repetitions allowed and listed"
+    },
+    {
+      "id": "VP09-ORDER",
+      "coverage": "enforced",
+      "source": "AX-3, D-10",
+      "implementation": "P0 §3.2 reading order for kinds and dimensions; layer map or source order for referents; declared step order; catalog order for methods"
+    },
+    {
+      "id": "VP09-DRAWING",
+      "coverage": "enforced",
+      "source": "AD-1…AD-4, D-7",
+      "implementation": "equal cells, one fill, blank cells undrawn; entries whole or moved to +n more; legend states the membership rule"
+    },
+    {
+      "id": "VP09-PANELS",
+      "coverage": "enforced",
+      "source": "D-8, D-9, AQ-5",
+      "implementation": "rows then columns in declared order; (row, column, entry) coverage; check-panels re-renders every input; detail never splits"
+    },
+    {
+      "id": "VP09-INPUT",
+      "coverage": "enforced",
+      "source": "D-3, AQ-1",
+      "implementation": "VP-07 source 0.7.1/0.7.2 or axes input; from-plan reuses the unchanged VP-07 adapter and transcribes P1.11 bindings"
+    },
+    {
+      "id": "VP09-NONIMPLICATION",
+      "coverage": "enforced",
+      "source": "§0, never_infer",
+      "implementation": "no distance, scale, rank, score or numeric vector; steps are not a time scale; neutral display only"
+    }
+  ]
+}
