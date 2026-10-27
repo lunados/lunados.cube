@@ -43,7 +43,7 @@ def _sanitized_error(exc):
 def _remote_surface():
     result = copy.deepcopy(surface.discover_surface())
     result['release'] = {**result['release'], 'name':'aiaeao-cube-mcp-remote-g5',
-        'version':'P3-MCP-REMOTE/0.5.0-proof',
+        'version':'P3-MCP-REMOTE/0.6.0-proof',
         'status':'remote_proof_not_accepted',
         'local_surface_profile':'P3-MCP-LOCAL/0.2.0-rc1'}
     result['mcp'] = {**result['mcp'], 'transport':'streamable_http',
@@ -122,8 +122,24 @@ def _remote_surface():
         'current_authority': 'NOT_EVALUATED',
         'canonical_admission': 'NOT_EVALUATED',
     }
+    result['p111_migration_methods'] = {
+        'profile': 'P1.11/migration-methods-v1',
+        'binding_context_formats': ['aiaeao.cube.binding-context/7'],
+        'activation': 'explicit_context_format_7_only',
+        'scope': 'p1101_rules_plus_pinned_method_catalog_and_method_bindings',
+        'method_catalogs': ['P1.11/migration-methods-v1'],
+        'catalog_methods': ['migrate.import/v1', 'migrate.rebuild/v1', 'migrate.retire/v1', 'migrate.rewrite/v1', 'migrate.reconfigure/v1'],
+        'additional_diagnostics': ['P1_MIGRATION_METHOD_UNKNOWN', 'P1_MIGRATION_METHOD_SIGNATURE', 'P1_MIGRATION_METHOD_PLAN'],
+        'method_execution_by_cube': False,
+        'live_system_checked_by_cube': False,
+        'migration_order_decided_by_cube': False,
+        'evaluation_performed_by_cube': False,
+        'epistemic_warrant': 'NOT_EVALUATED',
+        'current_authority': 'NOT_EVALUATED',
+        'canonical_admission': 'NOT_EVALUATED',
+    }
     result['remote_adapter'] = {'name':'aiaeao-cube-mcp-g5',
-        'version':'P3-MCP-REMOTE/0.5.0-proof',
+        'version':'P3-MCP-REMOTE/0.6.0-proof',
         'profile':'remote_service_binding_to_frozen_P0_P1_P2'}
     return result
 
@@ -145,7 +161,7 @@ def dispatch(operation, arguments=None):
             result = copy.deepcopy(bridge.get_capabilities())
             result['remote_adapter'] = {'transport':'streamable_http',
                 'remote_available':True,'name':'aiaeao-cube-mcp-g5',
-                'version':'P3-MCP-REMOTE/0.5.0-proof'}
+                'version':'P3-MCP-REMOTE/0.6.0-proof'}
         elif operation == 'cube_discover_surface':
             result = _remote_surface()
         elif operation == 'cube_prepare_print':

@@ -1,6 +1,6 @@
 # P1.11 — Migration method catalog · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-9 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-27 (F-01…F-16 16/16 local and via G4; live G5 host acceptance pending); decisions D-1…D-9 resolved 2026-10-27 (all as proposed).
 **Numbering:** P1.7 stays reserved for the Principal → Authority holder chain. P1.11 builds on P1.10.1 (`binding-context/6`) and does not depend on P1.7.
 **Requirement:** C-10 from the running migration field test (2026-10-27; about 37 referents, 56 dependencies, steps p0–p3; client details withheld). Prerequisite for F axes in the declared axes view (VP-09, C-8).
 **Basis:** Morphology v9.4 §3.7 (F describes methods over qualified referents; candidate families decision, dialectics, experimentation, exploration, evaluation, feedback/regulation, projection, promotion are compositions, not objects), §5.7 (primitive families incl. *Transition / supersession* `state/version₁ → state/version₂`; composite patterns), §5.18 (Decision Trace), §7.12.1 (PAT-* Pattern Contract: roles, required predicates, qualifiers, output claims, permitted side effects), §3.13 (F stays a candidate, no accepted registry or calculation authority), `core.json` `qualifiers.F.method_profile_required_for_binding = true`; P1.4-11 (F qualifier needs one scoped `pure_declarative` method contract); P1.8 `method_contracts` (argument and return typing, `library_ref`); P1.10 predicate profile import (PP-1…PP-5, D-2, D-8).

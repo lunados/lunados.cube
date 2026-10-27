@@ -23,6 +23,7 @@ FILES={
  'P1/comparison-profile-v1/cube_p19':'*',
  'P1/migration-profile-v1/cube_p110':'*',
  'P1/migration-profile-v2/cube_p1101':'*',
+ 'P1/migration-methods-v1/cube_p111':'*',
  'P2/visual-printer-release-v1/vpprint':'*',
  'P2/visual-printer-conformance-v1/vpconformance':'*',
  'P2/visual-printer-granularity-v1/vpgranularity':'*',
@@ -104,9 +105,18 @@ def main():
         assert r['ok'] and r['result']['report']['overall_status']==c['expected_overall'],(gid,r)
         assert r['result']['migration_profile']=='P1.10.1/migration-profile-v2',r
     assert dispatch('cube_discover_surface')['result']['p1101_migration']['profile']=='P1.10.1/migration-profile-v2'
+    fvec={c['id']:c for c in json.loads((REPO/'P1/migration-methods-v1/fixtures/f01_f16_materialized.json').read_text('utf-8'))['cases']}
+    for fid,want in (('F-01','PASS'),('F-05','PASS'),('F-06','UNRESOLVED'),('F-10','FAIL'),('F-14','PASS'),('F-15','UNRESOLVED')):
+        c=fvec[fid];r=dispatch('cube_validate',{'input_text':c['input_text'],'context':c['context'],**({'qualification_profiles':c['qualification_profiles']} if 'qualification_profiles' in c else {})})
+        assert r['ok'] and r['result']['report']['overall_status']==want,(fid,r)
+        assert r['result']['migration_profile']=='P1.11/migration-methods-v1' and r['result']['method_execution_by_cube'] is False,r
+    for fid in ('F-02','F-04','F-16'):
+        r=dispatch('cube_validate',{'input_text':fvec[fid]['input_text'],'context':fvec[fid]['context']})
+        assert not r['ok'] and r['diagnostic']['code']=='P1_MCP_CONFIG_INVALID',(fid,r)
+    assert dispatch('cube_discover_surface')['result']['p111_migration_methods']['profile']=='P1.11/migration-methods-v1'
     (OUT/'G5_SOURCE_MANIFEST.json').write_text(json.dumps({'format':'aiaeao.cube.g5-assembly/1',
          'files':manifest,'p0_snapshot_lock':report['lock_sha256']},sort_keys=True,indent=2)+'\n','utf-8')
-    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9 + P1.10 + P1.10.1); pinned P0 %s' % (len(manifest),report['lock_sha256']))
+    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9 + P1.10 + P1.10.1 + P1.11); pinned P0 %s' % (len(manifest),report['lock_sha256']))
     print('Deployable candidate assembled at: '+str(OUT))
 
 if __name__=='__main__': main()

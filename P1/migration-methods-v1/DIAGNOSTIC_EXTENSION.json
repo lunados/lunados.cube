@@ -1,0 +1,26 @@
+{
+  "format": "aiaeao.cube.p1.11.diagnostic-extension/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "disposition": "Additive P1.11 only. Frozen P1.1…P1.10.1 registers remain byte-identical. P1_MIGRATION_REFERENCE_MISSING is reused from P1.10 for binding arguments; configuration errors stay P1_MCP_CONFIG_INVALID.",
+  "codes": [
+    {
+      "code": "P1_MIGRATION_METHOD_UNKNOWN",
+      "stage": "method_typing",
+      "default_status": "UNRESOLVED",
+      "reference_rule": "P1.11 MB-1…MB-3: bound method is neither imported from a pinned catalog nor declared locally"
+    },
+    {
+      "code": "P1_MIGRATION_METHOD_SIGNATURE",
+      "stage": "method_typing",
+      "default_status": "FAIL",
+      "reference_rule": "P1.11 MC-3, MB-3, MV-5: binding roles, arity or argument concept types do not match the method"
+    },
+    {
+      "code": "P1_MIGRATION_METHOD_PLAN",
+      "stage": "scope_consistency",
+      "default_status": "FAIL",
+      "reference_rule": "P1.11 MP-1…MP-4, MV-2…MV-4: binding contradicts the declared plan"
+    }
+  ]
+}
