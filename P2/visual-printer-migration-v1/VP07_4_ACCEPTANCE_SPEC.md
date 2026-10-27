@@ -26,7 +26,7 @@
 
 1. **Profile.** Per D-1. Partition `method` changes no existing output and works on 0.7.3 sources as well; the flow methods line needs 0.7.4.
 2. **Partition key `method`.** The key of a bar is the `method_id` of its own declared binding (`cell.method`); bars without a method form the reserved group `none` (D-2, D-3). Groups follow catalog order, then local methods in first appearance, `none` last. A group is never merged with another; a group over budget is split by subject, as `layer` (LS-5) (D-4). Nested: `method,subject`, `track,method`, `method,step` (phases) etc. under NP-1. Coverage unit stays `(cell_id, step)`; the outer ledger proves every method group.
-3. **Methods line in `cube.flow`.** A flow panel shows one step `s`. Its methods line lists the transitions at `s` that concern the panel (D-5), each as `T1 t-mail · import, retire` (VP-07.3 short names, catalog order). The line sits under the layer caption, or in its place without layers (D-7). Panels without such a transition get no line.
+3. **Methods line in `cube.flow`.** A flow panel shows one step `s`. Its methods line lists the transitions at `s` that concern the panel (D-5), each as `T1 t-mail · import, retire` (VP-07.3 short names, catalog order). The line sits in the free strip between the `CUBE.FLOW` header and the layer caption, left of the lens box (D-7, reopened). Panels without such a transition get no line.
 4. **Dependency methods in `cube.flow`.** The edge of a bar with a method gets `data-vp07-method` and the method in its title; the panel ledger lists it (D-6). Nothing is drawn on the edge itself.
 5. **Ledger.** The flow panel result gets `methods`: transitions listed in the line (with code and full IDs) and edges with a method; `check-panels` re-renders as before (MD-4).
 
@@ -70,9 +70,9 @@ No new diagnostic code.
 
 ### 3.2 Methods line (FL)
 
-- FL-1: A transition `t` with `t.at = s` is listed in a flow panel of step `s` if a retired or introduced item of `t` is (i) a node of the panel, or (ii) the object of a source cell of a panel row that holds in the step directly before `s` (D-5). Both are declared facts; nothing is inferred.
+- FL-1: A transition `t` with `t.at = s` is listed in a flow panel of step `s` if a retired or introduced item of `t` is (i) a node of the panel, or (ii) the object of any declared source cell of a panel row, at any step (D-5, amended). Both are declared facts; nothing is inferred. (ii) covers retirements (the object is gone at `s`) and introductions whose object a row uses only in a later step.
 - FL-2: Order: transition code order (TM-1). Per transition: code, ID, methods in catalog order (VP-07.3 D-4). Transitions without methods are listed with their code and ID only, so the line never suggests that a step has no transition.
-- FL-3: Text ≥ 11 px, no colour, prefixed `TRANSITIONS AT <step> (declared)`; at most two lines of 150 characters, then `+n more`; the full list is in the `<title>` and the ledger (D-7).
+- FL-3: Text 11 px, no colour, prefixed `TRANSITIONS AT <step> (declared)`; baselines y 147 and y 162, x 60…820 (left of the lens box, above the layer caption at y 178, below the header at y 129); at most two lines of 118 characters, then `+n more`; the full list is in the `<title>` and the ledger. The audit FAILs if the line overlaps any drawn element (D-7).
 - FL-4: Post-processing only: the VP-06/VP-02 result is kept as the inner result (as the VP-07.2 layered result); the nested VP-05 audit stays PASS.
 
 ### 3.3 Edges (FE)
@@ -104,7 +104,7 @@ No new diagnostic code.
 | N-05 | `--partition method,subject` on `cube.flow` | PASS, per step, groups never mixed |
 | N-06 | `--partition method` on a 0.7.2 source | FAIL · `VP07_PANEL_PARTITION` |
 | N-07 | Flow panel of p2 with `shop` (new-mail node) | PASS, line lists `T1 t-mail · import, retire` |
-| N-08 | Flow panel of p2 with `crm-sync`; `t-box` retires mailbox-x held by crm-sync at p1 | PASS, line lists `T3 t-box · retire` (FL-1 ii) |
+| N-08 | Flow panel of p2 with `crm-sync`; `t-box` retires mailbox-x, an object of crm-sync up to p1 | PASS, line lists `T3 t-box · retire` (FL-1 ii) |
 | N-09 | Flow panels of p0, p1 and p3 (the plan declares transitions only at p2) | PASS, no line where FL-1 selects nothing |
 | N-10 | Transition without methods at the step | PASS, listed with code and ID only |
 | N-11 | Twelve transitions at one step | PASS, two lines, `+n more`, full list in title and ledger |
@@ -120,9 +120,9 @@ No new diagnostic code.
 | D-2 Key of a bar | (a) the bar's own declared method only · (b) also the methods of transitions that retire or introduce the bar's object | **(a)** | (b) would assign a method to a bar that did not declare one — an inference. |
 | D-3 Bars without method | (a) reserved group `none`, last · (b) `none` first · (c) leave them out | **(a)** | Coverage stays complete (PE-3); method IDs contain `/`, so `none` cannot collide with a method. |
 | D-4 Large groups | (a) never merge groups; split a large group by subject (as `layer`) · (b) FAIL | **(a)** | The field test has 16+ `rewrite` bars in one cut; (b) would make the key unusable. |
-| D-5 Transitions in a flow panel | (a) FL-1 (i) node of the panel or (ii) object of a panel row at the step before · (b) every transition at the step in every panel of that step · (c) (i) only | **(a)** | (c) loses every retire-only transition (its object is gone at `s`); (b) repeats unrelated transitions in every panel. |
+| D-5 Transitions in a flow panel | (a) FL-1 (i) node of the panel or (ii) object of a panel row at the step before · (b) every transition at the step in every panel of that step · (c) (i) only · (d) (i) or (ii) object of a panel row at any step · (e) (a) plus the step directly after | **(d)** — amended 2026-10-27 at implementation: (a) misses introductions whose object a row uses only later (GM-pos: T1 at p1 introduces new-mail, used from p2, appeared in no panel). Decided by the user. | (c) loses every retire-only transition; (b) repeats unrelated transitions in every panel; (e) still misses objects used two or more steps later. |
 | D-6 Dependency methods in `cube.flow` | (a) edge metadata, title and ledger only · (b) also in the methods line of the successor's first step (as VP-09.1 D-3) · (c) in the line of every panel where the edge is drawn | **(a)** | The edge already shows where the dependency holds; a line entry at p0 would read as "rewrite happens at p0". (b) is possible later. |
-| D-7 Line placement and overflow | (a) under the layer caption (or in its place), two lines, then `+n more`; audit FAILs on overlap · (b) footer above `DISPLAY-ONLY` · (c) no limit | **(a)** | Read together with the step header; space between header and graph is measured in the 0.7.3 panels (caption at y 178, first node text at y 220); if the audit shows overlap at implementation, D-7 is reopened, not silently moved. |
+| D-7 Line placement and overflow | (a) under the layer caption (or in its place), two lines, then `+n more`; audit FAILs on overlap · (b) footer above `DISPLAY-ONLY` · (c) no limit · (d) strip above the layer caption, left of the lens box, two lines, then `+n more` · (e) extend the canvas at the bottom · (f) ledger only | **(d)** — reopened 2026-10-27 at implementation: under the caption there is no room (caption baseline y 178, node cards from y 191); the strip y 133…169, x 60…820 holds two 11 px lines without moving anything. Decided by the user. | Read together with the step header; nothing of the frozen panel moves; the audit FAILs on overlap. |
 | D-8 Golden | (a) GM-pos (P1.11 golden) · (b) new synthetic plan | **(a)** | Same plan as VP-07.3 and VP-09.1; three views of one plan stay comparable. |
 
 ## 7. Not part of VP-07.4
