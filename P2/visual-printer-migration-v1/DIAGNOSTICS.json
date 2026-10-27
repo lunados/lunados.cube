@@ -2,7 +2,7 @@
   "format": "aiaeao.cube.vp07.diagnostics/1",
   "profile": "P2-VP-MIGRATION/0.7.0",
   "reference_version": "v9.4",
-  "disposition": "Additive VP-07 only. VP-01…VP-06 registers unchanged. VP06_* codes from the frozen facade pass through unchanged (Path F, flow panels). VP-07.1 (0.7.1) adds VP07_DECLARED_GAP only; existing codes keep their meaning and gain the 0.7.1 situations of VP07_1_ACCEPTANCE_SPEC.md §2. VP-07.2 (0.7.2) adds VP07_LAYER_UNASSIGNED only.",
+  "disposition": "Additive VP-07 only. VP-01…VP-06 registers unchanged. VP06_* codes from the frozen facade pass through unchanged (Path F, flow panels). VP-07.1 (0.7.1) adds VP07_DECLARED_GAP only; existing codes keep their meaning and gain the 0.7.1 situations of VP07_1_ACCEPTANCE_SPEC.md §2. VP-07.2 (0.7.2) adds VP07_LAYER_UNASSIGNED only. VP-07.3 (0.7.3) adds VP07_METHOD_UNKNOWN and VP07_METHOD_ARGUMENT_HIDDEN only.",
   "codes": [
     {
       "code": "VP07_PHASES_STEPS",
@@ -98,13 +98,13 @@
       "code": "VP07_SOURCE_INVALID",
       "stage": "input",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 MS-1…MS-3, D-10: not a migration source, above hard limits, or unreferenced rows/objects; 0.7.1 §2: gap fields, target_step or transition codes in a 0.7.0 source; 0.7.2 LS-2: layer fields inconsistent or present in a 0.7.0/0.7.1 source"
+      "reference_rule": "VP-07 MS-1…MS-3, D-10: not a migration source, above hard limits, or unreferenced rows/objects; 0.7.1 §2: gap fields, target_step or transition codes in a 0.7.0 source; 0.7.2 LS-2: layer fields inconsistent or present in a 0.7.0/0.7.1 source; 0.7.3: method fields in a source below 0.7.3, or a malformed binding"
     },
     {
       "code": "VP07_ADAPTER_INPUT",
       "stage": "input",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 AD-1, AD-5: not binding-context/5, unknown plan, empty slice, invalid track/label/prefix map; 0.7.2 LM-1…LM-3, LS-1: invalid layer map, ref in two layers, undeclared ref, reserved name unassigned, layer map with profile 0.7.0/0.7.1"
+      "reference_rule": "VP-07 AD-1, AD-5: not binding-context/5, unknown plan, empty slice, invalid track/label/prefix map; 0.7.2 LM-1…LM-3, LS-1: invalid layer map, ref in two layers, undeclared ref, reserved name unassigned, layer map with profile 0.7.0/0.7.1; 0.7.3: binding-context/7 with method_profile_refs other than P1.11/migration-methods-v1, or a /7 context with an explicit profile below 0.7.3"
     },
     {
       "code": "VP07_ADAPTER_MAPPING",
@@ -135,11 +135,26 @@
       "stage": "output",
       "default_status": "FAIL",
       "reference_rule": "VP-06 PE-5 rule: staging or publish failed"
+    },
+    {
+      "code": "VP07_METHOD_UNKNOWN",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "since": "P2-VP-MIGRATION/0.7.3",
+      "reference_rule": "VP-07.3 §2 row 2, D-6 (same rule as VP-09.1 D-5): a binding names a method that is neither a P1.11 catalog ID nor a local method contract; message names the method and its declaration_ref (P1.11 itself reports P1_MIGRATION_METHOD_UNKNOWN as UNRESOLVED)"
+    },
+    {
+      "code": "VP07_METHOD_ARGUMENT_HIDDEN",
+      "stage": "adapter",
+      "default_status": "WARNING",
+      "since": "P2-VP-MIGRATION/0.7.3",
+      "reference_rule": "VP-07.3 §2 row 4, MT-3, D-7: a binding argument names a referent outside the slice (--track, --subjects, --steps); the declared ref text is kept and marked hidden, never dropped"
     }
   ],
   "profiles": [
     "P2-VP-MIGRATION/0.7.0",
     "P2-VP-MIGRATION/0.7.1",
-    "P2-VP-MIGRATION/0.7.2"
+    "P2-VP-MIGRATION/0.7.2",
+    "P2-VP-MIGRATION/0.7.3"
   ]
 }

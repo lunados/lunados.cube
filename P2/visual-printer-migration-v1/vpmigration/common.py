@@ -25,11 +25,17 @@ from vplenses.printer import source_digest, cjson, PROFILES as LENSES  # noqa: E
 P070 = 'P2-VP-MIGRATION/0.7.0'
 P071 = 'P2-VP-MIGRATION/0.7.1'
 P072 = 'P2-VP-MIGRATION/0.7.2'
-PROFILES = (P070, P071, P072)
-V71UP = (P071, P072)  # profiles with the VP-07.1 features
+P073 = 'P2-VP-MIGRATION/0.7.3'
+PROFILES = (P070, P071, P072, P073)
+V71UP = (P071, P072, P073)  # profiles with the VP-07.1 features
+V72UP = (P072, P073)  # profiles with the VP-07.2 layer features (0.7.3 includes 0.7.2, VP-07.3 §1)
 UNASSIGNED = 'unassigned'  # VP-07.2 D-4 reserved layer name
 PROFILE = P070  # base profile of the unchanged 0.7.0 code path and diagnostics (VP-07.1 PD-1)
-LATEST = P072
+LATEST = P073
+# VP-07.3 D-6: P1.11 catalog method IDs in catalog order (pinned profile P1.11/migration-methods-v1); shared with VP-09
+METHOD_PROFILE_REF = 'P1.11/migration-methods-v1'
+METHOD_CATALOG = ('migrate.import/v1', 'migrate.rebuild/v1', 'migrate.retire/v1', 'migrate.rewrite/v1', 'migrate.reconfigure/v1')
+METHOD_CATALOG_SHA256 = '5e317bce914609f42bbcbe8b22edd2989a63247686de840faae63f686f6b4c49'
 CODE = re.compile(r'^T[0-9]{1,3}$')
 END_REASONS = ('scope_end', 'replaced_outside_plan', 'other')
 DECLARED_ENDS = ('target', 'object_retired', 'subject_retired', 'successor', 'dropped', 'ends_reason', 'unexplained')
@@ -200,3 +206,28 @@ def write_new(path, data):
         raise VP07Error('VP07_OUTPUT_EXISTS', 'output already exists: '+str(path), 'output') from e
     except OSError as e:
         raise VP07Error('VP07_OUTPUT_IO', str(e), 'output') from e
+
+
+def method_short(mid):
+    """VP-07.3 D-3: catalog IDs show their verb (`migrate.import/v1` → `import`); local methods their full ID."""
+    return mid.split('.', 1)[1].split('/', 1)[0] if mid in METHOD_CATALOG else mid
+
+
+def method_sorted(mids):
+    """VP-07.3 D-4: catalog order, then local methods in declared order; never an execution order (MP-5)."""
+    mids = list(dict.fromkeys(mids))
+    return [m for m in METHOD_CATALOG if m in mids]+[m for m in mids if m not in METHOD_CATALOG]
+
+
+def check_binding(b, local, where, code_shape='VP07_SOURCE_INVALID'):
+    """Shape of a transcribed binding and VP-07.3 / VP-09.1 D-5 method check (catalog or local method contract)."""
+    keys(b, ('method_id', 'arguments', 'declaration_ref'), ('witness_ref', 'hidden_roles'), code_shape, 'method binding')
+    need(isinstance(b['method_id'], str) and (b['method_id'] in METHOD_CATALOG or b['method_id'] in local), 'VP07_METHOD_UNKNOWN',
+         f"method {b['method_id']!r} at {b.get('declaration_ref', where)} is neither in {METHOD_PROFILE_REF} nor a local method "
+         'contract of the context; P1.11 reports it as P1_MIGRATION_METHOD_UNKNOWN (VP-07.3 D-6)')
+    need(isinstance(b['arguments'], dict) and all(isinstance(k, str) and clean(v, 100) for k, v in b['arguments'].items()), code_shape,
+         'binding arguments must map roles to IDs')
+    need(clean(b['declaration_ref'], 180) and b['declaration_ref'].startswith(('decl:', 'fixture:')), code_shape,
+         'binding declaration_ref must be scoped decl: or fixture:')
+    hr = b.get('hidden_roles', [])
+    need(isinstance(hr, list) and all(r in b['arguments'] for r in hr), code_shape, 'hidden_roles must name argument roles')

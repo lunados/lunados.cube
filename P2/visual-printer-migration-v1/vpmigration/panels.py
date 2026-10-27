@@ -8,7 +8,7 @@ import copy
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, P071, P072, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
+from .common import (PROFILE, P071, P072, P073, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
                      sha_json, encode, load_json, VP07Error, need, publish_dir, no_active_content, MUTED)
 from .phases import PhasesPrinter, BUDGET, lanes_for
 from .source import validate_source, as_plan, layer_key
@@ -498,6 +498,10 @@ def print_panels(src, view, partition, granularity, lens=None):
     need(cov['status'] == 'COMPLETE', 'VP07_PANEL_COVERAGE', 'panels do not cover units: '+', '.join(cov['uncovered_units'][:10]), 'coverage')
     if v['layers']:  # VP-07.2 LS-3
         warnings += [{'code': 'VP07_LAYER_UNASSIGNED', 'item_id': i} for i, lay in v['layers']['of'].items() if lay == UNASSIGNED]
+    if src['profile'] == P073:  # VP-07.3 D-7: arguments outside the slice, once per binding role
+        owned = [(t['id'], b) for t in src['transitions'] for b in t.get('methods', [])]+[(c['id'], c['method']) for c in src['cells'] if 'method' in c]
+        warnings += [{'code': 'VP07_METHOD_ARGUMENT_HIDDEN', 'owner': o, 'method_id': b['method_id'], 'role': r, 'ref': b['arguments'][r],
+                      'declaration_ref': b['declaration_ref']} for o, b in owned for r in b.get('hidden_roles', [])]
     nested = parse_partition(partition, view, src['profile'])
     outer = None
     if nested is not None:

@@ -2,7 +2,8 @@
 from __future__ import annotations
 import copy
 
-from .common import PROFILE, PROFILES, P071, P072, V71UP, UNASSIGNED, KEY, HEX64, LENSES, VP07Error, need, keys, clean, check_edge_styles
+from .common import (PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, UNASSIGNED, KEY, HEX64, LENSES, VP07Error, need, keys, clean,
+                     check_edge_styles, check_binding)
 from .phases import PhasesPrinter, CELL_071
 
 FORMAT = 'aiaeao.cube.vp07-migration-source/1'
@@ -16,9 +17,10 @@ def validate_source(src):
     need(isinstance(src, dict) and src.get('format') == FORMAT, 'VP07_SOURCE_INVALID',
          'input is not an '+FORMAT+' document (a VP-04 request or VP-03 bundle cannot be partitioned, D-10)')
     v71 = src.get('profile') in V71UP
-    v72 = src.get('profile') == P072
-    keys(src, REQUIRED, OPTIONAL+(('target_step',) if v71 else ())+(('layer_order', 'layer_sequence') if v72 else ()),
-         'VP07_SOURCE_INVALID', 'migration source')
+    v72 = src.get('profile') in V72UP
+    v73 = src.get('profile') == P073
+    keys(src, REQUIRED, OPTIONAL+(('target_step',) if v71 else ())+(('layer_order', 'layer_sequence') if v72 else ())
+         + (('local_methods',) if v73 else ()), 'VP07_SOURCE_INVALID', 'migration source')
     need(src['profile'] in PROFILES and src['reference_version'] == 'v9.4', 'VP07_SOURCE_INVALID', 'wrong profile or reference_version')
     need(src['declaration_status'] == 'declared_unverified', 'VP07_SOURCE_INVALID', 'declaration_status must be declared_unverified')
     need(isinstance(src['source_context_sha256'], str) and HEX64.fullmatch(src['source_context_sha256']) is not None,
@@ -32,8 +34,12 @@ def validate_source(src):
     for c in src['cells']:
         need(isinstance(c, dict) and 'id' in c, 'VP07_SOURCE_INVALID', 'source cells need a stable id')
         need(v71 or not set(c) & set(CELL_071), 'VP07_SOURCE_INVALID', 'gap fields need profile '+P071+' (VP-07.1 §2)')
+        need(v73 or 'method' not in c, 'VP07_SOURCE_INVALID', 'method fields need profile '+P073+' (VP-07.3 §2)')
     for t in src['transitions']:
         need(v71 or not (isinstance(t, dict) and 'code' in t), 'VP07_SOURCE_INVALID', 'transition codes need profile '+P071)
+        need(v73 or not (isinstance(t, dict) and 'methods' in t), 'VP07_SOURCE_INVALID', 'method fields need profile '+P073+' (VP-07.3 §2)')
+    if v73:
+        _methods073(src)
     for it in src['rows']+src['objects']:
         need(isinstance(it, dict), 'VP07_SOURCE_INVALID', 'row and object must be objects')
         need(v72 or 'layer' not in it, 'VP07_SOURCE_INVALID', 'layer fields need profile '+P072+' (VP-07.2 §2)')
@@ -73,6 +79,21 @@ def validate_source(src):
             if 'declared_end' not in c and ends[c['id']] != 'unexplained':
                 ends[c['id']] = _explained(d, c)
     return {'derived': d, 'tracks': tracks, 'styles': styles, 'declared_ends': ends, 'layers': layers}
+
+
+def _methods073(src):
+    """VP-07.3 MT-1…MT-3: declared bindings on transitions (`methods`) and cells (`method`); catalog or local methods only."""
+    local = src.get('local_methods', [])
+    need(isinstance(local, list) and all(clean(m, 100) for m in local) and len(set(local)) == len(local), 'VP07_SOURCE_INVALID',
+         'local_methods must be distinct method IDs')
+    for t in src['transitions']:
+        if isinstance(t, dict) and 'methods' in t:
+            need(isinstance(t['methods'], list) and t['methods'], 'VP07_SOURCE_INVALID', 'transition methods must be a nonempty array')
+            for b in t['methods']:
+                check_binding(b, local, 'transition '+str(t.get('id')))
+    for c in src['cells']:
+        if 'method' in c:
+            check_binding(c['method'], local, 'cell '+str(c.get('id')))
 
 
 class Tracks(dict):
@@ -163,7 +184,9 @@ def as_plan(src, row_ids, cells, steps, granularity, title, subtitle=None, full=
                 c.setdefault('declared_end', ends[c['id']])  # GM-3: end explained on the full source
     if v71:
         plan['target_step'] = src.get('target_step', src['steps'][-1]['id'])
-    if src.get('profile') == P072 and 'layer_order' in src:
+    if src.get('profile') == P073 and src.get('local_methods'):
+        plan['local_methods'] = list(src['local_methods'])
+    if src.get('profile') in V72UP and 'layer_order' in src:
         plan['layer_order'] = list(src['layer_order'])
         plan['row_layers'] = {r: rows[r]['layer'] for r in row_ids if r in rows}
     if 'edge_styles' in src:

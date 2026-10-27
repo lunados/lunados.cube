@@ -36,7 +36,7 @@ KIND_ORDER = {
 }
 KIND_LABEL = {'ThirdPartyDependency': 'Third-party Dependency', 'RoleBinding': 'Role Binding', 'SessionBinding': 'Session Binding',
               'CapabilityProfile': 'Capability Profile', 'AdaptationProfile': 'Adaptation Profile', 'WorkItem': 'Work Item'}
-CATALOG_ORDER = ('migrate.import/v1', 'migrate.rebuild/v1', 'migrate.retire/v1', 'migrate.rewrite/v1', 'migrate.reconfigure/v1')
+CATALOG_ORDER = _c.METHOD_CATALOG  # VP-07.3 D-6: one P2 copy of the P1.11 catalog IDs, kept in vpmigration
 SEMREF = re.compile(r'^([XYZ]):[^:]+:([A-Za-z]+)\[')
 RULES = {
     frozenset({'Z', 'T'}): 'cell lists declared dependencies naming the row referent that hold in the column step',
@@ -54,8 +54,8 @@ RULES_091[frozenset({'F', 'Z'})] = 'cell lists declared method bindings of the m
 RULES_091[frozenset({'F', 'Y'})] = 'cell lists declared method bindings of the method that name the identity or resource (owner · role)'
 RULES_091[frozenset({'F', 'T'})] = ('cell lists declared method bindings of the method on transitions at the step, or on dependencies '
                                     'at the first declared step of their successor (else their own last step)')
-CATALOG_SHA256 = '5e317bce914609f42bbcbe8b22edd2989a63247686de840faae63f686f6b4c49'  # pinned P1.11 catalog the IDs above come from (FM-1)
-METHOD_PROFILE_REF = 'P1.11/migration-methods-v1'
+CATALOG_SHA256 = _c.METHOD_CATALOG_SHA256  # pinned P1.11 catalog the IDs above come from (FM-1)
+METHOD_PROFILE_REF = _c.METHOD_PROFILE_REF
 
 
 class VP09Error(ValueError):
