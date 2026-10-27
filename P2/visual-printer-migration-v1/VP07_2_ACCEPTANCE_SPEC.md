@@ -88,6 +88,15 @@ vpmigration print-panels --source src.json --view cube.phases --partition track,
 - LD-2: `cube.flow`: one caption line `layers: platform · dns · provider` under the node row (only the layers present in the panel).
 - LD-3: The panel index lists the layers of each panel.
 
+### 3.4 Source fields and profile selection (LS)
+
+Clarification transcribed together with the oracle (no decision changed).
+
+- LS-1: `from-plan` without `--layers` emits a 0.7.1 source exactly as before (LO-2, L-08); with `--layers` it emits a 0.7.2 source. `--profile` still forces a profile; `--layers` with `--profile` 0.7.0 or 0.7.1 FAILs with `VP07_ADAPTER_INPUT`.
+- LS-2: A 0.7.2 source carries `layer_order` (layer names; the reserved name `unassigned` may only appear last, D-4), `layer_sequence` (display IDs of all layered rows and objects in declared map order, each once) and `layer` on every row and object. The layer index along `layer_sequence` never decreases.
+- LS-3: The layer map may not use the name `unassigned`. Referents shown without a map entry get `layer: unassigned`; `mapping.json` and the panel report list one `VP07_LAYER_UNASSIGNED` warning per such item.
+- LS-4: Rows and cells of a 0.7.2 source are ordered by LO-1 before packing (stable within a row); `cube.flow` bundle `order` follows `layer_sequence`.
+
 ## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |

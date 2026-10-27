@@ -1,0 +1,170 @@
+{
+ "cases": [
+  {
+   "expect": {
+    "layer_order": [
+     "platform",
+     "dns",
+     "provider",
+     "account",
+     "system",
+     "actor"
+    ],
+    "source_profile": "P2-VP-MIGRATION/0.7.2"
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-01",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "L-02",
+   "required_codes": [
+    "VP07_ADAPTER_INPUT"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "L-03",
+   "required_codes": [
+    "VP07_ADAPTER_INPUT"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "L-04",
+   "required_codes": [
+    "VP07_ADAPTER_INPUT"
+   ]
+  },
+  {
+   "expect": {
+    "row_order": [
+     "shop",
+     "crm-sync",
+     "support"
+    ],
+    "unassigned_last": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-05",
+   "required_codes": [
+    "VP07_LAYER_UNASSIGNED"
+   ]
+  },
+  {
+   "expect": {
+    "row_order": [
+     "shop",
+     "crm-sync",
+     "support"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [
+    "VP07_LAYER_UNASSIGNED"
+   ],
+   "id": "L-06",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "row_order": [
+     "crm-sync",
+     "shop",
+     "support"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-07",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "matches_071_from_plan": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-08",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "caption_layers": [
+     "platform",
+     "dns",
+     "provider",
+     "system"
+    ],
+    "flow_order": [
+     "hosting",
+     "dns-zone",
+     "legacy-mail",
+     "shop"
+    ],
+    "flow_panel": {
+     "key": "shop",
+     "step": "p0"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-09",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "band_fill": "none",
+    "layer_bands": [
+     "system",
+     "actor"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-10",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "coverage_complete": true,
+    "no_panel_mixes_layers": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-11",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "outer_ledger_complete": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-12",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "L-13",
+   "required_codes": [
+    "VP07_PANEL_PARTITION"
+   ]
+  }
+ ],
+ "format": "aiaeao.cube.vp07.2-oracle/1",
+ "independence": "Expected values transcribed from VP07_2_ACCEPTANCE_SPEC.md §5 (decisions commit 1e91106, §3.4 clarification) before any VP-07.2 runtime code existed; no generation from printer output",
+ "reference_version": "v9.4",
+ "transcribed_at": "2026-10-27"
+}

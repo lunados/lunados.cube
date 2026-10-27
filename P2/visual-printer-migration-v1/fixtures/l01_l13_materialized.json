@@ -1,0 +1,3476 @@
+{
+ "cases": [
+  {
+   "expect": {
+    "layer_order": [
+     "platform",
+     "dns",
+     "provider",
+     "account",
+     "system",
+     "actor"
+    ],
+    "source_profile": "P2-VP-MIGRATION/0.7.2"
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-01",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support"
+      ],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers"
+   },
+   "op": "from-plan",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "L-02",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support"
+      ],
+      "dns": [
+       "dns-zone",
+       "hosting"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers"
+   },
+   "op": "from-plan",
+   "required_codes": [
+    "VP07_ADAPTER_INPUT"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "L-03",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support"
+      ],
+      "cloud": [],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers"
+   },
+   "op": "from-plan",
+   "required_codes": [
+    "VP07_ADAPTER_INPUT"
+   ]
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "L-04",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support",
+       "ghost"
+      ],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers"
+   },
+   "op": "from-plan",
+   "required_codes": [
+    "VP07_ADAPTER_INPUT"
+   ]
+  },
+  {
+   "expect": {
+    "row_order": [
+     "shop",
+     "crm-sync",
+     "support"
+    ],
+    "unassigned_last": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-05",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers",
+    "then": {
+     "granularity": "standard",
+     "partition": "subject",
+     "view": "cube.phases"
+    }
+   },
+   "op": "from-plan",
+   "required_codes": [
+    "VP07_LAYER_UNASSIGNED"
+   ]
+  },
+  {
+   "expect": {
+    "row_order": [
+     "shop",
+     "crm-sync",
+     "support"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [
+    "VP07_LAYER_UNASSIGNED"
+   ],
+   "id": "L-06",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support"
+      ],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers",
+    "then": {
+     "granularity": "standard",
+     "partition": "subject",
+     "view": "cube.phases"
+    }
+   },
+   "op": "from-plan",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "row_order": [
+     "crm-sync",
+     "shop",
+     "support"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-07",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support"
+      ],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "crm-sync",
+       "shop"
+      ]
+     }
+    },
+    "plan_id": "mp-layers",
+    "then": {
+     "granularity": "standard",
+     "partition": "subject",
+     "view": "cube.phases"
+    }
+   },
+   "op": "from-plan",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "matches_071_from_plan": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-08",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": null,
+    "plan_id": "mp-layers",
+    "then": {
+     "granularity": "standard",
+     "partition": "subject",
+     "view": "cube.phases"
+    }
+   },
+   "op": "from-plan",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "caption_layers": [
+     "platform",
+     "dns",
+     "provider",
+     "system"
+    ],
+    "flow_order": [
+     "hosting",
+     "dns-zone",
+     "legacy-mail",
+     "shop"
+    ],
+    "flow_panel": {
+     "key": "shop",
+     "step": "p0"
+    }
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-09",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support"
+      ],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers",
+    "then": {
+     "granularity": "standard",
+     "lens": "cube.lens.execution",
+     "partition": "subject",
+     "view": "cube.flow"
+    }
+   },
+   "op": "from-plan",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "band_fill": "none",
+    "layer_bands": [
+     "system",
+     "actor"
+    ]
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-10",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support"
+      ],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers",
+    "then": {
+     "granularity": "standard",
+     "partition": "subject",
+     "view": "cube.phases"
+    }
+   },
+   "op": "from-plan",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "coverage_complete": true,
+    "no_panel_mixes_layers": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-11",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support"
+      ],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers",
+    "then": {
+     "granularity": "standard",
+     "partition": "layer",
+     "view": "cube.phases"
+    }
+   },
+   "op": "from-plan",
+   "required_codes": []
+  },
+  {
+   "expect": {
+    "outer_ledger_complete": true
+   },
+   "expected_status": "PASS",
+   "forbidden_codes": [],
+   "id": "L-12",
+   "input": {
+    "context": {
+     "context_id": "fixture-vp072",
+     "format": "aiaeao.cube.binding-context/6",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d3",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d1"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-layers",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "layers": {
+     "format": "aiaeao.cube.vp07-layer-map/1",
+     "layer_order": [
+      "platform",
+      "dns",
+      "provider",
+      "account",
+      "system",
+      "actor"
+     ],
+     "layers": {
+      "account": [
+       "admin-mailbox"
+      ],
+      "actor": [
+       "support"
+      ],
+      "dns": [
+       "dns-zone"
+      ],
+      "platform": [
+       "hosting"
+      ],
+      "provider": [
+       "legacy-mail",
+       "new-mail"
+      ],
+      "system": [
+       "shop",
+       "crm-sync"
+      ]
+     }
+    },
+    "plan_id": "mp-layers",
+    "then": {
+     "granularity": "standard",
+     "partition": "track,layer",
+     "view": "cube.phases"
+    },
+    "tracks": {
+     "format": "aiaeao.cube.vp07-track-map/1",
+     "tracks": {
+      "mail": [
+       "shop",
+       "support"
+      ],
+      "ops": [
+       "crm-sync"
+      ]
+     }
+    }
+   },
+   "op": "from-plan",
+   "required_codes": []
+  },
+  {
+   "expect": {},
+   "expected_status": "FAIL",
+   "forbidden_codes": [],
+   "id": "L-13",
+   "input": {
+    "granularity": "standard",
+    "partition": "layer",
+    "source": {
+     "cells": [
+      {
+       "declaration_ref": "fixture:vp071/mail-1-a",
+       "id": "mail-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-1-b",
+       "id": "mail-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-a",
+       "id": "mail-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-2-b",
+       "id": "mail-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-a",
+       "id": "mail-3-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/mail-3-b",
+       "id": "mail-3-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "mail-3",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-a",
+       "id": "file-1-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-1-b",
+       "id": "file-1-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-1",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-a",
+       "id": "file-2-a",
+       "object": "old",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p0",
+        "p1"
+       ]
+      },
+      {
+       "declaration_ref": "fixture:vp071/file-2-b",
+       "id": "file-2-b",
+       "object": "new",
+       "predicate_id": "sends-via",
+       "row": "file-2",
+       "steps": [
+        "p2",
+        "p3"
+       ]
+      }
+     ],
+     "context_id": "fixture-ctx",
+     "declaration_status": "declared_unverified",
+     "facet_bindings": [],
+     "format": "aiaeao.cube.vp07-migration-source/1",
+     "objects": [
+      {
+       "anchor_id": "module-bodies.third-party-dependency",
+       "form_id": "form.module-block",
+       "id": "old",
+       "label": "legacy service"
+      },
+      {
+       "anchor_id": "module-bodies.provider",
+       "form_id": "form.module-block",
+       "id": "new",
+       "label": "new service"
+      }
+     ],
+     "plan_id": "mp-fixture",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "reference_version": "v9.4",
+     "rows": [
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-1",
+       "label": "mail 1",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-2",
+       "label": "mail 2",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "mail-3",
+       "label": "mail 3",
+       "track": "mail"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-1",
+       "label": "file 1",
+       "track": "files"
+      },
+      {
+       "anchor_id": "module-bodies.integration",
+       "form_id": "form.module-block",
+       "id": "file-2",
+       "label": "file 2",
+       "track": "files"
+      }
+     ],
+     "source_context_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+     "steps": [
+      {
+       "id": "p0",
+       "label": "p0 · current"
+      },
+      {
+       "id": "p1",
+       "label": "p1 · intermediate"
+      },
+      {
+       "id": "p2",
+       "label": "p2 · intermediate"
+      },
+      {
+       "id": "p3",
+       "label": "p3 · target"
+      }
+     ],
+     "target_step": "p3",
+     "title": "Fixture migration 0.7.1",
+     "transitions": [
+      {
+       "at": "p2",
+       "code": "T1",
+       "declaration_ref": "fixture:vp071/t1",
+       "id": "t1",
+       "introduces": [
+        "new"
+       ],
+       "retires": [
+        "old"
+       ]
+      }
+     ]
+    },
+    "view": "cube.phases"
+   },
+   "op": "panels",
+   "required_codes": [
+    "VP07_PANEL_PARTITION"
+   ]
+  }
+ ],
+ "format": "aiaeao.cube.vp07.2-vectors/1",
+ "reference_version": "v9.4",
+ "source": "VP07_2_ACCEPTANCE_SPEC.md §5 + oracles/independent_l01_l13.json"
+}
