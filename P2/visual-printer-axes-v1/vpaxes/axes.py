@@ -6,10 +6,10 @@ a blank cell asserts nothing; membership uses declared fields only (no transitiv
 from __future__ import annotations
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, AXES, RESERVED, PAIRS, BUDGET, X_DIMS, LENS_OF, KIND_ORDER, RULES, LEVELS, NOT_EVALUATED, NS,
+from .common import (PROFILE, P091, PAIRS_091, RULES_091, AXES, RESERVED, PAIRS, BUDGET, X_DIMS, LENS_OF, KIND_ORDER, RULES, LEVELS, NOT_EVALUATED, NS,
                      STROKE, INK, MUTED, Printer, add, line, rect, text, excerpt, cjson, fmt, sha_bytes, sha_json, no_active_content,
                      need, wrap_words, kind_label)
-from .source import normalize, method_order
+from .source import normalize, method_order, profile_of
 
 REPORT_FORMAT = 'aiaeao.cube.vp09-axes-report/1'
 GX0, GX1 = 300, 1140
@@ -19,14 +19,14 @@ def letter(axis):
     return axis.split(':')[0]
 
 
-def check_pair(rows, cols):
+def check_pair(rows, cols, v91=False):
     for a in (rows, cols):
         need(isinstance(a, str), 'VP09_AXIS_INVALID', 'axis must be a string')
         need(letter(a) not in RESERVED, 'VP09_AXIS_INVALID', f'axis {a} is reserved until a declared source exists (D-6)')
         need(a in AXES, 'VP09_AXIS_INVALID', f'axis {a!r} outside X | Y:kind | Y:referent | Z:kind | Z:referent | T | F (AX-1)')
     pair = {letter(rows), letter(cols)}
     need(not (letter(rows) == letter(cols) and letter(rows) != 'X'), 'VP09_AXIS_INVALID', 'the same axis twice (only X × X is a pair, D-2)')
-    need(pair in PAIRS, 'VP09_AXIS_INVALID', f'pair {rows} × {cols} is not in the declared pair list (D-2)')
+    need(pair in (PAIRS_091 if v91 else PAIRS), 'VP09_AXIS_INVALID', f'pair {rows} × {cols} is not in the declared pair list (D-2)')
     return frozenset(pair)
 
 
@@ -35,6 +35,10 @@ class Model:
 
     def __init__(self, doc):
         self.src, self.bindings, self.items, self.v = normalize(doc)
+        self.profile = profile_of(doc)
+        self.v91 = self.profile == P091
+        self.local = doc['local_methods'] if self.v91 else []
+        self.dropped = doc['dropped_arguments'] if self.v91 else []
         src = self.src
         self.cells = src['cells']
         self.steps = src['steps']
@@ -54,6 +58,8 @@ class Model:
             return [(d, f'{g} {n}', None) for d, g, n in X_DIMS]
         if a == 'F':
             ms = method_order(self.bindings)
+            if self.v91:                                     # D-4: no binding declared yet is a normal plan state
+                return [(m, m, None) for m in ms]
             need(ms, 'VP09_AXIS_EMPTY', 'F needs declared method bindings (P1.11 via vpaxes from-plan); the input declares none (AQ-3)')
             return [(m, m, None) for m in ms]
         its = [i for i in self.items.values() if i['home'] == a]
@@ -77,7 +83,7 @@ class Model:
     # -- membership (CM) ---------------------------------------------------
     def entries(self, rows, cols):
         """{(row value, col value): [entries]} in declared order; canonical pair then oriented."""
-        pair = check_pair(rows, cols)
+        pair = check_pair(rows, cols, self.v91)
         out = {}
 
         def emit(a_val, b_val, entry, swap):
@@ -134,19 +140,58 @@ class Model:
                     c = self.cellmap[f['target_id']]
                     for it in dict.fromkeys((c['row'], c['object'])):
                         emit(d, self.proj(az, it), f"{c['id']}: {f['note']}", swap)
-        elif pair == {'F', 'Z'}:
+        elif pair == {'F', 'Z'} or pair == {'F', 'Y'}:
             az = cols if la == 'F' else rows
-            swap = la == 'Z'
+            swap = la != 'F'
             for b in self.bindings:
                 for role, ref in b['arguments'].items():
-                    emit(b['method_id'], self.proj(az, ref), f"{b['owner']} ({role})", swap)
+                    emit(b['method_id'], self.proj(az, ref), f"{b['owner']} · {role}" if self.v91 else f"{b['owner']} ({role})", swap)
         elif pair == {'F', 'T'}:
             swap = la == 'T'
-            trs = {t['id']: t for t in self.src['transitions']}
             for b in self.bindings:
-                step = trs[b['owner']]['at'] if b['owner_kind'] == 'transition' else self.cellmap[b['owner']]['steps'][-1]
-                emit(b['method_id'], step, b['owner'], swap)
+                emit(b['method_id'], self.step_of(b), b['owner'], swap)
         return pair, out
+
+    def step_of(self, b):
+        if b['owner_kind'] == 'transition':
+            return next(t['at'] for t in self.src['transitions'] if t['id'] == b['owner'])
+        return b['step'] if self.v91 else self.cellmap[b['owner']]['steps'][-1]   # D-3 in 0.9.1; 0.9.0: last own step
+
+    # -- binding ledger (VP-09.1 FL) -----------------------------------------
+    def binding_units(self, rows, cols):
+        """FL-1/FL-2: every (binding, role) unit — or (binding, *) in F × T — with exactly one state."""
+        la = letter(rows)
+        other = cols if la == 'F' else rows
+        key = (lambda m, v: f'{m}|{v}') if la == 'F' else (lambda m, v: f'{v}|{m}')
+        steps = {s['id'] for s in self.steps}
+        out = []
+        for i, b in enumerate(self.bindings):
+            base = {'owner_kind': b['owner_kind'], 'owner': b['owner'], 'method_id': b['method_id'], 'declaration_ref': b['declaration_ref']}
+            if letter(other) == 'T':
+                st = self.step_of(b)
+                u = dict(base, unit=f'b{i}', role='*', step=st)
+                if b['owner_kind'] == 'dependency':
+                    u['step_rule'] = b['step_rule']
+                u.update({'state': 'drawn', 'cell': key(b['method_id'], st)} if st in steps else {'state': 'out_of_slice', 'reason': 'step_out_of_slice'})
+                out.append(u)
+                continue
+            for role, ref in b['arguments'].items():
+                v = self.proj(other, ref)
+                u = dict(base, unit=f'b{i}.{role}', role=role, ref=ref)
+                u.update({'state': 'drawn', 'cell': key(b['method_id'], v)} if v is not None else
+                         {'state': 'off_axis', 'home': self.items[ref]['home']})
+                out.append(u)
+        seen = set()
+        for j, x in enumerate(self.dropped):
+            base = {'owner_kind': x['owner_kind'], 'owner': x['owner'], 'method_id': x['method_id'], 'declaration_ref': x['declaration_ref'],
+                    'state': 'out_of_slice', 'reason': x['reason']}
+            if letter(other) == 'T':
+                if x['reason'] == 'owner_out_of_slice' and x['declaration_ref'] not in seen:   # the binding itself, once
+                    seen.add(x['declaration_ref'])
+                    out.append(dict(base, unit=f'x{j}', role='*'))
+                continue
+            out.append(dict(base, unit=f'x{j}.{x["role"]}', role=x['role'], ref=x['ref']))
+        return out
 
 
 class AxesPrinter:
@@ -155,10 +200,12 @@ class AxesPrinter:
 
     def project(self, doc, rows, cols, granularity='standard', row_subset=None, col_subset=None, budget_check=True):
         need(granularity in LEVELS, 'VP09_AXES_BUDGET', 'granularity must be overview|standard|detail', 'granularity')
-        check_pair(rows, cols)
+        v91 = profile_of(doc) == P091
+        check_pair(rows, cols, v91)
         m = Model(doc)
         rv, cv = m.values(rows), m.values(cols)
         pair, cells = m.entries(rows, cols)
+        full = row_subset is None and col_subset is None
         if row_subset is not None:
             rv = [x for x in rv if x[0] in row_subset]
         if col_subset is not None:
@@ -167,8 +214,18 @@ class AxesPrinter:
         if budget_check:
             need(len(rv) <= rcap and len(cv) <= ccap, 'VP09_AXES_BUDGET',
                  f'{len(rv)} rows / {len(cv)} columns exceed {granularity} ({rcap}/{ccap}); use print-panels (D-9)', 'granularity')
-        return {'model': m, 'pair': pair, 'rows': rows, 'cols': cols, 'rv': rv, 'cv': cv, 'cells': cells, 'k': kcap,
-                'granularity': granularity}
+        pr = {'model': m, 'pair': pair, 'rows': rows, 'cols': cols, 'rv': rv, 'cv': cv, 'cells': cells, 'k': kcap,
+              'granularity': granularity}
+        if v91:
+            pr['profile'], pr['full'] = P091, full
+            pr['fpair'] = 'F' in pair
+            if pr['fpair']:
+                units = m.binding_units(rows, cols)
+                rset = {v for v, _, _ in rv}; cset = {v for v, _, _ in cv}
+                pr['units_b'] = units
+                pr['drawn_here'] = sorted(u['unit'] for u in units if u['state'] == 'drawn' and tuple(u['cell'].split('|', 1))[0] in rset
+                                          and u['cell'].split('|', 1)[1] in cset)
+        return pr
 
     # layout --------------------------------------------------------------
     def _lines(self, entries, width_chars, k):
@@ -197,14 +254,17 @@ class AxesPrinter:
                 layout.append(('kind', kind, y)); y += 26; last_kind = kind
             layout.append(('row', (val, label, kind), y)); y += rh
         grid_bottom = y
-        rule = RULES[pr['pair']]
+        v91 = pr.get('profile') == P091
+        rule = (RULES_091 if v91 else RULES)[pr['pair']]
         legend_lines = wrap_words('Membership: '+rule, 120)
+        if v91:
+            legend_lines += self._notes091(pr)
         height = int(grid_bottom+50+(len(legend_lines)+4)*20+60)
         pair_txt = f"{pr['rows']} × {pr['cols']}"
         root = self.base._root({'view_id': 'cube.axes', 'title': excerpt(m.src['title']+' · '+pair_txt, 78),
-                                'subtitle': excerpt(f"v9.4 · VP-09 · declared axes {pair_txt} · {pr['granularity']} · categorical, no distances", 105)},
+                                'subtitle': excerpt(f"v9.4 · VP-09{'.1' if v91 else ''} · declared axes {pair_txt} · {pr['granularity']} · categorical, no distances", 105)},
                                height)
-        root.set('data-printer-profile', PROFILE)
+        root.set('data-printer-profile', pr.get('profile', PROFILE))
         root.set('data-cube-view', 'cube.axes')
         root.set('data-vp09-pair', pair_txt)
         text(root, 60, 125, 'CUBE.AXES · DECLARED STATEMENTS PER CELL · categorical matrix, no ranking, no distance', 13, MUTED, 'bold')
@@ -270,12 +330,34 @@ class AxesPrinter:
         return svg, drawn
 
     @staticmethod
+    def _notes091(pr):
+        """Legend lines of 0.9.1: what the F view does not show, as counts of declared units (FL-2)."""
+        out = []
+        if pr['fpair'] and not pr['model'].bindings:
+            out.append('No method binding is declared in the input: the F axis is empty (VP09_METHODS_NONE), not a statement about the plan.')
+        if pr['fpair']:
+            off = [u for u in pr['units_b'] if u['state'] == 'off_axis']
+            out_ = [u for u in pr['units_b'] if u['state'] == 'out_of_slice']
+            for home in sorted({u['home'] for u in off}):
+                n = sum(u['home'] == home for u in off)
+                out.append(f'{n} binding argument(s) name a referent of home {home}: not a column of this view (see F × {home}); listed in the ledger.')
+            if out_:
+                out.append(f'{len(out_)} binding unit(s) lie outside the plan slice of this input; listed in the ledger.')
+        return [x for line in out for x in wrap_words(line, 120)]
+
+    @staticmethod
     def ledger(pr):
         rset = {v for v, _, _ in pr['rv']}; cset = {v for v, _, _ in pr['cv']}
         cells = {f'{r}|{c}': e for (r, c), e in pr['cells'].items() if r in rset and c in cset}
-        return {'profile': PROFILE, 'rows_axis': pr['rows'], 'cols_axis': pr['cols'], 'granularity': pr['granularity'],
-                'row_values': [v for v, _, _ in pr['rv']], 'col_values': [v for v, _, _ in pr['cv']], 'cells': cells,
-                'status': 'declared_unverified', 'nonimplications': ['truth', 'distance', 'rank', 'score', 'causality', 'time']}
+        led = {'profile': pr.get('profile', PROFILE), 'rows_axis': pr['rows'], 'cols_axis': pr['cols'], 'granularity': pr['granularity'],
+               'row_values': [v for v, _, _ in pr['rv']], 'col_values': [v for v, _, _ in pr['cv']], 'cells': cells,
+               'status': 'declared_unverified', 'nonimplications': ['truth', 'distance', 'rank', 'score', 'causality', 'time']}
+        if pr.get('profile') == P091 and pr['fpair']:
+            led['binding_units'] = pr['drawn_here']
+            if pr['full']:
+                led['binding_ledger'] = pr['units_b']
+                led['binding_coverage'] = binding_coverage(pr['units_b'], pr['drawn_here'])
+        return led
 
     def report(self, pr, svg, drawn):
         inv = []
@@ -294,7 +376,15 @@ class AxesPrinter:
         verify(len(sizes) <= 1, 'EQUAL_CELLS_UNIFORM_FILL')
         warnings = [{'code': 'VP09_CELL_OVERFLOW', 'row': r, 'col': c, 'count': n, 'shown': s} for r, c, s, n in drawn if s < n]
         units = sorted(f'{k}|{e}' for k, es in led['cells'].items() for e in es)
-        return {'format': REPORT_FORMAT, 'profile': PROFILE, 'reference_version': 'v9.4', 'render_status': 'PASS', 'view': 'cube.axes',
+        extra = {}
+        if pr.get('profile') == P091 and pr['fpair']:
+            if not pr['model'].bindings:
+                warnings.append({'code': 'VP09_METHODS_NONE', 'detail': 'the input declares no method binding (D-4)'})
+            if pr['full']:
+                warnings += binding_warnings(pr['units_b'])
+                verify(led['binding_coverage']['status'] == 'COMPLETE', 'BINDING_LEDGER_COMPLETE')
+            extra = {k: led[k] for k in ('binding_units', 'binding_ledger', 'binding_coverage') if k in led}
+        return {'format': REPORT_FORMAT, 'profile': pr.get('profile', PROFILE), **extra, 'reference_version': 'v9.4', 'render_status': 'PASS', 'view': 'cube.axes',
                 'rows_axis': pr['rows'], 'cols_axis': pr['cols'], 'granularity': pr['granularity'],
                 'source_sha256': sha_json(pr['model'].src), 'svg_sha256': sha_bytes(svg),
                 'row_values': led['row_values'], 'col_values': led['col_values'], 'cells': led['cells'], 'units': units,
@@ -303,6 +393,27 @@ class AxesPrinter:
                 'notices': ['Cells list declared statements only; a blank cell asserts nothing.',
                             'No size, position or shade encodes a quantity; nothing is ranked.',
                             'Step columns are a declared step order, not a time scale.']}
+
+
+def binding_coverage(units, drawn_units):
+    """FL-2/FL-3: every unit has exactly one state; `drawn` must equal the units drawn in the rendering(s)."""
+    keys = [u['unit'] for u in units]
+    drawn = sorted(u['unit'] for u in units if u['state'] == 'drawn')
+    n = {s: sum(u['state'] == s for u in units) for s in ('drawn', 'off_axis', 'out_of_slice')}
+    ok = len(set(keys)) == len(keys) == sum(n.values()) and drawn == sorted(set(drawn_units))
+    return {'units_total': len(keys), **n, 'status': 'COMPLETE' if ok else 'INCOMPLETE'}
+
+
+def binding_warnings(units):
+    out = []
+    for u in units:
+        if u['state'] == 'off_axis':
+            out.append({'code': 'VP09_ARGUMENT_OFF_AXIS', 'owner': u['owner'], 'method_id': u['method_id'], 'role': u['role'],
+                        'ref': u['ref'], 'home': u['home'], 'declaration_ref': u['declaration_ref']})
+        elif u['state'] == 'out_of_slice':
+            out.append({'code': 'VP09_ARGUMENT_OUT_OF_SLICE', 'owner': u['owner'], 'method_id': u['method_id'], 'role': u['role'],
+                        'reason': u['reason'], 'declaration_ref': u['declaration_ref']})
+    return out
 
 
 def render_axes(doc, rows, cols, granularity='standard'):

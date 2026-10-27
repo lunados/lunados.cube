@@ -50,6 +50,36 @@
       "coverage": "enforced",
       "source": "§0, never_infer",
       "implementation": "no distance, scale, rank, score or numeric vector; steps are not a time scale; neutral display only"
+    },
+    {
+      "id": "VP091-PROFILE",
+      "coverage": "enforced",
+      "source": "VP-09.1 D-1, VP091-01",
+      "implementation": "0.9.0 stays the default of from-plan; 0.9.1 only via --profile / profile=; the axes input carries its profile; 0.9.0 outputs pinned (regression_090_digests.json, 22 outputs)"
+    },
+    {
+      "id": "VP091-METHODS",
+      "coverage": "enforced",
+      "source": "VP-09.1 FM-1…FM-4, D-5",
+      "implementation": "catalog IDs as a constant tested against the pinned P1.11 file; local method contracts from the context; unknown IDs FAIL with declaration_ref; rows in catalog order, then local methods; F never derived"
+    },
+    {
+      "id": "VP091-PAIRS",
+      "coverage": "enforced",
+      "source": "VP-09.1 FP-1, FP-2, D-2, D-6",
+      "implementation": "F × Y added to the pair list in 0.9.1; F × Z and F × Y entries read owner · role; Y and Z never share one axis"
+    },
+    {
+      "id": "VP091-STEP",
+      "coverage": "enforced",
+      "source": "VP-09.1 D-3",
+      "implementation": "dependency binding at the first declared step of its successor (successor_first), else its own last step (own_last); both values transcribed from the context with step_rule"
+    },
+    {
+      "id": "VP091-LEDGER",
+      "coverage": "enforced",
+      "source": "VP-09.1 FL-1…FL-3, D-7",
+      "implementation": "every (binding, role) unit — (binding, *) in F × T — is drawn, off_axis or out_of_slice exactly once; render audit and check-panels recompute binding_coverage"
     }
   ]
 }
