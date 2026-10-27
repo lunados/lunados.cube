@@ -1,6 +1,6 @@
 # P1.11 — Migration method catalog · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-9 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-27 (F-01…F-16 16/16 local and via G4; live G5 host acceptance pending); decisions D-1…D-9 resolved 2026-10-27 (all as proposed).
 **Numbering:** P1.7 stays reserved for the Principal → Authority holder chain. P1.11 builds on P1.10.1 (`binding-context/6`) and does not depend on P1.7.
 **Requirement:** C-10 from the running migration field test (2026-10-27; about 37 referents, 56 dependencies, steps p0–p3; client details withheld). Prerequisite for F axes in the declared axes view (VP-09, C-8).
 **Basis:** Morphology v9.4 §3.7 (F describes methods over qualified referents; candidate families decision, dialectics, experimentation, exploration, evaluation, feedback/regulation, projection, promotion are compositions, not objects), §5.7 (primitive families incl. *Transition / supersession* `state/version₁ → state/version₂`; composite patterns), §5.18 (Decision Trace), §7.12.1 (PAT-* Pattern Contract: roles, required predicates, qualifiers, output claims, permitted side effects), §3.13 (F stays a candidate, no accepted registry or calculation authority), `core.json` `qualifiers.F.method_profile_required_for_binding = true`; P1.4-11 (F qualifier needs one scoped `pure_declarative` method contract); P1.8 `method_contracts` (argument and return typing, `library_ref`); P1.10 predicate profile import (PP-1…PP-5, D-2, D-8).
@@ -117,6 +117,25 @@ Catalog entry (abridged):
 - MP-3: `migrate.rewrite` on a dependency: the dependency has a `successor_ref`; `new_object` is the successor's object.
 - MP-4: `migrate.reconfigure` (if adopted): the argument is neither retired nor introduced by that transition.
 - MP-5: No rule compares methods with each other or derives an order from them.
+
+### 3.5 Catalog v1 and binding details (MV)
+
+Clarification transcribed together with the oracle (no decision changed).
+
+| Method | Roles (admissible concept IDs) | Binding point | Primitive |
+|---|---|---|---|
+| `migrate.import/v1` | `source` (Resource, Provider, Third-party Dependency) · `target` (Resource, Provider) | transition | derivation |
+| `migrate.rebuild/v1` | `target` (Resource, Provider, Integration, Runtime) | transition | transition_supersession |
+| `migrate.retire/v1` | `retired` (Provider, Third-party Dependency, Integration, Runtime, Resource) | transition | transition_supersession |
+| `migrate.rewrite/v1` | `dependant` (Integration, Actor, Runtime) · `new_object` (Provider, Third-party Dependency, Resource) | dependency | transition_supersession |
+| `migrate.reconfigure/v1` | `target` (Provider, Third-party Dependency, Runtime, Resource) | transition | transition_supersession |
+
+- MV-1: Concept IDs in the table are the P0 IDs `Y:resource-object:resource`, `Z:module-body:provider`, `Z:module-body:third-party-dependency`, `Z:module-body:integration`, `Z:module-body:runtime`, `Y:identity-anchor:actor`.
+- MV-2: A catalog method bound at the wrong binding point FAILs with `P1_MIGRATION_METHOD_PLAN`.
+- MV-3: `migrate.rewrite`: `dependant` must be the dependency's subject (in addition to MP-3).
+- MV-4: MP-2 "present from the current phase" means: the target is not introduced by any transition of the plan.
+- MV-5: Bindings to a **local** method contract (MI-3) use positional role names `arg1 … argN`; arity follows `argument_min/max`, typing follows `argument_concept_ids` when declared; plan-fit rules apply to catalog methods only.
+- MV-6: Binding shape errors (not an object, empty `arguments`, non-string refs) are configuration errors (`P1_MCP_CONFIG_INVALID`).
 
 ## 4. Acceptance criteria
 

@@ -1,0 +1,1856 @@
+{
+ "format": "aiaeao.cube.p1.11-golden/1",
+ "reference_version": "v9.4",
+ "source": "synthetic (VP-07.1 golden plan); no client data",
+ "cases": [
+  {
+   "id": "GM-pos",
+   "description": "every transition and successor bound consistently; gap declared as dropped",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"acme:mail-job-01\"],Z:α:Provider[\"acme:new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "context_id": "golden-p111",
+    "format": "aiaeao.cube.binding-context/7",
+    "migration_plans": [
+     {
+      "dependencies": [
+       {
+        "dependency_id": "m01a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-01",
+        "successor_ref": "m01b",
+        "witness_ref": "repo:example/mail-job-01",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-01",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m01b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-01",
+        "witness_ref": "plan:mp-acme#m01b"
+       },
+       {
+        "dependency_id": "m02a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-02",
+        "successor_ref": "m02b",
+        "witness_ref": "repo:example/mail-job-02",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-02",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m02b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-02",
+        "witness_ref": "plan:mp-acme#m02b"
+       },
+       {
+        "dependency_id": "m03a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-03",
+        "successor_ref": "m03b",
+        "witness_ref": "repo:example/mail-job-03",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-03",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m03b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-03",
+        "witness_ref": "plan:mp-acme#m03b"
+       },
+       {
+        "dependency_id": "m04a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-04",
+        "successor_ref": "m04b",
+        "witness_ref": "repo:example/mail-job-04",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-04",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m04b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-04",
+        "witness_ref": "plan:mp-acme#m04b"
+       },
+       {
+        "dependency_id": "m05a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-05",
+        "successor_ref": "m05b",
+        "witness_ref": "repo:example/mail-job-05",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-05",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m05b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-05",
+        "witness_ref": "plan:mp-acme#m05b"
+       },
+       {
+        "dependency_id": "m06a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-06",
+        "successor_ref": "m06b",
+        "witness_ref": "repo:example/mail-job-06",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-06",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m06b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-06",
+        "witness_ref": "plan:mp-acme#m06b"
+       },
+       {
+        "dependency_id": "m07a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-07",
+        "successor_ref": "m07b",
+        "witness_ref": "repo:example/mail-job-07",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-07",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m07b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-07",
+        "witness_ref": "plan:mp-acme#m07b"
+       },
+       {
+        "dependency_id": "m08a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-08",
+        "successor_ref": "m08b",
+        "witness_ref": "repo:example/mail-job-08",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-08",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m08b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-08",
+        "witness_ref": "plan:mp-acme#m08b"
+       },
+       {
+        "dependency_id": "m09a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-09",
+        "successor_ref": "m09b",
+        "witness_ref": "repo:example/mail-job-09",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-09",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m09b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-09",
+        "witness_ref": "plan:mp-acme#m09b"
+       },
+       {
+        "dependency_id": "f01a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-01",
+        "successor_ref": "f01b",
+        "witness_ref": "repo:example/file-job-01",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:file-job-01",
+          "new_object": "acme:new-files"
+         }
+        }
+       },
+       {
+        "dependency_id": "f01b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-01",
+        "witness_ref": "plan:mp-acme#f01b"
+       },
+       {
+        "dependency_id": "f02a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-02",
+        "successor_ref": "f02b",
+        "witness_ref": "repo:example/file-job-02",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:file-job-02",
+          "new_object": "acme:new-files"
+         }
+        }
+       },
+       {
+        "dependency_id": "f02b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-02",
+        "witness_ref": "plan:mp-acme#f02b"
+       },
+       {
+        "dependency_id": "f03a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-03",
+        "successor_ref": "f03b",
+        "witness_ref": "repo:example/file-job-03",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:file-job-03",
+          "new_object": "acme:new-files"
+         }
+        }
+       },
+       {
+        "dependency_id": "f03b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-03",
+        "witness_ref": "plan:mp-acme#f03b"
+       },
+       {
+        "dependency_id": "f04a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-04",
+        "successor_ref": "f04b",
+        "witness_ref": "repo:example/file-job-04",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:file-job-04",
+          "new_object": "acme:new-files"
+         }
+        }
+       },
+       {
+        "dependency_id": "f04b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-04",
+        "witness_ref": "plan:mp-acme#f04b"
+       },
+       {
+        "dependency_id": "a01a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-01",
+        "successor_ref": "a01b",
+        "witness_ref": "repo:example/account-01",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:account-01",
+          "new_object": "acme:new-directory"
+         }
+        }
+       },
+       {
+        "dependency_id": "a01b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-01",
+        "witness_ref": "plan:mp-acme#a01b"
+       },
+       {
+        "dependency_id": "a02a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-02",
+        "successor_ref": "a02b",
+        "witness_ref": "repo:example/account-02",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:account-02",
+          "new_object": "acme:new-directory"
+         }
+        }
+       },
+       {
+        "dependency_id": "a02b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-02",
+        "witness_ref": "plan:mp-acme#a02b"
+       },
+       {
+        "dependency_id": "a03a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-03",
+        "successor_ref": "a03b",
+        "witness_ref": "repo:example/account-03",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:account-03",
+          "new_object": "acme:new-directory"
+         }
+        }
+       },
+       {
+        "dependency_id": "a03b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-03",
+        "witness_ref": "plan:mp-acme#a03b"
+       },
+       {
+        "dependency_id": "g01",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:archive-store",
+        "predicate_id": "depends-on",
+        "subject": "acme:mail-job-09",
+        "witness_ref": "repo:example/mail-job-09/archive",
+        "dropped": true
+       }
+      ],
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "plan_id": "mp-acme",
+      "revision": "synthetic:v1",
+      "scope": "acme:migration",
+      "transitions": [
+       {
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "at_phase": "p1",
+        "introduces": [
+         "acme:new-mail"
+        ],
+        "retires": [],
+        "transition_id": "t-intro-mail",
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.rebuild/v1",
+          "arguments": {
+           "target": "acme:new-mail"
+          }
+         }
+        ]
+       },
+       {
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "at_phase": "p2",
+        "introduces": [],
+        "retires": [
+         "acme:legacy-mail"
+        ],
+        "transition_id": "t-mail-cut",
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.import/v1",
+          "arguments": {
+           "source": "acme:legacy-mail",
+           "target": "acme:new-mail"
+          }
+         },
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "acme:legacy-mail"
+          }
+         }
+        ]
+       },
+       {
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "at_phase": "p2",
+        "introduces": [
+         "acme:new-files"
+        ],
+        "retires": [
+         "acme:legacy-files"
+        ],
+        "transition_id": "t-files-switch",
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.import/v1",
+          "arguments": {
+           "source": "acme:legacy-files",
+           "target": "acme:new-files"
+          }
+         },
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "acme:legacy-files"
+          }
+         }
+        ]
+       },
+       {
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "at_phase": "p2",
+        "introduces": [
+         "acme:new-directory"
+        ],
+        "retires": [
+         "acme:legacy-directory"
+        ],
+        "transition_id": "t-directory-switch",
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.rebuild/v1",
+          "arguments": {
+           "target": "acme:new-directory"
+          }
+         },
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "acme:legacy-directory"
+          }
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "reference_version": "v9.4",
+    "referents": [
+     {
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:legacy-mail",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:new-mail",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:legacy-files",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:new-files",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:legacy-directory",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:new-directory",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:archive-store",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-01",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-02",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-03",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-04",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-05",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-06",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-07",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-08",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-09",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:file-job-01",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:file-job-02",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:file-job-03",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:file-job-04",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:account-01",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:account-02",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:account-03",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "scope_ref": "acme:migration",
+    "source_kind": "illustrative_fixture",
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "expected_bindings": {
+    "transitions": 7,
+    "dependencies": 16
+   }
+  },
+  {
+   "id": "GM-misfit",
+   "description": "GM-pos plus a retire binding on a referent the transition does not retire",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"acme:mail-job-01\"],Z:α:Provider[\"acme:new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "context_id": "golden-p111",
+    "format": "aiaeao.cube.binding-context/7",
+    "migration_plans": [
+     {
+      "dependencies": [
+       {
+        "dependency_id": "m01a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-01",
+        "successor_ref": "m01b",
+        "witness_ref": "repo:example/mail-job-01",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-01",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m01b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-01",
+        "witness_ref": "plan:mp-acme#m01b"
+       },
+       {
+        "dependency_id": "m02a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-02",
+        "successor_ref": "m02b",
+        "witness_ref": "repo:example/mail-job-02",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-02",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m02b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-02",
+        "witness_ref": "plan:mp-acme#m02b"
+       },
+       {
+        "dependency_id": "m03a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-03",
+        "successor_ref": "m03b",
+        "witness_ref": "repo:example/mail-job-03",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-03",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m03b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-03",
+        "witness_ref": "plan:mp-acme#m03b"
+       },
+       {
+        "dependency_id": "m04a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-04",
+        "successor_ref": "m04b",
+        "witness_ref": "repo:example/mail-job-04",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-04",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m04b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-04",
+        "witness_ref": "plan:mp-acme#m04b"
+       },
+       {
+        "dependency_id": "m05a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-05",
+        "successor_ref": "m05b",
+        "witness_ref": "repo:example/mail-job-05",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-05",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m05b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-05",
+        "witness_ref": "plan:mp-acme#m05b"
+       },
+       {
+        "dependency_id": "m06a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-06",
+        "successor_ref": "m06b",
+        "witness_ref": "repo:example/mail-job-06",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-06",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m06b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-06",
+        "witness_ref": "plan:mp-acme#m06b"
+       },
+       {
+        "dependency_id": "m07a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-07",
+        "successor_ref": "m07b",
+        "witness_ref": "repo:example/mail-job-07",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-07",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m07b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-07",
+        "witness_ref": "plan:mp-acme#m07b"
+       },
+       {
+        "dependency_id": "m08a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-08",
+        "successor_ref": "m08b",
+        "witness_ref": "repo:example/mail-job-08",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-08",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m08b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-08",
+        "witness_ref": "plan:mp-acme#m08b"
+       },
+       {
+        "dependency_id": "m09a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-09",
+        "successor_ref": "m09b",
+        "witness_ref": "repo:example/mail-job-09",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:mail-job-09",
+          "new_object": "acme:new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "m09b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-mail",
+        "predicate_id": "sends-via",
+        "subject": "acme:mail-job-09",
+        "witness_ref": "plan:mp-acme#m09b"
+       },
+       {
+        "dependency_id": "f01a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-01",
+        "successor_ref": "f01b",
+        "witness_ref": "repo:example/file-job-01",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:file-job-01",
+          "new_object": "acme:new-files"
+         }
+        }
+       },
+       {
+        "dependency_id": "f01b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-01",
+        "witness_ref": "plan:mp-acme#f01b"
+       },
+       {
+        "dependency_id": "f02a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-02",
+        "successor_ref": "f02b",
+        "witness_ref": "repo:example/file-job-02",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:file-job-02",
+          "new_object": "acme:new-files"
+         }
+        }
+       },
+       {
+        "dependency_id": "f02b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-02",
+        "witness_ref": "plan:mp-acme#f02b"
+       },
+       {
+        "dependency_id": "f03a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-03",
+        "successor_ref": "f03b",
+        "witness_ref": "repo:example/file-job-03",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:file-job-03",
+          "new_object": "acme:new-files"
+         }
+        }
+       },
+       {
+        "dependency_id": "f03b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-03",
+        "witness_ref": "plan:mp-acme#f03b"
+       },
+       {
+        "dependency_id": "f04a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-04",
+        "successor_ref": "f04b",
+        "witness_ref": "repo:example/file-job-04",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:file-job-04",
+          "new_object": "acme:new-files"
+         }
+        }
+       },
+       {
+        "dependency_id": "f04b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-files",
+        "predicate_id": "syncs-with",
+        "subject": "acme:file-job-04",
+        "witness_ref": "plan:mp-acme#f04b"
+       },
+       {
+        "dependency_id": "a01a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-01",
+        "successor_ref": "a01b",
+        "witness_ref": "repo:example/account-01",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:account-01",
+          "new_object": "acme:new-directory"
+         }
+        }
+       },
+       {
+        "dependency_id": "a01b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-01",
+        "witness_ref": "plan:mp-acme#a01b"
+       },
+       {
+        "dependency_id": "a02a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-02",
+        "successor_ref": "a02b",
+        "witness_ref": "repo:example/account-02",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:account-02",
+          "new_object": "acme:new-directory"
+         }
+        }
+       },
+       {
+        "dependency_id": "a02b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-02",
+        "witness_ref": "plan:mp-acme#a02b"
+       },
+       {
+        "dependency_id": "a03a",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:legacy-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-03",
+        "successor_ref": "a03b",
+        "witness_ref": "repo:example/account-03",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "acme:account-03",
+          "new_object": "acme:new-directory"
+         }
+        }
+       },
+       {
+        "dependency_id": "a03b",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "kind": "job",
+        "object": "acme:new-directory",
+        "predicate_id": "depends-on",
+        "subject": "acme:account-03",
+        "witness_ref": "plan:mp-acme#a03b"
+       },
+       {
+        "dependency_id": "g01",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "kind": "job",
+        "object": "acme:archive-store",
+        "predicate_id": "depends-on",
+        "subject": "acme:mail-job-09",
+        "witness_ref": "repo:example/mail-job-09/archive",
+        "dropped": true
+       }
+      ],
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "plan_id": "mp-acme",
+      "revision": "synthetic:v1",
+      "scope": "acme:migration",
+      "transitions": [
+       {
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "at_phase": "p1",
+        "introduces": [
+         "acme:new-mail"
+        ],
+        "retires": [],
+        "transition_id": "t-intro-mail",
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.rebuild/v1",
+          "arguments": {
+           "target": "acme:new-mail"
+          }
+         }
+        ]
+       },
+       {
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "at_phase": "p2",
+        "introduces": [],
+        "retires": [
+         "acme:legacy-mail"
+        ],
+        "transition_id": "t-mail-cut",
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.import/v1",
+          "arguments": {
+           "source": "acme:legacy-mail",
+           "target": "acme:new-mail"
+          }
+         },
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "acme:legacy-mail"
+          }
+         },
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "acme:archive-store"
+          }
+         }
+        ]
+       },
+       {
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "at_phase": "p2",
+        "introduces": [
+         "acme:new-files"
+        ],
+        "retires": [
+         "acme:legacy-files"
+        ],
+        "transition_id": "t-files-switch",
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.import/v1",
+          "arguments": {
+           "source": "acme:legacy-files",
+           "target": "acme:new-files"
+          }
+         },
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "acme:legacy-files"
+          }
+         }
+        ]
+       },
+       {
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "at_phase": "p2",
+        "introduces": [
+         "acme:new-directory"
+        ],
+        "retires": [
+         "acme:legacy-directory"
+        ],
+        "transition_id": "t-directory-switch",
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.rebuild/v1",
+          "arguments": {
+           "target": "acme:new-directory"
+          }
+         },
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "acme:legacy-directory"
+          }
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "reference_version": "v9.4",
+    "referents": [
+     {
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:legacy-mail",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:new-mail",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:legacy-files",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:new-files",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:legacy-directory",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:new-directory",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:archive-store",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-01",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-02",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-03",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-04",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-05",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-06",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-07",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-08",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:mail-job-09",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:file-job-01",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:file-job-02",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:file-job-03",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:file-job-04",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:account-01",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:account-02",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "ref": "acme:account-03",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "scope_ref": "acme:migration",
+    "source_kind": "illustrative_fixture",
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_PLAN"
+   ],
+   "expected_code_count": {
+    "P1_MIGRATION_METHOD_PLAN": 1
+   }
+  }
+ ]
+}

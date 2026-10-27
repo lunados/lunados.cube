@@ -1,0 +1,43 @@
+{
+  "format": "aiaeao.cube.p1.11.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P1 validator vocabulary; descriptive only",
+  "rules": [
+    {
+      "id": "P111-CATALOG",
+      "coverage": "enforced",
+      "source": "P1.11 MC-1…MC-4, D-2, D-4, D-5",
+      "implementation": "pinned by SHA-256; unscoped pure_declarative profile declarations; roles with admissible concept IDs; five methods"
+    },
+    {
+      "id": "P111-IMPORT",
+      "coverage": "enforced",
+      "source": "P1.11 MI-1…MI-3, D-1",
+      "implementation": "imported contracts scoped to scope_ref; /6 projection adds them as P1.8 contracts so @F(method=…) resolves through unchanged P1.4; local redefinition is a config error"
+    },
+    {
+      "id": "P111-BINDINGS",
+      "coverage": "enforced",
+      "source": "P1.11 MB-1…MB-3, MV-5, MV-6, D-6",
+      "implementation": "transitions carry methods, dependencies one method; roles exactly once; local methods positional arg1…argN"
+    },
+    {
+      "id": "P111-PLAN-FIT",
+      "coverage": "enforced_subset",
+      "source": "P1.11 MP-1…MP-5, MV-2…MV-4, D-7",
+      "implementation": "retire only what the transition retires; import/rebuild target present by the phase; rewrite matches subject and successor object; reconfigure keeps its target; no comparison or ordering of methods"
+    },
+    {
+      "id": "P111-FAMILIES",
+      "coverage": "documentary",
+      "source": "P1.11 §6, D-3",
+      "implementation": "methods are a profile-local layer below the §3.7 composite families; primitive = §5.7 transition_supersession or derivation as metadata only"
+    },
+    {
+      "id": "P111-NONIMPLICATION",
+      "coverage": "enforced",
+      "source": "P1.11 §0, D-5",
+      "implementation": "the Cube never runs, schedules, ranks or admits a method; epistemic_warrant, current_authority, canonical_admission stay NOT_EVALUATED"
+    }
+  ]
+}

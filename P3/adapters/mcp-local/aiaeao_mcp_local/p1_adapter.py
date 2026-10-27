@@ -18,6 +18,7 @@ P18 = REPO / 'P1' / 'simulation-profile-v1'
 P19 = REPO / 'P1' / 'comparison-profile-v1'
 P110 = REPO / 'P1' / 'migration-profile-v1'
 P1101 = REPO / 'P1' / 'migration-profile-v2'
+P111 = REPO / 'P1' / 'migration-methods-v1'
 if not P1.is_dir():
     raise RuntimeError('P1-VC/1.0.0 reference validator must be installed as sibling P1 tree')
 if str(P1) not in sys.path:
@@ -56,11 +57,24 @@ def _json_bytes(obj: Any) -> bytes:
 
 
 def _validator_for(context: dict | None):
-    """Explicit /2 ... /6 dispatch, no auto-upgrade or hidden version negotiation.
+    """Explicit /2 ... /7 dispatch, no auto-upgrade or hidden version negotiation.
 
-    P1.6, P1.8, P1.9, P1.10 and P1.10.1 are lazy-loaded so a legacy /1 installation works unchanged.
-    A /2 ... /6 request without its module fails closed as an MCP adapter error.
+    P1.6, P1.8, P1.9, P1.10, P1.10.1 and P1.11 are lazy-loaded so a legacy /1 installation works unchanged.
+    A /2 ... /7 request without its module fails closed as an MCP adapter error.
     """
+    if context is not None and context.get('format') == 'aiaeao.cube.binding-context/7':
+        if not all(p.is_dir() for p in (P16, P18, P19, P110, P1101, P111)):
+            _error('P1_MCP_P111_UNAVAILABLE', 'P1.11 validator is not installed')
+        for path in (P16, P18, P19, P110, P1101, P111):
+            if str(path) not in sys.path:
+                sys.path.insert(0, str(path))
+        try:
+            from cube_p111.validator import P111Validator
+        except ImportError:
+            _error('P1_MCP_P111_UNAVAILABLE', 'P1.11 validator cannot be loaded')
+        validator = P111Validator()
+        validator.validate_context(context)
+        return validator
     if context is not None and context.get('format') == 'aiaeao.cube.binding-context/6':
         if not (P16.is_dir() and P18.is_dir() and P19.is_dir() and P110.is_dir() and P1101.is_dir()):
             _error('P1_MCP_P1101_UNAVAILABLE', 'P1.10.1 validator is not installed')
@@ -178,20 +192,23 @@ def validate(input_text: str, input_format: str='acg_text', context: dict | None
            if context is not None and context.get('format') in
               ('aiaeao.cube.binding-context/2', 'aiaeao.cube.binding-context/3',
                'aiaeao.cube.binding-context/4', 'aiaeao.cube.binding-context/5',
-               'aiaeao.cube.binding-context/6') else {}),
+               'aiaeao.cube.binding-context/6', 'aiaeao.cube.binding-context/7') else {}),
         **({'simulation_profile': 'P1.8/simulation-profile-v1',
             'evaluation_performed_by_cube': False}
            if context is not None and context.get('format') in
               ('aiaeao.cube.binding-context/3', 'aiaeao.cube.binding-context/4',
-               'aiaeao.cube.binding-context/5', 'aiaeao.cube.binding-context/6') else {}),
+               'aiaeao.cube.binding-context/5', 'aiaeao.cube.binding-context/6',
+               'aiaeao.cube.binding-context/7') else {}),
         **({'comparison_profile': 'P1.9/comparison-profile-v1'}
            if context is not None and context.get('format') in
               ('aiaeao.cube.binding-context/4', 'aiaeao.cube.binding-context/5',
-               'aiaeao.cube.binding-context/6') else {}),
+               'aiaeao.cube.binding-context/6', 'aiaeao.cube.binding-context/7') else {}),
         **({'migration_profile': 'P1.10/migration-profile-v1'}
            if context is not None and context.get('format')=='aiaeao.cube.binding-context/5' else {}),
         **({'migration_profile': 'P1.10.1/migration-profile-v2'}
            if context is not None and context.get('format')=='aiaeao.cube.binding-context/6' else {}),
+        **({'migration_profile': 'P1.11/migration-methods-v1', 'method_execution_by_cube': False}
+           if context is not None and context.get('format')=='aiaeao.cube.binding-context/7' else {}),
         'report': report,  # EXACT P1-VC/1.0.0 structure; no fields added or removed.
         'transport': 'local_mcp_stdio',
         'core_profile': 'P1-VC/1.0.0',  # underlying frozen P1 report schema for both context versions

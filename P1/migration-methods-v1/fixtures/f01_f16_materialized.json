@@ -1,0 +1,2535 @@
+{
+ "format": "aiaeao.cube.p1.11-vectors/1",
+ "reference_version": "v9.4",
+ "source": "P1_11_ACCEPTANCE_SPEC.md §5 + oracles/independent_f01_f16.json",
+ "cases": [
+  {
+   "id": "F-01",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope"
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-02",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope"
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v9"
+    ]
+   },
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-03",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope"
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "tamper_catalog": true,
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-04",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope"
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "method_contracts": [
+     {
+      "method_id": "migrate.import/v1",
+      "revision": "local",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "argument_min": 2,
+      "argument_max": 2,
+      "effect_class": "pure_declarative"
+     }
+    ]
+   },
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-05",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.import/v1",
+          "arguments": {
+           "source": "legacy-mail",
+           "target": "new-mail"
+          }
+         },
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "legacy-mail"
+          }
+         }
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "shop",
+          "new_object": "new-mail"
+         }
+        }
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-06",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.unknown/v1",
+          "arguments": {
+           "target": "new-mail"
+          }
+         }
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_UNKNOWN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-07",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.import/v1",
+          "arguments": {
+           "source": "legacy-mail"
+          }
+         }
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_SIGNATURE"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-08",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.import/v1",
+          "arguments": {
+           "source": "legacy-mail",
+           "target": "support"
+          }
+         }
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_SIGNATURE"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-09",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.import/v1",
+          "arguments": {
+           "source": "legacy-mail",
+           "target": "ghost-mail"
+          }
+         }
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_REFERENCE_MISSING"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-10",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "mailbox-x"
+          }
+         }
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_PLAN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-11",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-prep",
+        "at_phase": "p1",
+        "retires": [],
+        "introduces": [
+         "mailbox-x"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.import/v1",
+          "arguments": {
+           "source": "legacy-mail",
+           "target": "new-mail"
+          }
+         }
+        ]
+       },
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope"
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_PLAN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-12",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope"
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "shop",
+          "new_object": "new-mail"
+         }
+        }
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_PLAN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-13",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope"
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b",
+        "method": {
+         "method_id": "migrate.rewrite/v1",
+         "arguments": {
+          "dependant": "shop",
+          "new_object": "mailbox-x"
+         }
+        }
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_PLAN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-14",
+   "input_text": "rel(\"supersedes\",Z:α:Provider[\"new-mail\"],Z:α:ThirdPartyDependency[\"legacy-mail\"]) @T(role=\"scheduling\",witness_ref=\"synthetic:contract#scope\") @F(method=\"migrate.import/v1\")",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope"
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ]
+   },
+   "qualification_profiles": {
+    "format": "aiaeao.cube.qualifier-profiles/1",
+    "origin": "illustrative_fixture",
+    "profile_id": "acme:qualifiers",
+    "reference_version": "v9.4",
+    "scope": "acme:migration",
+    "witness_refs": [
+     "synthetic:contract#scope"
+    ],
+    "qualifiers": [
+     {
+      "coordinate": "T",
+      "profile_ref": "acme:T-scheduling/v1",
+      "allowed_parameters": [
+       "role",
+       "witness_ref"
+      ],
+      "required_parameters": [
+       "role",
+       "witness_ref"
+      ],
+      "allowed_values": {
+       "role": [
+        "scheduling"
+       ]
+      },
+      "requires_witness": true
+     },
+     {
+      "coordinate": "F",
+      "profile_ref": "acme:F-method/v1",
+      "allowed_parameters": [
+       "method"
+      ],
+      "required_parameters": [
+       "method"
+      ],
+      "allowed_values": {},
+      "requires_witness": false
+     }
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-15",
+   "input_text": "rel(\"supersedes\",Z:α:Provider[\"new-mail\"],Z:α:ThirdPartyDependency[\"legacy-mail\"]) @T(role=\"scheduling\",witness_ref=\"synthetic:contract#scope\") @F(method=\"migrate.import/v1\")",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/7",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope"
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ]
+   },
+   "qualification_profiles": {
+    "format": "aiaeao.cube.qualifier-profiles/1",
+    "origin": "illustrative_fixture",
+    "profile_id": "acme:qualifiers",
+    "reference_version": "v9.4",
+    "scope": "acme:migration",
+    "witness_refs": [
+     "synthetic:contract#scope"
+    ],
+    "qualifiers": [
+     {
+      "coordinate": "T",
+      "profile_ref": "acme:T-scheduling/v1",
+      "allowed_parameters": [
+       "role",
+       "witness_ref"
+      ],
+      "required_parameters": [
+       "role",
+       "witness_ref"
+      ],
+      "allowed_values": {
+       "role": [
+        "scheduling"
+       ]
+      },
+      "requires_witness": true
+     },
+     {
+      "coordinate": "F",
+      "profile_ref": "acme:F-method/v1",
+      "allowed_parameters": [
+       "method"
+      ],
+      "required_parameters": [
+       "method"
+      ],
+      "allowed_values": {},
+      "requires_witness": false
+     }
+    ]
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_QUALIFIER_PROFILE_MISSING"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-16",
+   "input_text": "rel(\"sends-via\",Z:α:Integration[\"shop\"],Z:α:Provider[\"new-mail\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/6",
+    "reference_version": "v9.4",
+    "context_id": "p111-methods",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "acme:migration",
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "referents": [
+     {
+      "ref": "shop",
+      "concept_id": "Z:module-body:integration",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "support",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "legacy-mail",
+      "concept_id": "Z:module-body:third-party-dependency",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "new-mail",
+      "concept_id": "Z:module-body:provider",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     },
+     {
+      "ref": "mailbox-x",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "acme:migration"
+     }
+    ],
+    "predicate_contracts": [],
+    "migration_plans": [
+     {
+      "plan_id": "mp-acme",
+      "revision": "v1",
+      "scope": "acme:migration",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p2",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "p3",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mail",
+        "at_phase": "p2",
+        "retires": [
+         "legacy-mail"
+        ],
+        "introduces": [
+         "new-mail"
+        ],
+        "T": {
+         "role": "scheduling",
+         "value": "TBD"
+        },
+        "witness_ref": "synthetic:contract#scope",
+        "methods": [
+         {
+          "method_id": "migrate.retire/v1",
+          "arguments": {
+           "retired": "legacy-mail"
+          }
+         }
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d-a",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "legacy-mail",
+        "kind": "job",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "repo:example/d-a",
+        "successor_ref": "d-b"
+       },
+       {
+        "dependency_id": "d-b",
+        "subject": "shop",
+        "predicate_id": "sends-via",
+        "object": "new-mail",
+        "kind": "job",
+        "holds_in": [
+         "p2",
+         "p3"
+        ],
+        "witness_ref": "repo:example/d-b"
+       }
+      ]
+     }
+    ]
+   },
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ],
+   "forbidden_codes": []
+  }
+ ]
+}

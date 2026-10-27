@@ -1,0 +1,130 @@
+{
+ "format": "aiaeao.cube.p1.11-oracle/1",
+ "reference_version": "v9.4",
+ "independence": "Expected values transcribed from P1_11_ACCEPTANCE_SPEC.md §5 (decisions commit 1e91106, §3.5 clarification) before any P1.11 runtime code existed; no generation from validator output",
+ "transcribed_at": "2026-10-27",
+ "cases": [
+  {
+   "id": "F-01",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-02",
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-03",
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-04",
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-05",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-06",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_UNKNOWN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-07",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_SIGNATURE"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-08",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_SIGNATURE"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-09",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_MIGRATION_REFERENCE_MISSING"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-10",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_PLAN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-11",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_PLAN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-12",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_PLAN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-13",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_MIGRATION_METHOD_PLAN"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-14",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-15",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_QUALIFIER_PROFILE_MISSING"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "F-16",
+   "expected_overall": "MCP_ERROR",
+   "required_codes": [
+    "P1_MCP_CONFIG_INVALID"
+   ],
+   "forbidden_codes": []
+  }
+ ]
+}
