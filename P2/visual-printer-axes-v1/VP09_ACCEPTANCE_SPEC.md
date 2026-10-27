@@ -1,6 +1,6 @@
 # VP-09 — Declared axes view · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-11 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-27 (A-01…A-20 20/20); decisions D-1…D-11 resolved 2026-10-27 (all as proposed).
 **Profile:** `P2-VP-AXES/0.9.0`, new package `P2/visual-printer-axes-v1` (`vpaxes`), additive to VP-06 and reading VP-07 migration sources.
 **Requirement:** C-8 from the running migration field test (2026-10-27; about 37 referents, 56 dependencies, steps p0–p3; client details withheld).
 **Basis:** Morphology v9.4 §3.1 (seven coordinates; X/Y/Z primary homes, T/F/M/O cross-cutting qualifiers), §3.2 (declared reading order per axis: X Ψ → Γ → Σ → Ξ → Π; Y identity anchors, then resource chain; Z module bodies Core → … → Third-party Dependency), §3.3 (Dimension × Identity Anchor: a categorical matrix whose "blank cells do not impose an artificial relationship"), §3.8 (presentation order), §3.9 ("no automatic morpho-to-feature-space mapping"), §3.10/§3.13 (M has no frozen enum; Loose/Transitional/Strict are interpretive labels; O ≠ Ψ Observation); `core.json` `never_infer` ("X/Y/Z = independent storage containers", "X/Y/Z/F/M = numeric feature vector"); VP-03 lens profiles (five lenses = five X dimensions); VP-07 migration source; P1.11 (method bindings, C-10).

@@ -1,0 +1,74 @@
+{
+  "format": "aiaeao.cube.vp09.diagnostics/1",
+  "profile": "P2-VP-AXES/0.9.0",
+  "reference_version": "v9.4",
+  "disposition": "Additive VP-09 only. VP-01…VP-08 registers unchanged.",
+  "codes": [
+    {
+      "code": "VP09_AXIS_INVALID",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 §2 rows 1–2, AX-1, D-2, D-6: axis outside the closed set, reserved M/O, pair not declared, same axis twice (except X × X)"
+    },
+    {
+      "code": "VP09_AXIS_EMPTY",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 §2 row 3, AQ-3, AX-4: F without method bindings, X without facet bindings, Y/Z without a referent of that home"
+    },
+    {
+      "code": "VP09_SOURCE_INVALID",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 §2 row 4, AX-2, AQ-1: item without semantic_ref, 0.7.0 or invalid VP-07 source, malformed axes input"
+    },
+    {
+      "code": "VP09_ADAPTER_INPUT",
+      "stage": "input",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 AQ-1: from-plan context not /5, /6 or /7, or the unchanged VP-07 adapter refuses it"
+    },
+    {
+      "code": "VP09_AXES_BUDGET",
+      "stage": "budget",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 §2 row 5, D-8, AQ-5: rows or columns over budget in a single view; detail never splits; more than 99 panels"
+    },
+    {
+      "code": "VP09_CELL_OVERFLOW",
+      "stage": "report",
+      "default_status": "WARNING",
+      "reference_rule": "VP-09 §2 row 6, D-7, AD-3: more entries than the per-cell budget; +n more drawn, full list in ledger; never a score"
+    },
+    {
+      "code": "VP09_PANEL_COVERAGE",
+      "stage": "coverage",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 §2 row 7, D-9: panel directory, inputs, units or coverage differ from a deterministic re-render"
+    },
+    {
+      "code": "VP09_AUDIT",
+      "stage": "audit",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 §2 row 8: active SVG content, embedded ledger mismatch, drawn cells differ, unequal cell size or fill"
+    },
+    {
+      "code": "VP09_INPUT_INVALID",
+      "stage": "input",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 VP-07 rule: unreadable, oversized, duplicate-key or non-finite JSON"
+    },
+    {
+      "code": "VP09_OUTPUT_EXISTS",
+      "stage": "output",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 VP-06 PE-5 rule: output already exists"
+    },
+    {
+      "code": "VP09_OUTPUT_IO",
+      "stage": "output",
+      "default_status": "FAIL",
+      "reference_rule": "VP-09 VP-06 PE-5 rule: staging or publish failed"
+    }
+  ]
+}
