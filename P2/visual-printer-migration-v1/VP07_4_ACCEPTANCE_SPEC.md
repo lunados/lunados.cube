@@ -1,7 +1,7 @@
 # VP-07.4 — Partition by method and methods line in `cube.flow` · Acceptance specification
 
-**Status:** DRAFT 2026-10-27 — decisions D-1…D-8 open, no code.
-**Profile (proposed):** `P2-VP-MIGRATION/0.7.4`, follow-up to `0.7.3` (VP-07.3, PR #23) in the same package `vpmigration` (profile dispatch as VP-07.1 PD-1…PD-4).
+**Status:** SPECIFIED, decisions D-1…D-8 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Profile:** `P2-VP-MIGRATION/0.7.4`, follow-up to `0.7.3` (VP-07.3, PR #23) in the same package `vpmigration` (profile dispatch as VP-07.1 PD-1…PD-4).
 **Requirement:** follow-up to C-11 (2026-10-27): two items that VP-07.3 §7 left out — `--partition method` and methods in `cube.flow` panels. Methods in VP-08, colours or hatches per method, and any statement on whether a method fits its transition stay out (§7).
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` (PE-1…PE-6 panels and coverage, Path F flow panels per step), `VP07_1_ACCEPTANCE_SPEC.md` (NP-1…NP-5 nested partition, TM-1 codes), `VP07_2_ACCEPTANCE_SPEC.md` (LS-5 partition `layer`, LD-2 flow caption by post-processing), `VP07_3_ACCEPTANCE_SPEC.md` (MT-1…MT-3, MD-1…MD-4, D-3 short names, D-4 catalog order); `VP09_1_ACCEPTANCE_SPEC.md` D-3 (step of a dependency binding); P1.11 MP-5 (no order or rank from methods); VP-02 frozen (`cube.flow` printer unchanged).
 **Motivation:** With 0.7.3 the methods are visible in `cube.phases`, but (1) there is no way to see all bars of one method together (e.g. every `rewrite` of the cut) with proven coverage, and (2) `cube.flow` panels, which show the state of one step, say nothing about the transitions that lead into that step.
@@ -45,7 +45,7 @@ LAYERS (declared, left to right) · provider · account · system
 TRANSITIONS AT p2 (declared) · T1 t-mail · import, retire · T3 t-box · retire
 ```
 
-## 2. Status and diagnostic rules (proposed)
+## 2. Status and diagnostic rules
 
 | Situation | Result | Diagnostic |
 |---|---|---|
@@ -56,7 +56,7 @@ TRANSITIONS AT p2 (declared) · T1 t-mail · import, retire · T3 t-box · retir
 | Methods line would overlap the drawn graph | FAIL (audit, never silently moved) | `VP07_AUDIT` (existing) |
 | All other rows | as 0.7.0…0.7.3 | |
 
-No new diagnostic code is proposed.
+No new diagnostic code.
 
 ## 3. Rules in detail
 
@@ -80,7 +80,7 @@ No new diagnostic code is proposed.
 - FE-1: The edge whose `declaration_ref` is that of a bar with a method gets `data-vp07-method` (full ID) and the short name appended to its title. Geometry, stroke and arrow are unchanged.
 - FE-2: Per D-6 the dependency method is not repeated in the methods line.
 
-## 4. Acceptance criteria (draft)
+## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
 |---|---|---|
@@ -93,7 +93,7 @@ No new diagnostic code is proposed.
 | VP074-07 | Synthetic golden: GM-pos, `cube.phases --partition method` (groups `rewrite`, `none`) and `cube.flow` p1/p2 panels with T1…T4 listed | fixture |
 | VP074-08 | No client data in fixtures, examples or previews | review |
 
-## 5. Alignment vectors (draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -112,9 +112,9 @@ No new diagnostic code is proposed.
 | N-13 | `check-panels` after editing the line in a panel input | FAIL · `VP07_PANEL_COVERAGE` |
 | N-14 | Layers and methods line together | PASS, both lines present, no overlap with node cards |
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-27, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Profile | (a) new profile 0.7.4 only via `from-plan --profile P2-VP-MIGRATION/0.7.4`; a /7 context still yields 0.7.3 by default; `--partition method` also works on 0.7.3 sources · (b) a /7 context yields 0.7.4 by default, 0.7.3 via `--profile` · (c) no new profile; methods line behind a `print-panels` flag | **(a)** | The same command line keeps producing the same bytes (as VP-09.1 D-1). The partition key changes no existing output, so it needs no new profile. The default can move to 0.7.4 later as its own step. |
 | D-2 Key of a bar | (a) the bar's own declared method only · (b) also the methods of transitions that retire or introduce the bar's object | **(a)** | (b) would assign a method to a bar that did not declare one — an inference. |
