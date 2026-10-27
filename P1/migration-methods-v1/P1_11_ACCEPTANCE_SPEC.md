@@ -118,6 +118,25 @@ Catalog entry (abridged):
 - MP-4: `migrate.reconfigure` (if adopted): the argument is neither retired nor introduced by that transition.
 - MP-5: No rule compares methods with each other or derives an order from them.
 
+### 3.5 Catalog v1 and binding details (MV)
+
+Clarification transcribed together with the oracle (no decision changed).
+
+| Method | Roles (admissible concept IDs) | Binding point | Primitive |
+|---|---|---|---|
+| `migrate.import/v1` | `source` (Resource, Provider, Third-party Dependency) · `target` (Resource, Provider) | transition | derivation |
+| `migrate.rebuild/v1` | `target` (Resource, Provider, Integration, Runtime) | transition | transition_supersession |
+| `migrate.retire/v1` | `retired` (Provider, Third-party Dependency, Integration, Runtime, Resource) | transition | transition_supersession |
+| `migrate.rewrite/v1` | `dependant` (Integration, Actor, Runtime) · `new_object` (Provider, Third-party Dependency, Resource) | dependency | transition_supersession |
+| `migrate.reconfigure/v1` | `target` (Provider, Third-party Dependency, Runtime, Resource) | transition | transition_supersession |
+
+- MV-1: Concept IDs in the table are the P0 IDs `Y:resource-object:resource`, `Z:module-body:provider`, `Z:module-body:third-party-dependency`, `Z:module-body:integration`, `Z:module-body:runtime`, `Y:identity-anchor:actor`.
+- MV-2: A catalog method bound at the wrong binding point FAILs with `P1_MIGRATION_METHOD_PLAN`.
+- MV-3: `migrate.rewrite`: `dependant` must be the dependency's subject (in addition to MP-3).
+- MV-4: MP-2 "present from the current phase" means: the target is not introduced by any transition of the plan.
+- MV-5: Bindings to a **local** method contract (MI-3) use positional role names `arg1 … argN`; arity follows `argument_min/max`, typing follows `argument_concept_ids` when declared; plan-fit rules apply to catalog methods only.
+- MV-6: Binding shape errors (not an object, empty `arguments`, non-string refs) are configuration errors (`P1_MCP_CONFIG_INVALID`).
+
 ## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |

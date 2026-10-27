@@ -1,0 +1,164 @@
+{
+  "format": "aiaeao.cube.p1.11.method-profile/1",
+  "reference_version": "v9.4",
+  "profile_id": "P1.11/migration-methods-v1",
+  "revision": "v1",
+  "origin": "profile_declaration_unverified",
+  "scope_binding": "importing_context_scope_ref",
+  "notes": [
+    "Profile-local migration methods (P1.11 D-2, D-3); no adoption into Morphology v9.4 §3.7 implied.",
+    "Primitive names refer to Morphology v9.4 §5.7 (Transition / supersession; Derivation) as documentary metadata only.",
+    "The Cube checks declaration, typing and plan fit; it never executes, schedules or ranks a method."
+  ],
+  "methods": [
+    {
+      "method_id": "migrate.import/v1",
+      "revision": "P1.11/migration-methods-v1",
+      "origin": "profile_declaration_unverified",
+      "primitive": "derivation",
+      "description": "content of the source is transferred into the target",
+      "roles": [
+        {
+          "role": "source",
+          "concept_ids": [
+            "Y:resource-object:resource",
+            "Z:module-body:provider",
+            "Z:module-body:third-party-dependency"
+          ]
+        },
+        {
+          "role": "target",
+          "concept_ids": [
+            "Y:resource-object:resource",
+            "Z:module-body:provider"
+          ]
+        }
+      ],
+      "binding_points": [
+        "transition"
+      ],
+      "argument_min": 2,
+      "argument_max": 2,
+      "effect_class": "pure_declarative",
+      "notes": [
+        "Names an external operation; the Cube neither runs nor admits it (D-5)."
+      ]
+    },
+    {
+      "method_id": "migrate.rebuild/v1",
+      "revision": "P1.11/migration-methods-v1",
+      "origin": "profile_declaration_unverified",
+      "primitive": "transition_supersession",
+      "description": "the target is set up anew without transferring content",
+      "roles": [
+        {
+          "role": "target",
+          "concept_ids": [
+            "Y:resource-object:resource",
+            "Z:module-body:provider",
+            "Z:module-body:integration",
+            "Z:module-body:runtime"
+          ]
+        }
+      ],
+      "binding_points": [
+        "transition"
+      ],
+      "argument_min": 1,
+      "argument_max": 1,
+      "effect_class": "pure_declarative",
+      "notes": [
+        "Names an external operation; the Cube neither runs nor admits it (D-5)."
+      ]
+    },
+    {
+      "method_id": "migrate.retire/v1",
+      "revision": "P1.11/migration-methods-v1",
+      "origin": "profile_declaration_unverified",
+      "primitive": "transition_supersession",
+      "description": "the referent ceases to be used",
+      "roles": [
+        {
+          "role": "retired",
+          "concept_ids": [
+            "Z:module-body:provider",
+            "Z:module-body:third-party-dependency",
+            "Z:module-body:integration",
+            "Z:module-body:runtime",
+            "Y:resource-object:resource"
+          ]
+        }
+      ],
+      "binding_points": [
+        "transition"
+      ],
+      "argument_min": 1,
+      "argument_max": 1,
+      "effect_class": "pure_declarative",
+      "notes": [
+        "Names an external operation; the Cube neither runs nor admits it (D-5)."
+      ]
+    },
+    {
+      "method_id": "migrate.rewrite/v1",
+      "revision": "P1.11/migration-methods-v1",
+      "origin": "profile_declaration_unverified",
+      "primitive": "transition_supersession",
+      "description": "a dependant is changed to use a different object",
+      "roles": [
+        {
+          "role": "dependant",
+          "concept_ids": [
+            "Z:module-body:integration",
+            "Y:identity-anchor:actor",
+            "Z:module-body:runtime"
+          ]
+        },
+        {
+          "role": "new_object",
+          "concept_ids": [
+            "Z:module-body:provider",
+            "Z:module-body:third-party-dependency",
+            "Y:resource-object:resource"
+          ]
+        }
+      ],
+      "binding_points": [
+        "dependency"
+      ],
+      "argument_min": 2,
+      "argument_max": 2,
+      "effect_class": "pure_declarative",
+      "notes": [
+        "Names an external operation; the Cube neither runs nor admits it (D-5)."
+      ]
+    },
+    {
+      "method_id": "migrate.reconfigure/v1",
+      "revision": "P1.11/migration-methods-v1",
+      "origin": "profile_declaration_unverified",
+      "primitive": "transition_supersession",
+      "description": "settings of a kept referent change (e.g. DNS records, authentication)",
+      "roles": [
+        {
+          "role": "target",
+          "concept_ids": [
+            "Z:module-body:provider",
+            "Z:module-body:third-party-dependency",
+            "Z:module-body:runtime",
+            "Y:resource-object:resource"
+          ]
+        }
+      ],
+      "binding_points": [
+        "transition"
+      ],
+      "argument_min": 1,
+      "argument_max": 1,
+      "effect_class": "pure_declarative",
+      "notes": [
+        "Names an external operation; the Cube neither runs nor admits it (D-5)."
+      ]
+    }
+  ]
+}
