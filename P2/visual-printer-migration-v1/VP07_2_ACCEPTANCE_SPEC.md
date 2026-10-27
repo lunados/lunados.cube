@@ -1,6 +1,6 @@
 # VP-07.2 — Declared layers as row order · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-8 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-27 (L-01…L-13 13/13; 0.7.0 and 0.7.1 outputs byte-identical); decisions D-1…D-8 resolved 2026-10-27 (all as proposed).
 **Profile:** `P2-VP-MIGRATION/0.7.2`, follow-up to `0.7.1` (VP-07.1, PR #15) in the same package (profile dispatch as VP-07.1 PD-1…PD-4).
 **Requirement:** C-9 from the running migration field test (2026-10-27; about 37 referents, 56 dependencies, steps p0–p3, several workstreams; client details withheld).
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` PV-6 ("row order = declared order; no sorting by inferred importance"), AD-5 (declared track map), PE-2 (packing); `VP07_1_ACCEPTANCE_SPEC.md` NP-1…NP-5 (nested partition), PD-1…PD-4; VP-02 `VIEW_GRAMMAR.md` ("`cube.flow` requires an explicit, order-preserving full `order` … display order only, never derived chronology"); Morphology v9.4 §3.8 (presentation order is a derived projection and may vary without redefining canon; it never reassigns homes).
@@ -96,6 +96,7 @@ Clarification transcribed together with the oracle (no decision changed).
 - LS-2: A 0.7.2 source carries `layer_order` (layer names; the reserved name `unassigned` may only appear last, D-4), `layer_sequence` (display IDs of all layered rows and objects in declared map order, each once) and `layer` on every row and object. The layer index along `layer_sequence` never decreases.
 - LS-3: The layer map may not use the name `unassigned`. Referents shown without a map entry get `layer: unassigned`; `mapping.json` and the panel report list one `VP07_LAYER_UNASSIGNED` warning per such item.
 - LS-4: Rows and cells of a 0.7.2 source are ordered by LO-1 before packing (stable within a row); `cube.flow` bundle `order` follows `layer_sequence`.
+- LS-5: `--partition layer` never puts two layers into one panel; a layer over the panel budget is split by subject (as `layer,subject`).
 
 ## 4. Acceptance criteria
 

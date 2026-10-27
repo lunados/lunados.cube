@@ -7,7 +7,7 @@ from __future__ import annotations
 import copy
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, PROFILES, P071, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
+from .common import (PROFILE, PROFILES, P071, P072, V71UP, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
                      add, line, rect, text, wrap_label, excerpt, source_digest, cjson, sha_bytes, VP07Error, need, keys,
                      clean, check_edge_styles, no_active_content, fmt)
 
@@ -91,8 +91,10 @@ class PhasesPrinter:
 
     # -- validation ---------------------------------------------------------
     def validate(self, plan):
-        v71 = isinstance(plan, dict) and plan.get('printer_profile') == P071
-        keys(plan, PLAN_REQUIRED, PLAN_OPTIONAL+(('target_step',) if v71 else ()), 'VP07_PHASES_PLAN', 'cube.phases plan')
+        v71 = isinstance(plan, dict) and plan.get('printer_profile') in V71UP
+        v72 = v71 and plan.get('printer_profile') == P072
+        keys(plan, PLAN_REQUIRED, PLAN_OPTIONAL+(('target_step',) if v71 else ())+(('layer_order', 'row_layers') if v72 else ()),
+             'VP07_PHASES_PLAN', 'cube.phases plan')
         need(plan['printer_profile'] in PROFILES, 'VP07_PHASES_PLAN', 'printer_profile must be '+' or '.join(PROFILES))
         need(plan['reference_version'] == 'v9.4', 'VP07_PHASES_PLAN', 'reference_version must be v9.4')
         need(plan['view'] == 'cube.phases', 'VP07_PHASES_PLAN', 'view must be cube.phases')
@@ -189,9 +191,22 @@ class PhasesPrinter:
             target = plan.get('target_step', steps[-1]['id'])
             need(isinstance(target, str) and KEY.fullmatch(target) is not None, 'VP07_PHASES_PLAN', 'target_step must be a stable ID (GM-2)')
             d.update(v71=True, codes=codes, target=target, tindex=index.get(target, len(steps)))
+            d['layers'] = self._layers072(plan, rmap) if v72 else None
         else:
             d['v71'] = False
         return d
+
+    @staticmethod
+    def _layers072(plan, rmap):
+        """VP-07.2 LS-2: optional declared layer order and row → layer assignment (display input only)."""
+        if 'layer_order' not in plan and 'row_layers' not in plan:
+            return None
+        lo, rl = plan.get('layer_order'), plan.get('row_layers')
+        need(isinstance(lo, list) and 1 <= len(lo) <= 13 and all(clean(x, 24) for x in lo) and len(set(lo)) == len(lo),
+             'VP07_PHASES_PLAN', 'layer_order must be 1…13 distinct clean names <= 24')
+        need(isinstance(rl, dict) and set(rl) == set(rmap) and all(v in lo for v in rl.values()), 'VP07_PHASES_PLAN',
+             'row_layers must assign every row to a layer of layer_order')
+        return {'order': lo, 'rows': rl}
 
     @staticmethod
     def _cell071(c):
@@ -361,6 +376,28 @@ class PhasesPrinter:
         return g
 
     @staticmethod
+    def _bands(root, pr, row_y, layers):
+        """VP-07.2 LD-1: a band left of the row cards per run of rows in one declared layer, rules between layers; no fill."""
+        runs = []
+        for r in pr['rows']:
+            lay = layers['rows'][r]
+            if runs and runs[-1][0] == lay:
+                runs[-1][1].append(r)
+            else:
+                runs.append((lay, [r]))
+        for k, (lay, rs) in enumerate(runs):
+            top = row_y[rs[0]]
+            bottom = row_y[rs[-1]]+8+pr['nlanes'][rs[-1]]*LANE_H
+            g = add(root, 'g', **{'data-vp07-layer': lay, 'data-vp07-layer-rows': ' '.join(rs)})
+            add(g, 'title').text = f'declared layer {lay}: '+', '.join(rs)
+            rect(g, 43, fmt(top), 14, fmt(bottom-top), '#CBD5E1', 'none', 3)
+            cx, cy = 50, (top+bottom)/2
+            t = text(g, fmt(cx+4), fmt(cy), excerpt(lay, max(3, int((bottom-top-8)/6.2))), 10, MUTED, 'bold', anchor='middle')
+            t.set('transform', f'rotate(-90 {fmt(cx)} {fmt(cy)})')
+            if k:
+                line(g, 43, fmt(top-6), GX1, fmt(top-6), '#CBD5E1')
+
+    @staticmethod
     def _cap(parent, x, y, h):
         """Gap end cap (GM-4): short vertical line plus a bracket opening back onto the bar end; no colour."""
         line(parent, fmt(x), fmt(y), fmt(x), fmt(y+h), STROKE)
@@ -468,6 +505,8 @@ class PhasesPrinter:
             for j, s in enumerate(wrap_label(item['label'], 24)):
                 text(rg, 102, fmt(y0+20+j*16), s, 12, INK, 'bold')
             line(root, 60, fmt(y0+h+5), GX1, fmt(y0+h+5), '#F1F5F9')
+        if d.get('layers'):
+            self._bands(root, pr, row_y, d['layers'])
         # bars
         for c in pr['cells']:
             idx = [d['index'][s] for s in c['steps']]
@@ -591,6 +630,8 @@ class PhasesPrinter:
         if pr['derived']['v71']:
             led.update(target_step=pr['derived']['target'], declared_gaps=pr['gaps'],
                        transition_codes={t['id']: pr['derived']['codes'][t['id']] for t in pr['transitions']})
+        if pr['derived'].get('layers'):
+            led['row_layers'] = {r: pr['derived']['layers']['rows'][r] for r in pr['rows']}
         return led
 
     def report(self, plan, svg, pr):

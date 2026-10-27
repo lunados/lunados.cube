@@ -13,7 +13,7 @@ from .panels import print_panels, check_panels, PARTITIONS
 
 def capabilities():
     return {'format': 'aiaeao.cube.vp07-capabilities/1', 'profile': PROFILE, 'profiles': list(PROFILES), 'latest_profile': LATEST,
-            'reference_version': 'v9.4', 'nested_partition': 'outer,inner (0.7.1 sources only)',
+            'reference_version': 'v9.4', 'nested_partition': 'outer,inner (0.7.1+ sources)', 'layer_map': 'aiaeao.cube.vp07-layer-map/1 (0.7.2)',
             'views': ['cube.phases'], 'styled_views': ['cube.flow', 'cube.tree'], 'lens_cube_phases': ['neutral'],
             'flow_lenses': list(LENSES), 'granularities': list(LEVELS),
             'phases_budgets': {k: dict(zip(('rows', 'steps', 'cells', 'lanes_per_row'), v)) for k, v in BUDGET.items()},
@@ -49,7 +49,8 @@ def main(argv=None):
     fp.add_argument('--subjects')
     fp.add_argument('--edge-styles')
     fp.add_argument('--witness-prefixes')
-    fp.add_argument('--profile', default=LATEST, choices=list(PROFILES))
+    fp.add_argument('--profile', choices=list(PROFILES))
+    fp.add_argument('--layers')
     fp.add_argument('--out', required=True)
     pp = s.add_parser('print-panels')
     pp.add_argument('--source', required=True)
@@ -86,7 +87,7 @@ def main(argv=None):
             opt = lambda f: load_json(f, 'VP07_ADAPTER_INPUT') if f else None  # noqa: E731
             src, mapping = from_plan(load_json(a.context, 'VP07_ADAPTER_INPUT'), a.plan, opt(a.tracks), a.track, opt(a.labels), a.steps,
                                      a.subjects.split(',') if a.subjects else None, opt(a.edge_styles), opt(a.witness_prefixes),
-                                     profile=a.profile)
+                                     profile=a.profile, layers=opt(a.layers))
             target = Path(a.out)
             mpath = target.with_name(target.stem+'.mapping.json')
             if mpath.exists():
