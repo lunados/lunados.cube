@@ -89,6 +89,17 @@ Z · Third-party Dep.
 - AD-3: Entries are text (ID or short label), ≥ 11 px, never truncated within the visible count; overflow line `+n more` names the count as a cardinality of declared entries, not a score.
 - AD-4: Legend states the membership rule of the pair (CM table) and "blank = nothing declared, not 'no relation'".
 
+### 3.4 Input, orientation and entries (AQ)
+
+Clarification transcribed together with the oracle (no decision changed; AQ-1 makes D-3 concrete for F).
+
+- AQ-1: Input is a VP-07 migration source (0.7.1 or 0.7.2) or an axes input `aiaeao.cube.vp09-axes-input/1` = `{source, method_bindings}`. `vpaxes from-plan` reads a `binding-context/5`, `/6` or `/7`, runs the unchanged `vpmigration` adapter on it (a `/7` is passed as its `/6` view without catalog and bindings) and transcribes the P1.11 bindings, with refs mapped to display IDs, into `method_bindings`. VP-07 itself is unchanged. A 0.7.0 source FAILs with `VP09_SOURCE_INVALID`.
+- AQ-2: Every pair of D-2 may be requested in either orientation (`--rows Z:referent --cols T` or `--rows T --cols Z:referent`); the membership rule is the same with rows and columns swapped.
+- AQ-3: F values: method IDs of `method_bindings`, catalog order first (import, rebuild, retire, rewrite, reconfigure), others in first-appearance order. Without bindings an F axis FAILs with `VP09_AXIS_EMPTY`.
+- AQ-4: Entry text: Z × T, Y × T: dependency ID; Y × T markers `retired by <transition>` / `introduced by <transition>`; Y × Z: `<dependency> · <predicate>`; X × X: target ID of the facet; X × Z: `<target>: <note>`; F × Z: `<owner> (<role>)`; F × T: owner ID (transition at the step, or dependency ending at the step). Entries keep declared order (cells, then transitions, then facets).
+- AQ-5: `render` draws one view and FAILs over budget (`reject`); `print-panels` splits along rows, then columns (D-9); `detail` never splits (FAIL). Coverage unit: `(row value, column value, entry)`.
+- AQ-6: X values are the IDs `epistemology`, `governance`, `semantics`, `execution`, `provenance` (glyphs Ψ Γ Σ Ξ Π in headers); Y/Z kind values are the concept keys of `semantic_ref` (e.g. `Provider`).
+
 ## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
