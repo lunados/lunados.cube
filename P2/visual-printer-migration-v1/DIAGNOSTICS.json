@@ -2,7 +2,7 @@
   "format": "aiaeao.cube.vp07.diagnostics/1",
   "profile": "P2-VP-MIGRATION/0.7.0",
   "reference_version": "v9.4",
-  "disposition": "Additive VP-07 only. VP-01…VP-06 registers unchanged. VP06_* codes from the frozen facade pass through unchanged (Path F, flow panels). VP-07.1 (0.7.1) adds VP07_DECLARED_GAP only; existing codes keep their meaning and gain the 0.7.1 situations of VP07_1_ACCEPTANCE_SPEC.md §2. VP-07.2 (0.7.2) adds VP07_LAYER_UNASSIGNED only. VP-07.3 (0.7.3) adds VP07_METHOD_UNKNOWN and VP07_METHOD_ARGUMENT_HIDDEN only.",
+  "disposition": "Additive VP-07 only. VP-01…VP-06 registers unchanged. VP06_* codes from the frozen facade pass through unchanged (Path F, flow panels). VP-07.1 (0.7.1) adds VP07_DECLARED_GAP only; existing codes keep their meaning and gain the 0.7.1 situations of VP07_1_ACCEPTANCE_SPEC.md §2. VP-07.2 (0.7.2) adds VP07_LAYER_UNASSIGNED only. VP-07.3 (0.7.3) adds VP07_METHOD_UNKNOWN and VP07_METHOD_ARGUMENT_HIDDEN only. VP-07.4 (0.7.4) adds no code; existing codes gain the 0.7.4 situations of VP07_4_ACCEPTANCE_SPEC.md §2.",
   "codes": [
     {
       "code": "VP07_PHASES_STEPS",
@@ -86,13 +86,13 @@
       "code": "VP07_PANEL_PARTITION",
       "stage": "partition",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 PE-1, PE-2: undeclared partition key, missing lens/track, or one group exceeds the panel budget; 0.7.1 NP-1: more than two keys, repeated key, step as outer key for cube.flow, nested partition on a 0.7.0 source, inner group over budget (message names outer and inner value); 0.7.2: partition layer on a source without declared layers"
+      "reference_rule": "VP-07 PE-1, PE-2: undeclared partition key, missing lens/track, or one group exceeds the panel budget; 0.7.1 NP-1: more than two keys, repeated key, step as outer key for cube.flow, nested partition on a 0.7.0 source, inner group over budget (message names outer and inner value); 0.7.2: partition layer on a source without declared layers; 0.7.4 PM-1: partition method on a source without method fields (below 0.7.3), or a method group that exceeds the budget even after the split by subject"
     },
     {
       "code": "VP07_PANEL_COVERAGE",
       "stage": "coverage",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 PE-3, PE-6: union of panels incomplete, or file/digest/ledger mismatch in check-panels; 0.7.1 NP-3/NP-4: outer group not covered by its own panels or outer ledger differs from the panel inputs"
+      "reference_rule": "VP-07 PE-3, PE-6: union of panels incomplete, or file/digest/ledger mismatch in check-panels; 0.7.1 NP-3/NP-4: outer group not covered by its own panels or outer ledger differs from the panel inputs; 0.7.4: methods line or edge methods of a flow panel differ from the embedded source"
     },
     {
       "code": "VP07_SOURCE_INVALID",
@@ -116,7 +116,7 @@
       "code": "VP07_AUDIT",
       "stage": "audit",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 §3.6: internal audit invariant (partition, embedded ledger, no active SVG content)"
+      "reference_rule": "VP-07 §3.6: internal audit invariant (partition, embedded ledger, no active SVG content); 0.7.4 D-7: the methods line would overlap a drawn element of the flow panel"
     },
     {
       "code": "VP07_INPUT_INVALID",
@@ -155,6 +155,7 @@
     "P2-VP-MIGRATION/0.7.0",
     "P2-VP-MIGRATION/0.7.1",
     "P2-VP-MIGRATION/0.7.2",
-    "P2-VP-MIGRATION/0.7.3"
+    "P2-VP-MIGRATION/0.7.3",
+    "P2-VP-MIGRATION/0.7.4"
   ]
 }

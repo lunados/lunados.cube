@@ -7,7 +7,7 @@ from __future__ import annotations
 import copy
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, method_short, method_sorted, check_binding, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
+from .common import (PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, V73UP, method_short, method_sorted, check_binding, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
                      add, line, rect, text, wrap_label, excerpt, source_digest, cjson, sha_bytes, VP07Error, need, keys,
                      clean, check_edge_styles, no_active_content, fmt)
 
@@ -93,7 +93,7 @@ class PhasesPrinter:
     def validate(self, plan):
         v71 = isinstance(plan, dict) and plan.get('printer_profile') in V71UP
         v72 = v71 and plan.get('printer_profile') in V72UP
-        v73 = v71 and plan.get('printer_profile') == P073
+        v73 = v71 and plan.get('printer_profile') in V73UP
         keys(plan, PLAN_REQUIRED, PLAN_OPTIONAL+(('target_step',) if v71 else ())+(('layer_order', 'row_layers') if v72 else ())
              + (('local_methods',) if v73 else ()), 'VP07_PHASES_PLAN', 'cube.phases plan')
         need(plan['printer_profile'] in PROFILES, 'VP07_PHASES_PLAN', 'printer_profile must be '+' or '.join(PROFILES))
