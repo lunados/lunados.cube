@@ -4,15 +4,19 @@ import argparse
 import sys
 from pathlib import Path
 
-from .common import PROFILE, AXES, RESERVED, PAIRS, BUDGET, LEVELS, VP09Error, encode, load_json, publish_dir, write_new
+from .common import PROFILE, P091, PROFILES, PAIRS_091, AXES, RESERVED, PAIRS, BUDGET, LEVELS, VP09Error, encode, load_json, publish_dir, write_new
 from .source import from_plan
 from .axes import render_axes
 from .panels import print_panels, check_panels
 
 
-def capabilities():
-    return {'format': 'aiaeao.cube.vp09-capabilities/1', 'profile': PROFILE, 'reference_version': 'v9.4', 'views': ['cube.axes'],
-            'axes': list(AXES), 'reserved_axes': list(RESERVED), 'pairs': [sorted(p) if len(p) > 1 else ['X', 'X'] for p in PAIRS],
+def capabilities(profile=PROFILE):
+    v91 = profile == P091
+    extra = {'profiles': list(PROFILES), 'method_catalog': 'P1.11/migration-methods-v1 (IDs pinned; local method contracts allowed)',
+             'binding_ledger': True} if v91 else {}
+    return {'format': 'aiaeao.cube.vp09-capabilities/1', 'profile': profile, 'reference_version': 'v9.4', 'views': ['cube.axes'], **extra,
+            'axes': list(AXES), 'reserved_axes': list(RESERVED),
+            'pairs': [sorted(p) if len(p) > 1 else ['X', 'X'] for p in (PAIRS_091 if v91 else PAIRS)],
             'granularities': list(LEVELS), 'budgets': {k: dict(zip(('rows', 'cols', 'entries_per_cell'), v)) for k, v in BUDGET.items()},
             'operations': ['capabilities', 'from-plan', 'check-axes', 'print-axes', 'print-panels', 'check-panels'],
             'inputs': ['aiaeao.cube.vp07-migration-source/1 (0.7.1, 0.7.2)', 'aiaeao.cube.vp09-axes-input/1'],
@@ -23,8 +27,10 @@ def capabilities():
 def main(argv=None):
     p = argparse.ArgumentParser(prog='vpaxes', description='AIAEAO VP-09 declared axes view (offline, deterministic SVG)')
     s = p.add_subparsers(dest='command', required=True)
-    s.add_parser('capabilities')
+    cap = s.add_parser('capabilities')
+    cap.add_argument('--profile', choices=PROFILES, default=PROFILE)
     fp = s.add_parser('from-plan')
+    fp.add_argument('--profile', choices=PROFILES, default=PROFILE, help='0.9.0 (default) or 0.9.1 (VP-09.1, D-1)')
     for a in ('--context', '--plan', '--out'):
         fp.add_argument(a, required=True)
     for a in ('--tracks', '--track', '--labels', '--steps', '--subjects', '--layers'):
@@ -43,15 +49,16 @@ def main(argv=None):
     out = sys.stdout.buffer
     try:
         if a.command == 'capabilities':
-            out.write(encode(capabilities())); return 0
+            out.write(encode(capabilities(a.profile))); return 0
         if a.command == 'from-plan':
             opt = lambda f: load_json(f, 'VP09_ADAPTER_INPUT') if f else None  # noqa: E731
             doc, mapping = from_plan(load_json(a.context, 'VP09_ADAPTER_INPUT'), a.plan, opt(a.tracks), a.track, opt(a.labels), a.steps,
-                                     a.subjects.split(',') if a.subjects else None, opt(a.layers))
+                                     a.subjects.split(',') if a.subjects else None, opt(a.layers), profile=a.profile)
             target = Path(a.out)
             write_new(target, encode(doc))
             out.write(encode({'status': 'PASS', 'operation': 'from-plan', 'input_file': str(target), 'cells': len(doc['source']['cells']),
-                              'method_bindings': len(doc['method_bindings'])}))
+                              'method_bindings': len(doc['method_bindings']), **({'profile': P091, 'dropped_arguments':
+                              len(doc['dropped_arguments'])} if a.profile == P091 else {})}))
             return 0
         if a.command in ('check-axes', 'print-axes'):
             report, svg = render_axes(load_json(a.input, 'VP09_SOURCE_INVALID'), a.rows, a.cols, a.granularity)

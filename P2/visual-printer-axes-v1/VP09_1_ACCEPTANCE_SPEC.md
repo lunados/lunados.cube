@@ -1,6 +1,6 @@
 # VP-09.1 — F axes from P1.11 bindings, complete · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-9 resolved 2026-10-27 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-27 (B-01…B-20 20/20; 22 pinned 0.9.0 outputs byte-identical); decisions D-1…D-9 resolved 2026-10-27 (all as proposed).
 **Profile:** `P2-VP-AXES/0.9.1`, follow-up to `0.9.0` (VP-09, PR #21) in the same package `vpaxes`.
 **Requirement:** C-11 from the running migration field test (2026-10-27; an inventory of about 37 referents, 56 dependencies, 3 transitions and 32 method bindings, all PASS under P1.11; client details withheld). Items 1 and 2 of C-11 (F × Z, F × T); item 3 (VP-07) is VP-07.3.
 **Basis:** `VP09_ACCEPTANCE_SPEC.md` (AX-1…AX-3, AQ-1…AQ-6, CM table, D-2, D-7, D-9); `P1/migration-methods-v1/P1_11_ACCEPTANCE_SPEC.md` (catalog MC-1…MC-4, MI-3 local method contracts, MP-3 rewrite needs `successor_ref`, MP-5 no order from methods, `P1_MIGRATION_METHOD_UNKNOWN` = UNRESOLVED); Morphology v9.4 §3.7 (F is a qualifier over qualified referents), `core.json` `never_infer` (X/Y/Z/F/M are not a numeric vector).

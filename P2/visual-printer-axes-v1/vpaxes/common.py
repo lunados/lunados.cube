@@ -15,7 +15,9 @@ from vpmigration import common as _c  # noqa: E402
 from vpmigration.common import (Printer, NS, add, line, rect, text, excerpt, cjson, fmt, no_active_content, encode,  # noqa: E402,F401
                                 sha_bytes, sha_json, KEY, LEVELS, NOT_EVALUATED, STROKE, INK, MUTED, P071, P072)
 
-PROFILE = 'P2-VP-AXES/0.9.0'
+PROFILE = 'P2-VP-AXES/0.9.0'  # base profile: default of from-plan and of every 0.9.0 code path (VP-09.1 D-1)
+P090, P091 = PROFILE, 'P2-VP-AXES/0.9.1'
+PROFILES = (P090, P091)
 ERROR_FORMAT = 'aiaeao.cube.vp09-diagnostic/1'
 INPUT_FORMAT = 'aiaeao.cube.vp09-axes-input/1'
 AXES = ('X', 'Y:kind', 'Y:referent', 'Z:kind', 'Z:referent', 'T', 'F')
@@ -45,6 +47,15 @@ RULES = {
     frozenset({'F', 'Z'}): 'cell lists declared method bindings of the method that name the component (owner and role)',
     frozenset({'F', 'T'}): 'cell lists declared method bindings of the method on transitions at the step or dependencies ending there',
 }
+# VP-09.1 (0.9.1): F × Y joins the pair list (FP-1); F × T places dependency bindings by the declared successor (D-3)
+PAIRS_091 = PAIRS+({'F', 'Y'},)
+RULES_091 = dict(RULES)
+RULES_091[frozenset({'F', 'Z'})] = 'cell lists declared method bindings of the method that name the component (owner · role)'
+RULES_091[frozenset({'F', 'Y'})] = 'cell lists declared method bindings of the method that name the identity or resource (owner · role)'
+RULES_091[frozenset({'F', 'T'})] = ('cell lists declared method bindings of the method on transitions at the step, or on dependencies '
+                                    'at the first declared step of their successor (else their own last step)')
+CATALOG_SHA256 = '5e317bce914609f42bbcbe8b22edd2989a63247686de840faae63f686f6b4c49'  # pinned P1.11 catalog the IDs above come from (FM-1)
+METHOD_PROFILE_REF = 'P1.11/migration-methods-v1'
 
 
 class VP09Error(ValueError):

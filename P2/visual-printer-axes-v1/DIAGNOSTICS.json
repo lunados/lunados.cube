@@ -2,7 +2,7 @@
   "format": "aiaeao.cube.vp09.diagnostics/1",
   "profile": "P2-VP-AXES/0.9.0",
   "reference_version": "v9.4",
-  "disposition": "Additive VP-09 only. VP-01…VP-08 registers unchanged.",
+  "disposition": "Additive VP-09 only. VP-01…VP-08 registers unchanged. VP-09.1 (0.9.1) adds four codes; 0.9.0 codes and their meaning unchanged.",
   "codes": [
     {
       "code": "VP09_AXIS_INVALID",
@@ -14,7 +14,7 @@
       "code": "VP09_AXIS_EMPTY",
       "stage": "validation",
       "default_status": "FAIL",
-      "reference_rule": "VP-09 §2 row 3, AQ-3, AX-4: F without method bindings, X without facet bindings, Y/Z without a referent of that home"
+      "reference_rule": "VP-09 §2 row 3, AQ-3, AX-4: F without method bindings, X without facet bindings, Y/Z without a referent of that home; in 0.9.1 an F axis without bindings is not FAIL but VP09_METHODS_NONE (VP-09.1 D-4)"
     },
     {
       "code": "VP09_SOURCE_INVALID",
@@ -26,7 +26,7 @@
       "code": "VP09_ADAPTER_INPUT",
       "stage": "input",
       "default_status": "FAIL",
-      "reference_rule": "VP-09 AQ-1: from-plan context not /5, /6 or /7, or the unchanged VP-07 adapter refuses it"
+      "reference_rule": "VP-09 AQ-1: from-plan context not /5, /6 or /7, or the unchanged VP-07 adapter refuses it; 0.9.1 also: method_profile_refs other than P1.11/migration-methods-v1 (VP-09.1 §2)"
     },
     {
       "code": "VP09_AXES_BUDGET",
@@ -44,7 +44,7 @@
       "code": "VP09_PANEL_COVERAGE",
       "stage": "coverage",
       "default_status": "FAIL",
-      "reference_rule": "VP-09 §2 row 7, D-9: panel directory, inputs, units or coverage differ from a deterministic re-render"
+      "reference_rule": "VP-09 §2 row 7, D-9: panel directory, inputs, units or coverage differ from a deterministic re-render; 0.9.1 also: panels do not account for every binding unit (VP-09.1 FL-3)"
     },
     {
       "code": "VP09_AUDIT",
@@ -69,6 +69,38 @@
       "stage": "output",
       "default_status": "FAIL",
       "reference_rule": "VP-09 VP-06 PE-5 rule: staging or publish failed"
+    },
+    {
+      "code": "VP09_METHOD_UNKNOWN",
+      "stage": "validation",
+      "default_status": "FAIL",
+      "since": "P2-VP-AXES/0.9.1",
+      "reference_rule": "VP-09.1 §2 row 1, FM-1, FM-2, D-5: method_id neither a P1.11 catalog ID nor a local method contract of the context; message names the method and its declaration_ref (P1.11 itself reports P1_MIGRATION_METHOD_UNKNOWN as UNRESOLVED)"
+    },
+    {
+      "code": "VP09_METHODS_NONE",
+      "stage": "render",
+      "default_status": "WARNING",
+      "since": "P2-VP-AXES/0.9.1",
+      "reference_rule": "VP-09.1 §2 row 3, D-4: F axis on an input without method bindings; empty F axis with a legend notice, not a statement about the plan"
+    },
+    {
+      "code": "VP09_ARGUMENT_OFF_AXIS",
+      "stage": "render",
+      "default_status": "WARNING",
+      "since": "P2-VP-AXES/0.9.1",
+      "reference_rule": "VP-09.1 §2 row 4, FL-2, D-2: binding argument whose referent has another home than the column axis (e.g. Y in F × Z); not drawn, listed in the binding ledger"
+    },
+    {
+      "code": "VP09_ARGUMENT_OUT_OF_SLICE",
+      "stage": "render",
+      "default_status": "WARNING",
+      "since": "P2-VP-AXES/0.9.1",
+      "reference_rule": "VP-09.1 §2 row 5, FL-1, D-7: binding owner or argument outside the plan slice (--track, --subjects, --steps); listed in dropped_arguments and the binding ledger"
     }
+  ],
+  "profiles": [
+    "P2-VP-AXES/0.9.0",
+    "P2-VP-AXES/0.9.1"
   ]
 }
