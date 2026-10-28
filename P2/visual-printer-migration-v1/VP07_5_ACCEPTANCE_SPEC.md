@@ -1,7 +1,7 @@
 # VP-07.5 — Locale, hidden ledger and method sets · Acceptance specification
 
-**Status:** DRAFT 2026-10-28 — decisions D-1…D-9 open, no code.
-**Profile (proposed):** `P2-VP-MIGRATION/0.7.5`, follow-up to `0.7.4` (VP-07.4, PR #24) in the same package `vpmigration`; opt-in via `from-plan --profile`.
+**Status:** SPECIFIED, decisions D-1…D-9 resolved 2026-10-28 (all as proposed) — ready for oracle transcription and implementation.
+**Profile:** `P2-VP-MIGRATION/0.7.5`, follow-up to `0.7.4` (VP-07.4, PR #24) in the same package `vpmigration`; opt-in via `from-plan --profile`.
 **Requirement:** C-12 items (a), (b), (e), (h), (i) for VP-07 (field test 2026-10-28: 24 runs with VP-07.3/.4 and VP-09.1, all PASS, used for client sign-off, dependency clarification and runbooks; client details withheld). Items (c), (d), (f), (g) and the VP-09 parts of (a), (h), (i) are VP-09.2.
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` (PV-1a ledger, PE-1…PE-6), `VP07_1…VP07_4_ACCEPTANCE_SPEC.md` (codes TM-1, layers, methods MT/MD, partition PM-1…PM-5, D-2 of VP-07.4: a bar's group is only its own method), P1.10 predicate profile (predicate IDs), P1.11 (MP-5 no order from methods); VP-02/VP-06 frozen (texts of `cube.flow` panels).
 **Motivation:**
@@ -49,7 +49,7 @@ set migrate.rewrite/v1  panel 04       bars d1, d5 (own binding)
 set none                panel 05       bars d3, d4
 ```
 
-## 2. Status and diagnostic rules (proposed, 0.7.5 only)
+## 2. Status and diagnostic rules (0.7.5 only)
 
 | Situation | Result | Code |
 |---|---|---|
@@ -69,7 +69,7 @@ set none                panel 05       bars d3, d4
 - MS-3: The index lists per set its panels and coverage; the report adds `method_sets: {method: {panels, cells, status}}` and `memberships: {cell: [methods]}`; `check-panels` recomputes both.
 - WS-1: `warning_summary` order: first appearance; `items` hold the existing warning objects without `code`.
 
-## 4. Acceptance criteria (draft)
+## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
 |---|---|---|
@@ -82,7 +82,7 @@ set none                panel 05       bars d3, d4
 | VP075-07 | Synthetic golden (GM-pos): `de`, hidden ledger, method sets import / rebuild / retire / rewrite / none | fixture |
 | VP075-08 | No client data | review |
 
-## 5. Alignment vectors (draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -102,9 +102,9 @@ set none                panel 05       bars d3, d4
 | O-14 | 41 hidden arguments | one summary entry with count 41 |
 | O-15 | Invalid input to a 0.7.5 call | diagnostic `profile: P2-VP-MIGRATION/0.7.5` |
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-28, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Profile | (a) 0.7.5 only via `--profile`, print options only for 0.7.5 sources · (b) options on any source, recorded in the panel input | **(a)** | C-12 rule: everything new is opt-in through a new profile; 0.7.4 bytes stay. |
 | D-2 Where locales live | (a) pinned files in `vpmigration/locales/`, VP-09 reuses them · (b) a separate P2 locale package · (c) user-supplied locale files | **(a)**, (c) later | One source of strings for P2; pinned so a picture's text is reproducible. |

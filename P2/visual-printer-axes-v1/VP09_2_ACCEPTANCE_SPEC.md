@@ -1,7 +1,7 @@
 # VP-09.2 — Y × Y, arguments in F × T and readable cells · Acceptance specification
 
-**Status:** DRAFT 2026-10-28 — decisions D-1…D-9 open, no code.
-**Profile (proposed):** `P2-VP-AXES/0.9.2`, follow-up to `0.9.1` (VP-09.1, PR #22) in `vpaxes`; opt-in via `from-plan --profile`.
+**Status:** SPECIFIED, decisions D-1…D-9 resolved 2026-10-28 (all as proposed) — ready for oracle transcription and implementation.
+**Profile:** `P2-VP-AXES/0.9.2`, follow-up to `0.9.1` (VP-09.1, PR #22) in `vpaxes`; opt-in via `from-plan --profile`.
 **Requirement:** C-12 items (a), (c), (d), (f), (g), (h), (i) for VP-09 (field test 2026-10-28; client details withheld). Item (b) does not apply: VP-09 draws no ledger block (the ledger is embedded only). Items (b) and (e) and the VP-07 parts of (a), (h), (i) are VP-07.5.
 **Basis:** `VP09_ACCEPTANCE_SPEC.md` (AX-1…AX-3, CM table, D-2 pair list, D-7 overflow), `VP09_1_ACCEPTANCE_SPEC.md` (FL binding ledger, D-3 step rule, D-6 entry text), `VP07_5_ACCEPTANCE_SPEC.md` (locale profile, D-2); Morphology v9.4 §3.3 (blank cells do not impose a relationship).
 **Motivation:**
@@ -49,7 +49,7 @@ support                d9 · restores-via               –
 admin-mailbox          –                               d10 · depends-on
 ```
 
-## 2. Status and diagnostic rules (proposed, 0.9.2 only)
+## 2. Status and diagnostic rules (0.9.2 only)
 
 | Situation | Result | Code |
 |---|---|---|
@@ -68,7 +68,7 @@ admin-mailbox          –                               d10 · depends-on
 - HE-1: Hiding happens after projection and before the budget check, so hidden values do not count against the budget (D-4); panels split the remaining values.
 - WR-1: The wrap helper is new and used only by 0.9.2; 0.9.0 / 0.9.1 keep `wrap_words`.
 
-## 4. Acceptance criteria (draft)
+## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
 |---|---|---|
@@ -82,7 +82,7 @@ admin-mailbox          –                               d10 · depends-on
 | VP092-08 | Synthetic golden: GM-pos with Y × Y additions, F × T with arguments, hidden empty columns, `de` | fixture |
 | VP092-09 | No client data | review |
 
-## 5. Alignment vectors (draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -103,9 +103,9 @@ admin-mailbox          –                               d10 · depends-on
 | H-15 | 41 out-of-slice hints | one summary entry, count 41 |
 | H-16 | Invalid axis on a 0.9.2 input | diagnostic `profile: P2-VP-AXES/0.9.2` |
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-28, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Profile | (a) 0.9.2 only via `--profile`; new options only for 0.9.2 inputs · (b) options on any input | **(a)** | C-12 rule; 0.9.0 / 0.9.1 bytes stay. |
 | D-2 Y × Y direction | (a) directed: row = subject, column = object · (b) symmetric: both cells | **(a)** | The dependency has a direction; (b) would double every entry. |

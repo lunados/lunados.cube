@@ -1,7 +1,7 @@
 # G6 — Plan views as local MCP tools · Acceptance specification
 
-**Status:** DRAFT 2026-10-28 — decisions D-1…D-10 open, no code.
-**Release (proposed):** `P3-MCP-LOCAL/0.3.0-rc1`, successor of `0.2.0-rc1` (G4) in `P3/adapters/mcp-local`; stdio only.
+**Status:** SPECIFIED, decisions D-1…D-10 resolved 2026-10-28 (all as proposed) — ready for oracle transcription and implementation.
+**Release:** `P3-MCP-LOCAL/0.3.0-rc1`, successor of `0.2.0-rc1` (G4) in `P3/adapters/mcp-local`; stdio only.
 **Requirement:** C-13 from the running migration field test (2026-10-28; an inventory of 38 referents, 60 dependencies, 4 steps, 3 transitions, 36 method bindings rendered in 24 runs with VP-07.3/.4 and VP-09.1; client details withheld).
 **Basis:** `G4_README.md`, `G4_ACCEPTANCE.md`, `G4_CLAUDE_ACCEPTANCE.md` (surface, host acceptance pattern), `aiaeao_mcp_local/bridge.py` (in-memory VP-06 bridge: 2 MiB argument limit, 512 KiB SVG limit, diagnostics as `isError`), `surface.py` and `spec/G4_CAPABILITY_SURFACE.schema.json`; P2 VP-07 (`P2-VP-MIGRATION/0.7.0…0.7.4`), VP-08 (`P2-VP-SEQUENCE/0.8.0`), VP-09 (`P2-VP-AXES/0.9.0…0.9.1`) with their `print_panels` / `check_panels` / `from_plan` APIs; ADR-001 (local first; no remote hosting without a decision).
 **Motivation:** The local MCP server offers only VP-06 (`cube.flow`, `cube.diagramm`, `cube.tree`). VP-07, VP-08 and VP-09 run only through their CLIs with `--out` folders, so an agent must write inputs to disk, run the CLI and read files back.
@@ -58,7 +58,7 @@
 }
 ```
 
-## 2. Status and diagnostic rules (proposed)
+## 2. Status and diagnostic rules
 
 | Situation | Result | Code |
 |---|---|---|
@@ -66,7 +66,7 @@
 | Arguments over 2 MiB or not finite JSON | `isError` | `P3_PLAN_INPUT_INVALID` (new) |
 | `view` not one of the four | `isError` | `P3_PLAN_VIEW_UNKNOWN` (new) |
 | `view` does not fit the source format, or an option the printer does not take (e.g. `rows` for `cube.phases`) | `isError` | `P3_PLAN_ARGUMENT_INVALID` (new) |
-| `cube_plan_source` with `printer: vpsequence` | per D-7 | `P3_PLAN_SOURCE_UNSUPPORTED` (new) |
+| `cube_plan_source` with `printer: vpsequence` | `isError` (D-7) | `P3_PLAN_SOURCE_UNSUPPORTED` (new) |
 | One SVG over 512 KiB | `isError`, panel name and size, hint | `P3_PLAN_SVG_TOO_LARGE` (new) |
 | Response over 2 MiB | `isError`, size, hint | `P3_PLAN_RESPONSE_TOO_LARGE` (new) |
 | `cube_plan_check` on a modified result | `isError`, printer diagnostic | `VP07_PANEL_COVERAGE` / `VP08_…` / `VP09_PANEL_COVERAGE` |
@@ -92,7 +92,7 @@ Every diagnostic carries `printer`, `profile` (of the input where known), `stage
 - MT-2: `profile` passes through to the printer's `from-plan` unchanged; without it the printer's own default applies (D-8).
 - MT-3: Text content and `structuredContent` carry the same canonical JSON (as `bridge.py`).
 
-## 4. Acceptance criteria (draft)
+## 4. Acceptance criteria
 
 | AC | Requirement | Evidence |
 |---|---|---|
@@ -106,7 +106,7 @@ Every diagnostic carries `printer`, `profile` (of the input where known), `stage
 | G6-08 | Host acceptance in Claude Desktop after the G4 pattern (`G6_CLAUDE_ACCEPTANCE.md`) | user, on the target Mac |
 | G6-09 | No client data in fixtures, examples or evidence | review |
 
-## 5. Alignment vectors (draft)
+## 5. Alignment vectors (exit check)
 
 | ID | Case | Expected |
 |---|---|---|
@@ -125,13 +125,13 @@ Every diagnostic carries `printer`, `profile` (of the input where known), `stage
 | K-13 | `cube.axes` detail over budget | `isError` · `VP09_AXES_BUDGET` |
 | K-14 | Response over 2 MiB (synthetic plan with many panels) | `isError` · `P3_PLAN_RESPONSE_TOO_LARGE`, size and hint |
 | K-15 | `cube_plan_check` with one SVG byte changed | `isError` · `VP07_PANEL_COVERAGE` |
-| K-16 | `cube_plan_source` printer vpsequence | per D-7 |
+| K-16 | `cube_plan_source` printer vpsequence | `isError` · `P3_PLAN_SOURCE_UNSUPPORTED` (D-7) |
 | K-17 | Parity sweep MP-1/MP-2 over V, W, L, M, N, S, A, B | all equal |
 | K-18 | `cube_discover_surface` | ten tools; plan views section; legacy card unchanged |
 
-## 6. Decisions (open)
+## 6. Decisions (resolved 2026-10-28, all as proposed)
 
-| Decision | Options | Proposal | Consequence |
+| Decision | Options | Resolution | Consequence |
 |---|---|---|---|
 | D-1 Release | (a) `P3-MCP-LOCAL/0.3.0-rc1`, surface schema extended additively · (b) `0.2.1-rc1` · (c) separate G6 schema | **(a)** | New tools are a feature release; the G4 surface stays readable by old clients (additive fields). |
 | D-2 Where the in-memory API lives | (a) additive `api.py` in each P2 package + `check_files` refactor (directory form delegates, outputs identical) · (b) in the P3 adapter only (temp folders for the check) · (c) a new P2 umbrella package | **(a)** | The API is usable without MCP (tests, other hosts); (b) would need temp files — a side effect C-13 rules out. The refactor touches frozen code paths, so K-03 pins the CLI outputs. |
