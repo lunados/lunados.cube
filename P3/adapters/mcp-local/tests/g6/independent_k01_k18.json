@@ -1,0 +1,29 @@
+{
+ "format": "aiaeao.cube.g6-oracle/1",
+ "independence": "Expected values transcribed from G6_PLAN_VIEWS_ACCEPTANCE_SPEC.md §2 and §5 (decisions commit a23dc0e) before any G6 runtime code existed; no generation from tool output. Byte equality is judged against the unchanged CLIs, not against the new API.",
+ "reference_version": "v9.4",
+ "transcribed_at": "2026-10-28",
+ "cases": [
+  {"id": "K-01", "expected_status": "PASS", "expected_code": null, "expect": {"equal_cli_files": true}},
+  {"id": "K-02", "expected_status": "PASS", "expected_code": null, "expect": {"check_equals_cli": true, "check_status": "PASS"}},
+  {"id": "K-03", "expected_status": "PASS", "expected_code": null, "expect": {"baseline_unchanged": true}},
+  {"id": "K-04", "expected_status": "PASS", "expected_code": null, "expect": {"deterministic": true}},
+  {"id": "K-05", "expected_status": "PASS", "expected_code": null, "expect": {"source_equals_cli": true, "profile": "P2-VP-MIGRATION/0.7.3"}},
+  {"id": "K-06", "expected_status": "PASS", "expected_code": null, "expect": {"source_equals_cli": true, "profile": "P2-VP-AXES/0.9.1"}},
+  {"id": "K-07", "expected_status": "PASS", "expected_code": null, "expect": {"equal_cli_files": true, "methods_lines": true}},
+  {"id": "K-08", "expected_status": "PASS", "expected_code": null, "expect": {"equal_cli_files": true, "coverage": "COMPLETE"}},
+  {"id": "K-09", "expected_status": "PASS", "expected_code": null, "expect": {"equal_cli_files": true, "binding_coverage": "COMPLETE"}},
+  {"id": "K-10", "expected_status": "PASS", "expected_code": null, "expect": {"check_status": "PASS"}},
+  {"id": "K-11", "expected_status": "ERROR", "expected_code": "VP07_ADAPTER_INPUT", "expect": {"full_diagnostic": true}},
+  {"id": "K-12", "expected_status": "ERROR", "expected_code": "P3_PLAN_VIEW_UNKNOWN", "expect": {"full_diagnostic": true}},
+  {"id": "K-13", "expected_status": "ERROR", "expected_code": "VP09_AXES_BUDGET", "expect": {"full_diagnostic": true}},
+  {"id": "K-14", "expected_status": "ERROR", "expected_code": "P3_PLAN_RESPONSE_TOO_LARGE", "expect": {"full_diagnostic": true, "size_and_hint": true}},
+  {"id": "K-15", "expected_status": "ERROR", "expected_code": "VP07_PANEL_COVERAGE", "expect": {"full_diagnostic": true}},
+  {"id": "K-16", "expected_status": "ERROR", "expected_code": "P3_PLAN_SOURCE_UNSUPPORTED", "expect": {"full_diagnostic": true}},
+  {"id": "K-17", "expected_status": "PASS", "expected_code": null, "expect": {"parity_all_equal": true}},
+  {"id": "K-18", "expected_status": "PASS", "expected_code": null,
+   "expect": {"tools": ["cube_get_capabilities", "cube_prepare_print", "cube_check_print", "cube_render_svg", "cube_read_reference",
+                        "cube_validate", "cube_discover_surface", "cube_plan_source", "cube_plan_views", "cube_plan_check"],
+              "release": "P3-MCP-LOCAL/0.3.0-rc1", "plan_views_section": true, "legacy_card_unchanged": true, "g4_base_surface_unchanged": true}}
+ ]
+}
