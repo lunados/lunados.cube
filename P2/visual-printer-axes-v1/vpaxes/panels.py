@@ -4,7 +4,7 @@ import copy
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, P091, BUDGET, NOT_EVALUATED, MUTED, Printer, add, line, text, excerpt, sha_bytes, sha_json, encode, load_json,
+from .common import (PROFILE, P091, BUDGET, NOT_EVALUATED, MUTED, Printer, add, line, text, excerpt, sha_bytes, sha_json, encode, load_json, fs_isdir, fs_names, fs_bytes, fs_json,
                      need, no_active_content, VP09Error)
 from .axes import AxesPrinter, binding_coverage, binding_warnings
 from .source import profile_of
@@ -111,27 +111,37 @@ def _index(full, entries, cov, prof=PROFILE):
 
 
 def check_panels(directory):
-    d = Path(directory)
-    need(d.is_dir(), 'VP09_PANEL_COVERAGE', 'not a directory: '+str(d), 'coverage')
-    rep = load_json(d/'report.json', 'VP09_PANEL_COVERAGE')
+    """Directory form (CLI); reads files and applies the same checks as check_files (G6 MA-2)."""
+    return _check(Path(directory))
+
+
+def check_files(files):
+    """In-memory form (G6 MA-2): `files` maps the names print-panels writes to their bytes."""
+    need(isinstance(files, dict), 'VP09_PANEL_COVERAGE', 'files must be a mapping of names to bytes', 'coverage')
+    return _check(dict(files))
+
+
+def _check(d):
+    need(fs_isdir(d), 'VP09_PANEL_COVERAGE', 'not a directory: '+str(d), 'coverage')
+    rep = fs_json(d, 'report.json', 'VP09_PANEL_COVERAGE')
     need(isinstance(rep, dict) and rep.get('format') == REPORT_FORMAT, 'VP09_PANEL_COVERAGE', 'report.json is not a VP-09 panel report', 'coverage')
     listed = rep.get('files', {})
-    present = sorted(p.name for p in d.iterdir() if p.is_file() and p.name != 'report.json')
+    present = [n for n in fs_names(d) if n != 'report.json']
     need(present == sorted(listed), 'VP09_PANEL_COVERAGE', 'directory files differ from report file list', 'coverage')
     need(sha_json(rep['input']) == rep['input_sha256'], 'VP09_PANEL_COVERAGE', 'embedded input digest mismatch', 'coverage')
     for e in rep['panel_ledger']:
-        inp = load_json(d/(e['panel']+'.input.json'), 'VP09_PANEL_COVERAGE')
+        inp = fs_json(d, e['panel']+'.input.json', 'VP09_PANEL_COVERAGE')
         need(inp.get('input') == rep['input'], 'VP09_PANEL_COVERAGE', e['panel']+': panel input differs from the embedded input', 'coverage')
         try:
             prep, svg = render_input(inp)
         except VP09Error as x:
             raise VP09Error('VP09_PANEL_COVERAGE', e['panel']+': input does not re-render: '+str(x), 'coverage') from x
-        need(svg == (d/(e['panel']+'.svg')).read_bytes() and sha_bytes(svg) == e['svg_sha256'], 'VP09_PANEL_COVERAGE',
+        need(svg == fs_bytes(d, e['panel']+'.svg', 'VP09_PANEL_COVERAGE') and sha_bytes(svg) == e['svg_sha256'], 'VP09_PANEL_COVERAGE',
              e['panel']+': SVG differs from deterministic re-render of its input', 'coverage')
         need(prep['units'] == e['units'], 'VP09_PANEL_COVERAGE', e['panel']+': ledger units differ', 'coverage')
         need(prep.get('binding_units') == e.get('binding_units'), 'VP09_PANEL_COVERAGE', e['panel']+': binding units differ (FL-3)', 'coverage')
     for name, digest in listed.items():
-        need(sha_bytes((d/name).read_bytes()) == digest, 'VP09_PANEL_COVERAGE', 'file digest mismatch: '+name, 'coverage')
+        need(sha_bytes(fs_bytes(d, name, 'VP09_PANEL_COVERAGE')) == digest, 'VP09_PANEL_COVERAGE', 'file digest mismatch: '+name, 'coverage')
     full = AxesPrinter().project(rep['input'], rep['rows_axis'], rep['cols_axis'], rep['granularity'], budget_check=False)
     total = sorted(f'{r}|{c}|{e}' for (r, c), es in full['cells'].items() for e in es)
     cov = _coverage(total, rep['panel_ledger'])

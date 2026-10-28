@@ -5,7 +5,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 from .common import (PROFILE, LEVELS, OVERFLOWS, NOT_EVALUATED, Printer, add, line, text, excerpt, sha_bytes, sha_json, encode,
-                     load_json, need, no_active_content, MUTED, VP08Error)
+                     load_json, fs_isdir, fs_names, fs_bytes, fs_json, need, no_active_content, MUTED, VP08Error)
 from .source import validate_source
 from .sequence import SequencePrinter, _msgs
 
@@ -142,13 +142,23 @@ def print_panels(src, partition='trigger', granularity='standard', overflow='sum
 
 
 def check_panels(directory):
+    """Directory form (CLI); reads files and applies the same checks as check_files (G6 MA-2)."""
+    return _check(Path(directory))
+
+
+def check_files(files):
+    """In-memory form (G6 MA-2): `files` maps the names print-panels writes to their bytes."""
+    need(isinstance(files, dict), 'VP08_PANEL_COVERAGE', 'files must be a mapping of names to bytes', 'coverage')
+    return _check(dict(files))
+
+
+def _check(d):
     """Re-verify a finished panel directory (VP-07 PE-6 rule); any mismatch → VP08_PANEL_COVERAGE."""
-    d = Path(directory)
-    need(d.is_dir(), 'VP08_PANEL_COVERAGE', 'not a directory: '+str(d), 'coverage')
-    rep = load_json(d/'report.json', 'VP08_PANEL_COVERAGE')
+    need(fs_isdir(d), 'VP08_PANEL_COVERAGE', 'not a directory: '+str(d), 'coverage')
+    rep = fs_json(d, 'report.json', 'VP08_PANEL_COVERAGE')
     need(isinstance(rep, dict) and rep.get('format') == REPORT_FORMAT, 'VP08_PANEL_COVERAGE', 'report.json is not a VP-08 panel report', 'coverage')
     listed = rep.get('files', {})
-    present = sorted(p.name for p in d.iterdir() if p.is_file() and p.name != 'report.json')
+    present = [n for n in fs_names(d) if n != 'report.json']
     need(present == sorted(listed), 'VP08_PANEL_COVERAGE', 'directory files differ from report file list', 'coverage')
     src = rep['source']
     need(sha_json(src) == rep['source_sha256'], 'VP08_PANEL_COVERAGE', 'embedded source digest mismatch', 'coverage')
@@ -160,18 +170,18 @@ def check_panels(directory):
     need(len(entries) == rep['panel_count'] == len([n for n in listed if n.startswith('panel-') and n.endswith('.svg')]),
          'VP08_PANEL_COVERAGE', 'panel count mismatch', 'coverage')
     for e in entries:
-        inp = load_json(d/(e['panel']+'.input.json'), 'VP08_PANEL_COVERAGE')
+        inp = fs_json(d, e['panel']+'.input.json', 'VP08_PANEL_COVERAGE')
         try:
             _, svg, units = render_input(inp)
         except VP08Error as x:
             raise VP08Error('VP08_PANEL_COVERAGE', e['panel']+': input does not re-render: '+str(x), 'coverage') from x
         need(inp['source']['triggers'] == [t for t in src['triggers'] if t['id'] == inp['trigger_id']], 'VP08_PANEL_COVERAGE',
              e['panel']+': panel input differs from the embedded source', 'coverage')
-        need(svg == (d/(e['panel']+'.svg')).read_bytes() and sha_bytes(svg) == e['svg_sha256'] == listed[e['panel']+'.svg'],
+        need(svg == fs_bytes(d, e['panel']+'.svg', 'VP08_PANEL_COVERAGE') and sha_bytes(svg) == e['svg_sha256'] == listed[e['panel']+'.svg'],
              'VP08_PANEL_COVERAGE', e['panel']+': SVG differs from deterministic re-render of its input', 'coverage')
         need(sorted(units) == e['units'], 'VP08_PANEL_COVERAGE', e['panel']+': ledger units differ from the panel input', 'coverage')
     for name, digest in listed.items():
-        need(sha_bytes((d/name).read_bytes()) == digest, 'VP08_PANEL_COVERAGE', 'file digest mismatch: '+name, 'coverage')
+        need(sha_bytes(fs_bytes(d, name, 'VP08_PANEL_COVERAGE')) == digest, 'VP08_PANEL_COVERAGE', 'file digest mismatch: '+name, 'coverage')
     cov = _coverage(src, entries)
     need(cov['status'] == 'COMPLETE' and cov == rep['coverage'], 'VP08_PANEL_COVERAGE',
          'union of panels does not reproduce the recorded complete coverage', 'coverage')

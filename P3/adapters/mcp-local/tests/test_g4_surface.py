@@ -75,7 +75,9 @@ class TestG4Surface(unittest.TestCase):
         tree=ast.parse((BASE/'aiaeao_mcp_local/server.py').read_text(encoding='utf-8'))
         found=[n.name for n in tree.body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))
                and any(isinstance(d,ast.Call) and isinstance(d.func,ast.Attribute) and d.func.attr=='tool' for d in n.decorator_list)]
-        self.assertEqual(found,NAMES)
+        # G6: the server registers the seven G4 tools first, then the three plan-view tools (G4 card itself unchanged)
+        self.assertEqual(found[:7],NAMES)
+        self.assertEqual(found,list(surface.TOOLS_G6))
     def test_golden(self):
         path=BASE/'evidence/G4_CAPABILITIES_GOLDEN.json'
         self.assertEqual(self.card,json.loads(path.read_text(encoding='utf-8')))

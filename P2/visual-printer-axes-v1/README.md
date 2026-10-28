@@ -78,6 +78,12 @@ VP-09.1 (2026-10-27): B-01…B-20 20/20; 38/38 unit tests; 22/22 pinned 0.9.0 ou
 F × T 23 bindings with all 16 `rewrite` entries at p2. Every synthetic plan of the vectors passes P1.11 itself
 (B-02 is UNRESOLVED there, as intended).
 
+## In-memory API (G6, P3 C-13)
+
+`vpaxes/api.py`: `source(context, plan_id, …, profile)` → axes input as `from-plan`; `views(source, view, granularity, rows,
+cols)` → panels, index and report in memory; `check(result)` → the output of `check-panels`, which now delegates to
+`check_files(files)` (CLI outputs unchanged). Used by the local MCP tools `cube_plan_*`; no profile change.
+
 ## Not part of this stage
 
 M × T and O × X (no declared source yet); interactive pivoting; MCP tool. Methods in VP-07 views are VP-07.3.

@@ -146,6 +146,14 @@ python3 -m vpmigration print-panels --source src.json --view cube.phases --parti
 - Golden (GM-pos): method groups rewrite (16 bars) and none; flow lines list T1 at p1 and T2…T4 at p2, which needed the
   amended D-5 (T1 introduces new-mail, used from p2).
 
+## In-memory API (G6, P3 C-13)
+
+`vpmigration/api.py`: `source(context, plan_id, …)` → `{source, mapping}` as `from-plan`; `views(source, view, granularity,
+partition, lens)` → `{panels: [{name, svg, sha256, input, input_sha256}], index, report}`, exactly the files of
+`print-panels`; `check(result)` → the output of `check-panels`. `check_panels(directory)` now reads the folder and
+delegates to `check_files(files)`; CLI outputs are unchanged (G6 pins). Used by the local MCP tools `cube_plan_*`
+(`P3/adapters/mcp-local/G6_README.md`); no profile change.
+
 ## Not part of this stage
 
 MCP tool `cube_render_plan` (D-6, follow-up with paging); G4/G5 are unchanged by VP-07. Methods in `cube.flow` and

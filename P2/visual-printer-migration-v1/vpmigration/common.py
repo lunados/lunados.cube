@@ -127,6 +127,51 @@ def load_json(path, code='VP07_INPUT_INVALID'):
         raise VP07Error(code, 'invalid JSON: '+str(e)) from e
 
 
+def parse_json_bytes(data, code='VP07_INPUT_INVALID'):
+    """Same rules as load_json (2 MiB, UTF-8, no duplicate keys, finite numbers) for bytes held in memory (G6)."""
+    need(isinstance(data, (bytes, bytearray)) and len(data) <= MAX_INPUT_BYTES, code, 'input exceeds 2 MiB')
+    try:
+        raw = bytes(data).decode('utf-8')
+    except UnicodeError as e:
+        raise VP07Error(code, 'input unreadable: '+str(e)) from e
+
+    def pairs(items):
+        d = {}
+        for k, v in items:
+            need(k not in d, code, 'duplicate JSON key: '+k)
+            d[k] = v
+        return d
+
+    def nonfinite(v):
+        raise VP07Error(code, 'nonfinite number: '+v)
+    try:
+        return json.loads(raw, object_pairs_hook=pairs, parse_constant=nonfinite)
+    except VP07Error:
+        raise
+    except (ValueError, TypeError) as e:
+        raise VP07Error(code, 'invalid JSON: '+str(e)) from e
+
+
+# G6: check-panels reads either a directory (Path) or a files mapping {name: bytes} through these four helpers.
+def fs_isdir(d):
+    return isinstance(d, dict) or d.is_dir()
+
+
+def fs_names(d):
+    return sorted(d) if isinstance(d, dict) else sorted(p.name for p in d.iterdir() if p.is_file())
+
+
+def fs_bytes(d, name, code='VP07_INPUT_INVALID'):
+    if isinstance(d, dict):
+        need(isinstance(d.get(name), (bytes, bytearray)), code, 'input unreadable: no file '+name)
+        return bytes(d[name])
+    return (d/name).read_bytes()
+
+
+def fs_json(d, name, code='VP07_INPUT_INVALID'):
+    return parse_json_bytes(fs_bytes(d, name, code), code) if isinstance(d, dict) else load_json(d/name, code)
+
+
 def check_edge_styles(styles):
     """ES-1, ES-3: closed style set, one style per predicate, declared legend <= 40 chars."""
     need(isinstance(styles, list) and len(styles) <= 32, 'VP07_EDGE_STYLE', 'edge_styles must be an array of <= 32 entries')
