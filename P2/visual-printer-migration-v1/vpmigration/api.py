@@ -51,8 +51,10 @@ def source(context, plan_id, tracks=None, track=None, labels=None, steps=None, s
     return {'format': SOURCE_FORMAT, 'printer': 'vpmigration', 'profile': src['profile'], 'source': src, 'mapping': mapping}
 
 
-def views(source, view, granularity, partition, lens=None):
-    report, files = print_panels(source, view, partition, granularity, lens)
+def views(source, view, granularity, partition, lens=None, locale=None, hide_ledger=False):
+    """VP-07.5 options are passed only when set, so 0.7.0…0.7.4 calls stay the unchanged call."""
+    opts = {k: v for k, v in (('locale', locale), ('hide_ledger', hide_ledger)) if v}
+    report, files = print_panels(source, view, partition, granularity, lens, **opts)
     return to_result('vpmigration', view, report, files)
 
 

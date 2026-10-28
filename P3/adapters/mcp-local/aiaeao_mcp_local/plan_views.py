@@ -33,8 +33,11 @@ TOOLS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
 VIEWS = {'cube.phases': 'vpmigration', 'cube.flow': 'vpmigration', 'cube.sequence': 'vpsequence', 'cube.axes': 'vpaxes'}
 PRINTERS = ('vpmigration', 'vpsequence', 'vpaxes')
 # options each view takes (MT-1, §2 P3_PLAN_ARGUMENT_INVALID); `granularity` is common to all
-OPTIONS = {'cube.phases': {'partition'}, 'cube.flow': {'partition', 'lens'}, 'cube.sequence': {'partition', 'overflow'},
-           'cube.axes': {'rows', 'cols'}}
+OPTIONS = {'cube.phases': {'partition', 'locale', 'hide_ledger'}, 'cube.flow': {'partition', 'lens', 'locale', 'hide_ledger'},
+           'cube.sequence': {'partition', 'overflow'}, 'cube.axes': {'rows', 'cols', 'hide_empty', 'locale'}}
+# C-12: display options of VP-07.5 / VP-09.2; the printers accept them only for their 0.7.5 / 0.9.2 sources (D-1)
+DISPLAY_OPTIONS = {'vpmigration': {'profile': c07.P075, 'locale': None, 'hide_ledger': 'bool', 'selections': [c07.METHOD_SETS]},
+                   'vpaxes': {'profile': c09.P092, 'locale': None, 'hide_empty': list(c09.HIDE_EMPTY), 'pairs_added': ['Y × Y']}}
 REQUIRED = {'cube.phases': {'partition'}, 'cube.flow': {'partition', 'lens'}, 'cube.sequence': set(), 'cube.axes': {'rows', 'cols'}}
 SOURCE_OPTIONS = {'vpmigration': {'tracks', 'track', 'labels', 'steps', 'subjects', 'edge_styles', 'witness_prefixes', 'profile', 'layers'},
                   'vpaxes': {'tracks', 'track', 'labels', 'steps', 'subjects', 'layers', 'profile'}}
@@ -129,11 +132,13 @@ def plan_views(source: Any, view: Any, granularity: Any, **options) -> dict:
               'input', printer=printer)
     prof = source.get('profile')
     if printer == 'vpmigration':
-        res = _printer(printer, prof, vp07.views, source, view, granularity, options['partition'], options.get('lens'))
+        res = _printer(printer, prof, vp07.views, source, view, granularity, options['partition'], options.get('lens'),
+                       options.get('locale'), options.get('hide_ledger', False))
     elif printer == 'vpsequence':
         res = _printer(printer, prof, vp08.views, source, view, granularity, options.get('partition', 'trigger'), options.get('overflow', 'summarize'))
     else:
-        res = _printer(printer, prof, vp09.views, source, view, granularity, options['rows'], options['cols'])
+        res = _printer(printer, prof, vp09.views, source, view, granularity, options['rows'], options['cols'],
+                       options.get('hide_empty'), options.get('locale'))
     return _limit(res, printer)
 
 
@@ -147,6 +152,15 @@ def plan_check(result: Any) -> dict:
     return {**_printer(printer, result.get('profile'), api.check, result), 'printer': printer}
 
 
+def _display_options() -> dict:
+    from vpmigration.locale import PINNED
+    out = {k: dict(v) for k, v in DISPLAY_OPTIONS.items()}
+    for v in out.values():
+        v['locale'] = sorted(PINNED)
+    out['note'] = 'display text only; IDs, method IDs, decl: references and report keys are never translated; en is the identity'
+    return out
+
+
 def capabilities() -> dict:
     """Plan-view section of the local surface (G6 §1.5): tools, views, printer profiles, limits."""
     return {
@@ -155,6 +169,7 @@ def capabilities() -> dict:
         'printers': {'vpmigration': {'profiles': list(c07.PROFILES), 'default_profile': 'context-dependent (as CLI from-plan)'},
                      'vpsequence': {'profiles': [c08.PROFILE], 'source': 'declared directly; cube_plan_source unsupported'},
                      'vpaxes': {'profiles': list(c09.PROFILES), 'default_profile': c09.PROFILE}},
+        'display_options': _display_options(),
         'limits': {'max_request_bytes': MAX_REQUEST_BYTES, 'max_svg_bytes': MAX_SVG_BYTES, 'max_response_bytes': MAX_RESPONSE_BYTES,
                    'over_limit': 'FAIL with P3_PLAN_SVG_TOO_LARGE / P3_PLAN_RESPONSE_TOO_LARGE; never truncated'},
         'files_returned_inline': True,

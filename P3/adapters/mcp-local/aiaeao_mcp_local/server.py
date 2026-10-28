@@ -119,13 +119,16 @@ def cube_plan_views(
     source: dict[str, Any], view: Literal['cube.phases','cube.flow','cube.sequence','cube.axes'],
     granularity: Literal['overview','standard','detail'], partition: str | None=None,
     rows: str | None=None, cols: str | None=None, lens: str | None=None,
-    overflow: Literal['summarize','reject'] | None=None,
+    overflow: Literal['summarize','reject'] | None=None, locale: str | None=None,
+    hide_ledger: bool | None=None, hide_empty: Literal['rows','cols','both'] | None=None,
 ) -> CallToolResult:
     """Print plan panels in memory: SVGs, panel inputs, index and report, byte-identical to CLI print-panels.
     Limits: 512 KiB per SVG, 2 MiB per response; over a limit isError, never truncated. Display only.
+    C-12 options (only for 0.7.5 / 0.9.2 sources): locale (de, en) and hide_ledger for cube.phases / cube.flow,
+    partition 'method-sets' (VP-07.5); locale and hide_empty for cube.axes, rows/cols Y × Y (VP-09.2).
     """
     return _result(plan_views.plan_views, source, view, granularity, partition=partition, rows=rows, cols=cols,
-                   lens=lens, overflow=overflow)
+                   lens=lens, overflow=overflow, locale=locale, hide_ledger=hide_ledger or None, hide_empty=hide_empty)
 
 
 @mcp.tool()

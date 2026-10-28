@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
-"""G6 MP-1/MP-2 (K-17): every vector of VP-07 (V, W, L, M, N), VP-08 (S) and VP-09 (A, B) through the G6
+"""G6 MP-1/MP-2 (K-17): every vector of VP-07 (V, W, L, M, N, O), VP-08 (S) and VP-09 (A, B, H) through the G6
 tools equals the unchanged CLI — file by file (SHA-256) for PASS, the same error code for FAIL.
+
+C-12: the O vectors (VP-07.5) carry locale / hide_ledger / method-sets; O-06 also prints its flow view. The H
+vectors (VP-09.2) carry hide_empty / locale; their single-image cases are printed as panels for the comparison.
 
 Covered per vector: from-plan (source and mapping bytes) and print-panels (all files). Single-image
 operations (print-phases, print-sequence, print-axes, styled) are not part of G6 (D-9) and are skipped.
@@ -20,9 +23,11 @@ from vpmigration.common import encode  # noqa: E402
 
 SETS = [('vpmigration', 'P2/visual-printer-migration-v1/fixtures/'+f) for f in
         ('v01_v28_materialized.json', 'w01_w17_materialized.json', 'l01_l13_materialized.json', 'm01_m12_materialized.json',
-         'n01_n14_materialized.json')]
+         'n01_n14_materialized.json', 'o01_o15_materialized.json')]
 SETS += [('vpsequence', 'P2/visual-printer-sequence-v1/fixtures/s01_s20_materialized.json')]
-SETS += [('vpaxes', 'P2/visual-printer-axes-v1/fixtures/'+f) for f in ('a01_a20_materialized.json', 'b01_b20_materialized.json')]
+SETS += [('vpaxes', 'P2/visual-printer-axes-v1/fixtures/'+f) for f in ('a01_a20_materialized.json', 'b01_b20_materialized.json',
+                                                                          'h01_h16_materialized.json')]
+PANELS_FOR_RENDER = ('H-',)   # VP-09.2 vectors: render cases are compared through print-panels as well
 SOURCE_KEYS = ('tracks', 'track', 'labels', 'steps', 'subjects', 'edge_styles', 'witness_prefixes', 'profile', 'layers')
 
 
@@ -82,9 +87,17 @@ def run_case(printer, c):
         then = inp.get('then') if op == 'from-plan' else (inp if op == 'panels' else None)
         if not then:
             return
-        kw = {'partition': then['partition'], 'lens': then.get('lens')}
-        view, gran = then['view'], then['granularity']
-        cli_kw = dict(view=view, partition=then['partition'], granularity=gran, lens=then.get('lens'))
+        for name, t_ in (('print-panels', then), ('print-panels flow', inp.get('flow'))):
+            if not t_:
+                continue
+            disp = {k: t_[k] for k in ('locale', 'hide_ledger') if t_.get(k)}
+            kw = {'partition': t_['partition'], 'lens': t_.get('lens'), **disp}
+            view, gran = t_['view'], t_['granularity']
+            cli_kw = dict(view=view, partition=t_['partition'], granularity=gran, lens=t_.get('lens'), **disp)
+            t = outcome(lambda: tool_files(PV.plan_views(src, view, gran, **kw)))
+            cl = outcome(lambda: CLI.print_panels(printer, src, **cli_kw))
+            yield name, compare(t, cl)
+        return
     elif printer == 'vpsequence':
         if op != 'panels':
             return
@@ -92,11 +105,12 @@ def run_case(printer, c):
         kw = {'partition': inp['partition'], 'overflow': inp.get('overflow')}
         cli_kw = dict(partition=inp['partition'], granularity=gran, overflow=inp.get('overflow'))
     else:
-        if op != 'panels':
+        if op != 'panels' and not c['id'].startswith(PANELS_FOR_RENDER):
             return
         view, gran = 'cube.axes', inp['granularity']
-        kw = {'rows': inp['rows'], 'cols': inp['cols']}
-        cli_kw = dict(rows=inp['rows'], cols=inp['cols'], granularity=gran)
+        disp = {k: inp[k] for k in ('hide_empty', 'locale') if inp.get(k)}
+        kw = {'rows': inp['rows'], 'cols': inp['cols'], **disp}
+        cli_kw = dict(rows=inp['rows'], cols=inp['cols'], granularity=gran, **disp)
     t = outcome(lambda: tool_files(PV.plan_views(src, view, gran, **kw)))
     cl = outcome(lambda: CLI.print_panels(printer, src, **cli_kw))
     yield 'print-panels', compare(t, cl)
@@ -119,7 +133,7 @@ def main():
     total, bad = sweep('-v' in sys.argv)
     for b in bad:
         print('DIFF', b)
-    print(f'{total-len(bad)}/{total} MCP == CLI (from-plan and print-panels over V, W, L, M, N, S, A, B)')
+    print(f'{total-len(bad)}/{total} MCP == CLI (from-plan and print-panels over V, W, L, M, N, O, S, A, B, H)')
     sys.exit(1 if bad else 0)
 
 
