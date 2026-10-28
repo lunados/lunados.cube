@@ -8,15 +8,17 @@ import copy
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, P071, P072, P073, P074, V73UP, NONE_GROUP, METHOD_CATALOG, method_short, method_sorted, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
+from .common import (PROFILE, P071, P072, P073, P074, P075, V73UP, V74UP, METHOD_SETS, tag_profile, NONE_GROUP, METHOD_CATALOG, method_short, method_sorted, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
                      sha_json, encode, load_json, fs_isdir, fs_names, fs_bytes, fs_json, VP07Error, need, publish_dir, no_active_content, MUTED, NS)
-from .phases import PhasesPrinter, BUDGET, lanes_for
+from .phases import PhasesPrinter, BUDGET, lanes_for, step_label
+from .locale import load as load_locale, hide_flow_ledger
 from .source import validate_source, as_plan, layer_key
 from .styles import apply_styles
 from vpprint.core import make_job, render_job, PrintError as VP06PrintError
 from vpgranularity import CAPS
 
 PARTITIONS = ('subject', 'object', 'step', 'track', 'layer', 'method')
+SELECTIONS = (METHOD_SETS,)  # VP-07.5 (e): a selection mode, not a partition (a bar may be in several sets)
 VIEWS = ('cube.flow', 'cube.phases')
 REPORT_FORMAT = 'aiaeao.cube.vp07-panel-report/1'
 INPUT_FORMAT = 'aiaeao.cube.vp07-panel-input/1'
@@ -167,8 +169,25 @@ def render_input(inp):
     need(isinstance(inp, dict) and inp.get('format') == INPUT_FORMAT, 'VP07_PANEL_COVERAGE', 'not a VP-07 panel input')
     if inp['view'] == 'cube.phases':
         p = PhasesPrinter()
-        svg, pr = p.render(inp['plan'], 'reject')
+        svg, pr = p.render(inp['plan'], 'reject', inp.get('locale'), inp.get('hide_ledger', False))
         return p.report(inp['plan'], svg, pr), svg
+    if inp.get('locale') is not None or inp.get('hide_ledger'):  # VP-07.5: post-processing of the finished flow panel
+        return _flow_display(inp)
+    return _render_flow(inp)
+
+
+def _flow_display(inp):
+    """VP-07.5 D-3: own lines in the locale, then the frozen ledger block dropped (b), then exact replacements (a)."""
+    L = load_locale(inp.get('locale'))
+    inner, base = _render_flow(inp, L)
+    svg = hide_flow_ledger(base) if inp.get('hide_ledger') else base
+    svg = L.post(svg, 'flow')
+    disp = ({'locale': L.record()} if not L.identity else {})|({'ledger_hidden': True} if inp.get('hide_ledger') else {})
+    return {'format': 'aiaeao.cube.vp07-display-print-result/1', 'profile': inp['profile'], 'base_svg_sha256': sha_bytes(base),
+            'svg_sha256': sha_bytes(svg), **disp, 'inner_result': inner, 'warnings': inner.get('warnings', []), **NOT_EVALUATED}, svg
+
+
+def _render_flow(inp, L=None):
     result, base = _vp06(render_job, inp['job'])
     if inp.get('edge_styles') is not None:
         styles = {s['predicate_id']: s for s in inp['edge_styles']}
@@ -178,7 +197,7 @@ def render_input(inp):
                         'svg_sha256': sha_bytes(svg), 'edge_style_ledger': ledger, 'vp06_result': result,
                         'warnings': [{'code': 'VP07_EDGE_STYLE_DEFAULT', 'predicate_id': p} for p in ledger['unstyled']], **NOT_EVALUATED}, svg
     if inp.get('layer_caption'):
-        svg = _caption(base, inp['layer_caption'])
+        svg = _caption(base, inp['layer_caption'], L)
         result = {'format': 'aiaeao.cube.vp07-layered-print-result/1', 'profile': inp['profile'], 'base_svg_sha256': sha_bytes(base),
                   'svg_sha256': sha_bytes(svg), 'layer_caption': inp['layer_caption'], 'inner_result': result,
                   'warnings': result.get('warnings', []), **NOT_EVALUATED}
@@ -186,7 +205,7 @@ def render_input(inp):
             return result, svg
         base = svg
     if 'methods_line' in inp or 'edge_methods' in inp:  # VP-07.4 FL / FE: post-processing, inner result kept (FL-4)
-        svg, methods = _methods_post(base, inp)
+        svg, methods = _methods_post(base, inp, L)
         result = {'format': 'aiaeao.cube.vp07-methods-print-result/1', 'profile': inp['profile'], 'base_svg_sha256': sha_bytes(base),
                   'svg_sha256': sha_bytes(svg), 'methods': methods, 'inner_result': result,
                   'warnings': result.get('warnings', []), **NOT_EVALUATED}
@@ -214,7 +233,7 @@ def _flow_methods(src, cells, step_id):
 
 
 def _flow_method_fields(src, cells, step_id):
-    if src['profile'] != P074:  # D-1: only 0.7.4 sources get the line and the edge metadata
+    if src['profile'] not in V74UP:  # D-1: only 0.7.4 (and 0.7.5) sources get the line and the edge metadata
         return {}
     line_, edges = _flow_methods(src, cells, step_id)
     out = {}
@@ -229,10 +248,11 @@ def _entry(t):
     return f"{t['code']} {t['id']}"+(' · '+', '.join(method_short(m) for m in t['methods']) if t['methods'] else '')
 
 
-def _line_texts(ml):
+def _line_texts(ml, L=None):
     """FL-3: whole entries on at most two lines of ML_CHARS, then `+n more`; the full list stays in title and ledger."""
     entries = [_entry(t) for t in ml['transitions']]
-    lines, cur, i = [], f"TRANSITIONS AT {ml['step']} (declared)", 0
+    head = L.t('flow.methods', 'TRANSITIONS AT {step} (declared)', step=ml['step']) if L else f"TRANSITIONS AT {ml['step']} (declared)"
+    lines, cur, i = [], head, 0
     while i < len(entries):
         cand = cur+' · '+entries[i]
         if len(cand) <= ML_CHARS:
@@ -276,7 +296,7 @@ def _overlaps(root, box):
     return False
 
 
-def _methods_post(svg, inp):
+def _methods_post(svg, inp, L=None):
     """FL-1…FL-4, FE-1: add the methods line and edge metadata to a finished flow panel; nothing is moved."""
     root = ET.fromstring(svg)
     edges = inp.get('edge_methods', {})
@@ -290,7 +310,7 @@ def _methods_post(svg, inp):
     methods = {'edges': dict(edges)}
     ml = inp.get('methods_line')
     if ml:
-        lines, entries = _line_texts(ml)
+        lines, entries = _line_texts(ml, L)
         need(not _overlaps(root, (ML_X0, ML_Y[0]-12, ML_X1, ML_Y[len(lines)-1]+4)), 'VP07_AUDIT',
              'methods line would overlap the drawn panel (VP-07.4 D-7)', 'audit')
         g = add(root, 'g', **{'data-vp07-methods-line': ' '.join(t['code'] for t in ml['transitions']), 'data-step-id': ml['step']})
@@ -303,11 +323,12 @@ def _methods_post(svg, inp):
     return out, methods
 
 
-def _caption(svg, layers):
+def _caption(svg, layers, L=None):
     """VP-07.2 LD-2: one caption line naming the declared layers of the flow panel, left to right (post-processing)."""
     root = ET.fromstring(svg)
     g = add(root, 'g', **{'data-vp07-layers': ' '.join(layers)})
-    text(g, 60, 178, excerpt('LAYERS (declared, left to right) · '+' · '.join(layers), 150), 11, MUTED, 'bold')
+    head = L.t('flow.layers', 'LAYERS (declared, left to right) · ') if L else 'LAYERS (declared, left to right) · '
+    text(g, 60, 178, excerpt(head+' · '.join(layers), 150), 11, MUTED, 'bold')
     out = ET.tostring(root, encoding='utf-8', xml_declaration=True, short_empty_elements=True)+b'\n'
     need(no_active_content(ET.fromstring(out)), 'VP07_AUDIT', 'layered SVG contains active content', 'audit')
     return out
@@ -384,16 +405,73 @@ def _outer_groups(d, outer, steps, granularity, tracks):
     return out
 
 
-def build_panels(src, view, partition, granularity, lens=None):
+def display_options(src, partition, locale, hide_ledger):
+    """VP-07.5 D-1: locale, hidden ledger and method sets only for 0.7.5 sources; `en` is the identity (LC-1)."""
+    v75 = isinstance(src, dict) and src.get('profile') == P075
+    need(not hide_ledger or v75, 'VP07_PANEL_PARTITION', 'hide_ledger needs a '+P075+' source (VP-07.5 D-1)', 'partition')
+    need(partition != METHOD_SETS or v75, 'VP07_PANEL_PARTITION', 'method sets need a '+P075+' source (VP-07.5 D-1)', 'partition')
+    need(locale is None or v75, 'VP07_LOCALE_INVALID', 'locale needs a '+P075+' source (VP-07.5 D-1)')
+    L = load_locale(locale)
+    disp = {}
+    if not L.identity:
+        disp['locale'] = L.code
+    if hide_ledger:
+        disp['hide_ledger'] = True
+    return L, disp
+
+
+def _memberships(src):
+    """MS-1: a binding names a bar it carries, or a bar whose subject or object is an argument value of a transition binding."""
+    tb = [b for t in src['transitions'] for b in t.get('methods', [])]
+    mem = {}
+    for c in src['cells']:
+        ms = [b['method_id'] for b in tb if {c['row'], c['object']} & set(b['arguments'].values())]
+        if 'method' in c:
+            ms.append(c['method']['method_id'])
+        mem[c['id']] = _method_rank(list(dict.fromkeys(ms))) or [NONE_GROUP]  # MS-2 order, `none` only without a binding
+    return mem
+
+
+def _set_order(mem):
+    seen = list(dict.fromkeys(m for ms in mem.values() for m in ms))
+    return _method_rank(seen)
+
+
+def _method_set_units(src, mem, m):
+    return sorted(f"{c['id']}@{s}" for c in src['cells'] if m in mem[c['id']] for s in c['steps'])
+
+
+def _method_set_ledger(src, mem, entries):
+    """MS-3: per set its panels, member cells and coverage (each set proves its own coverage, D-6)."""
+    out = {}
+    for m in _set_order(mem):
+        total = _method_set_units(src, mem, m)
+        es = [e for e in entries if e.get('method_set') == m]
+        units = {u for e in es for u in e['units']}
+        ok = units == set(total)
+        out[m] = {'panels': [e['panel'] for e in es], 'cells': [c['id'] for c in src['cells'] if m in mem[c['id']]],
+                  'units_total': len(total), 'units_covered': len(units & set(total)), 'status': 'COMPLETE' if ok else 'INCOMPLETE'}
+    return out
+
+
+def _title(src, L, i, n):
+    return excerpt(src['title'], 56)+L.t('panel.suffix', ' · panel {i}/{n}', i=f'{i+1:02d}', n=f'{n:02d}')
+
+
+def build_panels(src, view, partition, granularity, lens=None, locale=None, hide_ledger=False):
+    L, disp = display_options(src, partition, locale, hide_ledger)
     v = validate_source(src)
     if v['layers']:  # VP-07.2 LS-4: cells ordered by the declared layer of their row (stable within a row)
         lay = v['layers']
         v['derived'] = {**v['derived'], 'cells': sorted(v['derived']['cells'], key=lambda c: layer_key(lay, c['row']))}
     need(view in VIEWS, 'VP07_PANEL_PARTITION', 'view must be cube.flow or cube.phases', 'partition')
+    if partition == METHOD_SETS:
+        need(granularity in LEVELS, 'VP07_PANEL_PARTITION', 'granularity must be overview|standard|detail', 'partition')
+        return v, _build_sets(src, v, view, granularity, lens, L, disp)
     nested = parse_partition(partition, view, src['profile'])
     if nested is not None:
         need(granularity in LEVELS, 'VP07_PANEL_PARTITION', 'granularity must be overview|standard|detail', 'partition')
-        return v, _build_nested(src, v, view, nested, granularity, lens)
+        return v, _build_nested(src, v, view, nested, granularity, lens, L, disp)
     need(partition in PARTITIONS, 'VP07_PANEL_PARTITION', 'partition key must be subject|object|step|track, got '+repr(partition), 'partition')
     need(granularity in LEVELS, 'VP07_PANEL_PARTITION', 'granularity must be overview|standard|detail', 'partition')
     d = v['derived']
@@ -427,10 +505,11 @@ def build_panels(src, view, partition, granularity, lens=None):
             for c in cs:
                 if c['row'] not in rows:
                     rows.append(c['row'])
-            title = excerpt(src['title'], 56)+f' · panel {i+1:02d}/{n:02d}'
-            sub = excerpt(f'{partition}: '+', '.join(_kv(partition, x) for x in k), 95)
+            title = _title(src, L, i, n)
+            sub = excerpt(f'{L.partition(partition)}: '+', '.join(_kv(partition, x) for x in k), 95)
             plan = as_plan(src, rows, cs, w, granularity, title, sub, ends=v.get('declared_ends'))
-            inputs.append({'format': INPUT_FORMAT, 'profile': src['profile'], 'view': view, 'partition': partition, 'key_values': k, 'plan': plan})
+            inputs.append({'format': INPUT_FORMAT, 'profile': src['profile'], 'view': view, 'partition': partition, 'key_values': k, 'plan': plan,
+                           **disp})
     else:
         need(lens in LENSES, 'VP07_PANEL_PARTITION', 'cube.flow panels need --lens cube.lens.* (VP-03 rule)', 'lens')
         refs = [c['declaration_ref'] for c in d['cells']]
@@ -449,12 +528,12 @@ def build_panels(src, view, partition, granularity, lens=None):
         n = len(sets)
         need(n <= MAX_PANELS, 'VP07_PANEL_PARTITION', f'{n} panels exceed {MAX_PANELS}', 'partition')
         for i, (s, k, cs) in enumerate(sets):
-            title = excerpt(src['title'], 56)+f' · panel {i+1:02d}/{n:02d}'
-            sub = excerpt(f"step {s['label']} · {partition}: "+', '.join(_kv(partition, x) for x in k), 95)
+            title = _title(src, L, i, n)
+            sub = excerpt(_flow_sub(L, s, L.partition(partition), ', '.join(_kv(partition, x) for x in k)), 95)
             bundle = _flow_bundle(src, cs, title, sub, v['layers'])
             job = _vp06(make_job, bundle, lens, granularity, 'reject')
             inp = {'format': INPUT_FORMAT, 'profile': src['profile'], 'view': view, 'partition': partition, 'key_values': k,
-                   'step': s['id'], 'job': job}
+                   'step': s['id'], 'job': job, **disp}
             if v['layers']:
                 inp['layer_caption'] = _layer_caption(src, cs, v['layers'])
             if 'edge_styles' in src:
@@ -465,7 +544,69 @@ def build_panels(src, view, partition, granularity, lens=None):
     return v, inputs
 
 
-def _build_nested(src, v, view, nested, granularity, lens):
+def _flow_sub(L, s, part, values):
+    return L.t('flow.subtitle', 'step {step} · {partition}: {values}', step=step_label(s, L), partition=part, values=values)
+
+
+def _flow_input(src, v, view, cs, s, title, sub, granularity, lens, base):
+    job = _vp06(make_job, _flow_bundle(src, cs, title, sub, v['layers']), lens, granularity, 'reject')
+    inp = {**base, 'step': s['id'], 'job': job}
+    if v['layers']:
+        inp['layer_caption'] = _layer_caption(src, cs, v['layers'])
+    if 'edge_styles' in src:
+        inp['edge_styles'] = copy.deepcopy(src['edge_styles'])
+    inp.update(_flow_method_fields(src, cs, s['id']))
+    return inp
+
+
+def _build_sets(src, v, view, granularity, lens, L, disp):
+    """VP-07.5 (e) MS-1…MS-3: per method set its own panels, packed by subject (PM-3); a bar may be in several sets."""
+    d = v['derived']
+    steps = src['steps']
+    mem = _memberships(src)
+    order = _set_order(mem)
+    tracks = v['tracks']
+    sets = []  # (method, subjects, cells, steps-or-step)
+    if view == 'cube.phases':
+        need(lens in (None, 'neutral'), 'VP07_PHASES_LENS', 'cube.phases supports lens neutral only (PV-7)', 'lens')
+        fits = _phases_fits(d['index'], granularity, len(steps))
+        for m in order:
+            cs = [c for c in d['cells'] if m in mem[c['id']]]
+            for k, pcs in _pack(_groups(cs, 'subject', tracks), fits, f'method set {m!r} / subject'):
+                sets.append((m, k, pcs, steps))
+    else:
+        need(lens in LENSES, 'VP07_PANEL_PARTITION', 'cube.flow panels need --lens cube.lens.* (VP-03 rule)', 'lens')
+        refs = [c['declaration_ref'] for c in d['cells']]
+        need(len(set(refs)) == len(refs), 'VP07_PANEL_PARTITION', 'cube.flow panels need unique cell declaration_refs', 'partition')
+        fits = _flow_fits(granularity)
+        for m in order:
+            cs = [c for c in d['cells'] if m in mem[c['id']]]
+            for s in steps:
+                active = [c for c in cs if s['id'] in c['steps']]
+                if active:
+                    for k, pcs in _pack(_groups(active, 'subject', tracks), fits, f'method set {m!r} / step {s["id"]} / subject'):
+                        sets.append((m, k, pcs, s))
+    n = len(sets)
+    need(n <= MAX_PANELS, 'VP07_PANEL_PARTITION', f'{n} panels exceed {MAX_PANELS}', 'partition')
+    inputs = []
+    for i, (m, k, cs, w) in enumerate(sets):
+        title = _title(src, L, i, n)
+        vals = f"{_kv('method', m)} · {L.partition('subject')}: "+', '.join(map(str, k))
+        base = {'format': INPUT_FORMAT, 'profile': src['profile'], 'view': view, 'partition': METHOD_SETS, 'method_set': m,
+                'key_values': k, **disp}
+        if view == 'cube.phases':
+            rows = list(dict.fromkeys(c['row'] for c in cs))
+            sub = excerpt(f'{L.partition(METHOD_SETS)}: {vals}', 95)
+            inputs.append({**base, 'plan': as_plan(src, rows, cs, w, granularity, title, sub, ends=v.get('declared_ends'))})
+        else:
+            sub = excerpt(_flow_sub(L, w, L.partition(METHOD_SETS), vals), 95)
+            inputs.append(_flow_input(src, v, view, cs, w, title, sub, granularity, lens, base))
+    need(inputs, 'VP07_PANEL_PARTITION', 'source yields no panel', 'partition')
+    return inputs
+
+
+def _build_nested(src, v, view, nested, granularity, lens, L=None, disp=None):
+    L, disp = L or load_locale(None), disp or {}
     outer, inner = nested
     d = v['derived']
     steps = src['steps']
@@ -497,22 +638,16 @@ def _build_nested(src, v, view, nested, granularity, lens):
     need(n <= MAX_PANELS, 'VP07_PANEL_PARTITION', f'{n} panels exceed {MAX_PANELS}', 'partition')
     inputs = []
     for i, (ov, k, cs, w) in enumerate(sets):
-        title = excerpt(src['title'], 56)+f' · panel {i+1:02d}/{n:02d}'
-        base = {'format': INPUT_FORMAT, 'profile': prof, 'view': view, 'partition': [outer, inner], 'outer_value': ov, 'key_values': k}
+        title = _title(src, L, i, n)
+        base = {'format': INPUT_FORMAT, 'profile': prof, 'view': view, 'partition': [outer, inner], 'outer_value': ov, 'key_values': k, **disp}
         if view == 'cube.phases':
             rows = list(dict.fromkeys(c['row'] for c in cs))
-            sub = excerpt(f'{outer}: {_kv(outer, ov)} · {inner}: '+', '.join(_kv(inner, x) for x in k), 95)
+            sub = excerpt(f'{L.partition(outer)}: {_kv(outer, ov)} · {L.partition(inner)}: '+', '.join(_kv(inner, x) for x in k), 95)
             inputs.append({**base, 'plan': as_plan(src, rows, cs, w, granularity, title, sub, ends=ends)})
         else:
-            sub = excerpt(f"step {w['label']} · {outer}: {_kv(outer, ov)} · {inner}: "+', '.join(_kv(inner, x) for x in k), 95)
-            job = _vp06(make_job, _flow_bundle(src, cs, title, sub, v['layers']), lens, granularity, 'reject')
-            inp = {**base, 'step': w['id'], 'job': job}
-            if v['layers']:
-                inp['layer_caption'] = _layer_caption(src, cs, v['layers'])
-            if 'edge_styles' in src:
-                inp['edge_styles'] = copy.deepcopy(src['edge_styles'])
-            inp.update(_flow_method_fields(src, cs, w['id']))
-            inputs.append(inp)
+            vals = f'{_kv(outer, ov)} · {L.partition(inner)}: '+', '.join(_kv(inner, x) for x in k)
+            sub = excerpt(_flow_sub(L, w, L.partition(outer), vals), 95)
+            inputs.append(_flow_input(src, v, view, cs, w, title, sub, granularity, lens, base))
     need(inputs, 'VP07_PANEL_PARTITION', 'source yields no panel', 'partition')
     return inputs
 
@@ -552,43 +687,52 @@ def _outer_ledger(src, outer, granularity, tracks, entries):
     return led
 
 
-def _index_svg(src, view, partition, granularity, entries, coverage, outer_ledger=None):
+def _index_svg(src, view, partition, granularity, entries, coverage, outer_ledger=None, L=None, sets=None):
+    L = L or load_locale(None)
+    if sets is not None:  # VP-07.5 MS-3: panels grouped under their method set, like outer groups (NP-5)
+        outer_ledger = [{'outer_value': m, **x} for m, x in sets.items()]
+        entries = [dict(e, outer_value=e['method_set']) for e in entries]
     base = Printer()
     h = 260+len(entries)*24+60+(len(outer_ledger)*30 if outer_ledger else 0)+sum(12 for e in entries if e.get('layers'))
     if isinstance(partition, list):
         partition = ','.join(partition)
-    root = base._root({'view_id': 'vp07.panel-index', 'title': excerpt('Panels · '+src['title'], 72),
-                       'subtitle': excerpt(f'VP-07 · {view} · partition {partition} · {granularity} · text-only index, no thumbnails', 105)}, h)
+    root = base._root({'view_id': 'vp07.panel-index', 'title': excerpt(L.t('index.title', 'Panels · ')+src['title'], 72),
+                       'subtitle': excerpt(L.t('index.subtitle', 'VP-07 · {view} · partition {partition} · {granularity} · text-only index, no thumbnails',
+                                               view=view, partition=L.partition(partition) if ',' not in partition else
+                                               ','.join(L.partition(x) for x in partition.split(',')), granularity=granularity), 105)}, h)
     root.set('data-printer-profile', src['profile'])
     root.set('data-vp07-index', 'display-only')
-    text(root, 60, 129, 'PANEL INDEX · coverage of declared (cell, step) units · not a verdict', 13, MUTED, 'bold')
+    text(root, 60, 129, L.t('index.header', 'PANEL INDEX · coverage of declared (cell, step) units · not a verdict'), 13, MUTED, 'bold')
     y = 160
     groups = [(None, entries)] if not outer_ledger else \
         [(o, [e for e in entries if e['outer_value'] == o['outer_value']]) for o in outer_ledger]
     for o, es in groups:
         if o is not None:  # NP-5: panels grouped under their outer value
             og = add(root, 'g', **{'data-vp07-outer': str(o['outer_value'])})
-            text(og, 62, y+6, excerpt(f"{o['outer_value']} · {len(o['panels'])} panels · {o['units_covered']}/{o['units_total']} units · "
-                                      f"{o['status']}", 100), 13, '#0F172A', 'bold')
+            text(og, 62, y+6, excerpt(L.t('index.outer', '{value} · {panels} panels · {covered}/{total} units · {status}', value=o['outer_value'],
+                                          panels=len(o['panels']), covered=o['units_covered'], total=o['units_total'], status=o['status']),
+                                      100), 13, '#0F172A', 'bold')
             y += 30
         for e in es:
             g = add(root, 'g', **{'data-vp07-panel': e['panel']})
             text(g, 68, y, e['panel'], 12, '#0F172A', 'bold')
             text(g, 170, y, excerpt(', '.join(str(x) for x in e['key_values']), 52), 12, '#334155')
-            text(g, 600, y, (f"step {e['step']} · " if e.get('step') else '')+f"{len(e['shown_row_ids'])} rows · {len(e['shown_cell_ids'])} cells",
+            text(g, 600, y, (L.t('index.step', 'step {step} · ', step=e['step']) if e.get('step') else '')
+                 + L.t('index.rows_cells', '{rows} rows · {cells} cells', rows=len(e['shown_row_ids']), cells=len(e['shown_cell_ids'])),
                  12, '#334155')
             if e.get('layers'):
                 g.set('data-vp07-layers', ' '.join(e['layers']))
-                text(g, 170, y+13, excerpt('layers: '+' · '.join(e['layers']), 70), 10, MUTED)
+                text(g, 170, y+13, excerpt(L.t('index.layers', 'layers: ')+' · '.join(e['layers']), 70), 10, MUTED)
                 y += 12
             text(g, 900, y, e['svg_sha256'][:16]+'…', 10, MUTED)
             y += 24
     line(root, 60, y, 1140, y, '#E2E8F0')
-    text(root, 68, y+28, f"Coverage {coverage['status']} · {coverage['units_covered']}/{coverage['units_total']} units · "
-         f"{len(coverage['repeated_row_ids'])} repeated rows · {len(coverage['repeated_cell_ids'])} repeated cells", 12, MUTED, 'bold')
+    text(root, 68, y+28, L.t('index.coverage', 'Coverage {status} · {covered}/{total} units · {rr} repeated rows · {rc} repeated cells',
+                             status=coverage['status'], covered=coverage['units_covered'], total=coverage['units_total'],
+                             rr=len(coverage['repeated_row_ids']), rc=len(coverage['repeated_cell_ids'])), 12, MUTED, 'bold')
     svg = ET.tostring(root, encoding='utf-8', xml_declaration=True, short_empty_elements=True)+b'\n'
     need(no_active_content(ET.fromstring(svg)), 'VP07_AUDIT', 'index contains active content', 'audit')
-    return svg
+    return L.post(svg, 'index')
 
 
 def _coverage(src, entries):
@@ -603,8 +747,19 @@ def _coverage(src, entries):
             'repeated_cell_ids': sorted(k for k, n in cc.items() if n > 1), 'is_minimum_proven': False}
 
 
-def print_panels(src, view, partition, granularity, lens=None):
-    v, inputs = build_panels(src, view, partition, granularity, lens)
+def warning_summary(warnings):
+    """WS-1: per code in first-appearance order, `items` = the warning objects without `code`."""
+    out = {}
+    for w in warnings:
+        x = out.setdefault(w['code'], {'code': w['code'], 'count': 0, 'items': []})
+        x['count'] += 1
+        x['items'].append({k: val for k, val in w.items() if k != 'code'})
+    return list(out.values())
+
+
+def print_panels(src, view, partition, granularity, lens=None, locale=None, hide_ledger=False):
+    L, disp = display_options(src, partition, locale, hide_ledger)
+    v, inputs = build_panels(src, view, partition, granularity, lens, locale, hide_ledger)
     files, entries, warnings = {}, [], []
     for i, inp in enumerate(inputs):
         name = f'panel-{i+1:02d}'
@@ -625,6 +780,8 @@ def print_panels(src, view, partition, granularity, lens=None):
         if v['layers']:  # VP-07.2 LD-3: declared layers of the rows shown in the panel
             ids = sorted(set(rows), key=lambda i: layer_key(v['layers'], i))
             extra['layers'] = list(dict.fromkeys(v['layers']['of'][i] for i in ids))
+        if 'method_set' in inp:
+            extra['method_set'] = inp['method_set']
         entries.append({'panel': name, **extra, 'key_values': inp['key_values'], 'step': inp.get('step'), 'shown_row_ids': rows,
                         'shown_cell_ids': cells, 'units': units_of(inp, src), 'svg_sha256': sha_bytes(svg),
                         'input_sha256': sha_bytes(raw), 'panel_report': rep})
@@ -636,13 +793,23 @@ def print_panels(src, view, partition, granularity, lens=None):
         owned = [(t['id'], b) for t in src['transitions'] for b in t.get('methods', [])]+[(c['id'], c['method']) for c in src['cells'] if 'method' in c]
         warnings += [{'code': 'VP07_METHOD_ARGUMENT_HIDDEN', 'owner': o, 'method_id': b['method_id'], 'role': r, 'ref': b['arguments'][r],
                       'declaration_ref': b['declaration_ref']} for o, b in owned for r in b.get('hidden_roles', [])]
-    nested = parse_partition(partition, view, src['profile'])
+    v75 = src['profile'] == P075
+    if v75:  # VP-07.5 §2: a predicate without a display name in the locale shows its ID
+        warnings += [{'code': 'VP07_LOCALE_FALLBACK', 'predicate_id': x, 'locale': L.code}
+                     for x in L.missing_predicates(c['predicate_id'] for c in src['cells'])]
+    sets = mem = None
+    if partition == METHOD_SETS:
+        mem = _memberships(src)
+        sets = _method_set_ledger(src, mem, entries)
+        bad = [m for m, x in sets.items() if x['status'] != 'COMPLETE']
+        need(not bad, 'VP07_PANEL_COVERAGE', 'method sets not covered by their own panels: '+', '.join(bad), 'coverage')
+    nested = None if partition == METHOD_SETS else parse_partition(partition, view, src['profile'])
     outer = None
     if nested is not None:
         outer = _outer_ledger(src, nested[0], granularity, v['tracks'], entries)
         bad = [o['outer_value'] for o in outer if o['status'] != 'COMPLETE']
         need(not bad, 'VP07_PANEL_COVERAGE', 'outer groups not covered by their own panels: '+', '.join(map(str, bad)), 'coverage')
-    files['index.svg'] = _index_svg(src, view, nested or partition, granularity, entries, cov, outer)
+    files['index.svg'] = _index_svg(src, view, nested or partition, granularity, entries, cov, outer, L, sets)
     conflicts = PhasesPrinter.conflicts(v['derived'])
     prof = src['profile']
     report = {'format': REPORT_FORMAT, 'profile': prof, 'reference_version': 'v9.4', 'status': 'PASS',
@@ -652,6 +819,9 @@ def print_panels(src, view, partition, granularity, lens=None):
               **({'outer_ledger': outer, 'declared_gaps': PhasesPrinter.gaps(v['derived'])} if nested is not None else
                  {'declared_gaps': PhasesPrinter.gaps(v['derived'])} if prof in V71UP else {}),
               **({'layer_order': v['layers']['order']} if v['layers'] else {}),
+              **({'locale': L.record()} if not L.identity else {}), **({'ledger_hidden': True} if hide_ledger else {}),
+              **({'method_sets': sets, 'memberships': mem} if sets is not None else {}),
+              **({'warning_summary': warning_summary(warnings)} if v75 else {}),
               'files': {k: sha_bytes(b) for k, b in sorted(files.items())},
               'source_status': 'declared_unverified', **NOT_EVALUATED,
               'notices': ['Panels repeat rows for context; every repetition is listed.',
@@ -698,7 +868,7 @@ def _check(d):
              e['panel']+': SVG differs from deterministic re-render of its input', 'coverage')
         units = units_of(inp, src)
         need(units == e['units'], 'VP07_PANEL_COVERAGE', e['panel']+': ledger units differ from the panel input', 'coverage')
-        if inp['view'] == 'cube.flow' and src['profile'] == P074:  # VP-07.4: line and edge metadata follow from the source
+        if inp['view'] == 'cube.flow' and src['profile'] in V74UP:  # VP-07.4: line and edge metadata follow from the source
             byref = {c['declaration_ref']: c for c in src['cells']}
             cs = [byref[x['declaration_ref']] for x in inp['job']['source_bundle']['view_plan']['edges']]
             want = _flow_method_fields(src, cs, inp['step'])
@@ -721,5 +891,22 @@ def _check(d):
         need(ol == rep.get('outer_ledger') and all(o['status'] == 'COMPLETE' for o in ol), 'VP07_PANEL_COVERAGE',
              'outer ledger differs from the panels or is incomplete (NP-4)', 'coverage')
         extra = {'outer_ledger': ol}
+    if rep.get('partition') == METHOD_SETS:  # MS-3: memberships and set ledger recomputed from the source and the panel inputs
+        mem = _memberships(src)
+        recomputed = []
+        for e in entries:
+            inp = fs_json(d, e['panel']+'.input.json', 'VP07_PANEL_COVERAGE')
+            need(inp.get('method_set') == e.get('method_set'), 'VP07_PANEL_COVERAGE', e['panel']+': method set differs from its input', 'coverage')
+            need(all(inp['method_set'] in mem[c] for c in e['shown_cell_ids']), 'VP07_PANEL_COVERAGE',
+                 e['panel']+': a shown bar is not named by its method set (MS-1)', 'coverage')
+            recomputed.append({'panel': e['panel'], 'method_set': inp.get('method_set'), 'units': units_of(inp, src)})
+        ms = _method_set_ledger(src, mem, recomputed)
+        need(mem == rep.get('memberships') and ms == rep.get('method_sets') and all(x['status'] == 'COMPLETE' for x in ms.values()),
+             'VP07_PANEL_COVERAGE', 'method sets or memberships differ from the panels or are incomplete (MS-3)', 'coverage')
+        extra = {'method_sets': ms}
     return {'format': CHECK_FORMAT, 'profile': rep.get('profile', PROFILE), **extra, 'status': 'PASS', 'panels': len(entries), 'coverage': cov,
             'source_sha256': rep['source_sha256'], **NOT_EVALUATED}
+
+
+print_panels = tag_profile(print_panels, lambda src, *a, **k: src.get('profile') if isinstance(src, dict) else None)
+build_panels = tag_profile(build_panels, lambda src, *a, **k: src.get('profile') if isinstance(src, dict) else None)

@@ -138,6 +138,40 @@ class Surface(unittest.TestCase):
         jsonschema.validate(surface.discover_surface_local(), schema)
 
 
+class C12(unittest.TestCase):
+    """C-12 in G6: new profiles and display options through the plan tools (parity: parity_g6.py, O and H vectors)."""
+    def test_discovery_lists_profiles_and_options(self):
+        pv = surface.discover_surface_local()['domains']['P2']['plan_views']
+        self.assertIn('P2-VP-MIGRATION/0.7.5', pv['printers']['vpmigration']['profiles'])
+        self.assertIn('P2-VP-AXES/0.9.2', pv['printers']['vpaxes']['profiles'])
+        d = pv['display_options']
+        self.assertEqual(d['vpmigration']['locale'], ['de', 'en'])
+        self.assertEqual(d['vpmigration']['selections'], ['method-sets'])
+        self.assertEqual(d['vpaxes']['hide_empty'], ['rows', 'cols', 'both'])
+        self.assertNotIn('plan_views', surface.discover_surface()['domains']['P2'])     # G5 base unchanged
+
+    def test_vp075_options_via_tools(self):
+        s = PV.plan_source(G73['context'], G73['plan_id'], 'vpmigration', profile='P2-VP-MIGRATION/0.7.5')['source']
+        res = PV.plan_views(s, 'cube.phases', 'standard', partition='method-sets', locale='de', hide_ledger=True)
+        self.assertEqual(res['report']['locale']['code'], 'de')
+        self.assertIs(res['report']['ledger_hidden'], True)
+        self.assertTrue(all(x['status'] == 'COMPLETE' for x in res['report']['method_sets'].values()))
+        self.assertEqual(PV.plan_check(res)['status'], 'PASS')
+        self.assertEqual(code_of(PV.plan_views, src73(), 'cube.phases', 'standard', partition='subject', locale='de'), 'VP07_LOCALE_INVALID')
+        self.assertEqual(code_of(PV.plan_views, s, 'cube.phases', 'standard', partition='subject', hide_empty='both'), 'P3_PLAN_ARGUMENT_INVALID')
+
+    def test_vp092_options_via_tools(self):
+        g = json.loads((ROOT/'P2/visual-printer-axes-v1/fixtures/golden_v092.json').read_text('utf-8'))
+        s = PV.plan_source(g['context'], g['plan_id'], 'vpaxes', profile='P2-VP-AXES/0.9.2')['source']
+        res = PV.plan_views(s, 'cube.axes', 'standard', rows='Y:referent', cols='Y:referent', hide_empty='both', locale='de')
+        self.assertEqual(res['report']['hidden_cols'], ['acme:ops-desk'])
+        self.assertEqual(PV.plan_check(res)['status'], 'PASS')
+        with self.assertRaises(PV.PlanFailure) as cm:
+            PV.plan_views(s, 'cube.axes', 'standard', rows='Q', cols='T')
+        self.assertEqual((cm.exception.diagnostic['profile'], cm.exception.diagnostic['input_profile']), ('P2-VP-AXES/0.9.2', 'P2-VP-AXES/0.9.2'))
+        self.assertEqual(code_of(PV.plan_views, s, 'cube.axes', 'standard', rows='F', cols='T', hide_ledger=True), 'P3_PLAN_ARGUMENT_INVALID')
+
+
 class Server(unittest.TestCase):
     def test_tools_registered_and_text_equals_structured(self):
         try:
@@ -150,6 +184,10 @@ class Server(unittest.TestCase):
         ok = server.cube_plan_views(src73(), 'cube.phases', 'standard', partition='subject')
         self.assertFalse(ok.is_error)
         self.assertEqual(ok.content[0].text.encode('utf-8'), PV.canonical(ok.structured_content))
+        s75 = PV.plan_source(G73['context'], G73['plan_id'], 'vpmigration', profile='P2-VP-MIGRATION/0.7.5')['source']
+        de = server.cube_plan_views(s75, 'cube.flow', 'standard', partition='subject', lens='cube.lens.execution', locale='de', hide_ledger=True)
+        self.assertFalse(de.is_error)
+        self.assertIs(de.structured_content['report']['ledger_hidden'], True)
 
 
 if __name__ == '__main__':

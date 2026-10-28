@@ -12,8 +12,8 @@ def source(context, plan_id, tracks=None, track=None, labels=None, steps=None, s
     return {'format': SOURCE_FORMAT, 'printer': 'vpaxes', 'profile': doc.get('profile'), 'source': doc, 'mapping': mapping}
 
 
-def views(source, view='cube.axes', granularity='standard', rows=None, cols=None):
-    report, files = print_panels(source, rows, cols, granularity)
+def views(source, view='cube.axes', granularity='standard', rows=None, cols=None, hide_empty=None, locale=None):
+    report, files = print_panels(source, rows, cols, granularity, hide_empty, locale)
     return via07(to_result, 'vpaxes', view, report, files, 'VP07_PANEL_COVERAGE', code='VP09_PANEL_COVERAGE')
 
 

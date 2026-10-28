@@ -16,8 +16,9 @@ from vpmigration.common import (Printer, NS, add, line, rect, text, excerpt, cjs
                                 sha_bytes, sha_json, KEY, LEVELS, NOT_EVALUATED, STROKE, INK, MUTED, P071, P072)
 
 PROFILE = 'P2-VP-AXES/0.9.0'  # base profile: default of from-plan and of every 0.9.0 code path (VP-09.1 D-1)
-P090, P091 = PROFILE, 'P2-VP-AXES/0.9.1'
-PROFILES = (P090, P091)
+P090, P091, P092 = PROFILE, 'P2-VP-AXES/0.9.1', 'P2-VP-AXES/0.9.2'
+PROFILES = (P090, P091, P092)
+V91UP = (P091, P092)  # profiles with the VP-09.1 F axes and binding ledger (0.9.2 includes 0.9.1, VP-09.2 §1)
 ERROR_FORMAT = 'aiaeao.cube.vp09-diagnostic/1'
 INPUT_FORMAT = 'aiaeao.cube.vp09-axes-input/1'
 AXES = ('X', 'Y:kind', 'Y:referent', 'Z:kind', 'Z:referent', 'T', 'F')
@@ -54,6 +55,19 @@ RULES_091[frozenset({'F', 'Z'})] = 'cell lists declared method bindings of the m
 RULES_091[frozenset({'F', 'Y'})] = 'cell lists declared method bindings of the method that name the identity or resource (owner · role)'
 RULES_091[frozenset({'F', 'T'})] = ('cell lists declared method bindings of the method on transitions at the step, or on dependencies '
                                     'at the first declared step of their successor (else their own last step)')
+# VP-09.2 (0.9.2): Y × Y joins the pair list (directed, D-2); F × T entries carry their arguments (D-3)
+PAIRS_092 = PAIRS_091+({'Y'},)
+RULES_092 = dict(RULES_091)
+RULES_092[frozenset({'F', 'T'})] = RULES_091[frozenset({'F', 'T'})]+', with arguments'
+RULES_092[frozenset({'Y'})] = ('cell lists declared dependencies from the row identity or resource (subject) to the column identity or '
+                               'resource (object), with predicate')
+RULE_KEYS = {frozenset({'Z', 'T'}): 'Z|T', frozenset({'Y', 'T'}): 'Y|T', frozenset({'Y', 'Z'}): 'Y|Z', frozenset({'X'}): 'X',
+             frozenset({'X', 'Z'}): 'X|Z', frozenset({'F', 'Z'}): 'F|Z', frozenset({'F', 'Y'}): 'F|Y', frozenset({'F', 'T'}): 'F|T',
+             frozenset({'Y'}): 'Y'}  # keys of the VP-07.5 locale files (D-6)
+# FA-1: catalog role order of the pinned P1.11 catalog (verified against its file in the tests)
+ROLE_ORDER = {'migrate.import/v1': ('source', 'target'), 'migrate.rebuild/v1': ('target',), 'migrate.retire/v1': ('retired',),
+              'migrate.rewrite/v1': ('dependant', 'new_object'), 'migrate.reconfigure/v1': ('target',)}
+HIDE_EMPTY = ('rows', 'cols', 'both')
 CATALOG_SHA256 = _c.METHOD_CATALOG_SHA256  # pinned P1.11 catalog the IDs above come from (FM-1)
 METHOD_PROFILE_REF = _c.METHOD_PROFILE_REF
 
@@ -67,9 +81,31 @@ class VP09Error(ValueError):
         self.stage = stage
 
     def diagnostic(self):
-        return {'format': ERROR_FORMAT, 'profile': PROFILE, 'status': 'FAIL', 'code': self.code, 'stage': self.stage,
-                'message': str(self), 'files_written': False, 'epistemic_warrant': 'NOT_EVALUATED',
-                'current_authority': 'NOT_EVALUATED', 'canonical_admission': 'NOT_EVALUATED'}
+        d = {'format': ERROR_FORMAT, 'profile': PROFILE, 'status': 'FAIL', 'code': self.code, 'stage': self.stage,
+             'message': str(self), 'files_written': False, 'epistemic_warrant': 'NOT_EVALUATED',
+             'current_authority': 'NOT_EVALUATED', 'canonical_admission': 'NOT_EVALUATED'}
+        if getattr(self, 'input_profile', None):  # VP-09.2 D-8: 0.9.2 inputs only; 0.9.0 / 0.9.1 error output unchanged
+            d.update(profile=self.input_profile, printer_profile=PROFILE)
+        return d
+
+
+def tag_profile(fn, profile_of):
+    """VP-09.2 (i): a VP09Error raised for a 0.9.2 input names that profile (D-8)."""
+    import functools
+
+    @functools.wraps(fn)
+    def wrapped(*a, **k):
+        try:
+            return fn(*a, **k)
+        except VP09Error as e:
+            try:
+                p = profile_of(*a, **k)
+            except Exception:  # noqa: BLE001 - the profile probe never masks the original error
+                p = None
+            if p == P092 and not getattr(e, 'input_profile', None):
+                e.input_profile = p
+            raise
+    return wrapped
 
 
 def need(ok, code, message, stage='input'):
@@ -127,6 +163,35 @@ def wrap_words(s, width):
     if cur:
         out.append(cur)
     return out or ['']
+
+
+SEPS = '-_/.:·'
+
+
+def wrap_sep(s, width):
+    """VP-09.2 WR-1 (D-5): break at spaces and after `- _ / . : ·`; a piece longer than a line is shortened with `…`.
+    Returns (lines, shortened); the caller keeps the full text in `<title>` and the ledger. Used only by 0.9.2."""
+    pieces, cur = [], ''
+    for ch in s:
+        cur += ch
+        if ch == ' ' or ch in SEPS:
+            pieces.append(cur); cur = ''
+    if cur:
+        pieces.append(cur)
+    out, line_, short = [], '', False
+    for pc in pieces:
+        if len(line_)+len(pc.rstrip()) <= width:
+            line_ += pc
+            continue
+        if line_.strip():
+            out.append(line_.rstrip()); line_ = ''
+        if len(pc.rstrip()) > width:
+            out.append(pc.rstrip()[:width-1]+'…'); short = True
+        else:
+            line_ = pc
+    if line_.strip():
+        out.append(line_.rstrip())
+    return out or [''], short
 
 
 def kind_label(k):

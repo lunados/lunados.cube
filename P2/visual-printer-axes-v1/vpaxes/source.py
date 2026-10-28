@@ -8,12 +8,13 @@ import copy
 
 from vpmigration.source import validate_source as _validate_vp07
 from vpmigration.adapter import from_plan as _from_plan
-from .common import PROFILE, P090, P091, INPUT_FORMAT, P071, P072, SEMREF, CATALOG_ORDER, METHOD_PROFILE_REF, need, via07
+from .common import tag_profile, PROFILE, P090, P091, P092, V91UP, INPUT_FORMAT, P071, P072, SEMREF, CATALOG_ORDER, METHOD_PROFILE_REF, need, via07
 
 CTX_FORMATS = ('aiaeao.cube.binding-context/5', 'aiaeao.cube.binding-context/6', 'aiaeao.cube.binding-context/7')
 
 
 KEYS_091 = {'format', 'profile', 'source', 'method_bindings', 'local_methods', 'dropped_arguments'}
+KEYS_092 = KEYS_091 | {'step_roles'}  # VP-09.2: declared step roles travel with the input so the printer can translate them
 BKEYS_091 = {'owner_kind', 'owner', 'method_id', 'arguments', 'declaration_ref'}
 STEP_RULES = ('successor_first', 'own_last')
 
@@ -26,7 +27,7 @@ def profile_of(doc):
 def normalize(doc):
     """Return (source, bindings) for either input form; validate the VP-07 source unchanged."""
     need(isinstance(doc, dict), 'VP09_SOURCE_INVALID', 'input must be an object')
-    if doc.get('format') == INPUT_FORMAT and doc.get('profile') == P091:
+    if doc.get('format') == INPUT_FORMAT and doc.get('profile') in V91UP:
         return _normalize_091(doc)
     if doc.get('format') == INPUT_FORMAT:
         need(set(doc) == {'format', 'profile', 'source', 'method_bindings'} and doc['profile'] == PROFILE, 'VP09_SOURCE_INVALID',
@@ -77,7 +78,14 @@ def check_method(mid, local, where):
 
 
 def _normalize_091(doc):
-    need(set(doc) == KEYS_091, 'VP09_SOURCE_INVALID', 'axes input 0.9.1 needs exactly '+', '.join(sorted(KEYS_091)))
+    keys = KEYS_092 if doc['profile'] == P092 else KEYS_091
+    need(set(doc) == keys, 'VP09_SOURCE_INVALID', f"axes input {doc['profile'].rsplit('/', 1)[1]} needs exactly "+', '.join(sorted(keys)))
+    if doc['profile'] == P092:
+        sr = doc['step_roles']
+        need(isinstance(sr, dict) and isinstance(doc['source'], dict) and isinstance(doc['source'].get('steps'), list)
+             and set(sr) == {x.get('id') for x in doc['source']['steps'] if isinstance(x, dict)}
+             and all(isinstance(r, str) and len(r) <= 24 for r in sr.values()), 'VP09_SOURCE_INVALID',
+             'step_roles must map every source step to its declared role (VP-09.2)')
     src, bindings, local, dropped = doc['source'], doc['method_bindings'], doc['local_methods'], doc['dropped_arguments']
     need(isinstance(src, dict) and src.get('profile') in (P071, P072), 'VP09_SOURCE_INVALID',
          'VP-09 reads VP-07 migration sources 0.7.1 or 0.7.2 (AQ-1)')
@@ -112,9 +120,9 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
 
     profile None or 0.9.0 keeps the 0.9.0 transcription byte for byte; 0.9.1 adds paths, slice accounting and steps (VP-09.1).
     """
-    need(profile in (None, P090, P091), 'VP09_ADAPTER_INPUT', f'profile must be {P090} or {P091}')
-    if profile == P091:
-        return _from_plan_091(context, plan_id, tracks, track, labels, steps, subjects, layers)
+    need(profile in (None, P090, P091, P092), 'VP09_ADAPTER_INPUT', f'profile must be {P090}, {P091} or {P092}')
+    if profile in V91UP:
+        return _from_plan_091(context, plan_id, tracks, track, labels, steps, subjects, layers, profile)
     need(isinstance(context, dict) and context.get('format') in CTX_FORMATS, 'VP09_ADAPTER_INPUT',
          'context must be binding-context /5, /6 or /7')
     view = copy.deepcopy(context)
@@ -149,7 +157,7 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
     return {'format': INPUT_FORMAT, 'profile': PROFILE, 'source': src, 'method_bindings': bindings}, mapping
 
 
-def _from_plan_091(context, plan_id, tracks, track, labels, steps, subjects, layers):
+def _from_plan_091(context, plan_id, tracks, track, labels, steps, subjects, layers, profile=P091):
     need(isinstance(context, dict) and context.get('format') in CTX_FORMATS, 'VP09_ADAPTER_INPUT',
          'context must be binding-context /5, /6 or /7')
     ctx_id = context.get('context_id')
@@ -204,8 +212,13 @@ def _from_plan_091(context, plan_id, tracks, track, labels, steps, subjects, lay
             else:
                 x['step'], x['step_rule'] = d['holds_in'][-1], 'own_last'
         bindings.append(x)
-    return {'format': INPUT_FORMAT, 'profile': P091, 'source': src, 'local_methods': local, 'method_bindings': bindings,
-            'dropped_arguments': dropped}, mapping
+    doc = {'format': INPUT_FORMAT, 'profile': profile, 'source': src, 'local_methods': local, 'method_bindings': bindings,
+           'dropped_arguments': dropped}
+    if profile == P092:  # VP-09.2: declared roles of the shown steps (from the plan's phases)
+        mp = plan or next((x for x in context.get('migration_plans', []) if isinstance(x, dict) and x.get('plan_id') == plan_id), {})
+        role = {ph.get('phase_id'): ph.get('role', '') for ph in mp.get('phases', []) if isinstance(ph, dict)}
+        doc['step_roles'] = {s['id']: role.get(s['id'], '') for s in src['steps']}
+    return doc, mapping
 
 
 def method_order(bindings):
@@ -215,3 +228,6 @@ def method_order(bindings):
             seen.append(b['method_id'])
     return [m for m in CATALOG_ORDER if m in seen]+[m for m in seen if m not in CATALOG_ORDER]
 
+
+
+from_plan = tag_profile(from_plan, lambda *a, **k: k.get('profile'))

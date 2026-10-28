@@ -4,19 +4,24 @@ import argparse
 import sys
 from pathlib import Path
 
-from .common import PROFILE, P091, PROFILES, PAIRS_091, AXES, RESERVED, PAIRS, BUDGET, LEVELS, VP09Error, encode, load_json, publish_dir, write_new
+from .common import PROFILE, P091, P092, V91UP, PAIRS_092, HIDE_EMPTY, PROFILES, PAIRS_091, AXES, RESERVED, PAIRS, BUDGET, LEVELS, VP09Error, encode, load_json, publish_dir, write_new
 from .source import from_plan
 from .axes import render_axes
 from .panels import print_panels, check_panels
 
 
 def capabilities(profile=PROFILE):
-    v91 = profile == P091
+    v91, v92 = profile in V91UP, profile == P092
     extra = {'profiles': list(PROFILES), 'method_catalog': 'P1.11/migration-methods-v1 (IDs pinned; local method contracts allowed)',
              'binding_ledger': True} if v91 else {}
+    if v92:
+        from vpmigration.locale import PINNED
+        extra.update(display_options={'hide_empty': list(HIDE_EMPTY), 'locale': sorted(PINNED),
+                                      'note': 'display text only; IDs, method IDs and report keys are never translated'},
+                     f_t_arguments=True, wrap='separators (D-5)')
     return {'format': 'aiaeao.cube.vp09-capabilities/1', 'profile': profile, 'reference_version': 'v9.4', 'views': ['cube.axes'], **extra,
             'axes': list(AXES), 'reserved_axes': list(RESERVED),
-            'pairs': [sorted(p) if len(p) > 1 else ['X', 'X'] for p in (PAIRS_091 if v91 else PAIRS)],
+            'pairs': [sorted(p) if len(p) > 1 else [min(p), min(p)] for p in (PAIRS_092 if v92 else PAIRS_091 if v91 else PAIRS)],
             'granularities': list(LEVELS), 'budgets': {k: dict(zip(('rows', 'cols', 'entries_per_cell'), v)) for k, v in BUDGET.items()},
             'operations': ['capabilities', 'from-plan', 'check-axes', 'print-axes', 'print-panels', 'check-panels'],
             'inputs': ['aiaeao.cube.vp07-migration-source/1 (0.7.1, 0.7.2)', 'aiaeao.cube.vp09-axes-input/1'],
@@ -30,7 +35,7 @@ def main(argv=None):
     cap = s.add_parser('capabilities')
     cap.add_argument('--profile', choices=PROFILES, default=PROFILE)
     fp = s.add_parser('from-plan')
-    fp.add_argument('--profile', choices=PROFILES, default=PROFILE, help='0.9.0 (default) or 0.9.1 (VP-09.1, D-1)')
+    fp.add_argument('--profile', choices=PROFILES, default=PROFILE, help='0.9.0 (default), 0.9.1 (VP-09.1) or 0.9.2 (VP-09.2)')
     for a in ('--context', '--plan', '--out'):
         fp.add_argument(a, required=True)
     for a in ('--tracks', '--track', '--labels', '--steps', '--subjects', '--layers'):
@@ -41,6 +46,8 @@ def main(argv=None):
         x.add_argument('--rows', required=True)
         x.add_argument('--cols', required=True)
         x.add_argument('--granularity', default='standard')
+        x.add_argument('--hide-empty', choices=HIDE_EMPTY, help='VP-09.2: leave out values without any entry (0.9.2 inputs)')
+        x.add_argument('--locale', help='VP-09.2 display locale (0.9.2 inputs): de, en')
         if name != 'check-axes':
             x.add_argument('--out', required=True)
     cp = s.add_parser('check-panels')
@@ -58,21 +65,27 @@ def main(argv=None):
             write_new(target, encode(doc))
             out.write(encode({'status': 'PASS', 'operation': 'from-plan', 'input_file': str(target), 'cells': len(doc['source']['cells']),
                               'method_bindings': len(doc['method_bindings']), **({'profile': P091, 'dropped_arguments':
-                              len(doc['dropped_arguments'])} if a.profile == P091 else {})}))
+                              len(doc['dropped_arguments'])} if a.profile in V91UP else {}), **({'profile': a.profile} if a.profile == P092 else {})}))
             return 0
         if a.command in ('check-axes', 'print-axes'):
-            report, svg = render_axes(load_json(a.input, 'VP09_SOURCE_INVALID'), a.rows, a.cols, a.granularity)
+            report, svg = render_axes(load_json(a.input, 'VP09_SOURCE_INVALID'), a.rows, a.cols, a.granularity, a.hide_empty, a.locale)
             if a.command == 'print-axes':
                 d = publish_dir({'render.svg': svg, 'report.json': encode(report)}, a.out)
-                out.write(encode({'status': 'PASS', 'operation': a.command, 'output_dir': str(d), 'warnings': report['warnings']}))
+                res = {'status': 'PASS', 'operation': a.command, 'output_dir': str(d), 'warnings': report['warnings']}
+                if 'warning_summary' in report:  # VP-09.2 D-7: grouped hints instead of one line per hint
+                    res['warnings'] = [{'code': w['code'], 'count': w['count']} for w in report['warning_summary']]
+                out.write(encode(res))
             else:
                 out.write(encode(report))
             return 0
         if a.command == 'print-panels':
-            report, files = print_panels(load_json(a.input, 'VP09_SOURCE_INVALID'), a.rows, a.cols, a.granularity)
+            report, files = print_panels(load_json(a.input, 'VP09_SOURCE_INVALID'), a.rows, a.cols, a.granularity, a.hide_empty, a.locale)
             d = publish_dir(files, a.out)
-            out.write(encode({'status': 'PASS', 'operation': 'print-panels', 'output_dir': str(d), 'panels': report['panel_count'],
-                              'coverage': report['coverage']['status']}))
+            res = {'status': 'PASS', 'operation': 'print-panels', 'output_dir': str(d), 'panels': report['panel_count'],
+                   'coverage': report['coverage']['status']}
+            if 'warning_summary' in report:
+                res['warning_summary'] = [{'code': w['code'], 'count': w['count']} for w in report['warning_summary']]
+            out.write(encode(res))
             return 0
         out.write(encode(check_panels(a.dir)))
         return 0

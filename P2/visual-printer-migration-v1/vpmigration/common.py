@@ -27,14 +27,17 @@ P071 = 'P2-VP-MIGRATION/0.7.1'
 P072 = 'P2-VP-MIGRATION/0.7.2'
 P073 = 'P2-VP-MIGRATION/0.7.3'
 P074 = 'P2-VP-MIGRATION/0.7.4'
-PROFILES = (P070, P071, P072, P073, P074)
-V71UP = (P071, P072, P073, P074)  # profiles with the VP-07.1 features
-V72UP = (P072, P073, P074)  # profiles with the VP-07.2 layer features (0.7.3 includes 0.7.2, VP-07.3 §1)
-V73UP = (P073, P074)  # profiles with VP-07.3 method fields (0.7.4 includes 0.7.3, VP-07.4 §1)
+P075 = 'P2-VP-MIGRATION/0.7.5'
+PROFILES = (P070, P071, P072, P073, P074, P075)
+V71UP = (P071, P072, P073, P074, P075)  # profiles with the VP-07.1 features
+V72UP = (P072, P073, P074, P075)  # profiles with the VP-07.2 layer features (0.7.3 includes 0.7.2, VP-07.3 §1)
+V73UP = (P073, P074, P075)  # profiles with VP-07.3 method fields (0.7.4 includes 0.7.3, VP-07.4 §1)
+V74UP = (P074, P075)  # profiles with the VP-07.4 flow methods line (0.7.5 includes 0.7.4, VP-07.5 §1)
+METHOD_SETS = 'method-sets'  # VP-07.5 (e): selection mode of print-panels (a bar may be in several sets)
 NONE_GROUP = 'none'  # VP-07.4 D-3: reserved partition group of bars without a declared method
 UNASSIGNED = 'unassigned'  # VP-07.2 D-4 reserved layer name
 PROFILE = P070  # base profile of the unchanged 0.7.0 code path and diagnostics (VP-07.1 PD-1)
-LATEST = P074
+LATEST = P075
 # VP-07.3 D-6: P1.11 catalog method IDs in catalog order (pinned profile P1.11/migration-methods-v1); shared with VP-09
 METHOD_PROFILE_REF = 'P1.11/migration-methods-v1'
 METHOD_CATALOG = ('migrate.import/v1', 'migrate.rebuild/v1', 'migrate.retire/v1', 'migrate.rewrite/v1', 'migrate.reconfigure/v1')
@@ -66,9 +69,28 @@ class VP07Error(ValueError):
         self.stage = stage
 
     def diagnostic(self):
-        return {'format': ERROR_FORMAT, 'profile': PROFILE, 'status': 'FAIL', 'code': self.code, 'stage': self.stage,
-                'message': str(self), 'files_written': False, 'epistemic_warrant': 'NOT_EVALUATED',
-                'current_authority': 'NOT_EVALUATED', 'canonical_admission': 'NOT_EVALUATED'}
+        d = {'format': ERROR_FORMAT, 'profile': PROFILE, 'status': 'FAIL', 'code': self.code, 'stage': self.stage,
+             'message': str(self), 'files_written': False, 'epistemic_warrant': 'NOT_EVALUATED',
+             'current_authority': 'NOT_EVALUATED', 'canonical_admission': 'NOT_EVALUATED'}
+        if getattr(self, 'input_profile', None):  # VP-07.5 D-8: 0.7.5 inputs only; older error output unchanged
+            d.update(profile=self.input_profile, printer_profile=PROFILE)
+        return d
+
+
+def tag_profile(fn, profile_of):
+    """VP-07.5 (i): run fn; a VP07Error raised for a 0.7.5 input names that profile (D-8)."""
+    import functools
+
+    @functools.wraps(fn)  # keeps the signature visible to inspect (pin scripts probe for `profile`)
+    def wrapped(*a, **k):
+        try:
+            return fn(*a, **k)
+        except VP07Error as e:
+            p = profile_of(*a, **k)
+            if p == P075 and not getattr(e, 'input_profile', None):
+                e.input_profile = p
+            raise
+    return wrapped
 
 
 def need(ok, code, message, stage='input'):

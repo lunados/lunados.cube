@@ -7,7 +7,7 @@ from __future__ import annotations
 import copy
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, V73UP, method_short, method_sorted, check_binding, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
+from .common import (PROFILE, PROFILES, P071, P072, P073, P075, V71UP, V72UP, V73UP, method_short, method_sorted, check_binding, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
                      add, line, rect, text, wrap_label, excerpt, source_digest, cjson, sha_bytes, VP07Error, need, keys,
                      clean, check_edge_styles, no_active_content, fmt)
 
@@ -85,9 +85,16 @@ def hatch(parent, x, y, w, h, direction):
     return g
 
 
+def step_label(s, L):
+    """VP-07.5: a step with a declared role shows the role in the display locale; otherwise its declared label."""
+    return excerpt(f"{s['id']} · {L.role(s['role'])}", 40) if 'role' in s and not L.identity else s['label']
+
+
 class PhasesPrinter:
     def __init__(self):
         self.base = Printer()
+        from .locale import load
+        self.L, self.hide_ledger = load(None), False  # identity: every pre-0.7.5 text unchanged
 
     # -- validation ---------------------------------------------------------
     def validate(self, plan):
@@ -109,7 +116,9 @@ class PhasesPrinter:
         need(isinstance(steps, list) and len(steps) >= 2, 'VP07_PHASES_STEPS', 'cube.phases needs at least two declared steps')
         index = {}
         for s in steps:
-            keys(s, ('id', 'label'), (), 'VP07_PHASES_PLAN', 'step')
+            keys(s, ('id', 'label'), ('role',) if plan.get('printer_profile') == P075 else (), 'VP07_PHASES_PLAN', 'step')
+            if 'role' in s:
+                need(clean(s['role'], 24), 'VP07_PHASES_PLAN', 'step role must be clean text <= 24')
             need(isinstance(s['id'], str) and KEY.fullmatch(s['id']) is not None, 'VP07_PHASES_PLAN', 'step id must be a stable ID')
             need(clean(s['label'], 40), 'VP07_PHASES_PLAN', 'step label must be clean text <= 40')
             need(s['id'] not in index, 'VP07_PHASES_STEPS', 'duplicate step '+s['id'])
@@ -382,7 +391,7 @@ class PhasesPrinter:
             rect(g, fmt(x+3), fmt(y+3), fmt(w-6), BAR_H-6, STROKE, 'none', 3).set('data-vp07-double', 'twin')
         for x0, w0, kind in conflicts:
             hatch(g, x0, y, w0, BAR_H, '/' if kind == 'holds_after_retirement' else '\\')
-        legend = (d['styles'] or {}).get(c['predicate_id'], {}).get('legend', c['predicate_id'])
+        legend = (d['styles'] or {}).get(c['predicate_id'], {}).get('legend', self.L.pred(c['predicate_id']))
         chars = max(6, int((w-34)/6.6))
         label = excerpt(o['label']+' · '+legend, chars)
         if m:                                              # MD-2: the method is never cut; object and predicate shorten first
@@ -438,11 +447,11 @@ class PhasesPrinter:
             add(tg, 'circle', cx=fmt(last), cy=fmt(cy), r=5, fill=MUTED, stroke=MUTED, stroke_width=2)
         text(tg, fmt(last+9), fmt(cy+4), code, 11, INK, 'bold')
 
-    @staticmethod
-    def _tlegend(plan, pr):
+    def _tlegend(self, plan, pr):
         """TM-5: per shown transition its code, full ID, declared step and object/subject labels (wrapped, never cut)."""
         d = pr['derived']
-        steps = {s['id']: s['label'] for s in plan['steps']}
+        L = self.L
+        steps = {s['id']: step_label(s, L) for s in plan['steps']}
 
         def lab(x):
             it = d['objects'].get(x) or d['rows'].get(x)
@@ -451,19 +460,30 @@ class PhasesPrinter:
         for t in pr['transitions']:
             parts = []
             if t['retires']:
-                parts.append('retires '+', '.join(lab(x) for x in t['retires']))
+                parts.append(L.t('transitions.retires', 'retires')+' '+', '.join(lab(x) for x in t['retires']))
             if t['introduces']:
-                parts.append('introduces '+', '.join(lab(x) for x in t['introduces']))
+                parts.append(L.t('transitions.introduces', 'introduces')+' '+', '.join(lab(x) for x in t['introduces']))
             if d.get('v73') and t.get('methods'):         # VP-07.3 D-2/D-4: methods of the transition, catalog order
                 parts.append(', '.join(method_short(m) for m in method_sorted(b['method_id'] for b in t['methods'])))
-            body = f"{t['id']} · at {steps[t['at']]} · "+' · '.join(parts)
+            body = f"{t['id']} · {L.t('transitions.at', 'at')} {steps[t['at']]} · "+' · '.join(parts)
             code = d['codes'][t['id']]
             out.append((code, t['id'], wrap_words(body, 110), code+' · '+body+' · '+t['declaration_ref']))
         return out
 
-    def render(self, plan, overflow='summarize'):
+    def render(self, plan, overflow='summarize', locale=None, hide_ledger=False):
+        """locale / hide_ledger only for 0.7.5 plans (VP-07.5 D-1); the caller checks the profile."""
+        from .locale import load
+        self.L, self.hide_ledger = load(locale), bool(hide_ledger)
         pr = self.project(plan, overflow)
-        return self._render(plan, pr), pr
+        disp = {}
+        if not self.L.identity:
+            disp['locale'] = self.L.record()
+        if self.hide_ledger:
+            disp['ledger_hidden'] = True
+        if disp:
+            pr['display'] = disp
+        svg = self._render(plan, pr)
+        return self.L.post(svg, 'phases'), pr
 
     def _render(self, plan, pr):
         d = pr['derived']
@@ -493,7 +513,7 @@ class PhasesPrinter:
         shown_conf = [x for x in pr['conflicts'] if x['shown']]
         legend_lines = len(used_styles)+2+(1 if any(x['kind'] == 'holds_after_retirement' for x in shown_conf) else 0) + \
             (1 if any(x['kind'] == 'holds_before_introduction' for x in shown_conf) else 0)
-        ledger_lines = len(pr['cells'])
+        ledger_lines = 0 if self.hide_ledger else len(pr['cells'])
         height = int(grid_bottom+70+legend_lines*22+40+ledger_lines*19+70)
         shown_methods = d.get('v73') and (any(t.get('methods') for t in pr['transitions']) or any(c.get('method') for c in pr['cells']))
         if shown_methods:
@@ -501,17 +521,20 @@ class PhasesPrinter:
         if v71:
             height += (22 if shown_gaps else 0)+(44+sum(18*(len(e[2])-1)+24 for e in tlegend) if tlegend else 0)
         root = self.base._root({'view_id': 'cube.phases', 'title': plan['title'],
-                                'subtitle': plan.get('subtitle', 'v9.4 · VP-07 · declared migration steps · display-only projection')}, height)
+                                'subtitle': plan.get('subtitle', self.L.t('phases.subtitle_default', 'v9.4 · VP-07 · declared migration steps · display-only projection'))}, height)
         root.set('data-printer-profile', plan['printer_profile'])
         root.set('data-cube-view', 'cube.phases')
         root.set('data-vp07-granularity', plan['granularity'])
-        text(root, 60, 129, 'CUBE.PHASES · DECLARED STEPS AND DEPENDENCIES · step order is declared, not a time axis', 13, MUTED, 'bold')
+        if self.hide_ledger:
+            root.set('data-vp07-ledger-hidden', 'true')
+        L = self.L
+        text(root, 60, 129, L.t('phases.header', 'CUBE.PHASES · DECLARED STEPS AND DEPENDENCIES · step order is declared, not a time axis'), 13, MUTED, 'bold')
         # header: steps
         for i, s in enumerate(steps):
             x = GX0+i*cw
             hg = add(root, 'g', **{'data-step-id': s['id']})
             rect(hg, fmt(x+2), 156+dy, fmt(cw-4), 30, '#CBD5E1', '#F1F5F9', 6)
-            text(hg, fmt(x+cw/2), 176+dy, excerpt(s['label'], max(6, int((cw-12)/6.8))), 12, '#1E293B', 'bold', anchor='middle')
+            text(hg, fmt(x+cw/2), 176+dy, excerpt(step_label(s, L), max(6, int((cw-12)/6.8))), 12, '#1E293B', 'bold', anchor='middle')
             line(root, fmt(x), 190+dy, fmt(x), fmt(grid_bottom), '#E2E8F0')
         line(root, GX1, 190+dy, GX1, fmt(grid_bottom), '#E2E8F0')
         # rows
@@ -576,11 +599,11 @@ class PhasesPrinter:
         # legend (ES-3, PV-4, PV-5)
         y = grid_bottom+40
         lg = add(root, 'g', **{'data-vp07-legend': 'display-only'})
-        text(lg, 62, fmt(y), 'LEGEND · declared display conventions · not a verdict', 13, MUTED, 'bold')
+        text(lg, 62, fmt(y), L.t('legend.title', 'LEGEND · declared display conventions · not a verdict'), 13, MUTED, 'bold')
         y += 24
         if d['styles'] is None:
             rect(lg, 70, fmt(y-12), 60, 12, STROKE, '#F8FAFC', 3)
-            text(lg, 142, fmt(y), 'bar · one declared dependency across its declared steps (object · predicate)', 12, '#334155')
+            text(lg, 142, fmt(y), L.t('legend.bar', 'bar · one declared dependency across its declared steps (object · predicate)'), 12, '#334155')
             y += 22
         for pid, st in (used_styles if d['styles'] is not None else []):
             sample = line(lg, 70, fmt(y-4), 130, fmt(y-4), STROKE)
@@ -588,36 +611,37 @@ class PhasesPrinter:
                 sample.set('stroke-dasharray', DASH[st])
             if st == 'double':
                 line(lg, 70, fmt(y-1), 130, fmt(y-1), STROKE)
-            lab = styles[pid]['legend'] if pid in styles else pid+' · unstyled'
+            lab = styles[pid]['legend'] if pid in styles else L.t('legend.unstyled', '{predicate} · unstyled', predicate=L.pred(pid))
             text(lg, 142, fmt(y), f'{st} · {lab}', 12, '#334155')
             y += 22
         add(lg, 'circle', cx=76, cy=fmt(y-4), r=5, fill='#FFFFFF', stroke=MUTED, stroke_width=2)
-        text(lg, 142, fmt(y), 'outlined marker · transition declares a retirement at this step boundary', 12, '#334155')
+        text(lg, 142, fmt(y), L.t('legend.marker_retire', 'outlined marker · transition declares a retirement at this step boundary'), 12, '#334155')
         y += 22
         add(lg, 'circle', cx=76, cy=fmt(y-4), r=5, fill=MUTED, stroke=MUTED, stroke_width=2)
-        text(lg, 142, fmt(y), 'filled marker · transition declares an introduction at this step boundary', 12, '#334155')
+        text(lg, 142, fmt(y), L.t('legend.marker_intro', 'filled marker · transition declares an introduction at this step boundary'), 12, '#334155')
         y += 22
         for kind, label in (('holds_after_retirement', 'hatch / · declared to hold after its object is retired'),
                             ('holds_before_introduction', 'hatch \\ · declared to hold before its object is introduced')):
             if any(x['kind'] == kind for x in shown_conf):
                 hatch(lg, 70, y-14, 60, 14, '/' if kind == 'holds_after_retirement' else '\\')
                 rect(lg, 70, fmt(y-14), 60, 14, STROKE, 'none', 2)
-                text(lg, 142, fmt(y), LW1[kind] if v71 else label, 12, '#334155')
+                lkey = 'legend.hatch_after' if kind == 'holds_after_retirement' else 'legend.hatch_before'
+                text(lg, 142, fmt(y), L.t(lkey, LW1[kind]) if v71 else L.t(lkey+'_070', label), 12, '#334155')
                 y += 22
         if v71 and shown_gaps:
             rect(lg, 70, fmt(y-14), 48, 14, STROKE, '#F8FAFC', 2)
             self._cap(lg, 124, y-16, 18)
-            text(lg, 142, fmt(y), GAP_LEGEND, 12, '#334155')
+            text(lg, 142, fmt(y), L.t('legend.gap', GAP_LEGEND), 12, '#334155')
             y += 22
         if shown_methods:                                  # MD-3: words only, no colour, hatch or glyph for methods
-            text(lg, 70, fmt(y), '· verb', 12, INK, 'bold')
-            text(lg, 142, fmt(y), 'method · declared P1.11 binding on a transition (legend) or bar (suffix) · display only, not checked here',
+            text(lg, 70, fmt(y), L.t('legend.method_sample', '· verb'), 12, INK, 'bold')
+            text(lg, 142, fmt(y), L.t('legend.method', 'method · declared P1.11 binding on a transition (legend) or bar (suffix) · display only, not checked here'),
                  12, '#334155')
             y += 22
         if tlegend:
             y += 22
             tl = add(root, 'g', **{'data-vp07-transition-legend': 'display-only'})
-            text(tl, 62, fmt(y), 'TRANSITIONS · declared step boundaries · codes are stable across panels', 13, MUTED, 'bold')
+            text(tl, 62, fmt(y), L.t('transitions.title', 'TRANSITIONS · declared step boundaries · codes are stable across panels'), 13, MUTED, 'bold')
             y += 22
             for code, tid, lines, full in tlegend:
                 eg = add(tl, 'g', **{'data-vp07-legend-code': code, 'data-transition-id': tid})
@@ -630,15 +654,17 @@ class PhasesPrinter:
                 y += 24
         # declaration ledger
         y += 18
-        text(root, 62, fmt(y), 'DECLARATION LEDGER · each bar is a declared, unverified assertion', 13, MUTED, 'bold')
-        for c in pr['cells']:
+        if not self.hide_ledger:  # VP-07.5 (b): the drawn ledger only; embedded ledger and report keep everything
+            text(root, 62, fmt(y), L.t('ledger.title', 'DECLARATION LEDGER · each bar is a declared, unverified assertion'), 13, MUTED, 'bold')
+        for c in ([] if self.hide_ledger else pr['cells']):
             y += 19
             text(root, 68, fmt(y), f"{c['id']} · {excerpt(c['row'], 18)} → {excerpt(c['object'], 18)} · {excerpt(c['predicate_id'], 18)} · "
                  f"{c['steps'][0]}–{c['steps'][-1]}", 11, '#334155')
             text(root, 640, fmt(y), excerpt(c['declaration_ref'], 82), 10, MUTED)
         s = self.summary(plan, pr)
-        text(root, 62, fmt(y+30), f"Shown {s['rows_shown']} rows / {s['cells_shown']} cells · omitted {s['rows_omitted']} rows / "
-             f"{s['cells_omitted']} cells / {s['transitions_omitted']} transitions · {plan['granularity'].upper()} budget", 12, MUTED)
+        text(root, 62, fmt(y+30), L.t('summary', 'Shown {rows} rows / {cells} cells · omitted {orows} rows / {ocells} cells / {otr} transitions · {budget} budget',
+                                      rows=s['rows_shown'], cells=s['cells_shown'], orows=s['rows_omitted'], ocells=s['cells_omitted'],
+                                      otr=s['transitions_omitted'], budget=plan['granularity'].upper()), 12, MUTED)
         meta = add(root, 'metadata', id='vp07-phases-ledger')
         meta.text = cjson(self.ledger(plan, pr))
         svg = ET.tostring(root, encoding='utf-8', xml_declaration=True, short_empty_elements=True)+b'\n'
@@ -666,6 +692,7 @@ class PhasesPrinter:
         if pr['derived'].get('v73'):                       # VP-07.3 §1.6: methods of every shown transition and bar
             led['methods'] = {'transitions': {t['id']: t['methods'] for t in pr['transitions'] if t.get('methods')},
                               'cells': {c['id']: c['method'] for c in pr['cells'] if c.get('method')}}
+        led.update(pr.get('display', {}))                  # VP-07.5: locale record and ledger_hidden (0.7.5 options only)
         return led
 
     def report(self, plan, svg, pr):

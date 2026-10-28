@@ -1,6 +1,7 @@
 # VP-09.2 — Y × Y, arguments in F × T and readable cells · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-9 resolved 2026-10-28 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-28 (decisions D-1…D-9 as proposed; oracle and 0.9.1 pins before code, `e52d337`). H-01…H-16 16/16; 0.9.0 and 0.9.1 byte-identical.
+**Implementation notes:** (1) the 0.9.2 axes input adds `step_roles` (declared role per step) so that step headers can be translated; (2) an invalid `--hide-empty` value is `VP09_AXIS_INVALID`; (3) vector corrections before the code commit: H-04 uses the slice `shop, crm-sync` (the base plan already declares Y → Y via `support`), and the H-13 oracle entry now carries the 80-character ID of §5 (one `x` was missing).
 **Profile:** `P2-VP-AXES/0.9.2`, follow-up to `0.9.1` (VP-09.1, PR #22) in `vpaxes`; opt-in via `from-plan --profile`.
 **Requirement:** C-12 items (a), (c), (d), (f), (g), (h), (i) for VP-09 (field test 2026-10-28; client details withheld). Item (b) does not apply: VP-09 draws no ledger block (the ledger is embedded only). Items (b) and (e) and the VP-07 parts of (a), (h), (i) are VP-07.5.
 **Basis:** `VP09_ACCEPTANCE_SPEC.md` (AX-1…AX-3, CM table, D-2 pair list, D-7 overflow), `VP09_1_ACCEPTANCE_SPEC.md` (FL binding ledger, D-3 step rule, D-6 entry text), `VP07_5_ACCEPTANCE_SPEC.md` (locale profile, D-2); Morphology v9.4 §3.3 (blank cells do not impose a relationship).

@@ -57,19 +57,26 @@ def from_plan(printer, context, plan_id, **opt):
         return (Path(tmp)/'out.json').read_bytes(), (m.read_bytes() if m.exists() else None)
 
 
-def print_panels(printer, source, view=None, partition=None, granularity='standard', lens=None, rows=None, cols=None, overflow=None):
+def print_panels(printer, source, view=None, partition=None, granularity='standard', lens=None, rows=None, cols=None, overflow=None,
+                 locale=None, hide_ledger=False, hide_empty=None):
     """CLI print-panels → {file name: bytes}."""
     with tempfile.TemporaryDirectory() as tmp:
         src, out = _write(tmp, 'src.json', source), Path(tmp)/'p'
         if printer == 'vpmigration':
             args = ['print-panels', '--source', src, '--view', view, '--partition', partition, '--granularity', granularity, '--out', out]
             if lens:
-                args += ['--lens', lens]
+                args = args[:-2]+['--lens', lens]+args[-2:]
+            if hide_ledger:
+                args = args[:-2]+['--hide-ledger']+args[-2:]
         elif printer == 'vpsequence':
             args = ['print-panels', '--source', src, '--partition', partition or 'trigger', '--granularity', granularity,
                     '--overflow', overflow or 'summarize', '--out', out]
         else:
             args = ['print-panels', '--input', src, '--rows', rows, '--cols', cols, '--granularity', granularity, '--out', out]
+            if hide_empty:
+                args = args[:-2]+['--hide-empty', hide_empty]+args[-2:]
+        if locale and printer != 'vpsequence':
+            args = args[:-2]+['--locale', locale]+args[-2:]
         run(printer, *args)
         return {f.name: f.read_bytes() for f in out.iterdir()}
 

@@ -1,0 +1,11 @@
+{
+ "format": "aiaeao.cube.p2-locale/1",
+ "locale": "en",
+ "identity": true,
+ "notes": ["Identity locale: every key falls back to the built-in English text; IDs are display names; no replacement of frozen texts."],
+ "text": {},
+ "step_roles": {},
+ "predicates": {},
+ "partitions": {},
+ "replace": []
+}
