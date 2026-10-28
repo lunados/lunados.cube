@@ -79,6 +79,22 @@ def load_json(path, code='VP08_INPUT_INVALID'):
     return _vp07(_c.load_json, path, code.replace('VP08_', 'VP07_'))
 
 
+def fs_isdir(d):
+    return _c.fs_isdir(d)
+
+
+def fs_names(d):
+    return _c.fs_names(d)
+
+
+def fs_bytes(d, name, code='VP08_INPUT_INVALID'):
+    return _vp07(_c.fs_bytes, d, name, code.replace('VP08_', 'VP07_'))
+
+
+def fs_json(d, name, code='VP08_INPUT_INVALID'):
+    return _vp07(_c.fs_json, d, name, code.replace('VP08_', 'VP07_'))
+
+
 def publish_dir(files, output_dir):
     return _vp07(_c.publish_dir, files, output_dir)
 

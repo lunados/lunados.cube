@@ -15,6 +15,12 @@ TOOLS = (
     'cube_discover_surface',
 )
 PRINTER_TOOLS = TOOLS[:4]
+# G6: the local server adds three plan-view tools. `discover_surface()` stays the G4 card byte for byte, because
+# the G5 remote surface is derived from it and must not list plan tools (C-13 §5); the local server uses
+# `discover_surface_local()`.
+RELEASE_G6 = 'P3-MCP-LOCAL/0.3.0-rc1'
+PLAN_TOOLS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
+TOOLS_G6 = TOOLS+PLAN_TOOLS
 P1_STATUSES = ('PASS', 'FAIL', 'UNRESOLVED')
 
 
@@ -120,3 +126,15 @@ def discover_surface() -> dict[str, Any]:
             'canonical_admission': 'NOT_EVALUATED',
         },
     }
+
+
+def discover_surface_local() -> dict[str, Any]:
+    """G6 local surface: the G4 card plus the plan-view tools, their views, printer profiles and limits."""
+    from . import plan_views
+    card = discover_surface()
+    card['release'] = {**card['release'], 'version': RELEASE_G6, 'architecture': card['release']['architecture']+';G6/plan-views'}
+    card['mcp'] = {**card['mcp'], 'tools': list(TOOLS_G6)}
+    card['domains']['P2'] = {**card['domains']['P2'], 'plan_views': plan_views.capabilities()}
+    card['compatibility'] = {**card['compatibility'], 'g4_surface_unchanged_for_remote_g5': True}
+    return card
+

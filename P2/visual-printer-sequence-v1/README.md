@@ -44,3 +44,9 @@ python3 -m vpsequence check-panels --dir panels/
 ## Not part of this stage
 
 MCP tool (D-10); flowchart view; clickable HTML index; link to migration steps; time or duration views.
+
+## In-memory API (G6, P3 C-13)
+
+`vpsequence/api.py`: `views(source, view='cube.sequence', granularity, partition, overflow)` → panels, index and report in
+memory, exactly the files of `print-panels`; `check(result)` → the output of `check-panels`, which now delegates to
+`check_files(files)` (CLI outputs unchanged). VP-08 has no `from-plan`; its sources are declared directly (G6 D-7).

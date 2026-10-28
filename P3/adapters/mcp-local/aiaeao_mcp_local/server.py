@@ -13,6 +13,7 @@ from .p0_resources import register_resources
 from .p0_tool import read_reference as read_p0_reference
 from . import p1_adapter
 from . import surface
+from . import plan_views
 
 mcp = MCPServer('aiaeao-cube-local',
                 instructions='AIAEAO Cube local MCP: use cube_discover_surface for the full P0/P1/P2 '
@@ -27,7 +28,7 @@ def _result(fn, *args, **kwargs) -> CallToolResult:
     try:
         payload = fn(*args, **kwargs)
         error = False
-    except (bridge.BridgeFailure, p1_adapter.P1AdapterFailure) as exc:
+    except (bridge.BridgeFailure, p1_adapter.P1AdapterFailure, plan_views.PlanFailure) as exc:
         payload = exc.diagnostic
         error = True
     # Stable structuredContent + textual fallback for clients without structure support.
@@ -93,7 +94,44 @@ def cube_discover_surface() -> CallToolResult:
     Unlike cube_get_capabilities, this is whole-Cube, not printer-only.
     Resources depend on host support; cube_read_reference is the tool fallback.
     """
-    return _result(surface.discover_surface)
+    return _result(surface.discover_surface_local)
+
+
+# CP-001 / G6: VP-07, VP-08 and VP-09 plan views in memory; the view selects the printer (local stdio only).
+@mcp.tool()
+def cube_plan_source(
+    context: dict[str, Any], plan_id: str, printer: Literal['vpmigration','vpaxes','vpsequence'],
+    track_map: dict[str, Any] | None=None, track: str | None=None, labels: dict[str, Any] | None=None,
+    layers: dict[str, Any] | None=None, witness_prefixes: dict[str, Any] | None=None,
+    edge_styles: list[dict[str, Any]] | None=None, steps: str | None=None, subjects: list[str] | None=None,
+    profile: str | None=None,
+) -> CallToolResult:
+    """Derive a VP-07 migration source or VP-09 axes input from a binding context, exactly as CLI from-plan.
+    vpsequence is not supported (VP-08 sources are declared directly). No files; declared_unverified.
+    """
+    return _result(plan_views.plan_source, context, plan_id, printer, tracks=track_map, track=track, labels=labels,
+                   layers=layers, witness_prefixes=witness_prefixes, edge_styles=edge_styles, steps=steps,
+                   subjects=subjects, profile=profile)
+
+
+@mcp.tool()
+def cube_plan_views(
+    source: dict[str, Any], view: Literal['cube.phases','cube.flow','cube.sequence','cube.axes'],
+    granularity: Literal['overview','standard','detail'], partition: str | None=None,
+    rows: str | None=None, cols: str | None=None, lens: str | None=None,
+    overflow: Literal['summarize','reject'] | None=None,
+) -> CallToolResult:
+    """Print plan panels in memory: SVGs, panel inputs, index and report, byte-identical to CLI print-panels.
+    Limits: 512 KiB per SVG, 2 MiB per response; over a limit isError, never truncated. Display only.
+    """
+    return _result(plan_views.plan_views, source, view, granularity, partition=partition, rows=rows, cols=cols,
+                   lens=lens, overflow=overflow)
+
+
+@mcp.tool()
+def cube_plan_check(result: dict[str, Any]) -> CallToolResult:
+    """Re-verify a cube_plan_views result like CLI check-panels (re-render, digests, coverage); no files."""
+    return _result(plan_views.plan_check, result)
 
 # CP-001 / G1: P0 resources remain primary; four legacy tools remain unchanged.
 register_resources(mcp)

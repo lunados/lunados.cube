@@ -1,0 +1,28 @@
+{
+ "digests": {
+  "check:vp07-071-flow-subject": "b0b6900bf051de36eb2d7f8487834a15a8c52f40a160790bc77fd5c0a75b90a2",
+  "check:vp07-071-phases-track-subject": "b5f4fbf992f31a389fc7372220917a3ef0d58e8ada4930911e62b54ef6e59fba",
+  "check:vp07-072-phases-layer": "8aa59c0cf9dcf1530b6d42e593d2c4f20b3cd9691059dd9086ad42ef9467b3d3",
+  "check:vp07-073-phases-subject": "a5e81e52974cd312073638f4a060a625420bf9e15c855876319721d00b705ed9",
+  "check:vp07-074-flow-subject": "4132e9c23b2bddfd7a0ae6986aad56adad2cbfcda6172777393233cdfee805e8",
+  "check:vp07-074-phases-method": "1214bee1588c07da987c1ca425259a77e33cefba0c41e38d0a2ac60b65d6ff84",
+  "check:vp08-golden-trigger": "3d10009d727f7e50e57bd1f89463e945c5ef4d9c0e08983afba1f8eaa496af47",
+  "check:vp08-golden-use-case": "3d10009d727f7e50e57bd1f89463e945c5ef4d9c0e08983afba1f8eaa496af47",
+  "check:vp09-090-z-t": "236b13e0ac63e82ba4e3e2b551d4e70e5f7a2d5b4ebae0fc372180dd10de0d7c",
+  "check:vp09-091-f-z": "8673938b4cd5baee05fab42ddce7ed255909a1909286c35017029477c297c999",
+  "files:vp07-071-flow-subject": "89314877edd0bfb05959fca3e401d60d133162449c9d774382b5f8b581f36fc3",
+  "files:vp07-071-phases-track-subject": "e95f8aa4b86225fa141c5d5e42b1eb279b8820e8e68b7ff845402d3f5d3ebc89",
+  "files:vp07-072-phases-layer": "27d4b3a204ce1f4ba16ae2f948d7ffe07cf1d47102d1f3b0771c04e4b4087158",
+  "files:vp07-073-phases-subject": "44e5f3261471b398192f18d490f1c83d383b98495ad75edb49148819d19c6646",
+  "files:vp07-074-flow-subject": "3aa37439d86bc6998ab68a41994db1d295a1b90345b10783748061dbe48ce581",
+  "files:vp07-074-phases-method": "be84c386ddd36c653f49fab8410b7886c2ffd6f4578cb360cead56ea30c226e9",
+  "files:vp08-golden-trigger": "87a2cdb44c86b4115b2c0d0b9df758a855c37d71cc4f238e5b94a813b62e247c",
+  "files:vp08-golden-use-case": "e95f7bdee726e92162d225eae4f0e826fd9481b7aac689a53c2b791b2013d4a3",
+  "files:vp09-090-z-t": "8776f968729fd7dfb876700c9243463062077a9c328306ac2dba7a0ea2f5ae08",
+  "files:vp09-091-f-z": "e5247348ca5f0d1b62c161256edfc47e21e43bd8076f70121c7d6583d2a60927",
+  "g4:discover_surface": "6fd76f932606d042e7718445ba3be1ae87f145c26ee806da12db7bbc40683add",
+  "legacy:cube_get_capabilities": "9ff83a30e74ff0cce285f82d796cd6b5853e84bb858828adbc6c5ca5f7d0da32"
+ },
+ "format": "aiaeao.cube.g6-baseline-digests/1",
+ "pinned_before": "any G6 runtime code (G6-01, K-03)"
+}

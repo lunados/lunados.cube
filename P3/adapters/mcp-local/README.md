@@ -1,3 +1,5 @@
+> **Current local release: G6 `P3-MCP-LOCAL/0.3.0-rc1`** — ten tools incl. plan views (`cube_plan_source`, `cube_plan_views`, `cube_plan_check`); see `G6_README.md`. The text below documents the original 0.1.1 PoC.
+
 # AIAEAO Pure Cube — Local MCP Proof / PoC-A
 
 **Status:** Local MCP release candidate. Adapter and VP-06 parity tested; official MCP SDK in-process and stdio smoke PASS **as reported by the user on macOS 2026-10-24**. A real Claude/Grok host connection remains **not yet accepted**. Gate A remains PENDING until the actual host test.

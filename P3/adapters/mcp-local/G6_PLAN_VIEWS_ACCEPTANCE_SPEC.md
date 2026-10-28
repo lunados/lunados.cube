@@ -1,6 +1,6 @@
 # G6 — Plan views as local MCP tools · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-10 resolved 2026-10-28 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-28 (K-01…K-18 18/18; CLI parity 139/139; 22 pinned baseline outputs byte-identical; SDK v2 stdio smoke PASS in the build environment; Claude Desktop host acceptance pending); decisions D-1…D-10 resolved 2026-10-28 (all as proposed).
 **Release:** `P3-MCP-LOCAL/0.3.0-rc1`, successor of `0.2.0-rc1` (G4) in `P3/adapters/mcp-local`; stdio only.
 **Requirement:** C-13 from the running migration field test (2026-10-28; an inventory of 38 referents, 60 dependencies, 4 steps, 3 transitions, 36 method bindings rendered in 24 runs with VP-07.3/.4 and VP-09.1; client details withheld).
 **Basis:** `G4_README.md`, `G4_ACCEPTANCE.md`, `G4_CLAUDE_ACCEPTANCE.md` (surface, host acceptance pattern), `aiaeao_mcp_local/bridge.py` (in-memory VP-06 bridge: 2 MiB argument limit, 512 KiB SVG limit, diagnostics as `isError`), `surface.py` and `spec/G4_CAPABILITY_SURFACE.schema.json`; P2 VP-07 (`P2-VP-MIGRATION/0.7.0…0.7.4`), VP-08 (`P2-VP-SEQUENCE/0.8.0`), VP-09 (`P2-VP-AXES/0.9.0…0.9.1`) with their `print_panels` / `check_panels` / `from_plan` APIs; ADR-001 (local first; no remote hosting without a decision).
@@ -143,6 +143,13 @@ Every diagnostic carries `printer`, `profile` (of the input where known), `stage
 | D-8 Default profile | (a) the printer's own default (as the CLI; /7 → 0.7.3, VP-09 → 0.9.0) · (b) latest profile | **(a)** | Same call, same bytes as the CLI (VP-07.4 D-1, VP-09.1 D-1). |
 | D-9 Single image without panels (`print-axes`, `print-phases`) | (a) not in this stage; always panels (one panel when it fits) · (b) a fourth tool `cube_plan_render` | **(a)** | Panels cover every case with proven coverage; one more tool can follow. |
 | D-10 Parity reference | (a) the CLI output directories via subprocess for every vector · (b) the Python `print_panels` only | **(a)** | C-13 asks for CLI equality; (b) would not catch a CLI-side difference. |
+
+## 6.1 Notes from implementation (2026-10-28)
+
+- **Diagnostics:** the printer diagnostic passes through unchanged (its `profile` stays the printer's base profile, see C-12 (i)); G6 adds `printer` and `input_profile` instead of overwriting `profile`.
+- **View vs. source (§2 row 4):** `P3_PLAN_ARGUMENT_INVALID` only when the source clearly belongs to another printer (e.g. a VP-08 source with `cube.phases`); any other document reaches the printer and gets the printer's code, as the CLI does (MP-2; vector V-24).
+- **G5:** `surface.discover_surface()` stays the G4 card byte for byte (also the base of the G5 remote surface); the local server uses `discover_surface_local()`. G5 therefore lists no plan tools and needs no redeploy.
+- **G4 test:** `test_registrations_match` now expects the seven G4 tools first and the three plan tools after them.
 
 ## 7. Not part of G6
 

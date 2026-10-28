@@ -1,0 +1,4464 @@
+{
+ "cases": [
+  {
+   "expect": {
+    "equal_cli_files": true
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-01",
+   "input": {
+    "kind": "views_vs_cli",
+    "printer": "vpmigration",
+    "source_from": {
+     "fixture": "g73",
+     "profile": null
+    },
+    "view": {
+     "granularity": "standard",
+     "partition": "subject",
+     "view": "cube.phases"
+    }
+   }
+  },
+  {
+   "expect": {
+    "check_equals_cli": true,
+    "check_status": "PASS"
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-02",
+   "input": {
+    "kind": "check_vs_cli",
+    "like": "K-01"
+   }
+  },
+  {
+   "expect": {
+    "baseline_unchanged": true
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-03",
+   "input": {
+    "kind": "baseline"
+   }
+  },
+  {
+   "expect": {
+    "deterministic": true
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-04",
+   "input": {
+    "kind": "deterministic",
+    "like": "K-01"
+   }
+  },
+  {
+   "expect": {
+    "profile": "P2-VP-MIGRATION/0.7.3",
+    "source_equals_cli": true
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-05",
+   "input": {
+    "fixture": "g73",
+    "kind": "source_vs_cli",
+    "printer": "vpmigration",
+    "profile": null
+   }
+  },
+  {
+   "expect": {
+    "profile": "P2-VP-AXES/0.9.1",
+    "source_equals_cli": true
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-06",
+   "input": {
+    "fixture": "gax",
+    "kind": "source_vs_cli",
+    "printer": "vpaxes",
+    "profile": "P2-VP-AXES/0.9.1"
+   }
+  },
+  {
+   "expect": {
+    "equal_cli_files": true,
+    "methods_lines": true
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-07",
+   "input": {
+    "kind": "views_vs_cli",
+    "printer": "vpmigration",
+    "source_from": {
+     "fixture": "g74",
+     "profile": "P2-VP-MIGRATION/0.7.4"
+    },
+    "view": {
+     "granularity": "standard",
+     "lens": "cube.lens.execution",
+     "partition": "subject",
+     "view": "cube.flow"
+    }
+   }
+  },
+  {
+   "expect": {
+    "coverage": "COMPLETE",
+    "equal_cli_files": true
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-08",
+   "input": {
+    "kind": "views_vs_cli",
+    "printer": "vpsequence",
+    "source_from": {
+     "fixture": "gseq"
+    },
+    "view": {
+     "granularity": "standard",
+     "partition": "trigger",
+     "view": "cube.sequence"
+    }
+   }
+  },
+  {
+   "expect": {
+    "binding_coverage": "COMPLETE",
+    "equal_cli_files": true
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-09",
+   "input": {
+    "kind": "views_vs_cli",
+    "printer": "vpaxes",
+    "source_from": {
+     "fixture": "gax",
+     "profile": "P2-VP-AXES/0.9.1"
+    },
+    "view": {
+     "cols": "Z:referent",
+     "granularity": "standard",
+     "rows": "F",
+     "view": "cube.axes"
+    }
+   }
+  },
+  {
+   "expect": {
+    "check_status": "PASS"
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-10",
+   "input": {
+    "kind": "check",
+    "like": "K-09"
+   }
+  },
+  {
+   "expect": {
+    "full_diagnostic": true
+   },
+   "expected_code": "VP07_ADAPTER_INPUT",
+   "expected_status": "ERROR",
+   "id": "K-11",
+   "input": {
+    "args": {
+     "context": {
+      "context_id": "k11",
+      "format": "aiaeao.cube.binding-context/9"
+     },
+     "plan_id": "mp-x",
+     "printer": "vpmigration"
+    },
+    "kind": "tool",
+    "tool": "cube_plan_source"
+   }
+  },
+  {
+   "expect": {
+    "full_diagnostic": true
+   },
+   "expected_code": "P3_PLAN_VIEW_UNKNOWN",
+   "expected_status": "ERROR",
+   "id": "K-12",
+   "input": {
+    "kind": "tool_views",
+    "like": "K-01",
+    "override": {
+     "view": "cube.matrix"
+    }
+   }
+  },
+  {
+   "expect": {
+    "full_diagnostic": true
+   },
+   "expected_code": "VP09_AXES_BUDGET",
+   "expected_status": "ERROR",
+   "id": "K-13",
+   "input": {
+    "case": "A-18",
+    "kind": "tool_views_avec",
+    "view": {
+     "cols": "T",
+     "granularity": "detail",
+     "rows": "Z:referent",
+     "view": "cube.axes"
+    }
+   }
+  },
+  {
+   "expect": {
+    "full_diagnostic": true,
+    "size_and_hint": true
+   },
+   "expected_code": "P3_PLAN_RESPONSE_TOO_LARGE",
+   "expected_status": "ERROR",
+   "id": "K-14",
+   "input": {
+    "context": {
+     "context_id": "vp09-axes",
+     "format": "aiaeao.cube.binding-context/7",
+     "method_profile_refs": [
+      "P1.11/migration-methods-v1"
+     ],
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "d1",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "method": {
+          "arguments": {
+           "dependant": "shop",
+           "new_object": "new-mail"
+          },
+          "method_id": "migrate.rewrite/v1"
+         },
+         "object": "legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "successor_ref": "d2",
+         "witness_ref": "repo:example/d1"
+        },
+        {
+         "dependency_id": "d2",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "new-mail",
+         "predicate_id": "sends-via",
+         "subject": "shop",
+         "witness_ref": "repo:example/d2"
+        },
+        {
+         "dependency_id": "d3",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d3"
+        },
+        {
+         "dependency_id": "d4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d4"
+        },
+        {
+         "dependency_id": "d5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "admin-mailbox",
+         "predicate_id": "depends-on",
+         "subject": "support",
+         "witness_ref": "repo:example/d5"
+        },
+        {
+         "dependency_id": "d6",
+         "dropped": true,
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "mailbox-x",
+         "predicate_id": "depends-on",
+         "subject": "crm-sync",
+         "witness_ref": "repo:example/d6"
+        },
+        {
+         "dependency_id": "d7",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "dns-zone",
+         "predicate_id": "depends-on",
+         "subject": "shop",
+         "witness_ref": "repo:example/d7"
+        },
+        {
+         "dependency_id": "j1",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-001",
+         "witness_ref": "repo:example/j1"
+        },
+        {
+         "dependency_id": "j2",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-002",
+         "witness_ref": "repo:example/j2"
+        },
+        {
+         "dependency_id": "j3",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-003",
+         "witness_ref": "repo:example/j3"
+        },
+        {
+         "dependency_id": "j4",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-004",
+         "witness_ref": "repo:example/j4"
+        },
+        {
+         "dependency_id": "j5",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-005",
+         "witness_ref": "repo:example/j5"
+        },
+        {
+         "dependency_id": "j6",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-006",
+         "witness_ref": "repo:example/j6"
+        },
+        {
+         "dependency_id": "j7",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-007",
+         "witness_ref": "repo:example/j7"
+        },
+        {
+         "dependency_id": "j8",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-008",
+         "witness_ref": "repo:example/j8"
+        },
+        {
+         "dependency_id": "j9",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-009",
+         "witness_ref": "repo:example/j9"
+        },
+        {
+         "dependency_id": "j10",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-010",
+         "witness_ref": "repo:example/j10"
+        },
+        {
+         "dependency_id": "j11",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-011",
+         "witness_ref": "repo:example/j11"
+        },
+        {
+         "dependency_id": "j12",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-012",
+         "witness_ref": "repo:example/j12"
+        },
+        {
+         "dependency_id": "j13",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-013",
+         "witness_ref": "repo:example/j13"
+        },
+        {
+         "dependency_id": "j14",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-014",
+         "witness_ref": "repo:example/j14"
+        },
+        {
+         "dependency_id": "j15",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-015",
+         "witness_ref": "repo:example/j15"
+        },
+        {
+         "dependency_id": "j16",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-016",
+         "witness_ref": "repo:example/j16"
+        },
+        {
+         "dependency_id": "j17",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-017",
+         "witness_ref": "repo:example/j17"
+        },
+        {
+         "dependency_id": "j18",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-018",
+         "witness_ref": "repo:example/j18"
+        },
+        {
+         "dependency_id": "j19",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-019",
+         "witness_ref": "repo:example/j19"
+        },
+        {
+         "dependency_id": "j20",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-020",
+         "witness_ref": "repo:example/j20"
+        },
+        {
+         "dependency_id": "j21",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-021",
+         "witness_ref": "repo:example/j21"
+        },
+        {
+         "dependency_id": "j22",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-022",
+         "witness_ref": "repo:example/j22"
+        },
+        {
+         "dependency_id": "j23",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-023",
+         "witness_ref": "repo:example/j23"
+        },
+        {
+         "dependency_id": "j24",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-024",
+         "witness_ref": "repo:example/j24"
+        },
+        {
+         "dependency_id": "j25",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-025",
+         "witness_ref": "repo:example/j25"
+        },
+        {
+         "dependency_id": "j26",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-026",
+         "witness_ref": "repo:example/j26"
+        },
+        {
+         "dependency_id": "j27",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-027",
+         "witness_ref": "repo:example/j27"
+        },
+        {
+         "dependency_id": "j28",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-028",
+         "witness_ref": "repo:example/j28"
+        },
+        {
+         "dependency_id": "j29",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-029",
+         "witness_ref": "repo:example/j29"
+        },
+        {
+         "dependency_id": "j30",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-030",
+         "witness_ref": "repo:example/j30"
+        },
+        {
+         "dependency_id": "j31",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-031",
+         "witness_ref": "repo:example/j31"
+        },
+        {
+         "dependency_id": "j32",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-032",
+         "witness_ref": "repo:example/j32"
+        },
+        {
+         "dependency_id": "j33",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-033",
+         "witness_ref": "repo:example/j33"
+        },
+        {
+         "dependency_id": "j34",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-034",
+         "witness_ref": "repo:example/j34"
+        },
+        {
+         "dependency_id": "j35",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-035",
+         "witness_ref": "repo:example/j35"
+        },
+        {
+         "dependency_id": "j36",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-036",
+         "witness_ref": "repo:example/j36"
+        },
+        {
+         "dependency_id": "j37",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-037",
+         "witness_ref": "repo:example/j37"
+        },
+        {
+         "dependency_id": "j38",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-038",
+         "witness_ref": "repo:example/j38"
+        },
+        {
+         "dependency_id": "j39",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-039",
+         "witness_ref": "repo:example/j39"
+        },
+        {
+         "dependency_id": "j40",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-040",
+         "witness_ref": "repo:example/j40"
+        },
+        {
+         "dependency_id": "j41",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-041",
+         "witness_ref": "repo:example/j41"
+        },
+        {
+         "dependency_id": "j42",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-042",
+         "witness_ref": "repo:example/j42"
+        },
+        {
+         "dependency_id": "j43",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-043",
+         "witness_ref": "repo:example/j43"
+        },
+        {
+         "dependency_id": "j44",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-044",
+         "witness_ref": "repo:example/j44"
+        },
+        {
+         "dependency_id": "j45",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-045",
+         "witness_ref": "repo:example/j45"
+        },
+        {
+         "dependency_id": "j46",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-046",
+         "witness_ref": "repo:example/j46"
+        },
+        {
+         "dependency_id": "j47",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-047",
+         "witness_ref": "repo:example/j47"
+        },
+        {
+         "dependency_id": "j48",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-048",
+         "witness_ref": "repo:example/j48"
+        },
+        {
+         "dependency_id": "j49",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-049",
+         "witness_ref": "repo:example/j49"
+        },
+        {
+         "dependency_id": "j50",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-050",
+         "witness_ref": "repo:example/j50"
+        },
+        {
+         "dependency_id": "j51",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-051",
+         "witness_ref": "repo:example/j51"
+        },
+        {
+         "dependency_id": "j52",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-052",
+         "witness_ref": "repo:example/j52"
+        },
+        {
+         "dependency_id": "j53",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-053",
+         "witness_ref": "repo:example/j53"
+        },
+        {
+         "dependency_id": "j54",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-054",
+         "witness_ref": "repo:example/j54"
+        },
+        {
+         "dependency_id": "j55",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-055",
+         "witness_ref": "repo:example/j55"
+        },
+        {
+         "dependency_id": "j56",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-056",
+         "witness_ref": "repo:example/j56"
+        },
+        {
+         "dependency_id": "j57",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-057",
+         "witness_ref": "repo:example/j57"
+        },
+        {
+         "dependency_id": "j58",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-058",
+         "witness_ref": "repo:example/j58"
+        },
+        {
+         "dependency_id": "j59",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-059",
+         "witness_ref": "repo:example/j59"
+        },
+        {
+         "dependency_id": "j60",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-060",
+         "witness_ref": "repo:example/j60"
+        },
+        {
+         "dependency_id": "j61",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-061",
+         "witness_ref": "repo:example/j61"
+        },
+        {
+         "dependency_id": "j62",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-062",
+         "witness_ref": "repo:example/j62"
+        },
+        {
+         "dependency_id": "j63",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-063",
+         "witness_ref": "repo:example/j63"
+        },
+        {
+         "dependency_id": "j64",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-064",
+         "witness_ref": "repo:example/j64"
+        },
+        {
+         "dependency_id": "j65",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-065",
+         "witness_ref": "repo:example/j65"
+        },
+        {
+         "dependency_id": "j66",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-066",
+         "witness_ref": "repo:example/j66"
+        },
+        {
+         "dependency_id": "j67",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-067",
+         "witness_ref": "repo:example/j67"
+        },
+        {
+         "dependency_id": "j68",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-068",
+         "witness_ref": "repo:example/j68"
+        },
+        {
+         "dependency_id": "j69",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-069",
+         "witness_ref": "repo:example/j69"
+        },
+        {
+         "dependency_id": "j70",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-070",
+         "witness_ref": "repo:example/j70"
+        },
+        {
+         "dependency_id": "j71",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-071",
+         "witness_ref": "repo:example/j71"
+        },
+        {
+         "dependency_id": "j72",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-072",
+         "witness_ref": "repo:example/j72"
+        },
+        {
+         "dependency_id": "j73",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-073",
+         "witness_ref": "repo:example/j73"
+        },
+        {
+         "dependency_id": "j74",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-074",
+         "witness_ref": "repo:example/j74"
+        },
+        {
+         "dependency_id": "j75",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-075",
+         "witness_ref": "repo:example/j75"
+        },
+        {
+         "dependency_id": "j76",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-076",
+         "witness_ref": "repo:example/j76"
+        },
+        {
+         "dependency_id": "j77",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-077",
+         "witness_ref": "repo:example/j77"
+        },
+        {
+         "dependency_id": "j78",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-078",
+         "witness_ref": "repo:example/j78"
+        },
+        {
+         "dependency_id": "j79",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-079",
+         "witness_ref": "repo:example/j79"
+        },
+        {
+         "dependency_id": "j80",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-080",
+         "witness_ref": "repo:example/j80"
+        },
+        {
+         "dependency_id": "j81",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-081",
+         "witness_ref": "repo:example/j81"
+        },
+        {
+         "dependency_id": "j82",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-082",
+         "witness_ref": "repo:example/j82"
+        },
+        {
+         "dependency_id": "j83",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-083",
+         "witness_ref": "repo:example/j83"
+        },
+        {
+         "dependency_id": "j84",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-084",
+         "witness_ref": "repo:example/j84"
+        },
+        {
+         "dependency_id": "j85",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-085",
+         "witness_ref": "repo:example/j85"
+        },
+        {
+         "dependency_id": "j86",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-086",
+         "witness_ref": "repo:example/j86"
+        },
+        {
+         "dependency_id": "j87",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-087",
+         "witness_ref": "repo:example/j87"
+        },
+        {
+         "dependency_id": "j88",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-088",
+         "witness_ref": "repo:example/j88"
+        },
+        {
+         "dependency_id": "j89",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-089",
+         "witness_ref": "repo:example/j89"
+        },
+        {
+         "dependency_id": "j90",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-090",
+         "witness_ref": "repo:example/j90"
+        },
+        {
+         "dependency_id": "j91",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-091",
+         "witness_ref": "repo:example/j91"
+        },
+        {
+         "dependency_id": "j92",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-092",
+         "witness_ref": "repo:example/j92"
+        },
+        {
+         "dependency_id": "j93",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-093",
+         "witness_ref": "repo:example/j93"
+        },
+        {
+         "dependency_id": "j94",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-094",
+         "witness_ref": "repo:example/j94"
+        },
+        {
+         "dependency_id": "j95",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-095",
+         "witness_ref": "repo:example/j95"
+        },
+        {
+         "dependency_id": "j96",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-096",
+         "witness_ref": "repo:example/j96"
+        },
+        {
+         "dependency_id": "j97",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-097",
+         "witness_ref": "repo:example/j97"
+        },
+        {
+         "dependency_id": "j98",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-098",
+         "witness_ref": "repo:example/j98"
+        },
+        {
+         "dependency_id": "j99",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-099",
+         "witness_ref": "repo:example/j99"
+        },
+        {
+         "dependency_id": "j100",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-100",
+         "witness_ref": "repo:example/j100"
+        },
+        {
+         "dependency_id": "j101",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-101",
+         "witness_ref": "repo:example/j101"
+        },
+        {
+         "dependency_id": "j102",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-102",
+         "witness_ref": "repo:example/j102"
+        },
+        {
+         "dependency_id": "j103",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-103",
+         "witness_ref": "repo:example/j103"
+        },
+        {
+         "dependency_id": "j104",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-104",
+         "witness_ref": "repo:example/j104"
+        },
+        {
+         "dependency_id": "j105",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-105",
+         "witness_ref": "repo:example/j105"
+        },
+        {
+         "dependency_id": "j106",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-106",
+         "witness_ref": "repo:example/j106"
+        },
+        {
+         "dependency_id": "j107",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-107",
+         "witness_ref": "repo:example/j107"
+        },
+        {
+         "dependency_id": "j108",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-108",
+         "witness_ref": "repo:example/j108"
+        },
+        {
+         "dependency_id": "j109",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-109",
+         "witness_ref": "repo:example/j109"
+        },
+        {
+         "dependency_id": "j110",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-110",
+         "witness_ref": "repo:example/j110"
+        },
+        {
+         "dependency_id": "j111",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-111",
+         "witness_ref": "repo:example/j111"
+        },
+        {
+         "dependency_id": "j112",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-112",
+         "witness_ref": "repo:example/j112"
+        },
+        {
+         "dependency_id": "j113",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-113",
+         "witness_ref": "repo:example/j113"
+        },
+        {
+         "dependency_id": "j114",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-114",
+         "witness_ref": "repo:example/j114"
+        },
+        {
+         "dependency_id": "j115",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-115",
+         "witness_ref": "repo:example/j115"
+        },
+        {
+         "dependency_id": "j116",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-116",
+         "witness_ref": "repo:example/j116"
+        },
+        {
+         "dependency_id": "j117",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-117",
+         "witness_ref": "repo:example/j117"
+        },
+        {
+         "dependency_id": "j118",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-118",
+         "witness_ref": "repo:example/j118"
+        },
+        {
+         "dependency_id": "j119",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-119",
+         "witness_ref": "repo:example/j119"
+        },
+        {
+         "dependency_id": "j120",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-120",
+         "witness_ref": "repo:example/j120"
+        },
+        {
+         "dependency_id": "j121",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-121",
+         "witness_ref": "repo:example/j121"
+        },
+        {
+         "dependency_id": "j122",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-122",
+         "witness_ref": "repo:example/j122"
+        },
+        {
+         "dependency_id": "j123",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-123",
+         "witness_ref": "repo:example/j123"
+        },
+        {
+         "dependency_id": "j124",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-124",
+         "witness_ref": "repo:example/j124"
+        },
+        {
+         "dependency_id": "j125",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-125",
+         "witness_ref": "repo:example/j125"
+        },
+        {
+         "dependency_id": "j126",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-126",
+         "witness_ref": "repo:example/j126"
+        },
+        {
+         "dependency_id": "j127",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-127",
+         "witness_ref": "repo:example/j127"
+        },
+        {
+         "dependency_id": "j128",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-128",
+         "witness_ref": "repo:example/j128"
+        },
+        {
+         "dependency_id": "j129",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-129",
+         "witness_ref": "repo:example/j129"
+        },
+        {
+         "dependency_id": "j130",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-130",
+         "witness_ref": "repo:example/j130"
+        },
+        {
+         "dependency_id": "j131",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-131",
+         "witness_ref": "repo:example/j131"
+        },
+        {
+         "dependency_id": "j132",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-132",
+         "witness_ref": "repo:example/j132"
+        },
+        {
+         "dependency_id": "j133",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-133",
+         "witness_ref": "repo:example/j133"
+        },
+        {
+         "dependency_id": "j134",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-134",
+         "witness_ref": "repo:example/j134"
+        },
+        {
+         "dependency_id": "j135",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-135",
+         "witness_ref": "repo:example/j135"
+        },
+        {
+         "dependency_id": "j136",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-136",
+         "witness_ref": "repo:example/j136"
+        },
+        {
+         "dependency_id": "j137",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-137",
+         "witness_ref": "repo:example/j137"
+        },
+        {
+         "dependency_id": "j138",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-138",
+         "witness_ref": "repo:example/j138"
+        },
+        {
+         "dependency_id": "j139",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-139",
+         "witness_ref": "repo:example/j139"
+        },
+        {
+         "dependency_id": "j140",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-140",
+         "witness_ref": "repo:example/j140"
+        },
+        {
+         "dependency_id": "j141",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-141",
+         "witness_ref": "repo:example/j141"
+        },
+        {
+         "dependency_id": "j142",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-142",
+         "witness_ref": "repo:example/j142"
+        },
+        {
+         "dependency_id": "j143",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-143",
+         "witness_ref": "repo:example/j143"
+        },
+        {
+         "dependency_id": "j144",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-144",
+         "witness_ref": "repo:example/j144"
+        },
+        {
+         "dependency_id": "j145",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-145",
+         "witness_ref": "repo:example/j145"
+        },
+        {
+         "dependency_id": "j146",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-146",
+         "witness_ref": "repo:example/j146"
+        },
+        {
+         "dependency_id": "j147",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-147",
+         "witness_ref": "repo:example/j147"
+        },
+        {
+         "dependency_id": "j148",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-148",
+         "witness_ref": "repo:example/j148"
+        },
+        {
+         "dependency_id": "j149",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-149",
+         "witness_ref": "repo:example/j149"
+        },
+        {
+         "dependency_id": "j150",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-150",
+         "witness_ref": "repo:example/j150"
+        },
+        {
+         "dependency_id": "j151",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-151",
+         "witness_ref": "repo:example/j151"
+        },
+        {
+         "dependency_id": "j152",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-152",
+         "witness_ref": "repo:example/j152"
+        },
+        {
+         "dependency_id": "j153",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-153",
+         "witness_ref": "repo:example/j153"
+        },
+        {
+         "dependency_id": "j154",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-154",
+         "witness_ref": "repo:example/j154"
+        },
+        {
+         "dependency_id": "j155",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-155",
+         "witness_ref": "repo:example/j155"
+        },
+        {
+         "dependency_id": "j156",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-156",
+         "witness_ref": "repo:example/j156"
+        },
+        {
+         "dependency_id": "j157",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-157",
+         "witness_ref": "repo:example/j157"
+        },
+        {
+         "dependency_id": "j158",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-158",
+         "witness_ref": "repo:example/j158"
+        },
+        {
+         "dependency_id": "j159",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-159",
+         "witness_ref": "repo:example/j159"
+        },
+        {
+         "dependency_id": "j160",
+         "holds_in": [
+          "p0",
+          "p1",
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "hosting",
+         "predicate_id": "depends-on",
+         "subject": "job-160",
+         "witness_ref": "repo:example/j160"
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-axes",
+       "revision": "v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "new-mail"
+         ],
+         "methods": [
+          {
+           "arguments": {
+            "source": "legacy-mail",
+            "target": "new-mail"
+           },
+           "method_id": "migrate.import/v1"
+          },
+          {
+           "arguments": {
+            "retired": "legacy-mail"
+           },
+           "method_id": "migrate.retire/v1"
+          }
+         ],
+         "retires": [
+          "legacy-mail"
+         ],
+         "transition_id": "t-mail",
+         "witness_ref": "synthetic:contract#scope"
+        },
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [],
+         "methods": [
+          {
+           "arguments": {
+            "retired": "mailbox-x"
+           },
+           "method_id": "migrate.retire/v1"
+          }
+         ],
+         "retires": [
+          "mailbox-x"
+         ],
+         "transition_id": "t-box",
+         "witness_ref": "synthetic:contract#scope"
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "shop",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "crm-sync",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "support",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "admin-mailbox",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "mailbox-x",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "hosting",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "dns-zone",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-001",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-002",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-003",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-004",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-005",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-006",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-007",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-008",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-009",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-010",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-011",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-012",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-013",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-014",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-015",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-016",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-017",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-018",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-019",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-020",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-021",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-022",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-023",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-024",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-025",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-026",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-027",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-028",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-029",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-030",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-031",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-032",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-033",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-034",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-035",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-036",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-037",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-038",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-039",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-040",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-041",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-042",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-043",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-044",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-045",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-046",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-047",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-048",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-049",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-050",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-051",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-052",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-053",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-054",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-055",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-056",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-057",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-058",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-059",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-060",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-061",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-062",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-063",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-064",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-065",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-066",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-067",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-068",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-069",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-070",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-071",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-072",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-073",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-074",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-075",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-076",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-077",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-078",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-079",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-080",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-081",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-082",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-083",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-084",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-085",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-086",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-087",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-088",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-089",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-090",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-091",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-092",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-093",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-094",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-095",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-096",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-097",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-098",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-099",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-100",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-101",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-102",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-103",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-104",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-105",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-106",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-107",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-108",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-109",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-110",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-111",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-112",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-113",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-114",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-115",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-116",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-117",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-118",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-119",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-120",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-121",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-122",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-123",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-124",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-125",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-126",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-127",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-128",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-129",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-130",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-131",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-132",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-133",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-134",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-135",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-136",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-137",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-138",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-139",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-140",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-141",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-142",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-143",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-144",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-145",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-146",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-147",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-148",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-149",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-150",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-151",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-152",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-153",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-154",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-155",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-156",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-157",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-158",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-159",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "job-160",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture"
+    },
+    "kind": "tool_views_context",
+    "plan_id": "mp-axes",
+    "printer": "vpaxes",
+    "raw_panel_bytes": 3122905,
+    "view": {
+     "cols": "T",
+     "granularity": "standard",
+     "rows": "Z:referent",
+     "view": "cube.axes"
+    }
+   }
+  },
+  {
+   "expect": {
+    "full_diagnostic": true
+   },
+   "expected_code": "VP07_PANEL_COVERAGE",
+   "expected_status": "ERROR",
+   "id": "K-15",
+   "input": {
+    "kind": "check_tampered",
+    "like": "K-01"
+   }
+  },
+  {
+   "expect": {
+    "full_diagnostic": true
+   },
+   "expected_code": "P3_PLAN_SOURCE_UNSUPPORTED",
+   "expected_status": "ERROR",
+   "id": "K-16",
+   "input": {
+    "args": {
+     "context": {
+      "format": "aiaeao.cube.binding-context/7"
+     },
+     "plan_id": "mp-x",
+     "printer": "vpsequence"
+    },
+    "kind": "tool",
+    "tool": "cube_plan_source"
+   }
+  },
+  {
+   "expect": {
+    "parity_all_equal": true
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-17",
+   "input": {
+    "kind": "parity"
+   }
+  },
+  {
+   "expect": {
+    "g4_base_surface_unchanged": true,
+    "legacy_card_unchanged": true,
+    "plan_views_section": true,
+    "release": "P3-MCP-LOCAL/0.3.0-rc1",
+    "tools": [
+     "cube_get_capabilities",
+     "cube_prepare_print",
+     "cube_check_print",
+     "cube_render_svg",
+     "cube_read_reference",
+     "cube_validate",
+     "cube_discover_surface",
+     "cube_plan_source",
+     "cube_plan_views",
+     "cube_plan_check"
+    ]
+   },
+   "expected_code": null,
+   "expected_status": "PASS",
+   "id": "K-18",
+   "input": {
+    "kind": "surface"
+   }
+  }
+ ],
+ "fixtures": {
+  "avec": {
+   "path": "P2/visual-printer-axes-v1/fixtures/a01_a20_materialized.json",
+   "sha256": "ca8bfcc4ab7141ec4e24cdae2231284497bb682a42bf3dcecfb7cfa5795b41ea"
+  },
+  "g73": {
+   "path": "P2/visual-printer-migration-v1/fixtures/golden_v073.json",
+   "sha256": "7604320a7223c9a1c4e92b9b405569d6f866da46ff35f9736d02426a18fb1f25"
+  },
+  "g74": {
+   "path": "P2/visual-printer-migration-v1/fixtures/golden_v074.json",
+   "sha256": "0d57c06eb93fbcea70356d350a90af638b8c5f690ed4a0c3b35b29ea9b140a17"
+  },
+  "gax": {
+   "path": "P2/visual-printer-axes-v1/fixtures/golden_axes.json",
+   "sha256": "6c17269e11f03eda799eeed155ae984eb39a62c73971ade313e10a19f8ff892e"
+  },
+  "gseq": {
+   "path": "P2/visual-printer-sequence-v1/fixtures/golden_sequence.json",
+   "sha256": "310a16b9eabdb67c21f612680bd32b6a5555aa1a6cccf68a47b4418500335b1e"
+  }
+ },
+ "format": "aiaeao.cube.g6-vectors/1",
+ "source": "G6_PLAN_VIEWS_ACCEPTANCE_SPEC.md §5 + tests/g6/independent_k01_k18.json"
+}

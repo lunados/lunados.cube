@@ -9,7 +9,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 from .common import (PROFILE, P071, P072, P073, P074, V73UP, NONE_GROUP, METHOD_CATALOG, method_short, method_sorted, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
-                     sha_json, encode, load_json, VP07Error, need, publish_dir, no_active_content, MUTED, NS)
+                     sha_json, encode, load_json, fs_isdir, fs_names, fs_bytes, fs_json, VP07Error, need, publish_dir, no_active_content, MUTED, NS)
 from .phases import PhasesPrinter, BUDGET, lanes_for
 from .source import validate_source, as_plan, layer_key
 from .styles import apply_styles
@@ -662,16 +662,26 @@ def print_panels(src, view, partition, granularity, lens=None):
 
 
 def check_panels(directory):
+    """Directory form (CLI); reads files and applies the same checks as check_files (G6 MA-2)."""
+    return _check(Path(directory))
+
+
+def check_files(files):
+    """In-memory form (G6 MA-2): `files` maps the names print-panels writes to their bytes."""
+    need(isinstance(files, dict), 'VP07_PANEL_COVERAGE', 'files must be a mapping of names to bytes', 'coverage')
+    return _check(dict(files))
+
+
+def _check(d):
     """PE-6: re-verify a finished panel directory; any mismatch → VP07_PANEL_COVERAGE."""
-    d = Path(directory)
-    need(d.is_dir(), 'VP07_PANEL_COVERAGE', 'not a directory: '+str(d), 'coverage')
-    rep = load_json(d/'report.json', 'VP07_PANEL_COVERAGE')
+    need(fs_isdir(d), 'VP07_PANEL_COVERAGE', 'not a directory: '+str(d), 'coverage')
+    rep = fs_json(d, 'report.json', 'VP07_PANEL_COVERAGE')
     need(isinstance(rep, dict) and rep.get('format') == REPORT_FORMAT, 'VP07_PANEL_COVERAGE', 'report.json is not a VP-07 panel report', 'coverage')
     listed = rep.get('files', {})
-    present = sorted(p.name for p in d.iterdir() if p.is_file() and p.name != 'report.json')
+    present = [n for n in fs_names(d) if n != 'report.json']
     need(present == sorted(listed), 'VP07_PANEL_COVERAGE', 'directory files differ from report file list', 'coverage')
     for name, digest in listed.items():
-        need(sha_bytes((d/name).read_bytes()) == digest, 'VP07_PANEL_COVERAGE', 'file digest mismatch: '+name, 'coverage')
+        need(sha_bytes(fs_bytes(d, name, 'VP07_PANEL_COVERAGE')) == digest, 'VP07_PANEL_COVERAGE', 'file digest mismatch: '+name, 'coverage')
     src = rep['source']
     need(sha_json(src) == rep['source_sha256'], 'VP07_PANEL_COVERAGE', 'embedded source digest mismatch', 'coverage')
     try:
@@ -682,9 +692,9 @@ def check_panels(directory):
     need(len(entries) == rep['panel_count'] and len(entries) == len([n for n in listed if n.endswith('.svg') and n.startswith('panel-')]),
          'VP07_PANEL_COVERAGE', 'panel count mismatch', 'coverage')
     for e in entries:
-        inp = load_json(d/(e['panel']+'.input.json'), 'VP07_PANEL_COVERAGE')
+        inp = fs_json(d, e['panel']+'.input.json', 'VP07_PANEL_COVERAGE')
         _, svg = render_input(inp)
-        need(svg == (d/(e['panel']+'.svg')).read_bytes() and sha_bytes(svg) == e['svg_sha256'], 'VP07_PANEL_COVERAGE',
+        need(svg == fs_bytes(d, e['panel']+'.svg', 'VP07_PANEL_COVERAGE') and sha_bytes(svg) == e['svg_sha256'], 'VP07_PANEL_COVERAGE',
              e['panel']+': SVG differs from deterministic re-render of its input', 'coverage')
         units = units_of(inp, src)
         need(units == e['units'], 'VP07_PANEL_COVERAGE', e['panel']+': ledger units differ from the panel input', 'coverage')
@@ -704,7 +714,7 @@ def check_panels(directory):
         outer = rep['partition'][0]
         recomputed = []
         for e in entries:  # NP-4: the outer value comes from the panel input, not from the ledger
-            inp = load_json(d/(e['panel']+'.input.json'), 'VP07_PANEL_COVERAGE')
+            inp = fs_json(d, e['panel']+'.input.json', 'VP07_PANEL_COVERAGE')
             need(inp.get('outer_value') == e.get('outer_value'), 'VP07_PANEL_COVERAGE', e['panel']+': outer value differs from its input', 'coverage')
             recomputed.append({'panel': e['panel'], 'outer_value': inp.get('outer_value'), 'units': units_of(inp, src)})
         ol = _outer_ledger(src, outer, rep['granularity'], vs['tracks'], recomputed)
