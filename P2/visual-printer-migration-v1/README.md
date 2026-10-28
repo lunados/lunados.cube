@@ -1,4 +1,4 @@
-# VP-07 — Migration Plan Views (`P2-VP-MIGRATION/0.7.0`, `0.7.1`, `0.7.2`, `0.7.3`, `0.7.4`)
+# VP-07 — Migration Plan Views (`P2-VP-MIGRATION/0.7.0`, `0.7.1`, `0.7.2`, `0.7.3`, `0.7.4`, `0.7.5`)
 
 Additive to the frozen `P2-VP/1.0.0-rc1` facade (VP-06). Shows declared P1.10 migration plans:
 the view `cube.phases` (subjects × declared steps), declared edge styles for `cube.flow` / `cube.tree`,
@@ -37,6 +37,25 @@ of the panel's step whose items are panel nodes or objects of a panel row at any
 full list in title and ledger. Edges of bars with a method carry `data-vp07-method`. Nothing is moved; the audit
 fails if the line would overlap the panel. D-5 and D-7 were reopened at implementation and decided by the user.
 
+VP-07.5 (`0.7.5`, `VP07_5_ACCEPTANCE_SPEC.md`, C-12) is opt-in with `from-plan --profile P2-VP-MIGRATION/0.7.5`; the
+source then carries the declared role of each step. Only for 0.7.5 sources, `print-panels` takes:
+
+- `--locale de` — display text in German from the pinned locale file `vpmigration/locales/de.json` (`en` is the identity,
+  so `--locale en` equals no locale). Step roles (`Ist`, `Zwischenstand`, `Ziel`) and P1.10 predicate names
+  (`sendet über`) are translated; IDs, method IDs and short names (`import`), `decl:` references and report keys never.
+  Frozen VP-04/05/06 texts in `cube.flow` are replaced by exact full-text matches; a required text that does not match
+  is an audit failure. A predicate without a German name shows its ID (`VP07_LOCALE_FALLBACK`).
+- `--hide-ledger` — the drawn declaration ledger is left out (in `cube.flow` the frozen edge-ledger block); the embedded
+  ledger, `report.json` and `check-panels` are unchanged; `ledger_hidden: true` is recorded.
+- `--partition method-sets` — per method one set of panels with every bar named by a binding of that method (the bar
+  carries it, or its subject or object is an argument of a transition binding); a bar can be in several sets, bars
+  named by none form `none`; each set is COMPLETE on its own; the report adds `method_sets` and `memberships`, which
+  `check-panels` recomputes. Deviation from the spec's flag `--method-sets`: the selection is passed as the partition
+  value, so the CLI and the G6 tools need no extra argument. `--partition method` (0.7.4) is unchanged.
+
+0.7.5 reports add `warning_summary` (per code: count and items; `warnings` stays); 0.7.5 diagnostics name the input
+profile (`profile`) and the base (`printer_profile`). Error output for 0.7.0…0.7.4 is unchanged (D-8).
+
 ## Layout
 
 | Path | Purpose |
@@ -47,7 +66,8 @@ fails if the line would overlap the panel. D-5 and D-7 were reopened at implemen
 | `vpmigration/adapter.py` | `from-plan`: P1.10 `binding-context/5` (0.7.1 also `/6`) → migration source + `mapping.json`; 0.7.1 transcribes `declared_end` on the full plan (GM-3) |
 | `vpmigration/panels.py` | `print-panels` (deterministic packing, coverage ledger, text index) and `check-panels` |
 | `vpmigration/__main__.py` | CLI `python3 -m vpmigration` (`vpprint` unchanged) |
-| `DIAGNOSTICS.json`, `RULE_COVERAGE.json` | 23 VP-07 codes (VP-07.1 adds `VP07_DECLARED_GAP`, VP-07.2 `VP07_LAYER_UNASSIGNED`, VP-07.3 `VP07_METHOD_UNKNOWN`, `VP07_METHOD_ARGUMENT_HIDDEN`; VP-07.4 none), 17 rules |
+| `vpmigration/locale.py`, `vpmigration/locales/{en,de}.json` | VP-07.5 locale profile `aiaeao.cube.p2-locale/1`, pinned by SHA-256; shared with VP-09.2 |
+| `DIAGNOSTICS.json`, `RULE_COVERAGE.json` | 25 VP-07 codes (VP-07.1 adds `VP07_DECLARED_GAP`, VP-07.2 `VP07_LAYER_UNASSIGNED`, VP-07.3 `VP07_METHOD_UNKNOWN`, `VP07_METHOD_ARGUMENT_HIDDEN`; VP-07.4 none; VP-07.5 `VP07_LOCALE_INVALID`, `VP07_LOCALE_FALLBACK`), 22 rules |
 | `oracles/independent_v01_v28.json` | expectations transcribed from spec §5 before code (commit `7a069f2`) |
 | `fixtures/v01_v28_materialized.json` | 28 synthetic vectors (`scripts/materialize_v01_v28.py`) |
 | `fixtures/golden_migration_views.json` | synthetic golden: 31 dependencies, 4 steps, 2 tracks, 1 declared conflict (`scripts/build_golden.py`) |
@@ -76,6 +96,12 @@ fails if the line would overlap the panel. D-5 and D-7 were reopened at implemen
 | `fixtures/golden_v074.json` | VP-07.4 golden: GM-pos, method groups rewrite/none, flow lines T1 at p1, T2…T4 at p2 (`scripts/build_golden_v074.py`) |
 | `scripts/run_vectors_n.py` | N-01…N-14 against the oracle |
 | `tests/test_vp074.py` | 12 tests: oracle, pinned 0.7.0…0.7.3 digests, profile selection, partition on 0.7.3/0.7.4, PM-5, consistent forgery caught by check-panels, overlap audit, line bounds, inner result, golden, CLI |
+| `fixtures/regression_074_digests.json` | VP-07.5 VP075-01: SHA-256 of 16 0.7.4 scenarios, pinned before any 0.7.5 code (`scripts/pin_074_digests.py`) |
+| `oracles/independent_o01_o15.json` | VP-07.5 expectations and German anchor texts transcribed before code (commit `e52d337`) |
+| `fixtures/o01_o15_materialized.json` | 15 synthetic VP-07.5 vectors (`scripts/materialize_o01_o15.py`); O-14 slice corrected before the code commit (documented in the script) |
+| `fixtures/golden_v075.json` | VP-07.5 golden: GM-pos, method sets import 26 / rebuild 12 / retire 16 / rewrite 16 / none 1, `de`, hidden ledger (`scripts/build_golden_v075.py`) |
+| `scripts/run_vectors_o.py` | O-01…O-15 against the oracle |
+| `tests/test_vp075.py` | 16 tests: oracle, pinned 0.7.0…0.7.4 digests, every §2 row, identity locale, flow `de` with hidden ledger, D-3 audit, IDs, forged memberships caught, `--partition method` unchanged, summary, golden, CLI |
 | `tests/test_vp071.py` | 24 tests: oracle, pinned 0.7.0 digests, §2 rows, gap rules, markers, nested flow/phases, golden, P1.10.1 agreement, CLI |
 
 ## Run
@@ -94,10 +120,16 @@ python3 scripts/run_vectors_m.py                       # 12/12 (VP-07.3)
 python3 scripts/pin_072_digests.py --check             # 13/13 0.7.2 outputs byte-identical
 python3 scripts/run_vectors_n.py                       # 14/14 (VP-07.4)
 python3 scripts/pin_073_digests.py --check             # 14/14 0.7.3 scenarios byte-identical
+python3 tests/test_vp075.py
+python3 scripts/run_vectors_o.py                       # 15/15 (VP-07.5)
+python3 scripts/pin_074_digests.py --check             # 16/16 0.7.4 scenarios byte-identical
 python3 -m vpmigration from-plan --context ctx.json --plan mp-acme --tracks tracks.json --out src.json
 python3 -m vpmigration print-panels --source src.json --view cube.phases --partition subject --granularity standard --out panels/
 python3 -m vpmigration check-panels --dir panels/
 python3 -m vpmigration print-panels --source src.json --view cube.phases --partition track,subject --granularity standard --out by-track/
+python3 -m vpmigration from-plan --context ctx.json --plan mp-acme --profile P2-VP-MIGRATION/0.7.5 --out src75.json
+python3 -m vpmigration print-panels --source src75.json --view cube.phases --partition method-sets --granularity standard \
+    --locale de --hide-ledger --out runbook/
 ```
 
 ## Local results (2026-10-26)
@@ -146,16 +178,30 @@ python3 -m vpmigration print-panels --source src.json --view cube.phases --parti
 - Golden (GM-pos): method groups rewrite (16 bars) and none; flow lines list T1 at p1 and T2…T4 at p2, which needed the
   amended D-5 (T1 introduces new-mail, used from p2).
 
+## Local results VP-07.5 (2026-10-28)
+
+- O-01…O-15: 15/15 match the oracle; O-05, O-08 and O-15 fail for the stated reason (O-15 names profile 0.7.5).
+- Regression: pinned 0.7.0 14/14, 0.7.1 16/16, 0.7.2 13/13, 0.7.3 14/14, 0.7.4 16/16; V 28/28, W 17/17, L 13/13,
+  M 12/12, N 14/14; 104/104 VP-07 tests.
+- Golden (GM-pos, `de`, hidden ledger): sets import, rebuild, retire, rewrite, none with 26/12/16/16/1 bars, each COMPLETE;
+  `check-panels` PASS.
+- Vector correction before the code commit: O-14 needs the slice `crm-sync, shop` (with `crm-sync` alone the base
+  plan's own `t-mail` adds two hidden arguments; the oracle's hand note counts only the 41 boxes). Oracle unchanged.
+- With `--hide-ledger`, `cube.flow` keeps the frozen VP-06 page height (the block is removed, nothing is moved).
+
 ## In-memory API (G6, P3 C-13)
 
 `vpmigration/api.py`: `source(context, plan_id, …)` → `{source, mapping}` as `from-plan`; `views(source, view, granularity,
 partition, lens)` → `{panels: [{name, svg, sha256, input, input_sha256}], index, report}`, exactly the files of
 `print-panels`; `check(result)` → the output of `check-panels`. `check_panels(directory)` now reads the folder and
 delegates to `check_files(files)`; CLI outputs are unchanged (G6 pins). Used by the local MCP tools `cube_plan_*`
-(`P3/adapters/mcp-local/G6_README.md`); no profile change.
+(`P3/adapters/mcp-local/G6_README.md`); no profile change. C-12: `views(…, locale=None, hide_ledger=False)` passes
+the VP-07.5 options only when set.
 
 ## Not part of this stage
 
-MCP tool `cube_render_plan` (D-6, follow-up with paging); G4/G5 are unchanged by VP-07. Methods in `cube.flow` and
-VP-08 views (VP-07.4 §7); colours or hatches per method; showing P1.11 fit results. Visual acceptance
+MCP tool `cube_render_plan` (D-6, follow-up with paging); G4/G5 are unchanged by VP-07 (G5 gets the plan tools only
+after its own decision, because migration contexts can hold client data). VP-08 views and VP-08 locale; colours or
+hatches per method; showing P1.11 fit results; user-supplied locale files and translated method names (VP-07.5 D-2 c,
+D-4 b). Visual acceptance
 across fonts and browsers is a separate user decision (VP-06 `VISUAL_REVIEW_CHECKLIST.md`).

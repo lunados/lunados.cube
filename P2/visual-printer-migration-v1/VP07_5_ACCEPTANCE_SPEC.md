@@ -1,6 +1,7 @@
 # VP-07.5 — Locale, hidden ledger and method sets · Acceptance specification
 
-**Status:** SPECIFIED, decisions D-1…D-9 resolved 2026-10-28 (all as proposed) — ready for oracle transcription and implementation.
+**Status:** IMPLEMENTED 2026-10-28 (decisions D-1…D-9 as proposed; oracle and 0.7.4 pins before code, `e52d337`). O-01…O-15 15/15; 0.7.0…0.7.4 byte-identical.
+**Implementation notes:** (1) method sets are selected with `--partition method-sets` instead of a separate `--method-sets` flag (same rules MS-1…MS-3; no extra CLI/MCP argument); (2) the O-14 vector uses the slice `crm-sync, shop` so that only the 41 boxes of the hand note hide an argument (oracle unchanged); (3) `cube.flow` with `--hide-ledger` keeps the frozen VP-06 page height (the block is removed, nothing is moved).
 **Profile:** `P2-VP-MIGRATION/0.7.5`, follow-up to `0.7.4` (VP-07.4, PR #24) in the same package `vpmigration`; opt-in via `from-plan --profile`.
 **Requirement:** C-12 items (a), (b), (e), (h), (i) for VP-07 (field test 2026-10-28: 24 runs with VP-07.3/.4 and VP-09.1, all PASS, used for client sign-off, dependency clarification and runbooks; client details withheld). Items (c), (d), (f), (g) and the VP-09 parts of (a), (h), (i) are VP-09.2.
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` (PV-1a ledger, PE-1…PE-6), `VP07_1…VP07_4_ACCEPTANCE_SPEC.md` (codes TM-1, layers, methods MT/MD, partition PM-1…PM-5, D-2 of VP-07.4: a bar's group is only its own method), P1.10 predicate profile (predicate IDs), P1.11 (MP-5 no order from methods); VP-02/VP-06 frozen (texts of `cube.flow` panels).

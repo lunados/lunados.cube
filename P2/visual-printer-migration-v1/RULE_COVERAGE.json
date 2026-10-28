@@ -104,6 +104,36 @@
       "coverage": "enforced",
       "source": "VP-07.4 FL-1…FL-4, FE-1, FE-2, D-5 (amended), D-6, D-7 (reopened)",
       "implementation": "only 0.7.4 sources: transitions at the panel step whose items are panel nodes or objects of a panel row at any step, listed in code order with methods in catalog order, in the strip above the layer caption (two lines, then +n more, full list in title and ledger), audit FAIL on overlap; edges of bars with a method get data-vp07-method and a title suffix; check-panels recomputes line and edge methods from the embedded source; 0.7.0…0.7.3 outputs byte-identical (57 pinned scenarios)"
+    },
+    {
+      "id": "VP075-PROFILE",
+      "coverage": "enforced",
+      "source": "VP-07.5 §1.1, D-1, D-8",
+      "implementation": "from-plan --profile 0.7.5 adds the declared role to each step; locale, hide_ledger and method-sets only for 0.7.5 sources; a 0.7.5 diagnostic names profile (input) and printer_profile (base); 0.7.0…0.7.4 outputs and error output byte-identical (73 pinned scenarios)"
+    },
+    {
+      "id": "VP075-LOCALE",
+      "coverage": "enforced",
+      "source": "VP-07.5 LC-1…LC-3, D-2, D-3, D-4",
+      "implementation": "pinned locale files vpmigration/locales/{en,de}.json (format aiaeao.cube.p2-locale/1, SHA-256 in code); en is the identity; phases, index and VP-07 lines of cube.flow translated by key; frozen VP-04/05/06 texts by exact full-match replacement with required entries (audit FAIL otherwise); step roles and P1.10 predicate names translated, IDs, method IDs and short names, decl: references and report keys never; report and embedded ledger record locale and SHA-256"
+    },
+    {
+      "id": "VP075-HIDE-LEDGER",
+      "coverage": "enforced",
+      "source": "VP-07.5 §1.3, D-3",
+      "implementation": "cube.phases: the drawn DECLARATION LEDGER block and its height left out; cube.flow: the frozen edge-ledger block removed by its exact header up to the footer rule; embedded ledger, report.json and check-panels unchanged; ledger_hidden in report, embedded ledger and SVG root"
+    },
+    {
+      "id": "VP075-METHOD-SETS",
+      "coverage": "enforced",
+      "source": "VP-07.5 MS-1…MS-3, D-5, D-6",
+      "implementation": "selection method-sets (passed as the partition value): a binding names the bar that carries it or a bar whose subject or object is an argument value of a transition binding; sets in catalog order, local methods, none last; each set packed by subject and COMPLETE on its own; report method_sets and memberships; check-panels recomputes both from the embedded source and the panel inputs; --partition method of 0.7.4 unchanged"
+    },
+    {
+      "id": "VP075-HINTS",
+      "coverage": "enforced",
+      "source": "VP-07.5 WS-1, D-7",
+      "implementation": "0.7.5 reports keep warnings and add warning_summary {code, count, items} in first-appearance order; the CLI prints the summary"
     }
   ]
 }

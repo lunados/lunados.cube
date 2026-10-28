@@ -86,7 +86,7 @@
       "code": "VP07_PANEL_PARTITION",
       "stage": "partition",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 PE-1, PE-2: undeclared partition key, missing lens/track, or one group exceeds the panel budget; 0.7.1 NP-1: more than two keys, repeated key, step as outer key for cube.flow, nested partition on a 0.7.0 source, inner group over budget (message names outer and inner value); 0.7.2: partition layer on a source without declared layers; 0.7.4 PM-1: partition method on a source without method fields (below 0.7.3), or a method group that exceeds the budget even after the split by subject"
+      "reference_rule": "VP-07 PE-1, PE-2: undeclared partition key, missing lens/track, or one group exceeds the panel budget; 0.7.1 NP-1: more than two keys, repeated key, step as outer key for cube.flow, nested partition on a 0.7.0 source, inner group over budget (message names outer and inner value); 0.7.2: partition layer on a source without declared layers; 0.7.4 PM-1: partition method on a source without method fields (below 0.7.3), or a method group that exceeds the budget even after the split by subject; VP-07.5 §2 rows 1 and 4: --hide-ledger or method-sets on a source below 0.7.5, a method set that alone exceeds the budget after splitting by subject"
     },
     {
       "code": "VP07_PANEL_COVERAGE",
@@ -116,7 +116,7 @@
       "code": "VP07_AUDIT",
       "stage": "audit",
       "default_status": "FAIL",
-      "reference_rule": "VP-07 §3.6: internal audit invariant (partition, embedded ledger, no active SVG content); 0.7.4 D-7: the methods line would overlap a drawn element of the flow panel"
+      "reference_rule": "VP-07 §3.6: internal audit invariant (partition, embedded ledger, no active SVG content); 0.7.4 D-7: the methods line would overlap a drawn element of the flow panel; VP-07.5 D-3: a required frozen text of VP-04/05/06 not matched exactly by the locale replacement table, or the cube.flow ledger block not found exactly once"
     },
     {
       "code": "VP07_INPUT_INVALID",
@@ -149,6 +149,20 @@
       "default_status": "WARNING",
       "since": "P2-VP-MIGRATION/0.7.3",
       "reference_rule": "VP-07.3 §2 row 4, MT-3, D-7: a binding argument names a referent outside the slice (--track, --subjects, --steps); the declared ref text is kept and marked hidden, never dropped"
+    },
+    {
+      "code": "VP07_LOCALE_INVALID",
+      "stage": "input",
+      "default_status": "FAIL",
+      "since": "P2-VP-MIGRATION/0.7.5",
+      "reference_rule": "VP-07.5 §2 rows 1-2, LC-1, D-1, D-2: unknown locale, locale file not matching its pinned SHA-256 or malformed, or --locale on a source below 0.7.5"
+    },
+    {
+      "code": "VP07_LOCALE_FALLBACK",
+      "stage": "render",
+      "default_status": "WARNING",
+      "since": "P2-VP-MIGRATION/0.7.5",
+      "reference_rule": "VP-07.5 §2 row 3: a predicate without a display name in the locale shows its ID; one warning per predicate, grouped in warning_summary"
     }
   ],
   "profiles": [
@@ -156,6 +170,7 @@
     "P2-VP-MIGRATION/0.7.1",
     "P2-VP-MIGRATION/0.7.2",
     "P2-VP-MIGRATION/0.7.3",
-    "P2-VP-MIGRATION/0.7.4"
+    "P2-VP-MIGRATION/0.7.4",
+    "P2-VP-MIGRATION/0.7.5"
   ]
 }
