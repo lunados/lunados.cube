@@ -6,7 +6,8 @@ a blank cell asserts nothing; membership uses declared fields only (no transitiv
 from __future__ import annotations
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, P091, PAIRS_091, RULES_091, AXES, RESERVED, PAIRS, BUDGET, X_DIMS, LENS_OF, KIND_ORDER, RULES, LEVELS, NOT_EVALUATED, NS,
+from .common import (PROFILE, P091, P092, V91UP, PAIRS_092, RULES_092, RULE_KEYS, ROLE_ORDER, HIDE_EMPTY, wrap_sep, tag_profile, via07,
+                     PAIRS_091, RULES_091, AXES, RESERVED, PAIRS, BUDGET, X_DIMS, LENS_OF, KIND_ORDER, RULES, LEVELS, NOT_EVALUATED, NS,
                      STROKE, INK, MUTED, Printer, add, line, rect, text, excerpt, cjson, fmt, sha_bytes, sha_json, no_active_content,
                      need, wrap_words, kind_label)
 from .source import normalize, method_order, profile_of
@@ -19,15 +20,35 @@ def letter(axis):
     return axis.split(':')[0]
 
 
-def check_pair(rows, cols, v91=False):
+def check_pair(rows, cols, v91=False, v92=False):
     for a in (rows, cols):
         need(isinstance(a, str), 'VP09_AXIS_INVALID', 'axis must be a string')
         need(letter(a) not in RESERVED, 'VP09_AXIS_INVALID', f'axis {a} is reserved until a declared source exists (D-6)')
         need(a in AXES, 'VP09_AXIS_INVALID', f'axis {a!r} outside X | Y:kind | Y:referent | Z:kind | Z:referent | T | F (AX-1)')
     pair = {letter(rows), letter(cols)}
-    need(not (letter(rows) == letter(cols) and letter(rows) != 'X'), 'VP09_AXIS_INVALID', 'the same axis twice (only X × X is a pair, D-2)')
-    need(pair in (PAIRS_091 if v91 else PAIRS), 'VP09_AXIS_INVALID', f'pair {rows} × {cols} is not in the declared pair list (D-2)')
+    twice = ('X', 'Y') if v92 else ('X',)  # VP-09.2 (c): Y × Y is a pair from 0.9.2 on
+    need(not (letter(rows) == letter(cols) and letter(rows) not in twice), 'VP09_AXIS_INVALID',
+         'the same axis twice (only X × X'+(' and Y × Y' if v92 else '')+' is a pair, D-2)')
+    need(pair in (PAIRS_092 if v92 else PAIRS_091 if v91 else PAIRS), 'VP09_AXIS_INVALID', f'pair {rows} × {cols} is not in the declared pair list (D-2)')
     return frozenset(pair)
+
+
+def _locale(code):
+    from vpmigration.locale import load
+    return via07(load, code, 'VP09_LOCALE_INVALID')
+
+
+def arg_text(b, dropped=()):
+    """VP-09.2 FA-1/FA-2 (D-3): `<short>: a → b` / `<short>: a` in catalog role order; local methods `role=value`;
+    an argument outside the slice shows its declared ref with `*`."""
+    args = dict(b['arguments'])
+    for x in dropped:
+        args.setdefault(x['role'], x['ref']+'*')
+    mid = b['method_id']
+    if mid in ROLE_ORDER:
+        vals = [args[r] for r in ROLE_ORDER[mid] if r in args]
+        return mid.split('.', 1)[1].split('/', 1)[0]+': '+' → '.join(vals)
+    return mid+': '+', '.join(f'{r}={v}' for r, v in args.items())
 
 
 class Model:
@@ -36,7 +57,10 @@ class Model:
     def __init__(self, doc):
         self.src, self.bindings, self.items, self.v = normalize(doc)
         self.profile = profile_of(doc)
-        self.v91 = self.profile == P091
+        self.v91 = self.profile in V91UP
+        self.v92 = self.profile == P092
+        self.roles = doc['step_roles'] if self.v92 else {}
+        self.L = _locale(None)
         self.local = doc['local_methods'] if self.v91 else []
         self.dropped = doc['dropped_arguments'] if self.v91 else []
         src = self.src
@@ -52,6 +76,8 @@ class Model:
     def values(self, axis):
         a = letter(axis)
         if a == 'T':
+            if self.v92 and not self.L.identity:             # VP-09.2 (a): declared role in the display locale; IDs unchanged
+                return [(s['id'], excerpt(f"{s['id']} · {self.L.role(self.roles.get(s['id'], ''))}", 40), None) for s in self.steps]
             return [(s['id'], s['label'], None) for s in self.steps]
         if a == 'X':
             need(self.facets, 'VP09_AXIS_EMPTY', 'X needs declared facet bindings; the source declares none (AX-4)')
@@ -83,7 +109,7 @@ class Model:
     # -- membership (CM) ---------------------------------------------------
     def entries(self, rows, cols):
         """{(row value, col value): [entries]} in declared order; canonical pair then oriented."""
-        pair = check_pair(rows, cols, self.v91)
+        pair = check_pair(rows, cols, self.v91, self.v92)
         out = {}
 
         def emit(a_val, b_val, entry, swap):
@@ -115,6 +141,10 @@ class Model:
                 for y, z in ((a, b), (b, a)):
                     if self.items[y]['home'] == 'Y' and self.items[z]['home'] == 'Z':
                         emit(self.proj(ay, y), self.proj(az, z), f"{c['id']} · {c['predicate_id']}", swap)
+        elif pair == {'Y'}:                                  # VP-09.2 YY-1 (D-2): directed, row = subject, column = object
+            for c in self.cells:
+                if self.items[c['row']]['home'] == 'Y' and self.items[c['object']]['home'] == 'Y':
+                    emit(self.proj(rows, c['row']), self.proj(cols, c['object']), f"{c['id']} · {c['predicate_id']}", False)
         elif pair == {'X'}:
             lenses = {}
             order = []
@@ -149,7 +179,11 @@ class Model:
         elif pair == {'F', 'T'}:
             swap = la == 'T'
             for b in self.bindings:
-                emit(b['method_id'], self.step_of(b), b['owner'], swap)
+                if self.v92:                                 # VP-09.2 FA-1/FA-2: entries with their arguments
+                    dr = [x for x in self.dropped if x['declaration_ref'] == b['declaration_ref'] and x['reason'] == 'ref_out_of_slice']
+                    emit(b['method_id'], self.step_of(b), f"{b['owner']} · {arg_text(b, dr)}", swap)
+                else:
+                    emit(b['method_id'], self.step_of(b), b['owner'], swap)
         return pair, out
 
     def step_of(self, b):
@@ -198,13 +232,31 @@ class AxesPrinter:
     def __init__(self):
         self.base = Printer()
 
-    def project(self, doc, rows, cols, granularity='standard', row_subset=None, col_subset=None, budget_check=True):
+    def project(self, doc, rows, cols, granularity='standard', row_subset=None, col_subset=None, budget_check=True,
+                hide_empty=None, locale=None):
         need(granularity in LEVELS, 'VP09_AXES_BUDGET', 'granularity must be overview|standard|detail', 'granularity')
-        v91 = profile_of(doc) == P091
-        check_pair(rows, cols, v91)
+        prof = profile_of(doc)
+        v91, v92 = prof in V91UP, prof == P092
+        need(hide_empty is None or v92, 'VP09_SOURCE_INVALID', 'hide_empty needs a '+P092+' input (VP-09.2 D-1)')
+        need(locale is None or v92, 'VP09_LOCALE_INVALID', 'locale needs a '+P092+' input (VP-09.2 D-1)')
+        need(hide_empty in (None,)+HIDE_EMPTY, 'VP09_AXIS_INVALID', 'hide_empty must be rows|cols|both')
+        L = _locale(locale)
+        check_pair(rows, cols, v91, v92)
         m = Model(doc)
+        m.L = L
         rv, cv = m.values(rows), m.values(cols)
         pair, cells = m.entries(rows, cols)
+        hidden = None
+        if hide_empty:                                       # HE-1 (D-4): after projection, before the budget check
+            rall, call = list(rv), list(cv)
+            if hide_empty in ('rows', 'both'):
+                rv = [x for x in rv if any((x[0], c) in cells for c, _, _ in call)]
+            if hide_empty in ('cols', 'both'):
+                cv = [x for x in cv if any((r, x[0]) in cells for r, _, _ in rall)]
+            hidden = {'hide_empty': hide_empty, 'row_values_all': [v for v, _, _ in rall], 'col_values_all': [v for v, _, _ in call],
+                      'hidden_rows': [v for v, _, _ in rall if v not in {x[0] for x in rv}],
+                      'hidden_cols': [v for v, _, _ in call if v not in {x[0] for x in cv}]}
+            hidden['hidden_counts'] = {'rows': len(hidden['hidden_rows']), 'cols': len(hidden['hidden_cols'])}
         full = row_subset is None and col_subset is None
         if row_subset is not None:
             rv = [x for x in rv if x[0] in row_subset]
@@ -216,8 +268,11 @@ class AxesPrinter:
                  f'{len(rv)} rows / {len(cv)} columns exceed {granularity} ({rcap}/{ccap}); use print-panels (D-9)', 'granularity')
         pr = {'model': m, 'pair': pair, 'rows': rows, 'cols': cols, 'rv': rv, 'cv': cv, 'cells': cells, 'k': kcap,
               'granularity': granularity}
+        if v92:
+            pr['L'], pr['hidden'] = L, hidden
+            pr['all_empty'] = bool(hidden) and (not rv or not cv)
         if v91:
-            pr['profile'], pr['full'] = P091, full
+            pr['profile'], pr['full'] = prof, full
             pr['fpair'] = 'F' in pair
             if pr['fpair']:
                 units = m.binding_units(rows, cols)
@@ -228,11 +283,12 @@ class AxesPrinter:
         return pr
 
     # layout --------------------------------------------------------------
-    def _lines(self, entries, width_chars, k):
-        """AD-3: visible entries are whole (wrapped), never truncated; the rest goes to `+n more`."""
+    def _lines(self, entries, width_chars, k, v92=False, shown_text=None):
+        """AD-3: visible entries are whole (wrapped), never truncated; the rest goes to `+n more`.
+        0.9.2 (WR-1): wrapped at separators; a piece longer than a line is shortened with `…` (full text in `<title>`)."""
         out, shown = [], 0
         for e in entries:
-            ls = wrap_words(e, width_chars)
+            ls = wrap_sep(shown_text(e) if shown_text else e, width_chars)[0] if v92 else wrap_words(e, width_chars)
             room = k-len(out)  # the `+n more` line has its own slot (row height k+1 lines)
             if len(ls) > room:
                 break
@@ -243,8 +299,13 @@ class AxesPrinter:
     def render(self, pr):
         m = pr['model']
         rv, cv, cells, k = pr['rv'], pr['cv'], pr['cells'], pr['k']
+        v92 = pr.get('profile') == P092
+        L = pr['L'] if v92 else None
+        T_ = (lambda key, default, **kw: L.t(key, default, **kw)) if v92 else (lambda key, default, **kw: default.format(**kw) if kw else default)
+        wrap = (lambda st, w: wrap_sep(st, w)[0]) if v92 else wrap_words
+        show = self._show(pr) if v92 else None
         ncols = len(cv)
-        cw = (GX1-GX0)/ncols
+        cw = (GX1-GX0)/max(ncols, 1)                         # VP-09.2: every column hidden → empty table (VP09_ALL_EMPTY)
         rh = 14+(k+1)*15
         kind_rows = pr['rows'].endswith(':referent')
         layout, y = [], 214
@@ -254,26 +315,32 @@ class AxesPrinter:
                 layout.append(('kind', kind, y)); y += 26; last_kind = kind
             layout.append(('row', (val, label, kind), y)); y += rh
         grid_bottom = y
-        v91 = pr.get('profile') == P091
-        rule = (RULES_091 if v91 else RULES)[pr['pair']]
-        legend_lines = wrap_words('Membership: '+rule, 120)
+        v91 = pr.get('profile') in V91UP
+        rule = (RULES_092 if v92 else RULES_091 if v91 else RULES)[pr['pair']]
+        if v92:
+            rule = L.t('rule.'+RULE_KEYS[pr['pair']], rule)
+        legend_lines = wrap(T_('axes.legend.membership', 'Membership: {rule}', rule=rule), 120)
         if v91:
-            legend_lines += self._notes091(pr)
+            legend_lines += self._notes091(pr, T_, wrap)
         height = int(grid_bottom+50+(len(legend_lines)+4)*20+60)
         pair_txt = f"{pr['rows']} × {pr['cols']}"
+        printer = 'VP-09.2' if v92 else 'VP-09.1' if v91 else 'VP-09'
         root = self.base._root({'view_id': 'cube.axes', 'title': excerpt(m.src['title']+' · '+pair_txt, 78),
-                                'subtitle': excerpt(f"v9.4 · VP-09{'.1' if v91 else ''} · declared axes {pair_txt} · {pr['granularity']} · categorical, no distances", 105)},
+                                'subtitle': excerpt(T_('axes.subtitle', 'v9.4 · {printer} · declared axes {pair} · {granularity} · categorical, no distances',
+                                                       printer=printer, pair=pair_txt, granularity=pr['granularity']), 105)},
                                height)
         root.set('data-printer-profile', pr.get('profile', PROFILE))
         root.set('data-cube-view', 'cube.axes')
         root.set('data-vp09-pair', pair_txt)
-        text(root, 60, 125, 'CUBE.AXES · DECLARED STATEMENTS PER CELL · categorical matrix, no ranking, no distance', 13, MUTED, 'bold')
+        text(root, 60, 125, T_('axes.header', 'CUBE.AXES · DECLARED STATEMENTS PER CELL · categorical matrix, no ranking, no distance'), 13, MUTED, 'bold')
+        if v92 and pr['hidden']:
+            root.set('data-vp09-hide-empty', pr['hidden']['hide_empty'])
         # column headers (AD-2)
         for j, (val, label, kind) in enumerate(cv):
             x = GX0+j*cw
             g = add(root, 'g', **{'data-vp09-col': val})
             add(g, 'title').text = f'{val} · {label}'
-            ls = wrap_words(label, max(6, int((cw-10)/6.6)))[:3]
+            ls = wrap(label, max(6, int((cw-10)/6.6)))[:3]
             for n, s in enumerate(ls):
                 text(g, fmt(x+cw/2), fmt(160+n*14+(3-len(ls))*7), s, 11.5, '#1E293B', 'bold', anchor='middle')
             line(root, fmt(x), 200, fmt(x), fmt(grid_bottom), '#E2E8F0')
@@ -297,7 +364,7 @@ class AxesPrinter:
                 if it:
                     text(g, 78, fmt(y0+20), self.base.by_id[it['anchor_id']]['unicode'], 14, INK, anchor='middle', glyph=True)
                 gx = 92
-            for n, s in enumerate(wrap_words(label, 26)[:2]):
+            for n, s in enumerate(wrap(label, 26)[:2]):
                 text(g, gx, fmt(y0+19+n*14), s, 12, INK, 'bold')
             line(root, 60, fmt(y0+rh), GX1, fmt(y0+rh), '#F1F5F9')
             for j, (cval, _, _) in enumerate(cv):
@@ -306,44 +373,66 @@ class AxesPrinter:
                     continue                                # AD-4: blank cell asserts nothing; no glyph, no fill
                 x = GX0+j*cw
                 cg = add(root, 'g', **{'data-vp09-cell': f'{val}|{cval}', 'data-vp09-count': str(len(ents))})
-                add(cg, 'title').text = f'{val} × {cval} · ' + ' · '.join(ents)
+                add(cg, 'title').text = f'{val} × {cval} · ' + ' · '.join(show(e) if show else e for e in ents)
                 rect(cg, fmt(x+3), fmt(y0+3), fmt(cw-6), fmt(rh-6), '#E2E8F0', '#F8FAFC', 4)
-                lines, shown = self._lines(ents, max(8, int((cw-16)/6.0)), k)
+                lines, shown = self._lines(ents, max(8, int((cw-16)/6.0)), k, v92, show)
                 for n, (_, _, s) in enumerate(lines):
                     text(cg, fmt(x+9), fmt(y0+17+n*15), s, 11, '#1E293B')
                 if shown < len(ents):
-                    text(cg, fmt(x+9), fmt(y0+17+len(lines)*15), f'+{len(ents)-shown} more', 11, MUTED, 'bold')
+                    text(cg, fmt(x+9), fmt(y0+17+len(lines)*15), T_('axes.more', '+{n} more', n=len(ents)-shown), 11, MUTED, 'bold')
                 drawn.append((val, cval, shown, len(ents)))
         # legend (AD-4)
         y = grid_bottom+40
         lg = add(root, 'g', **{'data-vp09-legend': 'display-only'})
-        text(lg, 62, fmt(y), 'LEGEND · declared display conventions · not a verdict', 13, MUTED, 'bold')
+        text(lg, 62, fmt(y), T_('legend.title', 'LEGEND · declared display conventions · not a verdict'), 13, MUTED, 'bold')
         for s in legend_lines:
             y += 20; text(lg, 70, fmt(y), s, 12, '#334155')
-        for s in ('blank cell = nothing declared for this pair, not "no relation"',
-                  '+n more = number of further declared entries in the cell (a cardinality, not a score); full list in the ledger',
-                  'equal cell size, no shading: nothing is measured, ranked or placed at a distance'):
-            y += 20; text(lg, 70, fmt(y), s, 12, '#334155')
+        for key, s in (('axes.legend.blank', 'blank cell = nothing declared for this pair, not "no relation"'),
+                       ('axes.legend.more', '+n more = number of further declared entries in the cell (a cardinality, not a score); full list in the ledger'),
+                       ('axes.legend.equal', 'equal cell size, no shading: nothing is measured, ranked or placed at a distance')):
+            y += 20; text(lg, 70, fmt(y), T_(key, s), 12, '#334155')
         meta = add(root, 'metadata', id='vp09-axes-ledger')
         meta.text = cjson(self.ledger(pr))
         svg = ET.tostring(root, encoding='utf-8', xml_declaration=True, short_empty_elements=True)+b'\n'
+        if v92:
+            svg = via07(L.post, svg, 'axes', 'VP09_AUDIT')
         return svg, drawn
 
     @staticmethod
-    def _notes091(pr):
-        """Legend lines of 0.9.1: what the F view does not show, as counts of declared units (FL-2)."""
+    def _show(pr):
+        """VP-09.2 (a): display text of an entry; a trailing P1.10 predicate ID shows its locale name (ledger keeps the ID)."""
+        L = pr['L']
+        if L.identity or pr['pair'] not in ({'Y'}, {'Y', 'Z'}):
+            return lambda e: e
+
+        def f(e):
+            head, sep, pid = e.rpartition(' · ')
+            return head+sep+L.pred(pid) if sep else e
+        return f
+
+    @staticmethod
+    def _notes091(pr, T_=None, wrap=wrap_words):
+        """Legend lines of 0.9.1: what the F view does not show, as counts of declared units (FL-2); 0.9.2 adds hidden values."""
+        T_ = T_ or (lambda key, default, **kw: default.format(**kw) if kw else default)
         out = []
         if pr['fpair'] and not pr['model'].bindings:
-            out.append('No method binding is declared in the input: the F axis is empty (VP09_METHODS_NONE), not a statement about the plan.')
+            out.append(T_('axes.note.none', 'No method binding is declared in the input: the F axis is empty (VP09_METHODS_NONE), not a statement about the plan.'))
         if pr['fpair']:
             off = [u for u in pr['units_b'] if u['state'] == 'off_axis']
             out_ = [u for u in pr['units_b'] if u['state'] == 'out_of_slice']
             for home in sorted({u['home'] for u in off}):
                 n = sum(u['home'] == home for u in off)
-                out.append(f'{n} binding argument(s) name a referent of home {home}: not a column of this view (see F × {home}); listed in the ledger.')
+                out.append(T_('axes.note.off_axis', '{n} binding argument(s) name a referent of home {home}: not a column of this view (see F × {home}); listed in the ledger.',
+                              n=n, home=home))
             if out_:
-                out.append(f'{len(out_)} binding unit(s) lie outside the plan slice of this input; listed in the ledger.')
-        return [x for line in out for x in wrap_words(line, 120)]
+                out.append(T_('axes.note.out_of_slice', '{n} binding unit(s) lie outside the plan slice of this input; listed in the ledger.', n=len(out_)))
+        h = pr.get('hidden')
+        if h:
+            out.append(T_('axes.note.hidden', '{rows} empty row(s) and {cols} empty column(s) hidden; the report counts them.',
+                          rows=h['hidden_counts']['rows'], cols=h['hidden_counts']['cols']))
+            if pr['all_empty']:
+                out.append(T_('axes.note.all_empty', 'Every row or column is hidden: nothing is declared for this pair in the input (VP09_ALL_EMPTY), not a statement about the plan.'))
+        return [x for line in out for x in wrap(line, 120)]
 
     @staticmethod
     def ledger(pr):
@@ -352,7 +441,12 @@ class AxesPrinter:
         led = {'profile': pr.get('profile', PROFILE), 'rows_axis': pr['rows'], 'cols_axis': pr['cols'], 'granularity': pr['granularity'],
                'row_values': [v for v, _, _ in pr['rv']], 'col_values': [v for v, _, _ in pr['cv']], 'cells': cells,
                'status': 'declared_unverified', 'nonimplications': ['truth', 'distance', 'rank', 'score', 'causality', 'time']}
-        if pr.get('profile') == P091 and pr['fpair']:
+        if pr.get('profile') == P092:                       # VP-09.2: hidden values and the display locale are recorded
+            if pr['hidden']:
+                led.update(pr['hidden'])
+            if not pr['L'].identity:
+                led['locale'] = pr['L'].record()
+        if pr.get('profile') in V91UP and pr['fpair']:
             led['binding_units'] = pr['drawn_here']
             if pr['full']:
                 led['binding_ledger'] = pr['units_b']
@@ -377,13 +471,19 @@ class AxesPrinter:
         warnings = [{'code': 'VP09_CELL_OVERFLOW', 'row': r, 'col': c, 'count': n, 'shown': s} for r, c, s, n in drawn if s < n]
         units = sorted(f'{k}|{e}' for k, es in led['cells'].items() for e in es)
         extra = {}
-        if pr.get('profile') == P091 and pr['fpair']:
+        if pr.get('profile') in V91UP and pr['fpair']:
             if not pr['model'].bindings:
                 warnings.append({'code': 'VP09_METHODS_NONE', 'detail': 'the input declares no method binding (D-4)'})
             if pr['full']:
                 warnings += binding_warnings(pr['units_b'])
                 verify(led['binding_coverage']['status'] == 'COMPLETE', 'BINDING_LEDGER_COMPLETE')
             extra = {k: led[k] for k in ('binding_units', 'binding_ledger', 'binding_coverage') if k in led}
+        if pr.get('profile') == P092:
+            if pr['all_empty']:
+                warnings.append({'code': 'VP09_ALL_EMPTY', 'hidden_rows': len(pr['hidden']['hidden_rows']), 'hidden_cols': len(pr['hidden']['hidden_cols'])})
+            extra.update({k: led[k] for k in ('hide_empty', 'row_values_all', 'col_values_all', 'hidden_rows', 'hidden_cols', 'hidden_counts', 'locale')
+                          if k in led})
+            extra['warning_summary'] = warning_summary(warnings)
         return {'format': REPORT_FORMAT, 'profile': pr.get('profile', PROFILE), **extra, 'reference_version': 'v9.4', 'render_status': 'PASS', 'view': 'cube.axes',
                 'rows_axis': pr['rows'], 'cols_axis': pr['cols'], 'granularity': pr['granularity'],
                 'source_sha256': sha_json(pr['model'].src), 'svg_sha256': sha_bytes(svg),
@@ -393,6 +493,16 @@ class AxesPrinter:
                 'notices': ['Cells list declared statements only; a blank cell asserts nothing.',
                             'No size, position or shade encodes a quantity; nothing is ranked.',
                             'Step columns are a declared step order, not a time scale.']}
+
+
+def warning_summary(warnings):
+    """VP-09.2 (h), as VP-07.5 WS-1: per code in first-appearance order; items without `code`."""
+    out = {}
+    for w in warnings:
+        x = out.setdefault(w['code'], {'code': w['code'], 'count': 0, 'items': []})
+        x['count'] += 1
+        x['items'].append({k: v for k, v in w.items() if k != 'code'})
+    return list(out.values())
 
 
 def binding_coverage(units, drawn_units):
@@ -416,8 +526,12 @@ def binding_warnings(units):
     return out
 
 
-def render_axes(doc, rows, cols, granularity='standard'):
+def render_axes(doc, rows, cols, granularity='standard', hide_empty=None, locale=None):
     p = AxesPrinter()
-    pr = p.project(doc, rows, cols, granularity)
+    opts = {k: v for k, v in (('hide_empty', hide_empty), ('locale', locale)) if v is not None}
+    pr = p.project(doc, rows, cols, granularity, **opts)
     svg, drawn = p.render(pr)
     return p.report(pr, svg, drawn), svg
+
+
+render_axes = tag_profile(render_axes, lambda doc, *a, **k: profile_of(doc) if isinstance(doc, dict) else None)

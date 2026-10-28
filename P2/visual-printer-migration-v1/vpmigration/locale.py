@@ -19,7 +19,7 @@ FORMAT = 'aiaeao.cube.p2-locale/1'
 DIR = Path(__file__).resolve().parent/'locales'
 PINNED = {  # LC-1: a picture's text is reproducible from the locale code
     'en': 'bf7202d635cfb1587d084e82f8f076d33a24689363b2243e51c126f7493dc251',
-    'de': '5b518be1f2e74906bb2a458dba46ae00017fb52f2a0e94d6c1512fd0c124d57e',
+    'de': 'a5ef8f0f5865a2899605fefed58df5df9d6c7bf1af4cc5df1b3ef8a4774150de',
 }
 _CACHE = {}
 

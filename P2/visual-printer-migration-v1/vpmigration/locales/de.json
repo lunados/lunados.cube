@@ -48,6 +48,7 @@
   "axes.note.off_axis": "{n} Bindungsargument(e) nennen einen Referenten der Heimat {home}: keine Spalte dieser Ansicht (siehe F × {home}); im Register aufgeführt.",
   "axes.note.out_of_slice": "{n} Bindungseinheit(en) liegen außerhalb des Plan-Ausschnitts dieser Eingabe; im Register aufgeführt.",
   "axes.note.hidden": "{rows} leere Zeile(n) und {cols} leere Spalte(n) ausgeblendet; der Bericht zählt sie.",
+  "axes.note.all_empty": "Jede Zeile oder Spalte ist ausgeblendet: für dieses Paar ist in der Eingabe nichts deklariert (VP09_ALL_EMPTY), keine Aussage über den Plan.",
   "axes.index.header": "PANEL-INDEX · Abdeckung der deklarierten Einheiten (Zeile, Spalte, Eintrag) · kein Urteil",
   "axes.index.subtitle": "{printer} · cube.axes {pair} · {granularity} · reiner Textindex, keine Vorschaubilder",
   "axes.index.rows": "Zeilen {first} … {last} ({n})",

@@ -1582,7 +1582,11 @@
     "hide_empty": "both",
     "plan_id": "mp-axes",
     "profile": "P2-VP-AXES/0.9.2",
-    "rows": "Y:referent"
+    "rows": "Y:referent",
+    "subjects": [
+     "shop",
+     "crm-sync"
+    ]
    },
    "op": "render",
    "required_codes": [
@@ -5379,7 +5383,7 @@
    "expect": {
     "shortened_with_title": {
      "col": "legacy-mail",
-     "entry": "tLongtransitionidwithoutanyseparatorsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx · retired",
+     "entry": "tLongtransitionidwithoutanyseparatorsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx · retired",
      "row": "migrate.retire/v1"
     }
    },

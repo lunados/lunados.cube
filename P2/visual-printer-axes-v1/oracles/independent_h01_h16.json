@@ -43,7 +43,7 @@
    "expect": {"wrapped_at_separators": {"row": "migrate.retire/v1", "col": "legacy-mail", "entry": "transition-legacy-calendar-cutover · retired"}}},
   {"id": "H-13", "expected_status": "PASS", "required_codes": [], "forbidden_codes": [],
    "expect": {"shortened_with_title": {"row": "migrate.retire/v1", "col": "legacy-mail",
-                                       "entry": "tLongtransitionidwithoutanyseparatorsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx · retired"}}},
+                                       "entry": "tLongtransitionidwithoutanyseparatorsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx · retired"}}},
   {"id": "H-14", "expected_status": "PASS", "required_codes": [], "forbidden_codes": [],
    "expect": {"texts_contain": ["CUBE.AXES · DEKLARIERTE AUSSAGEN JE ZELLE · kategoriale Matrix, keine Rangfolge, keine Distanz", "p2 · Zwischenstand"],
               "row_values_unchanged": true, "report_locale": "de"}},

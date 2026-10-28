@@ -71,7 +71,9 @@ def build():
     x['H-01'] = v('render', 'Y:referent', 'Y:referent', ctx=with_yy())
     x['H-02'] = v('render', 'Y:kind', 'Y:kind', ctx=with_yy())
     x['H-03'] = v('render', 'Y:referent', 'Y:referent', ctx=with_yy(), profile=P091)
-    x['H-04'] = v('render', 'Y:referent', 'Y:referent', hide_empty='both')
+    # slice shop, crm-sync: the base plan itself declares Y → Y (support depends-on old-store / new-store), so the case
+    # "without any Y → Y dependency" needs a slice without support (corrected before the VP-09.2 code commit; oracle unchanged)
+    x['H-04'] = v('render', 'Y:referent', 'Y:referent', hide_empty='both', subjects=['shop', 'crm-sync'])
     x['H-05'] = v('render', 'F', 'T')
     x['H-06'] = v('render', 'F', 'T')
     x['H-07'] = v('render', 'F', 'T', ctx=with_local())
