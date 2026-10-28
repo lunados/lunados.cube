@@ -77,7 +77,9 @@ def build():
     x['O-11'] = v(PH('method-sets'))
     x['O-12'] = v(PH('method-sets'))
     x['O-13'] = v(PH('method-sets'), ctx=many_import_bars())
-    x['O-14'] = v(FL('object'), ctx=hidden_41(), subjects=['crm-sync'])
+    # subjects crm-sync and shop: the base plan's own bindings (t-mail: legacy-mail, new-mail) stay inside the slice, so only the 41 boxes
+    # of the hand note hide an argument (with crm-sync alone t-mail adds two hidden legacy-mail arguments; corrected before VP-07.5 commit)
+    x['O-14'] = v(FL('object'), ctx=hidden_41(), subjects=['crm-sync', 'shop'])
     x['O-15'] = v(PH('banana'))
     return x
 

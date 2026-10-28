@@ -8,7 +8,8 @@ from .common import PROFILE, PROFILES, LATEST, VP07Error, encode, load_json, pub
 from .phases import render_plan, BUDGET
 from .styles import render_styled
 from .adapter import from_plan
-from .panels import print_panels, check_panels, PARTITIONS
+from .panels import print_panels, check_panels, PARTITIONS, SELECTIONS
+from .locale import PINNED as LOCALES
 
 
 def capabilities():
@@ -20,6 +21,9 @@ def capabilities():
             'flow_lenses': list(LENSES), 'granularities': list(LEVELS),
             'phases_budgets': {k: dict(zip(('rows', 'steps', 'cells', 'lanes_per_row'), v)) for k, v in BUDGET.items()},
             'edge_styles': list(STYLES), 'partitions': list(PARTITIONS),
+            'selections': {'method-sets': '0.7.5 (from-plan --profile): per method the bars named by its bindings; a bar may be in several sets'},
+            'display_options': {'locale': sorted(LOCALES), 'hide_ledger': True, 'profiles': ['P2-VP-MIGRATION/0.7.5'],
+                                'note': 'display text only; IDs, method IDs, decl: references and report keys are never translated'},
             'operations': ['capabilities', 'check-phases', 'print-phases', 'check-styled', 'print-styled', 'from-plan',
                            'print-panels', 'check-panels'],
             'transport': 'local_cli_only', 'network_api': False, 'mcp_tool': False, 'p1_validation_included': False,
@@ -60,6 +64,8 @@ def main(argv=None):
     pp.add_argument('--partition', required=True)
     pp.add_argument('--granularity', required=True)
     pp.add_argument('--lens')
+    pp.add_argument('--locale', help='VP-07.5 display locale (0.7.5 sources): '+', '.join(sorted(LOCALES)))
+    pp.add_argument('--hide-ledger', action='store_true', help='VP-07.5: leave out the drawn declaration ledger (0.7.5 sources)')
     pp.add_argument('--out', required=True)
     cp = s.add_parser('check-panels')
     cp.add_argument('--dir', required=True)
@@ -100,10 +106,17 @@ def main(argv=None):
                               'cells': len(src['cells']), 'empty_steps': mapping['empty_steps']}))
             return 0
         if a.command == 'print-panels':
-            report, files = print_panels(load_json(a.source, 'VP07_SOURCE_INVALID'), a.view, a.partition, a.granularity, a.lens)
+            opts = {k: v for k, v in (('locale', a.locale), ('hide_ledger', a.hide_ledger)) if v}  # unset options: 0.7.0…0.7.4 call unchanged
+            report, files = print_panels(load_json(a.source, 'VP07_SOURCE_INVALID'), a.view, a.partition, a.granularity, a.lens, **opts)
             d = publish_dir(files, a.out)
-            out.write(encode({'status': 'PASS', 'operation': 'print-panels', 'output_dir': str(d), 'panels': report['panel_count'],
-                              'coverage': report['coverage']['status'], 'warnings': len(report['warnings'])}))
+            res = {'status': 'PASS', 'operation': 'print-panels', 'output_dir': str(d), 'panels': report['panel_count'],
+                   'coverage': report['coverage']['status'], 'warnings': len(report['warnings'])}
+            if 'warning_summary' in report:  # VP-07.5 D-7: the CLI prints the grouped hints
+                res['warning_summary'] = [{'code': w['code'], 'count': w['count']} for w in report['warning_summary']]
+            if 'method_sets' in report:
+                res['method_sets'] = {m: {'panels': len(x['panels']), 'cells': len(x['cells']), 'status': x['status']}
+                                      for m, x in report['method_sets'].items()}
+            out.write(encode(res))
             return 0
         out.write(encode(check_panels(a.dir)))
         return 0

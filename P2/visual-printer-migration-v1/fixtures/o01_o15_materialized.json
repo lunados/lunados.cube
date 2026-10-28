@@ -8526,7 +8526,8 @@
     "plan_id": "mp-methods",
     "profile": "P2-VP-MIGRATION/0.7.5",
     "subjects": [
-     "crm-sync"
+     "crm-sync",
+     "shop"
     ],
     "then": {
      "granularity": "standard",

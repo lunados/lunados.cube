@@ -5,7 +5,7 @@ a declared context, track map, label map or witness prefix list.
 """
 from __future__ import annotations
 
-from .common import PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, V73UP, METHOD_PROFILE_REF, check_binding, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
+from .common import PROFILE, PROFILES, P071, P072, P073, P075, V71UP, V72UP, V73UP, tag_profile, METHOD_PROFILE_REF, check_binding, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
 from .source import FORMAT as SOURCE_FORMAT, validate_source
 
 CONTEXT_FORMAT = 'aiaeao.cube.binding-context/5'
@@ -295,6 +295,9 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
             coll.sort(key=lambda it: pos[it['id']])
     role = {p['phase_id']: p.get('role', '') for p in phases}
     step_list = [{'id': p, 'label': excerpt(f'{p} · {role[p]}', 40)} for p in window]
+    if profile == P075:  # VP-07.5 §1.1: the declared step role travels with the step so the printer can translate it
+        for s in step_list:
+            s['role'] = role[s['id']]
     ctx_sha = sha_json(context)
     src = {'format': SOURCE_FORMAT, 'profile': profile, 'reference_version': 'v9.4', 'context_id': ctx_id, 'plan_id': plan_id,
            'source_context_sha256': ctx_sha, 'title': excerpt(f'{plan_id} · {window[0]} → {window[-1]}', 78), 'steps': step_list,
@@ -386,3 +389,6 @@ def items_id(items, ref):
         if r == ref:
             return ident
     return None
+
+
+from_plan = tag_profile(from_plan, lambda context, plan_id, *a, **k: k.get('profile'))  # VP-07.5 (i)
