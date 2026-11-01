@@ -17,3 +17,9 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 - [US-009 — Aus BPMN lernen](US-009-bpmn-learning.md)
 - [US-010 — Aus DAGs lernen](US-010-dag-learning.md)
 - [US-011 — Konkrete Lücken und nächste Schritte erkennen](US-011-grammar-gap-ledger.md)
+
+## MILE-003 — abgeschlossen
+
+- [US-012 — Darstellungsfähigkeit inventarisieren](US-012-presentation-inventory.md)
+- [US-013 — Unterscheidungen als Minimalpaare sichtbar machen](US-013-minimal-pairs.md)
+- [US-014 — Darstellung vorprüfen und übergeben](US-014-agent-precheck-handover.md)

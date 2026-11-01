@@ -1,0 +1,383 @@
+{
+ "R-2a-01": {
+  "sha256_16": "4bbbc0a432e433b8",
+  "edges": {
+   "e1": {
+    "stroke": [
+     "#7C3AED"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   },
+   "e2": {
+    "stroke": [
+     "#7C3AED"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   }
+  },
+  "dasharrays": [],
+  "stroke_widths": [
+   "1.6",
+   "1.8",
+   "2.8"
+  ],
+  "text_count": 25,
+  "texts_matching": [
+   "PROVENANCE  ·  2 DECLARED FOCUS",
+   "DECLARED DISPLAY FOCUS · NOT A VERDICT"
+  ]
+ },
+ "R-2b-01": {
+  "sha256_16": "390e95e1184ed16e",
+  "edges": {
+   "e1": {
+    "stroke": [
+     "#7C3AED"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   },
+   "e2": {
+    "stroke": [
+     "#7C3AED"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": [
+     "8 5"
+    ]
+   }
+  },
+  "dasharrays": [
+   "8 5"
+  ],
+  "stroke_widths": [
+   "1.6",
+   "1.8",
+   "2.8"
+  ],
+  "text_count": 28,
+  "texts_matching": [
+   "PROVENANCE  ·  2 DECLARED FOCUS",
+   "DECLARED DISPLAY FOCUS · NOT A VERDICT",
+   "VP-07 · EDGE STYLES · declared legend · line style is not a verdict, cause or time order",
+   "solid · deklariert (Komponente)",
+   "dashed · abgeleitet (implied, UnlessAny)"
+  ]
+ },
+ "M-01A": {
+  "sha256_16": "00de9a63db4e354f",
+  "edges": {},
+  "dasharrays": [
+   "10 6",
+   "2 4",
+   "8 5"
+  ],
+  "stroke_widths": [
+   "1",
+   "1.4",
+   "1.5",
+   "1.6",
+   "2"
+  ],
+  "text_count": 27,
+  "texts_matching": [
+   "MOCKUP — kein Printer-Output · V-01 · Variante A",
+   "Kandidat: Linienart folgt der gebundenen Herkunft, nicht dem Prädikat; unbekannte Herkunft nie durchgezogen",
+   "e2 · abgeleitet",
+   "LEGENDE · Kandidat, kein Urteil",
+   "durchgezogen = deklariert (Herkunft gebunden: declared)",
+   "gestrichelt = abgeleitet (Herkunft gebunden: derived, Strategie UnlessAny)",
+   "gepunktet = Herkunft nicht gebunden (unknown) — nie wie deklariert gezeichnet"
+  ]
+ },
+ "R-1a-01": {
+  "sha256_16": "38a1f8c37078e9d4",
+  "edges": {},
+  "dasharrays": [],
+  "stroke_widths": [
+   "1.6",
+   "1.8"
+  ],
+  "text_count": 29,
+  "texts_matching": [
+   "LEGEND · declared display conventions · not a verdict",
+   "blank cell = nothing declared for this pair, not \"no relation\""
+  ]
+ },
+ "R-1b-01": {
+  "sha256_16": "48745640ce4504ae",
+  "edges": {},
+  "dasharrays": [],
+  "stroke_widths": [
+   "1.6",
+   "1.8"
+  ],
+  "text_count": 29,
+  "texts_matching": [
+   "LEGEND · declared display conventions · not a verdict",
+   "0 empty row(s) and 1 empty column(s) hidden; the report counts them.",
+   "blank cell = nothing declared for this pair, not \"no relation\""
+  ]
+ },
+ "M-05A": {
+  "sha256_16": "74caad87019766a7",
+  "edges": {},
+  "dasharrays": [
+   "10 6"
+  ],
+  "stroke_widths": [
+   "1",
+   "1.4",
+   "2"
+  ],
+  "text_count": 31,
+  "texts_matching": [
+   "MOCKUP — kein Printer-Output · V-05 · Variante A",
+   "Kandidat: vier Zellzustände textlich unterscheiden; ausgeblendete Spalte mit Namen nennen",
+   "DSM (IR/FAD, Reihenfolge deklariert) · Fall DSM-03 / ARC-03 · Modell dsm-modules.json",
+   "ausgeblendet: m:printer",
+   "offen (nicht erhoben)",
+   "offen (nicht erhoben)",
+   "offen (nicht erhoben)",
+   "keine · geprüft",
+   "offen (nicht erhoben)",
+   "LEGENDE · Kandidat, kein Urteil",
+   "„d-xx · dependsOn“ = deklarierte Abhängigkeit  ·  „keine · geprüft“ = als vollständig erklärte Zeile ohne Eintrag",
+   "„offen (nicht erhoben)“ = unbekannt, nicht leer",
+   "Streifen rechts = ausgeblendete Spalte, mit Namen; graue Diagonale = Element selbst",
+   "„geprüft leer“ setzt eine Vollständigkeitserklärung voraus (Lücke G-01). Text und Linien statt Farbe. Keine neuen VG-Anker."
+  ]
+ },
+ "M-05B": {
+  "sha256_16": "858754fef20e4cd4",
+  "edges": {},
+  "dasharrays": [
+   "10 6"
+  ],
+  "stroke_widths": [
+   "0.8",
+   "1",
+   "1.4",
+   "2"
+  ],
+  "text_count": 27,
+  "texts_matching": [
+   "MOCKUP — kein Printer-Output · V-05 · Variante B",
+   "Kandidat: unbekannte Zellen schraffiert, geprüft leer weiß mit Vermerk; ausgeblendete Spalte als benannter Streifen",
+   "DSM (IR/FAD, Reihenfolge deklariert) · Fall DSM-03 / ARC-03 · Modell dsm-modules.json",
+   "ausgeblendet: m:printer",
+   "keine · geprüft",
+   "LEGENDE · Kandidat, kein Urteil",
+   "„d-xx · dependsOn“ = deklarierte Abhängigkeit  ·  „keine · geprüft“ = als vollständig erklärte Zeile ohne Eintrag",
+   "Schraffur = unbekannt (nicht erhoben), nicht leer",
+   "Streifen rechts = ausgeblendete Spalte, mit Namen; graue Diagonale = Element selbst",
+   "„geprüft leer“ setzt eine Vollständigkeitserklärung voraus (Lücke G-01). Text und Linien statt Farbe. Keine neuen VG-Anker."
+  ]
+ },
+ "P-09a2-01": {
+  "sha256_16": "042b18f4030d4ff2",
+  "edges": {
+   "e1": {
+    "stroke": [
+     "#7C3AED"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   },
+   "e2": {
+    "stroke": [
+     "#7C3AED"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   },
+   "e3": {
+    "stroke": [
+     "#7C3AED"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   },
+   "e4": {
+    "stroke": [
+     "#7C3AED"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   },
+   "e5": {
+    "stroke": [
+     "#7C3AED"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   }
+  },
+  "dasharrays": [],
+  "stroke_widths": [
+   "1.6",
+   "1.8",
+   "2.8"
+  ],
+  "text_count": 37,
+  "texts_matching": [
+   "PROVENANCE  ·  5 DECLARED FOCUS",
+   "DECLARED DISPLAY FOCUS · NOT A VERDICT"
+  ]
+ },
+ "P-09b-01": {
+  "sha256_16": "9412341904acb8d7",
+  "edges": {
+   "e1": {
+    "stroke": [
+     "#2F7D59"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   },
+   "e2": {
+    "stroke": [
+     "#64748B"
+    ],
+    "width": [
+     "1.6",
+     "2"
+    ],
+    "dash": []
+   },
+   "e3": {
+    "stroke": [
+     "#2F7D59"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   },
+   "e4": {
+    "stroke": [
+     "#64748B"
+    ],
+    "width": [
+     "1.6",
+     "2"
+    ],
+    "dash": []
+   },
+   "e5": {
+    "stroke": [
+     "#2F7D59"
+    ],
+    "width": [
+     "2.8"
+    ],
+    "dash": []
+   }
+  },
+  "dasharrays": [],
+  "stroke_widths": [
+   "1.6",
+   "1.8",
+   "2",
+   "2.8"
+  ],
+  "text_count": 37,
+  "texts_matching": [
+   "EPISTEMOLOGY  ·  3 DECLARED FOCUS",
+   "DECLARED DISPLAY FOCUS · NOT A VERDICT"
+  ]
+ },
+ "M-09A": {
+  "sha256_16": "270bd293f67d9367",
+  "edges": {},
+  "dasharrays": [
+   "10 6"
+  ],
+  "stroke_widths": [
+   "1",
+   "1.4",
+   "1.5",
+   "2"
+  ],
+  "text_count": 20,
+  "texts_matching": [
+   "MOCKUP — kein Printer-Output · V-09 · Variante A",
+   "Kandidat: Zyklenkanten doppelt und nummeriert (farbfrei), berechneter Zeuge als Statuszeile; Layout wie Printer",
+   "STATUS (berechnet, Kandidat): Zyklus nachgewiesen — Zeuge Z1 a→d, Z2 d→b, Z3 b→a — Plan nicht abarbeitbar",
+   "LEGENDE · Kandidat, kein Urteil",
+   "doppelt + Z-Nummer = Kante des berechneten Zeugenzyklus (analyze.cycle-gate, Kandidat)",
+   "Setzt eine berechnete Zyklusprüfung voraus (Lücke G-05). Farbfrei: Linienart und Beschriftung. Fall DAG-03 / DAG-01."
+  ]
+ },
+ "M-09B": {
+  "sha256_16": "9415e83f49fcf5a6",
+  "edges": {},
+  "dasharrays": [
+   "10 6"
+  ],
+  "stroke_widths": [
+   "1",
+   "1.4",
+   "1.5",
+   "2"
+  ],
+  "text_count": 21,
+  "texts_matching": [
+   "MOCKUP — kein Printer-Output · V-09 · Variante B",
+   "Kandidat: wie A, aber direkte Kanten ohne gemeinsame Stränge; Status trennt ‚nicht abarbeitbar‘ von ‚Nummerierung‘",
+   "STATUS (berechnet, Kandidat): Zyklus nachgewiesen — Zeuge Z1 a→d, Z2 d→b, Z3 b→a — Plan nicht abarbeitbar",
+   "LEGENDE · Kandidat, kein Urteil",
+   "doppelt + Z-Nummer = Kante des berechneten Zeugenzyklus (analyze.cycle-gate, Kandidat)",
+   "Setzt eine berechnete Zyklusprüfung voraus (Lücke G-05). Farbfrei: Linienart und Beschriftung. Fall DAG-03 / DAG-01."
+  ]
+ },
+ "M-12A": {
+  "sha256_16": "522ac60830a2bbc0",
+  "edges": {},
+  "dasharrays": [
+   "10 5",
+   "10 6",
+   "8 5"
+  ],
+  "stroke_widths": [
+   "0.8",
+   "1",
+   "1.2",
+   "1.4",
+   "1.6",
+   "2"
+  ],
+  "text_count": 21,
+  "texts_matching": [
+   "MOCKUP — kein Printer-Output · V-12 · Variante A",
+   "Kandidat: Instanz als benannte Grenze; instanzübergreifende Kante schraffiert markiert und benannt (keine Statusfarbe)",
+   "⬠  Instanz bpmn:i1",
+   "⬠  Instanz bpmn:i2",
+   "instanzübergreifend",
+   "LEGENDE · Kandidat, kein Urteil  —  Grenze ⬠ = Instanzzugehörigkeit · durchgezogen = Eingang aus derselben Instanz · gestrichelt + schraffierte Marke = Eingang aus fremder Instanz",
+   "Setzt eine typisierte Instanzbindung voraus (Lücke G-08). Schraffur nach VP-07 PV-5 (Linien, kein Muster). Fall BPMN-03."
+  ]
+ }
+}

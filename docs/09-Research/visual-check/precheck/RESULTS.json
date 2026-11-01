@@ -1,0 +1,413 @@
+{
+  "format": "mile003.precheck-results/1",
+  "task": "TASK-022",
+  "plan": "docs/09-Research/visual-check/precheck/PLAN.json",
+  "plan_commit": "1f329ef",
+  "checker": {
+    "kind": "agent",
+    "answers_are_proxy": true,
+    "blind": false
+  },
+  "derived_from_key": {
+    "V-09": "Erreichbarkeitsprüfung: Jede der fünf Kanten liegt auf einem Zyklus (für s→o ist s von o aus erreichbar); die starke Zusammenhangskomponente umfasst wi:a, wi:b, wi:c, wi:d."
+  },
+  "units": [
+    {
+      "unit": "U-P01",
+      "requirement": "V-01",
+      "sides": [
+        "R-2a-01",
+        "R-2b-01"
+      ],
+      "proxy_answer": "R-2a: e1 und e2 sind gleich gezeichnet; nur der Ledger-Eintrag ‚e2 · c4:api → c4:db · uses-implied‘ deutet auf eine Verdichtung. R-2b: e2 ist gestrichelt, Legende ‚dashed · abgeleitet (implied, UnlessAny)‘ → API → Database ist nur verdichtet, nicht festgelegt.",
+      "key_match": "R-2a: nur über den Prädikatnamen im Ledger; R-2b: stimmt mit K-V01/C4-02 überein. C4-03 nicht abgedeckt.",
+      "criteria": {
+        "C1": {
+          "R-2a": {
+            "result": "nicht erfüllt",
+            "reason": "e1 und e2 identisch: gleiche Farbe, Strichstärke 2,8, kein Strichmuster."
+          },
+          "R-2b": {
+            "result": "erfüllt",
+            "reason": "e2 mit Strichmuster 8 5, e1 durchgezogen; im Graustufenbild eindeutig."
+          }
+        },
+        "C2": {
+          "R-2a": {
+            "result": "nicht erfüllt",
+            "reason": "Keine Legende; nur der Prädikatname im Ledger."
+          },
+          "R-2b": {
+            "result": "erfüllt",
+            "reason": "Legende VP-07 EDGE STYLES: ‚solid · deklariert (Komponente)‘, ‚dashed · abgeleitet (implied, UnlessAny)‘."
+          }
+        },
+        "C3": {
+          "result": "erfüllt",
+          "reason": "Kanten-IDs e1, e2 mit Ledger und Deklarationsverweis decl:mile003-c4#/…"
+        },
+        "C4": {
+          "result": "nicht anwendbar",
+          "reason": "Das Paar enthält keine Kante unbekannter Herkunft (C4-03 fehlt)."
+        },
+        "C5": {
+          "R-2a": {
+            "result": "erfüllt",
+            "reason": "Nur durch Nachschlagen: Prädikatname ‚uses-implied‘ im Ledger; die Kante selbst trägt nichts."
+          },
+          "R-2b": {
+            "result": "erfüllt",
+            "reason": "Direkt aus Linienart und Legende."
+          }
+        },
+        "C6": {
+          "R-2a": {
+            "result": "nicht erfüllt",
+            "reason": "Kopfzeile ‚CUBE.FLOW · DECLARED RELATIONSHIPS‘ und gleiche Linienart stellen die abgeleitete Kante als festgelegte Beziehung dar."
+          },
+          "R-2b": {
+            "result": "erfüllt",
+            "reason": "Vermerk: ‚declared‘ in Kopfzeile (= Fixture-Aussage) und ‚deklariert‘ in der Legende (= nicht abgeleitet) in zwei Bedeutungen."
+          }
+        }
+      },
+      "observations": [
+        "Beide Kanten teilen die letzte Senkrechte und die Pfeilspitze an c4:db; in R-2b liegt die gestrichelte über der durchgezogenen Linie."
+      ]
+    },
+    {
+      "unit": "U-M01A",
+      "requirement": "V-01",
+      "sides": [
+        "M-01A"
+      ],
+      "baseline": "R-2a-01",
+      "proxy_answer": "C4-02: e2 gestrichelt = abgeleitet → API → Database ist nur verdichtet. C4-03: e2 gepunktet, ‚Herkunft ?‘ → Herkunft nicht gebunden; ob festgelegt oder verdichtet, ist unbekannt.",
+      "key_match": "Stimmt mit K-V01 (C4-02 und C4-03) überein.",
+      "criteria": {
+        "C1": {
+          "result": "erfüllt",
+          "reason": "Durchgezogen / Strichmuster 8 5 / Punktmuster 2 4 plus Beschriftung; im Graustufenbild eindeutig."
+        },
+        "C2": {
+          "result": "erfüllt",
+          "reason": "Legende nennt alle drei Linienarten mit Herkunft."
+        },
+        "C3": {
+          "result": "erfüllt",
+          "reason": "Fälle C4-02/C4-03, Variante A, Referenten c4:api, c4:db, c4:order-controller, Kanten e1/e2."
+        },
+        "C4": {
+          "result": "erfüllt",
+          "reason": "Unbekannte Herkunft gepunktet und mit ‚Herkunft ?‘ beschriftet, nie durchgezogen."
+        },
+        "C5": {
+          "result": "erfüllt",
+          "reason": "Beide Fallvarianten direkt beantwortbar."
+        },
+        "C6": {
+          "result": "erfüllt",
+          "reason": "‚Kandidat, kein Urteil‘; Voraussetzung G-02 im Fuß genannt."
+        }
+      },
+      "open_question": {
+        "id": "OQ-3",
+        "question": "Ist ‚gepunktet = Herkunft unbekannt‘ gegen ‚gestrichelt = abgeleitet‘ ausreichend verschieden?",
+        "proxy_answer": "In der Rasterung ja (Strich 8 5 gegen Punkt 2 4), zusätzlich redundant über die Beschriftung ‚abgeleitet‘ / ‚Herkunft ?‘. Verkleinerung und Druck nicht geprüft; die Beschriftung sollte Pflicht bleiben."
+      }
+    },
+    {
+      "unit": "U-R1",
+      "requirement": "V-05",
+      "sides": [
+        "R-1a-01",
+        "R-1b-01"
+      ],
+      "proxy_answer": "Zelle printer → parser ist leer. Laut Legende ‚blank cell = nothing declared for this pair, not \"no relation\"‘: ob keine Abhängigkeit besteht oder nicht erhoben wurde, ist aus dem Bild nicht entscheidbar. R-1b: eine leere Spalte ist ausgeblendet; welche, steht nicht im Bild.",
+      "key_match": "Ehrliche Antwort laut Schlüsselnotiz; die Quelle kennt aber ‚geprüft, keine Abhängigkeit‘.",
+      "criteria": {
+        "C1": {
+          "result": "nicht erfüllt",
+          "reason": "Markiert gegen leer unterscheidbar (Kasten + Text); geprüft leer und unbekannt sind beide leere Zellen."
+        },
+        "C2": {
+          "result": "nicht erfüllt",
+          "reason": "Benannt sind Mitgliedschaft, ‚blank ≠ no relation‘ und die Anzahl ausgeblendeter Spalten; ‚geprüft leer‘ ist nicht benannt."
+        },
+        "C3": {
+          "result": "erfüllt",
+          "reason": "Einträge d-rp, d-vr, d-pv, d-fb mit Prädikat; ausgeblendete Spalte nur als Anzahl, Identität im aufrufbaren Bericht."
+        },
+        "C4": {
+          "result": "nicht erfüllt",
+          "reason": "Unbekannt und geprüft leer werden gleich (leer) dargestellt."
+        },
+        "C5": {
+          "result": "nicht erfüllt",
+          "reason": "Die Fallfrage ist nicht beantwortbar: Die Printer-Eingabe (P1.10-Plan) kann ‚geprüft leer‘ nicht tragen (G-01)."
+        },
+        "C6": {
+          "result": "erfüllt",
+          "reason": "Die Legende verhindert die Lesart ‚keine Relation‘."
+        }
+      },
+      "observations": [
+        "Reihenfolge nach erstem Auftreten (resolver, validator, printer, parser); d-fb liegt unter der Diagonale, die DSM-Lesart ‚Rückkopplung oberhalb‘ trägt nicht (V-06)."
+      ]
+    },
+    {
+      "unit": "U-M05A",
+      "requirement": "V-05",
+      "sides": [
+        "M-05A"
+      ],
+      "baseline": "R-1a-01",
+      "proxy_answer": "Zelle printer → parser: ‚keine · geprüft‘ → keine Abhängigkeit, geprüft (Legende: als vollständig erklärte Zeile ohne Eintrag).",
+      "key_match": "Stimmt mit K-V05 (printer→parser) überein.",
+      "criteria": {
+        "C1": {
+          "result": "erfüllt",
+          "reason": "Text je Zustand, fetter Rahmen für ‚geprüft‘, graue Diagonale ‚Element‘, benannter Streifen."
+        },
+        "C2": {
+          "result": "erfüllt",
+          "reason": "Legende nennt alle vier Zustände und die Diagonale."
+        },
+        "C3": {
+          "result": "erfüllt",
+          "reason": "IDs d-rp, d-vr, d-pv, d-fb; Fall DSM-03/ARC-03; Modell dsm-modules.json."
+        },
+        "C4": {
+          "result": "erfüllt",
+          "reason": "‚offen (nicht erhoben)‘ von ‚keine · geprüft‘ verschieden."
+        },
+        "C5": {
+          "result": "erfüllt",
+          "reason": "Direkt aus der Zelle."
+        },
+        "C6": {
+          "result": "nicht erfüllt",
+          "reason": "‚Vollständigkeit: Zeile printer‘ und die Legende ‚als vollständig erklärte Zeile‘ behaupten Vollständigkeit der ganzen Zeile. Das Modell erklärt nur die Zelle printer → parser als analysiert; in derselben Zeile steht printer → resolver als ‚offen (nicht erhoben)‘ — ein Widerspruch im Bild."
+        }
+      },
+      "observations": [
+        "Der Streifen ‚ausgeblendet: m:printer‘ verdeckt auch die unbekannte Zelle validator → printer; dokumentierte Zeichenentscheidung, Zustand nicht sichtbar."
+      ]
+    },
+    {
+      "unit": "U-M05B",
+      "requirement": "V-05",
+      "sides": [
+        "M-05B"
+      ],
+      "baseline": "R-1a-01",
+      "proxy_answer": "Wie M-05A: ‚keine · geprüft‘ → keine Abhängigkeit, geprüft. Unbekannte Zellen sind als schraffierte Flächen ohne Lesen erkennbar.",
+      "key_match": "Stimmt mit K-V05 (printer→parser) überein.",
+      "criteria": {
+        "C1": {
+          "result": "erfüllt",
+          "reason": "Schraffur aus Linien für unbekannt, auch im Graustufenbild."
+        },
+        "C2": {
+          "result": "erfüllt",
+          "reason": "Legende: ‚Schraffur = unbekannt (nicht erhoben), nicht leer‘."
+        },
+        "C3": {
+          "result": "erfüllt",
+          "reason": "wie M-05A."
+        },
+        "C4": {
+          "result": "erfüllt",
+          "reason": "Unbekannt als Fläche, geprüft leer weiß mit Vermerk."
+        },
+        "C5": {
+          "result": "erfüllt",
+          "reason": "Direkt aus der Zelle."
+        },
+        "C6": {
+          "result": "nicht erfüllt",
+          "reason": "Gleiche Zeilen-Vollständigkeit wie M-05A; widerspricht der schraffierten Zelle printer → resolver."
+        }
+      },
+      "open_question": {
+        "id": "OQ-2",
+        "question": "Reicht in M-05A der Text allein, oder braucht ‚unbekannt‘ eine Fläche (M-05B)?",
+        "proxy_answer": "Beide trennen die Zustände. A verlangt das Lesen jeder Zelle; B macht unbekannte Zellen als Fläche auffindbar und lässt Text für Einträge frei. Suchzeit ist mit einem Agenten-Proxy nicht messbar — B als Kandidat, A als Kontrollbedingung für den Menschentest."
+      }
+    },
+    {
+      "unit": "U-P09",
+      "requirement": "V-09",
+      "sides": [
+        "P-09a2-01",
+        "P-09b-01"
+      ],
+      "proxy_answer": "P-09a2: alle fünf Kanten gleich, keine Aussage. P-09b: e1, e3, e5 hervorgehoben (im Graustufenbild nur breiter); laut Ledger b→a, d→b, a→d — eine geschlossene Folge a→d→b→a. Was die Hervorhebung bedeutet und ob der Plan abarbeitbar ist, sagt das Bild nicht (‚EPISTEMOLOGY · 3 DECLARED FOCUS · NOT A VERDICT‘).",
+      "key_match": "Teilweise: ein Zyklus über den Ledger rekonstruierbar; Abarbeitbarkeit fehlt; zweiter Zyklus a→d→c→a nicht markiert.",
+      "criteria": {
+        "C1": {
+          "result": "nicht erfüllt",
+          "reason": "Hervorgehoben gegen nicht hervorgehoben nur in Farbe (#2F7D59 / #64748B) und Strichstärke (2,8 / 1,6)."
+        },
+        "C2": {
+          "result": "nicht erfüllt",
+          "reason": "Die Legende nennt Linse und Anzahl, nicht ‚Zyklus‘; die Zyklusnotiz steht nur in den Metadaten."
+        },
+        "C3": {
+          "result": "erfüllt",
+          "reason": "Kanten-IDs mit Ledger und Deklarationsverweis."
+        },
+        "C4": {
+          "result": "nicht anwendbar",
+          "reason": "Kein unbekannter Zustand."
+        },
+        "C5": {
+          "result": "nicht erfüllt",
+          "reason": "Abarbeitbarkeit nicht ausgesagt; nur einer von zwei Zyklen hervorgehoben."
+        },
+        "C6": {
+          "result": "erfüllt",
+          "reason": "Das Bild behauptet keinen Zyklus. Vermerk: Die Metadaten-Notiz ‚Zyklus a→d→b→a‘ ist unvollständig."
+        }
+      },
+      "observations": [
+        "Gemeinsame Senkrechten an wi:a (e1, e2, e5) und wi:d (e3, e4, e5); einzelne Kanten nur durch Verfolgen zuzuordnen."
+      ]
+    },
+    {
+      "unit": "U-M09A",
+      "requirement": "V-09",
+      "sides": [
+        "M-09A"
+      ],
+      "baseline": "P-09b-01",
+      "proxy_answer": "Status: ‚Zyklus nachgewiesen — Zeuge Z1 a→d, Z2 d→b, Z3 b→a — Plan nicht abarbeitbar‘. Zyklus a→d→b→a über e5, e3, e1 (doppelt); e2 und e4 einfach, also laut Legende nicht Teil des Zeugen.",
+      "key_match": "Teilweise: ‚nicht abarbeitbar‘ stimmt; nur einer von zwei Zyklen; e2 und e4 liegen ebenfalls auf einem Zyklus.",
+      "criteria": {
+        "C1": {
+          "result": "erfüllt",
+          "reason": "Doppellinie plus Z-Nummer gegen einfache Linie, farbfrei."
+        },
+        "C2": {
+          "result": "erfüllt",
+          "reason": "Legende benennt doppelt + Z-Nummer als Zeugenzyklus."
+        },
+        "C3": {
+          "result": "erfüllt",
+          "reason": "Kanten-IDs, Fall DAG-03/DAG-01."
+        },
+        "C4": {
+          "result": "nicht anwendbar",
+          "reason": "Kein unbekannter Zustand."
+        },
+        "C5": {
+          "result": "nicht erfüllt",
+          "reason": "Unvollständig: zweiter Zyklus a→d→c→a fehlt."
+        },
+        "C6": {
+          "result": "nicht erfüllt",
+          "reason": "Der Gegensatz doppelt/einfach legt nahe, e2 und e4 lägen auf keinem Zyklus; tatsächlich liegt jede der fünf Kanten auf einem Zyklus. Die vorausgesetzte Berechnung (G-05) ist als Kandidat gekennzeichnet."
+        }
+      },
+      "open_question": {
+        "id": "OQ-1",
+        "question": "Ist ‚doppelt‘ in V-09A bei überlagerten Strängen noch eindeutig einer Kante zuzuordnen?",
+        "proxy_answer": "An den Waagerechten ja (Beschriftung e·Z). An den Senkrechten bei wi:a (e1, e2, e5) und wi:d (e3, e4, e5) liegen bis zu drei Linien dicht nebeneinander; die Zuordnung gelingt nur durch Verfolgen. Für den Agenten lösbar, aber layoutabhängig — M-09B vermeidet das."
+      }
+    },
+    {
+      "unit": "U-M09B",
+      "requirement": "V-09",
+      "sides": [
+        "M-09B"
+      ],
+      "baseline": "P-09b-01",
+      "proxy_answer": "Wie M-09A: nicht abarbeitbar, Zeuge a→d→b→a. Im Dreieckslayout ist a→d→c→a (e5, e4, e2) als geschlossener Umlauf sichtbar, aber einfach gezeichnet und nicht benannt. ‚Falsch nummeriert‘ ist ausdrücklich ausgeschlossen.",
+      "key_match": "Teilweise: wie M-09A; der zweite Umlauf ist sichtbar, aber nicht als Zyklus gekennzeichnet. Nummerierung korrekt abgegrenzt.",
+      "criteria": {
+        "C1": {
+          "result": "erfüllt",
+          "reason": "Doppellinie plus Z-Nummer, direkte Kanten."
+        },
+        "C2": {
+          "result": "erfüllt",
+          "reason": "Legende und Hinweis ‚Nicht gemeint: falsch nummeriert‘."
+        },
+        "C3": {
+          "result": "erfüllt",
+          "reason": "Kanten-IDs, Fall DAG-03/DAG-01."
+        },
+        "C4": {
+          "result": "nicht anwendbar",
+          "reason": "Kein unbekannter Zustand."
+        },
+        "C5": {
+          "result": "nicht erfüllt",
+          "reason": "Status und Markierung nennen nur einen Zyklus."
+        },
+        "C6": {
+          "result": "nicht erfüllt",
+          "reason": "Wie M-09A: einfache Linien legen ‚nicht auf einem Zyklus‘ nahe."
+        }
+      },
+      "observations": [
+        "e2 kreuzt e3 nahe der Beschriftung ‚e3 · Z2‘."
+      ]
+    },
+    {
+      "unit": "U-M12A",
+      "requirement": "V-12",
+      "sides": [
+        "M-12A"
+      ],
+      "baseline": null,
+      "proxy_answer": "Der Join von i1 hat drei Eingänge: tok-stock und tok-credit aus i1 (durchgezogen) sowie tok-credit aus i2 (gestrichelt, Marke ‚instanzübergreifend‘); danach ship. Ob ship wegen i2 startete, ist nicht entscheidbar; da i1 beide eigenen Token hat, liest sich das Bild eher als ‚nein, aber ein fremder Eingang liegt an‘.",
+      "key_match": "Teilweise: ‚instanzübergreifend‘ erkannt. Welche Token der Join laut Aussage paart (i1/tok-stock mit i2/tok-credit), ist nicht erkennbar; ‚Fehler‘ wird nicht genannt; ship-Start wird nahegelegt.",
+      "criteria": {
+        "C1": {
+          "result": "erfüllt",
+          "reason": "Strichmuster, Schraffurmarke aus Linien, Text und Instanzgrenzen."
+        },
+        "C2": {
+          "result": "erfüllt",
+          "reason": "Legende benennt eigene gegen fremde Instanz. Vermerk: ‚Fehler‘ nicht benannt; Strichlinie ist doppelt belegt (Instanzgrenze und fremder Eingang)."
+        },
+        "C3": {
+          "result": "erfüllt",
+          "reason": "Token-IDs bpmn:i1/…, bpmn:i2/…, bpmn:join · i1, Fall BPMN-03."
+        },
+        "C4": {
+          "result": "nicht anwendbar",
+          "reason": "Kein unbekannter Zustand."
+        },
+        "C5": {
+          "result": "nicht erfüllt",
+          "reason": "Die behauptete Paarung ist nicht erkennbar; drei Eingänge an einem AND-Join mit zwei Eingängen."
+        },
+        "C6": {
+          "result": "nicht erfüllt",
+          "reason": "Join → ship innerhalb der Grenze von i1 legt nahe, ship sei in i1 ausgeführt worden; die Quelle (handgeschriebene Spur) enthält kein ship-Token."
+        }
+      },
+      "open_question": {
+        "id": "OQ-4",
+        "question": "Überdeckt in M-12A die Schraffurmarke die Kante so, dass ihre Richtung unklar wird?",
+        "proxy_answer": "Nein: Die Pfeilspitze am Join liegt außerhalb der Marke, und die Linie läuft fluchtend durch die Marke. Die Marke berührt aber die untere Grenze von i1."
+      }
+    }
+  ],
+  "inputs_attrs": "attrs.json",
+  "raster_log": "raster-log.json",
+  "not_claimed": [
+    "menschliche Lesbarkeit",
+    "Suchzeit",
+    "Verständlichkeit",
+    "Glyphenabdeckung je Host",
+    "Druck und Verkleinerung"
+  ],
+  "tally": {
+    "nicht erfüllt": 18,
+    "erfüllt": 35,
+    "nicht anwendbar": 5
+  }
+}

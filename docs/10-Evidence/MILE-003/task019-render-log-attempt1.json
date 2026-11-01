@@ -1,0 +1,148 @@
+{
+  "format": "mile003.render-log/1",
+  "git_head": "657efe8b3af7315e4a7a85cb6a335304731a42e8",
+  "python": "3.13.16",
+  "implementation": "P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py (same functions as MCP tools cube_plan_source/cube_plan_views/cube_plan_check)",
+  "runs": [
+    {
+      "call_id": "R-1a",
+      "spec_sha256": "25cab212bd7d99d7e157dd29203c806845649083f22d582f96fb6b1aca96a93f",
+      "status": "RENDERED",
+      "check": "PASS",
+      "svgs": {
+        "R-1a-00.svg": {
+          "json_path": "/index/svg",
+          "sha256": "91cb2d893c698f0332b2a703f6df1bdd2afbc171aa1a04b7f7f5de9ac495e37a"
+        },
+        "R-1a-01.svg": {
+          "json_path": "/panels/0/svg",
+          "sha256": "38a1f8c37078e9d499f560021b14180a150f67a6b48ef7da4a49036e44414737"
+        }
+      },
+      "result_keys": [
+        "format",
+        "index",
+        "panels",
+        "printer",
+        "profile",
+        "report",
+        "view"
+      ],
+      "report_keys": [
+        "all_units",
+        "canonical_admission",
+        "cols_axis",
+        "coverage",
+        "current_authority",
+        "epistemic_warrant",
+        "files",
+        "format",
+        "granularity",
+        "input",
+        "input_sha256",
+        "notices",
+        "panel_count",
+        "panel_ledger",
+        "profile",
+        "reference_version",
+        "rows_axis",
+        "semantic_conformance",
+        "source_status",
+        "status",
+        "view",
+        "warning_summary",
+        "warnings"
+      ]
+    },
+    {
+      "call_id": "R-1b",
+      "spec_sha256": "25cab212bd7d99d7e157dd29203c806845649083f22d582f96fb6b1aca96a93f",
+      "status": "RENDERED",
+      "check": "PASS",
+      "svgs": {
+        "R-1b-00.svg": {
+          "json_path": "/index/svg",
+          "sha256": "768625fad083025ac943cbaa9c10db68f4520b72b223ddddec943f638a518f1b"
+        },
+        "R-1b-01.svg": {
+          "json_path": "/panels/0/svg",
+          "sha256": "48745640ce4504aecadb008c4166a30e6299ab43a85b53ac017c69cebfffabb0"
+        }
+      },
+      "result_keys": [
+        "format",
+        "index",
+        "panels",
+        "printer",
+        "profile",
+        "report",
+        "view"
+      ],
+      "report_keys": [
+        "all_units",
+        "canonical_admission",
+        "col_values_all",
+        "cols_axis",
+        "coverage",
+        "current_authority",
+        "epistemic_warrant",
+        "files",
+        "format",
+        "granularity",
+        "hidden_cols",
+        "hidden_counts",
+        "hidden_rows",
+        "hide_empty",
+        "input",
+        "input_sha256",
+        "notices",
+        "panel_count",
+        "panel_ledger",
+        "profile",
+        "reference_version",
+        "row_values_all",
+        "rows_axis",
+        "semantic_conformance",
+        "source_status",
+        "status",
+        "view",
+        "warning_summary",
+        "warnings"
+      ]
+    },
+    {
+      "call_id": "R-2a",
+      "spec_sha256": "2dbb10408a876fc682ebf619a2fd47c867e98c35b9bdf4c7caa156d295ddf1d0",
+      "status": "PLAN_FAILURE",
+      "diagnostic": {
+        "format": "aiaeao.cube.mcp-plan-diagnostic/1",
+        "status": "FAIL",
+        "code": "P3_PLAN_ARGUMENT_INVALID",
+        "stage": "input",
+        "message": "view cube.flow takes granularity, hide_ledger, lens, locale, partition; missing: partition",
+        "files_written": false,
+        "printer": "vpmigration",
+        "epistemic_warrant": "NOT_EVALUATED",
+        "current_authority": "NOT_EVALUATED",
+        "canonical_admission": "NOT_EVALUATED"
+      }
+    },
+    {
+      "call_id": "R-2b",
+      "spec_sha256": "2dbb10408a876fc682ebf619a2fd47c867e98c35b9bdf4c7caa156d295ddf1d0",
+      "status": "PLAN_FAILURE",
+      "diagnostic": {
+        "format": "aiaeao.cube.mcp-plan-diagnostic/1",
+        "status": "FAIL",
+        "code": "P3_PLAN_ARGUMENT_INVALID",
+        "stage": "input",
+        "message": "view cube.flow takes granularity, hide_ledger, lens, locale, partition; missing: partition",
+        "files_written": false,
+        "printer": "vpmigration",
+        "epistemic_warrant": "NOT_EVALUATED",
+        "current_authority": "NOT_EVALUATED",
+        "canonical_admission": "NOT_EVALUATED"
+      }
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "format": "mile003.blind-check-plan/1",
+  "task": "TASK-022 (Zweitprüfung)",
+  "fixed_at": "2026-11-01",
+  "fixed_before_run": true,
+  "keys": "PLAN.json#answer_keys (1f329ef)",
+  "checker": {
+    "kind": "separater Agent (Unteragent derselben Sitzung)",
+    "sees": "nur 15 Farbrasterungen unter neutralen IDs und die Fallfragen",
+    "does_not_see": [
+      "Antwortschlüssel",
+      "Kandidatenregeln und MOCKUPS.md",
+      "PRECHECK.md und RESULTS.json",
+      "Quell-IDs der Bilder"
+    ],
+    "limitation": "Gleiches Modell wie der erste Prüfer; die Einhaltung der Leseregeln wird per Anweisung und am Werkzeugprotokoll (nur Read auf die 15 Dateien) geprüft, nicht technisch erzwungen. Die Bilder selbst tragen Kennzeichnungen wie ‚MOCKUP‘, Fall-IDs und Legenden. Weiterhin Agenten-Proxy, kein Lesbarkeitsnachweis."
+  },
+  "images": [
+    {
+      "blind_id": "B01",
+      "source": "M-12B",
+      "requirement": "V-12",
+      "png_sha256_16": "797a7331c41d0fab"
+    },
+    {
+      "blind_id": "B02",
+      "source": "M-09B",
+      "requirement": "V-09",
+      "png_sha256_16": "fb029c3cd0a5c11c"
+    },
+    {
+      "blind_id": "B03",
+      "source": "M-12A",
+      "requirement": "V-12",
+      "png_sha256_16": "68c489b5862b56f2"
+    },
+    {
+      "blind_id": "B04",
+      "source": "M-09A",
+      "requirement": "V-09",
+      "png_sha256_16": "0f50769b7f44c9fa"
+    },
+    {
+      "blind_id": "B05",
+      "source": "R-1b-01",
+      "requirement": "V-05",
+      "png_sha256_16": "58519bf787037510"
+    },
+    {
+      "blind_id": "B06",
+      "source": "R-2b-01",
+      "requirement": "V-01",
+      "png_sha256_16": "4fbec07e3ee2efcc"
+    },
+    {
+      "blind_id": "B07",
+      "source": "M-05B",
+      "requirement": "V-05",
+      "png_sha256_16": "73d986b25aa7c538"
+    },
+    {
+      "blind_id": "B08",
+      "source": "M-05C",
+      "requirement": "V-05",
+      "png_sha256_16": "14b861e46dcf7195"
+    },
+    {
+      "blind_id": "B09",
+      "source": "P-09a2-01",
+      "requirement": "V-09",
+      "png_sha256_16": "fd2a2df8120f65be"
+    },
+    {
+      "blind_id": "B10",
+      "source": "P-09b-01",
+      "requirement": "V-09",
+      "png_sha256_16": "2e226c2f6288a4b3"
+    },
+    {
+      "blind_id": "B11",
+      "source": "M-01A",
+      "requirement": "V-01",
+      "png_sha256_16": "6031730cf72436ad"
+    },
+    {
+      "blind_id": "B12",
+      "source": "M-09C",
+      "requirement": "V-09",
+      "png_sha256_16": "87d5d2340f634e6b"
+    },
+    {
+      "blind_id": "B13",
+      "source": "R-2a-01",
+      "requirement": "V-01",
+      "png_sha256_16": "d9fcceda2e927055"
+    },
+    {
+      "blind_id": "B14",
+      "source": "M-05A",
+      "requirement": "V-05",
+      "png_sha256_16": "f477c1507f0de23b"
+    },
+    {
+      "blind_id": "B15",
+      "source": "R-1a-01",
+      "requirement": "V-05",
+      "png_sha256_16": "32fc51f8833bb304"
+    }
+  ],
+  "questions": {
+    "V-01": "Ist API → Database festgelegt oder nur verdichtet?",
+    "V-05": "Hat printer keine Abhängigkeit zu parser — oder wissen wir es nicht?",
+    "V-09": "Ist dieser Plan abarbeitbar — und wo liegt der Zyklus?",
+    "V-12": "Hat Ship für i1 wegen i2 gestartet?"
+  },
+  "prompt": "Du bist Prüfer in einer Studie zur Lesbarkeit von Diagrammen. Du bekommst 15 Bilder. Beantworte zu jedem Bild die angegebene Frage AUSSCHLIESSLICH aus dem, was in diesem einen Bild steht oder zu sehen ist.\n\nStrikte Regeln:\n- Öffne nur die 15 unten genannten PNG-Dateien, jede mit dem Read-Werkzeug. Öffne keine anderen Dateien, durchsuche kein Dateisystem oder Repository, nutze kein Web, keine Shell und keine anderen Werkzeuge.\n- Behandle jedes Bild für sich. Übertrage kein Wissen aus einem Bild auf ein anderes, auch wenn sie ähnlich aussehen.\n- Nutze kein Fachwissen, um Lücken im Bild zu füllen. Wenn das Bild die Frage nicht beantwortet, sag „nicht entscheidbar“ und warum.\n- Rate nicht. Unsicherheit ausdrücklich angeben.\n\nBilder und Fragen:\n- B01: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B01.png — Frage: „Hat Ship für i1 wegen i2 gestartet?“\n- B02: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B02.png — Frage: „Ist dieser Plan abarbeitbar — und wo liegt der Zyklus?“\n- B03: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B03.png — Frage: „Hat Ship für i1 wegen i2 gestartet?“\n- B04: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B04.png — Frage: „Ist dieser Plan abarbeitbar — und wo liegt der Zyklus?“\n- B05: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B05.png — Frage: „Hat printer keine Abhängigkeit zu parser — oder wissen wir es nicht?“\n- B06: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B06.png — Frage: „Ist API → Database festgelegt oder nur verdichtet?“\n- B07: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B07.png — Frage: „Hat printer keine Abhängigkeit zu parser — oder wissen wir es nicht?“\n- B08: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B08.png — Frage: „Hat printer keine Abhängigkeit zu parser — oder wissen wir es nicht?“\n- B09: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B09.png — Frage: „Ist dieser Plan abarbeitbar — und wo liegt der Zyklus?“\n- B10: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B10.png — Frage: „Ist dieser Plan abarbeitbar — und wo liegt der Zyklus?“\n- B11: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B11.png — Frage: „Ist API → Database festgelegt oder nur verdichtet?“\n- B12: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B12.png — Frage: „Ist dieser Plan abarbeitbar — und wo liegt der Zyklus?“\n- B13: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B13.png — Frage: „Ist API → Database festgelegt oder nur verdichtet?“\n- B14: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B14.png — Frage: „Hat printer keine Abhängigkeit zu parser — oder wissen wir es nicht?“\n- B15: /tmp/claude-0/-home-claude/a2f67276-5af3-51b5-b6f0-7f9904469e33/scratchpad/blind/B15.png — Frage: „Hat printer keine Abhängigkeit zu parser — oder wissen wir es nicht?“\n\nAntworte am Ende mit genau einem JSON-Codeblock, einer Liste mit einem Objekt je Bild in der Reihenfolge B01–B15:\n{\"id\": \"B01\", \"antwort\": \"<deine Antwort in 1–3 Sätzen>\", \"grundlage\": \"<welche Bildelemente du benutzt hast: Linienart, Beschriftung, Legende, Status, Tabelle …>\", \"sicherheit\": \"hoch|mittel|niedrig\", \"auffaelligkeiten\": \"<Widersprüche, Mehrdeutigkeiten oder Angaben im Bild, die mehr behaupten als das Bild zeigt; sonst leer>\"}\nKein weiterer Text nach dem JSON-Block.",
+  "scoring": {
+    "categories": {
+      "richtig": "stimmt mit dem Schlüssel überein",
+      "teilweise": "enthält einen richtigen Teil, ein Teil fehlt oder ist ungenau",
+      "offen": "sagt begründet ‚nicht entscheidbar‘",
+      "falsch": "widerspricht dem Schlüssel"
+    },
+    "rules": {
+      "V-01": {
+        "R-2b-01": "richtig = nur verdichtet/abgeleitet; festgelegt = falsch",
+        "R-2a-01": "richtig = verdichtet/abgeleitet mit Grundlage Ledger/Prädikatname; offen ist zulässig und wird als ehrlich vermerkt; festgelegt = falsch",
+        "M-01A": "richtig = C4-02 verdichtet UND C4-03 unbekannt/nicht gebunden; teilweise = nur eines; festgelegt für eine der beiden = falsch"
+      },
+      "V-05": {
+        "R-1a-01": "Das Bild kann ‚geprüft leer‘ nicht tragen: offen = erwartete ehrliche Antwort; ‚keine Abhängigkeit‘ als Tatsache = falsch (Überlesen)",
+        "R-1b-01": "wie R-1a-01",
+        "M-05A": "richtig = keine Abhängigkeit, geprüft/erhoben",
+        "M-05B": "wie M-05A",
+        "M-05C": "wie M-05A"
+      },
+      "V-09": {
+        "all": "richtig = nicht abarbeitbar UND zwei Zyklen (a→d→b→a, a→d→c→a) bzw. alle Kanten/alle Knoten im Zyklusgeflecht; teilweise = nicht abarbeitbar mit nur einem Zyklus, oder Zyklen ohne Aussage zur Abarbeitbarkeit; offen zulässig, wo das Bild keine Aussage trägt; ‚abarbeitbar‘ oder ‚kein Zyklus‘ = falsch"
+      },
+      "V-12": {
+        "all": "richtig = Eingang aus i2 ist instanzübergreifend/Fehler UND ein Start von Ship ist nicht belegt bzw. nicht wegen i2; teilweise = nur eines davon; ‚Ja, Ship startete wegen i2‘ als Tatsache = falsch"
+      }
+    },
+    "comparison": "Je Bild wird die blinde Antwort mit dem Schlüssel und mit der nicht-blinden Antwort aus RESULTS.json verglichen; Abweichungen zwischen blind und nicht blind werden einzeln begründet."
+  }
+}

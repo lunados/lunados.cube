@@ -1,0 +1,190 @@
+{
+  "head": "9ae1a44",
+  "note": "HEAD vor dem Abschluss-Commit; Statusänderungen dieses Commits liegen im Arbeitsbaum.",
+  "inventory": {
+    "rows": 12,
+    "all_twelve": true,
+    "verdicts": {
+      "V-01": "teilweise",
+      "V-02": "teilweise",
+      "V-03": "teilweise",
+      "V-04": "teilweise",
+      "V-05": "teilweise",
+      "V-06": "teilweise",
+      "V-07": "Lücke",
+      "V-08": "teilweise",
+      "V-09": "teilweise",
+      "V-10": "teilweise",
+      "V-11": "Lücke",
+      "V-12": "Lücke"
+    }
+  },
+  "renders": {
+    "runs": 6,
+    "all_check_pass": true,
+    "svg_hash_mismatch": []
+  },
+  "mockups": {
+    "files": {
+      "M-01A": {
+        "sha256_16": "00de9a63db4e354f",
+        "documented": "00de9a63db4e354f",
+        "match": true,
+        "marked": true
+      },
+      "M-05A": {
+        "sha256_16": "74caad87019766a7",
+        "documented": "74caad87019766a7",
+        "match": true,
+        "marked": true
+      },
+      "M-05B": {
+        "sha256_16": "858754fef20e4cd4",
+        "documented": "858754fef20e4cd4",
+        "match": true,
+        "marked": true
+      },
+      "M-05C": {
+        "sha256_16": "fb8f996d85c02efb",
+        "documented": "fb8f996d85c02efb",
+        "match": true,
+        "marked": true
+      },
+      "M-09A": {
+        "sha256_16": "270bd293f67d9367",
+        "documented": "270bd293f67d9367",
+        "match": true,
+        "marked": true
+      },
+      "M-09B": {
+        "sha256_16": "9415e83f49fcf5a6",
+        "documented": "9415e83f49fcf5a6",
+        "match": true,
+        "marked": true
+      },
+      "M-09C": {
+        "sha256_16": "c903c53ed6ce901e",
+        "documented": "c903c53ed6ce901e",
+        "match": true,
+        "marked": true
+      },
+      "M-12A": {
+        "sha256_16": "522ac60830a2bbc0",
+        "documented": "522ac60830a2bbc0",
+        "match": true,
+        "marked": true
+      },
+      "M-12B": {
+        "sha256_16": "7d6aefeeae41eb75",
+        "documented": "7d6aefeeae41eb75",
+        "match": true,
+        "marked": true
+      }
+    },
+    "all_documented_hash_match": true,
+    "all_marked": true,
+    "no_active_content": true,
+    "symbol_glyphs": [
+      "⌹",
+      "⌼",
+      "⬠",
+      "𝗜",
+      "𝗣",
+      "𝗥"
+    ],
+    "symbol_glyphs_in_symbols_json": true,
+    "generator_reproduces_all": true,
+    "count": 9
+  },
+  "priority_pairs": {
+    "V-01": true,
+    "V-05": true,
+    "V-09": true,
+    "V-12": true
+  },
+  "expectation_before_run": {
+    "items": [
+      {
+        "file": "docs/09-Research/visual-check/renders/R-1.json",
+        "spec_commit": "657efe8",
+        "evidence_commit": "97c2d09",
+        "last_change": "657efe8",
+        "unchanged_since": true,
+        "before_evidence": true
+      },
+      {
+        "file": "docs/09-Research/visual-check/renders/R-2.json",
+        "spec_commit": "1b4f4b7",
+        "evidence_commit": "97c2d09",
+        "last_change": "1b4f4b7",
+        "unchanged_since": true,
+        "before_evidence": true
+      },
+      {
+        "file": "docs/09-Research/visual-check/pairs/P-01.json",
+        "spec_commit": "02318c5",
+        "evidence_commit": "63e9995",
+        "last_change": "02318c5",
+        "unchanged_since": true,
+        "before_evidence": true
+      },
+      {
+        "file": "docs/09-Research/visual-check/pairs/P-09.json",
+        "spec_commit": "03b8e62",
+        "evidence_commit": "63e9995",
+        "last_change": "03b8e62",
+        "unchanged_since": true,
+        "before_evidence": true
+      },
+      {
+        "file": "docs/09-Research/visual-check/precheck/PLAN.json",
+        "spec_commit": "1f329ef",
+        "evidence_commit": "a75b183",
+        "last_change": "1f329ef",
+        "unchanged_since": true,
+        "before_evidence": true
+      },
+      {
+        "file": "docs/09-Research/visual-check/precheck/BLIND-PLAN.json",
+        "spec_commit": "57f6549",
+        "evidence_commit": "9ae1a44",
+        "last_change": "57f6549",
+        "unchanged_since": true,
+        "before_evidence": true
+      }
+    ],
+    "issues": 0
+  },
+  "precheck": {
+    "units": 9,
+    "all_six_criteria": true,
+    "answers_are_proxy": true,
+    "blind": false,
+    "tally": {
+      "nicht erfüllt": 18,
+      "erfüllt": 35,
+      "nicht anwendbar": 5
+    },
+    "blind_rows": 15,
+    "blind_tally": {
+      "richtig": 9,
+      "offen": 4,
+      "teilweise": 2
+    }
+  },
+  "frozen_layers": {
+    "committed_unchanged_since_mile003_start": true,
+    "worktree_P0_P2_unchanged": true,
+    "uncommitted_outside_scope": [
+      "P2/.vp071.bundle",
+      "P3/adapters/mcp-local/aiaeao_mcp_local/server.py",
+      "P3/adapters/mcp-local/aiaeao_mcp_local/surface.py",
+      "P3/adapters/mcp-local/aiaeao_mcp_local/validation_discovery.py",
+      "P3/adapters/mcp-local/spec/LOCAL_VALIDATION_DISCOVERY.schema.json",
+      "P3/adapters/mcp-local/tests/test_validation_discovery.py"
+    ]
+  },
+  "broken_links": 0,
+  "broken_link_list": [],
+  "all_ok": true
+}

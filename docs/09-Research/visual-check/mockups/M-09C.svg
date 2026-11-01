@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="780" viewBox="0 0 940 780" data-mockup="true" data-kind="mile003-candidate">
+<title>MOCKUP V-09 C</title>
+<rect x="0" y="0" width="940" height="780" fill="#ffffff"/>
+<rect x="16" y="12" width="908" height="54" rx="0" fill="none" stroke="#111827" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="32" y="36" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#111827" text-anchor="start">MOCKUP — kein Printer-Output · V-09 · Variante C</text>
+<text x="32" y="56" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4b5563" text-anchor="start">Kandidat (korrigiert nach TASK-022): Zyklenkomponente markieren; jede Kante auf einem Zyklus doppelt; Zeuge nur als Beispiel</text>
+<rect x="24" y="82" width="892" height="58" rx="0" fill="none" stroke="#111827" stroke-width="1.4"/>
+<text x="36" y="104" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">STATUS (berechnet, Kandidat): Plan nicht abarbeitbar · Zyklenkomponente K1 = {a, b, c, d} · 5 von 5 Kanten auf Zyklen</text>
+<text x="36" y="126" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Elementare Zyklen: a→d→b→a und a→d→c→a  ·  Beispielzeuge Z1 a→d, Z2 d→b, Z3 b→a</text>
+<rect x="96" y="158" width="748" height="428" rx="12" fill="none" stroke="#111827" stroke-width="1"/>
+<text x="112" y="180" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="start">K1 · Zyklenkomponente (berechnet, Kandidat)</text>
+<rect x="380" y="186" width="170" height="56" rx="8" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.4"/>
+<text x="394" y="221.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#111827" text-anchor="start">⌹</text>
+<text x="424" y="219.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">wi:a</text>
+<rect x="120" y="346" width="170" height="56" rx="8" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.4"/>
+<text x="134" y="381.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#111827" text-anchor="start">⌹</text>
+<text x="164" y="379.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">wi:b</text>
+<rect x="640" y="346" width="170" height="56" rx="8" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.4"/>
+<text x="654" y="381.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#111827" text-anchor="start">⌹</text>
+<text x="684" y="379.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">wi:d</text>
+<rect x="380" y="506" width="170" height="56" rx="8" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.4"/>
+<text x="394" y="541.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#111827" text-anchor="start">⌹</text>
+<text x="424" y="539.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">wi:c</text>
+<line x1="258.4" y1="344.2" x2="404.3" y2="254.4" stroke="#111827" stroke-width="1.4"/>
+<line x1="255.6" y1="339.8" x2="401.6" y2="250.0" stroke="#111827" stroke-width="1.4"/>
+<path d="M409.8,248.0 L404.2,257.5 L398.8,248.7 Z" fill="#111827"/>
+<line x1="467.6" y1="502.0" x2="467.6" y2="256.0" stroke="#111827" stroke-width="1.4"/>
+<line x1="462.4" y1="502.0" x2="462.4" y2="256.0" stroke="#111827" stroke-width="1.4"/>
+<path d="M465.0,248.0 L470.2,257.7 L459.8,257.7 Z" fill="#111827"/>
+<line x1="636.0" y1="371.4" x2="304.0" y2="371.4" stroke="#111827" stroke-width="1.4"/>
+<line x1="636.0" y1="376.6" x2="304.0" y2="376.6" stroke="#111827" stroke-width="1.4"/>
+<path d="M296.0,374.0 L305.7,368.8 L305.7,379.2 Z" fill="#111827"/>
+<line x1="671.6" y1="403.8" x2="525.7" y2="493.6" stroke="#111827" stroke-width="1.4"/>
+<line x1="674.4" y1="408.2" x2="528.4" y2="498.0" stroke="#111827" stroke-width="1.4"/>
+<path d="M520.2,500.0 L525.8,490.5 L531.2,499.3 Z" fill="#111827"/>
+<line x1="515.6" y1="248.2" x2="661.6" y2="338.0" stroke="#111827" stroke-width="1.4"/>
+<line x1="518.4" y1="243.8" x2="664.3" y2="333.6" stroke="#111827" stroke-width="1.4"/>
+<path d="M669.8,340.0 L658.8,339.3 L664.2,330.5 Z" fill="#111827"/>
+<rect x="339.375" y="274.0" width="52.66" height="17" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="343.375" y="285.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#111827" text-anchor="start">e1 · Z3</text>
+<rect x="471.0" y="384.48" width="20.759999999999998" height="17" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="475.0" y="395.48" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#111827" text-anchor="start">e2</text>
+<rect x="472.0" y="353.0" width="52.66" height="17" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="476.0" y="364.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#111827" text-anchor="start">e3 · Z2</text>
+<rect x="602.625" y="432.0" width="20.759999999999998" height="17" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="606.625" y="443.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#111827" text-anchor="start">e4</text>
+<rect x="599.375" y="272.0" width="52.66" height="17" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="603.375" y="283.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#111827" text-anchor="start">e5 · Z1</text>
+<text x="36" y="612" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4b5563" text-anchor="start" font-style="italic">Nicht gemeint: ‚falsch nummeriert‘ — die Darstellung hängt von keiner Knotennummerierung ab.</text>
+<text x="32" y="640" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">LEGENDE · Kandidat, kein Urteil</text>
+<line x1="32.0" y1="658.0" x2="92.0" y2="658.0" stroke="#111827" stroke-width="1.5"/>
+<line x1="32.0" y1="663.0" x2="92.0" y2="663.0" stroke="#111827" stroke-width="1.5"/>
+<text x="104" y="664" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">doppelt = Kante liegt auf mindestens einem Zyklus (Teil von K1); Pfeil zu Y bei X requires Y</text>
+<text x="104" y="684" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Z-Nummer = Kante des Beispielzeugen; weitere Zyklen nennt der Status</text>
+<line x1="32.0" y1="700.0" x2="92.0" y2="700.0" stroke="#111827" stroke-width="1.5"/>
+<text x="104" y="704" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">einfach = Kante auf keinem Zyklus (in diesem Plan keine)</text>
+<text x="104" y="724" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Rahmen K1 = starke Zusammenhangskomponente: jeder Knoten erreicht jeden anderen</text>
+<line x1="16.0" y1="740.0" x2="924.0" y2="740.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="24" y="762" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start">Setzt eine berechnete Zyklusprüfung voraus (Lücke G-05). Farbfrei: Linienart, Rahmen und Beschriftung. Fall DAG-03 / DAG-01.</text>
+</svg>

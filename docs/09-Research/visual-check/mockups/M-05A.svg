@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="620" viewBox="0 0 940 620" data-mockup="true" data-kind="mile003-candidate">
+<title>MOCKUP V-05 A</title>
+<rect x="0" y="0" width="940" height="620" fill="#ffffff"/>
+<rect x="16" y="12" width="908" height="54" rx="0" fill="none" stroke="#111827" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="32" y="36" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#111827" text-anchor="start">MOCKUP — kein Printer-Output · V-05 · Variante A</text>
+<text x="32" y="56" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4b5563" text-anchor="start">Kandidat: vier Zellzustände textlich unterscheiden; ausgeblendete Spalte mit Namen nennen</text>
+<text x="32" y="98" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">DSM (IR/FAD, Reihenfolge deklariert) · Fall DSM-03 / ARC-03 · Modell dsm-modules.json</text>
+<text x="245.0" y="128" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="middle">m:parser</text>
+<text x="395.0" y="128" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="middle">m:resolver</text>
+<text x="545.0" y="128" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="middle">m:validator</text>
+<rect x="620" y="140" width="26" height="256" rx="0" fill="#ffffff" stroke="#9ca3af" stroke-width="1"/>
+<text x="637" y="268" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#4b5563" text-anchor="middle" transform="rotate(-90 637 268)">ausgeblendet: m:printer</text>
+<text x="158" y="177.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="end">m:parser</text>
+<rect x="170" y="140" width="150" height="64" rx="0" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1"/>
+<text x="245.0" y="176.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="middle">Element</text>
+<rect x="320" y="140" width="150" height="64" rx="0" fill="none" stroke="#9ca3af" stroke-width="1"/>
+<text x="330" y="176" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start" font-style="italic">offen (nicht erhoben)</text>
+<rect x="470" y="140" width="150" height="64" rx="0" fill="none" stroke="#9ca3af" stroke-width="1"/>
+<text x="480" y="164" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">d-fb · dependsOn</text>
+<text x="480" y="184" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#4b5563" text-anchor="start" font-style="italic">Rückkopplung</text>
+<text x="158" y="241.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="end">m:resolver</text>
+<rect x="170" y="204" width="150" height="64" rx="0" fill="none" stroke="#9ca3af" stroke-width="1"/>
+<text x="180" y="228" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">d-rp · dependsOn</text>
+<rect x="320" y="204" width="150" height="64" rx="0" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1"/>
+<text x="395.0" y="240.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="middle">Element</text>
+<rect x="470" y="204" width="150" height="64" rx="0" fill="none" stroke="#9ca3af" stroke-width="1"/>
+<text x="480" y="240" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start" font-style="italic">offen (nicht erhoben)</text>
+<text x="158" y="305.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="end">m:validator</text>
+<rect x="170" y="268" width="150" height="64" rx="0" fill="none" stroke="#9ca3af" stroke-width="1"/>
+<text x="180" y="304" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start" font-style="italic">offen (nicht erhoben)</text>
+<rect x="320" y="268" width="150" height="64" rx="0" fill="none" stroke="#9ca3af" stroke-width="1"/>
+<text x="330" y="292" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">d-vr · dependsOn</text>
+<rect x="470" y="268" width="150" height="64" rx="0" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1"/>
+<text x="545.0" y="304.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="middle">Element</text>
+<text x="158" y="369.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="end">m:printer</text>
+<rect x="170" y="332" width="150" height="64" rx="0" fill="none" stroke="#111827" stroke-width="1.4"/>
+<text x="180" y="358" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="start">keine · geprüft</text>
+<text x="180" y="376" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#4b5563" text-anchor="start">Vollständigkeit: Zeile printer</text>
+<rect x="320" y="332" width="150" height="64" rx="0" fill="none" stroke="#9ca3af" stroke-width="1"/>
+<text x="330" y="368" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start" font-style="italic">offen (nicht erhoben)</text>
+<rect x="470" y="332" width="150" height="64" rx="0" fill="none" stroke="#9ca3af" stroke-width="1"/>
+<text x="480" y="356" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">d-pv · dependsOn</text>
+<text x="32" y="436" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">LEGENDE · Kandidat, kein Urteil</text>
+<text x="32" y="458" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Zelle (Zeile, Spalte): Zeile erhält Input von Spalte = Zeile dependsOn Spalte (IR/FAD).</text>
+<text x="32" y="478" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">„d-xx · dependsOn“ = deklarierte Abhängigkeit  ·  „keine · geprüft“ = als vollständig erklärte Zeile ohne Eintrag</text>
+<text x="32" y="498" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">„offen (nicht erhoben)“ = unbekannt, nicht leer</text>
+<text x="32" y="518" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Streifen rechts = ausgeblendete Spalte, mit Namen; graue Diagonale = Element selbst</text>
+<line x1="16.0" y1="580.0" x2="924.0" y2="580.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="24" y="602" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start">„geprüft leer“ setzt eine Vollständigkeitserklärung voraus (Lücke G-01). Text und Linien statt Farbe. Keine neuen VG-Anker.</text>
+</svg>

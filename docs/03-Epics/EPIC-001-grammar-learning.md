@@ -1,6 +1,6 @@
 # EPIC-001 — Grammatikvergleich als Lerninstrument
 
-Status: in_progress (MILE-002 abgeschlossen; MILE-003–004 offen) · Milestones: MILE-002 bis MILE-004 · Voraussetzung: MILE-001
+Status: in_progress (MILE-002 und MILE-003 abgeschlossen; MILE-004 offen) · Milestones: MILE-002 bis MILE-004 · Voraussetzung: MILE-001
 
 ## Ergebnis
 
@@ -34,3 +34,14 @@ Die Vorbereitung ist als [MILE-001](../02-Milestones/MILE-001-analysis-readiness
 - [US-011 — Konkrete Lücken und nächste Schritte erkennen](../04-US/US-011-grammar-gap-ledger.md)
 
 Führender Aufgabenstatus: [sample-five-grammars/tasks.md](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md). Der Abschluss von MILE-002 beendet diesen Epic noch nicht: visuelle Prüfung und endgültige Lernbilanz folgen in MILE-003/004.
+
+## Ausarbeitung MILE-003
+
+[MILE-003](../02-Milestones/MILE-003-visual-check.md) prüft die Darstellungsanforderungen aus MILE-002 als Agenten-Vorprüfung mit Minimalpaaren und markierten Mockups. Abgeschlossen; [Übergabe an MILE-004](../09-Research/visual-check/HANDOVER.md), [Nachweis](../10-Evidence/MILE-003/C-RESULT.md).
+
+- [US-012 — Darstellungsfähigkeit inventarisieren](../04-US/US-012-presentation-inventory.md)
+- [US-013 — Unterscheidungen als Minimalpaare sichtbar machen](../04-US/US-013-minimal-pairs.md)
+- [US-014 — Darstellung vorprüfen und übergeben](../04-US/US-014-agent-precheck-handover.md)
+
+Führender Aufgabenstatus: [check-visual-distinctions/tasks.md](../../openspec/changes/archive/2026-11-01-check-visual-distinctions/tasks.md).
+

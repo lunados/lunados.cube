@@ -1,0 +1,188 @@
+{
+  "format": "mile003.render-spec/1",
+  "render_id": "R-1",
+  "requirements": [
+    "V-05",
+    "V-06"
+  ],
+  "cases": [
+    "DSM-01",
+    "DSM-03"
+  ],
+  "model": "docs/09-Research/grammar-sampling/models/dsm-modules.json",
+  "mapping_note": "Darstellungsabbildung (A): Module → Y:resource-object:resource, DSM-Zelle → Abhängigkeit mit Katalogprädikat 'references', weil VP-09 Y × Y nur P1.10-Pläne liest und der Katalog für Y → Y nur 'references' (Resource → Resource) anbietet. Weicht von MILE-002 (Artifact, dependsOn) ab. Die Zellzustände 'geprüft leer' (printer, parser), 'unbekannt' (validator, printer) und 'ausgeblendet' (resolver, printer) lassen sich im Plan nicht deklarieren.",
+  "context": {
+    "format": "aiaeao.cube.binding-context/5",
+    "reference_version": "v9.4",
+    "context_id": "mile003-dsm",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+      {
+        "ref": "m:parser",
+        "concept_id": "Y:resource-object:resource",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:dsm"
+      },
+      {
+        "ref": "m:resolver",
+        "concept_id": "Y:resource-object:resource",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:dsm"
+      },
+      {
+        "ref": "m:validator",
+        "concept_id": "Y:resource-object:resource",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:dsm"
+      },
+      {
+        "ref": "m:printer",
+        "concept_id": "Y:resource-object:resource",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:dsm"
+      }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+      {
+        "plan_id": "mp-dsm",
+        "revision": "mile003:v1",
+        "scope": "mile003:dsm",
+        "origin": "illustrative_fixture",
+        "phases": [
+          {
+            "phase_id": "p0",
+            "role": "current"
+          },
+          {
+            "phase_id": "p1",
+            "role": "target"
+          }
+        ],
+        "transitions": [],
+        "dependencies": [
+          {
+            "dependency_id": "d-rp",
+            "subject": "m:resolver",
+            "object": "m:parser",
+            "predicate_id": "references",
+            "kind": "other",
+            "holds_in": [
+              "p0",
+              "p1"
+            ],
+            "witness_ref": "model:dsm-modules#resolver-parser"
+          },
+          {
+            "dependency_id": "d-vr",
+            "subject": "m:validator",
+            "object": "m:resolver",
+            "predicate_id": "references",
+            "kind": "other",
+            "holds_in": [
+              "p0",
+              "p1"
+            ],
+            "witness_ref": "model:dsm-modules#validator-resolver"
+          },
+          {
+            "dependency_id": "d-pv",
+            "subject": "m:printer",
+            "object": "m:validator",
+            "predicate_id": "references",
+            "kind": "other",
+            "holds_in": [
+              "p0",
+              "p1"
+            ],
+            "witness_ref": "model:dsm-modules#printer-validator"
+          },
+          {
+            "dependency_id": "d-fb",
+            "subject": "m:parser",
+            "object": "m:validator",
+            "predicate_id": "references",
+            "kind": "other",
+            "holds_in": [
+              "p0",
+              "p1"
+            ],
+            "witness_ref": "model:dsm-modules#parser-validator-feedback"
+          }
+        ]
+      }
+    ]
+  },
+  "plan_id": "mp-dsm",
+  "calls": [
+    {
+      "call_id": "R-1a",
+      "tool": "cube_plan_source",
+      "args": {
+        "printer": "vpaxes",
+        "profile": "P2-VP-AXES/0.9.2"
+      },
+      "then": {
+        "tool": "cube_plan_views",
+        "args": {
+          "view": "cube.axes",
+          "granularity": "standard",
+          "rows": "Y:referent",
+          "cols": "Y:referent"
+        }
+      }
+    },
+    {
+      "call_id": "R-1b",
+      "tool": "cube_plan_source",
+      "args": {
+        "printer": "vpaxes",
+        "profile": "P2-VP-AXES/0.9.2"
+      },
+      "then": {
+        "tool": "cube_plan_views",
+        "args": {
+          "view": "cube.axes",
+          "granularity": "standard",
+          "rows": "Y:referent",
+          "cols": "Y:referent",
+          "hide_empty": "both"
+        }
+      }
+    }
+  ],
+  "expected": {
+    "R-1a": [
+      "4 × 4-Matrix, Zeilen und Spalten in Quellreihenfolge parser, resolver, validator, printer",
+      "genau vier Zellen mit Einträgen '<dependency> · references': (resolver, parser), (validator, resolver), (printer, validator), (parser, validator)",
+      "alle übrigen Zellen leer und untereinander nicht unterscheidbar — insbesondere (printer, parser) 'geprüft leer' und (validator, printer) 'unbekannt' identisch",
+      "Legende nennt die Mitgliedschaftsregel und sinngemäß 'blank = nothing declared, not no relation' (AD-4)",
+      "Rückkopplung (parser, validator) über der Diagonale ohne eigene Hervorhebung"
+    ],
+    "R-1b": [
+      "Spalte printer ausgeblendet (nie Objekt); keine Zeile ausgeblendet; Bericht hidden_cols = [m:printer], hidden_rows = []",
+      "Ob das SVG die Ausblendung sichtbar anzeigt, ist laut Spezifikation offen — Beobachtung, keine Erwartung"
+    ]
+  },
+  "rationale": "VP-09-Spezifikation §3–4, AD-4, VP-09.2 §1.4; Inventur V-05/V-06."
+}

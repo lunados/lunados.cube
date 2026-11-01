@@ -1,0 +1,42 @@
+{
+  "format": "mile003.render-log/1",
+  "git_head": "02318c55b7cee69a612ab259bdb87264858ff257",
+  "python": "3.13.16",
+  "runs": [
+    {
+      "call_id": "P-09a",
+      "spec_sha256": "c1215adb0c34388a58c84576a811473377de57aa8e4bc34d5d3680d5e58ca949",
+      "status": "PLAN_FAILURE",
+      "diagnostic": {
+        "format": "aiaeao.cube.vp07-diagnostic/1",
+        "profile": "P2-VP-MIGRATION/0.7.0",
+        "status": "FAIL",
+        "code": "VP06_LENS_NOT_DECLARED",
+        "stage": "lens",
+        "message": "invalid VP-03 source: selected lens has no explicit facet bindings: cannot infer relevance",
+        "files_written": false,
+        "epistemic_warrant": "NOT_EVALUATED",
+        "current_authority": "NOT_EVALUATED",
+        "canonical_admission": "NOT_EVALUATED",
+        "printer": "vpmigration",
+        "input_profile": "P2-VP-MIGRATION/0.7.1"
+      }
+    },
+    {
+      "call_id": "P-09b",
+      "spec_sha256": "c1215adb0c34388a58c84576a811473377de57aa8e4bc34d5d3680d5e58ca949",
+      "status": "RENDERED",
+      "check": "PASS",
+      "svgs": {
+        "P-09b-00.svg": {
+          "json_path": "/index/svg",
+          "sha256": "bac7f9d3dad0b801b949c3e13e937392a1e1843f67d37d3b7f95d9c3ea88c402"
+        },
+        "P-09b-01.svg": {
+          "json_path": "/panels/0/svg",
+          "sha256": "9412341904acb8d77bc75118404aa4aeb946c73bccb11f79b75278365e6e962f"
+        }
+      }
+    }
+  ]
+}

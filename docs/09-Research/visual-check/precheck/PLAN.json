@@ -1,0 +1,234 @@
+{
+  "format": "mile003.precheck-plan/1",
+  "task": "TASK-022",
+  "fixed_at": "2026-11-01",
+  "fixed_before_assessment": true,
+  "protocol": "docs/09-Research/visual-check/README.md#kriterien-der-agenten-vorprüfung",
+  "checker": {
+    "kind": "agent",
+    "answers_are_proxy": true,
+    "blind": false,
+    "limitation": "Derselbe Agent hat Spezifikationen, Erwartungen und Mockups verfasst und kennt den Antwortschlüssel. Die Vorprüfung ist daher nicht blind; sie prüft regelgebunden Unterscheidbarkeit, Benennung und Rückführbarkeit und belegt keine Verständlichkeit, Suchzeit oder Lesbarkeit für Menschen."
+  },
+  "procedure": [
+    "1. Jede Eingabe in Farbe und in Graustufen rastern (Chromium/Playwright, CSS filter grayscale(1), deviceScaleFactor 1.4); PNG-Hashes ins Protokoll. Die PNGs sind reproduzierbar und werden nicht committet.",
+    "2. Je Einheit die Fallfrage nur aus den PNGs beantworten (kein SVG-Quelltext, keine Metadaten, kein Bericht) und die Antwort wörtlich protokollieren, bevor sie mit dem Schlüssel verglichen wird.",
+    "3. Für Kriterium 1 zusätzlich die tragenden SVG-Elemente maschinell vergleichen (Strichmuster, Strichstärke, Doppellinie, Schraffur, Text, Glyphe).",
+    "4. Kriterien 1–6 je Einheit mit erfüllt / nicht erfüllt / nicht anwendbar und Begründung bewerten."
+  ],
+  "criteria_interpretation": {
+    "C1": "Geprüft innerhalb des Bildes zwischen den Elementen, die die Unterscheidung tragen, und auf der Graustufenrasterung. Erfüllt bei Unterschied in Linienart (Strichmuster, Doppellinie), Glyphe, Text oder Form (inkl. Schraffur, Grenze). Nur Farbe oder Farbe plus Strichstärke: nicht erfüllt; die Strichstärke wird als Beobachtung vermerkt.",
+    "C2": "Erfüllt, wenn die Unterscheidung im sichtbaren Bild (Legende, Beschriftung oder Begleittext) benannt ist. Nur in Metadaten, Bericht oder Spezifikation: nicht erfüllt.",
+    "C3": "Erfüllt, wenn jede gezeigte Aussage im Bild eine Kennung trägt (Kanten-ID mit Ledger, Referent-ID, Fall- und Variantenbezug) oder im SVG maschinenlesbar auf ihre Deklaration verweist. Für Mockups: Fall, Variante und Referent-IDs sichtbar.",
+    "C4": "Erfüllt, wenn ein in der Quelle unbekannter Zustand im Bild eine eigene Form hat, verschieden von leer, abwesend und deklariert. Nicht anwendbar, wenn die Einheit keinen unbekannten Zustand enthält und keinen behauptet.",
+    "C5": "Die Antwort aus Schritt 2 wird mit dem Schlüssel verglichen. Erfüllt bei Übereinstimmung; Ledger- oder Legendentext im Bild zählt zur Darstellung, muss aber als 'nur durch Nachschlagen' vermerkt werden. Teilweise richtige Antworten: nicht erfüllt, mit Angabe des fehlenden Teils.",
+    "C6": "Nicht erfüllt, wenn das Bild Ausführung, Kausalität, Parallelität oder Wahrheit nahelegt, die die Quelle nicht trägt. Zur Wahrheit zählt Vollständigkeit: eine als abschließend lesbare Angabe, die unvollständig ist (z. B. 'der Zyklus' bei mehreren), ist eine Überbehauptung. Für Mockups gilt eine vorausgesetzte, nicht vorhandene Berechnung (G-05) nur dann nicht als Überbehauptung, wenn das Bild sie als Kandidat/Voraussetzung kennzeichnet."
+  },
+  "criteria_interpretation_note": "Die Vollständigkeitsklausel in C6 wurde beim Herleiten des Schlüssels ergänzt, nachdem sich zeigte, dass die Zyklus-Variante zwei elementare Zyklen hat (siehe K-V09). Sie ist vor jeder Bewertung festgelegt, aber in Kenntnis dieses Befunds.",
+  "answer_keys": {
+    "K-V01": {
+      "question": "Ist API → Database festgelegt oder nur verdichtet?",
+      "source": [
+        "cases/C4-02-derived-marked.json",
+        "cases/C4-03-ctrl-derived-unmarked.json",
+        "models/c4-shop.dsl"
+      ],
+      "C4-02": "Nur verdichtet: api → db ist als abgeleitet markiert (uses.derived mit Methode c4.implied-unless-any/v1); keine einzeln festgelegte Beziehung.",
+      "C4-03": "Herkunft nicht gebunden: aus der Quelle weder als festgelegt noch als abgeleitet belegbar. Richtige Antwort: unbekannt. Jede Antwort 'festgelegt' ist falsch."
+    },
+    "K-V05": {
+      "question": "Hat printer keine Abhängigkeit zu parser — oder wissen wir es nicht?",
+      "source": [
+        "cases/DSM-03-empty-known.json",
+        "models/dsm-modules.json"
+      ],
+      "printer→parser": "Geprüft, keine Abhängigkeit (state empty_known, 'analysed; no dependency').",
+      "validator→printer": "Unbekannt, nicht erhoben (state unknown).",
+      "resolver→printer": "Ausgeblendet; zugrunde liegender Zustand nicht gezeigt (state hidden).",
+      "note": "R-1 erhielt nur die vier markierten Abhängigkeiten; aus R-1a/R-1b ist die richtige Antwort 'aus dem Bild nicht entscheidbar'."
+    },
+    "K-V09": {
+      "question": "Ist dieser Plan abarbeitbar — und wo liegt der Zyklus?",
+      "source": [
+        "cases/DAG-03-cycle-edge.json",
+        "cases/DAG-01-statement.json",
+        "models/dag-workitems.json"
+      ],
+      "workable": "Nicht abarbeitbar: mit a requires d gibt es keine topologische Ordnung.",
+      "cycles_computed": [
+        [
+          "wi:a",
+          "wi:d",
+          "wi:b"
+        ],
+        [
+          "wi:a",
+          "wi:d",
+          "wi:c"
+        ]
+      ],
+      "cycles_text": "Zwei elementare Zyklen mit gemeinsamer Kante a → d: a → d → b → a und a → d → c → a (Kanten als 'Subjekt requires Objekt').",
+      "numbering": "Der Zyklus hängt von keiner Nummerierung ab; 'falsch nummeriert' ist hier keine Erklärung.",
+      "deviation": "Die Modellannotation cycle_variant.cycle nennt nur [a, b, d, a]; P-09 und M-09A/B wurden danach gebaut. Der Schlüssel folgt der Berechnung (Tiefensuche über die fünf Kanten), nicht der Annotation."
+    },
+    "K-V12": {
+      "question": "Hat Ship für i1 wegen i2 gestartet?",
+      "source": [
+        "cases/BPMN-03-join-cross-instance-scoped.json",
+        "cases/BPMN-03-join-cross-instance-shared.json",
+        "models/bpmn-order.json"
+      ],
+      "answer": "Die Aussage verknüpft im Join i1/tok-stock mit i2/tok-credit: ein Eingang stammt aus i2. Das ist instanzübergreifend und nach der gelesenen BPMN-Regel (Token je Prozessinstanz, §13.2/§13.4.1) ein Fehler. Dass Ship tatsächlich gestartet ist, belegt keine Quelle (handgeschriebene Spur, keine Ausführung)."
+    }
+  },
+  "units": [
+    {
+      "unit": "U-P01",
+      "requirement": "V-01",
+      "kind": "printer_pair",
+      "key": "K-V01",
+      "case_scope": [
+        "C4-02"
+      ],
+      "inputs": [
+        {
+          "id": "R-2a-01",
+          "path": "docs/10-Evidence/MILE-003/R-2a/R-2a-01.svg",
+          "sha256_16": "4bbbc0a432e433b8"
+        },
+        {
+          "id": "R-2b-01",
+          "path": "docs/10-Evidence/MILE-003/R-2b/R-2b-01.svg",
+          "sha256_16": "390e95e1184ed16e"
+        }
+      ],
+      "note": "C4-03 (unbekannte Herkunft) ist im Printer-Paar nicht enthalten."
+    },
+    {
+      "unit": "U-M01A",
+      "requirement": "V-01",
+      "kind": "mockup",
+      "key": "K-V01",
+      "case_scope": [
+        "C4-02",
+        "C4-03"
+      ],
+      "inputs": [
+        {
+          "id": "M-01A",
+          "path": "docs/09-Research/visual-check/mockups/M-01A.svg",
+          "sha256_16": "00de9a63db4e354f"
+        }
+      ],
+      "baseline": "R-2a-01"
+    },
+    {
+      "unit": "U-R1",
+      "requirement": "V-05",
+      "kind": "printer_baseline",
+      "key": "K-V05",
+      "inputs": [
+        {
+          "id": "R-1a-01",
+          "path": "docs/10-Evidence/MILE-003/R-1a/R-1a-01.svg",
+          "sha256_16": "38a1f8c37078e9d4"
+        },
+        {
+          "id": "R-1b-01",
+          "path": "docs/10-Evidence/MILE-003/R-1b/R-1b-01.svg",
+          "sha256_16": "48745640ce4504ae"
+        }
+      ]
+    },
+    {
+      "unit": "U-M05A",
+      "requirement": "V-05",
+      "kind": "mockup",
+      "key": "K-V05",
+      "inputs": [
+        {
+          "id": "M-05A",
+          "path": "docs/09-Research/visual-check/mockups/M-05A.svg",
+          "sha256_16": "74caad87019766a7"
+        }
+      ],
+      "baseline": "R-1a-01"
+    },
+    {
+      "unit": "U-M05B",
+      "requirement": "V-05",
+      "kind": "mockup",
+      "key": "K-V05",
+      "inputs": [
+        {
+          "id": "M-05B",
+          "path": "docs/09-Research/visual-check/mockups/M-05B.svg",
+          "sha256_16": "858754fef20e4cd4"
+        }
+      ],
+      "baseline": "R-1a-01"
+    },
+    {
+      "unit": "U-P09",
+      "requirement": "V-09",
+      "kind": "printer_pair",
+      "key": "K-V09",
+      "inputs": [
+        {
+          "id": "P-09a2-01",
+          "path": "docs/10-Evidence/MILE-003/P-09a2/P-09a2-01.svg",
+          "sha256_16": "042b18f4030d4ff2"
+        },
+        {
+          "id": "P-09b-01",
+          "path": "docs/10-Evidence/MILE-003/P-09b/P-09b-01.svg",
+          "sha256_16": "9412341904acb8d7"
+        }
+      ]
+    },
+    {
+      "unit": "U-M09A",
+      "requirement": "V-09",
+      "kind": "mockup",
+      "key": "K-V09",
+      "inputs": [
+        {
+          "id": "M-09A",
+          "path": "docs/09-Research/visual-check/mockups/M-09A.svg",
+          "sha256_16": "270bd293f67d9367"
+        }
+      ],
+      "baseline": "P-09b-01"
+    },
+    {
+      "unit": "U-M09B",
+      "requirement": "V-09",
+      "kind": "mockup",
+      "key": "K-V09",
+      "inputs": [
+        {
+          "id": "M-09B",
+          "path": "docs/09-Research/visual-check/mockups/M-09B.svg",
+          "sha256_16": "9415e83f49fcf5a6"
+        }
+      ],
+      "baseline": "P-09b-01"
+    },
+    {
+      "unit": "U-M12A",
+      "requirement": "V-12",
+      "kind": "mockup",
+      "key": "K-V12",
+      "inputs": [
+        {
+          "id": "M-12A",
+          "path": "docs/09-Research/visual-check/mockups/M-12A.svg",
+          "sha256_16": "522ac60830a2bbc0"
+        }
+      ],
+      "baseline": null,
+      "note": "Keine Printer-Vergleichsseite: laut Inventur keine Sicht mit Instanzgruppierung."
+    }
+  ],
+  "mockup_open_questions": "MOCKUPS.md §Offene Fragen 1–4 werden in U-M09A, U-M05A/B, U-M01A und U-M12A beantwortet."
+}

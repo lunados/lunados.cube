@@ -1,0 +1,170 @@
+{
+  "format": "mile003.render-spec/1",
+  "render_id": "R-2",
+  "requirements": [
+    "V-01"
+  ],
+  "cases": [
+    "C4-02",
+    "C4-03"
+  ],
+  "model": "docs/09-Research/grammar-sampling/models/c4-shop.dsl",
+  "mapping_note": "Darstellungsabbildung (A): Container API → Z:module-body:runtime, Komponente Order Controller → Z:module-body:integration, Container Database → Z:module-body:provider, weil der VP-07-Adapter nur sechs Konzepte abbildet (AD-2). Weicht von MILE-002 (Boundary/Tool) ab. Prädikate sind eigene Bezeichner außerhalb des P1.10-Katalogs; der Adapter reicht sie durch.",
+  "context": {
+    "format": "aiaeao.cube.binding-context/5",
+    "reference_version": "v9.4",
+    "context_id": "mile003-c4",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:c4",
+    "referents": [
+      {
+        "ref": "c4:api",
+        "concept_id": "Z:module-body:runtime",
+        "home": "Z",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:c4"
+      },
+      {
+        "ref": "c4:order-controller",
+        "concept_id": "Z:module-body:integration",
+        "home": "Z",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:c4"
+      },
+      {
+        "ref": "c4:db",
+        "concept_id": "Z:module-body:provider",
+        "home": "Z",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:c4"
+      }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+      {
+        "plan_id": "mp-c4",
+        "revision": "mile003:v1",
+        "scope": "mile003:c4",
+        "origin": "illustrative_fixture",
+        "phases": [
+          {
+            "phase_id": "p0",
+            "role": "current"
+          },
+          {
+            "phase_id": "p1",
+            "role": "target"
+          }
+        ],
+        "transitions": [],
+        "dependencies": [
+          {
+            "dependency_id": "e-writes",
+            "subject": "c4:order-controller",
+            "object": "c4:db",
+            "predicate_id": "writes-orders-to",
+            "kind": "other",
+            "holds_in": [
+              "p0",
+              "p1"
+            ],
+            "witness_ref": "model:c4-shop#orderController-db"
+          },
+          {
+            "dependency_id": "e-implied",
+            "subject": "c4:api",
+            "object": "c4:db",
+            "predicate_id": "uses-implied",
+            "kind": "other",
+            "holds_in": [
+              "p0",
+              "p1"
+            ],
+            "witness_ref": "model:c4-shop#implied-api-db"
+          }
+        ]
+      }
+    ]
+  },
+  "plan_id": "mp-c4",
+  "calls": [
+    {
+      "call_id": "R-2a",
+      "tool": "cube_plan_source",
+      "args": {
+        "printer": "vpmigration"
+      },
+      "then": {
+        "tool": "cube_plan_views",
+        "args": {
+          "view": "cube.flow",
+          "granularity": "standard",
+          "lens": "cube.lens.provenance",
+          "partition": "object"
+        }
+      }
+    },
+    {
+      "call_id": "R-2b",
+      "tool": "cube_plan_source",
+      "args": {
+        "printer": "vpmigration",
+        "edge_styles": [
+          {
+            "predicate_id": "writes-orders-to",
+            "style": "solid",
+            "legend": "deklariert (Komponente)"
+          },
+          {
+            "predicate_id": "uses-implied",
+            "style": "dashed",
+            "legend": "abgeleitet (implied, UnlessAny)"
+          }
+        ]
+      },
+      "then": {
+        "tool": "cube_plan_views",
+        "args": {
+          "view": "cube.flow",
+          "granularity": "standard",
+          "lens": "cube.lens.provenance",
+          "partition": "object"
+        }
+      }
+    }
+  ],
+  "expected": {
+    "R-2a": [
+      "drei Knoten, zwei Kanten (Order Controller → Database, API → Database)",
+      "beide Kanten gleiche Linienart, Pfeilspitze relation-arrows.reference",
+      "abgeleitet und deklariert höchstens über den Prädikattext unterscheidbar (ob er erscheint: Beobachtung)"
+    ],
+    "R-2b": [
+      "Kante API → Database gestrichelt, Order Controller → Database durchgezogen",
+      "Legende mit beiden Einträgen 'deklariert (Komponente)' und 'abgeleitet (implied, UnlessAny)'",
+      "Pfeilspitzen unverändert (ES-2), keine Farbänderung durch den Stil (ES-6)",
+      "Bericht trägt base_svg_sha256 und svg_sha256 (ES-5), sofern Pfad F greift"
+    ]
+  },
+  "rationale": "VP-07 ES-1–ES-6; Inventur V-01. 'Herkunft unbekannt' ist hier nicht darstellbar und bleibt für TASK-021.",
+  "amendments": [
+    {
+      "date": "2026-11-01",
+      "change": "partition='object' ergänzt",
+      "reason": "Erster Lauf scheiterte mit P3_PLAN_ARGUMENT_INVALID: cube.flow verlangt partition. Reines Aufrufargument; Erwartungen unverändert.",
+      "failed_run_log": "docs/10-Evidence/MILE-003/task019-render-log.json (erster Lauf, überschrieben; Diagnose hier festgehalten)"
+    }
+  ]
+}
