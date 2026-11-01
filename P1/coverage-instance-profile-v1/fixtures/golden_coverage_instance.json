@@ -1,0 +1,437 @@
+{
+ "format": "aiaeao.cube.p1.12-golden/1",
+ "reference_version": "v9.4",
+ "source": "synthetic (K-14 trace context); no client data",
+ "cases": [
+  {
+   "id": "GC-pos",
+   "description": "coverage for both i1 flows, join rule i1, typed instances, joins within i1",
+   "input_text": "rel(\"joins\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:Evidence[\"bpmn:i1/tok-credit\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "golden-p112",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:trace",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i2/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i2"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i2",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-stock-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-credit-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:join",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ],
+      "requires_same_instance": true
+     },
+     {
+      "predicate_id": "onFlow",
+      "revision": "p112:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token liegt auf einem Sequence Flow (Spuraufzeichnung)."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Gemeinsamer Scope für die ganze Spur; die Instanzzugehörigkeit steht nur im Referentnamen."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1-f-stock-done",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:f-stock-done",
+      "predicate_id": "onFlow",
+      "direction": "incoming",
+      "instance_ref": "bpmn:i1",
+      "witness_ref": "synthetic:coverage#Spur i1 an bpmn:join vollständig aufgezeichnet"
+     },
+     {
+      "declaration_id": "cv-1-f-credit-done",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:f-credit-done",
+      "predicate_id": "onFlow",
+      "direction": "incoming",
+      "instance_ref": "bpmn:i1",
+      "witness_ref": "synthetic:coverage#Spur i1 an bpmn:join vollständig aufgezeichnet"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-14",
+      "kind": "join_activation",
+      "instance_ref": "bpmn:i1",
+      "gateway": "bpmn:join",
+      "predicate_id": "onFlow",
+      "incoming_flows": [
+       {
+        "flow": "bpmn:f-stock-done",
+        "min": 1
+       },
+       {
+        "flow": "bpmn:f-credit-done",
+        "min": 1
+       }
+      ],
+      "witness_ref": "synthetic:rule#BPMN §13.4.1 (R-BPMN-2)"
+     }
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "expected_blocks": {
+    "coverage_declarations": 2,
+    "population_rules": 1,
+    "instance_refs": 3
+   }
+  },
+  {
+   "id": "GC-mixed",
+   "description": "GC-pos plus an uncovered join rule for i2 and a cross-instance joins statement",
+   "input_text": "rel(\"joins\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:Evidence[\"bpmn:i2/tok-credit\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "golden-p112",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:trace",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i2/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i2"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i2",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-stock-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-credit-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:join",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ],
+      "requires_same_instance": true
+     },
+     {
+      "predicate_id": "onFlow",
+      "revision": "p112:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token liegt auf einem Sequence Flow (Spuraufzeichnung)."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Gemeinsamer Scope für die ganze Spur; die Instanzzugehörigkeit steht nur im Referentnamen."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1-f-stock-done",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:f-stock-done",
+      "predicate_id": "onFlow",
+      "direction": "incoming",
+      "instance_ref": "bpmn:i1",
+      "witness_ref": "synthetic:coverage#Spur i1 an bpmn:join vollständig aufgezeichnet"
+     },
+     {
+      "declaration_id": "cv-1-f-credit-done",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:f-credit-done",
+      "predicate_id": "onFlow",
+      "direction": "incoming",
+      "instance_ref": "bpmn:i1",
+      "witness_ref": "synthetic:coverage#Spur i1 an bpmn:join vollständig aufgezeichnet"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-14",
+      "kind": "join_activation",
+      "instance_ref": "bpmn:i1",
+      "gateway": "bpmn:join",
+      "predicate_id": "onFlow",
+      "incoming_flows": [
+       {
+        "flow": "bpmn:f-stock-done",
+        "min": 1
+       },
+       {
+        "flow": "bpmn:f-credit-done",
+        "min": 1
+       }
+      ],
+      "witness_ref": "synthetic:rule#BPMN §13.4.1 (R-BPMN-2)"
+     },
+     {
+      "rule_id": "pr-join-i2",
+      "kind": "join_activation",
+      "instance_ref": "bpmn:i2",
+      "gateway": "bpmn:join",
+      "predicate_id": "onFlow",
+      "incoming_flows": [
+       {
+        "flow": "bpmn:f-stock-done",
+        "min": 1
+       },
+       {
+        "flow": "bpmn:f-credit-done",
+        "min": 1
+       }
+      ],
+      "witness_ref": "synthetic:rule#BPMN §13.4.1 (R-BPMN-2)"
+     }
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_INSTANCE_MISMATCH",
+    "P1_COVERAGE_UNDECLARED"
+   ],
+   "expected_code_count": {
+    "P1_INSTANCE_MISMATCH": 1,
+    "P1_COVERAGE_UNDECLARED": 1
+   }
+  }
+ ]
+}

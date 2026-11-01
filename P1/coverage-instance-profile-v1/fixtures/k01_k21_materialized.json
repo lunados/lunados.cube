@@ -1,0 +1,3238 @@
+{
+ "format": "aiaeao.cube.p1.12-vectors/1",
+ "reference_version": "v9.4",
+ "source": "P1_12_ACCEPTANCE_SPEC.md §5; CHECK-CASES.json; contexts from MILE-002 case files; synthetic, no client data",
+ "cases": [
+  {
+   "id": "K-01",
+   "check_case": "CC-01",
+   "question": "Realisiert in der Service-Sicht nichts Transaction Processing?",
+   "input_text": "rel(\"composedOf\",Z:α:Tool[\"am:financial-processing\"],Z:α:Tool[\"am:billing\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-01",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:am",
+    "referents": [
+     {
+      "ref": "am:financial-processing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:accounting",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:billing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:payment",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:transaction-processing",
+      "concept_id": "Z:boundary:capability",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "realizes",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:boundary:capability"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Realization für das Paar Application Function → Application Service (Herstellerbeispiel S-AM-2). Normative Endpunkt-Zulässigkeit ausgelassen (R-AM-6)."
+      ]
+     },
+     {
+      "predicate_id": "composedOf",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Composition (Ganzes → Teil). Die lokale Zählregel min 2/max 3 ist hier nicht ausdrückbar."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 ARC-01..03: Application Function→Z:module-body:tool, Application Service→Z:boundary:capability (Arbeitsannahme A).",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-01",
+      "kind": "absence",
+      "predicate_id": "realizes",
+      "witness_ref": "synthetic:rule#CC-01",
+      "object": "am:transaction-processing"
+     }
+    ]
+   },
+   "statements": [],
+   "lib_expected": {
+    "status": "UNRESOLVED",
+    "value": "coverage_undeclared"
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "K-02",
+   "check_case": "CC-02",
+   "question": "Realisiert Billing Transaction Processing (Vollsicht)?",
+   "input_text": "rel(\"realizes\",Z:α:Tool[\"am:accounting\"],Z:α:Capability[\"am:transaction-processing\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-02",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:am",
+    "referents": [
+     {
+      "ref": "am:financial-processing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:accounting",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:billing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:payment",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:transaction-processing",
+      "concept_id": "Z:boundary:capability",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "realizes",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:boundary:capability"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Realization für das Paar Application Function → Application Service (Herstellerbeispiel S-AM-2). Normative Endpunkt-Zulässigkeit ausgelassen (R-AM-6)."
+      ]
+     },
+     {
+      "predicate_id": "composedOf",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Composition (Ganzes → Teil). Die lokale Zählregel min 2/max 3 ist hier nicht ausdrückbar."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 ARC-01..03: Application Function→Z:module-body:tool, Application Service→Z:boundary:capability (Arbeitsannahme A).",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "referent_relation_direction",
+      "referent": "am:transaction-processing",
+      "predicate_id": "realizes",
+      "direction": "incoming",
+      "witness_ref": "synthetic:coverage#am:view/full declared complete"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-02",
+      "kind": "absence",
+      "predicate_id": "realizes",
+      "witness_ref": "synthetic:rule#CC-02",
+      "subject": "am:billing",
+      "object": "am:transaction-processing"
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "am:accounting",
+     "predicate_id": "realizes",
+     "object": "am:transaction-processing"
+    }
+   ],
+   "lib_expected": {
+    "status": "PASS",
+    "value": "absent_checked",
+    "count": 0
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-03",
+   "check_case": "CC-03",
+   "question": "Realisiert Accounting Transaction Processing nicht (Vollsicht)?",
+   "input_text": "rel(\"realizes\",Z:α:Tool[\"am:accounting\"],Z:α:Capability[\"am:transaction-processing\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-03",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:am",
+    "referents": [
+     {
+      "ref": "am:financial-processing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:accounting",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:billing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:payment",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:transaction-processing",
+      "concept_id": "Z:boundary:capability",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "realizes",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:boundary:capability"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Realization für das Paar Application Function → Application Service (Herstellerbeispiel S-AM-2). Normative Endpunkt-Zulässigkeit ausgelassen (R-AM-6)."
+      ]
+     },
+     {
+      "predicate_id": "composedOf",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Composition (Ganzes → Teil). Die lokale Zählregel min 2/max 3 ist hier nicht ausdrückbar."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 ARC-01..03: Application Function→Z:module-body:tool, Application Service→Z:boundary:capability (Arbeitsannahme A).",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "referent_relation_direction",
+      "referent": "am:transaction-processing",
+      "predicate_id": "realizes",
+      "direction": "incoming",
+      "witness_ref": "synthetic:coverage#am:view/full declared complete"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-03",
+      "kind": "absence",
+      "predicate_id": "realizes",
+      "witness_ref": "synthetic:rule#CC-03",
+      "subject": "am:accounting",
+      "object": "am:transaction-processing"
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "am:accounting",
+     "predicate_id": "realizes",
+     "object": "am:transaction-processing"
+    }
+   ],
+   "lib_expected": {
+    "status": "FAIL",
+    "value": "absence_contradicted",
+    "count": 1
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-04",
+   "check_case": "CC-04",
+   "question": "Hat printer keine Abhängigkeit zu parser?",
+   "input_text": "rel(\"dependsOn\",Y:α:Artifact[\"m:resolver\"],Y:α:Artifact[\"m:parser\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-04",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "t:core",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "t:viz",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "dependsOn",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "DSM-Zelle Domäne modules: Subjekt hängt von Objekt ab. Aus IR/FAD: Zeile = Subjekt, Spalte = Objekt."
+      ]
+     },
+     {
+      "predicate_id": "maintains",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "DMM-Zelle teams × modules: Zeilenteam pflegt Spaltenmodul."
+      ]
+     },
+     {
+      "predicate_id": "related",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor",
+       "Y:resource-object:artifact"
+      ],
+      "object_concept_ids": [
+       "Y:identity-anchor:actor",
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Absichtlich breite technische Referenzart 'related' (Morphologie 7.6) für die Abflachungskontrolle."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 DSM-01..03: Module→Y:resource-object:artifact, Teams→Y:identity-anchor:actor (Arbeitsannahme A).",
+     "Nicht aufgeführte Zellen sind unbekannt, nicht leer.",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "dependsOn",
+      "object": "m:parser",
+      "witness_ref": "synthetic:coverage#dsm_modules.cells: empty_known 'analysed; no dependency'"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-04",
+      "kind": "absence",
+      "predicate_id": "dependsOn",
+      "witness_ref": "synthetic:rule#CC-04",
+      "subject": "m:printer",
+      "object": "m:parser"
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "m:resolver",
+     "predicate_id": "dependsOn",
+     "object": "m:parser"
+    },
+    {
+     "subject": "m:validator",
+     "predicate_id": "dependsOn",
+     "object": "m:resolver"
+    },
+    {
+     "subject": "m:printer",
+     "predicate_id": "dependsOn",
+     "object": "m:validator"
+    },
+    {
+     "subject": "m:parser",
+     "predicate_id": "dependsOn",
+     "object": "m:validator"
+    }
+   ],
+   "lib_expected": {
+    "status": "PASS",
+    "value": "absent_checked",
+    "count": 0
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-05",
+   "check_case": "CC-05",
+   "question": "Hat validator keine Abhängigkeit zu printer?",
+   "input_text": "rel(\"dependsOn\",Y:α:Artifact[\"m:resolver\"],Y:α:Artifact[\"m:parser\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-05",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "t:core",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "t:viz",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "dependsOn",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "DSM-Zelle Domäne modules: Subjekt hängt von Objekt ab. Aus IR/FAD: Zeile = Subjekt, Spalte = Objekt."
+      ]
+     },
+     {
+      "predicate_id": "maintains",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "DMM-Zelle teams × modules: Zeilenteam pflegt Spaltenmodul."
+      ]
+     },
+     {
+      "predicate_id": "related",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor",
+       "Y:resource-object:artifact"
+      ],
+      "object_concept_ids": [
+       "Y:identity-anchor:actor",
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Absichtlich breite technische Referenzart 'related' (Morphologie 7.6) für die Abflachungskontrolle."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 DSM-01..03: Module→Y:resource-object:artifact, Teams→Y:identity-anchor:actor (Arbeitsannahme A).",
+     "Nicht aufgeführte Zellen sind unbekannt, nicht leer.",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "dependsOn",
+      "object": "m:parser",
+      "witness_ref": "synthetic:coverage#dsm_modules.cells: empty_known"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-05",
+      "kind": "absence",
+      "predicate_id": "dependsOn",
+      "witness_ref": "synthetic:rule#CC-05",
+      "subject": "m:validator",
+      "object": "m:printer"
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "m:resolver",
+     "predicate_id": "dependsOn",
+     "object": "m:parser"
+    },
+    {
+     "subject": "m:validator",
+     "predicate_id": "dependsOn",
+     "object": "m:resolver"
+    },
+    {
+     "subject": "m:printer",
+     "predicate_id": "dependsOn",
+     "object": "m:validator"
+    },
+    {
+     "subject": "m:parser",
+     "predicate_id": "dependsOn",
+     "object": "m:validator"
+    }
+   ],
+   "lib_expected": {
+    "status": "UNRESOLVED",
+    "value": "coverage_undeclared"
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "K-06",
+   "check_case": "CC-06",
+   "question": "Hat printer keine Abhängigkeit zu resolver, wenn die Zeile printer erklärt ist?",
+   "input_text": "rel(\"dependsOn\",Y:α:Artifact[\"m:resolver\"],Y:α:Artifact[\"m:parser\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-06",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "t:core",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "t:viz",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "dependsOn",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "DSM-Zelle Domäne modules: Subjekt hängt von Objekt ab. Aus IR/FAD: Zeile = Subjekt, Spalte = Objekt."
+      ]
+     },
+     {
+      "predicate_id": "maintains",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "DMM-Zelle teams × modules: Zeilenteam pflegt Spaltenmodul."
+      ]
+     },
+     {
+      "predicate_id": "related",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor",
+       "Y:resource-object:artifact"
+      ],
+      "object_concept_ids": [
+       "Y:identity-anchor:actor",
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Absichtlich breite technische Referenzart 'related' (Morphologie 7.6) für die Abflachungskontrolle."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 DSM-01..03: Module→Y:resource-object:artifact, Teams→Y:identity-anchor:actor (Arbeitsannahme A).",
+     "Nicht aufgeführte Zellen sind unbekannt, nicht leer.",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "referent_relation_direction",
+      "referent": "m:printer",
+      "predicate_id": "dependsOn",
+      "direction": "outgoing",
+      "witness_ref": "synthetic:coverage#Variante: ausgehende dependsOn von printer vollständig erhoben"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-06",
+      "kind": "absence",
+      "predicate_id": "dependsOn",
+      "witness_ref": "synthetic:rule#CC-06",
+      "subject": "m:printer",
+      "object": "m:resolver"
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "m:resolver",
+     "predicate_id": "dependsOn",
+     "object": "m:parser"
+    },
+    {
+     "subject": "m:validator",
+     "predicate_id": "dependsOn",
+     "object": "m:resolver"
+    },
+    {
+     "subject": "m:printer",
+     "predicate_id": "dependsOn",
+     "object": "m:validator"
+    },
+    {
+     "subject": "m:parser",
+     "predicate_id": "dependsOn",
+     "object": "m:validator"
+    }
+   ],
+   "lib_expected": {
+    "status": "PASS",
+    "value": "absent_checked",
+    "count": 0
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-07",
+   "check_case": "CC-07",
+   "question": "Hat printer keine Abhängigkeit zu validator, wenn die Zeile printer erklärt ist?",
+   "input_text": "rel(\"dependsOn\",Y:α:Artifact[\"m:resolver\"],Y:α:Artifact[\"m:parser\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-07",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:artifact",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "t:core",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     },
+     {
+      "ref": "t:viz",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:dsm"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "dependsOn",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "DSM-Zelle Domäne modules: Subjekt hängt von Objekt ab. Aus IR/FAD: Zeile = Subjekt, Spalte = Objekt."
+      ]
+     },
+     {
+      "predicate_id": "maintains",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "DMM-Zelle teams × modules: Zeilenteam pflegt Spaltenmodul."
+      ]
+     },
+     {
+      "predicate_id": "related",
+      "revision": "mile002:dsm:pred/1",
+      "scope": "mile002:dsm",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor",
+       "Y:resource-object:artifact"
+      ],
+      "object_concept_ids": [
+       "Y:identity-anchor:actor",
+       "Y:resource-object:artifact"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Absichtlich breite technische Referenzart 'related' (Morphologie 7.6) für die Abflachungskontrolle."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 DSM-01..03: Module→Y:resource-object:artifact, Teams→Y:identity-anchor:actor (Arbeitsannahme A).",
+     "Nicht aufgeführte Zellen sind unbekannt, nicht leer.",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "referent_relation_direction",
+      "referent": "m:printer",
+      "predicate_id": "dependsOn",
+      "direction": "outgoing",
+      "witness_ref": "synthetic:coverage#Variante wie CC-06"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-07",
+      "kind": "absence",
+      "predicate_id": "dependsOn",
+      "witness_ref": "synthetic:rule#CC-07",
+      "subject": "m:printer",
+      "object": "m:validator"
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "m:resolver",
+     "predicate_id": "dependsOn",
+     "object": "m:parser"
+    },
+    {
+     "subject": "m:validator",
+     "predicate_id": "dependsOn",
+     "object": "m:resolver"
+    },
+    {
+     "subject": "m:printer",
+     "predicate_id": "dependsOn",
+     "object": "m:validator"
+    },
+    {
+     "subject": "m:parser",
+     "predicate_id": "dependsOn",
+     "object": "m:validator"
+    }
+   ],
+   "lib_expected": {
+    "status": "FAIL",
+    "value": "absence_contradicted",
+    "count": 1
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-08",
+   "check_case": "CC-08",
+   "question": "Besteht Financial Processing aus zwei bis drei Teilfunktionen (Vollsicht)?",
+   "input_text": "rel(\"composedOf\",Z:α:Tool[\"am:financial-processing\"],Z:α:Tool[\"am:accounting\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-08",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:am",
+    "referents": [
+     {
+      "ref": "am:financial-processing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:accounting",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:billing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:payment",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:transaction-processing",
+      "concept_id": "Z:boundary:capability",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "realizes",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:boundary:capability"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Realization für das Paar Application Function → Application Service (Herstellerbeispiel S-AM-2). Normative Endpunkt-Zulässigkeit ausgelassen (R-AM-6)."
+      ]
+     },
+     {
+      "predicate_id": "composedOf",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Composition (Ganzes → Teil). Die lokale Zählregel min 2/max 3 ist hier nicht ausdrückbar."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 ARC-01..03: Application Function→Z:module-body:tool, Application Service→Z:boundary:capability (Arbeitsannahme A).",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "referent_relation_direction",
+      "referent": "am:financial-processing",
+      "predicate_id": "composedOf",
+      "direction": "outgoing",
+      "witness_ref": "synthetic:coverage#am:view/full declared complete"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-08",
+      "kind": "count",
+      "referent": "am:financial-processing",
+      "predicate_id": "composedOf",
+      "direction": "outgoing",
+      "min": 2,
+      "witness_ref": "synthetic:rule#local_count_rule (A), archimate-billing.json",
+      "max": 3
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "am:financial-processing",
+     "predicate_id": "composedOf",
+     "object": "am:accounting"
+    },
+    {
+     "subject": "am:financial-processing",
+     "predicate_id": "composedOf",
+     "object": "am:billing"
+    },
+    {
+     "subject": "am:financial-processing",
+     "predicate_id": "composedOf",
+     "object": "am:payment"
+    }
+   ],
+   "lib_expected": {
+    "status": "PASS",
+    "value": "within_bounds",
+    "count": 3
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-09",
+   "check_case": "CC-09",
+   "question": "Besteht Financial Processing aus zwei bis drei Teilfunktionen (Service-Sicht)?",
+   "input_text": "rel(\"composedOf\",Z:α:Tool[\"am:financial-processing\"],Z:α:Tool[\"am:billing\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-09",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:am",
+    "referents": [
+     {
+      "ref": "am:financial-processing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:accounting",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:billing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:payment",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:transaction-processing",
+      "concept_id": "Z:boundary:capability",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "realizes",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:boundary:capability"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Realization für das Paar Application Function → Application Service (Herstellerbeispiel S-AM-2). Normative Endpunkt-Zulässigkeit ausgelassen (R-AM-6)."
+      ]
+     },
+     {
+      "predicate_id": "composedOf",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Composition (Ganzes → Teil). Die lokale Zählregel min 2/max 3 ist hier nicht ausdrückbar."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 ARC-01..03: Application Function→Z:module-body:tool, Application Service→Z:boundary:capability (Arbeitsannahme A).",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-09",
+      "kind": "count",
+      "referent": "am:financial-processing",
+      "predicate_id": "composedOf",
+      "direction": "outgoing",
+      "min": 2,
+      "witness_ref": "synthetic:rule#local_count_rule (A), archimate-billing.json",
+      "max": 3
+     }
+    ]
+   },
+   "statements": [],
+   "lib_expected": {
+    "status": "UNRESOLVED",
+    "value": "coverage_undeclared"
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "K-10",
+   "check_case": "CC-10",
+   "question": "Besteht Financial Processing aus zwei bis drei Teilfunktionen, wenn nur eine erklärt vorliegt?",
+   "input_text": "rel(\"composedOf\",Z:α:Tool[\"am:financial-processing\"],Z:α:Tool[\"am:accounting\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-10",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile002:am",
+    "referents": [
+     {
+      "ref": "am:financial-processing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:accounting",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:billing",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:payment",
+      "concept_id": "Z:module-body:tool",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     },
+     {
+      "ref": "am:transaction-processing",
+      "concept_id": "Z:boundary:capability",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile002:am"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "realizes",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:boundary:capability"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Realization für das Paar Application Function → Application Service (Herstellerbeispiel S-AM-2). Normative Endpunkt-Zulässigkeit ausgelassen (R-AM-6)."
+      ]
+     },
+     {
+      "predicate_id": "composedOf",
+      "revision": "mile002:am:pred/1",
+      "scope": "mile002:am",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:tool"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Versuchsabbildung der ArchiMate-Composition (Ganzes → Teil). Die lokale Zählregel min 2/max 3 ist hier nicht ausdrückbar."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 ARC-01..03: Application Function→Z:module-body:tool, Application Service→Z:boundary:capability (Arbeitsannahme A).",
+     "Keine Wahrheit, Autorität oder Zulassung behauptet."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "referent_relation_direction",
+      "referent": "am:financial-processing",
+      "predicate_id": "composedOf",
+      "direction": "outgoing",
+      "witness_ref": "synthetic:coverage#Variante: vollständig erhoben"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-10",
+      "kind": "count",
+      "referent": "am:financial-processing",
+      "predicate_id": "composedOf",
+      "direction": "outgoing",
+      "min": 2,
+      "witness_ref": "synthetic:rule#local_count_rule (A), archimate-billing.json",
+      "max": 3
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "am:financial-processing",
+     "predicate_id": "composedOf",
+     "object": "am:accounting"
+    }
+   ],
+   "lib_expected": {
+    "status": "FAIL",
+    "value": "out_of_bounds",
+    "count": 1
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-11",
+   "check_case": "CC-11",
+   "question": "Wurde Token i1/tok-route genau einem Pfad zugeleitet?",
+   "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-11",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:i1",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-route",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:approve-manual",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:approve-auto",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:i1/tok-route",
+      "predicate_id": "routedTo",
+      "direction": "outgoing",
+      "witness_ref": "synthetic:coverage#Spur i1 am XOR vollständig aufgezeichnet"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-11",
+      "kind": "count",
+      "referent": "bpmn:i1/tok-route",
+      "predicate_id": "routedTo",
+      "direction": "outgoing",
+      "min": 1,
+      "witness_ref": "synthetic:rule#BPMN §10.6.2/§13.4.2 (R-BPMN-1)",
+      "max": 1
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "bpmn:i1/tok-route",
+     "predicate_id": "routedTo",
+     "object": "bpmn:approve-manual"
+    }
+   ],
+   "lib_expected": {
+    "status": "PASS",
+    "value": "within_bounds",
+    "count": 1
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-12",
+   "check_case": "CC-12",
+   "question": "Wurde Token i1/tok-route genau einem Pfad zugeleitet (zwei Aufzeichnungen)?",
+   "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-12",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:i1",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-route",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:approve-manual",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:approve-auto",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:i1/tok-route",
+      "predicate_id": "routedTo",
+      "direction": "outgoing",
+      "witness_ref": "synthetic:coverage#wie CC-11"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-12",
+      "kind": "count",
+      "referent": "bpmn:i1/tok-route",
+      "predicate_id": "routedTo",
+      "direction": "outgoing",
+      "min": 1,
+      "witness_ref": "synthetic:rule#BPMN §10.6.2/§13.4.2 (R-BPMN-1)",
+      "max": 1
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "bpmn:i1/tok-route",
+     "predicate_id": "routedTo",
+     "object": "bpmn:approve-manual"
+    },
+    {
+     "subject": "bpmn:i1/tok-route",
+     "predicate_id": "routedTo",
+     "object": "bpmn:approve-auto"
+    }
+   ],
+   "lib_expected": {
+    "status": "FAIL",
+    "value": "out_of_bounds",
+    "count": 2
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-13",
+   "check_case": "CC-13",
+   "question": "Wurde Token i1/tok-route genau einem Pfad zugeleitet (Spur nicht erklärt)?",
+   "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-13",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:i1",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-route",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:approve-manual",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:approve-auto",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+    ],
+    "coverage_declarations": [],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-13",
+      "kind": "count",
+      "referent": "bpmn:i1/tok-route",
+      "predicate_id": "routedTo",
+      "direction": "outgoing",
+      "min": 1,
+      "witness_ref": "synthetic:rule#BPMN §10.6.2/§13.4.2 (R-BPMN-1)",
+      "max": 1
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "bpmn:i1/tok-route",
+     "predicate_id": "routedTo",
+     "object": "bpmn:approve-manual"
+    }
+   ],
+   "lib_expected": {
+    "status": "UNRESOLVED",
+    "value": "coverage_undeclared"
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "K-14",
+   "check_case": "CC-14",
+   "question": "Durfte der Join für i1 aktivieren?",
+   "input_text": "rel(\"onFlow\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:WorkItem[\"bpmn:f-stock-done\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-14",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:trace",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i2/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i2"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i2",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-stock-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-credit-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:join",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "onFlow",
+      "revision": "p112:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token liegt auf einem Sequence Flow (Spuraufzeichnung)."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Gemeinsamer Scope für die ganze Spur; die Instanzzugehörigkeit steht nur im Referentnamen."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1-f-stock-done",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:f-stock-done",
+      "predicate_id": "onFlow",
+      "direction": "incoming",
+      "instance_ref": "bpmn:i1",
+      "witness_ref": "synthetic:coverage#Spur i1 an bpmn:join vollständig aufgezeichnet"
+     },
+     {
+      "declaration_id": "cv-1-f-credit-done",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:f-credit-done",
+      "predicate_id": "onFlow",
+      "direction": "incoming",
+      "instance_ref": "bpmn:i1",
+      "witness_ref": "synthetic:coverage#Spur i1 an bpmn:join vollständig aufgezeichnet"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-14",
+      "kind": "join_activation",
+      "instance_ref": "bpmn:i1",
+      "gateway": "bpmn:join",
+      "predicate_id": "onFlow",
+      "incoming_flows": [
+       {
+        "flow": "bpmn:f-stock-done",
+        "min": 1
+       },
+       {
+        "flow": "bpmn:f-credit-done",
+        "min": 1
+       }
+      ],
+      "witness_ref": "synthetic:rule#BPMN §13.4.1 (R-BPMN-2)"
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "bpmn:i1/tok-stock",
+     "predicate_id": "onFlow",
+     "object": "bpmn:f-stock-done"
+    },
+    {
+     "subject": "bpmn:i1/tok-credit",
+     "predicate_id": "onFlow",
+     "object": "bpmn:f-credit-done"
+    }
+   ],
+   "lib_expected": {
+    "status": "PASS",
+    "value": "join_enabled"
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-15",
+   "check_case": "CC-15",
+   "question": "Durfte der Join für i2 aktivieren?",
+   "input_text": "rel(\"onFlow\",Y:α:Evidence[\"bpmn:i2/tok-credit\"],Y:α:WorkItem[\"bpmn:f-credit-done\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-15",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:trace",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i2/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i2"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i2",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-stock-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-credit-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:join",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "onFlow",
+      "revision": "p112:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token liegt auf einem Sequence Flow (Spuraufzeichnung)."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Gemeinsamer Scope für die ganze Spur; die Instanzzugehörigkeit steht nur im Referentnamen."
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-1-f-stock-done",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:f-stock-done",
+      "predicate_id": "onFlow",
+      "direction": "incoming",
+      "instance_ref": "bpmn:i2",
+      "witness_ref": "synthetic:coverage#Spur i2 an bpmn:join vollständig aufgezeichnet"
+     },
+     {
+      "declaration_id": "cv-1-f-credit-done",
+      "scope": "referent_relation_direction",
+      "referent": "bpmn:f-credit-done",
+      "predicate_id": "onFlow",
+      "direction": "incoming",
+      "instance_ref": "bpmn:i2",
+      "witness_ref": "synthetic:coverage#Spur i2 an bpmn:join vollständig aufgezeichnet"
+     }
+    ],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-15",
+      "kind": "join_activation",
+      "instance_ref": "bpmn:i2",
+      "gateway": "bpmn:join",
+      "predicate_id": "onFlow",
+      "incoming_flows": [
+       {
+        "flow": "bpmn:f-stock-done",
+        "min": 1
+       },
+       {
+        "flow": "bpmn:f-credit-done",
+        "min": 1
+       }
+      ],
+      "witness_ref": "synthetic:rule#BPMN §13.4.1 (R-BPMN-2)"
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "bpmn:i2/tok-credit",
+     "predicate_id": "onFlow",
+     "object": "bpmn:f-credit-done"
+    }
+   ],
+   "lib_expected": {
+    "status": "FAIL",
+    "value": "join_not_enabled"
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-16",
+   "check_case": "CC-16",
+   "question": "Durfte der Join für i2 aktivieren (Spur nicht erklärt)?",
+   "input_text": "rel(\"onFlow\",Y:α:Evidence[\"bpmn:i2/tok-credit\"],Y:α:WorkItem[\"bpmn:f-credit-done\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-cc-16",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:trace",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i2/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i2"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i2",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-stock-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:f-credit-done",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:join",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "onFlow",
+      "revision": "p112:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token liegt auf einem Sequence Flow (Spuraufzeichnung)."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Gemeinsamer Scope für die ganze Spur; die Instanzzugehörigkeit steht nur im Referentnamen."
+    ],
+    "coverage_declarations": [],
+    "population_rules": [
+     {
+      "rule_id": "pr-cc-16",
+      "kind": "join_activation",
+      "instance_ref": "bpmn:i2",
+      "gateway": "bpmn:join",
+      "predicate_id": "onFlow",
+      "incoming_flows": [
+       {
+        "flow": "bpmn:f-stock-done",
+        "min": 1
+       },
+       {
+        "flow": "bpmn:f-credit-done",
+        "min": 1
+       }
+      ],
+      "witness_ref": "synthetic:rule#BPMN §13.4.1 (R-BPMN-2)"
+     }
+    ]
+   },
+   "statements": [
+    {
+     "subject": "bpmn:i2/tok-credit",
+     "predicate_id": "onFlow",
+     "object": "bpmn:f-credit-done"
+    }
+   ],
+   "lib_expected": {
+    "status": "UNRESOLVED",
+    "value": "coverage_undeclared"
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_COVERAGE_UNDECLARED"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "K-17",
+   "check_case": "CI-01",
+   "question": "Paart J1 Token aus verschiedenen Instanzen (gemeinsamer Scope)?",
+   "input_text": "rel(\"joins\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:Evidence[\"bpmn:i2/tok-credit\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-ci-01",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:trace",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i2/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i2"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i1",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i2",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ],
+      "requires_same_instance": true
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Gemeinsamer Scope für die ganze Spur; die Instanzzugehörigkeit steht nur im Referentnamen."
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_INSTANCE_MISMATCH"
+   ],
+   "forbidden_codes": [
+    "P1_INSTANCE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-18",
+   "check_case": "CI-02",
+   "question": "Instanz als Scope (Regressionsschutz)",
+   "input_text": "rel(\"joins\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:Evidence[\"bpmn:i2/tok-credit\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-ci-02",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:i1",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i2/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i2"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Instanz als Scope; der Token aus i2 ist mit seinem eigenen Instanzscope deklariert."
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_REFERENT_MISMATCH",
+    "P1_SCOPE_CONFLICT"
+   ],
+   "forbidden_codes": [
+    "P1_INSTANCE_MISMATCH",
+    "P1_INSTANCE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-19",
+   "check_case": "CI-03",
+   "question": "Paart der Join Token derselben Instanz?",
+   "input_text": "rel(\"joins\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:Evidence[\"bpmn:i1/tok-credit\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-ci-03",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:trace",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i2/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i2",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ],
+      "requires_same_instance": true
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Gemeinsamer Scope für die ganze Spur; die Instanzzugehörigkeit steht nur im Referentnamen."
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_INSTANCE_MISMATCH",
+    "P1_INSTANCE_UNDECLARED"
+   ]
+  },
+  {
+   "id": "K-20",
+   "check_case": "CI-04",
+   "question": "Paart J1 Token verschiedener Instanzen, wenn eine Instanz nicht gebunden ist?",
+   "input_text": "rel(\"joins\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:Evidence[\"bpmn:i2/tok-credit\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-ci-04",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:trace",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i2/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i1",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     },
+     {
+      "ref": "bpmn:i2",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:trace"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ]
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:trace",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ],
+      "requires_same_instance": true
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Gemeinsamer Scope für die ganze Spur; die Instanzzugehörigkeit steht nur im Referentnamen."
+    ]
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_INSTANCE_UNDECLARED"
+   ],
+   "forbidden_codes": [
+    "P1_INSTANCE_MISMATCH"
+   ]
+  },
+  {
+   "id": "K-21",
+   "check_case": "CI-05",
+   "question": "Gilt die Instanzregel auch für Prädikate ohne Eigenschaft? (Negativkontrolle)",
+   "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "p112-ci-05",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "bpmn:i1",
+    "referents": [
+     {
+      "ref": "bpmn:i1/tok-route",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1",
+      "instance_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1/tok-stock",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1/tok-credit",
+      "concept_id": "Y:resource-object:evidence",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:approve-manual",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:approve-auto",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     },
+     {
+      "ref": "bpmn:i1",
+      "concept_id": "Y:identified-object:bounded-execution",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "bpmn:i1"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "routedTo",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:identified-object:work-item"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+      ],
+      "requires_same_instance": false
+     },
+     {
+      "predicate_id": "joins",
+      "revision": "mile002:bpmn:pred/1",
+      "scope": "bpmn:i1",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:evidence"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [
+       "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+      ]
+     }
+    ],
+    "method_contracts": [],
+    "profile_limitations": [
+     "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+     "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+     "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_INSTANCE_MISMATCH",
+    "P1_INSTANCE_UNDECLARED"
+   ]
+  }
+ ]
+}
