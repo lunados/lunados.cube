@@ -34,4 +34,4 @@ A geht B voraus; C verwendet A und B.
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/check-visual-distinctions/proposal.md) · [Aufgabenstatus](../../openspec/changes/check-visual-distinctions/tasks.md) · [Abdeckung](../../openspec/changes/check-visual-distinctions/TRACEABILITY.md). MILE-003-A abgeschlossen: [Inventur](../09-Research/visual-check/INVENTORY.md), [Render-Nachweise](../09-Research/visual-check/RENDER-RESULTS.md). TASK-020: [Printer-Paare](../09-Research/visual-check/PAIRS.md).
+[OpenSpec-Change](../../openspec/changes/check-visual-distinctions/proposal.md) · [Aufgabenstatus](../../openspec/changes/check-visual-distinctions/tasks.md) · [Abdeckung](../../openspec/changes/check-visual-distinctions/TRACEABILITY.md). MILE-003-A abgeschlossen: [Inventur](../09-Research/visual-check/INVENTORY.md), [Render-Nachweise](../09-Research/visual-check/RENDER-RESULTS.md). MILE-003-B abgeschlossen: [Printer-Paare](../09-Research/visual-check/PAIRS.md), [Mockups](../09-Research/visual-check/MOCKUPS.md).

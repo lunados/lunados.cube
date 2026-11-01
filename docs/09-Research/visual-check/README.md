@@ -1,6 +1,6 @@
 # MILE-003 — Prüfprotokoll Darstellung
 
-Status: in_progress. [Inventur V-01–V-12](INVENTORY.md) [Render-Nachweise](RENDER-RESULTS.md) und [Printer-Paare](PAIRS.md) liegen vor.
+Status: in_progress. [Inventur V-01–V-12](INVENTORY.md) [Render-Nachweise](RENDER-RESULTS.md), [Printer-Paare](PAIRS.md) und [Mockups](MOCKUPS.md) liegen vor.
 
 ## Vorrangige Unterscheidungen
 
