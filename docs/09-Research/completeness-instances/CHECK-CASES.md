@@ -34,4 +34,4 @@ Varianten (vom Modell abweichende Erklärungen oder Aussagen): CC-06, CC-07 (Zei
 
 **Abdeckung:** Abwesenheit 7 Fälle, Zählung 6, Join-Aktivierung 3, Instanzbindung 5. Je Regelart mindestens ein PASS, ein FAIL und ein UNRESOLVED; bei der Instanzbindung ein Regressionsschutz (CI-02) und eine Negativkontrolle (CI-05).
 
-**Heute:** 16 Fälle sind nicht ausführbar (NE) — dieselbe Lücke wie in MILE-002. Die fünf Instanzfälle stützen sich auf vier MILE-002-Läufe, die der [Baseline-Lauf](../../10-Evidence/MILE-005/README.md) wiederholt.
+**Heute:** 16 Fälle sind nicht ausführbar (NE) — dieselbe Lücke wie in MILE-002. Die fünf Instanzfälle stützen sich auf vier MILE-002-Läufe, die der [Baseline-Lauf](../../10-Evidence/MILE-005/task030-baseline-report.json) wiederholt; [Abgleich](../../10-Evidence/MILE-005/task030-baseline-check.json): alle 21 Erwartungen für heute bestätigt.

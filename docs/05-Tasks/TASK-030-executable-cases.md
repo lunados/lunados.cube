@@ -21,4 +21,10 @@ Die MILE-002-Fälle ARC-02, ARC-03, DSM-03, BPMN-01, BPMN-02 (bisher NE) und BPM
 
 [MILE-004](../02-Milestones/MILE-004-learning-balance.md) abgeschlossen
 
-Umfang gemäß [MILE-005](../02-Milestones/MILE-005-completeness-instances.md). P0, P1.1–P1.9 und P2 bleiben byte-gleich; neue Fähigkeiten als eigenes Profil bzw. eigener Printer-Stand. Noch kein Ausführungsnachweis vorhanden.
+Umfang gemäß [MILE-005](../02-Milestones/MILE-005-completeness-instances.md). P0, P1.1–P1.9 und P2 bleiben byte-gleich; neue Fähigkeiten als eigenes Profil bzw. eigener Printer-Stand. Ausführungsnachweis siehe Ergebnis.
+
+## Ergebnis
+
+Erledigt am 2026-11-01. 21 formatneutrale [Prüffälle](../09-Research/completeness-instances/CHECK-CASES.md) (16 Vollständigkeit auf LIB-Schicht: Abwesenheit, Zählung, Join-Aktivierung; 5 Instanzbindung auf P1-Schicht), je Regelart PASS, FAIL und UNRESOLVED, Erwartung heute und mit Profil; vor Spezifikation und Code committet (`52cc773`). Baseline-Lauf der neun MILE-002-Fälle: alle 21 Erwartungen für heute bestätigt ([Abgleich](../10-Evidence/MILE-005/task030-baseline-check.json)); 16 Fälle bleiben heute nicht ausführbar, BPMN-03 im gemeinsamen Scope liefert weiterhin PASS.
+
+Abweichung von der Planformulierung: Die Fälle liegen nicht als research-case/2 vor, sondern formatneutral, weil das Eingabeformat des neuen Profils erst TASK-031 festlegt; TASK-031 übersetzt sie in Vektoren.
