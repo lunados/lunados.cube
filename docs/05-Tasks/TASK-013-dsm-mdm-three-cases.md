@@ -27,3 +27,8 @@ Kleine Matrix und ihre Beziehungsliste gegeneinander prüfen; vorhandene P1-Prü
 [TASK-009](TASK-009-source-baselines.md), [TASK-010](TASK-010-authored-case-provenance.md)
 
 Umfang gemäß [MILE-002](../02-Milestones/MILE-002-grammar-sampling.md). Keine neuen kanonischen Kategorien, Envelopes, produktiven Adapter oder Analysebibliotheken implementieren. Begrenzte Versuchsprofile bleiben Kandidaten. Noch kein Ausführungsnachweis vorhanden.
+
+## Ergebnis
+
+Abgeschlossen am 2026-11-01. Drei Fallberichte: [DSM-01](../09-Research/grammar-sampling/reports/DSM-01.md) (teilweise: Richtung nach Import eindeutig, Konvention und Irreflexivität ungebunden), [DSM-02](../09-Research/grammar-sampling/reports/DSM-02.md) (teilweise: Domäne implizit über Konzepte, Abflachung nur durch Profildisziplin verhindert), [DSM-03](../09-Research/grammar-sampling/reports/DSM-03.md) (konkrete Lücke: leer-bekannt und unbekannt fallen zusammen). Neun v2-Fälle, davon zwei `not_executable`; Erwartungen vor dem Lauf committet (`fa50ee9`); alle ausführbaren Fälle in 2/2 frischen Verbindungen erwartungsgemäß, Regression über 26 Fälle stabil; [Bericht](../10-Evidence/MILE-002/task013-dsm-report.json). Analysefunktionen (`project.dsm`, `project.mdm`, `analyze.scc`, `analyze.partition`, `analyze.cross-domain-coupling`) als Kandidaten mit Ein-/Ausgabe und Nicht-Implikation beschrieben, nicht implementiert. Keine Morphologieänderung begründet.
+
