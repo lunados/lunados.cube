@@ -30,4 +30,6 @@ P3/adapters/mcp-local/.venv/bin/python -B scripts/research/comparison_runner.py 
 P3/adapters/mcp-local/.venv/bin/python -B scripts/research/comparison_runner.py --output /private/tmp/mile002-a-v1-replay-1
 ```
 
+Ein Agent in der Linux-VM nutzt statt der Mac-venv `.agent-env/venv/bin/python` (siehe [Agent-Testumgebung](../../../../scripts/dev/README.md)).
+
 Der zweite Befehl führt den Piloten über eine neue lokale stdio-Verbindung aus; der dritte wiederholt die v1-Fälle unverändert. Ausgabeordner dürfen noch nicht existieren. `report.json` beider Läufe gehört nach `docs/10-Evidence/MILE-002/`.
