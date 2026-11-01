@@ -27,3 +27,8 @@ Regel-/Typbindung manuell gegen die gewählte Referenz kontrollieren, danach mö
 [TASK-009](TASK-009-source-baselines.md), [TASK-010](TASK-010-authored-case-provenance.md)
 
 Umfang gemäß [MILE-002](../02-Milestones/MILE-002-grammar-sampling.md). Keine neuen kanonischen Kategorien, Envelopes, produktiven Adapter oder Analysebibliotheken implementieren. Begrenzte Versuchsprofile bleiben Kandidaten. Noch kein Ausführungsnachweis vorhanden.
+
+## Ergebnis
+
+Abgeschlossen am 2026-11-01. Drei Fallberichte: [ARC-01](../09-Research/grammar-sampling/reports/ARC-01.md) (teilweise), [ARC-02](../09-Research/grammar-sampling/reports/ARC-02.md) (konkrete Lücke: Populationsprüfung), [ARC-03](../09-Research/grammar-sampling/reports/ARC-03.md) (unbekannt ≠ verletzt belegt; Abwesenheit nicht ausdrückbar). Sieben v2-Fälle, davon zwei begründet `not_executable`; Erwartungen vor dem Lauf committet (`3229dd3`); alle ausführbaren Fälle in 2/2 frischen Verbindungen erwartungsgemäß, C4-Regression stabil; [Bericht](../10-Evidence/MILE-002/task012-archimate-report.json). ArchiMate-Basis: Reference Cards N221 + Herstellerbeispiele; normative Endpunkt-Zulässigkeit ausgelassen. Die Zählregel min 2/max 3 ist ausdrücklich lokal (A). Die P1.6-Slot-Arity wird nicht als Populationsprüfung ausgegeben. Keine Morphologieänderung begründet.
+
