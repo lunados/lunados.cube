@@ -1,0 +1,1067 @@
+{
+  "format": "mile005.check-cases/1",
+  "task": "TASK-030",
+  "fixed_at": "2026-11-01",
+  "fixed_before_spec": true,
+  "decisions": "MILE-005 D-1–D-6 (0c810bb)",
+  "layers": {
+    "P1": "Einzelaussage im neuen Profil (binding-context/8): Instanzbindung D-4, Wohlgeformtheit der Erklärungen",
+    "LIB": "Auswertung über eine Aussagenmenge (D-6): Abwesenheit, Zählung, Join-Aktivierung; Statusabbildung PASS/FAIL/UNRESOLVED"
+  },
+  "status_rule": {
+    "inside_declared_scope": "Regel erfüllt → PASS; verletzt → FAIL",
+    "outside_declared_scope": "UNRESOLVED mit P1_COVERAGE_UNDECLARED (D-3), nie FAIL, nie 'geprüft leer'"
+  },
+  "naming": "Diagnosecodes und value-Bezeichner sind Arbeitstitel; TASK-031 darf sie umbenennen, Status und Schicht nicht.",
+  "baseline_cases": [
+    "BPMN-01-routed",
+    "BPMN-02-join-same-instance",
+    "BPMN-03-join-cross-instance-scoped",
+    "BPMN-03-join-cross-instance-shared"
+  ],
+  "cases": [
+    {
+      "case_id": "CC-01",
+      "story": "US-018",
+      "matrix_case": "ARC-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+        "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+      },
+      "question": "Realisiert in der Service-Sicht nichts Transaction Processing?",
+      "statements": [],
+      "declarations": [],
+      "claim": {
+        "rule": "absence",
+        "subject": null,
+        "predicate": "realizes",
+        "object": "am:transaction-processing"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "ARC-03-absence-claim"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared",
+        "diagnostic_code": "P1_COVERAGE_UNDECLARED"
+      },
+      "rationale": "Service-Sicht ist ausdrücklich partiell; ohne Erklärung für eingehende realizes von TP ist Abwesenheit unbekannt, nicht nachgewiesen."
+    },
+    {
+      "case_id": "CC-02",
+      "story": "US-018",
+      "matrix_case": "ARC-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+        "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+      },
+      "question": "Realisiert Billing Transaction Processing (Vollsicht)?",
+      "statements": [
+        {
+          "id": "am:r1",
+          "predicate": "realizes",
+          "subject": "am:accounting",
+          "object": "am:transaction-processing"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "am:transaction-processing",
+          "predicate": "realizes",
+          "direction": "incoming",
+          "source": "am:view/full declared complete"
+        }
+      ],
+      "claim": {
+        "rule": "absence",
+        "subject": "am:billing",
+        "predicate": "realizes",
+        "object": "am:transaction-processing"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "ARC-03-absence-claim"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "PASS",
+        "value": "absent_checked",
+        "count": 0
+      },
+      "rationale": "Eingehende realizes von TP sind erklärt; nur am:r1 (Accounting) liegt vor; Abwesenheit für Billing ist nachgewiesen."
+    },
+    {
+      "case_id": "CC-03",
+      "story": "US-018",
+      "matrix_case": "ARC-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+        "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+      },
+      "question": "Realisiert Accounting Transaction Processing nicht (Vollsicht)?",
+      "statements": [
+        {
+          "id": "am:r1",
+          "predicate": "realizes",
+          "subject": "am:accounting",
+          "object": "am:transaction-processing"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "am:transaction-processing",
+          "predicate": "realizes",
+          "direction": "incoming",
+          "source": "am:view/full declared complete"
+        }
+      ],
+      "claim": {
+        "rule": "absence",
+        "subject": "am:accounting",
+        "predicate": "realizes",
+        "object": "am:transaction-processing"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "ARC-03-absence-claim"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "FAIL",
+        "value": "absence_contradicted",
+        "count": 1
+      },
+      "rationale": "Gegenfall: Die Abwesenheitsbehauptung widerspricht am:r1 im erklärten Umfang."
+    },
+    {
+      "case_id": "CC-04",
+      "story": "US-018",
+      "matrix_case": "DSM-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/dsm-modules.json",
+        "sha256": "47721b54b8fe5c832af94e96e6dde25f80cb96f7a9870496e8fdc50527ad3f98"
+      },
+      "question": "Hat printer keine Abhängigkeit zu parser?",
+      "statements": [
+        {
+          "id": "d-rp",
+          "predicate": "dependsOn",
+          "subject": "m:resolver",
+          "object": "m:parser"
+        },
+        {
+          "id": "d-vr",
+          "predicate": "dependsOn",
+          "subject": "m:validator",
+          "object": "m:resolver"
+        },
+        {
+          "id": "d-pv",
+          "predicate": "dependsOn",
+          "subject": "m:printer",
+          "object": "m:validator"
+        },
+        {
+          "id": "d-fb",
+          "predicate": "dependsOn",
+          "subject": "m:parser",
+          "object": "m:validator"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "pair",
+          "subject": "m:printer",
+          "predicate": "dependsOn",
+          "object": "m:parser",
+          "source": "dsm_modules.cells: empty_known 'analysed; no dependency'"
+        }
+      ],
+      "claim": {
+        "rule": "absence",
+        "subject": "m:printer",
+        "predicate": "dependsOn",
+        "object": "m:parser"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "DSM-03-empty-known"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "PASS",
+        "value": "absent_checked",
+        "count": 0
+      },
+      "rationale": "Paar-Erklärung (D-2) deckt genau diese Zelle; keine Aussage printer → parser."
+    },
+    {
+      "case_id": "CC-05",
+      "story": "US-018",
+      "matrix_case": "DSM-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/dsm-modules.json",
+        "sha256": "47721b54b8fe5c832af94e96e6dde25f80cb96f7a9870496e8fdc50527ad3f98"
+      },
+      "question": "Hat validator keine Abhängigkeit zu printer?",
+      "statements": [
+        {
+          "id": "d-rp",
+          "predicate": "dependsOn",
+          "subject": "m:resolver",
+          "object": "m:parser"
+        },
+        {
+          "id": "d-vr",
+          "predicate": "dependsOn",
+          "subject": "m:validator",
+          "object": "m:resolver"
+        },
+        {
+          "id": "d-pv",
+          "predicate": "dependsOn",
+          "subject": "m:printer",
+          "object": "m:validator"
+        },
+        {
+          "id": "d-fb",
+          "predicate": "dependsOn",
+          "subject": "m:parser",
+          "object": "m:validator"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "pair",
+          "subject": "m:printer",
+          "predicate": "dependsOn",
+          "object": "m:parser",
+          "source": "dsm_modules.cells: empty_known"
+        }
+      ],
+      "claim": {
+        "rule": "absence",
+        "subject": "m:validator",
+        "predicate": "dependsOn",
+        "object": "m:printer"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "DSM-03-empty-known"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared",
+        "diagnostic_code": "P1_COVERAGE_UNDECLARED"
+      },
+      "rationale": "Zelle (validator, printer) ist im Modell 'unknown'; keine Erklärung deckt sie."
+    },
+    {
+      "case_id": "CC-06",
+      "story": "US-018",
+      "matrix_case": "DSM-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/dsm-modules.json",
+        "sha256": "47721b54b8fe5c832af94e96e6dde25f80cb96f7a9870496e8fdc50527ad3f98"
+      },
+      "question": "Hat printer keine Abhängigkeit zu resolver, wenn die Zeile printer erklärt ist?",
+      "statements": [
+        {
+          "id": "d-rp",
+          "predicate": "dependsOn",
+          "subject": "m:resolver",
+          "object": "m:parser"
+        },
+        {
+          "id": "d-vr",
+          "predicate": "dependsOn",
+          "subject": "m:validator",
+          "object": "m:resolver"
+        },
+        {
+          "id": "d-pv",
+          "predicate": "dependsOn",
+          "subject": "m:printer",
+          "object": "m:validator"
+        },
+        {
+          "id": "d-fb",
+          "predicate": "dependsOn",
+          "subject": "m:parser",
+          "object": "m:validator"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "m:printer",
+          "predicate": "dependsOn",
+          "direction": "outgoing",
+          "source": "Variante: ausgehende dependsOn von printer vollständig erhoben"
+        }
+      ],
+      "claim": {
+        "rule": "absence",
+        "subject": "m:printer",
+        "predicate": "dependsOn",
+        "object": "m:resolver"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "DSM-03-empty-known"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "PASS",
+        "value": "absent_checked",
+        "count": 0
+      },
+      "rationale": "Grundeinheit Referent × Relationstyp × Richtung: Zeilenerklärung deckt jede Zelle der Zeile; widerspruchsfrei mit d-pv.",
+      "variant_of_model": "Erklärung für die ganze Zeile printer ist eine Variante; im Modell ist (printer, resolver) unbekannt"
+    },
+    {
+      "case_id": "CC-07",
+      "story": "US-018",
+      "matrix_case": "DSM-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/dsm-modules.json",
+        "sha256": "47721b54b8fe5c832af94e96e6dde25f80cb96f7a9870496e8fdc50527ad3f98"
+      },
+      "question": "Hat printer keine Abhängigkeit zu validator, wenn die Zeile printer erklärt ist?",
+      "statements": [
+        {
+          "id": "d-rp",
+          "predicate": "dependsOn",
+          "subject": "m:resolver",
+          "object": "m:parser"
+        },
+        {
+          "id": "d-vr",
+          "predicate": "dependsOn",
+          "subject": "m:validator",
+          "object": "m:resolver"
+        },
+        {
+          "id": "d-pv",
+          "predicate": "dependsOn",
+          "subject": "m:printer",
+          "object": "m:validator"
+        },
+        {
+          "id": "d-fb",
+          "predicate": "dependsOn",
+          "subject": "m:parser",
+          "object": "m:validator"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "m:printer",
+          "predicate": "dependsOn",
+          "direction": "outgoing",
+          "source": "Variante wie CC-06"
+        }
+      ],
+      "claim": {
+        "rule": "absence",
+        "subject": "m:printer",
+        "predicate": "dependsOn",
+        "object": "m:validator"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "DSM-03-empty-known"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "FAIL",
+        "value": "absence_contradicted",
+        "count": 1
+      },
+      "rationale": "Gegenfall: d-pv widerspricht der Abwesenheit im erklärten Umfang.",
+      "variant_of_model": "wie CC-06"
+    },
+    {
+      "case_id": "CC-08",
+      "story": "US-018",
+      "matrix_case": "ARC-02",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+        "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+      },
+      "question": "Besteht Financial Processing aus zwei bis drei Teilfunktionen (Vollsicht)?",
+      "statements": [
+        {
+          "id": "am:r2",
+          "predicate": "composedOf",
+          "subject": "am:financial-processing",
+          "object": "am:accounting"
+        },
+        {
+          "id": "am:r3",
+          "predicate": "composedOf",
+          "subject": "am:financial-processing",
+          "object": "am:billing"
+        },
+        {
+          "id": "am:r4",
+          "predicate": "composedOf",
+          "subject": "am:financial-processing",
+          "object": "am:payment"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "am:financial-processing",
+          "predicate": "composedOf",
+          "direction": "outgoing",
+          "source": "am:view/full declared complete"
+        }
+      ],
+      "claim": {
+        "rule": "count",
+        "subject": "am:financial-processing",
+        "predicate": "composedOf",
+        "direction": "outgoing",
+        "min": 2,
+        "max": 3,
+        "counted": "distinct targets",
+        "source": "local_count_rule (A), archimate-billing.json"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "ARC-02-count-rule"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "PASS",
+        "value": "within_bounds",
+        "count": 3
+      },
+      "rationale": "Drei Composition-Ziele im erklärten Umfang; 2 ≤ 3 ≤ 3."
+    },
+    {
+      "case_id": "CC-09",
+      "story": "US-018",
+      "matrix_case": "ARC-02",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+        "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+      },
+      "question": "Besteht Financial Processing aus zwei bis drei Teilfunktionen (Service-Sicht)?",
+      "statements": [],
+      "declarations": [],
+      "claim": {
+        "rule": "count",
+        "subject": "am:financial-processing",
+        "predicate": "composedOf",
+        "direction": "outgoing",
+        "min": 2,
+        "max": 3,
+        "counted": "distinct targets",
+        "source": "local_count_rule (A), archimate-billing.json"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "ARC-02-count-rule"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared",
+        "diagnostic_code": "P1_COVERAGE_UNDECLARED"
+      },
+      "rationale": "Partielle Sicht ohne Erklärung: Anzahl unbekannt, nicht null."
+    },
+    {
+      "case_id": "CC-10",
+      "story": "US-018",
+      "matrix_case": "ARC-02",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+        "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+      },
+      "question": "Besteht Financial Processing aus zwei bis drei Teilfunktionen, wenn nur eine erklärt vorliegt?",
+      "statements": [
+        {
+          "id": "am:r2",
+          "predicate": "composedOf",
+          "subject": "am:financial-processing",
+          "object": "am:accounting"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "am:financial-processing",
+          "predicate": "composedOf",
+          "direction": "outgoing",
+          "source": "Variante: vollständig erhoben"
+        }
+      ],
+      "claim": {
+        "rule": "count",
+        "subject": "am:financial-processing",
+        "predicate": "composedOf",
+        "direction": "outgoing",
+        "min": 2,
+        "max": 3,
+        "counted": "distinct targets",
+        "source": "local_count_rule (A), archimate-billing.json"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "ARC-02-count-rule"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "FAIL",
+        "value": "out_of_bounds",
+        "count": 1
+      },
+      "rationale": "Gegenfall: eine Teilfunktion im vollständig erklärten Umfang unterschreitet min 2.",
+      "variant_of_model": "nur am:r2"
+    },
+    {
+      "case_id": "CC-11",
+      "story": "US-018",
+      "matrix_case": "BPMN-01",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Wurde Token i1/tok-route genau einem Pfad zugeleitet?",
+      "statements": [
+        {
+          "id": null,
+          "predicate": "routedTo",
+          "subject": "bpmn:i1/tok-route",
+          "object": "bpmn:approve-manual"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "bpmn:i1/tok-route",
+          "predicate": "routedTo",
+          "direction": "outgoing",
+          "source": "Spur i1 am XOR vollständig aufgezeichnet"
+        }
+      ],
+      "claim": {
+        "rule": "count",
+        "subject": "bpmn:i1/tok-route",
+        "predicate": "routedTo",
+        "direction": "outgoing",
+        "min": 1,
+        "max": 1,
+        "source": "BPMN §10.6.2/§13.4.2 (R-BPMN-1)"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "BPMN-01-exclusivity"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "PASS",
+        "value": "within_bounds",
+        "count": 1
+      },
+      "rationale": "Genau ein routedTo im erklärten Umfang (§13.4.2)."
+    },
+    {
+      "case_id": "CC-12",
+      "story": "US-018",
+      "matrix_case": "BPMN-01",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Wurde Token i1/tok-route genau einem Pfad zugeleitet (zwei Aufzeichnungen)?",
+      "statements": [
+        {
+          "id": null,
+          "predicate": "routedTo",
+          "subject": "bpmn:i1/tok-route",
+          "object": "bpmn:approve-manual"
+        },
+        {
+          "id": null,
+          "predicate": "routedTo",
+          "subject": "bpmn:i1/tok-route",
+          "object": "bpmn:approve-auto"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "bpmn:i1/tok-route",
+          "predicate": "routedTo",
+          "direction": "outgoing",
+          "source": "wie CC-11"
+        }
+      ],
+      "claim": {
+        "rule": "count",
+        "subject": "bpmn:i1/tok-route",
+        "predicate": "routedTo",
+        "direction": "outgoing",
+        "min": 1,
+        "max": 1,
+        "source": "BPMN §10.6.2/§13.4.2 (R-BPMN-1)"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "BPMN-01-exclusivity"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "FAIL",
+        "value": "out_of_bounds",
+        "count": 2
+      },
+      "rationale": "Gegenfall: zwei Pfade für einen Token widersprechen §10.6.2; Einzelaussagen bleiben je PASS (BPMN-01-ctrl-other-branch)."
+    },
+    {
+      "case_id": "CC-13",
+      "story": "US-018",
+      "matrix_case": "BPMN-01",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Wurde Token i1/tok-route genau einem Pfad zugeleitet (Spur nicht erklärt)?",
+      "statements": [
+        {
+          "id": null,
+          "predicate": "routedTo",
+          "subject": "bpmn:i1/tok-route",
+          "object": "bpmn:approve-manual"
+        }
+      ],
+      "declarations": [],
+      "claim": {
+        "rule": "count",
+        "subject": "bpmn:i1/tok-route",
+        "predicate": "routedTo",
+        "direction": "outgoing",
+        "min": 1,
+        "max": 1,
+        "source": "BPMN §10.6.2/§13.4.2 (R-BPMN-1)"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "BPMN-01-exclusivity"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared",
+        "diagnostic_code": "P1_COVERAGE_UNDECLARED"
+      },
+      "rationale": "Ohne Erklärung ist 'nur einer' nicht feststellbar."
+    },
+    {
+      "case_id": "CC-14",
+      "story": "US-018",
+      "matrix_case": "BPMN-02",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Durfte der Join für i1 aktivieren?",
+      "statements": [
+        {
+          "id": "bpmn:i1/tok-stock",
+          "predicate": "onFlow",
+          "subject": "bpmn:i1/tok-stock",
+          "object": "f-stock-done"
+        },
+        {
+          "id": "bpmn:i1/tok-credit",
+          "predicate": "onFlow",
+          "subject": "bpmn:i1/tok-credit",
+          "object": "f-credit-done"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "bpmn:i1",
+          "predicate": "onFlow",
+          "direction": "incoming-to-join",
+          "source": "Spur i1 an bpmn:join vollständig aufgezeichnet"
+        }
+      ],
+      "claim": {
+        "rule": "join_activation",
+        "instance": "bpmn:i1",
+        "gateway": "bpmn:join",
+        "per_incoming_flow": {
+          "f-stock-done": [
+            1,
+            null
+          ],
+          "f-credit-done": [
+            1,
+            null
+          ]
+        },
+        "source": "BPMN §13.4.1 (R-BPMN-2)"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "BPMN-02-sync-condition"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "PASS",
+        "value": "join_enabled"
+      },
+      "rationale": "Je eingehendem Fluss ein Token der Instanz i1 (§13.4.1)."
+    },
+    {
+      "case_id": "CC-15",
+      "story": "US-018",
+      "matrix_case": "BPMN-02",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Durfte der Join für i2 aktivieren?",
+      "statements": [
+        {
+          "id": "bpmn:i2/tok-credit",
+          "predicate": "onFlow",
+          "subject": "bpmn:i2/tok-credit",
+          "object": "f-credit-done"
+        }
+      ],
+      "declarations": [
+        {
+          "scope": "referent_relation_direction",
+          "referent": "bpmn:i2",
+          "predicate": "onFlow",
+          "direction": "incoming-to-join",
+          "source": "Spur i2 an bpmn:join vollständig aufgezeichnet"
+        }
+      ],
+      "claim": {
+        "rule": "join_activation",
+        "instance": "bpmn:i2",
+        "gateway": "bpmn:join",
+        "per_incoming_flow": {
+          "f-stock-done": [
+            1,
+            null
+          ],
+          "f-credit-done": [
+            1,
+            null
+          ]
+        },
+        "source": "BPMN §13.4.1 (R-BPMN-2)"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "BPMN-02-sync-condition"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "FAIL",
+        "value": "join_not_enabled"
+      },
+      "rationale": "Gegenfall: Auf f-stock-done liegt im vollständig erklärten Umfang kein Token von i2."
+    },
+    {
+      "case_id": "CC-16",
+      "story": "US-018",
+      "matrix_case": "BPMN-02",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Durfte der Join für i2 aktivieren (Spur nicht erklärt)?",
+      "statements": [
+        {
+          "id": "bpmn:i2/tok-credit",
+          "predicate": "onFlow",
+          "subject": "bpmn:i2/tok-credit",
+          "object": "f-credit-done"
+        }
+      ],
+      "declarations": [],
+      "claim": {
+        "rule": "join_activation",
+        "instance": "bpmn:i2",
+        "gateway": "bpmn:join",
+        "per_incoming_flow": {
+          "f-stock-done": [
+            1,
+            null
+          ],
+          "f-credit-done": [
+            1,
+            null
+          ]
+        },
+        "source": "BPMN §13.4.1 (R-BPMN-2)"
+      },
+      "expected_today": {
+        "kind": "NE",
+        "reason": "Regel über mehrere Aussagen bzw. Abwesenheit; cube_validate prüft Einzelausdrücke",
+        "mile002_case": "BPMN-02-sync-condition"
+      },
+      "expected_with_profile": {
+        "layer": "LIB",
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared",
+        "diagnostic_code": "P1_COVERAGE_UNDECLARED"
+      },
+      "rationale": "Fehlender Stock-Token kann ausstehen; ohne Erklärung keine Verletzung."
+    },
+    {
+      "case_id": "CI-01",
+      "story": "US-019",
+      "matrix_case": "BPMN-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Paart J1 Token aus verschiedenen Instanzen (gemeinsamer Scope)?",
+      "statements": [
+        {
+          "id": null,
+          "predicate": "joins",
+          "subject": "bpmn:i1/tok-stock",
+          "object": "bpmn:i2/tok-credit"
+        }
+      ],
+      "declarations": [],
+      "claim": {
+        "rule": "single_statement"
+      },
+      "expected_today": {
+        "kind": "P1",
+        "status": "PASS",
+        "diagnostic_codes": [],
+        "mile002_case": "BPMN-03-join-cross-instance-shared",
+        "verified_by": "Baseline-Lauf TASK-030"
+      },
+      "expected_with_profile": {
+        "layer": "P1",
+        "status": "FAIL",
+        "diagnostic_codes": [
+          "P1_INSTANCE_MISMATCH"
+        ]
+      },
+      "rationale": "D-4: instance_ref i1 bzw. i2 und joins verlangt gleiche Instanz; heute PASS, weil die Instanz nur im Namen steckt.",
+      "instance_bindings": {
+        "bpmn:i1/tok-stock": "bpmn:i1",
+        "bpmn:i2/tok-credit": "bpmn:i2"
+      },
+      "predicate_properties": {
+        "joins": {
+          "requires_same_instance": true
+        }
+      }
+    },
+    {
+      "case_id": "CI-02",
+      "story": "US-019",
+      "matrix_case": "BPMN-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Instanz als Scope (Regressionsschutz)",
+      "statements": [
+        {
+          "id": null,
+          "predicate": "joins",
+          "subject": "bpmn:i1/tok-stock",
+          "object": "bpmn:i2/tok-credit"
+        }
+      ],
+      "declarations": [],
+      "claim": {
+        "rule": "single_statement"
+      },
+      "expected_today": {
+        "kind": "P1",
+        "status": "FAIL",
+        "diagnostic_codes": [
+          "P1_REFERENT_MISMATCH",
+          "P1_SCOPE_CONFLICT"
+        ],
+        "mile002_case": "BPMN-03-join-cross-instance-scoped",
+        "verified_by": "Baseline-Lauf TASK-030"
+      },
+      "expected_with_profile": {
+        "layer": "P1",
+        "status": "FAIL",
+        "diagnostic_codes": [
+          "P1_REFERENT_MISMATCH",
+          "P1_SCOPE_CONFLICT"
+        ]
+      },
+      "rationale": "Der bestehende Scope-Fall bleibt unverändert; das Profil fügt nichts hinzu und nimmt nichts weg.",
+      "instance_bindings": {},
+      "predicate_properties": {}
+    },
+    {
+      "case_id": "CI-03",
+      "story": "US-019",
+      "matrix_case": "BPMN-02",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Paart der Join Token derselben Instanz?",
+      "statements": [
+        {
+          "id": null,
+          "predicate": "joins",
+          "subject": "bpmn:i1/tok-stock",
+          "object": "bpmn:i1/tok-credit"
+        }
+      ],
+      "declarations": [],
+      "claim": {
+        "rule": "single_statement"
+      },
+      "expected_today": {
+        "kind": "P1",
+        "status": "PASS",
+        "diagnostic_codes": [],
+        "mile002_case": "BPMN-02-join-same-instance",
+        "verified_by": "Baseline-Lauf TASK-030"
+      },
+      "expected_with_profile": {
+        "layer": "P1",
+        "status": "PASS",
+        "diagnostic_codes": []
+      },
+      "rationale": "Gleiche Instanz i1; Regel erfüllt.",
+      "instance_bindings": {
+        "bpmn:i1/tok-stock": "bpmn:i1",
+        "bpmn:i1/tok-credit": "bpmn:i1"
+      },
+      "predicate_properties": {
+        "joins": {
+          "requires_same_instance": true
+        }
+      }
+    },
+    {
+      "case_id": "CI-04",
+      "story": "US-019",
+      "matrix_case": "BPMN-03",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Paart J1 Token verschiedener Instanzen, wenn eine Instanz nicht gebunden ist?",
+      "statements": [
+        {
+          "id": null,
+          "predicate": "joins",
+          "subject": "bpmn:i1/tok-stock",
+          "object": "bpmn:i2/tok-credit"
+        }
+      ],
+      "declarations": [],
+      "claim": {
+        "rule": "single_statement"
+      },
+      "expected_today": {
+        "kind": "P1",
+        "status": "PASS",
+        "diagnostic_codes": [],
+        "mile002_case": "BPMN-03-join-cross-instance-shared",
+        "verified_by": "Baseline-Lauf TASK-030"
+      },
+      "expected_with_profile": {
+        "layer": "P1",
+        "status": "UNRESOLVED",
+        "diagnostic_codes": [
+          "P1_INSTANCE_UNDECLARED"
+        ]
+      },
+      "rationale": "D-4 optional: Verlangt das Prädikat gleiche Instanz und fehlt eine Bindung, ist das unentscheidbar, nicht PASS.",
+      "instance_bindings": {
+        "bpmn:i1/tok-stock": "bpmn:i1"
+      },
+      "predicate_properties": {
+        "joins": {
+          "requires_same_instance": true
+        }
+      }
+    },
+    {
+      "case_id": "CI-05",
+      "story": "US-019",
+      "matrix_case": "BPMN-01",
+      "model": {
+        "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+        "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+      },
+      "question": "Gilt die Instanzregel auch für Prädikate ohne Eigenschaft? (Negativkontrolle)",
+      "statements": [
+        {
+          "id": null,
+          "predicate": "routedTo",
+          "subject": "bpmn:i1/tok-route",
+          "object": "bpmn:approve-manual"
+        }
+      ],
+      "declarations": [],
+      "claim": {
+        "rule": "single_statement"
+      },
+      "expected_today": {
+        "kind": "P1",
+        "status": "PASS",
+        "diagnostic_codes": [],
+        "mile002_case": "BPMN-01-routed",
+        "verified_by": "Baseline-Lauf TASK-030"
+      },
+      "expected_with_profile": {
+        "layer": "P1",
+        "status": "PASS",
+        "diagnostic_codes": []
+      },
+      "rationale": "routedTo verlangt keine gleiche Instanz; unterschiedliche oder fehlende Bindungen ändern nichts.",
+      "instance_bindings": {
+        "bpmn:i1/tok-route": "bpmn:i1"
+      },
+      "predicate_properties": {
+        "routedTo": {
+          "requires_same_instance": false
+        }
+      }
+    }
+  ]
+}
