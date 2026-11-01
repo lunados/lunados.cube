@@ -1,6 +1,6 @@
 # Milestones
 
-MILE-001 bis MILE-003 sind abgeschlossen; MILE-004 bleibt geplant. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
+MILE-001 bis MILE-003 sind abgeschlossen, MILE-002 und MILE-003 am 2026-11-01 abgenommen; MILE-004 bleibt geplant. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
 
 | ID | Ergebnis / Abschlusskriterium | Abhängigkeit |
 |---|---|---|

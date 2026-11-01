@@ -1,6 +1,6 @@
 # MILE-003 — Darstellung prüfen (Agenten-Vorprüfung)
 
-Status: done · Stand: 2026-11-01 · Voraussetzung: MILE-002 abgeschlossen
+Status: done · abgenommen 2026-11-01 · Stand: 2026-11-01 · Voraussetzung: MILE-002 abgeschlossen
 
 ## Ergebnis
 

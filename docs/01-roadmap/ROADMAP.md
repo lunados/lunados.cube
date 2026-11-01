@@ -7,8 +7,8 @@ Cube an Structurizr/C4, ArchiMate, DSM/MDM, BPMN und DAG untersuchen. Ergebnis s
 | Milestone | Ergebnis | Grober Aufwand | Nutzen | Komplexität |
 |---|---|---:|---|---|
 | [MILE-001 — Analyse vorbereiten](../02-Milestones/MILE-001-analysis-readiness.md) | **Abgeschlossen:** lokale Selbstauskunft, reproduzierbare Fälle und Variantenvergleich; Nachweise verlinkt | 1–2 PT | Sehr hoch | Niedrig–mittel |
-| [MILE-002 — Grammatik abtasten](../02-Milestones/MILE-002-grammar-sampling.md) | **Abgeschlossen:** 15 Fallberichte, Lückenbilanz, Übergaben an MILE-003/004; [Nachweis](../10-Evidence/MILE-002/C-RESULT.md) | 2–3 PT | Sehr hoch | Mittel–hoch |
-| [MILE-003 — Darstellung prüfen](../02-Milestones/MILE-003-visual-check.md) | **Abgeschlossen:** Inventur V-01–V-12, Printer-Paare und Mockups, Agenten-Vorprüfung mit blinder Zweitprüfung (kein Menschentest, D-1), Kandidatenregeln an MILE-004; [Nachweis](../10-Evidence/MILE-003/C-RESULT.md) | 1–2 PT | Hoch | Mittel |
+| [MILE-002 — Grammatik abtasten](../02-Milestones/MILE-002-grammar-sampling.md) | **Abgeschlossen und abgenommen:** 15 Fallberichte, Lückenbilanz, Übergaben an MILE-003/004; [Nachweis](../10-Evidence/MILE-002/C-RESULT.md) | 2–3 PT | Sehr hoch | Mittel–hoch |
+| [MILE-003 — Darstellung prüfen](../02-Milestones/MILE-003-visual-check.md) | **Abgeschlossen und abgenommen:** Inventur V-01–V-12, Printer-Paare und Mockups, Agenten-Vorprüfung mit blinder Zweitprüfung (kein Menschentest, D-1), Kandidatenregeln an MILE-004; [Nachweis](../10-Evidence/MILE-003/C-RESULT.md) | 1–2 PT | Hoch | Mittel |
 | MILE-004 — Lernbilanz | Priorisierte LIB-/Profil-/Visualisierungsvorschläge; begründete offene Kernfragen | 0,5–1 PT | Sehr hoch | Niedrig–mittel |
 
 Die frühere reine Analyseabschätzung betrug 4–7 PT. Die 1–2 PT Vorbereitung ersetzen teilweise deren Bestandsaufnahme und manuelle Prüfarbeit; eine belastbare neue Gesamtsumme wird erst nach Abgrenzung von MILE-001 gebildet. PT sind menschliche Engineering-/Review-Tage, keine Agentenlaufzeit oder Terminverpflichtung. Die Werte sind Planungsannahmen.

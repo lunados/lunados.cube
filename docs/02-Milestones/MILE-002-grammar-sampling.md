@@ -1,6 +1,6 @@
 # MILE-002 — Fünf Grammatiken gezielt abtasten
 
-Status: done · Stand: 2026-11-01 · Voraussetzung: MILE-001 abgeschlossen
+Status: done · abgenommen 2026-11-01 · Stand: 2026-11-01 · Voraussetzung: MILE-001 abgeschlossen
 
 ## Ergebnis
 
