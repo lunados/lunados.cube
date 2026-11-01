@@ -1,0 +1,90 @@
+{
+  "format": "mile003.render-log/1",
+  "git_head": "1b4f4b7c8339a7a9cbc5a61878605e9ed3c6f366",
+  "python": "3.13.16",
+  "implementation": "P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py (functions behind MCP tools cube_plan_source/cube_plan_views/cube_plan_check)",
+  "runs": [
+    {
+      "call_id": "R-1a",
+      "spec_sha256": "25cab212bd7d99d7e157dd29203c806845649083f22d582f96fb6b1aca96a93f",
+      "status": "RENDERED",
+      "check": "PASS",
+      "svgs": {
+        "R-1a-00.svg": {
+          "json_path": "/index/svg",
+          "sha256": "91cb2d893c698f0332b2a703f6df1bdd2afbc171aa1a04b7f7f5de9ac495e37a",
+          "bytes": 3124
+        },
+        "R-1a-01.svg": {
+          "json_path": "/panels/0/svg",
+          "sha256": "38a1f8c37078e9d499f560021b14180a150f67a6b48ef7da4a49036e44414737",
+          "bytes": 9885
+        }
+      }
+    },
+    {
+      "call_id": "R-1b",
+      "spec_sha256": "25cab212bd7d99d7e157dd29203c806845649083f22d582f96fb6b1aca96a93f",
+      "status": "RENDERED",
+      "check": "PASS",
+      "svgs": {
+        "R-1b-00.svg": {
+          "json_path": "/index/svg",
+          "sha256": "768625fad083025ac943cbaa9c10db68f4520b72b223ddddec943f638a518f1b",
+          "bytes": 3124
+        },
+        "R-1b-01.svg": {
+          "json_path": "/panels/0/svg",
+          "sha256": "48745640ce4504aecadb008c4166a30e6299ab43a85b53ac017c69cebfffabb0",
+          "bytes": 10028
+        }
+      }
+    },
+    {
+      "call_id": "R-2a",
+      "spec_sha256": "42daf5317cf1e3375e81c9b8f356edc17f28919a4b4941d84b2a8668a7c984fe",
+      "status": "RENDERED",
+      "check": "PASS",
+      "svgs": {
+        "R-2a-00.svg": {
+          "json_path": "/index/svg",
+          "sha256": "65f3b98ab05aaf42bee0e683591cfa566edb2963475107a04f72d2ebaea819e3",
+          "bytes": 3890
+        },
+        "R-2a-01.svg": {
+          "json_path": "/panels/0/svg",
+          "sha256": "4bbbc0a432e433b8bd9717f8bea43093501eb532e6d5a043bef4e6a46b72dacc",
+          "bytes": 10864
+        },
+        "R-2a-02.svg": {
+          "json_path": "/panels/1/svg",
+          "sha256": "652a7734ddf966fc1ae4a71bc3887a71a2307508af4ce68c3e4934dec7efdb9f",
+          "bytes": 10863
+        }
+      }
+    },
+    {
+      "call_id": "R-2b",
+      "spec_sha256": "42daf5317cf1e3375e81c9b8f356edc17f28919a4b4941d84b2a8668a7c984fe",
+      "status": "RENDERED",
+      "check": "PASS",
+      "svgs": {
+        "R-2b-00.svg": {
+          "json_path": "/index/svg",
+          "sha256": "3951a7be5736deff84b32f91b2b6350e129770d210b6e6163a794286c9ab4075",
+          "bytes": 3890
+        },
+        "R-2b-01.svg": {
+          "json_path": "/panels/0/svg",
+          "sha256": "390e95e1184ed16e49ab2d69c1ab2f85adc199dfc144062fc56b77c2058311f3",
+          "bytes": 12473
+        },
+        "R-2b-02.svg": {
+          "json_path": "/panels/1/svg",
+          "sha256": "ddf02b4d6609d4ed832796224fcead6ed9db5bd33cdc6df4081cc6daa212f936",
+          "bytes": 12472
+        }
+      }
+    }
+  ]
+}

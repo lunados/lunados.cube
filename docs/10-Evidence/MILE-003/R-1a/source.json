@@ -1,0 +1,298 @@
+{
+  "format": "aiaeao.cube.plan-source/1",
+  "printer": "vpaxes",
+  "profile": "P2-VP-AXES/0.9.2",
+  "source": {
+    "format": "aiaeao.cube.vp09-axes-input/1",
+    "profile": "P2-VP-AXES/0.9.2",
+    "source": {
+      "format": "aiaeao.cube.vp07-migration-source/1",
+      "profile": "P2-VP-MIGRATION/0.7.1",
+      "reference_version": "v9.4",
+      "context_id": "mile003-dsm",
+      "plan_id": "mp-dsm",
+      "source_context_sha256": "8bbb7936f879767bde703f7fb295bf6431320cf69c5fe3016d8f98e0b44ab767",
+      "title": "mp-dsm · p0 → p1",
+      "steps": [
+        {
+          "id": "p0",
+          "label": "p0 · current"
+        },
+        {
+          "id": "p1",
+          "label": "p1 · target"
+        }
+      ],
+      "rows": [
+        {
+          "id": "m:resolver",
+          "anchor_id": "resource-objects.resource",
+          "form_id": "form.resource-card",
+          "label": "m:resolver",
+          "semantic_ref": "Y:α:Resource[\"m:resolver\"]"
+        },
+        {
+          "id": "m:validator",
+          "anchor_id": "resource-objects.resource",
+          "form_id": "form.resource-card",
+          "label": "m:validator",
+          "semantic_ref": "Y:α:Resource[\"m:validator\"]"
+        },
+        {
+          "id": "m:printer",
+          "anchor_id": "resource-objects.resource",
+          "form_id": "form.resource-card",
+          "label": "m:printer",
+          "semantic_ref": "Y:α:Resource[\"m:printer\"]"
+        },
+        {
+          "id": "m:parser",
+          "anchor_id": "resource-objects.resource",
+          "form_id": "form.resource-card",
+          "label": "m:parser",
+          "semantic_ref": "Y:α:Resource[\"m:parser\"]"
+        }
+      ],
+      "objects": [
+        {
+          "id": "m:parser",
+          "anchor_id": "resource-objects.resource",
+          "form_id": "form.resource-card",
+          "label": "m:parser",
+          "semantic_ref": "Y:α:Resource[\"m:parser\"]"
+        },
+        {
+          "id": "m:resolver",
+          "anchor_id": "resource-objects.resource",
+          "form_id": "form.resource-card",
+          "label": "m:resolver",
+          "semantic_ref": "Y:α:Resource[\"m:resolver\"]"
+        },
+        {
+          "id": "m:validator",
+          "anchor_id": "resource-objects.resource",
+          "form_id": "form.resource-card",
+          "label": "m:validator",
+          "semantic_ref": "Y:α:Resource[\"m:validator\"]"
+        }
+      ],
+      "cells": [
+        {
+          "id": "d-rp",
+          "row": "m:resolver",
+          "object": "m:parser",
+          "predicate_id": "references",
+          "steps": [
+            "p0",
+            "p1"
+          ],
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/0",
+          "declared_end": "target"
+        },
+        {
+          "id": "d-vr",
+          "row": "m:validator",
+          "object": "m:resolver",
+          "predicate_id": "references",
+          "steps": [
+            "p0",
+            "p1"
+          ],
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/1",
+          "declared_end": "target"
+        },
+        {
+          "id": "d-pv",
+          "row": "m:printer",
+          "object": "m:validator",
+          "predicate_id": "references",
+          "steps": [
+            "p0",
+            "p1"
+          ],
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/2",
+          "declared_end": "target"
+        },
+        {
+          "id": "d-fb",
+          "row": "m:parser",
+          "object": "m:validator",
+          "predicate_id": "references",
+          "steps": [
+            "p0",
+            "p1"
+          ],
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/3",
+          "declared_end": "target"
+        }
+      ],
+      "transitions": [],
+      "facet_bindings": [
+        {
+          "lens": "cube.lens.execution",
+          "target_kind": "cell",
+          "target_id": "d-rp",
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/0",
+          "note": "kind other",
+          "basis": "declared_unverified"
+        },
+        {
+          "lens": "cube.lens.provenance",
+          "target_kind": "cell",
+          "target_id": "d-rp",
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/0/witness_ref",
+          "note": "witness model:dsm-modules#resolver-parser",
+          "basis": "declared_unverified"
+        },
+        {
+          "lens": "cube.lens.execution",
+          "target_kind": "cell",
+          "target_id": "d-vr",
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/1",
+          "note": "kind other",
+          "basis": "declared_unverified"
+        },
+        {
+          "lens": "cube.lens.provenance",
+          "target_kind": "cell",
+          "target_id": "d-vr",
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/1/witness_ref",
+          "note": "witness model:dsm-modules#validator-resolver",
+          "basis": "declared_unverified"
+        },
+        {
+          "lens": "cube.lens.execution",
+          "target_kind": "cell",
+          "target_id": "d-pv",
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/2",
+          "note": "kind other",
+          "basis": "declared_unverified"
+        },
+        {
+          "lens": "cube.lens.provenance",
+          "target_kind": "cell",
+          "target_id": "d-pv",
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/2/witness_ref",
+          "note": "witness model:dsm-modules#printer-validator",
+          "basis": "declared_unverified"
+        },
+        {
+          "lens": "cube.lens.execution",
+          "target_kind": "cell",
+          "target_id": "d-fb",
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/3",
+          "note": "kind other",
+          "basis": "declared_unverified"
+        },
+        {
+          "lens": "cube.lens.provenance",
+          "target_kind": "cell",
+          "target_id": "d-fb",
+          "declaration_ref": "decl:mile003-dsm#/migration_plans/0/dependencies/3/witness_ref",
+          "note": "witness model:dsm-modules#parser-validator-feedback",
+          "basis": "declared_unverified"
+        }
+      ],
+      "declaration_status": "declared_unverified",
+      "target_step": "p1"
+    },
+    "local_methods": [],
+    "method_bindings": [],
+    "dropped_arguments": [],
+    "step_roles": {
+      "p0": "current",
+      "p1": "target"
+    }
+  },
+  "mapping": {
+    "format": "aiaeao.cube.vp07-mapping/1",
+    "profile": "P2-VP-MIGRATION/0.7.1",
+    "source_context_sha256": "8bbb7936f879767bde703f7fb295bf6431320cf69c5fe3016d8f98e0b44ab767",
+    "context_id": "mile003-dsm",
+    "plan_id": "mp-dsm",
+    "slice": {
+      "steps": [
+        "p0",
+        "p1"
+      ],
+      "subjects": null,
+      "track": null
+    },
+    "track_map_sha256": null,
+    "label_map_sha256": null,
+    "witness_prefixes_sha256": null,
+    "referents": [
+      {
+        "ref": "m:resolver",
+        "id": "m:resolver",
+        "label": "m:resolver",
+        "concept_id": "Y:resource-object:resource",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card"
+      },
+      {
+        "ref": "m:parser",
+        "id": "m:parser",
+        "label": "m:parser",
+        "concept_id": "Y:resource-object:resource",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card"
+      },
+      {
+        "ref": "m:validator",
+        "id": "m:validator",
+        "label": "m:validator",
+        "concept_id": "Y:resource-object:resource",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card"
+      },
+      {
+        "ref": "m:printer",
+        "id": "m:printer",
+        "label": "m:printer",
+        "concept_id": "Y:resource-object:resource",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card"
+      }
+    ],
+    "dependencies": [
+      {
+        "dependency_id": "d-rp",
+        "pointer": "/migration_plans/0/dependencies/0",
+        "steps": [
+          "p0",
+          "p1"
+        ]
+      },
+      {
+        "dependency_id": "d-vr",
+        "pointer": "/migration_plans/0/dependencies/1",
+        "steps": [
+          "p0",
+          "p1"
+        ]
+      },
+      {
+        "dependency_id": "d-pv",
+        "pointer": "/migration_plans/0/dependencies/2",
+        "steps": [
+          "p0",
+          "p1"
+        ]
+      },
+      {
+        "dependency_id": "d-fb",
+        "pointer": "/migration_plans/0/dependencies/3",
+        "steps": [
+          "p0",
+          "p1"
+        ]
+      }
+    ],
+    "empty_steps": [],
+    "dropped_transitions": [],
+    "facets_generated": 8,
+    "p1_validation_performed": false,
+    "declaration_status": "declared_unverified"
+  }
+}

@@ -1,6 +1,6 @@
 # MILE-003-A — Darstellungsinventur V-01–V-12
 
-Status: TASK-018 abgeschlossen (Nachweisart Doku/Code) · Stand: 2026-11-01 · Render-Nachweise folgen in TASK-019
+Status: TASK-018 abgeschlossen (Nachweisart Doku/Code) · Stand: 2026-11-01 · Render-Nachweise: [RENDER-RESULTS](RENDER-RESULTS.md) (V-01, V-05, V-06)
 
 Die Inventur beantwortet für jede Darstellungsanforderung aus der [Lückenbilanz §6](../grammar-sampling/GAP-LEDGER.md): Welche vorhandene Sicht kann die Unterscheidung tragen, über welches Merkmal, und wo ist eine Lücke? Grundlage sind ausschließlich Spezifikationen, READMEs und Code der Printer sowie `symbols.json`. **Nichts davon ist gerendert**; ein Urteil „trägt“ heißt hier „laut Vertrag darstellbar“, nicht „im SVG beobachtet“.
 
@@ -48,3 +48,7 @@ Urteil: **trägt** · **teilweise** · **Lücke**. Vorrangige Unterscheidungen f
 ## Grenzen
 
 Reine Doku-/Code-Inventur; Glyphenabdeckung je Host und Lesbarkeit sind nicht geprüft. Kandidatensichten wurden nach ihrer Spezifikation beurteilt; abweichendes Laufzeitverhalten zeigt erst TASK-019.
+
+## Nachtrag aus TASK-019
+
+Gerendert bestätigt: V-01 als Printer-Paar mit `edge_styles` (R-2b), V-05 „markiert vs. leer“ und Ausblendungsanzahl im SVG sichtbar (R-1b), „geprüft leer“ = „unbekannt“ im Bild identisch (R-1a). Neu: Die Achsenreihenfolge folgt dem ersten Auftreten in den Abhängigkeiten (V-06); die Plansichten verlangen eine Umabbildung in das Migrationsvokabular. Einzelheiten in [RENDER-RESULTS](RENDER-RESULTS.md).
