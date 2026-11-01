@@ -21,7 +21,7 @@ Ziel: Ein AI-Agent in der Linux-VM der Claude-Desktop-App kann den lokalen Cube-
    scripts/dev/agent_env.sh
    .agent-env/venv/bin/python -B scripts/research/comparison_runner.py --cases docs/09-Research/grammar-sampling/cases --output /tmp/mile002-run-1
    ```
-   Prüft den Laufzeithash, entpackt nach `.agent-env/python/`, legt `.agent-env/venv/` an und installiert mit `--no-index --require-hashes`. Ein vorhandenes Environment wird geprüft, nicht neu gebaut.
+   Prüft den Laufzeithash, entpackt nach `.agent-env/runtime-<hash>/` (ohne `share/terminfo`, dessen nur in Groß-/Kleinschreibung verschiedene Namen auf dem macOS-Volume kollidieren), legt `.agent-env/venv/` an und installiert mit `--no-index --require-hashes`. Ein vorhandenes Environment wird geprüft, nicht neu gebaut.
 
 `.wheelhouse/` und `.agent-env/` sind gitignoriert. Committet wird nur das Lock.
 

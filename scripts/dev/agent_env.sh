@@ -15,15 +15,24 @@ PY="$ENV/venv/bin/python"
 [ -f "$LOCK" ] || { echo "Missing $LOCK — run scripts/dev/build_wheelhouse.sh on the Mac first." >&2; exit 1; }
 [ -d "$HOUSE/wheels/$TARGET" ] || { echo "Missing wheelhouse $HOUSE/wheels/$TARGET." >&2; exit 1; }
 
-if [ ! -x "$ENV/python/bin/python3" ]; then
-  ARCHIVE="$(python3 "$ROOT/scripts/dev/wheelhouse_lock.py" verify-archive --lock "$LOCK" --dir "$HOUSE/python")"
-  mkdir -p "$ENV"
-  tar -xzf "$ARCHIVE" -C "$ENV"   # install_only archives unpack to ./python
+ARCHIVE="$(python3 "$ROOT/scripts/dev/wheelhouse_lock.py" verify-archive --lock "$LOCK" --dir "$HOUSE/python")"
+SHA="$(sha256sum "$ARCHIVE" | cut -c1-12)"
+RUNTIME="$ENV/runtime-$SHA"
+# One directory per runtime hash; only a completed extraction is ever used.
+if [ ! -f "$RUNTIME/.complete" ]; then
+  [ ! -e "$RUNTIME" ] || { echo "Incomplete runtime at $RUNTIME — delete it (on the Mac) and rerun." >&2; exit 1; }
+  mkdir -p "$RUNTIME"
+  # share/terminfo holds names that differ only by case (N/ vs n/) and cannot be
+  # unpacked onto a case-insensitive macOS volume; Python does not need it.
+  tar -xzf "$ARCHIVE" -C "$RUNTIME" --exclude='python/share/terminfo'
+  touch "$RUNTIME/.complete"
 fi
 
 if [ ! -x "$PY" ]; then
-  "$ENV/python/bin/python3" -m venv "$ENV/venv"
+  "$RUNTIME/python/bin/python3" -m venv "$ENV/venv"
+  echo "$SHA" > "$ENV/venv/.runtime"
 fi
+[ "$(cat "$ENV/venv/.runtime" 2>/dev/null)" = "$SHA" ] || { echo "Existing $ENV/venv was built from another runtime — delete it and rerun." >&2; exit 1; }
 
 "$PY" -m pip install --disable-pip-version-check -q --no-index \
   --find-links "$HOUSE/wheels/$TARGET" --require-hashes -r "$LOCK"
