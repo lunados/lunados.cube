@@ -1,6 +1,6 @@
 # MILE-002 — Quellen- und Regelregister
 
-Status: fixiert für MILE-002-A (TASK-009) · Abrufdatum aller Webquellen: 2026-11-01 (Europe/Berlin) · Maschinenlesbar: [SOURCE-LOCK.json](../../10-Evidence/MILE-002/SOURCE-LOCK.json)
+Status: fixiert für MILE-002-A (TASK-009); Ergänzung S-SZ-3/R-SZ-3 für TASK-011 · Abrufdatum aller Webquellen: 2026-11-01 (Europe/Berlin) · Maschinenlesbar: [SOURCE-LOCK.json](../../10-Evidence/MILE-002/SOURCE-LOCK.json)
 
 Dieses Register bindet die 15 Fälle der [Fallmatrix](CASE-MATRIX.md) an konkrete Quellenstände und Regelstellen. Es ist ein Quellenbefund, keine Cube-Prüfung. Aussagen sind eigene Kurzfassungen; Normtexte und lizenzierte PDFs werden nicht ins Repository kopiert.
 
@@ -26,6 +26,7 @@ Die vollständige ArchiMate-3.2-Spezifikation (Open Group C226) ist nicht verfü
 | S-C4-2 | C4 | [C4 model — Component](https://c4model.com/abstractions/component) | wie S-C4-1 | D | Web |
 | S-SZ-1 | Structurizr | [Structurizr DSL — Implied relationships](https://docs.structurizr.com/dsl/implied-relationships) | ohne Seitenversion; Navigationsangabe „Binaries v2026.09.19“ nicht seitengebunden | D | Web |
 | S-SZ-2 | Structurizr | [Structurizr for Java — Implied relationships](https://docs.structurizr.com/java/implied-relationships) | ohne Seitenversion; abgerufen 2026-11-01 | D | Web |
+| S-SZ-3 | Structurizr | [Structurizr DSL Cookbook — Implied relationships](https://docs.structurizr.com/dsl/cookbook/implied-relationships/) | ohne Seitenversion; abgerufen 2026-11-01 (ergänzt für TASK-011) | D | Web |
 | S-AM-1 | ArchiMate | The Open Group, *ArchiMate® 3.2 Specification — Reference Cards* (N221), Personal PDF Edition | © 2022, PDF erstellt 2022-11-28; 14 S. | K | lokal, nicht im Repo |
 | S-AM-2 | ArchiMate | Bizzdesign, *ArchiMate® 3.2 Concepts* v1.0 | PDF erstellt 2023-05-31; 9 S. | H | lokal, nicht im Repo |
 | S-AM-3 | ArchiMate | Bizzdesign, *ArchiMate® 3.2 Elements and Relationships* (Poster) | PDF erstellt 2022-10-17; 2 S. | H | lokal, nicht im Repo |
@@ -50,6 +51,7 @@ Die Webseiten wurden nicht archiviert; ihre Aussagen gelten für den Abruftag. E
 | R-C4-2 | S-C4-2 | D | Eine Komponente bündelt zusammengehörige Funktionalität hinter einer Schnittstelle, liegt innerhalb eines Containers und ist nicht eigenständig deploybar. Paket-, Modul- oder Ordnergrenzen sind nicht automatisch Komponenten. | C4-01 |
 | R-SZ-1 | S-SZ-1 | D | Die DSL erzeugt implizite Beziehungen standardmäßig. `!impliedRelationships true` entspricht `CreateImpliedRelationshipsUnlessAnyRelationshipExistsStrategy`; `false` schaltet ab; ein Klassenname wählt eine andere Strategie. | C4-02, C4-03 |
 | R-SZ-2 | S-SZ-2 | D | In der Java-Bibliothek ist `DefaultImpliedRelationshipsStrategy` Standard und erzeugt keine impliziten Beziehungen. `…UnlessSameRelationshipExists…` erzeugt laut Dokumentation meist zu viele Beziehungen. | C4-02 |
+| R-SZ-3 | S-SZ-3 | D | Unter `…UnlessAnyRelationshipExists…` erzeugen mehrere untergeordnete Beziehungen zum selben Elternpaar nur **eine** implizite Beziehung — die aus der zuerst im DSL definierten. Wer alle zeigen will, muss die übergeordneten Beziehungen explizit definieren; empfohlen wird eine zusammenfassende Beschreibung. | C4-02, C4-03 |
 | R-AM-1 | S-AM-1, S. 2 | K | ArchiMate 3.2 kennt elf Beziehungstypen in vier Gruppen (strukturell, Abhängigkeit, dynamisch, sonstige) sowie Junctions als Verbinder. | ARC-01–03 |
 | R-AM-2 | S-AM-1, S. 2 | K | Realization: Ein Element trägt wesentlich zur Entstehung, Erreichung, Erhaltung oder zum Betrieb eines abstrakteren Elements bei. | ARC-01 |
 | R-AM-3 | S-AM-2, S. 5 („Application Service“) | H | Beispiel: Eine Application Function realisiert einen Application Service. Belegt eine gängige Lesart des Endpunktpaars, nicht dessen normative Zulässigkeit. | ARC-01 |
@@ -75,8 +77,8 @@ Die Webseiten wurden nicht archiviert; ihre Aussagen gelten für den Abruftag. E
 | Fall | Regeln | Stärkste Stufe | Offen / Arbeitsannahme |
 |---|---|---|---|
 | C4-01 | R-C4-1, R-C4-2 | D | C4 ist eine Methode ohne Norm; Begriffe gelten für die Seite vom Abruftag. |
-| C4-02 | R-SZ-1, R-SZ-2 | D | **Strategie fixiert (A):** DSL mit `!impliedRelationships true` = `…UnlessAnyRelationshipExists…`. Abweichender Java-Standard wird im Fallbericht als Kontrast festgehalten. |
-| C4-03 | R-SZ-1 | D | Dass eine implizite Beziehung keine deklarierte Tatsache ist, ist eine Cube-Prüffrage (A), keine Structurizr-Regel. |
+| C4-02 | R-SZ-1, R-SZ-2, R-SZ-3 | D | **Strategie fixiert (A):** DSL mit `!impliedRelationships true` = `…UnlessAnyRelationshipExists…`. Abweichender Java-Standard wird im Fallbericht als Kontrast festgehalten. |
+| C4-03 | R-SZ-1, R-SZ-3 | D | Dass eine implizite Beziehung keine deklarierte Tatsache ist, ist eine Cube-Prüffrage (A), keine Structurizr-Regel. |
 | ARC-01 | R-AM-1, R-AM-2, R-AM-3 | K + H | Normative Endpunkt-Zulässigkeit (R-AM-6) ausgelassen. |
 | ARC-02 | R-AM-4 (opt. R-AM-5) | K + H | Zähldomäne und Min/Max sind **lokales Versuchsprofil (A)**, nicht ArchiMate. |
 | ARC-03 | R-AM-1 | K | Unterscheidung „nicht gefunden“ / „nachweislich nicht vorhanden“ ist Cube-Scope-Frage (A). |

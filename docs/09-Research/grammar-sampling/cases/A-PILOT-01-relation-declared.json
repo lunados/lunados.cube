@@ -11,7 +11,7 @@
     "profile_revision": "baseline:p1-fixture:migration/P1-VC/1.0.0 (unverändert, kein Versuchsprofil)",
     "source_register": {
       "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
-      "sha256": "35baf101dac41a826dd6ec4f607d6ebb09dc04089caf964d324bfa1ad1c241e8"
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
     },
     "rule_refs": [
       "cube:AIAEAO_Pure_Cube_P0_v9.4/v9.4/morphology.md#7.6.1"

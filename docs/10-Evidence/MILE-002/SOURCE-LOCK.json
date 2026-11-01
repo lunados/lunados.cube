@@ -57,6 +57,16 @@
       "sha256": null
     },
     {
+      "id": "S-SZ-3",
+      "approach": "Structurizr",
+      "ref": "https://docs.structurizr.com/dsl/cookbook/implied-relationships/",
+      "version": null,
+      "level": "D",
+      "access": "web",
+      "sha256": null,
+      "added": "2026-11-01 TASK-011"
+    },
+    {
       "id": "S-AM-1",
       "approach": "ArchiMate",
       "ref": "The Open Group, ArchiMate 3.2 Specification Reference Cards (N221), Personal PDF Edition",
@@ -163,10 +173,12 @@
     ],
     "C4-02": [
       "R-SZ-1",
-      "R-SZ-2"
+      "R-SZ-2",
+      "R-SZ-3"
     ],
     "C4-03": [
-      "R-SZ-1"
+      "R-SZ-1",
+      "R-SZ-3"
     ],
     "ARC-01": [
       "R-AM-1",
