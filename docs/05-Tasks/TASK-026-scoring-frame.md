@@ -21,4 +21,8 @@ Maßnahmenliste aus Lückenbilanz, Werkzeugbefunden und Darstellungsübergabe zu
 
 [TASK-025](TASK-025-run-probes.md)
 
-Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Noch kein Ausführungsnachweis vorhanden.
+Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Ausführungsnachweis siehe Ergebnis.
+
+## Ergebnis
+
+Erledigt am 2026-11-01, vor jeder Bewertung committet. [Bewertungsrahmen](../09-Research/learning-balance/SCORING-FRAME.md): 25 Maßnahmen mit Herkunft, Aufwand E und Komplexität K aus den Quellen (fünf Annahmen markiert), harte Abhängigkeiten, Nutzenskalen A/P (rangbildend nach D-1) und I/V (nur Sensitivität), Unsicherheit U, Rangregel mit Paketen und Auswahlregel für MILE-005. Maschinenlesbar: [MEASURES.json](../09-Research/learning-balance/MEASURES.json) mit leeren Bewertungsfeldern.

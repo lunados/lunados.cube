@@ -1,6 +1,6 @@
 # Tasks — prioritize-learning-balance
 
-Status: in_progress. Führende Ausführungsstatusliste; TASK-024–025 erledigt (Charge A abgeschlossen), vier Aufgaben offen.
+Status: in_progress. Führende Ausführungsstatusliste; TASK-024–026 erledigt (Charge A abgeschlossen), drei Aufgaben offen.
 
 ## A — Offene Leitfragen proben
 
@@ -9,7 +9,7 @@ Status: in_progress. Führende Ausführungsstatusliste; TASK-024–025 erledigt 
 
 ## B — Lernbilanz
 
-- [ ] 3. [TASK-026 — Bewertungsrahmen vor der Bewertung festlegen](../../../docs/05-Tasks/TASK-026-scoring-frame.md)
+- [x] 3. [TASK-026 — Bewertungsrahmen vor der Bewertung festlegen](../../../docs/05-Tasks/TASK-026-scoring-frame.md)
 - [ ] 4. [TASK-027 — Maßnahmen bewerten und Lernbilanz schreiben](../../../docs/05-Tasks/TASK-027-learning-balance.md)
 
 ## C — Folgeplanung und Übergabe
@@ -17,4 +17,4 @@ Status: in_progress. Führende Ausführungsstatusliste; TASK-024–025 erledigt 
 - [ ] 5. [TASK-028 — MILE-005 ausplanen](../../../docs/05-Tasks/TASK-028-plan-mile005.md)
 - [ ] 6. [TASK-029 — Nachweise prüfen und MILE-004 übergeben](../../../docs/05-Tasks/TASK-029-learning-handover.md)
 
-[Milestone](../../../docs/02-Milestones/MILE-004-learning-balance.md) · [Abdeckung](TRACEABILITY.md). Nachweis TASK-024: [Probeplan](../../../docs/09-Research/learning-balance/probes/PROBE-PLAN.md). TASK-025: [Probeergebnisse](../../../docs/09-Research/learning-balance/PROBE-RESULTS.md).
+[Milestone](../../../docs/02-Milestones/MILE-004-learning-balance.md) · [Abdeckung](TRACEABILITY.md). Nachweis TASK-024: [Probeplan](../../../docs/09-Research/learning-balance/probes/PROBE-PLAN.md). TASK-025: [Probeergebnisse](../../../docs/09-Research/learning-balance/PROBE-RESULTS.md). TASK-026: [Bewertungsrahmen](../../../docs/09-Research/learning-balance/SCORING-FRAME.md).
