@@ -131,10 +131,11 @@ def discover_surface() -> dict[str, Any]:
 def discover_surface_local() -> dict[str, Any]:
     """G6 local surface: the G4 card plus the plan-view tools, their views, printer profiles and limits."""
     from . import plan_views
+    from .validation_discovery import describe_validation_contexts
     card = discover_surface()
+    card['domains']['P1']['validation_contexts'] = describe_validation_contexts()
     card['release'] = {**card['release'], 'version': RELEASE_G6, 'architecture': card['release']['architecture']+';G6/plan-views'}
     card['mcp'] = {**card['mcp'], 'tools': list(TOOLS_G6)}
     card['domains']['P2'] = {**card['domains']['P2'], 'plan_views': plan_views.capabilities()}
     card['compatibility'] = {**card['compatibility'], 'g4_surface_unchanged_for_remote_g5': True}
     return card
-

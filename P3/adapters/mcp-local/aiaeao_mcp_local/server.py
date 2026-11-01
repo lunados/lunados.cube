@@ -81,7 +81,9 @@ def cube_read_reference(uri: str, offset: int = 0, max_bytes: int = 8192) -> Cal
 def cube_validate(input_text: str, input_format: Literal['acg_text','json_ast']='acg_text',
                   context: dict[str, Any] | None=None,
                   qualification_profiles: dict[str, Any] | None=None) -> CallToolResult:
-    """Run frozen P1 for context/1 or additive P1.6 X instantiation for context/2.
+    """Run descriptive P1 validation with explicit binding-context/1 through /7.
+    Use local cube_discover_surface for entry profiles and module-presence limits.
+    Higher-context validators are loaded lazily; discovery is not a runtime test.
     PASS, FAIL, UNRESOLVED are normal tool results; invalid config is isError.
     No truth, authorization, P2 printing, or automatic ACG-to-SVG conversion.
     """
