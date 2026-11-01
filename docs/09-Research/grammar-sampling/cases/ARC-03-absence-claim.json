@@ -1,0 +1,33 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "ARC-03-absence-claim",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline P1-VC/1.0.0 + Versuchsabbildung mile002:am:pred/1",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+    },
+    "rule_refs": [
+      "R-AM-1"
+    ],
+    "matrix_case": "ARC-03",
+    "model": {
+      "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+      "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+    }
+  },
+  "operation": null,
+  "invocation_kind": "not_executable",
+  "non_execution": {
+    "reason": "Die Aussage 'Transaction Processing wird von keinem Element realisiert' bräuchte eine Negation oder eine Vollständigkeitserklärung der Sicht für einen Relationstyp. Die ACG-Grammatik (EBNF) hat keine Negation; binding-context/1 hat kein Feld für deklarierte Vollständigkeit, nur freie profile_limitations. Ein Aufruf könnte nur positive Aussagen prüfen."
+  },
+  "expected": {
+    "domain_status": null,
+    "diagnostic_codes": [],
+    "fixed_before_execution": true,
+    "rationale": "Kein Fachstatus erwartbar: 'nachgewiesen nicht vorhanden' ist nicht ausdrückbar."
+  }
+}

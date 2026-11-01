@@ -1,0 +1,104 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "ARC-03-partner-undeclared",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline P1-VC/1.0.0 + Versuchsabbildung mile002:am:pred/1",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+    },
+    "rule_refs": [
+      "R-AM-1",
+      "R-AM-2",
+      "cube:P1/migration-profile-v2/P1_10_1_ACCEPTANCE_SPEC.md#D-2"
+    ],
+    "matrix_case": "ARC-03",
+    "model": {
+      "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+      "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+    }
+  },
+  "operation": "cube_validate",
+  "invocation_kind": "local_mcp_stdio",
+  "arguments": {
+    "input_text": "rel(\"realizes\",Z:α:Tool[\"am:accounting\"],Z:α:Capability[\"am:transaction-processing\"])",
+    "context": {
+      "format": "aiaeao.cube.binding-context/1",
+      "reference_version": "v9.4",
+      "context_id": "mile002:am:view/service",
+      "source_kind": "illustrative_fixture",
+      "scope_ref": "mile002:am",
+      "referents": [
+        {
+          "ref": "am:transaction-processing",
+          "concept_id": "Z:boundary:capability",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:am"
+        }
+      ],
+      "predicate_contracts": [
+        {
+          "predicate_id": "realizes",
+          "revision": "mile002:am:pred/1",
+          "scope": "mile002:am",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Z:module-body:tool"
+          ],
+          "object_concept_ids": [
+            "Z:boundary:capability"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "Versuchsabbildung der ArchiMate-Realization für das Paar Application Function → Application Service (Herstellerbeispiel S-AM-2). Normative Endpunkt-Zulässigkeit ausgelassen (R-AM-6)."
+          ]
+        },
+        {
+          "predicate_id": "composedOf",
+          "revision": "mile002:am:pred/1",
+          "scope": "mile002:am",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Z:module-body:tool"
+          ],
+          "object_concept_ids": [
+            "Z:module-body:tool"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "Versuchsabbildung der ArchiMate-Composition (Ganzes → Teil). Die lokale Zählregel min 2/max 3 ist hier nicht ausdrückbar."
+          ]
+        }
+      ],
+      "method_contracts": [],
+      "profile_limitations": [
+        "Synthetische Versuchsabbildung MILE-002 ARC-01..03: Application Function→Z:module-body:tool, Application Service→Z:boundary:capability (Arbeitsannahme A).",
+        "Keine Wahrheit, Autorität oder Zulassung behauptet.",
+        "Teilsicht: nur der Service ist deklariert; das Fehlen anderer Referenten ist keine Aussage über ihre Nichtexistenz."
+      ]
+    }
+  },
+  "arguments_sha256": "aa4de28a3704de9581e7a56f20cca38926bd00449704b3782d69af0d195726d1",
+  "bindings": {
+    "context_format": "aiaeao.cube.binding-context/1",
+    "context_sha256": "a95b825f265ca3e3e444e676a1b79e1dc4786fddf58a497d5c3742a0bf548402",
+    "qualification_profiles_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "expected": {
+    "domain_status": "UNRESOLVED",
+    "diagnostic_codes": [
+      "P1_BINDING_CONTEXT_REQUIRED"
+    ],
+    "fixed_before_execution": true,
+    "rationale": "Teilsicht: nur der Service ist deklariert, Accounting nicht. Die Prädikatsignatur passt (Typen kommen aus der Adresse), aber der Subjekt-Referent ist im Kontext unbekannt. Erwartet UNRESOLVED mit P1_BINDING_CONTEXT_REQUIRED — 'nicht gefunden' wird nicht zu FAIL."
+  }
+}
