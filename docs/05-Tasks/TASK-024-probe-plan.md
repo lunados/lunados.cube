@@ -21,4 +21,8 @@ Für E-1, E-2, L-1 und L-2 Quelle und Version pinnen (Envelope-Vertrag, VP-03-Li
 
 MILE-002 und MILE-003 abgeschlossen
 
-Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Noch kein Ausführungsnachweis vorhanden.
+Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Ausführungsnachweis siehe Ergebnis.
+
+## Ergebnis
+
+Erledigt am 2026-11-01. [Probeplan](../09-Research/learning-balance/probes/PROBE-PLAN.md) mit vier Proben (E-1, E-2, L-1, L-2) und einer begründeten Nichtausführbarkeit (MODE), zwölf gepinnten Quellen, je sechs Pflichtunterscheidungen mit erwartetem Träger für E-1/E-2, Erwartungen und Entscheidungsregeln. Maschinenlesbar und deterministisch erzeugt: [PROBE-PLAN.json](../09-Research/learning-balance/probes/PROBE-PLAN.json), [build_probes.py](../09-Research/learning-balance/probes/build_probes.py). Committet vor jedem Lauf.

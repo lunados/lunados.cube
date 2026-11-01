@@ -1,0 +1,963 @@
+{
+  "format": "mile004.probe-plan/1",
+  "task": "TASK-024",
+  "fixed_at": "2026-11-01",
+  "fixed_before_run": true,
+  "decisions": "MILE-004 D-1 (Architektursichten, Prozessspuren), D-2 (kleine Proben, Erwartung vorab)",
+  "sources": [
+    {
+      "label": "Envelope-Ergebnisvertrag (EXP-024 Charge 3)",
+      "repo": "lunados.space",
+      "commit": "1ae1f44",
+      "path": "web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/contracts/evaluator-result.v0.2.schema.json",
+      "sha256": "91097b66e63a0f53b905e719d45b457f032d68a17d321f2302cc38f8ab19e4ce"
+    },
+    {
+      "label": "Envelope-Aufrufvertrag (EXP-024 Charge 3)",
+      "repo": "lunados.space",
+      "commit": "1ae1f44",
+      "path": "web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/contracts/evaluator-call.v0.1.schema.json",
+      "sha256": "d258188122d4547121b6c9b104ff09820bea2b082d89d0a4c675dfd832b8e298"
+    },
+    {
+      "label": "Evaluator-Register EXP-024 (ohne Ergebnisschema je Methode)",
+      "repo": "lunados.space",
+      "commit": "1ae1f44",
+      "path": "web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/evaluators/evaluators.v0.1.json",
+      "sha256": "0a541785eada120ef89e102b291e35fb25eb8e9ce18ff8fa9eafb673254d79bf"
+    },
+    {
+      "label": "LIB-Eintragsvertrag (Ausgabe nur concept_id + cardinality)",
+      "repo": "lunados.lib",
+      "commit": "4d07650",
+      "path": "schema/entry.v1.schema.json",
+      "sha256": "662fe150ae769c5e416141a7421a7485b03093f02d49c52f7eb41b688927fae5"
+    },
+    {
+      "label": "Prüfkriterium Envelope-Erweiterung (§1), Bestandteile LENS/MODE (§4)",
+      "repo": "lunados.cube",
+      "commit": "dbddb17",
+      "path": "docs/09-Research/cube-grammar-2026-11-01/LERNVERGLEICH.md",
+      "sha256": "4cb0dd702d452e5ad1c99a9047962ec005e7b70c5156c975b8ebf992764b0ea1"
+    },
+    {
+      "label": "VP-03 Linsengrammatik (fünf Linsen, deklarierte Facettenbindungen)",
+      "repo": "lunados.cube",
+      "commit": "dbddb17",
+      "path": "P2/visual-printer-2d-lab/VP03_LENS_GRAMMAR.md",
+      "sha256": "11537443f79767ba45d4fbf62cc97204d8ce517a3396ff10b75d689b7911c333"
+    },
+    {
+      "label": "VP-07 Partition subject/object/step/track, Track-Map (D-3)",
+      "repo": "lunados.cube",
+      "commit": "dbddb17",
+      "path": "P2/visual-printer-migration-v1/VP07_ACCEPTANCE_SPEC.md",
+      "sha256": "47480f38a56991f0f6c0c964cafd8b6a66731da1219fc4565a998e5c244cb9c8"
+    },
+    {
+      "label": "VP-07 Adapter: Track nur für Zeilen (Subjekte)",
+      "repo": "lunados.cube",
+      "commit": "dbddb17",
+      "path": "P2/visual-printer-migration-v1/vpmigration/adapter.py",
+      "sha256": "dc04ce16bd4e789c0c122956f1ed2338311c52027aa0fe2cb24383a9247a6f06"
+    },
+    {
+      "label": "VP-07 Panels: Partition track nach Zeilen-Track",
+      "repo": "lunados.cube",
+      "commit": "dbddb17",
+      "path": "P2/visual-printer-migration-v1/vpmigration/panels.py",
+      "sha256": "d6ced62b1fb2dc1c25253c01f555eaa8f7e0ffa584c292ec20f73eac2dbf4e05"
+    },
+    {
+      "label": "Implementierung hinter cube_plan_source/views/check",
+      "repo": "lunados.cube",
+      "commit": "dbddb17",
+      "path": "P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py",
+      "sha256": "982ed3ff8acdc264552f22f8b3217416c83c0ee4d0e12c42265bd1f941e579d4"
+    },
+    {
+      "label": "M — Mode (§3.10): Werte, Übergänge, Bindung nicht eingefroren",
+      "repo": "lunados.cube",
+      "commit": "dbddb17",
+      "path": "AIAEAO_Pure_Cube_P0_v9.4/v9.4/morphology.md",
+      "sha256": "749bb26b36bb4672a53cf8bc15d58b2cd75ebc07ee90ee6cb38cb6c86bd4bfd9"
+    },
+    {
+      "label": "C021: Loose/Transitional/Strict sind keine autorisierten MODE-Werte",
+      "repo": "lunados.cube",
+      "commit": "dbddb17",
+      "path": "AIAEAO_Pure_Cube_P0_v9.4/v9.4/grammar/constraints.json",
+      "sha256": "eebc060a0f8c633226dd4739a86819808ca501062193d4e60c4e703125537d8a"
+    }
+  ],
+  "envelope_rule": {
+    "criterion": "LERNVERGLEICH §1: Erweiterung nur, wenn zwei fachlich verschiedene Zustände ununterscheidbar werden oder Pflichtbindungen nur untypisiert unterzubringen sind.",
+    "R-E1": "Mindestens eine Pflichtunterscheidung N, oder zwei Fälle, die sich in einer Pflichtunterscheidung unterscheiden, sind in allen Feldern gleich → Kandidat Envelope-Erweiterung.",
+    "R-E2": "Pflichtunterscheidungen nur U → Typisierungslücke. Maßnahme auf der Ebene, die einen typisierten Bindungspunkt hat; fehlt er in Envelope und LIB-Eintrag, Kandidat: LIB-Vertragsrevision mit Ergebnisschema-Verweis; Envelope unverändert.",
+    "R-E3": "Alle Pflichtunterscheidungen T → keine Maßnahme."
+  },
+  "envelope_tool": "jsonschema (Draft 2020-12) in der Agent-Umgebung; Identitätsprüfung Aufruf ↔ Ergebnis wie EXP-024 harness (method_id, descriptor_digest, derivation_ref); Trägerklassifikation gegen das Schema",
+  "probes": {
+    "E-1": {
+      "question": 1,
+      "use_case": "Architektursichten",
+      "case": "C4-02 (Gegenfall C4-03)",
+      "gap": "G-03, G-02",
+      "instances": [
+        {
+          "case_id": "E-1a",
+          "descriptor": {
+            "method_id": "project.aggregate-relations/v0-probe",
+            "purpose": "Komponentenbeziehungen auf Containerebene verdichten, mit Quellenspur und Verlustbericht (G-03)",
+            "status": "probe-only"
+          },
+          "call": {
+            "schema": "aiaeao.evaluator-call/v0.1",
+            "method_id": "project.aggregate-relations/v0-probe",
+            "descriptor_digest": "sha256:d8ce97e884446804a88d6ad74285c26c412ed27573fbe5190d2bf6fc0cdd8463",
+            "derivation_ref": "sha256:33420cd5617ce996dc73da6b321a21069febe886c8f8ff888903b11a1622a4d9",
+            "inputs": [
+              {
+                "role": "containment",
+                "ref": "model:c4-shop#api",
+                "content": {
+                  "container": "c4:api",
+                  "components": [
+                    "c4:order-controller",
+                    "c4:order-repository"
+                  ]
+                },
+                "source_revision": "sha256:35da85b5d1dde9384c5cfd0c072830bd677518c8e5d5fded0bb7b4823143e62a"
+              },
+              {
+                "role": "source_relation",
+                "ref": "model:c4-shop#orderController-db",
+                "content": {
+                  "subject": "c4:order-controller",
+                  "object": "c4:db",
+                  "description": "Writes orders to"
+                },
+                "source_revision": "sha256:b92bd2d01761330c0638698eb4f80ef78690353e3a073833530d42e263cd1c38"
+              },
+              {
+                "role": "source_relation",
+                "ref": "model:c4-shop#orderRepository-db",
+                "content": {
+                  "subject": "c4:order-repository",
+                  "object": "c4:db",
+                  "description": "Reads orders from"
+                },
+                "source_revision": "sha256:c122db2c91ce510f2157143cec283bddf6c9b94970c74f8cf0a529a1831320b1"
+              }
+            ],
+            "parameters": {
+              "strategy": "UnlessAny",
+              "target_level": "container"
+            }
+          },
+          "result": {
+            "schema": "aiaeao.evaluator-result/v0.2",
+            "method_id": "project.aggregate-relations/v0-probe",
+            "descriptor_digest": "sha256:d8ce97e884446804a88d6ad74285c26c412ed27573fbe5190d2bf6fc0cdd8463",
+            "derivation_ref": "sha256:33420cd5617ce996dc73da6b321a21069febe886c8f8ff888903b11a1622a4d9",
+            "evaluator_id": "probe.hand-authored/v0",
+            "disposition": "assessed",
+            "outcome": {
+              "kind": "projected_relation",
+              "value": "aggregated_with_loss",
+              "detail": {
+                "subject": "c4:api",
+                "object": "c4:db",
+                "origin": "derived",
+                "source_count": 2,
+                "discarded_descriptions": 2
+              }
+            },
+            "findings": [
+              "2 source relations -> 1 projected relation c4:api -> c4:db",
+              "descriptions not carried over: 2"
+            ],
+            "limitations": [
+              "Probe-Instanz von Hand erstellt (authored_synthetic); kein Evaluator ausgeführt.",
+              "assessed bedeutet nur: innerhalb der Probe-Regeln bewertet; keine Domänenwahrheit."
+            ],
+            "runtime_authority": "not-evaluated",
+            "effectful_execution_authorized": false,
+            "selected_alternative": null
+          }
+        },
+        {
+          "case_id": "E-1b",
+          "descriptor": {
+            "method_id": "project.aggregate-relations/v0-probe",
+            "purpose": "Komponentenbeziehungen auf Containerebene verdichten, mit Quellenspur und Verlustbericht (G-03)",
+            "status": "probe-only"
+          },
+          "call": {
+            "schema": "aiaeao.evaluator-call/v0.1",
+            "method_id": "project.aggregate-relations/v0-probe",
+            "descriptor_digest": "sha256:d8ce97e884446804a88d6ad74285c26c412ed27573fbe5190d2bf6fc0cdd8463",
+            "derivation_ref": "sha256:c4a52ec681155bf000eb09b10741ecbf74424b8a055556635f7da294a5b196b8",
+            "inputs": [
+              {
+                "role": "containment",
+                "ref": "model:c4-shop#api",
+                "content": {
+                  "container": "c4:api",
+                  "components": [
+                    "c4:order-controller",
+                    "c4:order-repository"
+                  ]
+                },
+                "source_revision": "sha256:35da85b5d1dde9384c5cfd0c072830bd677518c8e5d5fded0bb7b4823143e62a"
+              },
+              {
+                "role": "source_relation",
+                "ref": "model:c4-shop#orderController-db",
+                "content": {
+                  "subject": "c4:order-controller",
+                  "object": "c4:db",
+                  "description": "Writes orders to"
+                },
+                "source_revision": "sha256:b92bd2d01761330c0638698eb4f80ef78690353e3a073833530d42e263cd1c38"
+              }
+            ],
+            "parameters": {
+              "strategy": "UnlessAny",
+              "target_level": "container"
+            }
+          },
+          "result": {
+            "schema": "aiaeao.evaluator-result/v0.2",
+            "method_id": "project.aggregate-relations/v0-probe",
+            "descriptor_digest": "sha256:d8ce97e884446804a88d6ad74285c26c412ed27573fbe5190d2bf6fc0cdd8463",
+            "derivation_ref": "sha256:c4a52ec681155bf000eb09b10741ecbf74424b8a055556635f7da294a5b196b8",
+            "evaluator_id": "probe.hand-authored/v0",
+            "disposition": "assessed",
+            "outcome": {
+              "kind": "projected_relation",
+              "value": "aggregated_without_loss",
+              "detail": {
+                "subject": "c4:api",
+                "object": "c4:db",
+                "origin": "derived",
+                "source_count": 1,
+                "discarded_descriptions": 0
+              }
+            },
+            "findings": [
+              "1 source relation -> 1 projected relation c4:api -> c4:db"
+            ],
+            "limitations": [
+              "Probe-Instanz von Hand erstellt (authored_synthetic); kein Evaluator ausgeführt.",
+              "assessed bedeutet nur: innerhalb der Probe-Regeln bewertet; keine Domänenwahrheit."
+            ],
+            "runtime_authority": "not-evaluated",
+            "effectful_execution_authorized": false,
+            "selected_alternative": null
+          }
+        },
+        {
+          "case_id": "E-1c",
+          "descriptor": {
+            "method_id": "project.aggregate-relations/v0-probe",
+            "purpose": "Komponentenbeziehungen auf Containerebene verdichten, mit Quellenspur und Verlustbericht (G-03)",
+            "status": "probe-only"
+          },
+          "call": {
+            "schema": "aiaeao.evaluator-call/v0.1",
+            "method_id": "project.aggregate-relations/v0-probe",
+            "descriptor_digest": "sha256:d8ce97e884446804a88d6ad74285c26c412ed27573fbe5190d2bf6fc0cdd8463",
+            "derivation_ref": "sha256:6914b15682b7ce45d599998b71861c5bcdbe5078adfbec0e58d5ba011dc17fdc",
+            "inputs": [
+              {
+                "role": "source_relation",
+                "ref": "model:c4-shop#api-db-unmarked",
+                "content": {
+                  "subject": "c4:api",
+                  "object": "c4:db",
+                  "predicate": "uses"
+                },
+                "source_revision": "sha256:02e6f2eba629d614a1e690d3ce69af5f6811ac25fa8491262e84a000b528cdc5"
+              }
+            ],
+            "parameters": {
+              "strategy": "UnlessAny",
+              "target_level": "container"
+            }
+          },
+          "result": {
+            "schema": "aiaeao.evaluator-result/v0.2",
+            "method_id": "project.aggregate-relations/v0-probe",
+            "descriptor_digest": "sha256:d8ce97e884446804a88d6ad74285c26c412ed27573fbe5190d2bf6fc0cdd8463",
+            "derivation_ref": "sha256:6914b15682b7ce45d599998b71861c5bcdbe5078adfbec0e58d5ba011dc17fdc",
+            "evaluator_id": "probe.hand-authored/v0",
+            "disposition": "unresolved",
+            "outcome": {
+              "kind": "projected_relation",
+              "value": "origin_unbound",
+              "detail": {
+                "subject": "c4:api",
+                "object": "c4:db",
+                "origin": null
+              }
+            },
+            "findings": [
+              "relation c4:api -> c4:db carries no origin binding (C4-03 pattern)"
+            ],
+            "limitations": [
+              "Probe-Instanz von Hand erstellt (authored_synthetic); kein Evaluator ausgeführt.",
+              "assessed bedeutet nur: innerhalb der Probe-Regeln bewertet; keine Domänenwahrheit."
+            ],
+            "runtime_authority": "not-evaluated",
+            "effectful_execution_authorized": false,
+            "selected_alternative": null
+          }
+        }
+      ],
+      "distinctions": [
+        {
+          "id": "d1",
+          "what": "Endpunkte der verdichteten Kante",
+          "expected_carrier": "U",
+          "path": "result.outcome.detail.subject/object"
+        },
+        {
+          "id": "d2",
+          "what": "welche Quellbeziehungen eingeflossen sind",
+          "expected_carrier": "T",
+          "path": "result.derivation_ref -> call.inputs[].ref/source_revision",
+          "note": "Bindung an die Eingaben per Digest typisiert; Rolle 'source_relation' nur Namenskonvention"
+        },
+        {
+          "id": "d3",
+          "what": "Verdichtungsstrategie",
+          "expected_carrier": "U",
+          "path": "call.parameters.strategy"
+        },
+        {
+          "id": "d4",
+          "what": "Verlust (verworfene Beschreibungen)",
+          "expected_carrier": "U",
+          "path": "result.outcome.detail.discarded_descriptions"
+        },
+        {
+          "id": "d5",
+          "what": "bewertet vs. unaufgelöst",
+          "expected_carrier": "T",
+          "path": "result.disposition"
+        },
+        {
+          "id": "d6",
+          "what": "Grund der Unauflösbarkeit (Herkunft nicht gebunden)",
+          "expected_carrier": "U",
+          "path": "result.outcome.value"
+        }
+      ],
+      "expected": [
+        "alle drei Aufrufe und Ergebnisse schema-gültig, Identität Aufruf ↔ Ergebnis stimmt",
+        "Träger wie in distinctions angegeben: keine N, d5 T, d2 T über derivation_ref, d1/d3/d4/d6 nur U",
+        "E-1a und E-1b unterscheiden sich nur in untypisierten Feldern (detail, findings) und im Digest",
+        "Ergebnis nach R-E2: Typisierungslücke, keine Envelope-Erweiterung"
+      ]
+    },
+    "E-2": {
+      "question": 1,
+      "use_case": "Prozessspuren",
+      "case": "BPMN-03 (BPMN-02)",
+      "gap": "G-07, G-08",
+      "instances": [
+        {
+          "case_id": "E-2a",
+          "descriptor": {
+            "method_id": "analyze.trace-conformance/v0-probe",
+            "purpose": "AND-Join-Aktivierung gegen die Spur prüfen: gleiche Instanz, je Eingang ein Token (G-07, G-08)",
+            "status": "probe-only"
+          },
+          "call": {
+            "schema": "aiaeao.evaluator-call/v0.1",
+            "method_id": "analyze.trace-conformance/v0-probe",
+            "descriptor_digest": "sha256:2f94497331d91c181e06cda170c22f7f7c6288683ad6c7d6dbe83a4a8df72342",
+            "derivation_ref": "sha256:6def5498a35d8b450da962ef3b7a3e932de1e1f5ab11a0c27e586f106f513003",
+            "inputs": [
+              {
+                "role": "join_spec",
+                "ref": "bpmn:join",
+                "content": {
+                  "incoming": [
+                    "f-stock-done",
+                    "f-credit-done"
+                  ]
+                },
+                "source_revision": "sha256:84ee88eb896aaab42abbb41b83cb870ea007e3505d0cc06ef398f49e29489e30"
+              },
+              {
+                "role": "token",
+                "ref": "bpmn:i1/tok-stock",
+                "content": {
+                  "instance": "bpmn:i1",
+                  "flow": "f-stock-done"
+                },
+                "source_revision": "sha256:b44bee355b75d59b3e6d9e1ed8bff0819c688056a2f6b67cb44bcefd6e401907"
+              },
+              {
+                "role": "token",
+                "ref": "bpmn:i1/tok-credit",
+                "content": {
+                  "instance": "bpmn:i1",
+                  "flow": "f-credit-done"
+                },
+                "source_revision": "sha256:6c7adc12fb04723bfb1ff79b9a920a9955f8a4f150723f25800c3312f20f8ce2"
+              }
+            ],
+            "parameters": {
+              "activation_scope": "bpmn:i1"
+            }
+          },
+          "result": {
+            "schema": "aiaeao.evaluator-result/v0.2",
+            "method_id": "analyze.trace-conformance/v0-probe",
+            "descriptor_digest": "sha256:2f94497331d91c181e06cda170c22f7f7c6288683ad6c7d6dbe83a4a8df72342",
+            "derivation_ref": "sha256:6def5498a35d8b450da962ef3b7a3e932de1e1f5ab11a0c27e586f106f513003",
+            "evaluator_id": "probe.hand-authored/v0",
+            "disposition": "assessed",
+            "outcome": {
+              "kind": "join_activation",
+              "value": "conforms",
+              "detail": {
+                "instance": "bpmn:i1",
+                "consumed": [
+                  "bpmn:i1/tok-stock",
+                  "bpmn:i1/tok-credit"
+                ]
+              }
+            },
+            "findings": [
+              "join in bpmn:i1 consumes one token per incoming flow of the same instance"
+            ],
+            "limitations": [
+              "Probe-Instanz von Hand erstellt (authored_synthetic); kein Evaluator ausgeführt.",
+              "assessed bedeutet nur: innerhalb der Probe-Regeln bewertet; keine Domänenwahrheit."
+            ],
+            "runtime_authority": "not-evaluated",
+            "effectful_execution_authorized": false,
+            "selected_alternative": null
+          }
+        },
+        {
+          "case_id": "E-2b",
+          "descriptor": {
+            "method_id": "analyze.trace-conformance/v0-probe",
+            "purpose": "AND-Join-Aktivierung gegen die Spur prüfen: gleiche Instanz, je Eingang ein Token (G-07, G-08)",
+            "status": "probe-only"
+          },
+          "call": {
+            "schema": "aiaeao.evaluator-call/v0.1",
+            "method_id": "analyze.trace-conformance/v0-probe",
+            "descriptor_digest": "sha256:2f94497331d91c181e06cda170c22f7f7c6288683ad6c7d6dbe83a4a8df72342",
+            "derivation_ref": "sha256:dc4daea79cdecc43b1f5fdb9145e2c704eb3df691292a06124f3121796500955",
+            "inputs": [
+              {
+                "role": "join_spec",
+                "ref": "bpmn:join",
+                "content": {
+                  "incoming": [
+                    "f-stock-done",
+                    "f-credit-done"
+                  ]
+                },
+                "source_revision": "sha256:84ee88eb896aaab42abbb41b83cb870ea007e3505d0cc06ef398f49e29489e30"
+              },
+              {
+                "role": "token",
+                "ref": "bpmn:i1/tok-stock",
+                "content": {
+                  "instance": "bpmn:i1",
+                  "flow": "f-stock-done"
+                },
+                "source_revision": "sha256:b44bee355b75d59b3e6d9e1ed8bff0819c688056a2f6b67cb44bcefd6e401907"
+              },
+              {
+                "role": "token",
+                "ref": "bpmn:i2/tok-credit",
+                "content": {
+                  "instance": "bpmn:i2",
+                  "flow": "f-credit-done"
+                },
+                "source_revision": "sha256:56ae498c846b795dbc47a73d20db499c139f1f74eb382ba30bb42bafcea2551a"
+              }
+            ],
+            "parameters": {
+              "activation_scope": "bpmn:i1"
+            }
+          },
+          "result": {
+            "schema": "aiaeao.evaluator-result/v0.2",
+            "method_id": "analyze.trace-conformance/v0-probe",
+            "descriptor_digest": "sha256:2f94497331d91c181e06cda170c22f7f7c6288683ad6c7d6dbe83a4a8df72342",
+            "derivation_ref": "sha256:dc4daea79cdecc43b1f5fdb9145e2c704eb3df691292a06124f3121796500955",
+            "evaluator_id": "probe.hand-authored/v0",
+            "disposition": "assessed",
+            "outcome": {
+              "kind": "join_activation",
+              "value": "cross_instance_violation",
+              "detail": {
+                "instance": "bpmn:i1",
+                "consumed": [
+                  "bpmn:i1/tok-stock",
+                  "bpmn:i2/tok-credit"
+                ],
+                "foreign_inputs": [
+                  "bpmn:i2/tok-credit"
+                ]
+              }
+            },
+            "findings": [
+              "J1 pairs bpmn:i1/tok-stock with bpmn:i2/tok-credit: input from another instance"
+            ],
+            "limitations": [
+              "Probe-Instanz von Hand erstellt (authored_synthetic); kein Evaluator ausgeführt.",
+              "assessed bedeutet nur: innerhalb der Probe-Regeln bewertet; keine Domänenwahrheit."
+            ],
+            "runtime_authority": "not-evaluated",
+            "effectful_execution_authorized": false,
+            "selected_alternative": null
+          }
+        },
+        {
+          "case_id": "E-2c",
+          "descriptor": {
+            "method_id": "analyze.trace-conformance/v0-probe",
+            "purpose": "AND-Join-Aktivierung gegen die Spur prüfen: gleiche Instanz, je Eingang ein Token (G-07, G-08)",
+            "status": "probe-only"
+          },
+          "call": {
+            "schema": "aiaeao.evaluator-call/v0.1",
+            "method_id": "analyze.trace-conformance/v0-probe",
+            "descriptor_digest": "sha256:2f94497331d91c181e06cda170c22f7f7c6288683ad6c7d6dbe83a4a8df72342",
+            "derivation_ref": "sha256:af8108d533345f167e61cd5250b72791df0a8fe61e709232de6da254ce7c0edf",
+            "inputs": [
+              {
+                "role": "join_spec",
+                "ref": "bpmn:join",
+                "content": {
+                  "incoming": [
+                    "f-stock-done",
+                    "f-credit-done"
+                  ]
+                },
+                "source_revision": "sha256:84ee88eb896aaab42abbb41b83cb870ea007e3505d0cc06ef398f49e29489e30"
+              },
+              {
+                "role": "token",
+                "ref": "bpmn:i2/tok-credit",
+                "content": {
+                  "instance": "bpmn:i2",
+                  "flow": "f-credit-done"
+                },
+                "source_revision": "sha256:56ae498c846b795dbc47a73d20db499c139f1f74eb382ba30bb42bafcea2551a"
+              }
+            ],
+            "parameters": {
+              "activation_scope": "bpmn:i2"
+            }
+          },
+          "result": {
+            "schema": "aiaeao.evaluator-result/v0.2",
+            "method_id": "analyze.trace-conformance/v0-probe",
+            "descriptor_digest": "sha256:2f94497331d91c181e06cda170c22f7f7c6288683ad6c7d6dbe83a4a8df72342",
+            "derivation_ref": "sha256:af8108d533345f167e61cd5250b72791df0a8fe61e709232de6da254ce7c0edf",
+            "evaluator_id": "probe.hand-authored/v0",
+            "disposition": "unresolved",
+            "outcome": {
+              "kind": "join_activation",
+              "value": "waiting_for_input",
+              "detail": {
+                "instance": "bpmn:i2",
+                "consumed": [],
+                "missing_flows": [
+                  "f-stock-done"
+                ]
+              }
+            },
+            "findings": [
+              "bpmn:i2 has no token on f-stock-done yet"
+            ],
+            "limitations": [
+              "Probe-Instanz von Hand erstellt (authored_synthetic); kein Evaluator ausgeführt.",
+              "assessed bedeutet nur: innerhalb der Probe-Regeln bewertet; keine Domänenwahrheit."
+            ],
+            "runtime_authority": "not-evaluated",
+            "effectful_execution_authorized": false,
+            "selected_alternative": null
+          }
+        }
+      ],
+      "distinctions": [
+        {
+          "id": "d1",
+          "what": "Instanz der geprüften Aktivierung",
+          "expected_carrier": "U",
+          "path": "call.parameters.activation_scope"
+        },
+        {
+          "id": "d2",
+          "what": "Instanz je verbrauchtem Token",
+          "expected_carrier": "U",
+          "path": "call.inputs[].content.instance"
+        },
+        {
+          "id": "d3",
+          "what": "konform vs. instanzübergreifender Verstoß",
+          "expected_carrier": "U",
+          "path": "result.outcome.value"
+        },
+        {
+          "id": "d4",
+          "what": "Verstoß vs. unvollständige Spur",
+          "expected_carrier": "T",
+          "path": "result.disposition"
+        },
+        {
+          "id": "d5",
+          "what": "ein Ergebnis je Instanz",
+          "expected_carrier": "T",
+          "path": "result.derivation_ref (je Aufruf)",
+          "note": "nur über getrennte Aufrufe; kein Sammelergebnis"
+        },
+        {
+          "id": "d6",
+          "what": "keine Ausführungsbehauptung",
+          "expected_carrier": "T",
+          "path": "result.effectful_execution_authorized, result.runtime_authority"
+        }
+      ],
+      "expected": [
+        "alle drei Aufrufe und Ergebnisse schema-gültig, Identität stimmt",
+        "Träger wie angegeben: keine N, d4/d5/d6 T, d1/d2/d3 nur U",
+        "Instanzbindung je Eingang hat keinen typisierten Ort (nur content/ref); Sammelergebnis über Instanzen nicht vorgesehen",
+        "Ergebnis nach R-E2: Typisierungslücke (deckt sich mit G-08), keine Envelope-Erweiterung"
+      ]
+    },
+    "L-1": {
+      "question": 4,
+      "use_case": "Architektursichten",
+      "case": "C4-02/C4-03",
+      "gap": "G-02, VR-01, PO-3",
+      "mapping_note": "Darstellungsabbildung (A) wie R-2; e-unbound steht für eine Kante ohne gebundene Herkunft (C4-03-Muster) und ist deshalb auf das Paar Repository → Database gelegt, um Überlagerung mit e-implied zu vermeiden. Die Herkunftsklasse steckt im witness_ref-Präfix (model:/derived:/unbound:).",
+      "context": {
+        "format": "aiaeao.cube.binding-context/5",
+        "reference_version": "v9.4",
+        "context_id": "mile004-c4",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "mile004:c4",
+        "referents": [
+          {
+            "ref": "c4:api",
+            "concept_id": "Z:module-body:runtime",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "mile004:c4"
+          },
+          {
+            "ref": "c4:order-controller",
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "mile004:c4"
+          },
+          {
+            "ref": "c4:order-repository",
+            "concept_id": "Z:module-body:integration",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "mile004:c4"
+          },
+          {
+            "ref": "c4:db",
+            "concept_id": "Z:module-body:provider",
+            "home": "Z",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "mile004:c4"
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "migration_plans": [
+          {
+            "plan_id": "mp-c4o",
+            "revision": "mile004:v1",
+            "scope": "mile004:c4",
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "target"
+              }
+            ],
+            "transitions": [],
+            "dependencies": [
+              {
+                "dependency_id": "e-writes",
+                "subject": "c4:order-controller",
+                "object": "c4:db",
+                "predicate_id": "writes-orders-to",
+                "kind": "other",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "witness_ref": "model:c4-shop#orderController-db"
+              },
+              {
+                "dependency_id": "e-implied",
+                "subject": "c4:api",
+                "object": "c4:db",
+                "predicate_id": "uses-implied",
+                "kind": "other",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "witness_ref": "derived:c4-shop#implied-api-db"
+              },
+              {
+                "dependency_id": "e-unbound",
+                "subject": "c4:order-repository",
+                "object": "c4:db",
+                "predicate_id": "reads-orders-from",
+                "kind": "other",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "witness_ref": "unbound:c4-shop#repository-db"
+              }
+            ]
+          }
+        ]
+      },
+      "plan_id": "mp-c4o",
+      "calls": [
+        {
+          "call_id": "L-1a",
+          "plan_source": {
+            "printer": "vpmigration"
+          },
+          "plan_views": {
+            "view": "cube.flow",
+            "granularity": "standard",
+            "partition": "object",
+            "lens": "cube.lens.provenance"
+          }
+        },
+        {
+          "call_id": "L-1b",
+          "plan_source": {
+            "printer": "vpmigration",
+            "witness_prefixes": {
+              "format": "aiaeao.cube.vp07-witness-prefixes/1",
+              "prefixes": [
+                {
+                  "prefix": "derived:",
+                  "note": "Herkunft abgeleitet"
+                }
+              ]
+            }
+          },
+          "plan_views": {
+            "view": "cube.flow",
+            "granularity": "standard",
+            "partition": "object",
+            "lens": "cube.lens.epistemology"
+          }
+        }
+      ],
+      "expected": {
+        "L-1a": [
+          "plan_check PASS; drei Kanten, vier Knoten",
+          "alle drei Kanten mit demselben Provenienz-Akzent; Linsenfeld 'PROVENANCE · 3 DECLARED FOCUS'",
+          "die drei Herkunftsklassen sind im Bild nicht unterscheidbar; das witness_ref-Präfix steht nur in den Metadaten"
+        ],
+        "L-1b": [
+          "plan_check PASS",
+          "nur e-implied mit Epistemologie-Akzent; Linsenfeld '… 1 DECLARED FOCUS'",
+          "e-writes (deklariert) und e-unbound (Herkunft nicht gebunden) gleich gezeichnet: genau eine binäre Unterscheidung je Linse"
+        ]
+      },
+      "decision_rule": "Zeigt eine Linsenvariante drei Herkunftsklassen unterscheidbar, trägt LENS die Herkunft. Sonst: LENS hebt deklarierten Fokus binär hervor; Herkunft braucht typisierte Bindung (G-02) und Kantenstil (VR-01), keine LENS-Erweiterung."
+    },
+    "L-2": {
+      "question": 4,
+      "use_case": "Prozessspuren",
+      "case": "BPMN-03",
+      "gap": "G-08, VR-12",
+      "mapping_note": "Darstellungsabbildung (A): Token und Join-Aktivierung J1 als Y:resource-object:resource (Adapterkonzept); J1 paart laut Aussage i1/tok-stock mit i2/tok-credit (BPMN-03). i1/tok-credit ist Referent, aber nicht Teil von J1. Instanz als deklarierte Track-Map (VP-07 D-3b); J1 ist i1 zugeordnet.",
+      "context": {
+        "format": "aiaeao.cube.binding-context/5",
+        "reference_version": "v9.4",
+        "context_id": "mile004-bpmn",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "mile004:bpmn",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "mile004:bpmn"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "mile004:bpmn"
+          },
+          {
+            "ref": "bpmn:i2/tok-credit",
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "mile004:bpmn"
+          },
+          {
+            "ref": "bpmn:j1",
+            "concept_id": "Y:resource-object:resource",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "mile004:bpmn"
+          }
+        ],
+        "predicate_contracts": [],
+        "predicate_profile_refs": [
+          "P1.10/migration-predicates-v1"
+        ],
+        "migration_plans": [
+          {
+            "plan_id": "mp-bpmn",
+            "revision": "mile004:v1",
+            "scope": "mile004:bpmn",
+            "origin": "illustrative_fixture",
+            "phases": [
+              {
+                "phase_id": "p0",
+                "role": "current"
+              },
+              {
+                "phase_id": "p1",
+                "role": "target"
+              }
+            ],
+            "transitions": [],
+            "dependencies": [
+              {
+                "dependency_id": "e-stock",
+                "subject": "bpmn:i1/tok-stock",
+                "object": "bpmn:j1",
+                "predicate_id": "consumed-by",
+                "kind": "other",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "witness_ref": "trace:bpmn-order#i1-stock"
+              },
+              {
+                "dependency_id": "e-cross",
+                "subject": "bpmn:i2/tok-credit",
+                "object": "bpmn:j1",
+                "predicate_id": "consumed-by",
+                "kind": "other",
+                "holds_in": [
+                  "p0",
+                  "p1"
+                ],
+                "witness_ref": "trace:bpmn-order#j1-i2-credit"
+              }
+            ]
+          }
+        ]
+      },
+      "plan_id": "mp-bpmn",
+      "tracks": {
+        "format": "aiaeao.cube.vp07-track-map/1",
+        "tracks": {
+          "i1": [
+            "bpmn:i1/tok-stock",
+            "bpmn:i1/tok-credit",
+            "bpmn:j1"
+          ],
+          "i2": [
+            "bpmn:i2/tok-credit"
+          ]
+        }
+      },
+      "calls": [
+        {
+          "call_id": "L-2",
+          "plan_source": {
+            "printer": "vpmigration",
+            "tracks": "<tracks>"
+          },
+          "plan_views": {
+            "view": "cube.flow",
+            "granularity": "standard",
+            "partition": "track",
+            "lens": "cube.lens.provenance"
+          }
+        }
+      ],
+      "expected": {
+        "L-2": [
+          "plan_check PASS; zwei Panels mit Partitionswert i1 und i2",
+          "Panel i1: e-stock; Panel i2: e-cross; J1 erscheint in beiden Panels und wird im Bericht als Wiederholung geführt",
+          "e-cross ist gezeichnet wie e-stock: keine Markierung als instanzübergreifend",
+          "dass J1 zu i1 gehört, steht nirgends im Bild (Track nur für Subjekte)"
+        ]
+      },
+      "decision_rule": "Trennt die Partition die Instanzen und macht sie die Kante J1 ← i2/tok-credit als instanzübergreifend sichtbar, trägt die vorhandene Bindung die Instanzgruppierung. Trennt sie nur nach Subjekt-Track ohne Markierung: Gruppierung ist als Adapter-Map möglich, Instanzbindung und Verstoßmarkierung fehlen (G-08, VR-12).",
+      "mode": {
+        "probe": "L-2/MODE",
+        "status": "NE",
+        "reason": "P0 v9.4 friert für M (Mode) weder Werte noch Übergänge noch Bindung ein (morphology.md §3.10, constraints C021); kein Validator und kein Printer liest MODE. Eine Probe 'Instanzsemantik als MODE' ist daher nicht ausführbar.",
+        "consequence": "Leitfrage 4 bleibt für MODE präzise offen: Prüfbar erst nach einem eingefrorenen MODE-Schema; morphologisch ist Mode ein Betriebsregime, keine Instanzidentität."
+      }
+    }
+  },
+  "not_claimed": [
+    "Vollständigkeit des Envelope-Rahmens über diese Fälle hinaus",
+    "Nutzen oder Lesbarkeit",
+    "Laufzeitverhalten eines echten Evaluators"
+  ]
+}

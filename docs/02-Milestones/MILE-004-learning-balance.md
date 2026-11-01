@@ -1,6 +1,6 @@
 # MILE-004 — Lernbilanz und Maßnahmenwahl
 
-Status: planned · Stand: 2026-11-01 · Voraussetzung: MILE-002 und MILE-003 abgeschlossen und abgenommen
+Status: in_progress · Stand: 2026-11-01 · Voraussetzung: MILE-002 und MILE-003 abgeschlossen und abgenommen
 
 ## Ergebnis
 
