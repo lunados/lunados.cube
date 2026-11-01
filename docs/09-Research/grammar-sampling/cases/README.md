@@ -8,6 +8,7 @@ Format `aiaeao.cube.research-case/2` für neu erstellte synthetische Fälle. His
 | C4-01-* (3), C4-02-* (3), C4-03-* (3) | TASK-011, je Matrixfall Normalfall + zwei Kontrollen | siehe Fallberichte | alle erwartungsgemäß ([Bericht](../../../10-Evidence/MILE-002/task011-c4-report.json)) |
 | ARC-01-* (2), ARC-02-* (2), ARC-03-* (3) | TASK-012; ARC-02-count-rule und ARC-03-absence-claim `not_executable` | siehe Fallberichte | ausführbare erwartungsgemäß, zwei `NOT_EXECUTED` ([Bericht](../../../10-Evidence/MILE-002/task012-archimate-report.json)) |
 | DSM-01-* (3), DSM-02-* (3), DSM-03-* (3) | TASK-013; DSM-03-empty-known und DSM-03-hidden `not_executable` | siehe Fallberichte | ausführbare erwartungsgemäß, zwei `NOT_EXECUTED` ([Bericht](../../../10-Evidence/MILE-002/task013-dsm-report.json)) |
+| DAG-01-statement, DAG-03-cycle-edge | TASK-015, P1-Teil; LIB-Aufrufe getrennt unter [lib-calls/](../lib-calls/) | PASS | erwartungsgemäß ([P1](../../../10-Evidence/MILE-002/task015-dag-p1-report.json), [LIB](../../../10-Evidence/MILE-002/task015-dag-lib-calls.json)) |
 
 ## Pflichtfelder v2
 
