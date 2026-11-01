@@ -1,0 +1,346 @@
+{
+  "format": "aiaeao.cube.plan-source/1",
+  "printer": "vpmigration",
+  "profile": "P2-VP-MIGRATION/0.7.1",
+  "source": {
+    "format": "aiaeao.cube.vp07-migration-source/1",
+    "profile": "P2-VP-MIGRATION/0.7.1",
+    "reference_version": "v9.4",
+    "context_id": "mile003-dag",
+    "plan_id": "mp-dag",
+    "source_context_sha256": "63e62f7416998221ea966086b52da78372097264f7347293f6b582984bddbee6",
+    "title": "mp-dag · p0 → p1",
+    "steps": [
+      {
+        "id": "p0",
+        "label": "p0 · current"
+      },
+      {
+        "id": "p1",
+        "label": "p1 · target"
+      }
+    ],
+    "rows": [
+      {
+        "id": "wi:b",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "label": "wi:b",
+        "semantic_ref": "Y:α:Resource[\"wi:b\"]"
+      },
+      {
+        "id": "wi:c",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "label": "wi:c",
+        "semantic_ref": "Y:α:Resource[\"wi:c\"]"
+      },
+      {
+        "id": "wi:d",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "label": "wi:d",
+        "semantic_ref": "Y:α:Resource[\"wi:d\"]"
+      },
+      {
+        "id": "wi:a",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "label": "wi:a",
+        "semantic_ref": "Y:α:Resource[\"wi:a\"]"
+      }
+    ],
+    "objects": [
+      {
+        "id": "wi:a",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "label": "wi:a",
+        "semantic_ref": "Y:α:Resource[\"wi:a\"]"
+      },
+      {
+        "id": "wi:b",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "label": "wi:b",
+        "semantic_ref": "Y:α:Resource[\"wi:b\"]"
+      },
+      {
+        "id": "wi:c",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "label": "wi:c",
+        "semantic_ref": "Y:α:Resource[\"wi:c\"]"
+      },
+      {
+        "id": "wi:d",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "label": "wi:d",
+        "semantic_ref": "Y:α:Resource[\"wi:d\"]"
+      }
+    ],
+    "cells": [
+      {
+        "id": "k-ba",
+        "row": "wi:b",
+        "object": "wi:a",
+        "predicate_id": "requires",
+        "steps": [
+          "p0"
+        ],
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/0",
+        "declared_end": "unexplained"
+      },
+      {
+        "id": "k-ca",
+        "row": "wi:c",
+        "object": "wi:a",
+        "predicate_id": "requires",
+        "steps": [
+          "p0"
+        ],
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/1",
+        "declared_end": "unexplained"
+      },
+      {
+        "id": "k-db",
+        "row": "wi:d",
+        "object": "wi:b",
+        "predicate_id": "requires",
+        "steps": [
+          "p0"
+        ],
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/2",
+        "declared_end": "unexplained"
+      },
+      {
+        "id": "k-dc",
+        "row": "wi:d",
+        "object": "wi:c",
+        "predicate_id": "requires",
+        "steps": [
+          "p0"
+        ],
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/3",
+        "declared_end": "unexplained"
+      },
+      {
+        "id": "k-ad",
+        "row": "wi:a",
+        "object": "wi:d",
+        "predicate_id": "requires",
+        "steps": [
+          "p0"
+        ],
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/4",
+        "declared_end": "unexplained"
+      }
+    ],
+    "transitions": [],
+    "facet_bindings": [
+      {
+        "lens": "cube.lens.execution",
+        "target_kind": "cell",
+        "target_id": "k-ba",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/0",
+        "note": "kind other",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.provenance",
+        "target_kind": "cell",
+        "target_id": "k-ba",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/0/witness_ref",
+        "note": "witness cycle:dag-workitems#b-a",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.epistemology",
+        "target_kind": "cell",
+        "target_id": "k-ba",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/0/witness_ref",
+        "note": "Zyklus a→d→b→a, von Hand deklariert",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.execution",
+        "target_kind": "cell",
+        "target_id": "k-ca",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/1",
+        "note": "kind other",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.provenance",
+        "target_kind": "cell",
+        "target_id": "k-ca",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/1/witness_ref",
+        "note": "witness model:dag-workitems#c-a",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.execution",
+        "target_kind": "cell",
+        "target_id": "k-db",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/2",
+        "note": "kind other",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.provenance",
+        "target_kind": "cell",
+        "target_id": "k-db",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/2/witness_ref",
+        "note": "witness cycle:dag-workitems#d-b",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.epistemology",
+        "target_kind": "cell",
+        "target_id": "k-db",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/2/witness_ref",
+        "note": "Zyklus a→d→b→a, von Hand deklariert",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.execution",
+        "target_kind": "cell",
+        "target_id": "k-dc",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/3",
+        "note": "kind other",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.provenance",
+        "target_kind": "cell",
+        "target_id": "k-dc",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/3/witness_ref",
+        "note": "witness model:dag-workitems#d-c",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.execution",
+        "target_kind": "cell",
+        "target_id": "k-ad",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/4",
+        "note": "kind other",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.provenance",
+        "target_kind": "cell",
+        "target_id": "k-ad",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/4/witness_ref",
+        "note": "witness cycle:dag-workitems#a-d",
+        "basis": "declared_unverified"
+      },
+      {
+        "lens": "cube.lens.epistemology",
+        "target_kind": "cell",
+        "target_id": "k-ad",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/4/witness_ref",
+        "note": "Zyklus a→d→b→a, von Hand deklariert",
+        "basis": "declared_unverified"
+      }
+    ],
+    "declaration_status": "declared_unverified",
+    "target_step": "p1"
+  },
+  "mapping": {
+    "format": "aiaeao.cube.vp07-mapping/1",
+    "profile": "P2-VP-MIGRATION/0.7.1",
+    "source_context_sha256": "63e62f7416998221ea966086b52da78372097264f7347293f6b582984bddbee6",
+    "context_id": "mile003-dag",
+    "plan_id": "mp-dag",
+    "slice": {
+      "steps": [
+        "p0",
+        "p1"
+      ],
+      "subjects": null,
+      "track": null
+    },
+    "track_map_sha256": null,
+    "label_map_sha256": null,
+    "witness_prefixes_sha256": "715ac6e7dd22e7fd5b2b214e199275b0e38f4ca66bf794974a772093e3417a88",
+    "referents": [
+      {
+        "ref": "wi:b",
+        "id": "wi:b",
+        "label": "wi:b",
+        "concept_id": "Y:resource-object:resource",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card"
+      },
+      {
+        "ref": "wi:a",
+        "id": "wi:a",
+        "label": "wi:a",
+        "concept_id": "Y:resource-object:resource",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card"
+      },
+      {
+        "ref": "wi:c",
+        "id": "wi:c",
+        "label": "wi:c",
+        "concept_id": "Y:resource-object:resource",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card"
+      },
+      {
+        "ref": "wi:d",
+        "id": "wi:d",
+        "label": "wi:d",
+        "concept_id": "Y:resource-object:resource",
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card"
+      }
+    ],
+    "dependencies": [
+      {
+        "dependency_id": "k-ba",
+        "pointer": "/migration_plans/0/dependencies/0",
+        "steps": [
+          "p0"
+        ]
+      },
+      {
+        "dependency_id": "k-ca",
+        "pointer": "/migration_plans/0/dependencies/1",
+        "steps": [
+          "p0"
+        ]
+      },
+      {
+        "dependency_id": "k-db",
+        "pointer": "/migration_plans/0/dependencies/2",
+        "steps": [
+          "p0"
+        ]
+      },
+      {
+        "dependency_id": "k-dc",
+        "pointer": "/migration_plans/0/dependencies/3",
+        "steps": [
+          "p0"
+        ]
+      },
+      {
+        "dependency_id": "k-ad",
+        "pointer": "/migration_plans/0/dependencies/4",
+        "steps": [
+          "p0"
+        ]
+      }
+    ],
+    "empty_steps": [
+      "p1"
+    ],
+    "dropped_transitions": [],
+    "facets_generated": 13,
+    "p1_validation_performed": false,
+    "declaration_status": "declared_unverified"
+  }
+}

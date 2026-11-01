@@ -1,0 +1,39 @@
+{
+  "format": "mile003.render-log/1",
+  "git_head": "03b8e62cb8be586eb7cd4851a0e95156df329269",
+  "python": "3.13.16",
+  "runs": [
+    {
+      "call_id": "P-09a2",
+      "spec_sha256": "1b6605b1f76ad48ce254db2c415721870dbf7a48c1b69918c528cba505b67d09",
+      "status": "RENDERED",
+      "check": "PASS",
+      "svgs": {
+        "P-09a2-00.svg": {
+          "json_path": "/index/svg",
+          "sha256": "2aa38425213566048a5220330153f869bcac79202c79e47cbbd76059f91f4a3b"
+        },
+        "P-09a2-01.svg": {
+          "json_path": "/panels/0/svg",
+          "sha256": "042b18f4030d4ff2f06db7807ae7917ef3700f724f693359845d53b8d4982367"
+        }
+      }
+    },
+    {
+      "call_id": "P-09b",
+      "spec_sha256": "1b6605b1f76ad48ce254db2c415721870dbf7a48c1b69918c528cba505b67d09",
+      "status": "RENDERED",
+      "check": "PASS",
+      "svgs": {
+        "P-09b-00.svg": {
+          "json_path": "/index/svg",
+          "sha256": "bac7f9d3dad0b801b949c3e13e937392a1e1843f67d37d3b7f95d9c3ea88c402"
+        },
+        "P-09b-01.svg": {
+          "json_path": "/panels/0/svg",
+          "sha256": "9412341904acb8d77bc75118404aa4aeb946c73bccb11f79b75278365e6e962f"
+        }
+      }
+    }
+  ]
+}

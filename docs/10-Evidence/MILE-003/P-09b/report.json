@@ -1,0 +1,529 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "coverage": {
+    "is_minimum_proven": false,
+    "repeated_cell_ids": [],
+    "repeated_row_ids": [],
+    "status": "COMPLETE",
+    "uncovered_units": [],
+    "units_covered": 5,
+    "units_total": 5
+  },
+  "current_authority": "NOT_EVALUATED",
+  "declared_conflicts": [],
+  "declared_gaps": [
+    {
+      "basis": "declared_end",
+      "cell_id": "k-ba",
+      "code": "VP07_DECLARED_GAP",
+      "last_step": "p0",
+      "object": "wi:a",
+      "target_step": "p1"
+    },
+    {
+      "basis": "declared_end",
+      "cell_id": "k-ca",
+      "code": "VP07_DECLARED_GAP",
+      "last_step": "p0",
+      "object": "wi:a",
+      "target_step": "p1"
+    },
+    {
+      "basis": "declared_end",
+      "cell_id": "k-db",
+      "code": "VP07_DECLARED_GAP",
+      "last_step": "p0",
+      "object": "wi:b",
+      "target_step": "p1"
+    },
+    {
+      "basis": "declared_end",
+      "cell_id": "k-dc",
+      "code": "VP07_DECLARED_GAP",
+      "last_step": "p0",
+      "object": "wi:c",
+      "target_step": "p1"
+    },
+    {
+      "basis": "declared_end",
+      "cell_id": "k-ad",
+      "code": "VP07_DECLARED_GAP",
+      "last_step": "p0",
+      "object": "wi:d",
+      "target_step": "p1"
+    }
+  ],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "files": {
+    "index.svg": "bac7f9d3dad0b801b949c3e13e937392a1e1843f67d37d3b7f95d9c3ea88c402",
+    "panel-01.input.json": "ddb740b7779a8566bc5c9d1a1d6bbff6cea234de25b6b64d2a9a9df6719745f8",
+    "panel-01.svg": "9412341904acb8d77bc75118404aa4aeb946c73bccb11f79b75278365e6e962f"
+  },
+  "format": "aiaeao.cube.vp07-panel-report/1",
+  "granularity": "detail",
+  "lens": "cube.lens.epistemology",
+  "migration_view_profile": "P2-VP-MIGRATION/0.7.1",
+  "notices": [
+    "Panels repeat rows for context; every repetition is listed.",
+    "Partition is deterministic (declared order), not a proven minimal partition.",
+    "The index is a drawn table of contents; it embeds no panel."
+  ],
+  "panel_count": 1,
+  "panel_ledger": [
+    {
+      "input_sha256": "ddb740b7779a8566bc5c9d1a1d6bbff6cea234de25b6b64d2a9a9df6719745f8",
+      "key_values": [
+        "p0"
+      ],
+      "panel": "panel-01",
+      "panel_report": {
+        "canonical_admission": "NOT_EVALUATED",
+        "completeness": "COMPLETE_INPUT_VIEW",
+        "conformance": {
+          "canonical_admission": "NOT_EVALUATED",
+          "chart_axis_rescaled": false,
+          "completeness": "COMPLETE_INPUT_VIEW",
+          "current_authority": "NOT_EVALUATED",
+          "decision": {
+            "action": "SINGLE_COMPLETE",
+            "rationale": "entire declared source is visible in this projection",
+            "status": "descriptive_display_only"
+          },
+          "dimensions": {
+            "granularity": "detail",
+            "lens": "cube.lens.epistemology",
+            "view": "cube.flow"
+          },
+          "displayed_item_ids": [
+            "wi:b",
+            "wi:c",
+            "wi:d",
+            "wi:a"
+          ],
+          "displayed_lens_declarations": 13,
+          "displayed_source_edge_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "epistemic_warrant": "NOT_EVALUATED",
+          "format": "aiaeao.cube.vp05-conformance-report/1",
+          "invariants_passed": [
+            "SOURCE_SHA256_LOCK",
+            "CUBE_VIEW_NAMESPACE",
+            "DECLARED_LENS_ONLY",
+            "GRANULARITY_SCOPE",
+            "EXACT_ITEM_PARTITION",
+            "EXACT_EDGE_PARTITION",
+            "LOSS_LEDGER_BALANCED",
+            "ORIGINAL_ITEMS_UNCHANGED",
+            "ORIGINAL_EDGES_UNCHANGED",
+            "LENS_EDGE_REMAP_DECLARED",
+            "EXACT_LENS_BINDING_PARTITION",
+            "SVG_SOURCE_LOCK",
+            "NO_ACTIVE_SVG_CONTENT",
+            "ONE_EMBEDDED_LOSS_LEDGER",
+            "EMBEDDED_REPORT_MATCH",
+            "NO_SEMANTIC_AUTHORITY_PROMOTION",
+            "SOURCE_IS_DECLARED_UNVERIFIED"
+          ],
+          "limits": [
+            "Split feasibility is a heuristic, not a generated multi-page export or optimal partition",
+            "Glyph rendering varies with installed fonts",
+            "P1 semantic conformance is not evaluated by the SVG printer"
+          ],
+          "omitted_item_ids": [],
+          "omitted_lens_declarations": 0,
+          "omitted_source_edge_ids": [],
+          "profile": "P2-VP-CONFORMANCE/0.5.0",
+          "reference_version": "v9.4",
+          "source_bundle_sha256": "fc8e478a47035bcaa9dccb432a937e3fef108016e0bf117771f67bc3f9666b47",
+          "source_status": "declared_unverified",
+          "split_feasibility": {
+            "estimated_panel_count": 1,
+            "is_minimum_proven": false,
+            "panels": [
+              {
+                "focus": null,
+                "shown_edge_ids": [
+                  "e1",
+                  "e2",
+                  "e3",
+                  "e4",
+                  "e5"
+                ],
+                "shown_item_ids": [
+                  "wi:a",
+                  "wi:b",
+                  "wi:c",
+                  "wi:d"
+                ]
+              }
+            ],
+            "panels_materialized": false,
+            "repeated_item_ids": [],
+            "status": "NOT_REQUIRED",
+            "strategy": "focused_panels_from_immutable_source",
+            "unavailable_focus_count": 0,
+            "uncovered_edge_ids": [],
+            "uncovered_item_ids": []
+          },
+          "status": "PASS",
+          "svg_sha256": "9412341904acb8d77bc75118404aa4aeb946c73bccb11f79b75278365e6e962f",
+          "vp04_report_sha256": "b5a3566daebc892c731c8c58eadb60fdafa487b2ecd99264dbbadfaf237a1f54"
+        },
+        "current_authority": "NOT_EVALUATED",
+        "decision": {
+          "action": "SINGLE_COMPLETE",
+          "rationale": "entire declared source is visible in this projection",
+          "status": "descriptive_display_only"
+        },
+        "dimensions": {
+          "granularity": "detail",
+          "lens": "cube.lens.epistemology",
+          "view": "cube.flow"
+        },
+        "epistemic_warrant": "NOT_EVALUATED",
+        "format": "aiaeao.cube.vp06-print-result/1",
+        "limitations": [
+          "The source and facet declarations are unverified",
+          "P1 semantic conformance is not evaluated",
+          "Font availability varies by rendering environment",
+          "Split feasibility is not an automatic multi-SVG export"
+        ],
+        "loss_ledger": {
+          "displayed_item_ids": [
+            "wi:b",
+            "wi:c",
+            "wi:d",
+            "wi:a"
+          ],
+          "displayed_lens_declarations": 13,
+          "displayed_source_edge_ids": [
+            "e1",
+            "e2",
+            "e3",
+            "e4",
+            "e5"
+          ],
+          "omitted_item_ids": [],
+          "omitted_lens_declarations": 0,
+          "omitted_source_edge_ids": []
+        },
+        "profile": "P2-VP/1.0.0-rc1",
+        "reference_version": "v9.4",
+        "request_sha256": "eed99ce6ff4a4c87e772114775d5c94a42a491d50639f87d1cfb3741de09a040",
+        "source_bundle_sha256": "fc8e478a47035bcaa9dccb432a937e3fef108016e0bf117771f67bc3f9666b47",
+        "split_feasibility": {
+          "estimated_panel_count": 1,
+          "is_minimum_proven": false,
+          "panels": [
+            {
+              "focus": null,
+              "shown_edge_ids": [
+                "e1",
+                "e2",
+                "e3",
+                "e4",
+                "e5"
+              ],
+              "shown_item_ids": [
+                "wi:a",
+                "wi:b",
+                "wi:c",
+                "wi:d"
+              ]
+            }
+          ],
+          "panels_materialized": false,
+          "repeated_item_ids": [],
+          "status": "NOT_REQUIRED",
+          "strategy": "focused_panels_from_immutable_source",
+          "unavailable_focus_count": 0,
+          "uncovered_edge_ids": [],
+          "uncovered_item_ids": []
+        },
+        "status": "PASS",
+        "svg_sha256": "9412341904acb8d77bc75118404aa4aeb946c73bccb11f79b75278365e6e962f"
+      },
+      "shown_cell_ids": [
+        "k-ba",
+        "k-ca",
+        "k-db",
+        "k-dc",
+        "k-ad"
+      ],
+      "shown_row_ids": [
+        "wi:b",
+        "wi:c",
+        "wi:d",
+        "wi:a"
+      ],
+      "step": "p0",
+      "svg_sha256": "9412341904acb8d77bc75118404aa4aeb946c73bccb11f79b75278365e6e962f",
+      "units": [
+        "k-ad@p0",
+        "k-ba@p0",
+        "k-ca@p0",
+        "k-db@p0",
+        "k-dc@p0"
+      ]
+    }
+  ],
+  "partition": "step",
+  "profile": "P2-VP-MIGRATION/0.7.1",
+  "reference_version": "v9.4",
+  "semantic_conformance": "NOT_EVALUATED",
+  "source": {
+    "cells": [
+      {
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/0",
+        "declared_end": "unexplained",
+        "id": "k-ba",
+        "object": "wi:a",
+        "predicate_id": "requires",
+        "row": "wi:b",
+        "steps": [
+          "p0"
+        ]
+      },
+      {
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/1",
+        "declared_end": "unexplained",
+        "id": "k-ca",
+        "object": "wi:a",
+        "predicate_id": "requires",
+        "row": "wi:c",
+        "steps": [
+          "p0"
+        ]
+      },
+      {
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/2",
+        "declared_end": "unexplained",
+        "id": "k-db",
+        "object": "wi:b",
+        "predicate_id": "requires",
+        "row": "wi:d",
+        "steps": [
+          "p0"
+        ]
+      },
+      {
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/3",
+        "declared_end": "unexplained",
+        "id": "k-dc",
+        "object": "wi:c",
+        "predicate_id": "requires",
+        "row": "wi:d",
+        "steps": [
+          "p0"
+        ]
+      },
+      {
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/4",
+        "declared_end": "unexplained",
+        "id": "k-ad",
+        "object": "wi:d",
+        "predicate_id": "requires",
+        "row": "wi:a",
+        "steps": [
+          "p0"
+        ]
+      }
+    ],
+    "context_id": "mile003-dag",
+    "declaration_status": "declared_unverified",
+    "facet_bindings": [
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/0",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "k-ba",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/0/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness cycle:dag-workitems#b-a",
+        "target_id": "k-ba",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/0/witness_ref",
+        "lens": "cube.lens.epistemology",
+        "note": "Zyklus a→d→b→a, von Hand deklariert",
+        "target_id": "k-ba",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/1",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "k-ca",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/1/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness model:dag-workitems#c-a",
+        "target_id": "k-ca",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/2",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "k-db",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/2/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness cycle:dag-workitems#d-b",
+        "target_id": "k-db",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/2/witness_ref",
+        "lens": "cube.lens.epistemology",
+        "note": "Zyklus a→d→b→a, von Hand deklariert",
+        "target_id": "k-db",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/3",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "k-dc",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/3/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness model:dag-workitems#d-c",
+        "target_id": "k-dc",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/4",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "k-ad",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/4/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness cycle:dag-workitems#a-d",
+        "target_id": "k-ad",
+        "target_kind": "cell"
+      },
+      {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile003-dag#/migration_plans/0/dependencies/4/witness_ref",
+        "lens": "cube.lens.epistemology",
+        "note": "Zyklus a→d→b→a, von Hand deklariert",
+        "target_id": "k-ad",
+        "target_kind": "cell"
+      }
+    ],
+    "format": "aiaeao.cube.vp07-migration-source/1",
+    "objects": [
+      {
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "id": "wi:a",
+        "label": "wi:a",
+        "semantic_ref": "Y:α:Resource[\"wi:a\"]"
+      },
+      {
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "id": "wi:b",
+        "label": "wi:b",
+        "semantic_ref": "Y:α:Resource[\"wi:b\"]"
+      },
+      {
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "id": "wi:c",
+        "label": "wi:c",
+        "semantic_ref": "Y:α:Resource[\"wi:c\"]"
+      },
+      {
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "id": "wi:d",
+        "label": "wi:d",
+        "semantic_ref": "Y:α:Resource[\"wi:d\"]"
+      }
+    ],
+    "plan_id": "mp-dag",
+    "profile": "P2-VP-MIGRATION/0.7.1",
+    "reference_version": "v9.4",
+    "rows": [
+      {
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "id": "wi:b",
+        "label": "wi:b",
+        "semantic_ref": "Y:α:Resource[\"wi:b\"]"
+      },
+      {
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "id": "wi:c",
+        "label": "wi:c",
+        "semantic_ref": "Y:α:Resource[\"wi:c\"]"
+      },
+      {
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "id": "wi:d",
+        "label": "wi:d",
+        "semantic_ref": "Y:α:Resource[\"wi:d\"]"
+      },
+      {
+        "anchor_id": "resource-objects.resource",
+        "form_id": "form.resource-card",
+        "id": "wi:a",
+        "label": "wi:a",
+        "semantic_ref": "Y:α:Resource[\"wi:a\"]"
+      }
+    ],
+    "source_context_sha256": "63e62f7416998221ea966086b52da78372097264f7347293f6b582984bddbee6",
+    "steps": [
+      {
+        "id": "p0",
+        "label": "p0 · current"
+      },
+      {
+        "id": "p1",
+        "label": "p1 · target"
+      }
+    ],
+    "target_step": "p1",
+    "title": "mp-dag · p0 → p1",
+    "transitions": []
+  },
+  "source_sha256": "d40f13ac1ab81a4cf9dffe627c1e327324f95e9386f247f2482b993217fec8e4",
+  "source_status": "declared_unverified",
+  "status": "PASS",
+  "view": "cube.flow",
+  "warnings": []
+}
