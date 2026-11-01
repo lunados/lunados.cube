@@ -21,4 +21,8 @@ Für die ein bis zwei obersten Maßnahmen MILE-005 ausplanen: Milestone mit Char
 
 [TASK-027](TASK-027-learning-balance.md)
 
-Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Noch kein Ausführungsnachweis vorhanden.
+Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Ausführungsnachweis siehe Ergebnis.
+
+## Ergebnis
+
+Erledigt am 2026-11-01. [MILE-005 — Vollständigkeit und Instanzbindung](../02-Milestones/MILE-005-completeness-instances.md) ausgeplant (Status planned, nichts umgesetzt): drei Chargen, [EPIC-005](../03-Epics/EPIC-005-completeness-and-instances.md), US-018–020, TASK-030–036, OpenSpec-Vorschlag `declare-completeness-and-instances` mit drei Capabilities und vier Anforderungen. Profil-Ablauf wie P1.9; P0, P1.1–P1.9 und P2 bleiben byte-gleich. Sechs offene Nutzerentscheidungen (O-1 bis O-6) benannt, nicht vorweggenommen. Aufwand 5,25–7,25 PT; Risikominderung für G-01 durch ausführbare Prüffälle zuerst (TASK-030).

@@ -5,6 +5,7 @@
 | [EPIC-002](EPIC-002-local-capability-discovery.md) | Verlässliche lokale Selbstauskunft | MILE-001-A |
 | [EPIC-003](EPIC-003-reproducible-comparison.md) | Reproduzierbare Vergleichsprüfung und Übergabe | MILE-001-B/C |
 | [EPIC-001](EPIC-001-grammar-learning.md) | Eigentliche Lernanalyse über fünf Ansätze | MILE-002–004; nach Vorbereitung |
+| [EPIC-005](EPIC-005-completeness-and-instances.md) | Vollständigkeit und Instanzbindung prüfbar und darstellbar | MILE-005; geplant |
 
 Die IDs bleiben stabil; Reihenfolge folgt der Roadmap. EPIC-002, EPIC-003 und EPIC-004 sind abgeschlossen; EPIC-001 (eigentliche Lernanalyse) ist mit MILE-002 begonnen und bleibt bis MILE-004 offen.
 

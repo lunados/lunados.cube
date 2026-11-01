@@ -2,7 +2,8 @@
 
 ## Aktiv
 
-- [prioritize-learning-balance](prioritize-learning-balance/proposal.md) — MILE-004 geplant; drei Chargen, sechs offene Tasks.
+- [prioritize-learning-balance](prioritize-learning-balance/proposal.md) — MILE-004 in Arbeit.
+- [declare-completeness-and-instances](declare-completeness-and-instances/proposal.md) — MILE-005 geplant, nicht umgesetzt; sieben offene Tasks, sechs offene Entscheidungen.
 
 ## Abgeschlossen
 

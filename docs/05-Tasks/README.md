@@ -66,3 +66,19 @@ Führender Status: [prioritize-learning-balance/tasks.md](../../openspec/changes
 | [TASK-029 — Übergabe MILE-004](TASK-029-learning-handover.md) | US-017 | 1 h |
 
 Summe: 9–12 h (1–1,5 PT); Planungsannahmen.
+
+## MILE-005 — geplant
+
+Führender Status: [declare-completeness-and-instances/tasks.md](../../openspec/changes/declare-completeness-and-instances/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-030 — Ausführbare Prüffälle](TASK-030-executable-cases.md) | US-018, US-019 | 0,5 PT |
+| [TASK-031 — Abnahmespezifikation](TASK-031-acceptance-spec.md) | US-018, US-019 | 0,5 PT |
+| [TASK-032 — Entscheidungen auflösen](TASK-032-resolve-decisions.md) | US-018 | 0,25 PT |
+| [TASK-033 — P1-Profil](TASK-033-profile-impl.md) | US-018, US-019 | 1,5–2,5 PT |
+| [TASK-034 — Populationsprüfung (LIB)](TASK-034-lib-population.md) | US-018 | 0,75–1 PT |
+| [TASK-035 — Printer-Stand Zellzustände](TASK-035-cell-state-printer.md) | US-020 | 1–1,5 PT |
+| [TASK-036 — Adapter und Übergabe](TASK-036-adapter-acceptance.md) | US-020 | 0,75–1 PT |
+
+Summe: 5,25–7,25 PT; Planungsannahmen.

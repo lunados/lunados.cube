@@ -29,3 +29,9 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 - [US-015 — Offene Leitfragen gezielt prüfen](US-015-open-guiding-questions.md)
 - [US-016 — Maßnahmen nach Anwendungsfall priorisieren](US-016-prioritized-measures.md)
 - [US-017 — Folgeumsetzung vorbereiten und Epic abschließen](US-017-follow-up-plan.md)
+
+## MILE-005 — geplant
+
+- [US-018 — Vollständigkeit erklären und prüfen](US-018-completeness.md)
+- [US-019 — Instanzen typisiert binden](US-019-instance-binding.md)
+- [US-020 — Vier Zellzustände darstellen](US-020-cell-states.md)
