@@ -4,7 +4,7 @@ Format `aiaeao.cube.research-case/2` für neu erstellte synthetische Fälle. His
 
 | Fall | Art | Erwartung | Status |
 |---|---|---|---|
-| [A-PILOT-01-relation-declared](A-PILOT-01-relation-declared.json) | Pilot für TASK-010, kein Matrixfall | PASS, keine Diagnosen | Erwartung fixiert; lokaler Lauf ausstehend |
+| [A-PILOT-01-relation-declared](A-PILOT-01-relation-declared.json) | Pilot für TASK-010, kein Matrixfall | PASS, keine Diagnosen | PASS wie erwartet ([Nachweis](../../../10-Evidence/MILE-002/TASK-010-RESULT.md)) |
 
 ## Pflichtfelder v2
 
