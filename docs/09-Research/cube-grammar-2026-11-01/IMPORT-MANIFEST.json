@@ -1,0 +1,97 @@
+{
+  "imported_at": "2026-11-01",
+  "mode": "historical snapshot; source files unchanged; future work in lunados.cube/docs",
+  "files": [
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/ANALYSE.md",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/ANALYSE.md",
+      "source_sha256": "2d36c3449a4798df976478cd6e1f78261cd1e5929834c4193824bf5d4b8a8d2b",
+      "target_sha256": "81f90c1f7be0a6b834c8ebf89ac333c193e3adaeb8307dd3b62e403edf1540cc",
+      "adjustment": "Relative sibling-library link adjusted for new location; content otherwise unchanged."
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/HANDOVER.md",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/HANDOVER.md",
+      "source_sha256": "bdff5f19a077771f30a8f40f809a8104e12b567492bad1b601a59526435855b0",
+      "target_sha256": "bdff5f19a077771f30a8f40f809a8104e12b567492bad1b601a59526435855b0",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/LERNVERGLEICH.md",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/LERNVERGLEICH.md",
+      "source_sha256": "4cb0dd702d452e5ad1c99a9047962ec005e7b70c5156c975b8ebf992764b0ea1",
+      "target_sha256": "4cb0dd702d452e5ad1c99a9047962ec005e7b70c5156c975b8ebf992764b0ea1",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/README.md",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/README.md",
+      "source_sha256": "8407977a800e963cf771170f3abe41e86911e12f12fc768ac1bcf02a269cea54",
+      "target_sha256": "8407977a800e963cf771170f3abe41e86911e12f12fc768ac1bcf02a269cea54",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/XXL-REFERENZ.md",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/XXL-REFERENZ.md",
+      "source_sha256": "eabc9bc21038af199caa24b7c25a32f91eb49e779771bb12ee40d44a23d4d977",
+      "target_sha256": "eabc9bc21038af199caa24b7c25a32f91eb49e779771bb12ee40d44a23d4d977",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/evidence/axes-example.svg",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/evidence/axes-example.svg",
+      "source_sha256": "946eb23e28d7be739bf0897953c72fd07c0d8d40ec27f4dc95a3e293acac1395",
+      "target_sha256": "946eb23e28d7be739bf0897953c72fd07c0d8d40ec27f4dc95a3e293acac1395",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/evidence/dag-boundary.json",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/evidence/dag-boundary.json",
+      "source_sha256": "812f232be2b954935f8c86c712a39bb7842b8efe55b16d0876244eff555d0ead",
+      "target_sha256": "812f232be2b954935f8c86c712a39bb7842b8efe55b16d0876244eff555d0ead",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/evidence/discovery.json",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/evidence/discovery.json",
+      "source_sha256": "99de55e582de151d34ed75c2386ea7c39577518af3bec6f7e9a8d62b38be402d",
+      "target_sha256": "99de55e582de151d34ed75c2386ea7c39577518af3bec6f7e9a8d62b38be402d",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/evidence/learning-review-inventory.json",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/evidence/learning-review-inventory.json",
+      "source_sha256": "09ee507f29f1a92dd76eaed05038600d0968542370d3774389fdc09e524460a5",
+      "target_sha256": "09ee507f29f1a92dd76eaed05038600d0968542370d3774389fdc09e524460a5",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/evidence/library-verification.txt",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/evidence/library-verification.txt",
+      "source_sha256": "c5ea8c010d4174657a8a4d9708a4585d7a9f91228e5724e6d492f268bc3de4b5",
+      "target_sha256": "c5ea8c010d4174657a8a4d9708a4585d7a9f91228e5724e6d492f268bc3de4b5",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/evidence/mcp-probes.json",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/evidence/mcp-probes.json",
+      "source_sha256": "278bd73b285dc01ffef295e450da9337ace61f37dbc2e31250f2d761b12942c4",
+      "target_sha256": "278bd73b285dc01ffef295e450da9337ace61f37dbc2e31250f2d761b12942c4",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/evidence/p2-projection.json",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/evidence/p2-projection.json",
+      "source_sha256": "a6762119dd16b53d0ed0c7a4990a75c32ab6b53f2eff6101576c7e23cf8ffff2",
+      "target_sha256": "a6762119dd16b53d0ed0c7a4990a75c32ab6b53f2eff6101576c7e23cf8ffff2",
+      "adjustment": null
+    },
+    {
+      "source": "/Users/johannesklapproth/SitesHeroku/lunados.space/web/docs/research/cube-interop-2026-11-01/evidence/source-lock.json",
+      "target": "docs/09-Research/cube-grammar-2026-11-01/evidence/source-lock.json",
+      "source_sha256": "ab8f71eb23f83cc9411829590c805690360c8a642efa59442bccb3cf23bbb2b3",
+      "target_sha256": "ab8f71eb23f83cc9411829590c805690360c8a642efa59442bccb3cf23bbb2b3",
+      "adjustment": null
+    }
+  ]
+}

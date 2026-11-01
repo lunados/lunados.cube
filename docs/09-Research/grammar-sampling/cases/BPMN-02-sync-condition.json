@@ -1,0 +1,33 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "BPMN-02-sync-condition",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline P1-VC/1.0.0 + Versuchsabbildung mile002:bpmn:pred/1",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+    },
+    "rule_refs": [
+      "R-BPMN-2"
+    ],
+    "matrix_case": "BPMN-02",
+    "model": {
+      "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+      "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+    }
+  },
+  "operation": null,
+  "invocation_kind": "not_executable",
+  "non_execution": {
+    "reason": "§13.4.1: aktiviert, wenn auf jedem eingehenden Flow mindestens ein Token liegt; verbraucht genau einen je Eingang; überzählige bleiben liegen. Die binäre Relation 'joins' kann nur zwei Eingänge tragen und sagt nichts über Vollständigkeit, Verbrauch oder Überschuss. Dafür fehlen Populationsprüfung und ein Übergangsvertrag."
+  },
+  "expected": {
+    "domain_status": null,
+    "diagnostic_codes": [],
+    "fixed_before_execution": true,
+    "rationale": "Kein Fachstatus erwartbar: Die Synchronisationsbedingung ist eine Regel über mehrere Aussagen."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-01",
+  "scope": "inventory and static visual grammar consistency; no full five-language coverage proof",
+  "concept_index_count": 80,
+  "concept_homes": {
+    "X": 26,
+    "Y": 29,
+    "Z": 25
+  },
+  "visual_anchor_count": 129,
+  "visual_groups": {
+    "X": 22,
+    "Y": 63,
+    "Z": 31,
+    "UI": 13
+  },
+  "historical_aliases": 4,
+  "sources": {
+    "concepts": {
+      "path": "lunados.cube/AIAEAO_Pure_Cube_P0_v9.4/v9.4/grammar/concepts.json",
+      "sha256": "a15b0db3a3cfdb5874b8ab59de0ec9f4af08e8280e0634c48e3b37c3498000b8"
+    },
+    "symbols": {
+      "path": "lunados.cube/AIAEAO_Pure_Cube_P0_v9.4/v9.4/visual/symbols.json",
+      "sha256": "7d35d3e855e94f7b77c8c52fa6bddc6265cae57576b1beb5b8869a4170c54656"
+    },
+    "visual_guide": {
+      "path": "lunados.cube/AIAEAO_Pure_Cube_P0_v9.4/v9.4/visual/README.md",
+      "sha256": "2e985b26bdb250998b35c8d545f04c58531023de93d09b7e8a3e9d10b07c16b2"
+    },
+    "lens_grammar": {
+      "path": "lunados.cube/P2/visual-printer-2d-lab/VP03_LENS_GRAMMAR.md",
+      "sha256": "11537443f79767ba45d4fbf62cc97204d8ce517a3396ff10b75d689b7911c333"
+    },
+    "axes_readme": {
+      "path": "lunados.cube/P2/visual-printer-axes-v1/README.md",
+      "sha256": "017092d694aa62a24c1043524aa7438a6475df186e02ddfbda4b14b78673a91e"
+    },
+    "envelopes_readme": {
+      "path": "lunados.space/web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/README.md",
+      "sha256": "8ab71ad033b8be112216e1e2574dfa04ae51e8f2e4c442d82b900b87a55090fd"
+    }
+  },
+  "visual_verification": {
+    "command": "python3 -B /Users/johannesklapproth/SitesHeroku/lunados.cube/P1/visual-grammar-v1/scripts/verify_visual_grammar.py",
+    "exit_code": 0,
+    "stdout": "PASS P1-VG-basic: 129 v9.4 Unicode anchors; 12 form choices (11 historical + neutral fallback); 17 colors; 10 negative controls; immutable v9.4; public manifest integrity; zero SVG\n",
+    "limit": "Static consistency, not complete semantic coverage or usability."
+  }
+}

@@ -1,0 +1,17 @@
+schema: spec-driven
+context: |
+  Lunados Cube: existing P0 morphology, P1 validation, P2 projection and P3 MCP adapter.
+  Write project prose in German; preserve OpenSpec structural headings.
+  Current focus: learn from C4/Structurizr, ArchiMate, DSM/MDM, BPMN and DAG.
+  Existing versioned Cube contracts remain at their current paths; this setup does not replace them.
+  Public references are documentary. Local validation, external LIB evaluation and rendering are distinct.
+  Planning and research live in docs/; start with docs/README.md.
+rules:
+  proposal:
+    - State the smallest useful scope and its expected benefit.
+  specs:
+    - Make scenarios observable and distinguish failure, unresolved and unavailable.
+  design:
+    - Preserve the baseline and identify any proposed profile or contract revision.
+  tasks:
+    - Link evidence when marking work complete; keep one authoritative checklist per change.

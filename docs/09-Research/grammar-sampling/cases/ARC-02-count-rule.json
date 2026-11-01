@@ -1,0 +1,33 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "ARC-02-count-rule",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline P1-VC/1.0.0 + Versuchsabbildung mile002:am:pred/1",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+    },
+    "rule_refs": [
+      "R-AM-4"
+    ],
+    "matrix_case": "ARC-02",
+    "model": {
+      "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+      "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+    }
+  },
+  "operation": null,
+  "invocation_kind": "not_executable",
+  "non_execution": {
+    "reason": "Die lokale Zählregel (Ziel am:financial-processing, Rolle Ganzes der Composition, gezählt verschiedene Application Functions, min 2/max 3, Scope am:view/full, Modellstand 2026-11-01, Sicht als vollständig deklariert) ist in P1-VC/1.0.0 nicht ausdrückbar: cube_validate prüft genau einen Ausdruck; binding-context/1 hat keine Relationskardinalität. P1.6-Slots (binding-context/2) haben nur die Kardinalitäten one/many (≥1), gelten nur für X-Endpunkte und dürfen nicht erweitert werden. Ein Aufruf würde nichts über die Zählregel aussagen."
+  },
+  "expected": {
+    "domain_status": null,
+    "diagnostic_codes": [],
+    "fixed_before_execution": true,
+    "rationale": "Kein Fachstatus erwartbar: Die Zählregel kann heute nicht geprüft werden."
+  }
+}

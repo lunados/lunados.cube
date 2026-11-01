@@ -1,0 +1,206 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "C4-03-derived-as-fact",
+  "operation": "cube_validate",
+  "invocation_kind": "local_mcp_stdio",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline P1-VC/1.0.0 + Versuchsabbildung mile002:c4:pred/1 (Kontext mile002:c4:shop)",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+    },
+    "rule_refs": [
+      "R-SZ-1",
+      "R-SZ-3"
+    ],
+    "matrix_case": "C4-03",
+    "model": {
+      "path": "docs/09-Research/grammar-sampling/models/c4-shop.dsl",
+      "sha256": "dfd7a91b6980bd1285aa628f4f410d932b012ac1639b0200fb6551d8fe44277a"
+    }
+  },
+  "arguments": {
+    "input_text": "rel(\"uses\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"])",
+    "context": {
+      "format": "aiaeao.cube.binding-context/1",
+      "reference_version": "v9.4",
+      "context_id": "mile002:c4:shop",
+      "source_kind": "illustrative_fixture",
+      "scope_ref": "mile002:c4",
+      "referents": [
+        {
+          "ref": "c4:shop/api",
+          "concept_id": "Z:boundary:boundary",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:c4"
+        },
+        {
+          "ref": "c4:shop/db",
+          "concept_id": "Z:boundary:boundary",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:c4"
+        },
+        {
+          "ref": "c4:shop/api/order-controller",
+          "concept_id": "Z:module-body:tool",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:c4"
+        },
+        {
+          "ref": "c4:shop/api/order-repository",
+          "concept_id": "Z:module-body:tool",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:c4"
+        }
+      ],
+      "predicate_contracts": [
+        {
+          "predicate_id": "contains",
+          "revision": "mile002:c4:pred/1",
+          "scope": "mile002:c4",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Z:boundary:boundary"
+          ],
+          "object_concept_ids": [
+            "Z:module-body:tool"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+          ]
+        },
+        {
+          "predicate_id": "uses",
+          "revision": "mile002:c4:pred/1",
+          "scope": "mile002:c4",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Z:module-body:tool",
+            "Z:boundary:boundary"
+          ],
+          "object_concept_ids": [
+            "Z:module-body:tool",
+            "Z:boundary:boundary"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+          ]
+        },
+        {
+          "predicate_id": "uses.derived",
+          "revision": "mile002:c4:pred/1",
+          "scope": "mile002:c4",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Z:boundary:boundary"
+          ],
+          "object_concept_ids": [
+            "Z:boundary:boundary"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [
+            "F"
+          ],
+          "additional_constraints": [
+            "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+          ]
+        },
+        {
+          "predicate_id": "derivedFrom",
+          "revision": "mile002:c4:pred/1",
+          "scope": "mile002:c4",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Z:boundary:boundary"
+          ],
+          "object_concept_ids": [
+            "Z:boundary:boundary",
+            "Z:module-body:tool"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+          ]
+        }
+      ],
+      "method_contracts": [
+        {
+          "method_id": "c4.implied-unless-any/v1",
+          "revision": "mile002:c4:method/1",
+          "scope": "mile002:c4",
+          "origin": "illustrative_fixture",
+          "argument_min": 1,
+          "argument_max": 64,
+          "effect_class": "pure_declarative"
+        }
+      ],
+      "profile_limitations": [
+        "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+        "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+        "Keine Wahrheit, Autorität oder Zulassung behauptet."
+      ]
+    },
+    "qualification_profiles": {
+      "format": "aiaeao.cube.qualifier-profiles/1",
+      "reference_version": "v9.4",
+      "profile_id": "mile002:c4:qualifiers",
+      "scope": "mile002:c4",
+      "origin": "illustrative_fixture",
+      "witness_refs": [],
+      "qualifiers": [
+        {
+          "profile_ref": "mile002:c4:F-derivation/v1",
+          "coordinate": "F",
+          "required_parameters": [
+            "method"
+          ],
+          "allowed_parameters": [
+            "method"
+          ],
+          "allowed_values": {
+            "method": [
+              "c4.implied-unless-any/v1"
+            ]
+          },
+          "requires_witness": false
+        }
+      ]
+    }
+  },
+  "arguments_sha256": "2fa96c8bc332961dad7c543694d1c5e37f3caeaf72512d68c420eb78a511bef9",
+  "bindings": {
+    "context_format": "aiaeao.cube.binding-context/1",
+    "context_sha256": "65a91f9e2b7646265cc4a86ddc6176e2083f21dd9e21f4a0c6c1634901882b77",
+    "qualification_profiles_sha256": "a9867d0159a00759d5c506fd17f3f0357b17dab694fe67ffe51cc720d9c9208e"
+  },
+  "expected": {
+    "domain_status": "PASS",
+    "diagnostic_codes": [],
+    "fixed_before_execution": true,
+    "rationale": "Gegenfall: Die implizite Beziehung API → Database wird ohne Markierung als deklarierte 'uses'-Beziehung geschrieben. 'uses' erlaubt Boundary→Boundary, weil C4 auch explizite Container-Beziehungen kennt. Erwartet PASS — genau darin liegt der Befund: P1 kann deklariert und abgeleitet nicht unterscheiden, wenn der Autor das unmarkierte Prädikat wählt."
+  }
+}

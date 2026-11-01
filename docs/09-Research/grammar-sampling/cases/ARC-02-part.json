@@ -1,0 +1,139 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "ARC-02-part",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline P1-VC/1.0.0 + Versuchsabbildung mile002:am:pred/1",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+    },
+    "rule_refs": [
+      "R-AM-4"
+    ],
+    "matrix_case": "ARC-02",
+    "model": {
+      "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+      "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+    }
+  },
+  "operation": "cube_validate",
+  "invocation_kind": "local_mcp_stdio",
+  "arguments": {
+    "input_text": "rel(\"composedOf\",Z:α:Tool[\"am:financial-processing\"],Z:α:Tool[\"am:billing\"])",
+    "context": {
+      "format": "aiaeao.cube.binding-context/1",
+      "reference_version": "v9.4",
+      "context_id": "mile002:am:view/full",
+      "source_kind": "illustrative_fixture",
+      "scope_ref": "mile002:am",
+      "referents": [
+        {
+          "ref": "am:financial-processing",
+          "concept_id": "Z:module-body:tool",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:am"
+        },
+        {
+          "ref": "am:accounting",
+          "concept_id": "Z:module-body:tool",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:am"
+        },
+        {
+          "ref": "am:billing",
+          "concept_id": "Z:module-body:tool",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:am"
+        },
+        {
+          "ref": "am:payment",
+          "concept_id": "Z:module-body:tool",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:am"
+        },
+        {
+          "ref": "am:transaction-processing",
+          "concept_id": "Z:boundary:capability",
+          "home": "Z",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:am"
+        }
+      ],
+      "predicate_contracts": [
+        {
+          "predicate_id": "realizes",
+          "revision": "mile002:am:pred/1",
+          "scope": "mile002:am",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Z:module-body:tool"
+          ],
+          "object_concept_ids": [
+            "Z:boundary:capability"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "Versuchsabbildung der ArchiMate-Realization für das Paar Application Function → Application Service (Herstellerbeispiel S-AM-2). Normative Endpunkt-Zulässigkeit ausgelassen (R-AM-6)."
+          ]
+        },
+        {
+          "predicate_id": "composedOf",
+          "revision": "mile002:am:pred/1",
+          "scope": "mile002:am",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Z:module-body:tool"
+          ],
+          "object_concept_ids": [
+            "Z:module-body:tool"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "Versuchsabbildung der ArchiMate-Composition (Ganzes → Teil). Die lokale Zählregel min 2/max 3 ist hier nicht ausdrückbar."
+          ]
+        }
+      ],
+      "method_contracts": [],
+      "profile_limitations": [
+        "Synthetische Versuchsabbildung MILE-002 ARC-01..03: Application Function→Z:module-body:tool, Application Service→Z:boundary:capability (Arbeitsannahme A).",
+        "Keine Wahrheit, Autorität oder Zulassung behauptet."
+      ]
+    }
+  },
+  "arguments_sha256": "f4979c9c85888697bb335a9f2b5dc9e9ad24743307e0897d248ffd617d83baaa",
+  "bindings": {
+    "context_format": "aiaeao.cube.binding-context/1",
+    "context_sha256": "47d6e36ca82c6a16490b10264a3566d1c665b0974c07f3b1673c439381379e7c",
+    "qualification_profiles_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "expected": {
+    "domain_status": "PASS",
+    "diagnostic_codes": [],
+    "fixed_before_execution": true,
+    "rationale": "Eine einzelne Composition (Financial Processing → Billing) ist typisiert ausdrückbar: erwartet PASS. Eine Zählung über mehrere Aussagen findet dabei nicht statt."
+  }
+}

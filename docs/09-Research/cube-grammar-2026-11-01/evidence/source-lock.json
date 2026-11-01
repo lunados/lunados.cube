@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-01",
+  "baseline_sha256": "e561a75e6ff45370ecdf6221e611f15c343cc3c7c84f11e607051a29cfd4fde4",
+  "repositories": {
+    "lunados.lib": {
+      "commit": "4d0765016816b3274446ebe49474268f35c72ba4",
+      "status_before_research_write": "",
+      "files": {
+        "INDEX.json": "f920b905b0f483db2b74964f561979b5803d172fb2dfd2771bd77d6cf010b709",
+        "LIBRARY_CONTRACT.md": "5596dd4ceb584d0289a89e79cc41ebb53ce057f01747ea7678e921b1f780571c",
+        "scripts/verify.py": "a76ed781ce56a4c2b8bf20f7157b5d1912dec5af69f5f91c4ea1a1c97194c131",
+        "entries/claim.compose/v1/entry.json": "bb8d018ef98b57e7a771136e5d8cf9fd875e3e80616548ebee90342db279ca4b",
+        "entries/impact.propagate/v1/entry.json": "459bdfaa04d52b918f4de3d2f9dd9c631c7aa12766f315dd20c6a3327b2ed204",
+        "entries/impact.propagate/v1/evaluator/evaluate.py": "c98411f927cfcd10facbb8749da758b40f939a2b709e9f35d9b970a8ed0ec668"
+      }
+    },
+    "lunados.cube": {
+      "commit": "47d915deb689560434460dc0a65e05da53fe9e4d",
+      "status_before_research_write": "?? P2/.vp071.bundle",
+      "files": {
+        "P3/adapters/mcp-local/aiaeao_mcp_local/p1_adapter.py": "8fa37275e31f08bb0ea3bf857313e124edf4b92829f20a24c8856e4236f583db",
+        "P1/semantic-validator-v1/cube_semantic/validator.py": "8bb28455d16a260120a62e2be2695c52ae724e5075ea7f026a05bb07cf28e533",
+        "P1/semantic-validator-v1/cube_resolver/resolver.py": "17ff5c9e5cb6cc4bf3839577866f52310181ddc6f204adf15548e60746adb398",
+        "P1/instantiation-profile-v1/cube_p16/instantiation.py": "e6792de771264272fbae7553683b3222eb0a998c6d3b95ef430332b99c4acb84",
+        "P1/migration-methods-v1/README.md": "e1d346667dfed001c2aa4f990e4a4d69ca7ea8aacb2b4935f00a88c7baf4f26e",
+        "P2/visual-printer-axes-v1/README.md": "017092d694aa62a24c1043524aa7438a6475df186e02ddfbda4b14b78673a91e",
+        "P2/visual-printer-axes-v1/fixtures/golden_v092.json": "170d0f1ace2ce1a7e182edf46b562ebf17e1f01ebb96a9fd1ee889b41c723bc9"
+      }
+    },
+    "lunados.space": {
+      "commit": "088ccc4d34bcd0b67198041f58ed5a175b50cd3a",
+      "status_before_research_write": "?? web/_backup/",
+      "files": {
+        "web/docs/research/README.md": "6901efded8ea1ae3a1c249e6ba82f2ae0b6608c8763c3762d6a408534162d5a8",
+        "web/docs/landscape/AIAEAO_Seven_Module_Architecture_Freeze_Candidate_v0.1/spec/09_MODES_AND_DERIVATION.md": "d4bb2ee1237c5833806942146002ac0f5485fe0ca16815f3fa0f8de292d5d2df"
+      }
+    }
+  }
+}

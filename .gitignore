@@ -7,3 +7,7 @@
 **/.venv/
 **/node_modules/
 **/.wrangler/
+
+# Offline agent environment (scripts/dev/README.md); only the lock is committed
+.wheelhouse/
+.agent-env/

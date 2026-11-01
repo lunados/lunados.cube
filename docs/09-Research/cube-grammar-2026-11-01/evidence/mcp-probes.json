@@ -1,0 +1,2213 @@
+{
+  "date": "2026-11-01",
+  "transport": "local MCP tools",
+  "probes": [
+    {
+      "id": "P1-library-declaration",
+      "args": {
+        "input_text": "rel(\"assesses\",claim.compose/v1(Y:α:Artifact[\"claim.compose:paths\"]),Y:α:Artifact[\"claim.compose:paths\"])",
+        "context": {
+          "context_id": "lib-claim.compose-v1",
+          "evaluation_frame": {
+            "scenario_ref": "claim.compose:C01_chain"
+          },
+          "evaluation_records": [
+            {
+              "evaluator_ref": "eval:claim.compose.adapter/v1",
+              "input_digest": "sha256:ce6acd6a409ef6964db0c05162e0fdc53c6e05c372cc97e06c8e1fa4d9e9d905",
+              "method_id": "claim.compose/v1",
+              "output_refs": [
+                "claim.compose:result"
+              ],
+              "record_id": "claim.compose:C01_chain:replay",
+              "scenario_ref": "claim.compose:C01_chain",
+              "status": "declared",
+              "witness_ref": "lunados.lib:entries/claim.compose/v1/cases/C01_chain.json#sha256=ce6acd6a409ef6964db0c05162e0fdc53c6e05c372cc97e06c8e1fa4d9e9d905"
+            }
+          ],
+          "evaluators": [
+            {
+              "evaluator_id": "eval:claim.compose.adapter/v1",
+              "kind": "local_script",
+              "method_ids": [
+                "claim.compose/v1"
+              ],
+              "origin": "external_declaration_unverified",
+              "output_concept_ids": [
+                "Y:resource-object:evidence"
+              ],
+              "revision": "evaluator/evaluate.py@sha256:9a96a016834534c601a1967c58b9ec0d880c05458be9eb7375c9f4ed3e132f39",
+              "scope": "claim.compose"
+            }
+          ],
+          "format": "aiaeao.cube.binding-context/3",
+          "method_contracts": [
+            {
+              "argument_concept_ids": [
+                "Y:resource-object:artifact"
+              ],
+              "argument_max": 1,
+              "argument_min": 1,
+              "effect_class": "pure_declarative",
+              "library_ref": {
+                "entry_id": "claim.compose",
+                "library_id": "lunados.lib",
+                "revision": "v1",
+                "sha256": "bb8d018ef98b57e7a771136e5d8cf9fd875e3e80616548ebee90342db279ca4b"
+              },
+              "method_id": "claim.compose/v1",
+              "origin": "external_declaration_unverified",
+              "return_cardinality": "one",
+              "return_concept_ids": [
+                "Y:identified-object:annotation"
+              ],
+              "revision": "lunados.lib:v1",
+              "scope": "claim.compose"
+            }
+          ],
+          "predicate_contracts": [
+            {
+              "additional_constraints": [
+                "A composed path implies no new causation, authorization or inferred predicate."
+              ],
+              "direction": "subject_to_object",
+              "object_concept_ids": [
+                "Y:resource-object:artifact"
+              ],
+              "origin": "external_declaration_unverified",
+              "predicate_id": "assesses",
+              "revision": "lunados.lib:v1",
+              "scope": "claim.compose",
+              "subject_concept_ids": [
+                "Y:identified-object:annotation"
+              ]
+            }
+          ],
+          "profile_limitations": [
+            "Replay of an archived EXP-011 Formal Composition (011-A) case; the Cube neither dispatches the evaluator nor checks the result."
+          ],
+          "reference_version": "v9.4",
+          "referents": [
+            {
+              "concept_id": "Y:resource-object:artifact",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "claim.compose:paths",
+              "scope_ref": "claim.compose"
+            },
+            {
+              "concept_id": "Y:resource-object:evidence",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "claim.compose:result",
+              "scope_ref": "claim.compose"
+            }
+          ],
+          "scenarios": [
+            {
+              "method_ids": [
+                "claim.compose/v1"
+              ],
+              "mode": "replay",
+              "origin": "external_declaration_unverified",
+              "parameters": {},
+              "revision": "EXP-011 Formal Composition (011-A)",
+              "scenario_id": "claim.compose:C01_chain",
+              "scope": "claim.compose",
+              "world_refs": [
+                "claim.compose:paths",
+                "claim.compose:result"
+              ]
+            }
+          ],
+          "scope_ref": "claim.compose",
+          "source_kind": "external_declaration_unverified"
+        }
+      },
+      "result": {
+        "binding_context_profile": "P1.6/instantiation-profile-v1",
+        "simulation_profile": "P1.8/simulation-profile-v1",
+        "evaluation_performed_by_cube": false,
+        "report": {
+          "format": "aiaeao.cube.validation-report/1",
+          "reference_version": "v9.4",
+          "profile": "P1-VC/1.0.0",
+          "overall_status": "PASS",
+          "context_id": "lib-claim.compose-v1",
+          "input_sha256": "6a38fadcb449c65162b4f35d5b60426685ee5d2fde527f430c147b65da28ce36",
+          "checks": {
+            "syntax": {
+              "status": "PASS",
+              "reason": "ACG grammar parsed."
+            },
+            "structure": {
+              "status": "PASS",
+              "reason": "AST structurally valid against P1.2 checks."
+            },
+            "concept_resolution": {
+              "status": "PASS",
+              "reason": "Every applicable concept check passed in the declared descriptive scope."
+            },
+            "referent_binding": {
+              "status": "PASS",
+              "reason": "Every applicable referent check passed in the declared descriptive scope."
+            },
+            "predicate_typing": {
+              "status": "PASS",
+              "reason": "Every applicable predicate typing check passed in the declared descriptive scope."
+            },
+            "method_typing": {
+              "status": "PASS",
+              "reason": "Every applicable method typing check passed in the declared descriptive scope."
+            },
+            "qualifier_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "scope_consistency": {
+              "status": "PASS",
+              "reason": "Every applicable scope check passed in the declared descriptive scope."
+            }
+          },
+          "diagnostics": [],
+          "epistemic_warrant": "NOT_EVALUATED",
+          "current_authority": "NOT_EVALUATED",
+          "canonical_admission": "NOT_EVALUATED",
+          "summary": "Descriptive fixture-scoped validation only. Context declarations and witnesses are unverified; no external truth or execution admission is asserted."
+        },
+        "transport": "local_mcp_stdio",
+        "core_profile": "P1-VC/1.0.0",
+        "source_warrant": "declared_unverified",
+        "input_encoding": "utf-8",
+        "declared_context_sha256": "358a69ac70cf994b3084f17fab433a0d509463f3636df7f66f361f7cdda62316",
+        "declared_qualification_profiles_sha256": null,
+        "declaration_digest_encoding": "canonical_utf8_json_sorted_keys_compact_v1",
+        "p1_validation_performed": true,
+        "p2_printing_performed": false
+      },
+      "isError": false
+    },
+    {
+      "id": "P1-method-arity-negative",
+      "args": {
+        "input_text": "analysis.describe/v1(Y:α:Artifact[\"example:migration-plan\"],Y:α:Artifact[\"example:migration-plan\"])",
+        "context": {
+          "format": "aiaeao.cube.binding-context/1",
+          "reference_version": "v9.4",
+          "context_id": "p1-fixture:migration",
+          "source_kind": "illustrative_fixture",
+          "scope_ref": "p1-fixture:migration",
+          "referents": [
+            {
+              "ref": "example:migration-plan",
+              "concept_id": "Y:resource-object:artifact",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "p1-fixture:migration"
+            },
+            {
+              "ref": "example:source-repository",
+              "concept_id": "Y:resource-object:resource",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "p1-fixture:migration"
+            }
+          ],
+          "method_contracts": [
+            {
+              "method_id": "analysis.describe/v1",
+              "revision": "p1-fixture:method/1",
+              "scope": "p1-fixture:migration",
+              "origin": "illustrative_fixture",
+              "argument_min": 1,
+              "argument_max": 1,
+              "argument_concept_ids": [
+                "Y:resource-object:artifact"
+              ],
+              "effect_class": "pure_declarative"
+            }
+          ],
+          "predicate_contracts": [
+            {
+              "predicate_id": "references",
+              "revision": "p1-fixture:migration:pred/1",
+              "scope": "p1-fixture:migration",
+              "origin": "illustrative_fixture",
+              "subject_concept_ids": [
+                "Y:resource-object:artifact"
+              ],
+              "object_concept_ids": [
+                "Y:resource-object:resource"
+              ],
+              "direction": "subject_to_object",
+              "required_qualifiers": [],
+              "additional_constraints": [
+                "This is a scoped fixture contract. It does not establish the truth of the assertion."
+              ]
+            }
+          ],
+          "profile_limitations": [
+            "Synthetic declarations only: referents are not independently authenticated.",
+            "No authorization, external execution, or canonical AIAEAO Thread admission is asserted."
+          ]
+        }
+      },
+      "result": {
+        "report": {
+          "format": "aiaeao.cube.validation-report/1",
+          "reference_version": "v9.4",
+          "profile": "P1-VC/1.0.0",
+          "overall_status": "FAIL",
+          "context_id": "p1-fixture:migration",
+          "input_sha256": "28aa1574631f78988086e26df2099645ebb2f61d14e7df10a5fa82ebac25d25e",
+          "checks": {
+            "syntax": {
+              "status": "PASS",
+              "reason": "ACG grammar parsed."
+            },
+            "structure": {
+              "status": "PASS",
+              "reason": "AST structurally valid against P1.2 checks."
+            },
+            "concept_resolution": {
+              "status": "PASS",
+              "reason": "Every applicable concept check passed in the declared descriptive scope."
+            },
+            "referent_binding": {
+              "status": "PASS",
+              "reason": "Every applicable referent check passed in the declared descriptive scope."
+            },
+            "predicate_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "method_typing": {
+              "status": "FAIL",
+              "reason": "At least one applicable method typing check violated a declared contract."
+            },
+            "qualifier_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "scope_consistency": {
+              "status": "PASS",
+              "reason": "Every applicable scope check passed in the declared descriptive scope."
+            }
+          },
+          "diagnostics": [
+            {
+              "code": "P1_METHOD_SIGNATURE",
+              "stage": "method_typing",
+              "severity": "error",
+              "message": "/: Method argument cardinality mismatch.",
+              "reference_rule": "Morphology §§5.14, 7.12.1, 7.13.2"
+            }
+          ],
+          "epistemic_warrant": "NOT_EVALUATED",
+          "current_authority": "NOT_EVALUATED",
+          "canonical_admission": "NOT_EVALUATED",
+          "summary": "Descriptive fixture-scoped validation only. Context declarations and witnesses are unverified; no external truth or execution admission is asserted."
+        },
+        "transport": "local_mcp_stdio",
+        "core_profile": "P1-VC/1.0.0",
+        "source_warrant": "declared_unverified",
+        "input_encoding": "utf-8",
+        "declared_context_sha256": "04141b54ae313f0b0951fd2db0c2c13c6356b58f8e97292cb250c2f48efb774b",
+        "declared_qualification_profiles_sha256": null,
+        "declaration_digest_encoding": "canonical_utf8_json_sorted_keys_compact_v1",
+        "p1_validation_performed": true,
+        "p2_printing_performed": false
+      },
+      "isError": false
+    },
+    {
+      "id": "P1-relation-profile-missing",
+      "args": {
+        "input_text": "rel(\"references\",Y:α:Artifact[\"example:migration-plan\"],Y:α:Resource[\"example:source-repository\"])",
+        "context": {
+          "format": "aiaeao.cube.binding-context/1",
+          "reference_version": "v9.4",
+          "context_id": "p1-fixture:migration",
+          "source_kind": "illustrative_fixture",
+          "scope_ref": "p1-fixture:migration",
+          "referents": [
+            {
+              "ref": "example:migration-plan",
+              "concept_id": "Y:resource-object:artifact",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "p1-fixture:migration"
+            },
+            {
+              "ref": "example:source-repository",
+              "concept_id": "Y:resource-object:resource",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "p1-fixture:migration"
+            }
+          ],
+          "method_contracts": [
+            {
+              "method_id": "analysis.describe/v1",
+              "revision": "p1-fixture:method/1",
+              "scope": "p1-fixture:migration",
+              "origin": "illustrative_fixture",
+              "argument_min": 1,
+              "argument_max": 1,
+              "argument_concept_ids": [
+                "Y:resource-object:artifact"
+              ],
+              "effect_class": "pure_declarative"
+            }
+          ],
+          "predicate_contracts": [],
+          "profile_limitations": [
+            "Synthetic declarations only: referents are not independently authenticated.",
+            "No authorization, external execution, or canonical AIAEAO Thread admission is asserted."
+          ]
+        }
+      },
+      "result": {
+        "report": {
+          "format": "aiaeao.cube.validation-report/1",
+          "reference_version": "v9.4",
+          "profile": "P1-VC/1.0.0",
+          "overall_status": "UNRESOLVED",
+          "context_id": "p1-fixture:migration",
+          "input_sha256": "7f1972b0a529ed32420a7bce25048b5deb8b4a6409218d0f3d0cbfc628295df1",
+          "checks": {
+            "syntax": {
+              "status": "PASS",
+              "reason": "ACG grammar parsed."
+            },
+            "structure": {
+              "status": "PASS",
+              "reason": "AST structurally valid against P1.2 checks."
+            },
+            "concept_resolution": {
+              "status": "PASS",
+              "reason": "Every applicable concept check passed in the declared descriptive scope."
+            },
+            "referent_binding": {
+              "status": "PASS",
+              "reason": "Every applicable referent check passed in the declared descriptive scope."
+            },
+            "predicate_typing": {
+              "status": "UNRESOLVED",
+              "reason": "At least one applicable predicate typing check lacks a decisive declaration."
+            },
+            "method_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "qualifier_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "scope_consistency": {
+              "status": "PASS",
+              "reason": "Every applicable scope check passed in the declared descriptive scope."
+            }
+          },
+          "diagnostics": [
+            {
+              "code": "P1_PREDICATE_PROFILE_MISSING",
+              "stage": "predicate_typing",
+              "severity": "unresolved",
+              "message": "/: No matching declared versioned, scoped predicate signature for 'references'.",
+              "reference_rule": "Morphology §7.6.1 / C018"
+            }
+          ],
+          "epistemic_warrant": "NOT_EVALUATED",
+          "current_authority": "NOT_EVALUATED",
+          "canonical_admission": "NOT_EVALUATED",
+          "summary": "Descriptive fixture-scoped validation only. Context declarations and witnesses are unverified; no external truth or execution admission is asserted."
+        },
+        "transport": "local_mcp_stdio",
+        "core_profile": "P1-VC/1.0.0",
+        "source_warrant": "declared_unverified",
+        "input_encoding": "utf-8",
+        "declared_context_sha256": "17a8f120049a2041b0bb9d24662597b398c0fe4f04dbdf8b1912637e9c47697b",
+        "declared_qualification_profiles_sha256": null,
+        "declaration_digest_encoding": "canonical_utf8_json_sorted_keys_compact_v1",
+        "p1_validation_performed": true,
+        "p2_printing_performed": false
+      },
+      "isError": false
+    },
+    {
+      "id": "P1-mode-display",
+      "args": {
+        "input_text": "Y:α:Artifact[\"example:migration-plan\"]@M(mode=\"Strict\")",
+        "context": {
+          "format": "aiaeao.cube.binding-context/1",
+          "reference_version": "v9.4",
+          "context_id": "p1-fixture:migration",
+          "source_kind": "illustrative_fixture",
+          "scope_ref": "p1-fixture:migration",
+          "referents": [
+            {
+              "ref": "example:migration-plan",
+              "concept_id": "Y:resource-object:artifact",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "p1-fixture:migration"
+            },
+            {
+              "ref": "example:source-repository",
+              "concept_id": "Y:resource-object:resource",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "p1-fixture:migration"
+            }
+          ],
+          "method_contracts": [
+            {
+              "method_id": "analysis.describe/v1",
+              "revision": "p1-fixture:method/1",
+              "scope": "p1-fixture:migration",
+              "origin": "illustrative_fixture",
+              "argument_min": 1,
+              "argument_max": 1,
+              "argument_concept_ids": [
+                "Y:resource-object:artifact"
+              ],
+              "effect_class": "pure_declarative"
+            }
+          ],
+          "predicate_contracts": [
+            {
+              "predicate_id": "references",
+              "revision": "p1-fixture:migration:pred/1",
+              "scope": "p1-fixture:migration",
+              "origin": "illustrative_fixture",
+              "subject_concept_ids": [
+                "Y:resource-object:artifact"
+              ],
+              "object_concept_ids": [
+                "Y:resource-object:resource"
+              ],
+              "direction": "subject_to_object",
+              "required_qualifiers": [],
+              "additional_constraints": [
+                "This is a scoped fixture contract. It does not establish the truth of the assertion."
+              ]
+            }
+          ],
+          "profile_limitations": [
+            "Synthetic declarations only: referents are not independently authenticated.",
+            "No authorization, external execution, or canonical AIAEAO Thread admission is asserted."
+          ]
+        },
+        "qualification_profiles": {
+          "format": "aiaeao.cube.qualifier-profiles/1",
+          "reference_version": "v9.4",
+          "profile_id": "p1-fixture:migration:qualifiers",
+          "scope": "p1-fixture:migration",
+          "origin": "illustrative_fixture",
+          "witness_refs": [
+            "fixture:clock-01",
+            "fixture:observer-01"
+          ],
+          "qualifiers": [
+            {
+              "profile_ref": "fixture:T-occurrence/v1",
+              "coordinate": "T",
+              "required_parameters": [
+                "role",
+                "clock",
+                "origin",
+                "precision",
+                "source_ref",
+                "witness_ref"
+              ],
+              "allowed_parameters": [
+                "role",
+                "clock",
+                "origin",
+                "precision",
+                "source_ref",
+                "witness_ref"
+              ],
+              "allowed_values": {
+                "role": [
+                  "occurrence"
+                ],
+                "precision": [
+                  "second"
+                ]
+              },
+              "requires_witness": true
+            },
+            {
+              "profile_ref": "fixture:O-delivery/v1",
+              "coordinate": "O",
+              "required_parameters": [
+                "delivered",
+                "witness_ref"
+              ],
+              "allowed_parameters": [
+                "delivered",
+                "witness_ref"
+              ],
+              "allowed_values": {},
+              "requires_witness": true
+            },
+            {
+              "profile_ref": "fixture:M-display/v1",
+              "coordinate": "M",
+              "required_parameters": [
+                "mode"
+              ],
+              "allowed_parameters": [
+                "mode"
+              ],
+              "allowed_values": {
+                "mode": [
+                  "Loose",
+                  "Strict",
+                  "Transitional"
+                ]
+              },
+              "requires_witness": false
+            },
+            {
+              "profile_ref": "fixture:F-description/v1",
+              "coordinate": "F",
+              "required_parameters": [
+                "method"
+              ],
+              "allowed_parameters": [
+                "method"
+              ],
+              "allowed_values": {
+                "method": [
+                  "analysis.describe/v1"
+                ]
+              },
+              "requires_witness": false
+            }
+          ]
+        }
+      },
+      "result": {
+        "report": {
+          "format": "aiaeao.cube.validation-report/1",
+          "reference_version": "v9.4",
+          "profile": "P1-VC/1.0.0",
+          "overall_status": "PASS",
+          "context_id": "p1-fixture:migration",
+          "input_sha256": "fc8beb2cce0509ade43d591474dfb24c69c9e0d33bdd9386d65740b98a09a4b3",
+          "checks": {
+            "syntax": {
+              "status": "PASS",
+              "reason": "ACG grammar parsed."
+            },
+            "structure": {
+              "status": "PASS",
+              "reason": "AST structurally valid against P1.2 checks."
+            },
+            "concept_resolution": {
+              "status": "PASS",
+              "reason": "Every applicable concept check passed in the declared descriptive scope."
+            },
+            "referent_binding": {
+              "status": "PASS",
+              "reason": "Every applicable referent check passed in the declared descriptive scope."
+            },
+            "predicate_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "method_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "qualifier_typing": {
+              "status": "PASS",
+              "reason": "Every applicable qualifier typing check passed in the declared descriptive scope."
+            },
+            "scope_consistency": {
+              "status": "PASS",
+              "reason": "Every applicable scope check passed in the declared descriptive scope."
+            }
+          },
+          "diagnostics": [],
+          "epistemic_warrant": "NOT_EVALUATED",
+          "current_authority": "NOT_EVALUATED",
+          "canonical_admission": "NOT_EVALUATED",
+          "summary": "Descriptive fixture-scoped validation only. Context declarations and witnesses are unverified; no external truth or execution admission is asserted."
+        },
+        "transport": "local_mcp_stdio",
+        "core_profile": "P1-VC/1.0.0",
+        "source_warrant": "declared_unverified",
+        "input_encoding": "utf-8",
+        "declared_context_sha256": "04141b54ae313f0b0951fd2db0c2c13c6356b58f8e97292cb250c2f48efb774b",
+        "declared_qualification_profiles_sha256": "c222be5f4eb71b33cac944890c9b573edfc2db61f7c4738e445a64468d097230",
+        "declaration_digest_encoding": "canonical_utf8_json_sorted_keys_compact_v1",
+        "p1_validation_performed": true,
+        "p2_printing_performed": false
+      },
+      "isError": false
+    },
+    {
+      "id": "P1-mode-unbound",
+      "args": {
+        "input_text": "Y:α:Artifact[\"example:migration-plan\"]@M(mode=\"Strict\")",
+        "context": {
+          "format": "aiaeao.cube.binding-context/1",
+          "reference_version": "v9.4",
+          "context_id": "p1-fixture:migration",
+          "source_kind": "illustrative_fixture",
+          "scope_ref": "p1-fixture:migration",
+          "referents": [
+            {
+              "ref": "example:migration-plan",
+              "concept_id": "Y:resource-object:artifact",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "p1-fixture:migration"
+            },
+            {
+              "ref": "example:source-repository",
+              "concept_id": "Y:resource-object:resource",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "p1-fixture:migration"
+            }
+          ],
+          "method_contracts": [
+            {
+              "method_id": "analysis.describe/v1",
+              "revision": "p1-fixture:method/1",
+              "scope": "p1-fixture:migration",
+              "origin": "illustrative_fixture",
+              "argument_min": 1,
+              "argument_max": 1,
+              "argument_concept_ids": [
+                "Y:resource-object:artifact"
+              ],
+              "effect_class": "pure_declarative"
+            }
+          ],
+          "predicate_contracts": [
+            {
+              "predicate_id": "references",
+              "revision": "p1-fixture:migration:pred/1",
+              "scope": "p1-fixture:migration",
+              "origin": "illustrative_fixture",
+              "subject_concept_ids": [
+                "Y:resource-object:artifact"
+              ],
+              "object_concept_ids": [
+                "Y:resource-object:resource"
+              ],
+              "direction": "subject_to_object",
+              "required_qualifiers": [],
+              "additional_constraints": [
+                "This is a scoped fixture contract. It does not establish the truth of the assertion."
+              ]
+            }
+          ],
+          "profile_limitations": [
+            "Synthetic declarations only: referents are not independently authenticated.",
+            "No authorization, external execution, or canonical AIAEAO Thread admission is asserted."
+          ]
+        }
+      },
+      "result": {
+        "report": {
+          "format": "aiaeao.cube.validation-report/1",
+          "reference_version": "v9.4",
+          "profile": "P1-VC/1.0.0",
+          "overall_status": "UNRESOLVED",
+          "context_id": "p1-fixture:migration",
+          "input_sha256": "fc8beb2cce0509ade43d591474dfb24c69c9e0d33bdd9386d65740b98a09a4b3",
+          "checks": {
+            "syntax": {
+              "status": "PASS",
+              "reason": "ACG grammar parsed."
+            },
+            "structure": {
+              "status": "PASS",
+              "reason": "AST structurally valid against P1.2 checks."
+            },
+            "concept_resolution": {
+              "status": "PASS",
+              "reason": "Every applicable concept check passed in the declared descriptive scope."
+            },
+            "referent_binding": {
+              "status": "PASS",
+              "reason": "Every applicable referent check passed in the declared descriptive scope."
+            },
+            "predicate_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "method_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "qualifier_typing": {
+              "status": "UNRESOLVED",
+              "reason": "At least one applicable qualifier typing check lacks a decisive declaration."
+            },
+            "scope_consistency": {
+              "status": "PASS",
+              "reason": "Every applicable scope check passed in the declared descriptive scope."
+            }
+          },
+          "diagnostics": [
+            {
+              "code": "P1_QUALIFIER_PROFILE_MISSING",
+              "stage": "qualifier_typing",
+              "severity": "unresolved",
+              "message": "/qualifiers/0: No scoped, unverified descriptive qualification profile supplied.",
+              "reference_rule": "Morphology §§3.6,3.7,3.10"
+            }
+          ],
+          "epistemic_warrant": "NOT_EVALUATED",
+          "current_authority": "NOT_EVALUATED",
+          "canonical_admission": "NOT_EVALUATED",
+          "summary": "Descriptive fixture-scoped validation only. Context declarations and witnesses are unverified; no external truth or execution admission is asserted."
+        },
+        "transport": "local_mcp_stdio",
+        "core_profile": "P1-VC/1.0.0",
+        "source_warrant": "declared_unverified",
+        "input_encoding": "utf-8",
+        "declared_context_sha256": "04141b54ae313f0b0951fd2db0c2c13c6356b58f8e97292cb250c2f48efb774b",
+        "declared_qualification_profiles_sha256": null,
+        "declaration_digest_encoding": "canonical_utf8_json_sorted_keys_compact_v1",
+        "p1_validation_performed": true,
+        "p2_printing_performed": false
+      },
+      "isError": false
+    },
+    {
+      "id": "P1-slot-positive",
+      "args": {
+        "input_text": "X:α:Conclusion[\"c1\"]",
+        "context": {
+          "format": "aiaeao.cube.binding-context/2",
+          "reference_version": "v9.4",
+          "context_id": "p16-fixture-conclusion-01",
+          "source_kind": "illustrative_fixture",
+          "scope_ref": "obs1",
+          "referents": [
+            {
+              "ref": "obs1",
+              "concept_id": "X:scope:observation",
+              "home": "X",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "obs1"
+            },
+            {
+              "ref": "ev1",
+              "concept_id": "Y:resource-object:evidence",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "obs1"
+            },
+            {
+              "ref": "claim1",
+              "concept_id": "Y:identified-object:annotation",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "obs1"
+            },
+            {
+              "ref": "c1",
+              "concept_id": "X:endpoint:conclusion",
+              "home": "X",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "obs1",
+              "instantiation_profile_ref": "probe:X-conclusion/v1",
+              "slots": {
+                "pair_scope_ref": "obs1",
+                "basis_refs": [
+                  "ev1"
+                ],
+                "proposition_ref": "claim1",
+                "disposition": "unresolved"
+              }
+            }
+          ],
+          "predicate_contracts": [],
+          "instantiation_profiles": [
+            {
+              "profile_ref": "probe:X-conclusion/v1",
+              "concept_id": "X:endpoint:conclusion",
+              "revision": "probe:inst/1",
+              "scope": "obs1",
+              "origin": "illustrative_fixture",
+              "slots": [
+                {
+                  "name": "pair_scope_ref",
+                  "kind": "ref",
+                  "required": true,
+                  "cardinality": "one",
+                  "concept_ids": [
+                    "X:scope:observation"
+                  ]
+                },
+                {
+                  "name": "basis_refs",
+                  "kind": "ref",
+                  "required": true,
+                  "cardinality": "many",
+                  "concept_ids": [
+                    "X:endpoint:perception",
+                    "Y:resource-object:evidence"
+                  ]
+                },
+                {
+                  "name": "proposition_ref",
+                  "kind": "ref",
+                  "required": true,
+                  "cardinality": "one",
+                  "concept_ids": [
+                    "Y:identified-object:annotation"
+                  ]
+                },
+                {
+                  "name": "disposition",
+                  "kind": "enum",
+                  "required": true,
+                  "values": [
+                    "verifies",
+                    "refutes",
+                    "unresolved"
+                  ]
+                },
+                {
+                  "name": "method",
+                  "kind": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "result": {
+        "binding_context_profile": "P1.6/instantiation-profile-v1",
+        "report": {
+          "format": "aiaeao.cube.validation-report/1",
+          "reference_version": "v9.4",
+          "profile": "P1-VC/1.0.0",
+          "overall_status": "PASS",
+          "context_id": "p16-fixture-conclusion-01",
+          "input_sha256": "b33a5f3435765067884a85984968be70e3decda09469f72060ce31105e2343fa",
+          "checks": {
+            "syntax": {
+              "status": "PASS",
+              "reason": "ACG grammar parsed."
+            },
+            "structure": {
+              "status": "PASS",
+              "reason": "AST structurally valid against P1.2 checks."
+            },
+            "concept_resolution": {
+              "status": "PASS",
+              "reason": "Every applicable concept check passed in the declared descriptive scope."
+            },
+            "referent_binding": {
+              "status": "PASS",
+              "reason": "Every applicable referent check passed in the declared descriptive scope."
+            },
+            "predicate_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "method_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "qualifier_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "scope_consistency": {
+              "status": "PASS",
+              "reason": "Every applicable scope check passed in the declared descriptive scope."
+            }
+          },
+          "diagnostics": [],
+          "epistemic_warrant": "NOT_EVALUATED",
+          "current_authority": "NOT_EVALUATED",
+          "canonical_admission": "NOT_EVALUATED",
+          "summary": "Descriptive fixture-scoped validation only. Context declarations and witnesses are unverified; no external truth or execution admission is asserted."
+        },
+        "transport": "local_mcp_stdio",
+        "core_profile": "P1-VC/1.0.0",
+        "source_warrant": "declared_unverified",
+        "input_encoding": "utf-8",
+        "declared_context_sha256": "4894ee820968440710bf466e6cc40e956fa72a576bf1ad7e1d9ad96f9ab213d7",
+        "declared_qualification_profiles_sha256": null,
+        "declaration_digest_encoding": "canonical_utf8_json_sorted_keys_compact_v1",
+        "p1_validation_performed": true,
+        "p2_printing_performed": false
+      },
+      "isError": false
+    },
+    {
+      "id": "P1-slot-cardinality-negative",
+      "args": {
+        "input_text": "X:α:Conclusion[\"c1\"]",
+        "context": {
+          "format": "aiaeao.cube.binding-context/2",
+          "reference_version": "v9.4",
+          "context_id": "p16-fixture-conclusion-01",
+          "source_kind": "illustrative_fixture",
+          "scope_ref": "obs1",
+          "referents": [
+            {
+              "ref": "obs1",
+              "concept_id": "X:scope:observation",
+              "home": "X",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "obs1"
+            },
+            {
+              "ref": "ev1",
+              "concept_id": "Y:resource-object:evidence",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "obs1"
+            },
+            {
+              "ref": "claim1",
+              "concept_id": "Y:identified-object:annotation",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "obs1"
+            },
+            {
+              "ref": "c1",
+              "concept_id": "X:endpoint:conclusion",
+              "home": "X",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "scope_ref": "obs1",
+              "instantiation_profile_ref": "probe:X-conclusion/v1",
+              "slots": {
+                "pair_scope_ref": "obs1",
+                "basis_refs": [
+                  "ev1"
+                ],
+                "proposition_ref": [
+                  "claim1",
+                  "claim1"
+                ],
+                "disposition": "unresolved"
+              }
+            }
+          ],
+          "predicate_contracts": [],
+          "instantiation_profiles": [
+            {
+              "profile_ref": "probe:X-conclusion/v1",
+              "concept_id": "X:endpoint:conclusion",
+              "revision": "probe:inst/1",
+              "scope": "obs1",
+              "origin": "illustrative_fixture",
+              "slots": [
+                {
+                  "name": "pair_scope_ref",
+                  "kind": "ref",
+                  "required": true,
+                  "cardinality": "one",
+                  "concept_ids": [
+                    "X:scope:observation"
+                  ]
+                },
+                {
+                  "name": "basis_refs",
+                  "kind": "ref",
+                  "required": true,
+                  "cardinality": "many",
+                  "concept_ids": [
+                    "X:endpoint:perception",
+                    "Y:resource-object:evidence"
+                  ]
+                },
+                {
+                  "name": "proposition_ref",
+                  "kind": "ref",
+                  "required": true,
+                  "cardinality": "one",
+                  "concept_ids": [
+                    "Y:identified-object:annotation"
+                  ]
+                },
+                {
+                  "name": "disposition",
+                  "kind": "enum",
+                  "required": true,
+                  "values": [
+                    "verifies",
+                    "refutes",
+                    "unresolved"
+                  ]
+                },
+                {
+                  "name": "method",
+                  "kind": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "result": {
+        "binding_context_profile": "P1.6/instantiation-profile-v1",
+        "report": {
+          "format": "aiaeao.cube.validation-report/1",
+          "reference_version": "v9.4",
+          "profile": "P1-VC/1.0.0",
+          "overall_status": "FAIL",
+          "context_id": "p16-fixture-conclusion-01",
+          "input_sha256": "b33a5f3435765067884a85984968be70e3decda09469f72060ce31105e2343fa",
+          "checks": {
+            "syntax": {
+              "status": "PASS",
+              "reason": "ACG grammar parsed."
+            },
+            "structure": {
+              "status": "PASS",
+              "reason": "AST structurally valid against P1.2 checks."
+            },
+            "concept_resolution": {
+              "status": "PASS",
+              "reason": "Every applicable concept check passed in the declared descriptive scope."
+            },
+            "referent_binding": {
+              "status": "FAIL",
+              "reason": "At least one applicable referent check violated a declared contract."
+            },
+            "predicate_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "method_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "qualifier_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "scope_consistency": {
+              "status": "PASS",
+              "reason": "Every applicable scope check passed in the declared descriptive scope."
+            }
+          },
+          "diagnostics": [
+            {
+              "code": "P1_INSTANTIATION_SLOT_SIGNATURE",
+              "stage": "referent_binding",
+              "severity": "error",
+              "message": "/referents/3/slots/proposition_ref: Expected one nonempty reference string.",
+              "reference_rule": "P1.6 reference slot descriptor / cardinality"
+            }
+          ],
+          "epistemic_warrant": "NOT_EVALUATED",
+          "current_authority": "NOT_EVALUATED",
+          "canonical_admission": "NOT_EVALUATED",
+          "summary": "Descriptive fixture-scoped validation only. Context declarations and witnesses are unverified; no external truth or execution admission is asserted."
+        },
+        "transport": "local_mcp_stdio",
+        "core_profile": "P1-VC/1.0.0",
+        "source_warrant": "declared_unverified",
+        "input_encoding": "utf-8",
+        "declared_context_sha256": "8229786c28092adc5a95bdb9341bf95652f1e8630e85f4f7bba09c71b9fccb1b",
+        "declared_qualification_profiles_sha256": null,
+        "declaration_digest_encoding": "canonical_utf8_json_sorted_keys_compact_v1",
+        "p1_validation_performed": true,
+        "p2_printing_performed": false
+      },
+      "isError": false
+    },
+    {
+      "id": "P1-migration-context7",
+      "args": {
+        "input_text": "Y:α:Actor[\"acme:ops-desk\"]",
+        "context": {
+          "context_id": "golden-p111",
+          "format": "aiaeao.cube.binding-context/7",
+          "method_profile_refs": [
+            "P1.11/migration-methods-v1"
+          ],
+          "migration_plans": [
+            {
+              "dependencies": [
+                {
+                  "dependency_id": "m01a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:mail-job-01",
+                      "new_object": "acme:new-mail"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-01",
+                  "successor_ref": "m01b",
+                  "witness_ref": "repo:example/mail-job-01"
+                },
+                {
+                  "dependency_id": "m01b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-01",
+                  "witness_ref": "plan:mp-acme#m01b"
+                },
+                {
+                  "dependency_id": "m02a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:mail-job-02",
+                      "new_object": "acme:new-mail"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-02",
+                  "successor_ref": "m02b",
+                  "witness_ref": "repo:example/mail-job-02"
+                },
+                {
+                  "dependency_id": "m02b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-02",
+                  "witness_ref": "plan:mp-acme#m02b"
+                },
+                {
+                  "dependency_id": "m03a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:mail-job-03",
+                      "new_object": "acme:new-mail"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-03",
+                  "successor_ref": "m03b",
+                  "witness_ref": "repo:example/mail-job-03"
+                },
+                {
+                  "dependency_id": "m03b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-03",
+                  "witness_ref": "plan:mp-acme#m03b"
+                },
+                {
+                  "dependency_id": "m04a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:mail-job-04",
+                      "new_object": "acme:new-mail"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-04",
+                  "successor_ref": "m04b",
+                  "witness_ref": "repo:example/mail-job-04"
+                },
+                {
+                  "dependency_id": "m04b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-04",
+                  "witness_ref": "plan:mp-acme#m04b"
+                },
+                {
+                  "dependency_id": "m05a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:mail-job-05",
+                      "new_object": "acme:new-mail"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-05",
+                  "successor_ref": "m05b",
+                  "witness_ref": "repo:example/mail-job-05"
+                },
+                {
+                  "dependency_id": "m05b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-05",
+                  "witness_ref": "plan:mp-acme#m05b"
+                },
+                {
+                  "dependency_id": "m06a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:mail-job-06",
+                      "new_object": "acme:new-mail"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-06",
+                  "successor_ref": "m06b",
+                  "witness_ref": "repo:example/mail-job-06"
+                },
+                {
+                  "dependency_id": "m06b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-06",
+                  "witness_ref": "plan:mp-acme#m06b"
+                },
+                {
+                  "dependency_id": "m07a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:mail-job-07",
+                      "new_object": "acme:new-mail"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-07",
+                  "successor_ref": "m07b",
+                  "witness_ref": "repo:example/mail-job-07"
+                },
+                {
+                  "dependency_id": "m07b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-07",
+                  "witness_ref": "plan:mp-acme#m07b"
+                },
+                {
+                  "dependency_id": "m08a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:mail-job-08",
+                      "new_object": "acme:new-mail"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-08",
+                  "successor_ref": "m08b",
+                  "witness_ref": "repo:example/mail-job-08"
+                },
+                {
+                  "dependency_id": "m08b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-08",
+                  "witness_ref": "plan:mp-acme#m08b"
+                },
+                {
+                  "dependency_id": "m09a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:mail-job-09",
+                      "new_object": "acme:new-mail"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-09",
+                  "successor_ref": "m09b",
+                  "witness_ref": "repo:example/mail-job-09"
+                },
+                {
+                  "dependency_id": "m09b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-mail",
+                  "predicate_id": "sends-via",
+                  "subject": "acme:mail-job-09",
+                  "witness_ref": "plan:mp-acme#m09b"
+                },
+                {
+                  "dependency_id": "f01a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:file-job-01",
+                      "new_object": "acme:new-files"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-files",
+                  "predicate_id": "syncs-with",
+                  "subject": "acme:file-job-01",
+                  "successor_ref": "f01b",
+                  "witness_ref": "repo:example/file-job-01"
+                },
+                {
+                  "dependency_id": "f01b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-files",
+                  "predicate_id": "syncs-with",
+                  "subject": "acme:file-job-01",
+                  "witness_ref": "plan:mp-acme#f01b"
+                },
+                {
+                  "dependency_id": "f02a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:file-job-02",
+                      "new_object": "acme:new-files"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-files",
+                  "predicate_id": "syncs-with",
+                  "subject": "acme:file-job-02",
+                  "successor_ref": "f02b",
+                  "witness_ref": "repo:example/file-job-02"
+                },
+                {
+                  "dependency_id": "f02b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-files",
+                  "predicate_id": "syncs-with",
+                  "subject": "acme:file-job-02",
+                  "witness_ref": "plan:mp-acme#f02b"
+                },
+                {
+                  "dependency_id": "f03a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:file-job-03",
+                      "new_object": "acme:new-files"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-files",
+                  "predicate_id": "syncs-with",
+                  "subject": "acme:file-job-03",
+                  "successor_ref": "f03b",
+                  "witness_ref": "repo:example/file-job-03"
+                },
+                {
+                  "dependency_id": "f03b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-files",
+                  "predicate_id": "syncs-with",
+                  "subject": "acme:file-job-03",
+                  "witness_ref": "plan:mp-acme#f03b"
+                },
+                {
+                  "dependency_id": "f04a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:file-job-04",
+                      "new_object": "acme:new-files"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-files",
+                  "predicate_id": "syncs-with",
+                  "subject": "acme:file-job-04",
+                  "successor_ref": "f04b",
+                  "witness_ref": "repo:example/file-job-04"
+                },
+                {
+                  "dependency_id": "f04b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-files",
+                  "predicate_id": "syncs-with",
+                  "subject": "acme:file-job-04",
+                  "witness_ref": "plan:mp-acme#f04b"
+                },
+                {
+                  "dependency_id": "a01a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:account-01",
+                      "new_object": "acme:new-directory"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-directory",
+                  "predicate_id": "depends-on",
+                  "subject": "acme:account-01",
+                  "successor_ref": "a01b",
+                  "witness_ref": "repo:example/account-01"
+                },
+                {
+                  "dependency_id": "a01b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-directory",
+                  "predicate_id": "depends-on",
+                  "subject": "acme:account-01",
+                  "witness_ref": "plan:mp-acme#a01b"
+                },
+                {
+                  "dependency_id": "a02a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:account-02",
+                      "new_object": "acme:new-directory"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-directory",
+                  "predicate_id": "depends-on",
+                  "subject": "acme:account-02",
+                  "successor_ref": "a02b",
+                  "witness_ref": "repo:example/account-02"
+                },
+                {
+                  "dependency_id": "a02b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-directory",
+                  "predicate_id": "depends-on",
+                  "subject": "acme:account-02",
+                  "witness_ref": "plan:mp-acme#a02b"
+                },
+                {
+                  "dependency_id": "a03a",
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "method": {
+                    "arguments": {
+                      "dependant": "acme:account-03",
+                      "new_object": "acme:new-directory"
+                    },
+                    "method_id": "migrate.rewrite/v1"
+                  },
+                  "object": "acme:legacy-directory",
+                  "predicate_id": "depends-on",
+                  "subject": "acme:account-03",
+                  "successor_ref": "a03b",
+                  "witness_ref": "repo:example/account-03"
+                },
+                {
+                  "dependency_id": "a03b",
+                  "holds_in": [
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:new-directory",
+                  "predicate_id": "depends-on",
+                  "subject": "acme:account-03",
+                  "witness_ref": "plan:mp-acme#a03b"
+                },
+                {
+                  "dependency_id": "g01",
+                  "dropped": true,
+                  "holds_in": [
+                    "p0",
+                    "p1"
+                  ],
+                  "kind": "job",
+                  "object": "acme:archive-store",
+                  "predicate_id": "depends-on",
+                  "subject": "acme:mail-job-09",
+                  "witness_ref": "repo:example/mail-job-09/archive"
+                },
+                {
+                  "dependency_id": "y01",
+                  "holds_in": [
+                    "p0",
+                    "p1",
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:archive-store",
+                  "predicate_id": "depends-on",
+                  "subject": "acme:ops-desk",
+                  "witness_ref": "repo:example/y01"
+                },
+                {
+                  "dependency_id": "y02",
+                  "holds_in": [
+                    "p0",
+                    "p1",
+                    "p2",
+                    "p3"
+                  ],
+                  "kind": "job",
+                  "object": "acme:backup-vault",
+                  "predicate_id": "recovers-via",
+                  "subject": "acme:archive-store",
+                  "witness_ref": "repo:example/y02"
+                }
+              ],
+              "origin": "illustrative_fixture",
+              "phases": [
+                {
+                  "phase_id": "p0",
+                  "role": "current"
+                },
+                {
+                  "phase_id": "p1",
+                  "role": "intermediate"
+                },
+                {
+                  "phase_id": "p2",
+                  "role": "intermediate"
+                },
+                {
+                  "phase_id": "p3",
+                  "role": "target"
+                }
+              ],
+              "plan_id": "mp-acme",
+              "revision": "synthetic:v1",
+              "scope": "acme:migration",
+              "transitions": [
+                {
+                  "T": {
+                    "role": "scheduling",
+                    "value": "TBD"
+                  },
+                  "at_phase": "p1",
+                  "introduces": [
+                    "acme:new-mail"
+                  ],
+                  "methods": [
+                    {
+                      "arguments": {
+                        "target": "acme:new-mail"
+                      },
+                      "method_id": "migrate.rebuild/v1"
+                    }
+                  ],
+                  "retires": [],
+                  "transition_id": "t-intro-mail",
+                  "witness_ref": "synthetic:contract#scope"
+                },
+                {
+                  "T": {
+                    "role": "scheduling",
+                    "value": "TBD"
+                  },
+                  "at_phase": "p2",
+                  "introduces": [],
+                  "methods": [
+                    {
+                      "arguments": {
+                        "source": "acme:legacy-mail",
+                        "target": "acme:new-mail"
+                      },
+                      "method_id": "migrate.import/v1"
+                    },
+                    {
+                      "arguments": {
+                        "retired": "acme:legacy-mail"
+                      },
+                      "method_id": "migrate.retire/v1"
+                    }
+                  ],
+                  "retires": [
+                    "acme:legacy-mail"
+                  ],
+                  "transition_id": "t-mail-cut",
+                  "witness_ref": "synthetic:contract#scope"
+                },
+                {
+                  "T": {
+                    "role": "scheduling",
+                    "value": "TBD"
+                  },
+                  "at_phase": "p2",
+                  "introduces": [
+                    "acme:new-files"
+                  ],
+                  "methods": [
+                    {
+                      "arguments": {
+                        "source": "acme:legacy-files",
+                        "target": "acme:new-files"
+                      },
+                      "method_id": "migrate.import/v1"
+                    },
+                    {
+                      "arguments": {
+                        "retired": "acme:legacy-files"
+                      },
+                      "method_id": "migrate.retire/v1"
+                    }
+                  ],
+                  "retires": [
+                    "acme:legacy-files"
+                  ],
+                  "transition_id": "t-files-switch",
+                  "witness_ref": "synthetic:contract#scope"
+                },
+                {
+                  "T": {
+                    "role": "scheduling",
+                    "value": "TBD"
+                  },
+                  "at_phase": "p2",
+                  "introduces": [
+                    "acme:new-directory"
+                  ],
+                  "methods": [
+                    {
+                      "arguments": {
+                        "target": "acme:new-directory"
+                      },
+                      "method_id": "migrate.rebuild/v1"
+                    },
+                    {
+                      "arguments": {
+                        "retired": "acme:legacy-directory"
+                      },
+                      "method_id": "migrate.retire/v1"
+                    }
+                  ],
+                  "retires": [
+                    "acme:legacy-directory"
+                  ],
+                  "transition_id": "t-directory-switch",
+                  "witness_ref": "synthetic:contract#scope"
+                }
+              ]
+            }
+          ],
+          "predicate_contracts": [],
+          "predicate_profile_refs": [
+            "P1.10/migration-predicates-v1"
+          ],
+          "reference_version": "v9.4",
+          "referents": [
+            {
+              "concept_id": "Z:module-body:third-party-dependency",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:legacy-mail",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:provider",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:new-mail",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:third-party-dependency",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:legacy-files",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:provider",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:new-files",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:third-party-dependency",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:legacy-directory",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:provider",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:new-directory",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Y:resource-object:resource",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:archive-store",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:mail-job-01",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:mail-job-02",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:mail-job-03",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:mail-job-04",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:mail-job-05",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:mail-job-06",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:mail-job-07",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:mail-job-08",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:mail-job-09",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:file-job-01",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:file-job-02",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:file-job-03",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:file-job-04",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:account-01",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:account-02",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Z:module-body:integration",
+              "home": "Z",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:account-03",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Y:identity-anchor:actor",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:ops-desk",
+              "scope_ref": "acme:migration"
+            },
+            {
+              "concept_id": "Y:resource-object:resource",
+              "home": "Y",
+              "layers": [
+                "α"
+              ],
+              "provenance_status": "declared_unverified",
+              "ref": "acme:backup-vault",
+              "scope_ref": "acme:migration"
+            }
+          ],
+          "scope_ref": "acme:migration",
+          "source_kind": "illustrative_fixture"
+        }
+      },
+      "result": {
+        "binding_context_profile": "P1.6/instantiation-profile-v1",
+        "simulation_profile": "P1.8/simulation-profile-v1",
+        "evaluation_performed_by_cube": false,
+        "comparison_profile": "P1.9/comparison-profile-v1",
+        "migration_profile": "P1.11/migration-methods-v1",
+        "method_execution_by_cube": false,
+        "report": {
+          "format": "aiaeao.cube.validation-report/1",
+          "reference_version": "v9.4",
+          "profile": "P1-VC/1.0.0",
+          "overall_status": "PASS",
+          "context_id": "golden-p111",
+          "input_sha256": "b37e8f951ad72103b029baae84b86d6e7761bdf385eab52040790d7c99a3919d",
+          "checks": {
+            "syntax": {
+              "status": "PASS",
+              "reason": "ACG grammar parsed."
+            },
+            "structure": {
+              "status": "PASS",
+              "reason": "AST structurally valid against P1.2 checks."
+            },
+            "concept_resolution": {
+              "status": "PASS",
+              "reason": "Every applicable concept check passed in the declared descriptive scope."
+            },
+            "referent_binding": {
+              "status": "PASS",
+              "reason": "Every applicable referent check passed in the declared descriptive scope."
+            },
+            "predicate_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "method_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "qualifier_typing": {
+              "status": "NOT_EVALUATED",
+              "reason": "Not applicable, or not attempted because input failed an earlier stage."
+            },
+            "scope_consistency": {
+              "status": "PASS",
+              "reason": "Every applicable scope check passed in the declared descriptive scope."
+            }
+          },
+          "diagnostics": [],
+          "epistemic_warrant": "NOT_EVALUATED",
+          "current_authority": "NOT_EVALUATED",
+          "canonical_admission": "NOT_EVALUATED",
+          "summary": "Descriptive fixture-scoped validation only. Context declarations and witnesses are unverified; no external truth or execution admission is asserted."
+        },
+        "transport": "local_mcp_stdio",
+        "core_profile": "P1-VC/1.0.0",
+        "source_warrant": "declared_unverified",
+        "input_encoding": "utf-8",
+        "declared_context_sha256": "c214b4c76c4f1af18cf8ccac9555d2033fbbe9dcb1f7e6a36014d8e2181dc208",
+        "declared_qualification_profiles_sha256": null,
+        "declaration_digest_encoding": "canonical_utf8_json_sorted_keys_compact_v1",
+        "p1_validation_performed": true,
+        "p2_printing_performed": false
+      }
+    }
+  ]
+}

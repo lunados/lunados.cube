@@ -1,0 +1,169 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "DSM-01-ctrl-transposed-reading",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline P1-VC/1.0.0 + Versuchsabbildung mile002:dsm:pred/1",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+    },
+    "rule_refs": [
+      "R-DSM-1"
+    ],
+    "matrix_case": "DSM-01",
+    "model": {
+      "path": "docs/09-Research/grammar-sampling/models/dsm-modules.json",
+      "sha256": "47721b54b8fe5c832af94e96e6dde25f80cb96f7a9870496e8fdc50527ad3f98"
+    }
+  },
+  "operation": "cube_validate",
+  "invocation_kind": "local_mcp_stdio",
+  "arguments": {
+    "input_text": "rel(\"dependsOn\",Y:α:Artifact[\"m:parser\"],Y:α:Artifact[\"m:resolver\"])",
+    "context": {
+      "format": "aiaeao.cube.binding-context/1",
+      "reference_version": "v9.4",
+      "context_id": "mile002:dsm:modules-teams",
+      "source_kind": "illustrative_fixture",
+      "scope_ref": "mile002:dsm",
+      "referents": [
+        {
+          "ref": "m:parser",
+          "concept_id": "Y:resource-object:artifact",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dsm"
+        },
+        {
+          "ref": "m:resolver",
+          "concept_id": "Y:resource-object:artifact",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dsm"
+        },
+        {
+          "ref": "m:validator",
+          "concept_id": "Y:resource-object:artifact",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dsm"
+        },
+        {
+          "ref": "m:printer",
+          "concept_id": "Y:resource-object:artifact",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dsm"
+        },
+        {
+          "ref": "t:core",
+          "concept_id": "Y:identity-anchor:actor",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dsm"
+        },
+        {
+          "ref": "t:viz",
+          "concept_id": "Y:identity-anchor:actor",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dsm"
+        }
+      ],
+      "predicate_contracts": [
+        {
+          "predicate_id": "dependsOn",
+          "revision": "mile002:dsm:pred/1",
+          "scope": "mile002:dsm",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Y:resource-object:artifact"
+          ],
+          "object_concept_ids": [
+            "Y:resource-object:artifact"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "DSM-Zelle Domäne modules: Subjekt hängt von Objekt ab. Aus IR/FAD: Zeile = Subjekt, Spalte = Objekt."
+          ]
+        },
+        {
+          "predicate_id": "maintains",
+          "revision": "mile002:dsm:pred/1",
+          "scope": "mile002:dsm",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Y:identity-anchor:actor"
+          ],
+          "object_concept_ids": [
+            "Y:resource-object:artifact"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "DMM-Zelle teams × modules: Zeilenteam pflegt Spaltenmodul."
+          ]
+        },
+        {
+          "predicate_id": "related",
+          "revision": "mile002:dsm:pred/1",
+          "scope": "mile002:dsm",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Y:identity-anchor:actor",
+            "Y:resource-object:artifact"
+          ],
+          "object_concept_ids": [
+            "Y:identity-anchor:actor",
+            "Y:resource-object:artifact"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "Absichtlich breite technische Referenzart 'related' (Morphologie 7.6) für die Abflachungskontrolle."
+          ]
+        }
+      ],
+      "method_contracts": [],
+      "profile_limitations": [
+        "Synthetische Versuchsabbildung MILE-002 DSM-01..03: Module→Y:resource-object:artifact, Teams→Y:identity-anchor:actor (Arbeitsannahme A).",
+        "Nicht aufgeführte Zellen sind unbekannt, nicht leer.",
+        "Keine Wahrheit, Autorität oder Zulassung behauptet."
+      ]
+    }
+  },
+  "arguments_sha256": "1830a070d455edac0645cdb00ada2808d4017cb265ba31d4eb1756fc4779b66b",
+  "bindings": {
+    "context_format": "aiaeao.cube.binding-context/1",
+    "context_sha256": "a251c28530c331c81ac26f5178c45dbd63918450441d4d3ba36623ab7873c0f4",
+    "qualification_profiles_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "expected": {
+    "domain_status": "PASS",
+    "diagnostic_codes": [],
+    "fixed_before_execution": true,
+    "rationale": "Dieselbe Zelle fälschlich nach IC/FBD gelesen: parser dependsOn resolver. Die Aussage ist für sich typgültig; P1 kennt die Matrixkonvention nicht. Erwartet PASS — der Lesefehler ist auf Aussageebene nicht erkennbar."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "format": "mile002.foreign-model/1",
+  "notation": "BPMN 2.0.2 (formal/13-12-09), element names only; no XML/DI, no engine",
+  "authored": "2026-11-01",
+  "status": "Synthetic order process and hand-written trace; not a client system, not executed on a BPMN engine.",
+  "process": {
+    "id": "bpmn:order",
+    "elements": [
+      {"id": "bpmn:start", "type": "StartEvent"},
+      {"id": "bpmn:check", "type": "Task", "name": "Check order"},
+      {"id": "bpmn:xor", "type": "ExclusiveGateway", "outgoing": [
+        {"flow": "f-manual", "to": "bpmn:approve-manual", "condition": "amount > 1000", "order": 1},
+        {"flow": "f-auto", "to": "bpmn:approve-auto", "default": true}]},
+      {"id": "bpmn:approve-manual", "type": "Task"},
+      {"id": "bpmn:approve-auto", "type": "Task"},
+      {"id": "bpmn:split", "type": "ParallelGateway", "outgoing": ["f-stock", "f-credit"]},
+      {"id": "bpmn:check-stock", "type": "Task"},
+      {"id": "bpmn:check-credit", "type": "Task"},
+      {"id": "bpmn:join", "type": "ParallelGateway", "incoming": ["f-stock-done", "f-credit-done"]},
+      {"id": "bpmn:ship", "type": "Task"},
+      {"id": "bpmn:end", "type": "EndEvent"}
+    ],
+    "note": "approve-manual and approve-auto both lead to split; check-stock and check-credit lead to join; join leads to ship."
+  },
+  "trace": {
+    "status": "hand-written token trace (Evidence), not an engine log",
+    "instances": {
+      "bpmn:i1": {"amount": 1500, "tokens": [
+        {"id": "bpmn:i1/tok-route", "at": "bpmn:xor", "routed_to": "bpmn:approve-manual"},
+        {"id": "bpmn:i1/tok-stock", "on_flow": "f-stock-done"},
+        {"id": "bpmn:i1/tok-credit", "on_flow": "f-credit-done"}]},
+      "bpmn:i2": {"amount": 200, "tokens": [
+        {"id": "bpmn:i2/tok-credit", "on_flow": "f-credit-done", "note": "i2 has not yet produced a stock token"}]}
+    }
+  },
+  "rules_read": {
+    "source": "S-BPMN-1, local PDF sha256 d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+    "10.6.2 (p. 289-290)": "Diverging Exclusive Gateway: for a given process instance only one path can be taken; default path if no condition is true, otherwise runtime exception.",
+    "13.4.2 (p. 435)": "Each arriving token activates the gateway and is routed to exactly one outgoing flow; conditions evaluated in order, first true wins; default iff none true; exception if none and no default.",
+    "13.4.1 (p. 434)": "Parallel Gateway is activated if there is at least one token on each incoming flow; consumes exactly one token per incoming flow, produces one per outgoing flow; excess tokens remain.",
+    "13.2 (p. 426)": "Each Start Event occurrence creates a new process instance (unless correlated); completion requires no token remaining within the process instance.",
+    "13.3.1 (p. 427) / Glossary (p. 502)": "Token is a theoretical concept to define behaviour; tools are not required to implement tokens."
+  }
+}

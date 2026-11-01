@@ -1,0 +1,33 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "DSM-03-hidden",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline P1-VC/1.0.0 + Versuchsabbildung mile002:dsm:pred/1",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+    },
+    "rule_refs": [
+      "R-DSM-2"
+    ],
+    "matrix_case": "DSM-03",
+    "model": {
+      "path": "docs/09-Research/grammar-sampling/models/dsm-modules.json",
+      "sha256": "47721b54b8fe5c832af94e96e6dde25f80cb96f7a9870496e8fdc50527ad3f98"
+    }
+  },
+  "operation": null,
+  "invocation_kind": "not_executable",
+  "non_execution": {
+    "reason": "Zelle (resolver, printer) ist in einer Sicht ausgeblendet. P1 hat keine Sicht- oder Sichtbarkeitsbindung; Ausblenden gehört zur P2-Projektion (VP-09.2 --hide-empty hält hidden_rows/hidden_cols im Bericht). Prüfung in MILE-003, nicht hier."
+  },
+  "expected": {
+    "domain_status": null,
+    "diagnostic_codes": [],
+    "fixed_before_execution": true,
+    "rationale": "Kein Fachstatus erwartbar: Ausblenden ist eine Darstellungsentscheidung."
+  }
+}

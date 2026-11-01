@@ -1,0 +1,34 @@
+{
+  "format": "mile002.foreign-model/1",
+  "notation": "ArchiMate 3.2 element and relationship type names as in Reference Cards N221 (S-AM-1)",
+  "authored": "2026-11-01",
+  "status": "Synthetic. Combines two vendor examples (S-AM-2 p.5 'Application Service', p.8 'Composition Relationship'). Not a client system; no ArchiMate tool or exchange-format validation performed.",
+  "elements": [
+    {"id": "am:financial-processing", "type": "Application Function", "name": "Financial Processing"},
+    {"id": "am:accounting", "type": "Application Function", "name": "Accounting"},
+    {"id": "am:billing", "type": "Application Function", "name": "Billing"},
+    {"id": "am:payment", "type": "Application Function", "name": "Payment"},
+    {"id": "am:transaction-processing", "type": "Application Service", "name": "Transaction Processing"}
+  ],
+  "relationships": [
+    {"id": "am:r1", "type": "Realization", "source": "am:accounting", "target": "am:transaction-processing", "basis": "S-AM-2 p.5"},
+    {"id": "am:r2", "type": "Composition", "source": "am:financial-processing", "target": "am:accounting", "basis": "S-AM-2 p.8"},
+    {"id": "am:r3", "type": "Composition", "source": "am:financial-processing", "target": "am:billing", "basis": "S-AM-2 p.8"},
+    {"id": "am:r4", "type": "Composition", "source": "am:financial-processing", "target": "am:payment", "basis": "S-AM-2 p.8"}
+  ],
+  "views": [
+    {"id": "am:view/full", "elements": "all", "relationships": "all", "declared_completeness": "complete for this synthetic model"},
+    {"id": "am:view/service", "elements": ["am:transaction-processing"], "relationships": [], "declared_completeness": "partial: shows the service only; realizing behavior not included"}
+  ],
+  "local_count_rule": {
+    "status": "own working assumption (A) for ARC-02; not an ArchiMate rule (R-AM-4 states no min/max)",
+    "target": "am:financial-processing",
+    "role": "whole (source) of Composition relationships",
+    "counted": "distinct target elements of type Application Function",
+    "min": 2,
+    "max": 3,
+    "scope": "am:view/full",
+    "time": "model state 2026-11-01 (static, no temporal versioning)",
+    "completeness": "am:view/full declared complete; in am:view/service the count is unknown, not zero"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "format": "mile002.lib-call-run/1",
+  "at": "2026-11-01T12:24:20.585577+00:00",
+  "python": "3.13.16",
+  "evaluator": "entries/impact.propagate/v1/evaluator/evaluate.py",
+  "evaluator_sha256": "c98411f927cfcd10facbb8749da758b40f939a2b709e9f35d9b970a8ed0ec668",
+  "lib_head": "4d0765016816b3274446ebe49474268f35c72ba4",
+  "results": [
+    {
+      "case_id": "DAG-01-lib-backward-numbering",
+      "call_file": "DAG-01-lib-backward-numbering.json",
+      "call_file_sha256": "f5d95e7129b830118e0099e76ea107e5ae2cfcb2655fe079af3840104a4c0c31",
+      "returncode": 0,
+      "stdout": {
+        "disposition": "refused",
+        "effectful_execution_authorized": false,
+        "method_id": "impact.propagate/v1",
+        "reason": "cycle / reverse DAG edge rejected",
+        "runtime_authority": "not-evaluated"
+      },
+      "stderr": "",
+      "mapped_by_id": null,
+      "expectation_match": true
+    },
+    {
+      "case_id": "DAG-01-lib-topological-numbering",
+      "call_file": "DAG-01-lib-topological-numbering.json",
+      "call_file_sha256": "fbee210c96beb1ec59b898d08aea38d5fbdec261ba5844ebc87f10702cd510a2",
+      "returncode": 0,
+      "stdout": {
+        "affected": [
+          1,
+          3
+        ],
+        "disposition": "assessed",
+        "effectful_execution_authorized": false,
+        "method_id": "impact.propagate/v1",
+        "runtime_authority": "not-evaluated",
+        "values_after": [
+          1,
+          6,
+          4,
+          10
+        ],
+        "values_before": [
+          1,
+          3,
+          4,
+          7
+        ]
+      },
+      "stderr": "",
+      "mapped_by_id": {
+        "affected_ids": [
+          "wi:b",
+          "wi:d"
+        ],
+        "values_before_by_id": {
+          "wi:a": 1,
+          "wi:b": 3,
+          "wi:c": 4,
+          "wi:d": 7
+        },
+        "values_after_by_id": {
+          "wi:a": 1,
+          "wi:b": 6,
+          "wi:c": 4,
+          "wi:d": 10
+        }
+      },
+      "expectation_match": true
+    },
+    {
+      "case_id": "DAG-02-lib-other-topological-numbering",
+      "call_file": "DAG-02-lib-other-topological-numbering.json",
+      "call_file_sha256": "6c78130153cbfb7aa849c228958ecca0c069454bbf8b82c4070a11c9eee77ff1",
+      "returncode": 0,
+      "stdout": {
+        "affected": [
+          2,
+          3
+        ],
+        "disposition": "assessed",
+        "effectful_execution_authorized": false,
+        "method_id": "impact.propagate/v1",
+        "runtime_authority": "not-evaluated",
+        "values_after": [
+          1,
+          4,
+          6,
+          10
+        ],
+        "values_before": [
+          1,
+          4,
+          3,
+          7
+        ]
+      },
+      "stderr": "",
+      "mapped_by_id": {
+        "affected_ids": [
+          "wi:b",
+          "wi:d"
+        ],
+        "values_before_by_id": {
+          "wi:a": 1,
+          "wi:c": 4,
+          "wi:b": 3,
+          "wi:d": 7
+        },
+        "values_after_by_id": {
+          "wi:a": 1,
+          "wi:c": 4,
+          "wi:b": 6,
+          "wi:d": 10
+        }
+      },
+      "expectation_match": true
+    },
+    {
+      "case_id": "DAG-03-lib-true-cycle",
+      "call_file": "DAG-03-lib-true-cycle.json",
+      "call_file_sha256": "fc142eaea2c8f3a3370ea480c383fc135c8efc20f5f4cc30fb4446cea43c4378",
+      "returncode": 0,
+      "stdout": {
+        "disposition": "refused",
+        "effectful_execution_authorized": false,
+        "method_id": "impact.propagate/v1",
+        "reason": "cycle / reverse DAG edge rejected",
+        "runtime_authority": "not-evaluated"
+      },
+      "stderr": "",
+      "mapped_by_id": null,
+      "expectation_match": true
+    }
+  ],
+  "all_expectations_matched": true,
+  "scope": "Direct evaluator calls only; no Cube execution, no claim beyond these inputs."
+}
