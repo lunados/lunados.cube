@@ -141,14 +141,14 @@
   "plan_id": "mp-dag",
   "sides": {
     "without": {
-      "call_id": "P-09a",
+      "call_id": "P-09a2",
       "plan_source": {
         "printer": "vpmigration"
       },
       "plan_views": {
         "view": "cube.flow",
         "granularity": "detail",
-        "lens": "cube.lens.epistemology",
+        "lens": "cube.lens.provenance",
         "partition": "step"
       }
     },
@@ -192,5 +192,15 @@
       "ein Panel (alle Abhängigkeiten nur in p0); granularity detail fasst 4 Knoten / 5 Kanten ohne Auslassung"
     ]
   },
-  "rationale": "Adapter AD-4: Epistemologie-Fokus nur für witness_ref mit deklariertem Präfix; VP-03 Linsenakzent; Budget cube.flow detail ≤ 4 Knoten / ≤ 8 Kanten."
+  "rationale": "Adapter AD-4: Epistemologie-Fokus nur für witness_ref mit deklariertem Präfix; VP-03 Linsenakzent; Budget cube.flow detail ≤ 4 Knoten / ≤ 8 Kanten.",
+  "strict_minimal_pair": false,
+  "amendments": [
+    {
+      "date": "2026-11-01",
+      "change": "Seite 'without' nutzt cube.lens.provenance statt cube.lens.epistemology (call_id P-09a2)",
+      "reason": "P-09a scheiterte: 'invalid VP-03 source: selected lens has no explicit facet bindings: cannot infer relevance'. VP-03 rendert keine Linse ohne Fokusbindung. Die Vergleichsseite unterscheidet sich damit in Linse und Präfixliste; kein strenges Minimalpaar.",
+      "expectation_for_P-09a2": "alle fünf Kanten mit gleichem Provenienz-Akzent (jede Abhängigkeit hat witness_ref); Zyklus nicht hervorgehoben",
+      "failed_attempt_log": "docs/10-Evidence/MILE-003/task020-render-log-attempt1.json"
+    }
+  ]
 }
