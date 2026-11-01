@@ -51,3 +51,34 @@ Führender Status: [check-visual-distinctions/tasks.md](../../openspec/changes/a
 | [TASK-023 — Übergabe MILE-003](TASK-023-visual-handover.md) | US-014 | 1–2 h |
 
 Summe: 11–15 h (1–2 PT); Planungsannahmen, keine Laufzeitmessung. [Nachweise](../10-Evidence/MILE-003/README.md).
+
+## MILE-004 — abgeschlossen
+
+Führender Status: [prioritize-learning-balance/tasks.md](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-024 — Probeplan mit Erwartungen](TASK-024-probe-plan.md) | US-015 | 1–1,5 h |
+| [TASK-025 — Proben ausführen, Leitfragen 1 und 4](TASK-025-run-probes.md) | US-015 | 3–3,5 h |
+| [TASK-026 — Bewertungsrahmen](TASK-026-scoring-frame.md) | US-016 | 1 h |
+| [TASK-027 — Lernbilanz](TASK-027-learning-balance.md) | US-016 | 2–3 h |
+| [TASK-028 — MILE-005 ausplanen](TASK-028-plan-mile005.md) | US-017 | 1–1,5 h |
+| [TASK-029 — Übergabe MILE-004](TASK-029-learning-handover.md) | US-017 | 1 h |
+
+Summe: 9–12 h (1–1,5 PT); Planungsannahmen. [Nachweise](../10-Evidence/MILE-004/README.md).
+
+## MILE-005 — geplant
+
+Führender Status: [declare-completeness-and-instances/tasks.md](../../openspec/changes/declare-completeness-and-instances/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-030 — Ausführbare Prüffälle](TASK-030-executable-cases.md) | US-018, US-019 | 0,5 PT |
+| [TASK-031 — Abnahmespezifikation](TASK-031-acceptance-spec.md) | US-018, US-019 | 0,5 PT |
+| [TASK-032 — Entscheidungen auflösen](TASK-032-resolve-decisions.md) | US-018 | 0,25 PT |
+| [TASK-033 — P1-Profil](TASK-033-profile-impl.md) | US-018, US-019 | 1,5–2,5 PT |
+| [TASK-034 — Populationsprüfung (LIB)](TASK-034-lib-population.md) | US-018 | 0,75–1 PT |
+| [TASK-035 — Printer-Stand Zellzustände](TASK-035-cell-state-printer.md) | US-020 | 1–1,5 PT |
+| [TASK-036 — Adapter und Übergabe](TASK-036-adapter-acceptance.md) | US-020 | 0,75–1 PT |
+
+Summe: 5,25–7,25 PT; Planungsannahmen.

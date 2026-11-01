@@ -1,6 +1,6 @@
 # EPIC-001 — Grammatikvergleich als Lerninstrument
 
-Status: in_progress (MILE-002 und MILE-003 abgeschlossen; MILE-004 offen) · Milestones: MILE-002 bis MILE-004 · Voraussetzung: MILE-001
+Status: done (MILE-002 bis MILE-004 abgeschlossen) · Milestones: MILE-002 bis MILE-004 · Voraussetzung: MILE-001
 
 ## Ergebnis
 
@@ -45,3 +45,12 @@ Führender Aufgabenstatus: [sample-five-grammars/tasks.md](../../openspec/change
 
 Führender Aufgabenstatus: [check-visual-distinctions/tasks.md](../../openspec/changes/archive/2026-11-01-check-visual-distinctions/tasks.md).
 
+## Ausarbeitung MILE-004
+
+[MILE-004](../02-Milestones/MILE-004-learning-balance.md) schließt den Epic mit Proben zu den offenen Leitfragen, einer vorab gerahmten Lernbilanz und dem Plan für MILE-005 ab. Priorität nach Architektursichten und Prozessspuren. Abgeschlossen; [Lernbilanz](../09-Research/learning-balance/LERNBILANZ.md), [Nachweis](../10-Evidence/MILE-004/C-RESULT.md); Folgearbeit in [EPIC-005](EPIC-005-completeness-and-instances.md).
+
+- [US-015 — Offene Leitfragen gezielt prüfen](../04-US/US-015-open-guiding-questions.md)
+- [US-016 — Maßnahmen nach Anwendungsfall priorisieren](../04-US/US-016-prioritized-measures.md)
+- [US-017 — Folgeumsetzung vorbereiten und Epic abschließen](../04-US/US-017-follow-up-plan.md)
+
+Führender Aufgabenstatus: [prioritize-learning-balance/tasks.md](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/tasks.md).

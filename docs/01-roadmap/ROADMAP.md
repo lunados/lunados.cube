@@ -1,6 +1,6 @@
 # Roadmap — Lernen aus fünf Grammatikvergleichen
 
-Status: in_progress · Stand: 2026-11-01 · MILE-001 bis MILE-003 abgeschlossen
+Status: in_progress · Stand: 2026-11-01 · MILE-001 bis MILE-004 abgeschlossen; MILE-005 geplant
 
 Cube an Structurizr/C4, ArchiMate, DSM/MDM, BPMN und DAG untersuchen. Ergebnis sind konkrete Erkenntnisse zu Envelopes, LIB, Referenz-/Kardinalitätsprofilen, LENS/MODE/Achsen und visueller Grammatik. Lücken werden benannt, bevor Erweiterungen umgesetzt werden.
 
@@ -9,13 +9,14 @@ Cube an Structurizr/C4, ArchiMate, DSM/MDM, BPMN und DAG untersuchen. Ergebnis s
 | [MILE-001 — Analyse vorbereiten](../02-Milestones/MILE-001-analysis-readiness.md) | **Abgeschlossen:** lokale Selbstauskunft, reproduzierbare Fälle und Variantenvergleich; Nachweise verlinkt | 1–2 PT | Sehr hoch | Niedrig–mittel |
 | [MILE-002 — Grammatik abtasten](../02-Milestones/MILE-002-grammar-sampling.md) | **Abgeschlossen und abgenommen:** 15 Fallberichte, Lückenbilanz, Übergaben an MILE-003/004; [Nachweis](../10-Evidence/MILE-002/C-RESULT.md) | 2–3 PT | Sehr hoch | Mittel–hoch |
 | [MILE-003 — Darstellung prüfen](../02-Milestones/MILE-003-visual-check.md) | **Abgeschlossen und abgenommen:** Inventur V-01–V-12, Printer-Paare und Mockups, Agenten-Vorprüfung mit blinder Zweitprüfung (kein Menschentest, D-1), Kandidatenregeln an MILE-004; [Nachweis](../10-Evidence/MILE-003/C-RESULT.md) | 1–2 PT | Hoch | Mittel |
-| MILE-004 — Lernbilanz | Priorisierte LIB-/Profil-/Visualisierungsvorschläge; begründete offene Kernfragen | 0,5–1 PT | Sehr hoch | Niedrig–mittel |
+| [MILE-004 — Lernbilanz](../02-Milestones/MILE-004-learning-balance.md) | **Abgeschlossen:** Proben zu Envelope und LENS/MODE/Achsen (keine Erweiterung begründet), Lernbilanz für Architektursichten und Prozessspuren, Plan MILE-005; [Nachweis](../10-Evidence/MILE-004/C-RESULT.md) | 1–1,5 PT | Sehr hoch | Niedrig–mittel |
+| [MILE-005 — Vollständigkeit und Instanzbindung](../02-Milestones/MILE-005-completeness-instances.md) | Geplant aus der Lernbilanz (Rang 1 und 2): Vollständigkeitserklärung mit Populationsprüfung und Darstellung der vier Zellzustände, typisierte Instanzbindung; eigenes P1-Profil und eigener Printer-Stand | 5–7 PT | Sehr hoch | Mittel–hoch |
 
 Die frühere reine Analyseabschätzung betrug 4–7 PT. Die 1–2 PT Vorbereitung ersetzen teilweise deren Bestandsaufnahme und manuelle Prüfarbeit; eine belastbare neue Gesamtsumme wird erst nach Abgrenzung von MILE-001 gebildet. PT sind menschliche Engineering-/Review-Tage, keine Agentenlaufzeit oder Terminverpflichtung. Die Werte sind Planungsannahmen.
 
 ## Nächster Schritt
 
-MILE-001 bis MILE-003 sind abgeschlossen. **MILE-004** erhält die vorläufige Maßnahmenliste aus der [Lückenbilanz §7](../09-Research/grammar-sampling/GAP-LEDGER.md) (vorn: Vollständigkeit/Population, `impact.propagate`-Revision mit Zyklus-Gate, Relationsherkunft) und aus MILE-003 vier Kandidatenregeln für die Darstellung, jeweils nach der zugehörigen Profil-/LIB-Maßnahme ([Übergabe](../09-Research/visual-check/HANDOVER.md)). Ein menschlicher Lesbarkeitstest ist [vorbereitet](../09-Research/visual-check/HUMAN-TEST-SCRIPT.md), aber nicht durchgeführt. Keine Morphologieänderung begründet. Die Entwicklung vollständiger Interoperabilität bleibt außerhalb des Auftrags.
+MILE-001 bis MILE-004 sind abgeschlossen; die sieben Leitfragen sind in der [Lernbilanz](../09-Research/learning-balance/LERNBILANZ.md) beantwortet oder präzise offen. Weder Envelope noch Morphologie brauchen eine Erweiterung. **[MILE-005](../02-Milestones/MILE-005-completeness-instances.md)** ist geplant: Vollständigkeitserklärung mit Populationsprüfung und Darstellung der vier Zellzustände sowie typisierte Instanzbindung, als eigenes P1-Profil und eigener Printer-Stand. Vor der Implementierung sind sechs Entscheidungen (O-1 bis O-6) offen. Ein menschlicher Lesbarkeitstest ist [vorbereitet](../09-Research/visual-check/HUMAN-TEST-SCRIPT.md), aber nicht durchgeführt.
 
 ## Maßstab
 

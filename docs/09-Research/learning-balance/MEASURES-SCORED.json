@@ -1,0 +1,737 @@
+{
+  "format": "mile004.measures/1",
+  "task": "TASK-026",
+  "fixed_at": "2026-11-01",
+  "scored": true,
+  "frame": "docs/09-Research/learning-balance/SCORING-FRAME.md",
+  "measures": [
+    {
+      "id": "G-01",
+      "title": "Vollständigkeitserklärung + Populationsprüfung (unbekannt ≠ geprüft leer ≠ verletzt)",
+      "level": "Profil + LIB",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3",
+      "cases": [
+        "ARC-02",
+        "ARC-03",
+        "DSM-03",
+        "BPMN-01",
+        "BPMN-02"
+      ],
+      "effort_pt": [
+        2,
+        4
+      ],
+      "E": 4,
+      "complexity": "mittel–hoch",
+      "K": 2.5,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 3,
+        "P": 3,
+        "I": 1,
+        "V": 3,
+        "U": 2,
+        "rationale": "Schließt belegte Lücken in ARC-02/ARC-03 (Zählung, Abwesenheit) und BPMN-01/02 (genau einer je Aktivierung); NE-Fälle nicht ausgeführt."
+      }
+    },
+    {
+      "id": "G-02",
+      "title": "Typisierte Relationsherkunft (declared/derived/unknown)",
+      "level": "Profil",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3",
+      "cases": [
+        "C4-02",
+        "C4-03"
+      ],
+      "effort_pt": [
+        1,
+        2
+      ],
+      "E": 3,
+      "complexity": "mittel",
+      "K": 2,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "Alternative: G-10",
+      "score": {
+        "A": 3,
+        "P": 0,
+        "I": 0,
+        "V": 1,
+        "U": 1,
+        "rationale": "C4-02 und C4-03: unmarkierte Ableitung besteht P1; Voraussetzung für VR-01; durch P1-Läufe belegt."
+      }
+    },
+    {
+      "id": "G-03",
+      "title": "Projektion mit Quellenspur und Verlustbericht (inkl. PO-7: allgemeine Projektion statt nur P1.10-Pläne)",
+      "level": "LIB",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3; docs/09-Research/visual-check/HANDOVER.md#3",
+      "cases": [
+        "C4-02",
+        "DSM-01",
+        "DSM-02"
+      ],
+      "effort_pt": [
+        2,
+        3
+      ],
+      "E": 4,
+      "complexity": "mittel",
+      "K": 2,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 2,
+        "P": 0,
+        "I": 2,
+        "V": 1,
+        "U": 1,
+        "rationale": "Verdichtung mit Quellenspur für C4-02 (ein Architekturfall); DSM-01/02 zählen zu I; P1 und Code-Analyse."
+      }
+    },
+    {
+      "id": "G-04",
+      "title": "Abbildungsprofile je Fremdsprache + Namensfallen-Dokumentation",
+      "level": "Profil + Dokumentation",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3",
+      "cases": [
+        "C4-01",
+        "ARC-01",
+        "DSM-02",
+        "BPMN-01"
+      ],
+      "effort_pt": [
+        1,
+        2
+      ],
+      "E": 3,
+      "complexity": "mittel",
+      "K": 2,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "Aufwand je Sprache",
+      "score": {
+        "A": 3,
+        "P": 1,
+        "I": 1,
+        "V": 0,
+        "U": 2,
+        "rationale": "C4-01 und ARC-01 brauchen versionierte Abbildungen und Namensfallen; BPMN-01 nur Namensrandfall; vor allem Analyse."
+      }
+    },
+    {
+      "id": "G-05",
+      "title": "Graphanalyse in LIB: cycle-gate, Generationen, Ordnungen, SCC",
+      "level": "LIB",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3",
+      "cases": [
+        "DAG-02",
+        "DAG-03",
+        "DSM-01"
+      ],
+      "effort_pt": [
+        2,
+        3
+      ],
+      "E": 4,
+      "complexity": "niedrig–mittel",
+      "K": 1.5,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 1,
+        "P": 0,
+        "I": 3,
+        "V": 0,
+        "U": 1,
+        "rationale": "Für Architektur nur indirekt (Kopplung, Partition); Kern ist DAG/DSM; durch LIB-Aufrufe belegt."
+      }
+    },
+    {
+      "id": "G-06",
+      "title": "impact.propagate v2 (Vorbedingung, Orientierung, präzise Ablehnung)",
+      "level": "LIB",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3",
+      "cases": [
+        "DAG-01",
+        "DAG-03"
+      ],
+      "effort_pt": [
+        0.5,
+        1
+      ],
+      "E": 2,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [
+        "G-05"
+      ],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 0,
+        "P": 0,
+        "I": 3,
+        "V": 0,
+        "U": 1,
+        "rationale": "Reiner Impact-Fall (DAG-01/03); kein Architektur- oder Prozessbezug; LIB-Aufrufe belegt."
+      }
+    },
+    {
+      "id": "G-07",
+      "title": "Kontrollfluss-Profil + Spurkonformität",
+      "level": "Profil + LIB",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3",
+      "cases": [
+        "BPMN-01",
+        "BPMN-02"
+      ],
+      "effort_pt": [
+        3,
+        5
+      ],
+      "E": 5,
+      "complexity": "hoch",
+      "K": 3,
+      "depends_on": [
+        "G-08"
+      ],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 0,
+        "P": 3,
+        "I": 1,
+        "V": 1,
+        "U": 2,
+        "rationale": "BPMN-01 und BPMN-02: Exklusivität und Synchronisation; Kern der Prozessspuren; NE-Fälle, nicht ausgeführt."
+      }
+    },
+    {
+      "id": "G-08",
+      "title": "Typisierte Instanzbindung (instance_ref, Regel gleiche Instanz)",
+      "level": "Profil/Dokumentation",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3; docs/09-Research/learning-balance/PROBE-RESULTS.md",
+      "cases": [
+        "BPMN-03"
+      ],
+      "effort_pt": [
+        0.5,
+        1
+      ],
+      "E": 2,
+      "complexity": "niedrig–mittel",
+      "K": 1.5,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 0,
+        "P": 3,
+        "I": 0,
+        "V": 0,
+        "U": 1,
+        "rationale": "BPMN-03 und Voraussetzung für G-07 und VR-12; belegt durch P1 (scoped/shared) und Probe E-2/L-2."
+      }
+    },
+    {
+      "id": "G-09",
+      "title": "Prädikateigenschaften und Domänendeklaration",
+      "level": "Profil",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3",
+      "cases": [
+        "DSM-01",
+        "DSM-02"
+      ],
+      "effort_pt": [
+        0.5,
+        1
+      ],
+      "E": 2,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 1,
+        "P": 0,
+        "I": 2,
+        "V": 0,
+        "U": 1,
+        "rationale": "Domänen- und Prädikatdisziplin betrifft Architekturmatrizen nur indirekt; Kern DSM-01/02; P1 belegt."
+      }
+    },
+    {
+      "id": "G-10",
+      "title": "Typisierte Relationsoperanden (Alternative zu G-02)",
+      "level": "P1-Profil",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#3",
+      "cases": [
+        "C4-02"
+      ],
+      "effort_pt": [
+        1,
+        2
+      ],
+      "E": 3,
+      "complexity": "mittel",
+      "K": 2,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "schließt G-02 als Weg zur Quellenbindung aus oder ergänzt ihn",
+      "score": {
+        "A": 2,
+        "P": 0,
+        "I": 0,
+        "V": 1,
+        "U": 1,
+        "rationale": "Alternative Quellenbindung für C4-02; P1 UNRESOLVED belegt."
+      }
+    },
+    {
+      "id": "T-01",
+      "title": "Registerpin pro Regel-ID statt ganzes Register",
+      "level": "Werkzeug",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#4",
+      "cases": [
+        "alle"
+      ],
+      "effort_pt": [
+        0.25,
+        0.5
+      ],
+      "E": 1,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [],
+      "inputs_assumed": true,
+      "note": "Aufwand gemeinsam mit T-02 0,5–1 PT",
+      "score": {
+        "A": 0,
+        "P": 0,
+        "I": 0,
+        "V": 0,
+        "U": 2,
+        "rationale": "Werkzeug für alle Studien, kein Anwendungsfallnutzen."
+      }
+    },
+    {
+      "id": "T-02",
+      "title": "LIB-Aufrufe im Runner",
+      "level": "Werkzeug",
+      "source": "docs/09-Research/grammar-sampling/GAP-LEDGER.md#4",
+      "cases": [
+        "DAG-01",
+        "DAG-02",
+        "DAG-03"
+      ],
+      "effort_pt": [
+        0.25,
+        0.5
+      ],
+      "E": 1,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [],
+      "inputs_assumed": true,
+      "note": "Aufwand gemeinsam mit T-01 0,5–1 PT",
+      "score": {
+        "A": 0,
+        "P": 0,
+        "I": 1,
+        "V": 0,
+        "U": 2,
+        "rationale": "Werkzeug für LIB-Aufrufe (DAG); kein Architektur- oder Prozessnutzen."
+      }
+    },
+    {
+      "id": "LR-1",
+      "title": "LIB-Vertragsrevision: Ergebnisschema je Methode für outcome.detail/value",
+      "level": "LIB-Vertrag",
+      "source": "docs/09-Research/learning-balance/PROBE-RESULTS.md",
+      "cases": [
+        "C4-02",
+        "C4-03",
+        "BPMN-03"
+      ],
+      "effort_pt": [
+        1,
+        2
+      ],
+      "E": 3,
+      "complexity": "mittel",
+      "K": 2,
+      "depends_on": [],
+      "inputs_assumed": true,
+      "note": "neu aus E-1/E-2",
+      "score": {
+        "A": 2,
+        "P": 2,
+        "I": 1,
+        "V": 0,
+        "U": 1,
+        "rationale": "E-1 (Projektion, C4-02/03) und E-2 (Spurprüfung, BPMN-03): fachlicher Ergebniskern sonst untypisiert; Probe belegt."
+      }
+    },
+    {
+      "id": "VR-01",
+      "title": "Herkunftslinie (Linienart nach gebundener Herkunft)",
+      "level": "P2",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#2",
+      "cases": [
+        "C4-02",
+        "C4-03"
+      ],
+      "effort_pt": [
+        0.5,
+        1
+      ],
+      "E": 2,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [
+        "G-02"
+      ],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 3,
+        "P": 0,
+        "I": 0,
+        "V": 1,
+        "U": 2,
+        "rationale": "V-01 in C4-02 und C4-03: Herkunft sichtbar; M-01A erfüllt alle Kriterien, blind richtig; nur Agenten-Proxy."
+      }
+    },
+    {
+      "id": "VR-05",
+      "title": "Vier Zellzustände je erklärtem Umfang",
+      "level": "P2",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#2",
+      "cases": [
+        "DSM-03",
+        "ARC-03"
+      ],
+      "effort_pt": [
+        1,
+        1.5
+      ],
+      "E": 3,
+      "complexity": "mittel",
+      "K": 2,
+      "depends_on": [
+        "G-01"
+      ],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 2,
+        "P": 0,
+        "I": 1,
+        "V": 3,
+        "U": 2,
+        "rationale": "ARC-03 (Abwesenheit) im Bild trennbar; DSM-03 zählt zu V; M-05C blind richtig; nur Agenten-Proxy."
+      }
+    },
+    {
+      "id": "VR-09",
+      "title": "Zyklenkomponente mit Status und Zeuge",
+      "level": "P2",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#2",
+      "cases": [
+        "DAG-03",
+        "DAG-01"
+      ],
+      "effort_pt": [
+        1,
+        2
+      ],
+      "E": 3,
+      "complexity": "mittel",
+      "K": 2,
+      "depends_on": [
+        "G-05"
+      ],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 0,
+        "P": 0,
+        "I": 3,
+        "V": 0,
+        "U": 2,
+        "rationale": "Zyklenkomponente für DAG-03; kein Architektur- oder Prozessbezug; nur Agenten-Proxy."
+      }
+    },
+    {
+      "id": "VR-12",
+      "title": "Instanz und Paarung (Rahmen, Join-Aussage, Verstoßmarke)",
+      "level": "P2",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#2",
+      "cases": [
+        "BPMN-03"
+      ],
+      "effort_pt": [
+        1,
+        2
+      ],
+      "E": 3,
+      "complexity": "mittel–hoch",
+      "K": 2.5,
+      "depends_on": [
+        "G-08"
+      ],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 0,
+        "P": 2,
+        "I": 0,
+        "V": 0,
+        "U": 2,
+        "rationale": "BPMN-03: Instanz und Paarung sichtbar; M-12B blind richtig; nur Agenten-Proxy."
+      }
+    },
+    {
+      "id": "PO-1",
+      "title": "Begriff 'declared' in cube.flow eindeutig machen",
+      "level": "P2",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#3",
+      "cases": [
+        "C4-02"
+      ],
+      "effort_pt": [
+        0.1,
+        0.25
+      ],
+      "E": 1,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 1,
+        "P": 0,
+        "I": 0,
+        "V": 0,
+        "U": 2,
+        "rationale": "Begriffskonflikt in R-2a/b (C4); Randfall der Beschriftung; Vor- und Blindprüfung."
+      }
+    },
+    {
+      "id": "PO-2",
+      "title": "cube.flow ohne gemeinsame Senkrechten",
+      "level": "P2",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#3",
+      "cases": [
+        "C4-02",
+        "DAG-03"
+      ],
+      "effort_pt": [
+        1,
+        2
+      ],
+      "E": 3,
+      "complexity": "mittel",
+      "K": 2,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 2,
+        "P": 1,
+        "I": 1,
+        "V": 0,
+        "U": 2,
+        "rationale": "Kanten und Richtung in cube.flow nur über das Ledger eindeutig (R-2, L-1, L-2; blind B04/B09)."
+      }
+    },
+    {
+      "id": "PO-3",
+      "title": "Farbfreie Linsenakzent-Option",
+      "level": "P2",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#3",
+      "cases": [
+        "DAG-03"
+      ],
+      "effort_pt": [
+        0.5,
+        0.5
+      ],
+      "E": 1,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 1,
+        "P": 0,
+        "I": 1,
+        "V": 0,
+        "U": 1,
+        "rationale": "Linsenakzent nur Farbe/Strichstärke (attrs.json); betrifft Architekturflüsse indirekt."
+      }
+    },
+    {
+      "id": "PO-4",
+      "title": "Linse ohne Facettenbindung dokumentieren oder neutrale Linse",
+      "level": "P2/Dokumentation",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#3",
+      "cases": [
+        "DAG-03"
+      ],
+      "effort_pt": [
+        0.1,
+        0.25
+      ],
+      "E": 1,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 0,
+        "P": 0,
+        "I": 1,
+        "V": 0,
+        "U": 1,
+        "rationale": "Nur DAG-Vorher-Bild (P-09a)."
+      }
+    },
+    {
+      "id": "PO-5",
+      "title": "Deklarierte Achsenreihenfolge in cube.axes",
+      "level": "P2",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#3",
+      "cases": [
+        "DSM-01"
+      ],
+      "effort_pt": [
+        0.5,
+        0.5
+      ],
+      "E": 1,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 0,
+        "P": 0,
+        "I": 2,
+        "V": 0,
+        "U": 1,
+        "rationale": "DSM-Lesart der Achsenreihenfolge (R-1); I."
+      }
+    },
+    {
+      "id": "PO-6",
+      "title": "hide_empty nennt ausgeblendete Elemente",
+      "level": "P2",
+      "source": "docs/09-Research/visual-check/HANDOVER.md#3",
+      "cases": [
+        "DSM-03"
+      ],
+      "effort_pt": [
+        0.1,
+        0.25
+      ],
+      "E": 1,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [],
+      "inputs_assumed": false,
+      "note": "",
+      "score": {
+        "A": 0,
+        "P": 0,
+        "I": 0,
+        "V": 2,
+        "U": 1,
+        "rationale": "Namen ausgeblendeter Spalten (R-1b); Vollständigkeit allgemein."
+      }
+    },
+    {
+      "id": "PO-8",
+      "title": "Partition track legt Stränge nie zusammen (wie layer)",
+      "level": "P2",
+      "source": "docs/09-Research/learning-balance/PROBE-RESULTS.md",
+      "cases": [
+        "BPMN-03"
+      ],
+      "effort_pt": [
+        0.25,
+        0.5
+      ],
+      "E": 1,
+      "complexity": "niedrig–mittel",
+      "K": 1.5,
+      "depends_on": [],
+      "inputs_assumed": true,
+      "note": "neu aus L-2",
+      "score": {
+        "A": 0,
+        "P": 1,
+        "I": 0,
+        "V": 0,
+        "U": 1,
+        "rationale": "L-2: Instanzen werden zusammengepackt; schließt die Gruppierung nur teilweise (keine Verstoßmarke)."
+      }
+    },
+    {
+      "id": "HT",
+      "title": "Menschlicher Lesbarkeitstest (Pilot nach Skript)",
+      "level": "Studie",
+      "source": "docs/09-Research/visual-check/HUMAN-TEST-SCRIPT.md",
+      "cases": [
+        "C4-02",
+        "C4-03",
+        "DSM-03",
+        "DAG-03",
+        "BPMN-03"
+      ],
+      "effort_pt": [
+        1,
+        1.5
+      ],
+      "E": 3,
+      "complexity": "niedrig",
+      "K": 1,
+      "depends_on": [],
+      "inputs_assumed": true,
+      "note": "nach D-4 nicht in MILE-004; als Maßnahme für später bewertet",
+      "score": {
+        "A": 1,
+        "P": 1,
+        "I": 1,
+        "V": 1,
+        "U": 2,
+        "rationale": "Würde VR-01/VR-12 an Menschen prüfen; Nutzen indirekt, Anwendung erst nach Umsetzung."
+      }
+    }
+  ],
+  "excluded": [
+    {
+      "id": "T-03",
+      "reason": "kein Eingriff: Agent-Umgebung beibehalten"
+    },
+    {
+      "id": "T-04",
+      "reason": "erledigt: P3-Änderungen committet und gemergt (PR #31)"
+    },
+    {
+      "id": "PO-7",
+      "reason": "in G-03 aufgegangen"
+    }
+  ]
+}

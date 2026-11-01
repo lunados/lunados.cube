@@ -1,0 +1,181 @@
+{
+ "format": "aiaeao.cube.plan-source/1",
+ "printer": "vpmigration",
+ "profile": "P2-VP-MIGRATION/0.7.1",
+ "source": {
+  "format": "aiaeao.cube.vp07-migration-source/1",
+  "profile": "P2-VP-MIGRATION/0.7.1",
+  "reference_version": "v9.4",
+  "context_id": "mile004-bpmn",
+  "plan_id": "mp-bpmn",
+  "source_context_sha256": "e6d44b0ec84bae040c5073e5313e79dfaf748db079c935928d9b0f7e901f9120",
+  "title": "mp-bpmn · p0 → p1",
+  "steps": [
+   {
+    "id": "p0",
+    "label": "p0 · current"
+   },
+   {
+    "id": "p1",
+    "label": "p1 · target"
+   }
+  ],
+  "rows": [
+   {
+    "id": "i1-tok-stock",
+    "anchor_id": "resource-objects.resource",
+    "form_id": "form.resource-card",
+    "label": "i1 · tok-stock",
+    "semantic_ref": "Y:α:Resource[\"bpmn:i1/tok-stock\"]",
+    "track": "i1"
+   },
+   {
+    "id": "i2-tok-credit",
+    "anchor_id": "resource-objects.resource",
+    "form_id": "form.resource-card",
+    "label": "i2 · tok-credit",
+    "semantic_ref": "Y:α:Resource[\"bpmn:i2/tok-credit\"]",
+    "track": "i2"
+   }
+  ],
+  "objects": [
+   {
+    "id": "j1",
+    "anchor_id": "resource-objects.resource",
+    "form_id": "form.resource-card",
+    "label": "J1 · Join (AND)",
+    "semantic_ref": "Y:α:Resource[\"bpmn:j1\"]"
+   }
+  ],
+  "cells": [
+   {
+    "id": "e-stock",
+    "row": "i1-tok-stock",
+    "object": "j1",
+    "predicate_id": "consumed-by",
+    "steps": [
+     "p0",
+     "p1"
+    ],
+    "declaration_ref": "decl:mile004-bpmn#/migration_plans/0/dependencies/0",
+    "declared_end": "target"
+   },
+   {
+    "id": "e-cross",
+    "row": "i2-tok-credit",
+    "object": "j1",
+    "predicate_id": "consumed-by",
+    "steps": [
+     "p0",
+     "p1"
+    ],
+    "declaration_ref": "decl:mile004-bpmn#/migration_plans/0/dependencies/1",
+    "declared_end": "target"
+   }
+  ],
+  "transitions": [],
+  "facet_bindings": [
+   {
+    "lens": "cube.lens.execution",
+    "target_kind": "cell",
+    "target_id": "e-stock",
+    "declaration_ref": "decl:mile004-bpmn#/migration_plans/0/dependencies/0",
+    "note": "kind other",
+    "basis": "declared_unverified"
+   },
+   {
+    "lens": "cube.lens.provenance",
+    "target_kind": "cell",
+    "target_id": "e-stock",
+    "declaration_ref": "decl:mile004-bpmn#/migration_plans/0/dependencies/0/witness_ref",
+    "note": "witness trace:bpmn-order#i1-stock",
+    "basis": "declared_unverified"
+   },
+   {
+    "lens": "cube.lens.execution",
+    "target_kind": "cell",
+    "target_id": "e-cross",
+    "declaration_ref": "decl:mile004-bpmn#/migration_plans/0/dependencies/1",
+    "note": "kind other",
+    "basis": "declared_unverified"
+   },
+   {
+    "lens": "cube.lens.provenance",
+    "target_kind": "cell",
+    "target_id": "e-cross",
+    "declaration_ref": "decl:mile004-bpmn#/migration_plans/0/dependencies/1/witness_ref",
+    "note": "witness trace:bpmn-order#j1-i2-credit",
+    "basis": "declared_unverified"
+   }
+  ],
+  "declaration_status": "declared_unverified",
+  "target_step": "p1"
+ },
+ "mapping": {
+  "format": "aiaeao.cube.vp07-mapping/1",
+  "profile": "P2-VP-MIGRATION/0.7.1",
+  "source_context_sha256": "e6d44b0ec84bae040c5073e5313e79dfaf748db079c935928d9b0f7e901f9120",
+  "context_id": "mile004-bpmn",
+  "plan_id": "mp-bpmn",
+  "slice": {
+   "steps": [
+    "p0",
+    "p1"
+   ],
+   "subjects": null,
+   "track": null
+  },
+  "track_map_sha256": "c30e6f778b88c2178da889665ff5ac6d12ecb3e8eaee72956e1d1d4bb076b5b2",
+  "label_map_sha256": "9a15d0e15f9d9e4b23f163e31288037314644b26e75fdf5ee79109696522e42b",
+  "witness_prefixes_sha256": null,
+  "referents": [
+   {
+    "ref": "bpmn:i1/tok-stock",
+    "id": "i1-tok-stock",
+    "label": "i1 · tok-stock",
+    "concept_id": "Y:resource-object:resource",
+    "anchor_id": "resource-objects.resource",
+    "form_id": "form.resource-card"
+   },
+   {
+    "ref": "bpmn:j1",
+    "id": "j1",
+    "label": "J1 · Join (AND)",
+    "concept_id": "Y:resource-object:resource",
+    "anchor_id": "resource-objects.resource",
+    "form_id": "form.resource-card"
+   },
+   {
+    "ref": "bpmn:i2/tok-credit",
+    "id": "i2-tok-credit",
+    "label": "i2 · tok-credit",
+    "concept_id": "Y:resource-object:resource",
+    "anchor_id": "resource-objects.resource",
+    "form_id": "form.resource-card"
+   }
+  ],
+  "dependencies": [
+   {
+    "dependency_id": "e-stock",
+    "pointer": "/migration_plans/0/dependencies/0",
+    "steps": [
+     "p0",
+     "p1"
+    ]
+   },
+   {
+    "dependency_id": "e-cross",
+    "pointer": "/migration_plans/0/dependencies/1",
+    "steps": [
+     "p0",
+     "p1"
+    ]
+   }
+  ],
+  "empty_steps": [],
+  "dropped_transitions": [],
+  "facets_generated": 4,
+  "p1_validation_performed": false,
+  "declaration_status": "declared_unverified"
+ }
+}
