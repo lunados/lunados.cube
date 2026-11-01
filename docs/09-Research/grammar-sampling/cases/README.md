@@ -9,6 +9,7 @@ Format `aiaeao.cube.research-case/2` für neu erstellte synthetische Fälle. His
 | ARC-01-* (2), ARC-02-* (2), ARC-03-* (3) | TASK-012; ARC-02-count-rule und ARC-03-absence-claim `not_executable` | siehe Fallberichte | ausführbare erwartungsgemäß, zwei `NOT_EXECUTED` ([Bericht](../../../10-Evidence/MILE-002/task012-archimate-report.json)) |
 | DSM-01-* (3), DSM-02-* (3), DSM-03-* (3) | TASK-013; DSM-03-empty-known und DSM-03-hidden `not_executable` | siehe Fallberichte | ausführbare erwartungsgemäß, zwei `NOT_EXECUTED` ([Bericht](../../../10-Evidence/MILE-002/task013-dsm-report.json)) |
 | DAG-01-statement, DAG-03-cycle-edge | TASK-015, P1-Teil; LIB-Aufrufe getrennt unter [lib-calls/](../lib-calls/) | PASS | erwartungsgemäß ([P1](../../../10-Evidence/MILE-002/task015-dag-p1-report.json), [LIB](../../../10-Evidence/MILE-002/task015-dag-lib-calls.json)) |
+| BPMN-01-* (3), BPMN-02-* (2), BPMN-03-* (2) | TASK-014; BPMN-01-exclusivity und BPMN-02-sync-condition `not_executable` | siehe Fallberichte | ausführbare erwartungsgemäß, zwei `NOT_EXECUTED` ([Bericht](../../../10-Evidence/MILE-002/task014-bpmn-report.json)) |
 
 ## Pflichtfelder v2
 
