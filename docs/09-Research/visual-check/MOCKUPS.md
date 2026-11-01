@@ -13,7 +13,7 @@ Stand: 2026-11-01 · Entscheidung D-2 · Generator: [mockups/mockups.py](mockups
 | [M-09B](mockups/M-09B.svg) | V-09 · DAG-03, DAG-01 | wie A, aber **direkte Kanten ohne gemeinsame Stränge**; Hinweis, dass die Darstellung von keiner Nummerierung abhängt | wie A; anderes Layout als VP-02 | M-1 `double` |
 | [M-12A](mockups/M-12A.svg) | V-12 · BPMN-03 | Instanz als **benannte Grenze** (`⬠`); instanzübergreifende Kante gestrichelt mit **schraffierter, benannter Marke** | typisierte Instanzbindung (G-08) | M-3 Schraffur, Grenzanker |
 
-Hashes (SHA-256, erste 16 Zeichen): M-01A `00de9a63db4e354f` · M-05A `74caad87019766a7` · M-05B `858754fef20e4cd4` · M-09A `270bd293f67d9367` · M-09B `9415e83f49fcf5a6` · M-12A `522ac60830a2bbc0` · Generator `75714c1a11b96df9`. Vollständig im MANIFEST bei TASK-023.
+Hashes der ersten Fassung (SHA-256, erste 16 Zeichen; Generator jetzt erweitert, erzeugt diese Dateien unverändert): M-01A `00de9a63db4e354f` · M-05A `74caad87019766a7` · M-05B `858754fef20e4cd4` · M-09A `270bd293f67d9367` · M-09B `9415e83f49fcf5a6` · M-12A `522ac60830a2bbc0` · Generator `75714c1a11b96df9`. Vollständig im MANIFEST bei TASK-023.
 
 ## Bewusste Entscheidungen beim Zeichnen
 
@@ -28,5 +28,17 @@ Hashes (SHA-256, erste 16 Zeichen): M-01A `00de9a63db4e354f` · M-05A `74caad870
 2. Reicht in M-05A der Text allein, oder braucht „unbekannt“ eine Fläche (M-05B)?
 3. Ist „gepunktet = Herkunft unbekannt“ in M-01A gegen „gestrichelt = abgeleitet“ ausreichend verschieden?
 4. Überdeckt in M-12A die Schraffurmarke die Kante so, dass ihre Richtung unklar wird?
+
+## Korrigierte Varianten nach TASK-022
+
+Die [Agenten-Vorprüfung](PRECHECK.md) fand drei Fehler in den Kandidaten. Die ursprünglichen Mockups bleiben unverändert (Hashes oben); korrigiert wird in neuen Varianten aus demselben Generator.
+
+| Mockup | Korrigiert | Kandidatenregel |
+|---|---|---|
+| [M-05C](mockups/M-05C.svg) | M-05A/B behaupteten Vollständigkeit der Zeile printer, obwohl dieselbe Zeile eine unbekannte Zelle hat | wie M-05B; „keine · geprüft“ gilt nur für die erklärte Zelle („erklärt: nur diese Zelle“); der Streifen sagt, dass auch unbekannte Zellen der ausgeblendeten Spalte nicht gezeigt werden |
+| [M-09C](mockups/M-09C.svg) | M-09A/B markierten einen Zyklus, obwohl jede der fünf Kanten auf einem Zyklus liegt | Zyklenkomponente K1 als Rahmen; jede Kante auf einem Zyklus doppelt; Z-Nummern nur für den Beispielzeugen; Status nennt „nicht abarbeitbar“, K1, „5 von 5 Kanten“ und beide elementaren Zyklen; einfach = auf keinem Zyklus |
+| [M-12B](mockups/M-12B.svg) | M-12A zeigte drei Eingänge am AND-Join und legte eine Ausführung von ship nahe | Join-Aussage J1 mit ihren zwei Eingängen; i1/tok-credit als „nicht Teil von J1“; ship im getrennten Feld „Prozessmodell · keine Spur“; „Regelverstoß“ benannt; Instanzgrenzen durchgezogen |
+
+Hashes (SHA-256, erste 16 Zeichen): M-05C `fb8f996d85c02efb` · M-09C `c903c53ed6ce901e` · M-12B `7d6aefeeae41eb75` · Generator `31b9aeb2b9a70adb`.
 
 Keine Printer-, Anker- oder Morphologieänderung. Kein Lesbarkeitsnachweis.

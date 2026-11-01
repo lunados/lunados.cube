@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="620" viewBox="0 0 940 620" data-mockup="true" data-kind="mile003-candidate">
+<title>MOCKUP V-12 B</title>
+<rect x="0" y="0" width="940" height="620" fill="#ffffff"/>
+<rect x="16" y="12" width="908" height="54" rx="0" fill="none" stroke="#111827" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="32" y="36" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#111827" text-anchor="start">MOCKUP — kein Printer-Output · V-12 · Variante B</text>
+<text x="32" y="56" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4b5563" text-anchor="start">Kandidat (korrigiert nach TASK-022): behauptete Paarung als eigene Aussage; Modellfluss von der Spur getrennt</text>
+<rect x="24" y="84" width="600" height="200" rx="10" fill="none" stroke="#111827" stroke-width="1.4"/>
+<text x="40" y="106" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#111827" text-anchor="start">⬠  Instanz bpmn:i1 · Spur</text>
+<rect x="24" y="340" width="600" height="100" rx="10" fill="none" stroke="#111827" stroke-width="1.4"/>
+<text x="40" y="362" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#111827" text-anchor="start">⬠  Instanz bpmn:i2 · Spur</text>
+<rect x="48" y="116" width="210" height="56" rx="8" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.4"/>
+<text x="62" y="151.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#111827" text-anchor="start">⌼</text>
+<text x="92" y="144.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">tok-stock</text>
+<text x="92" y="160.0" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#4b5563" text-anchor="start">bpmn:i1/tok-stock</text>
+<rect x="48" y="196" width="210" height="56" rx="8" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.4"/>
+<text x="62" y="231.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#111827" text-anchor="start">⌼</text>
+<text x="92" y="224.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">tok-credit</text>
+<text x="92" y="240.0" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#4b5563" text-anchor="start">bpmn:i1/tok-credit</text>
+<text x="270" y="228" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start" font-style="italic">nicht Teil von J1</text>
+<rect x="48" y="372" width="210" height="56" rx="8" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.4"/>
+<text x="62" y="407.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#111827" text-anchor="start">⌼</text>
+<text x="92" y="400.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">tok-credit</text>
+<text x="92" y="416.0" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#4b5563" text-anchor="start">bpmn:i2/tok-credit</text>
+<rect x="404" y="112" width="200" height="72" rx="4" fill="none" stroke="#111827" stroke-width="1.6"/>
+<text x="504" y="134" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="middle">Join (AND) · Aussage J1</text>
+<text x="504" y="152" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#4b5563" text-anchor="middle">Scope bpmn:i1</text>
+<text x="504" y="170" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#4b5563" text-anchor="middle">Eingänge: i1/tok-stock + i2/tok-credit</text>
+<line x1="258.0" y1="144.0" x2="398.0" y2="144.0" stroke="#111827" stroke-width="1.6"/>
+<path d="M404.0,144.0 L394.3,149.2 L394.3,138.8 Z" fill="#111827"/>
+<line x1="258.0" y1="400.0" x2="465.8" y2="188.3" stroke="#111827" stroke-width="1.6" stroke-dasharray="8 5"/>
+<path d="M470.0,184.0 L466.9,194.5 L459.5,187.3 Z" fill="#111827"/>
+<rect x="244" y="294" width="236" height="36" rx="0" fill="#ffffff" stroke="#111827" stroke-width="1.2"/>
+<line x1="244.0" y1="294.0" x2="244.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="244.0" y1="301.0" x2="251.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="244.0" y1="308.0" x2="258.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="244.0" y1="315.0" x2="265.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="244.0" y1="322.0" x2="272.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="244.0" y1="329.0" x2="279.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="250.0" y1="330.0" x2="286.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="257.0" y1="330.0" x2="293.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="264.0" y1="330.0" x2="300.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="271.0" y1="330.0" x2="307.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="278.0" y1="330.0" x2="314.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="285.0" y1="330.0" x2="321.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="292.0" y1="330.0" x2="328.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="299.0" y1="330.0" x2="335.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="306.0" y1="330.0" x2="342.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="313.0" y1="330.0" x2="349.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="320.0" y1="330.0" x2="356.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="327.0" y1="330.0" x2="363.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="334.0" y1="330.0" x2="370.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="341.0" y1="330.0" x2="377.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="348.0" y1="330.0" x2="384.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="355.0" y1="330.0" x2="391.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="362.0" y1="330.0" x2="398.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="369.0" y1="330.0" x2="405.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="376.0" y1="330.0" x2="412.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="383.0" y1="330.0" x2="419.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="390.0" y1="330.0" x2="426.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="397.0" y1="330.0" x2="433.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="404.0" y1="330.0" x2="440.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="411.0" y1="330.0" x2="447.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="418.0" y1="330.0" x2="454.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="425.0" y1="330.0" x2="461.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="432.0" y1="330.0" x2="468.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="439.0" y1="330.0" x2="475.0" y2="294.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="446.0" y1="330.0" x2="480.0" y2="296.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="453.0" y1="330.0" x2="480.0" y2="303.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="460.0" y1="330.0" x2="480.0" y2="310.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="467.0" y1="330.0" x2="480.0" y2="317.0" stroke="#6b7280" stroke-width="0.8"/>
+<line x1="474.0" y1="330.0" x2="480.0" y2="324.0" stroke="#6b7280" stroke-width="0.8"/>
+<rect x="256" y="301" width="212" height="22" rx="0" fill="#ffffff" stroke="#111827" stroke-width="0.8"/>
+<text x="362" y="316" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#111827" text-anchor="middle">instanzübergreifend · Regelverstoß</text>
+<rect x="650" y="84" width="266" height="200" rx="10" fill="none" stroke="#9ca3af" stroke-width="1"/>
+<text x="666" y="106" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">Prozessmodell · keine Spur</text>
+<rect x="676" y="130" width="214" height="56" rx="8" fill="#f3f4f6" stroke="#4b5563" stroke-width="1.4"/>
+<text x="690" y="165.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#111827" text-anchor="start">⌼</text>
+<text x="720" y="158.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">ship</text>
+<text x="720" y="174.0" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#4b5563" text-anchor="start">kein Token in der Spur</text>
+<line x1="604.0" y1="148.0" x2="668.0" y2="152.0" stroke="#111827" stroke-width="1"/>
+<path d="M676,152 L666,147 L666,157 Z" fill="#111827"/>
+<text x="666" y="214" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start">Join → ship nur laut Modell;</text>
+<text x="666" y="230" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start">ein Start von ship ist nicht belegt.</text>
+<rect x="24" y="456" width="892" height="30" rx="0" fill="none" stroke="#111827" stroke-width="1"/>
+<text x="36" y="476" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#111827" text-anchor="start">BEFUND (Kandidat): J1 paart bpmn:i1/tok-stock mit bpmn:i2/tok-credit → instanzübergreifend → Regelverstoß (Token je Instanz)</text>
+<text x="32" y="512" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827" text-anchor="start">LEGENDE · Kandidat, kein Urteil</text>
+<text x="32" y="532" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">Durchgezogener Rahmen ⬠ = Instanz (Spur) · durchgezogener Pfeil = Eingang aus derselben Instanz</text>
+<text x="32" y="550" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#111827" text-anchor="start">gestrichelt + schraffierte Marke = Eingang aus fremder Instanz = Regelverstoß · dünner Pfeil rechts = Modellfluss, keine Ausführung</text>
+<line x1="16.0" y1="580.0" x2="924.0" y2="580.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="24" y="602" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#4b5563" text-anchor="start">Setzt eine typisierte Instanzbindung voraus (Lücke G-08). Schraffur nach VP-07 PV-5 (Linien, kein Muster). Fall BPMN-03.</text>
+</svg>

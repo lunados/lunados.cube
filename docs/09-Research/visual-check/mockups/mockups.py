@@ -1,4 +1,4 @@
-"""MILE-003 TASK-021 hand mockups. Candidate visual rules, NOT printer output.
+"""MILE-003 TASK-021 hand mockups (C-Varianten nach TASK-022). Candidate visual rules, NOT printer output.
 
 Deterministic SVG text; no <pattern>, <use>, <image>, href or script (VP-05 NO_ACTIVE_SVG_CONTENT kept).
 Only existing VG anchors are used as glyphs: ⌹ resource, ⌼ evidence, ⬠ boundary, 𝗜 integration, 𝗥 runtime, 𝗣 provider.
@@ -104,7 +104,8 @@ HIDDEN_COL = "m:printer"
 def v05(variant):
     s = Svg(940, 620, f"MOCKUP V-05 {variant}")
     rule = ("Kandidat: vier Zellzustände textlich unterscheiden; ausgeblendete Spalte mit Namen nennen" if variant == "A"
-            else "Kandidat: unbekannte Zellen schraffiert, geprüft leer weiß mit Vermerk; ausgeblendete Spalte als benannter Streifen")
+            else "Kandidat: unbekannte Zellen schraffiert, geprüft leer weiß mit Vermerk; ausgeblendete Spalte als benannter Streifen" if variant == "B"
+            else "Kandidat (korrigiert nach TASK-022): wie B, aber „geprüft“ nur für die erklärte Zelle, nicht für die Zeile")
     s.banner("V-05", f"Variante {variant}", rule)
     s.text(32, 98, "DSM (IR/FAD, Reihenfolge deklariert) · Fall DSM-03 / ARC-03 · Modell dsm-modules.json", 13, "bold")
     x0, y0, cw, ch, hw = 170, 140, 150, 64, 140
@@ -133,7 +134,7 @@ def v05(variant):
             elif key in CHECKED_EMPTY:
                 s.rect(x, y, cw, ch, stroke=INK, sw=1.4)
                 s.text(x + 10, y + 26, "keine · geprüft", 12, "bold")
-                s.text(x + 10, y + 44, "Vollständigkeit: Zeile printer", 10, fill=MUTED)
+                s.text(x + 10, y + 44, "Vollständigkeit: Zeile printer" if variant != "C" else "erklärt: nur diese Zelle", 10, fill=MUTED)
             else:
                 if variant == "A":
                     s.rect(x, y, cw, ch, stroke=LINE)
@@ -144,10 +145,12 @@ def v05(variant):
     ly = y0 + ch * 4 + 40
     s.text(32, ly, "LEGENDE · Kandidat, kein Urteil", 13, "bold")
     s.text(32, ly + 22, "Zelle (Zeile, Spalte): Zeile erhält Input von Spalte = Zeile dependsOn Spalte (IR/FAD).", 12)
-    s.text(32, ly + 42, "„d-xx · dependsOn“ = deklarierte Abhängigkeit  ·  „keine · geprüft“ = als vollständig erklärte Zeile ohne Eintrag", 12)
+    s.text(32, ly + 42, "„d-xx · dependsOn“ = deklarierte Abhängigkeit  ·  " + ("„keine · geprüft“ = als vollständig erklärte Zeile ohne Eintrag" if variant != "C"
+                         else "„keine · geprüft“ = für genau dieses Paar erhoben, keine Abhängigkeit"), 12)
     s.text(32, ly + 62, ("„offen (nicht erhoben)“ = unbekannt, nicht leer" if variant == "A"
                          else "Schraffur = unbekannt (nicht erhoben), nicht leer"), 12)
-    s.text(32, ly + 82, "Streifen rechts = ausgeblendete Spalte, mit Namen; graue Diagonale = Element selbst", 12)
+    s.text(32, ly + 82, "Streifen rechts = ausgeblendete Spalte, mit Namen; graue Diagonale = Element selbst" if variant != "C"
+           else "Streifen rechts = ausgeblendete Spalte, mit Namen (ihre Zellen, auch unbekannte, sind nicht gezeigt); graue Diagonale = Element selbst", 12)
     s.footer("„geprüft leer“ setzt eine Vollständigkeitserklärung voraus (Lücke G-01). Text und Linien statt Farbe. Keine neuen VG-Anker.")
     return s.render()
 
@@ -264,10 +267,86 @@ def v12():
     return s.render()
 
 
+POS_C = {"wi:a": (380, 186), "wi:b": (120, 346), "wi:d": (640, 346), "wi:c": (380, 506)}
+
+
+def v09c():
+    s = Svg(940, 780, "MOCKUP V-09 C")
+    s.banner("V-09", "Variante C", "Kandidat (korrigiert nach TASK-022): Zyklenkomponente markieren; jede Kante auf einem Zyklus doppelt; Zeuge nur als Beispiel")
+    s.rect(24, 82, 892, 58, stroke=INK, sw=1.4)
+    s.text(36, 104, "STATUS (berechnet, Kandidat): Plan nicht abarbeitbar · Zyklenkomponente K1 = {a, b, c, d} · 5 von 5 Kanten auf Zyklen", 13, "bold")
+    s.text(36, 126, "Elementare Zyklen: a→d→b→a und a→d→c→a  ·  Beispielzeuge Z1 a→d, Z2 d→b, Z3 b→a", 12)
+    s.rect(96, 158, 748, 428, stroke=INK, sw=1, rx=12)
+    s.text(112, 180, "K1 · Zyklenkomponente (berechnet, Kandidat)", 12, "bold")
+    pos, w, hh = POS_C, 170, 56
+    for n, (x, y) in pos.items():
+        s.node(x, y, w, hh, "⌹", n)
+    def center(n):
+        x, y = pos[n]; return x + w / 2, y + hh / 2
+    labels = []
+    for (a, b) in EDGES:
+        (x1, y1), (x2, y2) = center(a), center(b)
+        sx1, sy1 = clip(x1, y1, w, hh, x2, y2); sx2, sy2 = clip(x2, y2, w, hh, x1, y1, pad=6)
+        s.arrow(sx1, sy1, sx2, sy2, "double", sw=1.4)
+        t = 0.38 if (a, b) == ("wi:c", "wi:a") else 0.5
+        mx, my = sx1 + (sx2 - sx1) * t, sy1 + (sy2 - sy1) * t
+        wit = (a, b) in CYCLE
+        labels.append((mx + 10, my - 10, f"e{EDGES.index((a, b)) + 1}" + (f" · {CYCLE[(a, b)]}" if wit else ""), wit))
+    for x, y, lab, wit in labels:
+        s.label(x, y, lab, 11, "bold" if wit else "normal")
+    s.text(36, 612, "Nicht gemeint: ‚falsch nummeriert‘ — die Darstellung hängt von keiner Knotennummerierung ab.", 12, italic=True, fill=MUTED)
+    ly0 = 640
+    s.text(32, ly0, "LEGENDE · Kandidat, kein Urteil", 13, "bold")
+    s.line(32, ly0 + 18, 92, ly0 + 18); s.line(32, ly0 + 23, 92, ly0 + 23)
+    s.text(104, ly0 + 24, "doppelt = Kante liegt auf mindestens einem Zyklus (Teil von K1); Pfeil zu Y bei X requires Y", 12)
+    s.text(104, ly0 + 44, "Z-Nummer = Kante des Beispielzeugen; weitere Zyklen nennt der Status", 12)
+    s.line(32, ly0 + 60, 92, ly0 + 60); s.text(104, ly0 + 64, "einfach = Kante auf keinem Zyklus (in diesem Plan keine)", 12)
+    s.text(104, ly0 + 84, "Rahmen K1 = starke Zusammenhangskomponente: jeder Knoten erreicht jeden anderen", 12)
+    s.footer("Setzt eine berechnete Zyklusprüfung voraus (Lücke G-05). Farbfrei: Linienart, Rahmen und Beschriftung. Fall DAG-03 / DAG-01.")
+    return s.render()
+
+
+def v12b():
+    s = Svg(940, 620, "MOCKUP V-12 B")
+    s.banner("V-12", "Variante B", "Kandidat (korrigiert nach TASK-022): behauptete Paarung als eigene Aussage; Modellfluss von der Spur getrennt")
+    for inst, y, h in (("bpmn:i1", 84, 200), ("bpmn:i2", 340, 100)):
+        s.rect(24, y, 600, h, stroke=INK, sw=1.4, rx=10)
+        s.text(40, y + 22, f"⬠  Instanz {inst} · Spur", 14, "bold")
+    s.node(48, 116, 210, 56, "⌼", "tok-stock", "bpmn:i1/tok-stock")
+    s.node(48, 196, 210, 56, "⌼", "tok-credit", "bpmn:i1/tok-credit")
+    s.text(270, 228, "nicht Teil von J1", 11, fill=MUTED, italic=True)
+    s.node(48, 372, 210, 56, "⌼", "tok-credit", "bpmn:i2/tok-credit")
+    s.rect(404, 112, 200, 72, stroke=INK, sw=1.6, rx=4)
+    s.text(504, 134, "Join (AND) · Aussage J1", 13, "bold", anchor="middle")
+    s.text(504, 152, "Scope bpmn:i1", 10, fill=MUTED, anchor="middle")
+    s.text(504, 170, "Eingänge: i1/tok-stock + i2/tok-credit", 9, fill=MUTED, anchor="middle")
+    s.arrow(258, 144, 404, 144, "solid", shorten=0)
+    s.arrow(258, 400, 470, 184, "dashed", shorten=0)
+    s.rect(244, 294, 236, 36, stroke=INK, sw=1.2, fill="#ffffff")
+    s.hatch(244, 294, 236, 36, gap=7, stroke="#6b7280")
+    s.rect(256, 301, 212, 22, stroke=INK, sw=0.8, fill="#ffffff")
+    s.text(362, 316, "instanzübergreifend · Regelverstoß", 11, "bold", anchor="middle")
+    s.rect(650, 84, 266, 200, stroke=LINE, sw=1, rx=10)
+    s.text(666, 106, "Prozessmodell · keine Spur", 13, "bold")
+    s.node(676, 130, 214, 56, "⌼", "ship", "kein Token in der Spur")
+    s.line(604, 148, 668, 152, sw=1)
+    s.add(f'<path d="M676,152 L666,147 L666,157 Z" fill="{INK}"/>')
+    s.text(666, 214, "Join → ship nur laut Modell;", 11, fill=MUTED)
+    s.text(666, 230, "ein Start von ship ist nicht belegt.", 11, fill=MUTED)
+    s.rect(24, 456, 892, 30, stroke=INK, sw=1)
+    s.text(36, 476, "BEFUND (Kandidat): J1 paart bpmn:i1/tok-stock mit bpmn:i2/tok-credit → instanzübergreifend → Regelverstoß (Token je Instanz)", 12, "bold")
+    s.text(32, 512, "LEGENDE · Kandidat, kein Urteil", 13, "bold")
+    s.text(32, 532, "Durchgezogener Rahmen ⬠ = Instanz (Spur) · durchgezogener Pfeil = Eingang aus derselben Instanz", 12)
+    s.text(32, 550, "gestrichelt + schraffierte Marke = Eingang aus fremder Instanz = Regelverstoß · dünner Pfeil rechts = Modellfluss, keine Ausführung", 12)
+    s.footer("Setzt eine typisierte Instanzbindung voraus (Lücke G-08). Schraffur nach VP-07 PV-5 (Linien, kein Muster). Fall BPMN-03.")
+    return s.render()
+
+
 def main(out):
     out = Path(out); out.mkdir(parents=True, exist_ok=True)
     files = {"M-05A.svg": v05("A"), "M-05B.svg": v05("B"), "M-01A.svg": v01(),
-             "M-09A.svg": v09("A"), "M-09B.svg": v09("B"), "M-12A.svg": v12()}
+             "M-09A.svg": v09("A"), "M-09B.svg": v09("B"), "M-12A.svg": v12(),
+             "M-05C.svg": v05("C"), "M-09C.svg": v09c(), "M-12B.svg": v12b()}
     for name, svg in files.items():
         for bad in ("<pattern", "<use", "<image", "href", "<script"):
             assert bad not in svg, (name, bad)
