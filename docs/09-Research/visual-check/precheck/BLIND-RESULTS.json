@@ -1,0 +1,246 @@
+{
+  "format": "mile003.blind-check-results/1",
+  "plan": "precheck/BLIND-PLAN.json",
+  "plan_commit": "57f6549",
+  "agent_tool_uses": 15,
+  "agent_tool_note": "15 Werkzeugaufrufe bei 15 Bildern; der Unteragent meldet nur Read-Aufrufe der Bilddateien.",
+  "tally": {
+    "richtig": 9,
+    "offen": 4,
+    "teilweise": 2
+  },
+  "rows": [
+    {
+      "blind_id": "B01",
+      "source": "M-12B",
+      "requirement": "V-12",
+      "answer_verbatim": {
+        "id": "B01",
+        "antwort": "Nein, laut Bild ist es nicht belegt. Das Bild sagt ausdrücklich, dass ship keinen Token in der Spur hat und ein Start von ship nicht belegt ist. Join → ship gilt nur laut Prozessmodell. Belegt ist nur der Kandidaten-Befund, dass J1 den Token i1/tok-stock mit i2/tok-credit paart, und zwar instanzübergreifend. Ein Start von ship, der durch i2 ausgelöst wurde, wird damit nicht behauptet.",
+        "grundlage": "Text unter ship (‚Join → ship nur laut Modell; ein Start von ship ist nicht belegt‘), Untertitel ‚kein Token in der Spur‘, Rahmen ‚Prozessmodell · keine Spur‘, dünner Pfeil laut Legende = Modellfluss ohne Ausführung, Kasten J1 mit Eingängen, gestrichelte Kante mit schraffierter Marke, BEFUND-Zeile",
+        "sicherheit": "hoch",
+        "auffaelligkeiten": "Befund und Legende sind als ‚Kandidat, kein Urteil‘ markiert. i1/tok-credit ist als ‚nicht Teil von J1‘ beschriftet, obwohl es in derselben Instanz liegt. Die Fußnote sagt, dass eine typisierte Instanzbindung vorausgesetzt wird (Lücke G-08). Die Bezeichnung ‚Regelverstoß‘ ist eine Bewertung, die das Bild selbst nur als Kandidat führt."
+      },
+      "grade": "richtig",
+      "grade_reason": "Instanzübergreifende Paarung erkannt, Start von ship ausdrücklich nicht belegt.",
+      "vs_non_blind": "nicht-blind: n/a (neue Variante)"
+    },
+    {
+      "blind_id": "B02",
+      "source": "M-09B",
+      "requirement": "V-09",
+      "answer_verbatim": {
+        "id": "B02",
+        "antwort": "Laut Statuszeile ist der Plan nicht abarbeitbar. Als Zeuge ist der Zyklus a→d→b→a über e5 (Z1), e3 (Z2) und e1 (Z3) angegeben. An den Pfeilen lässt sich zusätzlich ein zweiter Zyklus a→d→c→a über e5, e4 und e2 ablesen. Er ist aber nicht markiert.",
+        "grundlage": "STATUS-Zeile, Doppellinien mit Z-Nummern, Pfeilrichtungen von e1–e5, Legende (einfach = X requires Y, Pfeil zu Y; doppelt + Z = Kante des Zeugenzyklus)",
+        "sicherheit": "hoch",
+        "auffaelligkeiten": "e2 (c→a) und e4 (d→c) sind einfach gezeichnet, obwohl sie zusammen mit e5 einen Zyklus bilden. Ein Leser könnte die einfache Linie als ‚nicht auf einem Zyklus‘ verstehen. Der Status ist als ‚berechnet, Kandidat‘ gekennzeichnet."
+      },
+      "grade": "richtig",
+      "grade_reason": "Nicht abarbeitbar, Zeuge und zweiter Zyklus genannt; der zweite nur durch eigenes Ablesen der Pfeile.",
+      "vs_non_blind": "nicht-blind C5 ✗: blinder Prüfer fand den zweiten Zyklus selbst; beide werten die einfache Linie als irreführend (C6 ✗ bestätigt)."
+    },
+    {
+      "blind_id": "B03",
+      "source": "M-12A",
+      "requirement": "V-12",
+      "answer_verbatim": {
+        "id": "B03",
+        "antwort": "Nicht entscheidbar. Das Bild zeigt keinen Ausführungs- oder Startzustand von ship, sondern nur eine Kante Join → ship. In den Join (bpmn:join · i1) laufen drei Eingänge: i1/tok-stock, i1/tok-credit und, gestrichelt und instanzübergreifend, i2/tok-credit. Welcher Eingang tatsächlich genutzt wurde, ist nicht erkennbar.",
+        "grundlage": "Instanzrahmen i1/i2, durchgezogene vs. gestrichelte Eingangskanten, schraffierte Marke ‚instanzübergreifend‘, Pfeil Join → ship, Legende",
+        "sicherheit": "mittel",
+        "auffaelligkeiten": "Zwei tok-credit-Eingänge (aus i1 und aus i2) laufen in denselben AND-Join. Damit ist unklar, welcher Token gepaart wird. Der durchgezogene Pfeil Join → ship ist nicht als Modellfluss oder als Ausführung unterschieden und kann als ‚ship wurde gestartet‘ missverstanden werden. Die Fußnote verweist auf Lücke G-08."
+      },
+      "grade": "offen",
+      "grade_reason": "‚Nicht entscheidbar‘; drei Eingänge und mehrdeutiger Pfeil Join → ship benannt; ‚Fehler‘ nicht gesagt.",
+      "vs_non_blind": "nicht-blind ‚eher nein‘ (C5 ✗); blind vorsichtiger. C6-Befund (Ausführung nahegelegt, Paarung unklar) unabhängig bestätigt."
+    },
+    {
+      "blind_id": "B04",
+      "source": "M-09A",
+      "requirement": "V-09",
+      "answer_verbatim": {
+        "id": "B04",
+        "antwort": "Laut Statuszeile ist der Plan nicht abarbeitbar. Als Zeugenzyklus ist a→d→b→a über e5 (Z1), e3 (Z2) und e1 (Z3) angegeben. Aus den einfachen Kanten e4 (d→c) und e2 (c→a) ergibt sich zusammen mit e5 offenbar auch a→d→c→a. Wegen der dichten Linienführung lässt sich das aber nur unsicher ablesen.",
+        "grundlage": "STATUS-Zeile, Doppellinien mit Z-Nummern, Pfeilspitzen an den Knoten, Kantenbeschriftungen e1–e5, Legende",
+        "sicherheit": "mittel",
+        "auffaelligkeiten": "Die orthogonale Führung mit vielen parallelen Senkrechten an wi:a und wi:d macht es schwer, Pfeilspitzen eindeutig einer Kante zuzuordnen. Der zweite Zyklus über e4 und e2 ist nicht markiert. Der Status ist als ‚Kandidat‘ gekennzeichnet."
+      },
+      "grade": "richtig",
+      "grade_reason": "Nicht abarbeitbar, Zeuge; zweiter Zyklus nur unsicher abgelesen (dichte Senkrechten).",
+      "vs_non_blind": "nicht-blind C5 ✗; OQ-1 (Zuordnung an Senkrechten) unabhängig bestätigt."
+    },
+    {
+      "blind_id": "B05",
+      "source": "R-1b-01",
+      "requirement": "V-05",
+      "answer_verbatim": {
+        "id": "B05",
+        "antwort": "Wir wissen es nicht. Die Zelle Zeile m:printer × Spalte m:parser ist leer, und laut Legende bedeutet eine leere Zelle ‚nichts deklariert‘ und nicht ‚keine Beziehung‘.",
+        "grundlage": "Matrixzelle printer/parser (leer), Legende (‚blank cell = nothing declared for this pair, not \"no relation\"‘; Zeile = Subjekt, Spalte = Objekt)",
+        "sicherheit": "hoch",
+        "auffaelligkeiten": "Laut Legende ist eine leere Spalte ausgeblendet, aber nicht benannt (vermutlich m:printer, das zeigt das Bild aber nicht). Das Prädikat ist ‚references‘, nicht ausdrücklich ‚Abhängigkeit‘."
+      },
+      "grade": "offen",
+      "grade_reason": "Erwartete ehrliche Antwort: leere Zelle = nichts deklariert.",
+      "vs_non_blind": "übereinstimmend."
+    },
+    {
+      "blind_id": "B06",
+      "source": "R-2b-01",
+      "requirement": "V-01",
+      "answer_verbatim": {
+        "id": "B06",
+        "antwort": "Nicht als festgelegt (deklariert) gezeichnet. e2 c4:api → c4:db ist gestrichelt, und laut Legende bedeutet gestrichelt ‚abgeleitet (implied, UnlessAny)‘. Das Prädikat lautet ‚uses-implied‘. Ob ‚abgeleitet‘ dasselbe meint wie ‚verdichtet‘, sagt das Bild nicht.",
+        "grundlage": "Linienart von e2 (gestrichelt), VP-07-Legende (solid = deklariert, dashed = abgeleitet), Ledger-Eintrag e2 mit Prädikat ‚uses-implied‘",
+        "sicherheit": "mittel",
+        "auffaelligkeiten": "Die Überschrift ‚DECLARED RELATIONSHIPS‘ und der Ledger-Hinweis ‚each edge is a fixture assertion‘ (e2 hat eine eigene decl-Referenz dependencies/1) stehen in Spannung zur Legende ‚abgeleitet‘. Der Begriff ‚verdichtet‘ kommt im Bild nicht vor."
+      },
+      "grade": "richtig",
+      "grade_reason": "Abgeleitet, nicht festgelegt; Begriff ‚verdichtet‘ fehlt im Bild.",
+      "vs_non_blind": "übereinstimmend; Spannung ‚DECLARED RELATIONSHIPS‘ gegen ‚abgeleitet‘ unabhängig bestätigt."
+    },
+    {
+      "blind_id": "B07",
+      "source": "M-05B",
+      "requirement": "V-05",
+      "answer_verbatim": {
+        "id": "B07",
+        "antwort": "Die Zelle printer × parser sagt ‚keine · geprüft‘, also keine Abhängigkeit. Diese Aussage beruht laut Vermerk auf einer Vollständigkeitserklärung für die ganze Zeile printer. Die Zeile enthält aber zugleich eine schraffierte (unbekannte) Zelle. Deshalb ist die Aussage nur eingeschränkt verlässlich.",
+        "grundlage": "Zellentext ‚keine · geprüft / Vollständigkeit: Zeile printer‘, hervorgehobener Zellrahmen, Schraffur in printer × resolver, Legende (Zeile dependsOn Spalte; Schraffur = unbekannt)",
+        "sicherheit": "mittel",
+        "auffaelligkeiten": "Widerspruch: Die Zeile printer gilt als vollständig erklärt, aber printer × resolver ist schraffiert (= nicht erhoben). Die Legende sagt ‚Zeile ohne Eintrag‘, obwohl die Zeile d-pv enthält. Die Spalte m:printer ist ausgeblendet. Die Fußnote verweist auf Lücke G-01."
+      },
+      "grade": "richtig",
+      "grade_reason": "Keine Abhängigkeit, geprüft — Vertrauen wegen Widerspruch in der Zeile gemindert.",
+      "vs_non_blind": "C6 ✗ unabhängig bestätigt; zusätzlich: Legende ‚Zeile ohne Eintrag‘ widerspricht d-pv in derselben Zeile."
+    },
+    {
+      "blind_id": "B08",
+      "source": "M-05C",
+      "requirement": "V-05",
+      "answer_verbatim": {
+        "id": "B08",
+        "antwort": "Printer hat keine Abhängigkeit zu parser. Die Zelle printer × parser ist ‚keine · geprüft‘ und ausdrücklich nur für diese Zelle erklärt. Laut Legende heißt das: für genau dieses Paar erhoben, keine Abhängigkeit.",
+        "grundlage": "Zellentext ‚keine · geprüft / erklärt: nur diese Zelle‘, Legende (‚für genau dieses Paar erhoben, keine Abhängigkeit‘; Zeile dependsOn Spalte)",
+        "sicherheit": "hoch",
+        "auffaelligkeiten": "Alles ist als Kandidat bzw. Mockup gekennzeichnet. Die Fußnote spricht noch von einer ‚Vollständigkeitserklärung‘ (Lücke G-01), obwohl Variante C die Erklärung auf die einzelne Zelle beschränkt. Die Gegenrichtung parser → printer liegt in der ausgeblendeten Spalte und ist nicht gezeigt."
+      },
+      "grade": "richtig",
+      "grade_reason": "Keine Abhängigkeit, geprüft, nur für diese Zelle; Sicherheit hoch.",
+      "vs_non_blind": "Korrektur wirksam; Restbefund: Fußzeile spricht noch von ‚Vollständigkeitserklärung‘."
+    },
+    {
+      "blind_id": "B09",
+      "source": "P-09a2-01",
+      "requirement": "V-09",
+      "answer_verbatim": {
+        "id": "B09",
+        "antwort": "Aus dem Ledger lassen sich die Zyklen a→d→b→a (e5, e3, e1) und a→d→c→a (e5, e4, e2) ablesen. Ob der Plan abarbeitbar ist, sagt das Bild nicht. Es gibt keinen Status, und es ist ausdrücklich ‚not an ACG validation‘. Der Schluss ‚Zyklus ⇒ nicht abarbeitbar‘ setzt eine Deutung von ‚requires‘ voraus, die das Bild nicht liefert.",
+        "grundlage": "DECLARATION LEDGER (e1 b→a, e2 c→a, e3 d→b, e4 d→c, e5 a→d, alle ‚requires‘), Hinweis DISPLAY-ONLY",
+        "sicherheit": "mittel",
+        "auffaelligkeiten": "In der Zeichnung trägt jeder Knoten eine Pfeilspitze, und die Kanten teilen sich senkrechte Stämme. Die Richtung ist deshalb nur aus dem Ledger, nicht aus den Linien ablesbar. Alle Kanten sind gleich lila gezeichnet (Provenance-Fokus) und markieren keinen Zyklus."
+      },
+      "grade": "teilweise",
+      "grade_reason": "Beide Zyklen aus dem Ledger, Abarbeitbarkeit ausdrücklich nicht aussagbar.",
+      "vs_non_blind": "nicht-blind ebenfalls nur über den Ledger; neu: Pfeilrichtung in der Zeichnung nicht eindeutig (gemeinsame Stämme, Spitzen an jedem Knoten)."
+    },
+    {
+      "blind_id": "B10",
+      "source": "P-09b-01",
+      "requirement": "V-09",
+      "answer_verbatim": {
+        "id": "B10",
+        "antwort": "Aus dem Ledger lassen sich die Zyklen a→d→b→a (e5, e3, e1) und a→d→c→a (e5, e4, e2) ablesen. Ob der Plan abarbeitbar ist, steht nicht im Bild (kein Status, ‚not an ACG validation‘).",
+        "grundlage": "DECLARATION LEDGER (Kantenrichtungen, ‚requires‘), grüne Hervorhebung e1/e3/e5 mit Kasten ‚EPISTEMOLOGY · 3 DECLARED FOCUS‘, Hinweis DISPLAY-ONLY",
+        "sicherheit": "mittel",
+        "auffaelligkeiten": "Die grün hervorgehobenen Kanten e1, e3 und e5 bilden genau den Zyklus a→d→b→a, sind aber als ‚Epistemology-Fokus, not a verdict‘ beschriftet, nicht als Zyklus. Die grauen Kanten e2 und e4 liegen ebenfalls auf einem Zyklus. Die Hervorhebung kann deshalb als Zyklusmarkierung missverstanden werden und ist dann unvollständig. Pfeilrichtungen sind in der Zeichnung nicht eindeutig."
+      },
+      "grade": "teilweise",
+      "grade_reason": "Beide Zyklen aus dem Ledger; Abarbeitbarkeit nicht im Bild; Hervorhebung als unvollständige Zyklusmarkierung missverständlich.",
+      "vs_non_blind": "übereinstimmend mit C2/C5 ✗."
+    },
+    {
+      "blind_id": "B11",
+      "source": "M-01A",
+      "requirement": "V-01",
+      "answer_verbatim": {
+        "id": "B11",
+        "antwort": "In keinem der beiden Fälle ist die Kante als festgelegt (deklariert) gezeichnet. Im Fall C4-02 ist e2 c4:api → c4:db gestrichelt, also ‚abgeleitet (derived, UnlessAny)‘. Im Fall C4-03 ist sie gepunktet, die Herkunft also unbekannt. ‚Verdichtet‘ als Begriff kommt nicht vor.",
+        "grundlage": "Linienarten gestrichelt/gepunktet, Kantenbeschriftungen ‚e2 · abgeleitet‘ und ‚e2 · Herkunft ?‘, Panel-Überschriften ‚Herkunft gebunden/nicht gebunden‘, Legende",
+        "sicherheit": "mittel",
+        "auffaelligkeiten": "Dieselbe Kante e2 erscheint in zwei Fällen mit unterschiedlichem Status, und das Bild sagt nicht, welcher Fall gilt. Die Fußnote sagt, dass eine typisierte Relationsherkunft vorausgesetzt wird (Lücke G-02)."
+      },
+      "grade": "richtig",
+      "grade_reason": "C4-02 abgeleitet, C4-03 Herkunft unbekannt; Begriff ‚verdichtet‘ fehlt.",
+      "vs_non_blind": "übereinstimmend."
+    },
+    {
+      "blind_id": "B12",
+      "source": "M-09C",
+      "requirement": "V-09",
+      "answer_verbatim": {
+        "id": "B12",
+        "antwort": "Laut Status ist der Plan nicht abarbeitbar. Alle vier Knoten bilden die Zyklenkomponente K1 = {a, b, c, d}, und alle 5 Kanten liegen auf Zyklen. Die elementaren Zyklen sind a→d→b→a und a→d→c→a.",
+        "grundlage": "STATUS-Zeile mit elementaren Zyklen, Rahmen K1, Doppellinien an allen Kanten, Z-Nummern als Beispielzeuge, Legende",
+        "sicherheit": "hoch",
+        "auffaelligkeiten": "Der Status ist als ‚berechnet, Kandidat‘ gekennzeichnet. Die Z-Nummern markieren nur einen Beispielzeugen, deshalb haben e2 und e4 keine Z-Nummer. Laut Legende ist das so beabsichtigt."
+      },
+      "grade": "richtig",
+      "grade_reason": "Nicht abarbeitbar, K1 = {a, b, c, d}, 5 von 5 Kanten, beide Zyklen; Sicherheit hoch.",
+      "vs_non_blind": "Korrektur wirksam."
+    },
+    {
+      "blind_id": "B13",
+      "source": "R-2a-01",
+      "requirement": "V-01",
+      "answer_verbatim": {
+        "id": "B13",
+        "antwort": "Nicht entscheidbar. e2 c4:api → c4:db ist genauso durchgezogen gezeichnet wie e1 und steht im ‚DECLARATION LEDGER‘. Das Prädikat lautet aber ‚uses-implied‘. Eine Legende zur Linienart fehlt.",
+        "grundlage": "Linienart von e2 (durchgezogen, wie e1), Ledger-Eintrag ‚e2 · c4:api → c4:db · uses-implied‘, Überschrift DECLARED RELATIONSHIPS",
+        "sicherheit": "niedrig",
+        "auffaelligkeiten": "Die gleiche Linienart für e1 und e2 legt ‚deklariert‘ nahe, während der Prädikatname ‚implied‘ etwas anderes andeutet. Ohne Legende ist das widersprüchlich bzw. mehrdeutig."
+      },
+      "grade": "offen",
+      "grade_reason": "‚Nicht entscheidbar‘: gleiche Linie wie e1, aber Prädikat ‚uses-implied‘, keine Legende.",
+      "vs_non_blind": "nicht-blind ✓ nur durch Nachschlagen; blind wertet es als widersprüchlich — stützt C6 ✗ für R-2a."
+    },
+    {
+      "blind_id": "B14",
+      "source": "M-05A",
+      "requirement": "V-05",
+      "answer_verbatim": {
+        "id": "B14",
+        "antwort": "Die Zelle printer × parser sagt ‚keine · geprüft‘, also keine Abhängigkeit, und beruft sich auf die Vollständigkeit der Zeile printer. Dieselbe Zeile enthält aber die Zelle printer × resolver mit ‚offen (nicht erhoben)‘. Die Vollständigkeitsbehauptung ist damit fraglich.",
+        "grundlage": "Zellentext ‚keine · geprüft / Vollständigkeit: Zeile printer‘, Zelle printer × resolver ‚offen (nicht erhoben)‘, Legende (‚keine · geprüft‘ = als vollständig erklärte Zeile ohne Eintrag; Zeile dependsOn Spalte)",
+        "sicherheit": "mittel",
+        "auffaelligkeiten": "Widerspruch: Die Zeile gilt als vollständig erklärt, enthält aber eine offene, nicht erhobene Zelle. Die Legende sagt ‚Zeile ohne Eintrag‘, obwohl die Zeile d-pv enthält. Die Spalte m:printer ist ausgeblendet. Die Fußnote verweist auf Lücke G-01."
+      },
+      "grade": "richtig",
+      "grade_reason": "Keine Abhängigkeit, geprüft — Vollständigkeitsbehauptung als fraglich benannt.",
+      "vs_non_blind": "wie B07."
+    },
+    {
+      "blind_id": "B15",
+      "source": "R-1a-01",
+      "requirement": "V-05",
+      "answer_verbatim": {
+        "id": "B15",
+        "antwort": "Wir wissen es nicht. Die Zelle Zeile m:printer × Spalte m:parser ist leer, und eine leere Zelle bedeutet laut Legende ‚nichts deklariert‘, nicht ‚keine Beziehung‘.",
+        "grundlage": "Matrixzelle printer/parser (leer), Legende (‚blank cell = nothing declared for this pair, not \"no relation\"‘; Zeile = Subjekt, Spalte = Objekt)",
+        "sicherheit": "hoch",
+        "auffaelligkeiten": "Die Spalte m:printer ist sichtbar, aber vollständig leer. Auch das heißt laut Legende nur ‚nichts deklariert‘. Das Prädikat ist ‚references‘."
+      },
+      "grade": "offen",
+      "grade_reason": "Erwartete ehrliche Antwort.",
+      "vs_non_blind": "übereinstimmend."
+    }
+  ],
+  "new_findings": [
+    "M-05A/B: Legende ‚als vollständig erklärte Zeile ohne Eintrag‘ widerspricht dem Eintrag d-pv in derselben Zeile.",
+    "P-09a2/P-09b (VP-07 cube.flow): Kantenrichtung ist in der Zeichnung nicht eindeutig; nur der Ledger gibt sie sicher an.",
+    "M-05C: Fußzeile spricht noch von ‚Vollständigkeitserklärung‘, obwohl die Regel je Zelle gilt.",
+    "Fallfrage ‚verdichtet‘ und Bildbegriff ‚abgeleitet‘ decken sich nicht wörtlich; R-1 nutzt ‚references‘ statt ‚Abhängigkeit‘."
+  ],
+  "limitations": "Gleiches Modell; Einhaltung der Leseregeln per Anweisung, nicht technisch erzwungen; Bilder tragen Mockup- und Fallkennungen. Agenten-Proxy, kein Lesbarkeitsnachweis."
+}

@@ -51,4 +51,29 @@ Summe über alle Bewertungen: 35 × erfüllt, 18 × nicht erfüllt, 5 × nicht a
 - **V-09:** Zyklenkomponente markieren (alle Kanten, die auf einem Zyklus liegen), Zeuge als ein Beispiel benennen, Status etwa „nicht abarbeitbar · 5 von 5 Kanten auf Zyklen · Zeuge …“; direktes Layout.
 - **V-12:** behauptete Paarung als eigene, benannte Aussage zeigen; Modellfluss (Join → ship) von der Spur trennen; „instanzübergreifend = Regelverstoß“ benennen; Instanzgrenze nicht gestrichelt.
 
-Keine Printer-, Anker- oder Morphologieänderung. Kein Lesbarkeitsnachweis. Die Mockups bleiben unverändert; Korrekturen sind Kandidaten für die Übergabe.
+Die Korrekturen liegen als neue Varianten M-05C, M-09C und M-12B vor ([MOCKUPS](MOCKUPS.md#korrigierte-varianten-nach-task-022)); die ersten Fassungen bleiben unverändert.
+
+## Blinde Zweitprüfung
+
+Plan, Bildzuordnung und Bewertungsregeln vor dem Lauf committet: [BLIND-PLAN.json](precheck/BLIND-PLAN.json) (`57f6549`). Ein separater Agent sah nur 15 Farbrasterungen unter neutralen IDs (B01–B15, gemischt) und die Fallfragen — keinen Schlüssel, keine Kandidatenregeln, keine Quell-IDs. Antworten wörtlich und Bewertung: [BLIND-RESULTS.json](precheck/BLIND-RESULTS.json).
+
+| Bild | Blind | Vergleich mit der nicht-blinden Prüfung |
+|---|---|---|
+| R-2a | offen | wertet gleiche Linie + „uses-implied“ als widersprüchlich; stützt C6 ✗ |
+| R-2b | richtig | Spannung „DECLARED RELATIONSHIPS“ / „abgeleitet“ unabhängig benannt |
+| M-01A | richtig | übereinstimmend |
+| R-1a, R-1b | offen | erwartete ehrliche Antwort, übereinstimmend |
+| M-05A, M-05B | richtig | Widerspruch Zeilen-Vollständigkeit unabhängig gefunden; **neu:** Legende „Zeile ohne Eintrag“ widerspricht d-pv |
+| **M-05C** | richtig (hoch) | Korrektur wirksam; Rest: Fußzeile sagt noch „Vollständigkeitserklärung“ |
+| P-09a2, P-09b | teilweise | beide Zyklen nur aus dem Ledger, Abarbeitbarkeit nicht im Bild; **neu:** Kantenrichtung in der Zeichnung nicht eindeutig |
+| M-09A | richtig | zweiter Zyklus nur unsicher abgelesen (dichte Senkrechten, bestätigt OQ-1) |
+| M-09B | richtig | zweiter Zyklus selbst abgelesen; einfache Linie als irreführend benannt (bestätigt C6 ✗) |
+| **M-09C** | richtig (hoch) | Korrektur wirksam |
+| M-12A | offen | drei Eingänge und mehrdeutiges Join → ship benannt (bestätigt C6 ✗) |
+| **M-12B** | richtig (hoch) | Korrektur wirksam |
+
+Summe: 9 × richtig, 2 × teilweise, 4 × offen, 0 × falsch. Alle drei korrigierten Varianten wurden mit hoher Sicherheit richtig beantwortet; alle drei C6-Befunde der ersten Prüfung fand der blinde Prüfer unabhängig wieder. Der blinde Prüfer war bei M-09A/B nachsichtiger (zweiten Zyklus selbst abgeleitet) und bei R-2a strenger (offen statt „nur durch Nachschlagen“).
+
+Grenzen: gleiches Modell; die Leseregeln sind angewiesen, nicht technisch erzwungen; die Bilder tragen Mockup- und Fallkennungen. Weiterhin Agenten-Proxy, kein Lesbarkeitsnachweis.
+
+Keine Printer-, Anker- oder Morphologieänderung. Kein Lesbarkeitsnachweis.
