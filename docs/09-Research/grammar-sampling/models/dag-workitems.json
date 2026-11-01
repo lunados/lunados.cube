@@ -1,0 +1,25 @@
+{
+  "format": "mile002.foreign-model/1",
+  "notation": "Directed graph of work items; 'X dependsOn Y' means Y must precede X",
+  "authored": "2026-11-01",
+  "status": "Synthetic; not a client system.",
+  "nodes": ["wi:a", "wi:b", "wi:c", "wi:d"],
+  "dependencies": [
+    {"subject": "wi:b", "dependsOn": "wi:a"},
+    {"subject": "wi:c", "dependsOn": "wi:a"},
+    {"subject": "wi:d", "dependsOn": "wi:b"},
+    {"subject": "wi:d", "dependsOn": "wi:c"}
+  ],
+  "cycle_variant": {"adds": {"subject": "wi:a", "dependsOn": "wi:d"}, "cycle": ["wi:a", "wi:b", "wi:d", "wi:a"]},
+  "topological_orders_by_hand": [["wi:a", "wi:b", "wi:c", "wi:d"], ["wi:a", "wi:c", "wi:b", "wi:d"]],
+  "lib_mapping": {
+    "evaluator": "lunados.lib impact.propagate/v1",
+    "edge_orientation": "LIB edge [i, j, w, 'dependsOn'] means value j depends on value i (eval_full: value[j] uses inbound i). A Cube statement rel('dependsOn', X, Y) therefore maps to LIB edge [index(Y), index(X), w, 'dependsOn'].",
+    "numberings": {
+      "N1": {"wi:a": 0, "wi:b": 1, "wi:c": 2, "wi:d": 3},
+      "N2": {"wi:d": 0, "wi:a": 1, "wi:b": 2, "wi:c": 3},
+      "N3": {"wi:a": 0, "wi:c": 1, "wi:b": 2, "wi:d": 3}
+    },
+    "per_node_inputs": {"sources": {"wi:a": 1, "wi:b": 2, "wi:c": 3, "wi:d": 0}, "methods": "all 0", "weights": "all 1", "change": "source of wi:b set to 5"}
+  }
+}

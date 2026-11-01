@@ -1,0 +1,112 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "DAG-03-cycle-edge",
+  "operation": "cube_validate",
+  "invocation_kind": "local_mcp_stdio",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline P1-VC/1.0.0 + Versuchsabbildung mile002:dag:pred/1",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+    },
+    "rule_refs": [
+      "R-DAG-1"
+    ],
+    "matrix_case": "DAG-03",
+    "model": {
+      "path": "docs/09-Research/grammar-sampling/models/dag-workitems.json",
+      "sha256": "5aa955f5bb2836ccf4914e140320a5823a037d4c0b4163dec1d4a9beebb4abd6"
+    }
+  },
+  "arguments": {
+    "input_text": "rel(\"dependsOn\",Y:α:WorkItem[\"wi:a\"],Y:α:WorkItem[\"wi:d\"])",
+    "context": {
+      "format": "aiaeao.cube.binding-context/1",
+      "reference_version": "v9.4",
+      "context_id": "mile002:dag:workitems",
+      "source_kind": "illustrative_fixture",
+      "scope_ref": "mile002:dag",
+      "referents": [
+        {
+          "ref": "wi:a",
+          "concept_id": "Y:identified-object:work-item",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dag"
+        },
+        {
+          "ref": "wi:b",
+          "concept_id": "Y:identified-object:work-item",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dag"
+        },
+        {
+          "ref": "wi:c",
+          "concept_id": "Y:identified-object:work-item",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dag"
+        },
+        {
+          "ref": "wi:d",
+          "concept_id": "Y:identified-object:work-item",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "mile002:dag"
+        }
+      ],
+      "predicate_contracts": [
+        {
+          "predicate_id": "dependsOn",
+          "revision": "mile002:dag:pred/1",
+          "scope": "mile002:dag",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Y:identified-object:work-item"
+          ],
+          "object_concept_ids": [
+            "Y:identified-object:work-item"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "Subjekt hängt von Objekt ab; Objekt muss vorher fertig sein. Keine Aussage über Zyklenfreiheit des Gesamtgraphen."
+          ]
+        }
+      ],
+      "method_contracts": [],
+      "profile_limitations": [
+        "Synthetische Arbeitspakete MILE-002 DAG-01..03 (Work Item, Arbeitsannahme A).",
+        "Keine Wahrheit, Autorität oder Zulassung behauptet."
+      ]
+    }
+  },
+  "arguments_sha256": "e31e3f808b5bc230a0b13af5b8bcfdf67ccbca859a1af5a4d4b5dfe5735215a7",
+  "bindings": {
+    "context_format": "aiaeao.cube.binding-context/1",
+    "context_sha256": "66677a2268db95db98838b3f264c3426ca27b2d159731316656492329f74b400",
+    "qualification_profiles_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "expected": {
+    "domain_status": "PASS",
+    "diagnostic_codes": [],
+    "fixed_before_execution": true,
+    "rationale": "Die zyklusschließende Kante (a hängt von d ab) als Einzelaussage. Erwartet PASS: Der Cube-Graph darf Zyklen enthalten; ungültig wäre erst eine DAG-Projektion. P1 prüft keine Zyklenfreiheit über mehrere Aussagen."
+  }
+}
