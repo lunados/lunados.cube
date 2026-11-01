@@ -1,6 +1,6 @@
 # P1.12 — Declared Coverage and Instance Profile
 
-**Status:** SPECIFIED (draft), **not implemented**. Decisions D-1…D-6 resolved 2026-11-01; detail questions Q-1…Q-6 open.
+**Status:** SPECIFIED, **not implemented**. Decisions D-1…D-6 and detail questions Q-1…Q-6 resolved 2026-11-01 — ready for implementation.
 
 - Specification: [P1_12_ACCEPTANCE_SPEC.md](P1_12_ACCEPTANCE_SPEC.md)
 - Context version: `aiaeao.cube.binding-context/8` (planned), strict superset of `/7`

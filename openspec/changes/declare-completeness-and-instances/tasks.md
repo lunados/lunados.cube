@@ -1,6 +1,6 @@
 # Tasks — declare-completeness-and-instances
 
-Status: in_progress. Führende Ausführungsstatusliste; TASK-030–032 erledigt (Charge A; Detailfragen Q-1–Q-6 der Spezifikation offen), vier Aufgaben offen. Noch nicht umgesetzt.
+Status: in_progress. Führende Ausführungsstatusliste; TASK-030–032 erledigt (Charge A abgeschlossen; Detailfragen Q-1–Q-6 entschieden), vier Aufgaben offen. Noch nicht umgesetzt.
 
 ## A — Prüffälle und Spezifikation
 

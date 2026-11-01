@@ -20,6 +20,7 @@ Entschieden am 2026-11-01 (Nutzer, TASK-032 vorgezogen); Gründe und nicht gewä
 4. **D-4:** typisierte, optionale `instance_ref`; Prädikatvertragseigenschaft „gleiche Instanz verlangt“.
 5. **D-5:** Auslieferung lokal (G4/G6); G5 als eigener Folgeschritt.
 6. **D-6:** Profil erklärt, P1-Validator prüft Wohlgeformtheit und Status, LIB-Eintrag zählt mit typisiertem Ergebnisschema.
+7. **Q-1–Q-6** der [Abnahmespezifikation](../../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md) am 2026-11-01 nach Vorschlag entschieden.
 
 ## Risks / Trade-offs
 

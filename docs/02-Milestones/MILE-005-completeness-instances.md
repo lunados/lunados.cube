@@ -31,6 +31,8 @@ Vom Nutzer nach Erörterung entschieden; alle Empfehlungen übernommen. Abgelehn
 | **D-5** (O-5) | Auslieferung | **Lokal (G4/G6)** in MILE-005; **G5 mit Host-Abnahme** als eigener Folgeschritt, sobald das Profil stabil ist | alle bisherigen Nachweise liefen lokal; spart 0,5–1 PT | G5 sofort |
 | **D-6** (O-6) | Ort der Populationsprüfung | **Arbeitsteilung:** Profil erklärt Umfang und Zählregeln, P1-Validator prüft Wohlgeformtheit und Statusabbildung; **LIB-Eintrag** zählt rein über eine Aussagenmenge, mit Orakel und typisiertem Ergebnisschema (erster Anwendungsfall für LR-1) | `cube_validate` prüft Einzelausdrücke; Zählen braucht Mengen; keine Erweiterung von P1 auf Mengen | nur Erklärung, Zählung später |
 
+**Detailfragen der Spezifikation (2026-11-01, Nutzer, alle nach Vorschlag):** Q-1 `instance_ref` zeigt auf einen deklarierten Referenten vom Konzept `Y:identified-object:bounded-execution`; Q-2 Abdeckungserklärungen dürfen optional eine `instance_ref` tragen; Q-3 Codes `P1_COVERAGE_UNDECLARED`, `P1_INSTANCE_MISMATCH`, `P1_INSTANCE_UNDECLARED`; Q-4 unbekannte Referenten/Prädikate → `P1_BINDING_CONTEXT_REQUIRED`, Schemafehler → `P1_MCP_CONFIG_INVALID`; Q-5 `P1.12/coverage-instance-profile-v1`, `context-v8.schema.json`; Q-6 lokale Discovery listet `binding-context/8`.
+
 Folge für den Ablauf: TASK-031 schreibt die Abnahmespezifikation mit diesen Entscheidungen als „decided“; TASK-034 (LIB) entfällt nicht. Der Aufwandsrahmen bleibt bei 5,25–7,25 PT (G5 ausgeklammert).
 
 ## Drei Chargen
@@ -66,4 +68,4 @@ Nutzen sehr hoch (Rang 1 und 2 der Lernbilanz), Komplexität mittel–hoch.
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/declare-completeness-and-instances/proposal.md) · [Aufgabenstatus](../../openspec/changes/declare-completeness-and-instances/tasks.md) · [Abdeckung](../../openspec/changes/declare-completeness-and-instances/TRACEABILITY.md) · [Arbeitsordner](../09-Research/completeness-instances/README.md). TASK-030: [Prüffälle](../09-Research/completeness-instances/CHECK-CASES.md), [Baseline](../10-Evidence/MILE-005/task030-baseline-check.json). TASK-031: [Abnahmespezifikation P1.12](../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md) (Detailfragen Q-1–Q-6 offen).
+[OpenSpec-Change](../../openspec/changes/declare-completeness-and-instances/proposal.md) · [Aufgabenstatus](../../openspec/changes/declare-completeness-and-instances/tasks.md) · [Abdeckung](../../openspec/changes/declare-completeness-and-instances/TRACEABILITY.md) · [Arbeitsordner](../09-Research/completeness-instances/README.md). TASK-030: [Prüffälle](../09-Research/completeness-instances/CHECK-CASES.md), [Baseline](../10-Evidence/MILE-005/task030-baseline-check.json). TASK-031: [Abnahmespezifikation P1.12](../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md); Detailfragen Q-1–Q-6 am 2026-11-01 nach Vorschlag entschieden. Charge A abgeschlossen.

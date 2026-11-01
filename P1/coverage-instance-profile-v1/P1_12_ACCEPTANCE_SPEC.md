@@ -1,6 +1,6 @@
 # P1.12 — Declared Coverage and Instance Profile · Acceptance specification
 
-**Status:** SPECIFIED (draft) — decisions D-1…D-6 resolved 2026-11-01 (MILE-005, all as proposed); detail questions Q-1…Q-6 (§8) open, to be resolved in a separate docs commit before implementation. **Not implemented.**
+**Status:** SPECIFIED — decisions D-1…D-6 and detail questions Q-1…Q-6 resolved 2026-11-01 (all as proposed) — ready for implementation. **Not implemented.**
 **Numbering:** New profile `P1.12/coverage-instance-profile-v1`, context `aiaeao.cube.binding-context/8`, directory `P1/coverage-instance-profile-v1/`. Builds on P1.11 (`binding-context/7`). P1.7 stays reserved for the Principal → Authority holder chain.
 **Basis:** Morphology v9.4 (no change); P1.10.1 D-2 (incomplete declaration → UNRESOLVED, never FAIL); `context-v7.schema.json` (`referent`, `predicate` with `additionalProperties: false`); P0 concept `Y:identified-object:bounded-execution`; MILE-002 gap ledger G-01 (completeness and population) and G-08 (instance correlation); MILE-004 learning balance (rank 1 and 2) and probe E-2/L-2; MILE-005 decisions D-1…D-6 (`docs/02-Milestones/MILE-005-completeness-instances.md`); check cases `docs/09-Research/completeness-instances/CHECK-CASES.json` (21 cases, committed before this specification).
 **Motivation:** Two gaps found in the grammar comparison (all synthetic, no client data):
@@ -163,11 +163,11 @@ A lunados.lib entry `analyze.population/v1` (working title) evaluates one popula
 | D-5 Delivery | (a) local G4/G6 now, G5 later · (b) G5 now | **(a)** | G5 descriptor and host acceptance follow when the profile is stable. |
 | D-6 Population evaluation | (a) profile declares, P1 checks declarations, LIB evaluates · (b) declarations only | **(a)** | `cube_validate` stays a single-expression check. |
 
-## 8. Detail questions (open, to be resolved before implementation)
+## 8. Detail questions (resolved 2026-11-01, all as proposed)
 
-| Q | Question | Proposal |
+| Q | Question | Resolution |
 |---|---|---|
-| Q-1 | Must `instance_ref` name a declared referent of concept `Y:identified-object:bounded-execution`, or is it a free scoped identifier? | **Declared referent of that concept** — typed per D-4, resolvable, no free text. |
+| Q-1 | Must `instance_ref` name a declared referent of concept `Y:identified-object:bounded-execution`, or is it a free scoped identifier? | **Declared referent of that concept** — typed per D-4, resolvable, no free text (IN-1). |
 | Q-2 | May a coverage declaration carry `instance_ref` to restrict its scope to one instance (needed for CC-14…CC-16)? | **Yes**, optional (CV-4). |
 | Q-3 | Final names of the new codes | Keep `P1_COVERAGE_UNDECLARED`, `P1_INSTANCE_MISMATCH`, `P1_INSTANCE_UNDECLARED`. |
 | Q-4 | Unknown referents/predicates in declarations and rules | Reuse `P1_BINDING_CONTEXT_REQUIRED` (UNRESOLVED); schema errors stay `P1_MCP_CONFIG_INVALID`. |
