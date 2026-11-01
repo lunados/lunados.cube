@@ -1,6 +1,6 @@
 # Prioritize learning balance
 
-Status: planned · 2026-11-01 · [MILE-004](../../../docs/02-Milestones/MILE-004-learning-balance.md)
+Status: done · 2026-11-01 · archiviert · [MILE-004](../../../../docs/02-Milestones/MILE-004-learning-balance.md)
 
 ## Why
 

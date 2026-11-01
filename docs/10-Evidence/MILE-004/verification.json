@@ -1,0 +1,114 @@
+{
+  "head": "0f15297",
+  "note": "HEAD vor dem Abschluss-Commit; Statusänderungen dieses Commits liegen im Arbeitsbaum.",
+  "order": {
+    "items": [
+      {
+        "file": "docs/09-Research/learning-balance/probes/PROBE-PLAN.json",
+        "what": "Probeplan (Nachtrag L-2) vor dem Lauf",
+        "spec_commit": "caec0e2",
+        "evidence_commit": "8300de7",
+        "last_change": "caec0e2",
+        "unchanged_since": true,
+        "before_evidence": true
+      },
+      {
+        "file": "docs/09-Research/learning-balance/MEASURES.json",
+        "what": "Bewertungsrahmen vor der Bewertung",
+        "spec_commit": "60d24d5",
+        "evidence_commit": "08157d4",
+        "last_change": "60d24d5",
+        "unchanged_since": true,
+        "before_evidence": true
+      },
+      {
+        "file": "docs/09-Research/learning-balance/SCORING-FRAME.md",
+        "what": "Bewertungsrahmen vor der Bewertung",
+        "spec_commit": "60d24d5",
+        "evidence_commit": "08157d4",
+        "last_change": "60d24d5",
+        "unchanged_since": true,
+        "before_evidence": true
+      }
+    ],
+    "issues": 0,
+    "first_plan_commit": "a0f6e95",
+    "expectations_unchanged_by_amendment": true,
+    "frame_unscored_when_committed": true
+  },
+  "probe_run": {
+    "plan_sha256_matches": true,
+    "sources_ok_at_run": true,
+    "sources_ok_now": true,
+    "envelope": {
+      "E-1": {
+        "all_valid": true,
+        "rule": "R-E2",
+        "carriers_as_expected": true
+      },
+      "E-2": {
+        "all_valid": true,
+        "rule": "R-E2",
+        "carriers_as_expected": true
+      }
+    },
+    "render": {
+      "L-1a": {
+        "status": "RENDERED",
+        "check": "PASS"
+      },
+      "L-1b": {
+        "status": "RENDERED",
+        "check": "PASS"
+      },
+      "L-2": {
+        "status": "RENDERED",
+        "check": "PASS"
+      }
+    },
+    "svg_hash_mismatch": []
+  },
+  "reproduction": {
+    "build_probes": {
+      "exit": 0,
+      "identical": {
+        "probes/PROBE-PLAN.json": true
+      }
+    },
+    "build_frame": {
+      "exit": 0,
+      "identical": {
+        "MEASURES.json": true
+      }
+    },
+    "score_measures": {
+      "exit": 0,
+      "identical": {
+        "MEASURES-SCORED.json": true,
+        "RANKING.json": true
+      }
+    }
+  },
+  "ranking": {
+    "rank1": "G-01+VR-05",
+    "rank2": "G-08",
+    "selection": [
+      "G-01+VR-05",
+      "G-08"
+    ],
+    "selection_pt": 5.0,
+    "selection_rule_ok": true,
+    "all_scored": true
+  },
+  "no_implementation": {
+    "P0_P3_committed_unchanged_since_main": true,
+    "worktree_P0_P3_unchanged": true,
+    "untracked_outside_scope": [
+      "P2/.vp071.bundle"
+    ],
+    "mile005_status_planned": true
+  },
+  "broken_links": 0,
+  "broken_link_list": [],
+  "all_ok": true
+}

@@ -1,10 +1,10 @@
 # Design — Lernbilanz und Maßnahmenwahl
 
-Status: planned
+Status: done · umgesetzt in MILE-004
 
 ## Context
 
-Die [Lückenbilanz](../../../docs/09-Research/grammar-sampling/GAP-LEDGER.md) nennt zehn Lücken (G-01–G-10), vier Werkzeugbefunde und eine vorläufige Rangfolge. Die [Darstellungsübergabe](../../../docs/09-Research/visual-check/HANDOVER.md) ergänzt vier Kandidatenregeln und sieben Printer-Befunde. Leitfrage 1 (Envelope) ist „nicht direkt geprüft“, Leitfrage 4 (LENS/MODE/Achsen) „weitgehend offen“.
+Die [Lückenbilanz](../../../../docs/09-Research/grammar-sampling/GAP-LEDGER.md) nennt zehn Lücken (G-01–G-10), vier Werkzeugbefunde und eine vorläufige Rangfolge. Die [Darstellungsübergabe](../../../../docs/09-Research/visual-check/HANDOVER.md) ergänzt vier Kandidatenregeln und sieben Printer-Befunde. Leitfrage 1 (Envelope) ist „nicht direkt geprüft“, Leitfrage 4 (LENS/MODE/Achsen) „weitgehend offen“.
 
 ## Goals / Non-Goals
 

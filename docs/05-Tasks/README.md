@@ -52,9 +52,9 @@ Führender Status: [check-visual-distinctions/tasks.md](../../openspec/changes/a
 
 Summe: 11–15 h (1–2 PT); Planungsannahmen, keine Laufzeitmessung. [Nachweise](../10-Evidence/MILE-003/README.md).
 
-## MILE-004 — geplant
+## MILE-004 — abgeschlossen
 
-Führender Status: [prioritize-learning-balance/tasks.md](../../openspec/changes/prioritize-learning-balance/tasks.md).
+Führender Status: [prioritize-learning-balance/tasks.md](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|
@@ -65,7 +65,7 @@ Führender Status: [prioritize-learning-balance/tasks.md](../../openspec/changes
 | [TASK-028 — MILE-005 ausplanen](TASK-028-plan-mile005.md) | US-017 | 1–1,5 h |
 | [TASK-029 — Übergabe MILE-004](TASK-029-learning-handover.md) | US-017 | 1 h |
 
-Summe: 9–12 h (1–1,5 PT); Planungsannahmen.
+Summe: 9–12 h (1–1,5 PT); Planungsannahmen. [Nachweise](../10-Evidence/MILE-004/README.md).
 
 ## MILE-005 — geplant
 

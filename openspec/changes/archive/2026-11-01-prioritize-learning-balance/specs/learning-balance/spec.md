@@ -1,6 +1,6 @@
 # Learning balance — research protocol
 
-Status: planned. Priorisierung von Maßnahmen, keine Umsetzung.
+Status: done · konsolidiert in [specs/learning-balance](../../../../../specs/learning-balance/spec.md).
 
 ## ADDED Requirements
 

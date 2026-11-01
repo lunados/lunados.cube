@@ -1,6 +1,6 @@
 # MILE-004 — Lernbilanz und Maßnahmenwahl
 
-Status: in_progress · Stand: 2026-11-01 · Voraussetzung: MILE-002 und MILE-003 abgeschlossen und abgenommen
+Status: done · Stand: 2026-11-01 · Voraussetzung: MILE-002 und MILE-003 abgeschlossen und abgenommen
 
 ## Ergebnis
 
@@ -35,4 +35,4 @@ A liefert die Antworten auf Frage 1 und 4 für B; C baut auf der Rangfolge aus B
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/prioritize-learning-balance/proposal.md) · [Aufgabenstatus](../../openspec/changes/prioritize-learning-balance/tasks.md) · [Abdeckung](../../openspec/changes/prioritize-learning-balance/TRACEABILITY.md) · [Arbeitsordner](../09-Research/learning-balance/README.md). MILE-004-A abgeschlossen: [Probeplan](../09-Research/learning-balance/probes/PROBE-PLAN.md), [Probeergebnisse](../09-Research/learning-balance/PROBE-RESULTS.md). MILE-004-B abgeschlossen: [Bewertungsrahmen](../09-Research/learning-balance/SCORING-FRAME.md), [Lernbilanz](../09-Research/learning-balance/LERNBILANZ.md). TASK-028: [Plan MILE-005](MILE-005-completeness-instances.md).
+[OpenSpec-Change](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/proposal.md) · [Aufgabenstatus](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/tasks.md) · [Abdeckung](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/TRACEABILITY.md) · [Arbeitsordner](../09-Research/learning-balance/README.md). MILE-004-A abgeschlossen: [Probeplan](../09-Research/learning-balance/probes/PROBE-PLAN.md), [Probeergebnisse](../09-Research/learning-balance/PROBE-RESULTS.md). MILE-004-B abgeschlossen: [Bewertungsrahmen](../09-Research/learning-balance/SCORING-FRAME.md), [Lernbilanz](../09-Research/learning-balance/LERNBILANZ.md). TASK-028: [Plan MILE-005](MILE-005-completeness-instances.md). Alle Abschlusskriterien der drei Chargen sind mit Nachweisen erfüllt ([C-RESULT](../10-Evidence/MILE-004/C-RESULT.md)).

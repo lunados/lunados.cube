@@ -24,7 +24,7 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 - [US-013 — Unterscheidungen als Minimalpaare sichtbar machen](US-013-minimal-pairs.md)
 - [US-014 — Darstellung vorprüfen und übergeben](US-014-agent-precheck-handover.md)
 
-## MILE-004 — geplant
+## MILE-004 — abgeschlossen
 
 - [US-015 — Offene Leitfragen gezielt prüfen](US-015-open-guiding-questions.md)
 - [US-016 — Maßnahmen nach Anwendungsfall priorisieren](US-016-prioritized-measures.md)

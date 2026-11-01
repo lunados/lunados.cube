@@ -1,6 +1,6 @@
 # TASK-026 — Bewertungsrahmen vor der Bewertung festlegen
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/prioritize-learning-balance/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/tasks.md).
 
 Story: [US-016](../04-US/US-016-prioritized-measures.md) · Mile: MILE-004-B · Aufwand: 1 h
 

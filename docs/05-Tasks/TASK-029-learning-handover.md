@@ -1,6 +1,6 @@
 # TASK-029 — Nachweise prüfen und MILE-004 übergeben
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/prioritize-learning-balance/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/tasks.md).
 
 Story: [US-017](../04-US/US-017-follow-up-plan.md) · Mile: MILE-004-C · Aufwand: 1 h
 
@@ -21,4 +21,8 @@ Vollständigkeit prüfen (Erwartung vor Lauf, Bewertungsrahmen vor Bewertung, Li
 
 [TASK-028](TASK-028-plan-mile005.md)
 
-Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Noch kein Ausführungsnachweis vorhanden.
+Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Ausführungsnachweis siehe Ergebnis.
+
+## Ergebnis
+
+Erledigt am 2026-11-01. Abschlussprüfung mit [verify_mile004.py](../10-Evidence/MILE-004/verify_mile004.py) und [verification.json](../10-Evidence/MILE-004/verification.json), Zusammenfassung in [C-RESULT](../10-Evidence/MILE-004/C-RESULT.md), Hashes in [MANIFEST.json](../10-Evidence/MILE-004/MANIFEST.json). Spec konsolidiert in [learning-balance](../../openspec/specs/learning-balance/spec.md), Change archiviert. EPIC-001 abgeschlossen. Offen bleiben Menschentest, MODE und die in der Lernbilanz genannten präzisen Restfragen.

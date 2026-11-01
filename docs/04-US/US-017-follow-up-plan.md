@@ -1,6 +1,6 @@
 # US-017 — Folgeumsetzung vorbereiten und Epic abschließen
 
-Status: planned · Epic: [EPIC-001](../03-Epics/EPIC-001-grammar-learning.md) · Mile: [MILE-004-C](../02-Milestones/MILE-004-learning-balance.md)
+Status: done · Epic: [EPIC-001](../03-Epics/EPIC-001-grammar-learning.md) · Mile: [MILE-004-C](../02-Milestones/MILE-004-learning-balance.md)
 
 Als Cube-Verantwortlicher möchte ich die obersten Maßnahmen als ausgeplanten Folgemilestone erhalten, damit die Umsetzung ohne erneute Analyse beginnen kann.
 
@@ -15,4 +15,4 @@ Als Cube-Verantwortlicher möchte ich die obersten Maßnahmen als ausgeplanten F
 - [TASK-028 — MILE-005 ausplanen](../05-Tasks/TASK-028-plan-mile005.md)
 - [TASK-029 — Nachweise prüfen und MILE-004 übergeben](../05-Tasks/TASK-029-learning-handover.md)
 
-[Requirement-Zuordnung](../../openspec/changes/prioritize-learning-balance/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/prioritize-learning-balance/tasks.md). Noch keine Ausführung.
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/tasks.md). Umgesetzt; Nachweise: [Plan MILE-005](../02-Milestones/MILE-005-completeness-instances.md), [Abschlussnachweis](../10-Evidence/MILE-004/C-RESULT.md).

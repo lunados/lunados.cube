@@ -1,6 +1,6 @@
 # TASK-024 — Probeplan mit Erwartungen festlegen
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/prioritize-learning-balance/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/tasks.md).
 
 Story: [US-015](../04-US/US-015-open-guiding-questions.md) · Mile: MILE-004-A · Aufwand: 1–1,5 h
 

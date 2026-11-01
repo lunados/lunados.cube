@@ -1,6 +1,6 @@
 # TASK-028 — MILE-005 ausplanen
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/prioritize-learning-balance/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-prioritize-learning-balance/tasks.md).
 
 Story: [US-017](../04-US/US-017-follow-up-plan.md) · Mile: MILE-004-C · Aufwand: 1–1,5 h
 
