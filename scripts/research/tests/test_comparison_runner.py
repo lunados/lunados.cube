@@ -83,4 +83,84 @@ class ComparisonTests(unittest.TestCase):
         self.assertEqual(result['observations'][0]['variant']['domain_status'], 'PASS')
         with self.assertRaises(ValueError):r.compare_cases(report,a['case_id'],a['case_id'])
 
+AUTH = ROOT/'docs/09-Research/grammar-sampling/cases'
+PILOT = AUTH/'A-PILOT-01-relation-declared.json'
+
+def _load_modified(mutate):
+    case = json.loads(PILOT.read_text()); mutate(case)
+    with tempfile.TemporaryDirectory() as d:
+        path = Path(d)/'case.json'; path.write_text(json.dumps(case))
+        return r.load_case(path, ROOT)
+
+class AuthoredCaseTests(unittest.TestCase):
+    def test_pilot_loads_as_authored_with_fixed_expectation(self):
+        case = r.load_case(PILOT, ROOT)
+        self.assertEqual(case['origin']['kind'], 'authored_synthetic')
+        self.assertTrue(case['expected']['fixed_before_execution'])
+        self.assertTrue(r.is_executable(case))
+
+    def test_v1_cases_still_load_unchanged(self):
+        for p in FIX.glob('*.json'):
+            self.assertEqual(r.load_case(p, ROOT)['format'], r.CASE_FORMAT)
+
+    def test_missing_provenance_refused(self):
+        for key in ('rule_refs', 'source_register', 'profile_revision', 'authored_at'):
+            with self.subTest(key=key), self.assertRaisesRegex(ValueError, 'provenance'):
+                _load_modified(lambda c: c['origin'].pop(key))
+
+    def test_manipulated_input_refused(self):
+        def change(c): c['arguments']['input_text'] = c['arguments']['input_text'].replace('references', 'depends_on')
+        with self.assertRaisesRegex(ValueError, 'digest'):
+            _load_modified(change)
+
+    def test_changed_context_refused_even_with_recomputed_argument_hash(self):
+        def change(c):
+            c['arguments']['context']['predicate_contracts'] = []; c['arguments_sha256'] = r.digest(c['arguments'])
+        with self.assertRaisesRegex(ValueError, 'binding: context'):
+            _load_modified(change)
+
+    def test_stale_register_hash_refused(self):
+        with self.assertRaisesRegex(ValueError, 'register hash'):
+            _load_modified(lambda c: c['origin']['source_register'].update(sha256='0'*64))
+
+    def test_unknown_rule_and_matrix_case_refused(self):
+        with self.assertRaisesRegex(ValueError, 'rule reference'):
+            _load_modified(lambda c: c['origin'].update(rule_refs=['R-XX-9']))
+        with self.assertRaisesRegex(ValueError, 'Cube rule reference'):
+            _load_modified(lambda c: c['origin'].update(rule_refs=['cube:does/not/exist.md#1']))
+        with self.assertRaisesRegex(ValueError, 'matrix case'):
+            _load_modified(lambda c: c['origin'].update(matrix_case='C4-99'))
+        self.assertEqual(_load_modified(lambda c: c['origin'].update(matrix_case='C4-01'))['origin']['matrix_case'], 'C4-01')
+
+    def test_historical_origin_cannot_be_claimed(self):
+        with self.assertRaisesRegex(ValueError, 'historical probe'):
+            _load_modified(lambda c: c['origin'].update(probe_id='P1-relation-profile-missing'))
+        with self.assertRaisesRegex(ValueError, 'authored_synthetic'):
+            _load_modified(lambda c: c['origin'].update(kind='historical_exact'))
+
+    def test_expectation_must_be_fixed_and_justified(self):
+        with self.assertRaisesRegex(ValueError, 'fixed before'):
+            _load_modified(lambda c: c['expected'].pop('fixed_before_execution'))
+        with self.assertRaisesRegex(ValueError, 'rationale'):
+            _load_modified(lambda c: c['expected'].update(rationale=' '))
+
+    def test_non_executable_case_is_documented_not_invoked(self):
+        def manual(c):
+            for k in ('operation', 'arguments', 'arguments_sha256', 'bindings'): c.pop(k)
+            c['invocation_kind'] = 'not_executable'
+            c['non_execution'] = {'reason': 'Kein lokaler Prüfer für Token-Korrelation; Quellenanalyse im Fallbericht.'}
+            c['expected'].update(domain_status=None, diagnostic_codes=[])
+        case = _load_modified(manual)
+        self.assertFalse(r.is_executable(case))
+        result = r.not_executed(case)
+        self.assertEqual(result['invocation_status'], 'NOT_EXECUTED'); self.assertIsNone(result['domain_status'])
+        self.assertIsNone(result['expectation_match'])
+        self.assertEqual(result['dimensions']['implemented_validation']['assessment'], 'NOT_ASSESSED')
+
+    def test_non_executable_case_cannot_carry_an_invented_call_or_status(self):
+        def bad(c):
+            c['invocation_kind'] = 'not_executable'; c['non_execution'] = {'reason': 'x'}
+        with self.assertRaisesRegex(ValueError, 'no operation'):
+            _load_modified(bad)
+
 if __name__=='__main__':unittest.main()

@@ -28,3 +28,8 @@ Bestehende Runner-Regressionen plus ein neuer positiver Fall, fehlende Herkunft 
 [TASK-009](TASK-009-source-baselines.md)
 
 Umfang gemäß [MILE-002](../02-Milestones/MILE-002-grammar-sampling.md). Keine neuen kanonischen Kategorien, Envelopes, produktiven Adapter oder Analysebibliotheken implementieren. Begrenzte Versuchsprofile bleiben Kandidaten. Noch kein Ausführungsnachweis vorhanden.
+
+## Ergebnis
+
+Umgesetzt am 2026-11-01, Abschluss nach lokalem Lauf. Fallvertrag `aiaeao.cube.research-case/2` additiv im Runner: Herkunftsart `authored_synthetic`, gepinntes Quellenregister, Regelverweise (`R-…` oder `cube:`-Fundstelle), optionale Matrix-Fall-ID und Modellhash, Profilrevision, vorab fixierte und begründete Erwartung. Nicht ausführbare Fälle (`not_executable`) werden mit Grund als `NOT_EXECUTED` protokolliert und nie aufgerufen. v1-Pfad unverändert; Berichte mit v2-Fällen haben `research-run/2`. Pilot [A-PILOT-01-relation-declared](../09-Research/grammar-sampling/cases/A-PILOT-01-relation-declared.json), Erwartung PASS. Unit-Tests: 22/22 (11 bestehende, 11 neue, u. a. fehlende Herkunft, manipulierte Eingabe, vorgetäuschte Archivherkunft, veralteter Registerhash), ausgeführt ohne MCP-SDK (Python 3.13 Arbeitskopie, Python 3.10 im Repo); die Unit-Tests brauchen keine venv. **Offen:** Pilotlauf und v1-Wiederholung über die lokale Adapter-venv, siehe [Ausführen](../09-Research/grammar-sampling/cases/README.md#ausführen); erst danach wird die Aufgabe in tasks.md abgehakt.
+

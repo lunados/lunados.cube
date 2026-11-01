@@ -1,0 +1,103 @@
+{
+  "format": "aiaeao.cube.research-case/2",
+  "case_id": "A-PILOT-01-relation-declared",
+  "purpose": "Pilot für den Herkunftsvertrag v2 (TASK-010). Kein Vergleichsfall der 15-Fälle-Matrix.",
+  "operation": "cube_validate",
+  "invocation_kind": "local_mcp_stdio",
+  "origin": {
+    "kind": "authored_synthetic",
+    "authored_at": "2026-11-01",
+    "reference_version": "v9.4",
+    "profile_revision": "baseline:p1-fixture:migration/P1-VC/1.0.0 (unverändert, kein Versuchsprofil)",
+    "source_register": {
+      "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+      "sha256": "35baf101dac41a826dd6ec4f607d6ebb09dc04089caf964d324bfa1ad1c241e8"
+    },
+    "rule_refs": [
+      "cube:AIAEAO_Pure_Cube_P0_v9.4/v9.4/morphology.md#7.6.1"
+    ],
+    "matrix_case": null,
+    "composition_note": "Neu zusammengesetzt: Ausdruck wie in der historischen Probe P1-relation-profile-missing, Bindungskontext wie in P1-mode-display (enthält den Prädikatvertrag 'references'). Keine der beiden Proben ist Herkunft im Sinne von v1."
+  },
+  "arguments": {
+    "input_text": "rel(\"references\",Y:α:Artifact[\"example:migration-plan\"],Y:α:Resource[\"example:source-repository\"])",
+    "context": {
+      "format": "aiaeao.cube.binding-context/1",
+      "reference_version": "v9.4",
+      "context_id": "p1-fixture:migration",
+      "source_kind": "illustrative_fixture",
+      "scope_ref": "p1-fixture:migration",
+      "referents": [
+        {
+          "ref": "example:migration-plan",
+          "concept_id": "Y:resource-object:artifact",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "p1-fixture:migration"
+        },
+        {
+          "ref": "example:source-repository",
+          "concept_id": "Y:resource-object:resource",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "p1-fixture:migration"
+        }
+      ],
+      "method_contracts": [
+        {
+          "method_id": "analysis.describe/v1",
+          "revision": "p1-fixture:method/1",
+          "scope": "p1-fixture:migration",
+          "origin": "illustrative_fixture",
+          "argument_min": 1,
+          "argument_max": 1,
+          "argument_concept_ids": [
+            "Y:resource-object:artifact"
+          ],
+          "effect_class": "pure_declarative"
+        }
+      ],
+      "predicate_contracts": [
+        {
+          "predicate_id": "references",
+          "revision": "p1-fixture:migration:pred/1",
+          "scope": "p1-fixture:migration",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Y:resource-object:artifact"
+          ],
+          "object_concept_ids": [
+            "Y:resource-object:resource"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "This is a scoped fixture contract. It does not establish the truth of the assertion."
+          ]
+        }
+      ],
+      "profile_limitations": [
+        "Synthetic declarations only: referents are not independently authenticated.",
+        "No authorization, external execution, or canonical AIAEAO Thread admission is asserted."
+      ]
+    }
+  },
+  "arguments_sha256": "e9b9566c7352079ba252136f38c9f72c8d8c324d27e95d217cb6a011d212e682",
+  "bindings": {
+    "context_format": "aiaeao.cube.binding-context/1",
+    "context_sha256": "04141b54ae313f0b0951fd2db0c2c13c6356b58f8e97292cb250c2f48efb774b",
+    "qualification_profiles_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  },
+  "expected": {
+    "domain_status": "PASS",
+    "diagnostic_codes": [],
+    "fixed_before_execution": true,
+    "rationale": "Die historische Probe mit identischem Ausdruck lieferte UNRESOLVED / P1_PREDICATE_PROFILE_MISSING, weil der Kontext keinen Prädikatvertrag enthielt; alle übrigen Stufen waren PASS. Hier deklariert der Kontext 'references' mit Subjekt Y:resource-object:artifact, Objekt Y:resource-object:resource, Richtung subject_to_object und ohne Pflichtqualifikatoren. Beide Referenten sind mit genau diesen Konzepten gebunden. Erwartet: PASS ohne Diagnosen. Ein PASS bestätigt nur die deklarative Typisierung, keine Wahrheit der Beziehung."
+  }
+}

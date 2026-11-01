@@ -5,7 +5,7 @@ Status: in_progress. Führende Ausführungsstatusliste; TASK-009 erledigt, acht 
 ## A — Quellen und Fallbasis
 
 - [x] 1. [TASK-009 — Quellen und Regelbasis fixieren](../../../docs/05-Tasks/TASK-009-source-baselines.md)
-- [ ] 2. [TASK-010 — Neu erstellte Fälle mit expliziter Herkunft zulassen](../../../docs/05-Tasks/TASK-010-authored-case-provenance.md)
+- [ ] 2. [TASK-010 — Neu erstellte Fälle mit expliziter Herkunft zulassen](../../../docs/05-Tasks/TASK-010-authored-case-provenance.md) — umgesetzt, lokaler Pilotlauf ausstehend
 
 ## B — Fünf Dreierpakete
 
