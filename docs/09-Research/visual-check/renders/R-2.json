@@ -111,7 +111,8 @@
         "args": {
           "view": "cube.flow",
           "granularity": "standard",
-          "lens": "cube.lens.provenance"
+          "lens": "cube.lens.provenance",
+          "partition": "object"
         }
       }
     },
@@ -138,7 +139,8 @@
         "args": {
           "view": "cube.flow",
           "granularity": "standard",
-          "lens": "cube.lens.provenance"
+          "lens": "cube.lens.provenance",
+          "partition": "object"
         }
       }
     }
@@ -156,5 +158,13 @@
       "Bericht trägt base_svg_sha256 und svg_sha256 (ES-5), sofern Pfad F greift"
     ]
   },
-  "rationale": "VP-07 ES-1–ES-6; Inventur V-01. 'Herkunft unbekannt' ist hier nicht darstellbar und bleibt für TASK-021."
+  "rationale": "VP-07 ES-1–ES-6; Inventur V-01. 'Herkunft unbekannt' ist hier nicht darstellbar und bleibt für TASK-021.",
+  "amendments": [
+    {
+      "date": "2026-11-01",
+      "change": "partition='object' ergänzt",
+      "reason": "Erster Lauf scheiterte mit P3_PLAN_ARGUMENT_INVALID: cube.flow verlangt partition. Reines Aufrufargument; Erwartungen unverändert.",
+      "failed_run_log": "docs/10-Evidence/MILE-003/task019-render-log.json (erster Lauf, überschrieben; Diagnose hier festgehalten)"
+    }
+  ]
 }
