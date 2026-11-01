@@ -1,0 +1,94 @@
+{
+ "format": "aiaeao.cube.mile005.task033-run/1",
+ "task": "TASK-033",
+ "date": "2026-11-01",
+ "commit_under_test": "4c05b5b",
+ "oracle": {
+  "path": "P1/coverage-instance-profile-v1/oracles/independent_k01_k21.json",
+  "sha256": "abe90e85312984a60961fb0514210090a391ba75fb73e06cdc4630931f9f35c8",
+  "committed": "8297b82"
+ },
+ "vectors": {
+  "path": "P1/coverage-instance-profile-v1/fixtures/k01_k21_materialized.json",
+  "sha256": "64a5a3fd0e6123a1ff51c7cbf7914154194b2b50c49f741454b8fdee15085ecc",
+  "exit": 0,
+  "lines": [
+   "PASS K-01 expected UNRESOLVED ['P1_COVERAGE_UNDECLARED'] | got UNRESOLVED ['P1_COVERAGE_UNDECLARED'] ",
+   "PASS K-02 expected PASS [] | got PASS [] ",
+   "PASS K-03 expected PASS [] | got PASS [] ",
+   "PASS K-04 expected PASS [] | got PASS [] ",
+   "PASS K-05 expected UNRESOLVED ['P1_COVERAGE_UNDECLARED'] | got UNRESOLVED ['P1_COVERAGE_UNDECLARED'] ",
+   "PASS K-06 expected PASS [] | got PASS [] ",
+   "PASS K-07 expected PASS [] | got PASS [] ",
+   "PASS K-08 expected PASS [] | got PASS [] ",
+   "PASS K-09 expected UNRESOLVED ['P1_COVERAGE_UNDECLARED'] | got UNRESOLVED ['P1_COVERAGE_UNDECLARED'] ",
+   "PASS K-10 expected PASS [] | got PASS [] ",
+   "PASS K-11 expected PASS [] | got PASS [] ",
+   "PASS K-12 expected PASS [] | got PASS [] ",
+   "PASS K-13 expected UNRESOLVED ['P1_COVERAGE_UNDECLARED'] | got UNRESOLVED ['P1_COVERAGE_UNDECLARED'] ",
+   "PASS K-14 expected PASS [] | got PASS [] ",
+   "PASS K-15 expected PASS [] | got PASS [] ",
+   "PASS K-16 expected UNRESOLVED ['P1_COVERAGE_UNDECLARED'] | got UNRESOLVED ['P1_COVERAGE_UNDECLARED'] ",
+   "PASS K-17 expected FAIL ['P1_INSTANCE_MISMATCH'] | got FAIL ['P1_INSTANCE_MISMATCH'] ",
+   "PASS K-18 expected FAIL ['P1_REFERENT_MISMATCH', 'P1_SCOPE_CONFLICT'] | got FAIL ['P1_REFERENT_MISMATCH', 'P1_SCOPE_CONFLICT'] ",
+   "PASS K-19 expected PASS [] | got PASS [] ",
+   "PASS K-20 expected UNRESOLVED ['P1_INSTANCE_UNDECLARED'] | got UNRESOLVED ['P1_INSTANCE_UNDECLARED'] ",
+   "PASS K-21 expected PASS [] | got PASS [] ",
+   "21/21 match"
+  ]
+ },
+ "golden_sha256": "10e650c19bdecec4f1f251ff65bcb79a9bae8a3ed9ff662177c51e3b0c057a43",
+ "schema_sha256": "7dda8cd6ba18fc273ecd37ce53f363d59d4a21444dcbcffa37499fb1d6b0a961",
+ "tests": {
+  "P1/comparison-profile-v1/tests/test_p19.py": {
+   "exit": 0,
+   "ran": "Ran 30 tests in 1.043s",
+   "result": "OK"
+  },
+  "P1/coverage-instance-profile-v1/tests/test_p112.py": {
+   "exit": 0,
+   "ran": "Ran 28 tests in 3.090s",
+   "result": "OK"
+  },
+  "P1/instantiation-profile-v1/tests/test_contracts.py": {
+   "exit": 0,
+   "ran": "Ran 11 tests in 0.049s",
+   "result": "OK"
+  },
+  "P1/instantiation-profile-v1/tests/test_runtime.py": {
+   "exit": 0,
+   "ran": "Ran 26 tests in 0.638s",
+   "result": "OK"
+  },
+  "P1/migration-methods-v1/tests/test_p111.py": {
+   "exit": 0,
+   "ran": "Ran 21 tests in 1.898s",
+   "result": "OK"
+  },
+  "P1/migration-profile-v1/tests/test_p110.py": {
+   "exit": 0,
+   "ran": "Ran 25 tests in 1.115s",
+   "result": "OK"
+  },
+  "P1/migration-profile-v2/tests/test_p1101.py": {
+   "exit": 0,
+   "ran": "Ran 16 tests in 1.510s",
+   "result": "OK"
+  },
+  "P1/semantic-validator-v1/tests/test_resolver.py": {
+   "exit": 0,
+   "ran": "Ran 41 tests in 0.056s",
+   "result": "OK"
+  },
+  "P1/simulation-profile-v1/tests/test_p18.py": {
+   "exit": 0,
+   "ran": "Ran 37 tests in 0.652s",
+   "result": "OK"
+  }
+ },
+ "p111_run_vectors": {
+  "exit": 0,
+  "summary": "16/16 match"
+ },
+ "all_ok": true
+}

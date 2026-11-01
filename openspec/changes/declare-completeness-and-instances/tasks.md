@@ -1,6 +1,6 @@
 # Tasks — declare-completeness-and-instances
 
-Status: in_progress. Führende Ausführungsstatusliste; TASK-030–032 erledigt (Charge A abgeschlossen; Detailfragen Q-1–Q-6 entschieden), vier Aufgaben offen. Noch nicht umgesetzt.
+Status: in_progress. Führende Ausführungsstatusliste; TASK-030–033 erledigt (Charge A abgeschlossen; Detailfragen Q-1–Q-6 entschieden; P1.12 lokal umgesetzt, 21/21), drei Aufgaben offen (LIB, Printer, Adapter und Abnahme).
 
 ## A — Prüffälle und Spezifikation
 
@@ -10,7 +10,7 @@ Status: in_progress. Führende Ausführungsstatusliste; TASK-030–032 erledigt 
 
 ## B — Profil und LIB
 
-- [ ] 4. [TASK-033 — P1-Profil implementieren](../../../docs/05-Tasks/TASK-033-profile-impl.md)
+- [x] 4. [TASK-033 — P1-Profil implementieren](../../../docs/05-Tasks/TASK-033-profile-impl.md)
 - [ ] 5. [TASK-034 — Populationsprüfung als LIB-Eintrag](../../../docs/05-Tasks/TASK-034-lib-population.md)
 
 ## C — Darstellung und Abnahme
@@ -18,4 +18,4 @@ Status: in_progress. Führende Ausführungsstatusliste; TASK-030–032 erledigt 
 - [ ] 6. [TASK-035 — Printer-Stand für vier Zellzustände](../../../docs/05-Tasks/TASK-035-cell-state-printer.md)
 - [ ] 7. [TASK-036 — Adapter, Wiederholung der MILE-002-Fälle und Übergabe](../../../docs/05-Tasks/TASK-036-adapter-acceptance.md)
 
-[Milestone](../../../docs/02-Milestones/MILE-005-completeness-instances.md) · [Abdeckung](TRACEABILITY.md). Nachweis TASK-030: [Prüffälle](../../../docs/09-Research/completeness-instances/CHECK-CASES.md). TASK-031: [Abnahmespezifikation P1.12](../../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md). TASK-032: [Entscheidungen](../../../docs/02-Milestones/MILE-005-completeness-instances.md).
+[Milestone](../../../docs/02-Milestones/MILE-005-completeness-instances.md) · [Abdeckung](TRACEABILITY.md). Nachweis TASK-030: [Prüffälle](../../../docs/09-Research/completeness-instances/CHECK-CASES.md). TASK-031: [Abnahmespezifikation P1.12](../../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md). TASK-032: [Entscheidungen](../../../docs/02-Milestones/MILE-005-completeness-instances.md). TASK-033: [Profil P1.12](../../../P1/coverage-instance-profile-v1/README.md), [Lauf](../../../docs/10-Evidence/MILE-005/task033-run.json).

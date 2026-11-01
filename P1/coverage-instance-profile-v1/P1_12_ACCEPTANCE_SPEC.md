@@ -1,6 +1,6 @@
 # P1.12 — Declared Coverage and Instance Profile · Acceptance specification
 
-**Status:** SPECIFIED — decisions D-1…D-6 and detail questions Q-1…Q-6 resolved 2026-11-01 (all as proposed) — ready for implementation. **Not implemented.**
+**Status:** SPECIFIED — decisions D-1…D-6 and detail questions Q-1…Q-6 resolved 2026-11-01 (all as proposed) — **IMPLEMENTED locally 2026-11-01** (TASK-033, K-01…K-21 21/21); LIB entry, printer and adapter/host acceptance open (TASK-034…036).
 **Numbering:** New profile `P1.12/coverage-instance-profile-v1`, context `aiaeao.cube.binding-context/8`, directory `P1/coverage-instance-profile-v1/`. Builds on P1.11 (`binding-context/7`). P1.7 stays reserved for the Principal → Authority holder chain.
 **Basis:** Morphology v9.4 (no change); P1.10.1 D-2 (incomplete declaration → UNRESOLVED, never FAIL); `context-v7.schema.json` (`referent`, `predicate` with `additionalProperties: false`); P0 concept `Y:identified-object:bounded-execution`; MILE-002 gap ledger G-01 (completeness and population) and G-08 (instance correlation); MILE-004 learning balance (rank 1 and 2) and probe E-2/L-2; MILE-005 decisions D-1…D-6 (`docs/02-Milestones/MILE-005-completeness-instances.md`); check cases `docs/09-Research/completeness-instances/CHECK-CASES.json` (21 cases, committed before this specification).
 **Motivation:** Two gaps found in the grammar comparison (all synthetic, no client data):
