@@ -51,3 +51,18 @@ Führender Status: [check-visual-distinctions/tasks.md](../../openspec/changes/a
 | [TASK-023 — Übergabe MILE-003](TASK-023-visual-handover.md) | US-014 | 1–2 h |
 
 Summe: 11–15 h (1–2 PT); Planungsannahmen, keine Laufzeitmessung. [Nachweise](../10-Evidence/MILE-003/README.md).
+
+## MILE-004 — geplant
+
+Führender Status: [prioritize-learning-balance/tasks.md](../../openspec/changes/prioritize-learning-balance/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-024 — Probeplan mit Erwartungen](TASK-024-probe-plan.md) | US-015 | 1–1,5 h |
+| [TASK-025 — Proben ausführen, Leitfragen 1 und 4](TASK-025-run-probes.md) | US-015 | 3–3,5 h |
+| [TASK-026 — Bewertungsrahmen](TASK-026-scoring-frame.md) | US-016 | 1 h |
+| [TASK-027 — Lernbilanz](TASK-027-learning-balance.md) | US-016 | 2–3 h |
+| [TASK-028 — MILE-005 ausplanen](TASK-028-plan-mile005.md) | US-017 | 1–1,5 h |
+| [TASK-029 — Übergabe MILE-004](TASK-029-learning-handover.md) | US-017 | 1 h |
+
+Summe: 9–12 h (1–1,5 PT); Planungsannahmen.

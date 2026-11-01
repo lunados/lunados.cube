@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-Keine.
+- [prioritize-learning-balance](prioritize-learning-balance/proposal.md) — MILE-004 geplant; drei Chargen, sechs offene Tasks.
 
 ## Abgeschlossen
 
