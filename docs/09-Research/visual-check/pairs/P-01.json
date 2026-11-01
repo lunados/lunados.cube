@@ -1,0 +1,27 @@
+{
+  "format": "mile003.pair-spec/1",
+  "pair_id": "P-01",
+  "requirement": "V-01",
+  "cases": [
+    "C4-02",
+    "C4-03"
+  ],
+  "kind": "printer_pair_reused",
+  "source": "Übernahme aus R-2 (TASK-019); keine neue Ausführung.",
+  "render_spec": "docs/09-Research/visual-check/renders/R-2.json",
+  "sides": {
+    "without": {
+      "call": "R-2a",
+      "svg": "docs/10-Evidence/MILE-003/R-2a/R-2a-01.svg",
+      "sha256": "4bbbc0a432e433b8bd9717f8bea43093501eb532e6d5a043bef4e6a46b72dacc"
+    },
+    "with": {
+      "call": "R-2b",
+      "svg": "docs/10-Evidence/MILE-003/R-2b/R-2b-01.svg",
+      "sha256": "390e95e1184ed16e49ab2d69c1ab2f85adc199dfc144062fc56b77c2058311f3"
+    }
+  },
+  "only_difference": "edge_styles (writes-orders-to → solid, uses-implied → dashed, mit Legende)",
+  "question": "Ist API → Database festgelegt oder nur verdichtet?",
+  "expected": "siehe R-2 (Erwartungen vor dem Rendern in 657efe8)"
+}

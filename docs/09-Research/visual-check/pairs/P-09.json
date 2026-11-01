@@ -1,0 +1,196 @@
+{
+  "format": "mile003.pair-spec/1",
+  "pair_id": "P-09",
+  "requirement": "V-09",
+  "cases": [
+    "DAG-03",
+    "DAG-01"
+  ],
+  "kind": "printer_pair",
+  "model": "docs/09-Research/grammar-sampling/models/dag-workitems.json",
+  "mapping_note": "Darstellungsabbildung (A): Work Items → Y:resource-object:resource (Adapterkonzept), Abhängigkeit 'X requires Y' als eigenes Prädikat. Zyklus-Variante des Modells (a requires d). Die Zyklenkanten werden über witness_ref-Präfix 'cycle:' markiert und nur mit deklarierter Präfixliste von der Epistemologie-Linse hervorgehoben — von Hand deklariert, nicht berechnet.",
+  "context": {
+    "format": "aiaeao.cube.binding-context/5",
+    "reference_version": "v9.4",
+    "context_id": "mile003-dag",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dag",
+    "referents": [
+      {
+        "ref": "wi:a",
+        "concept_id": "Y:resource-object:resource",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:dag"
+      },
+      {
+        "ref": "wi:b",
+        "concept_id": "Y:resource-object:resource",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:dag"
+      },
+      {
+        "ref": "wi:c",
+        "concept_id": "Y:resource-object:resource",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:dag"
+      },
+      {
+        "ref": "wi:d",
+        "concept_id": "Y:resource-object:resource",
+        "home": "Y",
+        "layers": [
+          "α"
+        ],
+        "provenance_status": "declared_unverified",
+        "scope_ref": "mile003:dag"
+      }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+      {
+        "plan_id": "mp-dag",
+        "revision": "mile003:v1",
+        "scope": "mile003:dag",
+        "origin": "illustrative_fixture",
+        "phases": [
+          {
+            "phase_id": "p0",
+            "role": "current"
+          },
+          {
+            "phase_id": "p1",
+            "role": "target"
+          }
+        ],
+        "transitions": [],
+        "dependencies": [
+          {
+            "dependency_id": "k-ba",
+            "subject": "wi:b",
+            "object": "wi:a",
+            "predicate_id": "requires",
+            "kind": "other",
+            "holds_in": [
+              "p0"
+            ],
+            "witness_ref": "cycle:dag-workitems#b-a"
+          },
+          {
+            "dependency_id": "k-ca",
+            "subject": "wi:c",
+            "object": "wi:a",
+            "predicate_id": "requires",
+            "kind": "other",
+            "holds_in": [
+              "p0"
+            ],
+            "witness_ref": "model:dag-workitems#c-a"
+          },
+          {
+            "dependency_id": "k-db",
+            "subject": "wi:d",
+            "object": "wi:b",
+            "predicate_id": "requires",
+            "kind": "other",
+            "holds_in": [
+              "p0"
+            ],
+            "witness_ref": "cycle:dag-workitems#d-b"
+          },
+          {
+            "dependency_id": "k-dc",
+            "subject": "wi:d",
+            "object": "wi:c",
+            "predicate_id": "requires",
+            "kind": "other",
+            "holds_in": [
+              "p0"
+            ],
+            "witness_ref": "model:dag-workitems#d-c"
+          },
+          {
+            "dependency_id": "k-ad",
+            "subject": "wi:a",
+            "object": "wi:d",
+            "predicate_id": "requires",
+            "kind": "other",
+            "holds_in": [
+              "p0"
+            ],
+            "witness_ref": "cycle:dag-workitems#a-d"
+          }
+        ]
+      }
+    ]
+  },
+  "plan_id": "mp-dag",
+  "sides": {
+    "without": {
+      "call_id": "P-09a",
+      "plan_source": {
+        "printer": "vpmigration"
+      },
+      "plan_views": {
+        "view": "cube.flow",
+        "granularity": "detail",
+        "lens": "cube.lens.epistemology",
+        "partition": "step"
+      }
+    },
+    "with": {
+      "call_id": "P-09b",
+      "plan_source": {
+        "printer": "vpmigration",
+        "witness_prefixes": {
+          "format": "aiaeao.cube.vp07-witness-prefixes/1",
+          "prefixes": [
+            {
+              "prefix": "cycle:",
+              "note": "Zyklus a→d→b→a, von Hand deklariert"
+            }
+          ]
+        }
+      },
+      "plan_views": {
+        "view": "cube.flow",
+        "granularity": "detail",
+        "lens": "cube.lens.epistemology",
+        "partition": "step"
+      }
+    }
+  },
+  "only_difference": "witness_prefixes (Präfix 'cycle:' mit Notiz)",
+  "question": "Ist dieser Plan abarbeitbar — und wo liegt der Zyklus?",
+  "expected": {
+    "P-09a": [
+      "vier Knoten (wi:a…wi:d), fünf Kanten, alle gleiche Linienart und Pfeilspitze reference",
+      "keine Epistemologie-Hervorhebung (kein deklarierter Fokus)",
+      "Zyklus nur durch Nachverfolgen der Kanten oder des Ledgers erkennbar"
+    ],
+    "P-09b": [
+      "genau die drei Zyklenkanten (a→d, d→b, b→a) mit Linsenakzent; c→a und d→c ohne",
+      "Linsenfeld nennt drei deklarierte Fokusse",
+      "Unterscheidung über Akzentfarbe/-strich; ob farbfrei unterscheidbar: Beobachtung",
+      "keine Aussage 'nicht abarbeitbar' und keine Unterscheidung zu 'falsch nummeriert' (keine Darstellung vorgesehen)"
+    ],
+    "both": [
+      "ein Panel (alle Abhängigkeiten nur in p0); granularity detail fasst 4 Knoten / 5 Kanten ohne Auslassung"
+    ]
+  },
+  "rationale": "Adapter AD-4: Epistemologie-Fokus nur für witness_ref mit deklariertem Präfix; VP-03 Linsenakzent; Budget cube.flow detail ≤ 4 Knoten / ≤ 8 Kanten."
+}
