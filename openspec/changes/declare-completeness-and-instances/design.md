@@ -1,6 +1,6 @@
 # Design — Vollständigkeit und Instanzbindung
 
-Status: planned
+Status: decided · Umsetzung offen
 
 ## Context
 
@@ -12,7 +12,14 @@ Vollständigkeit erklärbar und prüfbar machen, Instanzen typisiert binden, vie
 
 ## Decisions
 
-Offen bis TASK-032: O-1 Profilschnitt/Nummer, O-2 Umfang der Erklärung, O-3 Status, O-4 Form der Instanzbindung, O-5 Auslieferung, O-6 Ort der Populationsprüfung. Siehe [MILE-005](../../../docs/02-Milestones/MILE-005-completeness-instances.md#offene-entscheidungen-vor-task-032-vom-nutzer-zu-treffen).
+Entschieden am 2026-11-01 (Nutzer, TASK-032 vorgezogen); Gründe und nicht gewählte Optionen im [Milestone](../../../docs/02-Milestones/MILE-005-completeness-instances.md).
+
+1. **D-1:** ein gemeinsames Profil (Arbeitstitel P1.12, `binding-context/8`) mit getrennten Abschnitten Vollständigkeit und Instanzbindung.
+2. **D-2:** Erklärungsumfang Referent × Relationstyp × Richtung, zusätzlich je Paar; keine Erklärung je Sicht.
+3. **D-3:** unvollständige Erklärung → UNRESOLVED mit eigenem Diagnosecode (Arbeitstitel `P1_COVERAGE_UNDECLARED`).
+4. **D-4:** typisierte, optionale `instance_ref`; Prädikatvertragseigenschaft „gleiche Instanz verlangt“.
+5. **D-5:** Auslieferung lokal (G4/G6); G5 als eigener Folgeschritt.
+6. **D-6:** Profil erklärt, P1-Validator prüft Wohlgeformtheit und Status, LIB-Eintrag zählt mit typisiertem Ergebnisschema.
 
 ## Risks / Trade-offs
 

@@ -8,6 +8,6 @@ MILE-001 bis MILE-004 sind abgeschlossen, MILE-002 und MILE-003 am 2026-11-01 ab
 | [MILE-002 — Grammatikabtastung](MILE-002-grammar-sampling.md) | **Abgeschlossen:** 15 Fallberichte, Quellenbindung, Lückenbilanz und Übergaben ([Nachweis](../10-Evidence/MILE-002/C-RESULT.md)) | MILE-001 abgeschlossen |
 | [MILE-003 — Darstellung prüfen](MILE-003-visual-check.md) | Drei Chargen: Inventur V-01–V-12, Minimalpaare/Mockups, Agenten-Vorprüfung und Übergabe; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-003/C-RESULT.md)) | MILE-002 abgeschlossen |
 | [MILE-004 — Lernbilanz und Maßnahmenwahl](MILE-004-learning-balance.md) | Drei Chargen: Proben zu Leitfrage 1 und 4, vorab gerahmte Priorisierung für Architektursichten und Prozessspuren, Plan MILE-005; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-004/C-RESULT.md)) | MILE-002 und MILE-003 abgenommen |
-| [MILE-005 — Vollständigkeit und Instanzbindung](MILE-005-completeness-instances.md) | Drei Chargen: ausführbare Prüffälle und Spezifikation mit Entscheidungen, P1-Profil und LIB, Printer-Stand und Abnahme; geplant | MILE-004 |
+| [MILE-005 — Vollständigkeit und Instanzbindung](MILE-005-completeness-instances.md) | Drei Chargen: ausführbare Prüffälle und Spezifikation mit Entscheidungen, P1-Profil und LIB, Printer-Stand und Abnahme; Entscheidungen getroffen, Umsetzung offen | MILE-004 |
 
 [Roadmap](../01-roadmap/ROADMAP.md) · [Vorlage](../99-templates/WORK-ITEM.md)

@@ -6,11 +6,11 @@ Story: [US-018](../04-US/US-018-completeness.md), [US-019](../04-US/US-019-insta
 
 ## Ziel und Arbeit
 
-Abnahmespezifikation für das neue P1-Profil (Vollständigkeitserklärung, Population, Instanzbindung) im Stil P1.9/P1.10.1: Umfang, Nicht-Ziele, Diagnosen, Vektoren, Entscheidungstabelle O-1 bis O-6 mit Optionen und Empfehlung.
+Abnahmespezifikation für das neue P1-Profil (Vollständigkeitserklärung, Population, Instanzbindung) im Stil P1.9/P1.10.1: Umfang, Nicht-Ziele, Diagnosen, Vektoren, Entscheidungen D-1 bis D-6 (2026-11-01 getroffen, TASK-032 vorgezogen) als „decided“ übernommen.
 
 ## Ergebnis und Akzeptanz
 
-- Spezifikation unter P1/<neues Profil>/ als Entwurf; alle Entscheidungen offen ausgewiesen.
+- Spezifikation unter P1/<neues Profil>/ als Entwurf; Entscheidungen D-1 bis D-6 eingetragen, neu auftretende Detailfragen offen ausgewiesen.
 - Bezug jedes Vektors auf einen Prüffall aus TASK-030.
 
 ## Eingaben

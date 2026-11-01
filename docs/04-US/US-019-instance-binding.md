@@ -7,7 +7,7 @@ Als Prozessverantwortlicher möchte ich, dass jede Spur-Aussage typisiert zu ihr
 ## Akzeptanz
 
 - BPMN-03 (gemeinsamer Scope) liefert den vorab erwarteten Verstoß statt PASS.
-- Instanzbindung nach Entscheidung O-4; Scope-Fall (BPMN-03 scoped) unverändert erkannt.
+- Instanzbindung als typisierte `instance_ref` (D-4); Scope-Fall (BPMN-03 scoped) unverändert erkannt.
 - Die in den verlinkten Tasks benannten Abschlusskriterien sind erfüllt oder konkret offen ausgewiesen; offene Pflichtkriterien verhindern den Story-Abschluss.
 
 ## Aufgaben

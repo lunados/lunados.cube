@@ -7,7 +7,7 @@ Als Architekt möchte ich erklären können, für welchen Umfang ein Modell voll
 ## Akzeptanz
 
 - ARC-02, ARC-03, DSM-03, BPMN-01 und BPMN-02 sind ausführbare Prüffälle mit Erwartung vor Code.
-- Unvollständige Erklärung → UNRESOLVED (oder Entscheidung O-3), nie FAIL; Zählregel nur über den erklärten Umfang.
+- Unvollständige Erklärung → UNRESOLVED (D-3, eigener Diagnosecode), nie FAIL; Zählregel nur über den erklärten Umfang.
 - Die in den verlinkten Tasks benannten Abschlusskriterien sind erfüllt oder konkret offen ausgewiesen; offene Pflichtkriterien verhindern den Story-Abschluss.
 
 ## Aufgaben

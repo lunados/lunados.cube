@@ -6,12 +6,11 @@ Story: [US-018](../04-US/US-018-completeness.md) · Mile: MILE-005-B · Aufwand:
 
 ## Ziel und Arbeit
 
-Reine Populations-/Zählprüfung über Aussagenmengen als lunados.lib-Eintrag (entry/v1: Rollen, Ausgabe, Nicht-Implikationen, Evaluator, Orakel, Fälle), sofern O-6 LIB vorsieht.
+Reine Populations-/Zählprüfung über Aussagenmengen als lunados.lib-Eintrag (entry/v1: Rollen, Ausgabe, Nicht-Implikationen, Evaluator, Orakel, Fälle) nach D-6, mit typisiertem Ergebnisschema (erster Anwendungsfall für LR-1).
 
 ## Ergebnis und Akzeptanz
 
 - Eintrag mit unabhängigem Orakel und Referenzfällen; alle Fälle wie erwartet.
-- Bei O-6 = nur Validator: begründet entfallen.
 
 ## Eingaben
 

@@ -6,7 +6,7 @@ Story: [US-020](../04-US/US-020-cell-states.md) · Mile: MILE-005-C · Aufwand: 
 
 ## Ziel und Arbeit
 
-Profil und Printer im lokalen MCP (G4/G6) bereitstellen, nach O-5 auch G5 mit Host-Abnahme; MILE-002-Fälle ARC-03, DSM-03, BPMN-03 erneut ausführen; Nachweise, Spec-Konsolidierung und Übergabe.
+Profil und Printer im lokalen MCP (G4/G6) bereitstellen, G5 mit Host-Abnahme nach D-5 als eigener Folgeschritt; MILE-002-Fälle ARC-03, DSM-03, BPMN-03 erneut ausführen; Nachweise, Spec-Konsolidierung und Übergabe.
 
 ## Ergebnis und Akzeptanz
 

@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-- [declare-completeness-and-instances](declare-completeness-and-instances/proposal.md) — MILE-005 geplant, nicht umgesetzt; sieben offene Tasks, sechs offene Entscheidungen.
+- [declare-completeness-and-instances](declare-completeness-and-instances/proposal.md) — MILE-005 entschieden, nicht umgesetzt; sechs offene Tasks.
 
 ## Abgeschlossen
 

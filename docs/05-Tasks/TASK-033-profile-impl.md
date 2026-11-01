@@ -6,7 +6,7 @@ Story: [US-018](../04-US/US-018-completeness.md), [US-019](../04-US/US-019-insta
 
 ## Ziel und Arbeit
 
-Profil nach Spezifikation: Schema (binding-context nach O-1), Diagnosen, Regelabdeckung, Orakel vor Code, materialisierte Vektoren, Tests, Golden. Instanzbindung nach O-4, Status nach O-3.
+Profil nach Spezifikation: Schema (`binding-context/8`, D-1), Diagnosen, Regelabdeckung, Orakel vor Code, materialisierte Vektoren, Tests, Golden. Erklärungsumfang nach D-2, Instanzbindung nach D-4, Status nach D-3.
 
 ## Ergebnis und Akzeptanz
 

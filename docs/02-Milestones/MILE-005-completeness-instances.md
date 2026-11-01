@@ -1,6 +1,6 @@
 # MILE-005 — Vollständigkeit und Instanzbindung prüfbar machen
 
-Status: planned · Stand: 2026-11-01 · Voraussetzung: MILE-004 (Lernbilanz) · **noch nicht umgesetzt**
+Status: in_progress · Stand: 2026-11-01 · Voraussetzung: MILE-004 (Lernbilanz) · Entscheidungen getroffen, **noch nicht umgesetzt**
 
 ## Ergebnis
 
@@ -18,16 +18,20 @@ Herkunft: Rang 1 (G-01 → VR-05) und Rang 2 (G-08) der [Lernbilanz](../09-Resea
 - Profil-Ablauf wie P1.9: Abnahmespezifikation mit Entscheidungen → Entscheidungen auflösen (eigener Docs-Commit) → Implementierung (Schema, Diagnosen, Regelabdeckung, Orakel vor Code, materialisierte Vektoren, Tests, Golden) → Adapter → Host-Abnahme.
 - Keine Kundendaten in Repo, Fixtures oder Vektoren.
 
-## Offene Entscheidungen (vor TASK-032 vom Nutzer zu treffen)
+## Entscheidungen (2026-11-01, Nutzer; TASK-032 vorgezogen)
 
-| ID | Frage | Optionen (Beispiele, nicht vorweggenommen) |
-|---|---|---|
-| O-1 | Profilschnitt und Nummer | ein gemeinsames Profil (z. B. P1.12, binding-context/8) · zwei getrennte Profile |
-| O-2 | Umfang einer Vollständigkeitserklärung | je Zelle/Paar · je Referent und Relationstyp · je Sicht (MILE-004: Zeilen-Vollständigkeit war eine Überbehauptung) |
-| O-3 | Status bei unvollständiger Erklärung | UNRESOLVED wie P1.10.1 D-2 · eigener Status |
-| O-4 | Form der Instanzbindung | Konvention „Instanz = Scope“ dokumentieren · typisierte `instance_ref` mit Regel „gleiche Instanz“ |
-| O-5 | Auslieferung | nur lokaler MCP (G4/G6) · zusätzlich Remote G5 mit Host-Abnahme |
-| O-6 | Ort der Populationsprüfung | im P1-Validator · als LIB-Eintrag · beides (Profil erklärt, LIB zählt) |
+Vom Nutzer nach Erörterung entschieden; alle Empfehlungen übernommen. Abgelehnte Optionen bleiben zur Nachvollziehbarkeit genannt.
+
+| ID | Frage | Entscheidung | Grund | Nicht gewählt |
+|---|---|---|---|---|
+| **D-1** (O-1) | Profilschnitt und Nummer | **Ein gemeinsames Profil** (Arbeitstitel P1.12, `binding-context/8`), zwei getrennte Abschnitte: Vollständigkeit, Instanzbindung | höhere Kontexte bauen ohnehin aufeinander auf; ein Durchlauf und eine Abnahme statt zwei | zwei Profile (Instanzbindung vorab) |
+| **D-2** (O-2) | Umfang einer Vollständigkeitserklärung | **Referent × Relationstyp × Richtung** als Grundeinheit; zusätzlich **Erklärung je Paar** für einzelne geprüfte Zellen; **keine Erklärung je Sicht** — der Umfang einer Sicht ergibt sich aus den Einzelerklärungen | schließt Überbehauptungen wie in M-05A/B konstruktionsbedingt aus; Paar-Ebene deckt DSM-03 | nur je Paar; je Sicht |
+| **D-3** (O-3) | Status bei unvollständiger Erklärung | **UNRESOLVED** wie P1.10.1 D-2, mit eigenem Diagnosecode (Arbeitstitel `P1_COVERAGE_UNDECLARED`), der den fehlenden Umfang nennt | keine Änderung der P1-Statusmenge; „unbekannt“ maschinell unterscheidbar | eigener Status |
+| **D-4** (O-4) | Form der Instanzbindung | **Typisierte `instance_ref`** (optional) an Referenten bzw. Spur-Aussagen; Prädikatvertrag mit Eigenschaft „gleiche Instanz verlangt“ (Arbeitstitel `requires_same_instance`) | erkennt den instanzübergreifenden Join auch im gemeinsamen Scope (BPMN-03 shared) | nur Konvention „Instanz = Scope“ |
+| **D-5** (O-5) | Auslieferung | **Lokal (G4/G6)** in MILE-005; **G5 mit Host-Abnahme** als eigener Folgeschritt, sobald das Profil stabil ist | alle bisherigen Nachweise liefen lokal; spart 0,5–1 PT | G5 sofort |
+| **D-6** (O-6) | Ort der Populationsprüfung | **Arbeitsteilung:** Profil erklärt Umfang und Zählregeln, P1-Validator prüft Wohlgeformtheit und Statusabbildung; **LIB-Eintrag** zählt rein über eine Aussagenmenge, mit Orakel und typisiertem Ergebnisschema (erster Anwendungsfall für LR-1) | `cube_validate` prüft Einzelausdrücke; Zählen braucht Mengen; keine Erweiterung von P1 auf Mengen | nur Erklärung, Zählung später |
+
+Folge für den Ablauf: TASK-031 schreibt die Abnahmespezifikation mit diesen Entscheidungen als „decided“; TASK-034 (LIB) entfällt nicht. Der Aufwandsrahmen bleibt bei 5,25–7,25 PT (G5 ausgeklammert).
 
 ## Drei Chargen
 
@@ -50,7 +54,7 @@ Die Lernbilanz zeigt: Unter Unsicherheitsstrafe fällt G-01 zurück, weil seine 
 **Aufwand: 5,25–7,25 PT, rund 5–7 PT.**
 - Die Quellen schätzen 5,0 PT (Mitte der Spannen: G-01 3, VR-05 1,25, G-08 0,75).
 - Darin fehlen Spezifikation, Adapter und Abnahme.
-- O-5 (G5 mit Host-Abnahme) kann etwa +0,5–1 PT bedeuten.
+- G5 mit Host-Abnahme ist nach D-5 ausgeklammert (sonst etwa +0,5–1 PT).
 
 | Charge | Aufwand |
 |---|---|

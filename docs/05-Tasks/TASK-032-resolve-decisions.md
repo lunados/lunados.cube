@@ -21,4 +21,8 @@ Die Entscheidungen O-1 bis O-6 mit dem Nutzer klären und als eigenen Docs-Commi
 
 [TASK-031](TASK-031-acceptance-spec.md)
 
-Umfang gemäß [MILE-005](../02-Milestones/MILE-005-completeness-instances.md). P0, P1.1–P1.9 und P2 bleiben byte-gleich; neue Fähigkeiten als eigenes Profil bzw. eigener Printer-Stand. Noch kein Ausführungsnachweis vorhanden.
+Umfang gemäß [MILE-005](../02-Milestones/MILE-005-completeness-instances.md). P0, P1.1–P1.9 und P2 bleiben byte-gleich; neue Fähigkeiten als eigenes Profil bzw. eigener Printer-Stand. Ausführungsnachweis siehe Ergebnis.
+
+## Ergebnis
+
+Vorgezogen und erledigt am 2026-11-01, vor TASK-030/031 und vor jeder Implementierung, als eigener Docs-Commit. Der Nutzer hat nach Erörterung alle Empfehlungen übernommen: D-1 ein Profil (P1.12, `binding-context/8`), D-2 Umfang Referent × Relationstyp × Richtung plus je Paar, D-3 UNRESOLVED mit eigenem Diagnosecode, D-4 typisierte `instance_ref` mit „gleiche Instanz verlangt“, D-5 lokal, G5 später, D-6 Profil erklärt, LIB zählt. Tabelle mit Gründen und nicht gewählten Optionen im [Milestone](../02-Milestones/MILE-005-completeness-instances.md). TASK-031 übernimmt die Entscheidungen als „decided“.

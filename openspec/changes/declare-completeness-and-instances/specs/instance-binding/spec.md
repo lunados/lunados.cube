@@ -6,7 +6,7 @@ Status: planned.
 
 ### Requirement: Typed instance membership
 
-Trace statements SHALL carry a typed instance membership (per decision O-4), and a join SHALL be rejected when its inputs belong to different instances, also within a shared scope.
+Trace statements SHALL carry a typed instance membership (per decision D-4: typed `instance_ref`), and a join SHALL be rejected when its inputs belong to different instances, also within a shared scope.
 
 #### Scenario: Cross-instance join in a shared scope
 

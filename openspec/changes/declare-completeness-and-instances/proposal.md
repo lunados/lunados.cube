@@ -1,6 +1,6 @@
 # Declare completeness and instances
 
-Status: planned · 2026-11-01 · [MILE-005](../../../docs/02-Milestones/MILE-005-completeness-instances.md) · noch nicht umgesetzt
+Status: decided · 2026-11-01 · [MILE-005](../../../docs/02-Milestones/MILE-005-completeness-instances.md) · noch nicht umgesetzt
 
 ## Why
 
@@ -10,7 +10,7 @@ Die [Lernbilanz](../../../docs/09-Research/learning-balance/LERNBILANZ.md) stell
 
 - Ausführbare Prüffälle für die bisher nicht ausgeführten MILE-002-Fälle, Erwartung vorab.
 - Ein neues P1-Profil für Vollständigkeitserklärung, Populationsprüfung und Instanzbindung.
-- Optional ein LIB-Eintrag für die Populationsprüfung (Entscheidung O-6).
+- Ein LIB-Eintrag für die Populationsprüfung mit typisiertem Ergebnisschema (D-6).
 - Ein neuer Printer-Stand für vier Zellzustände; VP-09 bleibt unverändert.
 
 ## Capabilities
