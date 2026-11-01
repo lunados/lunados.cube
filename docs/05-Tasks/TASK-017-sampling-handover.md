@@ -1,6 +1,6 @@
 # TASK-017 — Nachweise prüfen und MILE-002 übergeben
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/sample-five-grammars/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md).
 
 Story: [US-011](../04-US/US-011-grammar-gap-ledger.md) · Mile: MILE-002-C · Aufwand: 1 h
 
@@ -28,3 +28,8 @@ Abdeckungsmatrix für 15 Fälle und sieben Leitfragen prüfen. Passende Regressi
 [TASK-016](TASK-016-gap-ledger.md)
 
 Umfang gemäß [MILE-002](../02-Milestones/MILE-002-grammar-sampling.md). Keine neuen kanonischen Kategorien, Envelopes, produktiven Adapter oder Analysebibliotheken implementieren. Begrenzte Versuchsprofile bleiben Kandidaten. Noch kein Ausführungsnachweis vorhanden.
+
+## Ergebnis
+
+Abgeschlossen am 2026-11-01. [Abschlussnachweis](../10-Evidence/MILE-002/C-RESULT.md) mit skriptgestützter Prüfung ([verification.json](../10-Evidence/MILE-002/verification.json)): 15 Fälle mit Bericht und Nachweis, je Ansatz zwei Normalfälle und ein Gegenfall, alle 35 v2-Fälle ladbar, jede Erwartung vor ihrem Lauf committet und unverändert, letzter Gesamtlauf deckt alle Fälle ab, LIB-Aufrufe erwartungsgemäß, keine undefinierten Regelverweise, keine kaputten Links. OpenSpec dateibasiert konsolidiert (specs/comparison-evidence erweitert, specs/grammar-sampling neu) und Change archiviert. Reine Analyse; kein allgemeiner Software-Test-PASS behauptet; Runner-Regressionen 22/22 nach der Codeänderung in TASK-010.
+

@@ -1,6 +1,6 @@
 # Sample five grammars
 
-Status: planned · 2026-11-01 · [MILE-002](../../../docs/02-Milestones/MILE-002-grammar-sampling.md)
+Status: done · 2026-11-01 · archiviert · [MILE-002](../../../../docs/02-Milestones/MILE-002-grammar-sampling.md)
 
 ## Why
 

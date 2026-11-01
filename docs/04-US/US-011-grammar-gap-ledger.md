@@ -1,6 +1,6 @@
 # US-011 — Konkrete Lücken und nächste Schritte erkennen
 
-Status: planned · Epic: [EPIC-001](../03-Epics/EPIC-001-grammar-learning.md) · Mile: [MILE-002-C](../02-Milestones/MILE-002-grammar-sampling.md)
+Status: done · Epic: [EPIC-001](../03-Epics/EPIC-001-grammar-learning.md) · Mile: [MILE-002-C](../02-Milestones/MILE-002-grammar-sampling.md)
 
 Als Cube-Verantwortlicher möchte ich aus konkreten Vergleichsfällen belegte Fähigkeiten und Lücken erkennen, damit sinnvolle kleine Verbesserungen priorisiert werden können.
 
@@ -15,4 +15,4 @@ Als Cube-Verantwortlicher möchte ich aus konkreten Vergleichsfällen belegte F�
 - [TASK-016 — Kompatibilitätslücken und Lerngewinn bündeln](../05-Tasks/TASK-016-gap-ledger.md)
 - [TASK-017 — Nachweise prüfen und MILE-002 übergeben](../05-Tasks/TASK-017-sampling-handover.md)
 
-[Requirement-Zuordnung](../../openspec/changes/sample-five-grammars/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/sample-five-grammars/tasks.md). Noch keine Ausführung.
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-01-sample-five-grammars/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md). Abgeschlossen 2026-11-01, Nachweis: [C-RESULT](../10-Evidence/MILE-002/C-RESULT.md).

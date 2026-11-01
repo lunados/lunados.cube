@@ -19,9 +19,9 @@ Gesamt: 8–16 h unter den Annahmen von [MILE-001](../02-Milestones/MILE-001-ana
 TASK-001–008 sind abgeschlossen; [Nachweise der drei Chargen](../10-Evidence/MILE-001/README.md). Die Aufwandsspannen sind die ursprünglichen Planannahmen, keine gemessene Arbeitszeit.
 
 
-## MILE-002 — geplant
+## MILE-002 — abgeschlossen
 
-Führender Status: [sample-five-grammars/tasks.md](../../openspec/changes/sample-five-grammars/tasks.md).
+Führender Status: [sample-five-grammars/tasks.md](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|

@@ -1,6 +1,6 @@
 # TASK-014 — Drei BPMN-Fälle untersuchen
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/sample-five-grammars/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md).
 
 Story: [US-009](../04-US/US-009-bpmn-learning.md) · Mile: MILE-002-B · Aufwand: 3–4 h
 

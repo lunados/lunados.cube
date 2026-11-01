@@ -1,12 +1,12 @@
 # MILE-002 — Fünf Grammatiken gezielt abtasten
 
-Status: in_progress · Stand: 2026-11-01 · Voraussetzung: MILE-001 abgeschlossen
+Status: done · Stand: 2026-11-01 · Voraussetzung: MILE-001 abgeschlossen
 
 ## Ergebnis
 
 15 konkrete Vergleichsfälle zeigen, was Cube von Structurizr/C4, ArchiMate, DSM/MDM, BPMN und DAG lernen kann. Je Fall werden Ausdruck, Vertragsbindung und heutige Prüfbarkeit getrennt beurteilt; Darstellungsbedarf und Nutzen werden erfasst. Das Ergebnis ist ein quellengebundenes Lückenregister und eine begrenzte Antwort auf die sieben Leitfragen.
 
-Die Quellenfestlegung ist abgeschlossen ([Quellenregister](../09-Research/grammar-sampling/SOURCE-REGISTER.md)); neue Fixtures und Analyse sind noch offen. Vollständige Interoperabilität, eine Erweiterung der Morphologie sowie Implementierung neuer LIB-Methoden oder einer Prozessengine gehören nicht zu diesem Milestone.
+**Abgeschlossen** mit [Quellenregister](../09-Research/grammar-sampling/SOURCE-REGISTER.md), 15 [Fallberichten](../09-Research/grammar-sampling/README.md), [Lückenbilanz](../09-Research/grammar-sampling/GAP-LEDGER.md) und [Abschlussnachweis](../10-Evidence/MILE-002/C-RESULT.md). Vollständige Interoperabilität, eine Erweiterung der Morphologie sowie Implementierung neuer LIB-Methoden oder einer Prozessengine gehören nicht zu diesem Milestone.
 
 ## Drei Miles / Chargen
 
@@ -16,7 +16,7 @@ Die Quellenfestlegung ist abgeschlossen ([Quellenregister](../09-Research/gramma
 | **MILE-002-B — 15 Vergleiche** | Je Ansatz zwei Normalfälle und ein Gegenfall | Konkrete Modelle, Erwartungen, Cube-Ausdruck/Bindung, Beobachtungen oder belegte Prüfgrenzen für alle 15 Fälle | TASK-011–015 |
 | **MILE-002-C — Lückenbilanz und Übergabe** | Rückführung auf sieben Leitfragen; kleinste sinnvolle Eingriffe | Verknüpftes Lückenregister, vorläufige Nutzen-/Aufwandseinschätzung und Übergabe an MILE-003/004 | TASK-016–017 |
 
-A geht B voraus; die fünf Untersuchungen in B sind anschließend fachlich unabhängig. C verwendet alle fünf Ergebnisse. Die Statusliste steht ausschließlich im [OpenSpec-Change](../../openspec/changes/sample-five-grammars/tasks.md).
+A geht B voraus; die fünf Untersuchungen in B sind anschließend fachlich unabhängig. C verwendet alle fünf Ergebnisse. Die Statusliste steht ausschließlich im [OpenSpec-Change](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md).
 
 ## Umfang und Prüflogik
 
@@ -47,4 +47,4 @@ Die 129 visuellen Anker und 80 Konzeptindexeinträge aus der Bestandsaufnahme bl
 
 ## Nachverfolgung
 
-[Anforderungen und Abdeckung](../../openspec/changes/sample-five-grammars/TRACEABILITY.md) · [Voraussetzung: Nachweise MILE-001](../10-Evidence/MILE-001/C-RESULT.md). Für MILE-002 liegt bisher nur der Quellennachweis (TASK-009) vor; noch keine neuen Validierungen oder Fallanalysen.
+[Anforderungen und Abdeckung](../../openspec/changes/archive/2026-11-01-sample-five-grammars/TRACEABILITY.md) · [Voraussetzung: Nachweise MILE-001](../10-Evidence/MILE-001/C-RESULT.md). Alle Abschlusskriterien der drei Chargen sind mit Nachweisen erfüllt ([C-RESULT](../10-Evidence/MILE-002/C-RESULT.md)). Übergaben: Darstellungsanforderungen an MILE-003, vorläufige Maßnahmenliste an MILE-004 ([Lückenbilanz §6–7](../09-Research/grammar-sampling/GAP-LEDGER.md)).

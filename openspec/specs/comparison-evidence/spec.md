@@ -1,16 +1,16 @@
 # Comparison evidence
 
-Status: implemented · 2026-11-01. Consolidated from the completed preparation change.
+Status: implemented · 2026-11-01. Consolidated from the completed preparation change (MILE-001) and extended by `sample-five-grammars` (MILE-002, TASK-010).
 
 ## Purpose
 
-The v1 runner accepts exactly sourced historical cube_validate fixtures, opens fresh local stdio connections, and compares observed validation. It does not implement foreign-language semantics or infer unassessed evidence dimensions.
+The runner accepts exactly sourced historical cube_validate fixtures (case format v1) and authored synthetic cases with pinned provenance and pre-fixed expectations (case format v2), opens fresh local stdio connections, and compares observed validation. Non-executable authored cases are recorded without a tool call. It does not implement foreign-language semantics or infer unassessed evidence dimensions.
 
 ## Requirements
 
 ### Requirement: Reproducible comparison case
 
-The comparison tooling SHALL retain case identity, source and model versions, exact inputs, bound profile revisions, invocation kind and raw response for each executed case.
+The comparison tooling SHALL retain case identity, source and model versions, exact inputs, bound profile revisions, invocation kind and raw response for each executed case. It SHALL distinguish unchanged historical exact-extraction cases from explicitly versioned authored cases with pinned provenance and expectations fixed before execution.
 
 #### Scenario: Existing local validation probe
 
@@ -18,6 +18,25 @@ The comparison tooling SHALL retain case identity, source and model versions, ex
 - **WHEN** die lokale Prüfung ausgeführt wird
 - **THEN** enthält der Bericht die tatsächlich aufgerufene Operation, die verfügbare Versionsinformation und die unveränderte Rohantwort
 - **AND** dokumentarische Quellen und tatsächlich ausgeführte Prüfungen sind unterscheidbar.
+
+#### Scenario: Authored synthetic case
+
+- **GIVEN** ein neuer Fall mit expliziter Herkunftsart, Modell-/Argumenthashes, Quellen-/Regelverweisen und vorab definierter Erwartung
+- **WHEN** der Fall lokal ausgeführt wird
+- **THEN** bleibt er als neu erstellter synthetischer Fall erkennbar
+- **AND** historische Proben werden dafür weder umgeschrieben noch als Herkunft vorgetäuscht.
+
+#### Scenario: Missing provenance or changed input
+
+- **GIVEN** fehlende Herkunftsbindung oder eine vom fixierten Hash abweichende Eingabe
+- **WHEN** der Fall geladen wird
+- **THEN** wird er vor dem Toolaufruf zurückgewiesen und kein fachlicher Erfolg ausgegeben.
+
+#### Scenario: Documented non-executable case
+
+- **GIVEN** ein ausgearbeiteter Fall, dessen Unterscheidung heute nicht als einzelner Ausdruck prüfbar ist
+- **WHEN** der Runner ihn verarbeitet
+- **THEN** wird er mit Begründung als NOT_EXECUTED protokolliert, ohne Toolaufruf und ohne Fachstatus.
 
 ### Requirement: Separate evidence dimensions
 
@@ -83,4 +102,4 @@ The readiness handover SHALL map milestone criteria to actual recorded evidence 
 
 ## Verification
 
-[Milestone evidence](../../../docs/10-Evidence/MILE-001/C-RESULT.md). Scope and untested claims remain explicit.
+[MILE-001 evidence](../../../docs/10-Evidence/MILE-001/C-RESULT.md) · [MILE-002 evidence](../../../docs/10-Evidence/MILE-002/C-RESULT.md). Scope and untested claims remain explicit.

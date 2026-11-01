@@ -1,0 +1,144 @@
+{
+  "coverage": [
+    {
+      "matrix_case": "C4-01",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 3,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "C4-02",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 3,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "C4-03",
+      "kind": "Gegenfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 3,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "ARC-01",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 2,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "ARC-02",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 2,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "ARC-03",
+      "kind": "Gegenfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 3,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "DSM-01",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 3,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "DSM-02",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 3,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "DSM-03",
+      "kind": "Gegenfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 3,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "BPMN-01",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 3,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "BPMN-02",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 2,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "BPMN-03",
+      "kind": "Gegenfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 2,
+      "lib_calls": 0
+    },
+    {
+      "matrix_case": "DAG-01",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 1,
+      "lib_calls": 2
+    },
+    {
+      "matrix_case": "DAG-02",
+      "kind": "Normalfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 0,
+      "lib_calls": 1
+    },
+    {
+      "matrix_case": "DAG-03",
+      "kind": "Gegenfall",
+      "report": true,
+      "report_kind_matches": true,
+      "v2_cases": 1,
+      "lib_calls": 1
+    }
+  ],
+  "coverage_ok": true,
+  "two_normal_one_counter": true,
+  "v2_cases": 35,
+  "v2_load_errors": [],
+  "expectation_before_run_issues": [],
+  "latest_full_run": {
+    "file": "task014-bpmn-report.json",
+    "head": "66efa7b",
+    "cases": 35,
+    "covers_all_v2": true,
+    "all_runs_matched": true,
+    "readiness": true
+  },
+  "lib_calls": {
+    "n": 4,
+    "all_matched": true,
+    "evaluator_sha256": "c98411f927cfcd10facbb8749da758b40f939a2b709e9f35d9b970a8ed0ec668"
+  },
+  "rule_refs_undefined": [],
+  "broken_links": []
+}

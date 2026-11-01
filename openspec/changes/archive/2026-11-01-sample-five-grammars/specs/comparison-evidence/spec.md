@@ -1,6 +1,6 @@
 # Comparison evidence — authored case extension
 
-Status: planned. Bestehender Ist-Vertrag wird nicht durch diesen Entwurf ersetzt.
+Status: done · konsolidiert in [specs/comparison-evidence](../../../../../specs/comparison-evidence/spec.md).
 
 ## MODIFIED Requirements
 

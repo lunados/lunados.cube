@@ -1,6 +1,6 @@
 # TASK-010 — Neu erstellte Fälle mit expliziter Herkunft zulassen
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/sample-five-grammars/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md).
 
 Story: [US-005](../04-US/US-005-source-bound-cases.md) · Mile: MILE-002-A · Aufwand: 2–3 h
 

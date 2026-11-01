@@ -1,6 +1,6 @@
 # EPIC-001 — Grammatikvergleich als Lerninstrument
 
-Status: planned · Milestones: MILE-002 bis MILE-004 · Voraussetzung: MILE-001
+Status: in_progress (MILE-002 abgeschlossen; MILE-003–004 offen) · Milestones: MILE-002 bis MILE-004 · Voraussetzung: MILE-001
 
 ## Ergebnis
 
@@ -33,4 +33,4 @@ Die Vorbereitung ist als [MILE-001](../02-Milestones/MILE-001-analysis-readiness
 - [US-010 — Aus DAGs lernen](../04-US/US-010-dag-learning.md)
 - [US-011 — Konkrete Lücken und nächste Schritte erkennen](../04-US/US-011-grammar-gap-ledger.md)
 
-Führender Aufgabenstatus: [sample-five-grammars/tasks.md](../../openspec/changes/sample-five-grammars/tasks.md). Der Abschluss von MILE-002 beendet diesen Epic noch nicht: visuelle Prüfung und endgültige Lernbilanz folgen in MILE-003/004.
+Führender Aufgabenstatus: [sample-five-grammars/tasks.md](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md). Der Abschluss von MILE-002 beendet diesen Epic noch nicht: visuelle Prüfung und endgültige Lernbilanz folgen in MILE-003/004.

@@ -1,13 +1,13 @@
 # Roadmap — Lernen aus fünf Grammatikvergleichen
 
-Status: in_progress · Stand: 2026-11-01 · MILE-001 abgeschlossen
+Status: in_progress · Stand: 2026-11-01 · MILE-001 und MILE-002 abgeschlossen
 
 Cube an Structurizr/C4, ArchiMate, DSM/MDM, BPMN und DAG untersuchen. Ergebnis sind konkrete Erkenntnisse zu Envelopes, LIB, Referenz-/Kardinalitätsprofilen, LENS/MODE/Achsen und visueller Grammatik. Lücken werden benannt, bevor Erweiterungen umgesetzt werden.
 
 | Milestone | Ergebnis | Grober Aufwand | Nutzen | Komplexität |
 |---|---|---:|---|---|
 | [MILE-001 — Analyse vorbereiten](../02-Milestones/MILE-001-analysis-readiness.md) | **Abgeschlossen:** lokale Selbstauskunft, reproduzierbare Fälle und Variantenvergleich; Nachweise verlinkt | 1–2 PT | Sehr hoch | Niedrig–mittel |
-| [MILE-002 — Grammatik abtasten](../02-Milestones/MILE-002-grammar-sampling.md) | Je Ansatz zwei Normalfälle und ein Gegenfall; Versions- und Vertragsbindung | 2–3 PT | Sehr hoch | Mittel–hoch |
+| [MILE-002 — Grammatik abtasten](../02-Milestones/MILE-002-grammar-sampling.md) | **Abgeschlossen:** 15 Fallberichte, Lückenbilanz, Übergaben an MILE-003/004; [Nachweis](../10-Evidence/MILE-002/C-RESULT.md) | 2–3 PT | Sehr hoch | Mittel–hoch |
 | MILE-003 — Darstellung prüfen | Relevante Unterschiede in Graph, Matrix und Sequenz; kleine Lesbarkeitsprüfung | 1–2 PT | Hoch | Mittel |
 | MILE-004 — Lernbilanz | Priorisierte LIB-/Profil-/Visualisierungsvorschläge; begründete offene Kernfragen | 0,5–1 PT | Sehr hoch | Niedrig–mittel |
 
@@ -15,7 +15,7 @@ Die frühere reine Analyseabschätzung betrug 4–7 PT. Die 1–2 PT Vorbereitun
 
 ## Nächster Schritt
 
-[MILE-001](../02-Milestones/MILE-001-analysis-readiness.md) ist abgeschlossen. Der [Bereitschaftsnachweis](../10-Evidence/MILE-001/C-RESULT.md) enthält Wiederholungsanleitung und Grenzen. MILE-002 ist jetzt in drei Chargen mit US-005–011 und TASK-009–017 ausgearbeitet. [TASK-009 — Quellenbasis](../05-Tasks/TASK-009-source-baselines.md) ist erledigt ([Quellenregister](../09-Research/grammar-sampling/SOURCE-REGISTER.md)). [TASK-010](../05-Tasks/TASK-010-authored-case-provenance.md) ist erledigt ([Nachweis](../10-Evidence/MILE-002/TASK-010-RESULT.md)); damit ist MILE-002-A abgeschlossen. Von den fünf Dreierpaketen sind C4 ([TASK-011](../05-Tasks/TASK-011-c4-three-cases.md)) ArchiMate ([TASK-012](../05-Tasks/TASK-012-archimate-three-cases.md)) DSM/MDM ([TASK-013](../05-Tasks/TASK-013-dsm-mdm-three-cases.md)) DAG ([TASK-015](../05-Tasks/TASK-015-dag-three-cases.md)) und BPMN ([TASK-014](../05-Tasks/TASK-014-bpmn-three-cases.md)) erledigt; MILE-002-B ist abgeschlossen. Als Nächstes folgt Charge C: Lückenbilanz (TASK-016) und Übergabe (TASK-017). Die Entwicklung vollständiger Interoperabilität bleibt außerhalb des Auftrags.
+MILE-001 und MILE-002 sind abgeschlossen. Die [Lückenbilanz](../09-Research/grammar-sampling/GAP-LEDGER.md) übergibt zwölf Darstellungsanforderungen an **MILE-003** (Lesbarkeitstest zuerst für abgeleitete vs. deklarierte Kante, vier Zellzustände, Zeugenzyklus, Instanzgruppierung) und eine vorläufige Maßnahmenliste an MILE-004 (vorn: Vollständigkeit/Population, `impact.propagate`-Revision mit Zyklus-Gate, Relationsherkunft). Keine Morphologieänderung begründet. Die Entwicklung vollständiger Interoperabilität bleibt außerhalb des Auftrags.
 
 ## Maßstab
 

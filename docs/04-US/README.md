@@ -8,7 +8,7 @@
 Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur in der verlinkten OpenSpec-Checkliste geführt.
 
 
-## MILE-002 — geplant
+## MILE-002 — abgeschlossen
 
 - [US-005 — Quellengebundene neue Fälle prüfen](US-005-source-bound-cases.md)
 - [US-006 — Aus C4 und Structurizr lernen](US-006-c4-learning.md)

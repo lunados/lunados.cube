@@ -1,6 +1,6 @@
 # TASK-011 — Drei C4-/Structurizr-Fälle untersuchen
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/sample-five-grammars/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md).
 
 Story: [US-006](../04-US/US-006-c4-learning.md) · Mile: MILE-002-B · Aufwand: 2–3 h
 

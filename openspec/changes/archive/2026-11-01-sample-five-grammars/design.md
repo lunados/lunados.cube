@@ -1,6 +1,6 @@
 # Design — Grammatikabtastung
 
-Status: planned
+Status: done · umgesetzt in MILE-002
 
 ## Context
 

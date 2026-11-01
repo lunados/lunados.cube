@@ -1,6 +1,6 @@
 # US-010 — Aus DAGs lernen
 
-Status: planned · Epic: [EPIC-001](../03-Epics/EPIC-001-grammar-learning.md) · Mile: [MILE-002-B](../02-Milestones/MILE-002-grammar-sampling.md)
+Status: done · Epic: [EPIC-001](../03-Epics/EPIC-001-grammar-learning.md) · Mile: [MILE-002-B](../02-Milestones/MILE-002-grammar-sampling.md)
 
 Als Cube-Verantwortlicher möchte ich drei konkrete Fälle zu DAGs untersuchen, damit ich die übertragbaren Aufgaben, Vertragsanforderungen und Grenzen erkenne.
 
@@ -14,4 +14,4 @@ Als Cube-Verantwortlicher möchte ich drei konkrete Fälle zu DAGs untersuchen, 
 
 - [TASK-015 — Drei DAG-Fälle untersuchen](../05-Tasks/TASK-015-dag-three-cases.md)
 
-[Requirement-Zuordnung](../../openspec/changes/sample-five-grammars/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/sample-five-grammars/tasks.md). Noch keine Ausführung.
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-01-sample-five-grammars/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md). Abgeschlossen 2026-11-01, Nachweis: [C-RESULT](../10-Evidence/MILE-002/C-RESULT.md).

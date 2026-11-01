@@ -1,6 +1,6 @@
 # Grammar sampling — research protocol
 
-Status: planned. Anforderungen an den begrenzten Analysedurchlauf, keine neue morphologische Norm.
+Status: done · konsolidiert in [specs/grammar-sampling](../../../../../specs/grammar-sampling/spec.md).
 
 ## ADDED Requirements
 

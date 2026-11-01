@@ -1,6 +1,6 @@
 # TASK-009 — Quellen und Regelbasis fixieren
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/sample-five-grammars/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-sample-five-grammars/tasks.md).
 
 Story: [US-005](../04-US/US-005-source-bound-cases.md) · Mile: MILE-002-A · Aufwand: 1–2 h
 
