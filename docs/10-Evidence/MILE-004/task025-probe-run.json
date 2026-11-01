@@ -1,0 +1,491 @@
+{
+ "format": "mile004.probe-run/1",
+ "plan_sha256": "9df258a8728fbff08050562ab94e654f0bbf4cbb85c77e730c3f596eb994043e",
+ "git_head": "caec0e2",
+ "python": "3.13.16",
+ "jsonschema": "4.26.0",
+ "sources_verified": [
+  {
+   "path": "web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/contracts/evaluator-result.v0.2.schema.json",
+   "match": true
+  },
+  {
+   "path": "web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/contracts/evaluator-call.v0.1.schema.json",
+   "match": true
+  },
+  {
+   "path": "web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/evaluators/evaluators.v0.1.json",
+   "match": true
+  },
+  {
+   "path": "schema/entry.v1.schema.json",
+   "match": true
+  },
+  {
+   "path": "docs/09-Research/cube-grammar-2026-11-01/LERNVERGLEICH.md",
+   "match": true
+  },
+  {
+   "path": "P2/visual-printer-2d-lab/VP03_LENS_GRAMMAR.md",
+   "match": true
+  },
+  {
+   "path": "P2/visual-printer-migration-v1/VP07_ACCEPTANCE_SPEC.md",
+   "match": true
+  },
+  {
+   "path": "P2/visual-printer-migration-v1/vpmigration/adapter.py",
+   "match": true
+  },
+  {
+   "path": "P2/visual-printer-migration-v1/vpmigration/panels.py",
+   "match": true
+  },
+  {
+   "path": "P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py",
+   "match": true
+  },
+  {
+   "path": "AIAEAO_Pure_Cube_P0_v9.4/v9.4/morphology.md",
+   "match": true
+  },
+  {
+   "path": "AIAEAO_Pure_Cube_P0_v9.4/v9.4/grammar/constraints.json",
+   "match": true
+  }
+ ],
+ "envelope": {
+  "E-1": {
+   "instances": [
+    {
+     "case_id": "E-1a",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "assessed",
+     "outcome_value": "aggregated_with_loss"
+    },
+    {
+     "case_id": "E-1b",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "assessed",
+     "outcome_value": "aggregated_without_loss"
+    },
+    {
+     "case_id": "E-1c",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "unresolved",
+     "outcome_value": "origin_unbound"
+    }
+   ],
+   "distinctions": [
+    {
+     "id": "d1",
+     "what": "Endpunkte der verdichteten Kante",
+     "expected": "U",
+     "observed": "U",
+     "schema": "result",
+     "pointer": "/properties/outcome/properties/detail",
+     "match": true
+    },
+    {
+     "id": "d2",
+     "what": "welche Quellbeziehungen eingeflossen sind",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/derivation_ref",
+     "match": true
+    },
+    {
+     "id": "d3",
+     "what": "Verdichtungsstrategie",
+     "expected": "U",
+     "observed": "U",
+     "schema": "call",
+     "pointer": "/properties/parameters",
+     "match": true
+    },
+    {
+     "id": "d4",
+     "what": "Verlust (verworfene Beschreibungen)",
+     "expected": "U",
+     "observed": "U",
+     "schema": "result",
+     "pointer": "/properties/outcome/properties/detail",
+     "match": true
+    },
+    {
+     "id": "d5",
+     "what": "bewertet vs. unaufgelöst",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/disposition",
+     "match": true
+    },
+    {
+     "id": "d6",
+     "what": "Grund der Unauflösbarkeit (Herkunft nicht gebunden)",
+     "expected": "U",
+     "observed": "U",
+     "schema": "result",
+     "pointer": "/properties/outcome/properties/value",
+     "match": true
+    }
+   ],
+   "pairs": [
+    {
+     "pair": [
+      "E-1a",
+      "E-1b"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    },
+    {
+     "pair": [
+      "E-1a",
+      "E-1c"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref",
+      "disposition"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    },
+    {
+     "pair": [
+      "E-1b",
+      "E-1c"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref",
+      "disposition"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    }
+   ],
+   "rule": "R-E2",
+   "all_valid": true
+  },
+  "E-2": {
+   "instances": [
+    {
+     "case_id": "E-2a",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "assessed",
+     "outcome_value": "conforms"
+    },
+    {
+     "case_id": "E-2b",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "assessed",
+     "outcome_value": "cross_instance_violation"
+    },
+    {
+     "case_id": "E-2c",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "unresolved",
+     "outcome_value": "waiting_for_input"
+    }
+   ],
+   "distinctions": [
+    {
+     "id": "d1",
+     "what": "Instanz der geprüften Aktivierung",
+     "expected": "U",
+     "observed": "U",
+     "schema": "call",
+     "pointer": "/properties/parameters",
+     "match": true
+    },
+    {
+     "id": "d2",
+     "what": "Instanz je verbrauchtem Token",
+     "expected": "U",
+     "observed": "U",
+     "schema": "call",
+     "pointer": "/properties/inputs/items/properties/content",
+     "match": true
+    },
+    {
+     "id": "d3",
+     "what": "konform vs. instanzübergreifender Verstoß",
+     "expected": "U",
+     "observed": "U",
+     "schema": "result",
+     "pointer": "/properties/outcome/properties/value",
+     "match": true
+    },
+    {
+     "id": "d4",
+     "what": "Verstoß vs. unvollständige Spur",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/disposition",
+     "match": true
+    },
+    {
+     "id": "d5",
+     "what": "ein Ergebnis je Instanz",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/derivation_ref",
+     "match": true
+    },
+    {
+     "id": "d6",
+     "what": "keine Ausführungsbehauptung",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/effectful_execution_authorized",
+     "match": true
+    }
+   ],
+   "pairs": [
+    {
+     "pair": [
+      "E-2a",
+      "E-2b"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    },
+    {
+     "pair": [
+      "E-2a",
+      "E-2c"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref",
+      "disposition"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    },
+    {
+     "pair": [
+      "E-2b",
+      "E-2c"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref",
+      "disposition"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    }
+   ],
+   "rule": "R-E2",
+   "all_valid": true
+  }
+ },
+ "render": {
+  "L-1": [
+   {
+    "call_id": "L-1a",
+    "plan_source": {
+     "printer": "vpmigration"
+    },
+    "plan_views": {
+     "view": "cube.flow",
+     "granularity": "standard",
+     "partition": "object",
+     "lens": "cube.lens.provenance"
+    },
+    "status": "RENDERED",
+    "check": "PASS",
+    "check_detail": {
+     "format": "aiaeao.cube.vp07-panel-check/1",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "status": "PASS",
+     "panels": 2,
+     "coverage": {
+      "status": "COMPLETE",
+      "units_total": 6,
+      "units_covered": 6,
+      "uncovered_units": [],
+      "repeated_row_ids": [
+       "c4:api",
+       "c4:order-controller",
+       "c4:order-repository"
+      ],
+      "repeated_cell_ids": [
+       "e-implied",
+       "e-unbound",
+       "e-writes"
+      ],
+      "is_minimum_proven": false
+     },
+     "source_sha256": "8ed5572ef2f859cd89e53b6cff5986e3a1850aaee10471515e18dd6e116ed0c9",
+     "semantic_conformance": "NOT_EVALUATED",
+     "epistemic_warrant": "NOT_EVALUATED",
+     "current_authority": "NOT_EVALUATED",
+     "canonical_admission": "NOT_EVALUATED"
+    },
+    "svgs": {
+     "L-1a-00.svg": "26eae5ccfe584b6fad50e06accd152464407f0666ad2331ebe058589a2ca66ca",
+     "L-1a-01.svg": "75ede453ba635bc96e76aff9e768e0146fc2e993289034e863def76aa9bf7095",
+     "L-1a-02.svg": "2c71c5ac732073791ede4b176954da241fdae4f415b8e1561214a43cf5d8bdf4"
+    }
+   },
+   {
+    "call_id": "L-1b",
+    "plan_source": {
+     "printer": "vpmigration",
+     "witness_prefixes": {
+      "format": "aiaeao.cube.vp07-witness-prefixes/1",
+      "prefixes": [
+       {
+        "prefix": "derived:",
+        "note": "Herkunft abgeleitet"
+       }
+      ]
+     }
+    },
+    "plan_views": {
+     "view": "cube.flow",
+     "granularity": "standard",
+     "partition": "object",
+     "lens": "cube.lens.epistemology"
+    },
+    "status": "RENDERED",
+    "check": "PASS",
+    "check_detail": {
+     "format": "aiaeao.cube.vp07-panel-check/1",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "status": "PASS",
+     "panels": 2,
+     "coverage": {
+      "status": "COMPLETE",
+      "units_total": 6,
+      "units_covered": 6,
+      "uncovered_units": [],
+      "repeated_row_ids": [
+       "c4:api",
+       "c4:order-controller",
+       "c4:order-repository"
+      ],
+      "repeated_cell_ids": [
+       "e-implied",
+       "e-unbound",
+       "e-writes"
+      ],
+      "is_minimum_proven": false
+     },
+     "source_sha256": "fb16232e1984f8e0d7c5bfe0f52d60e2442fa0fbbcc21485219d7be0770b255c",
+     "semantic_conformance": "NOT_EVALUATED",
+     "epistemic_warrant": "NOT_EVALUATED",
+     "current_authority": "NOT_EVALUATED",
+     "canonical_admission": "NOT_EVALUATED"
+    },
+    "svgs": {
+     "L-1b-00.svg": "058915c903190da7212ba7572373673fb572adae5f9c3f9bf66b3db413bb17f8",
+     "L-1b-01.svg": "54e9e857be17a5ef37e1827c4c15779509a64724d414375d007cf60d5a55d430",
+     "L-1b-02.svg": "bce3681bb5f8fff7ccb00557644af912410cb898a315bd0ed13e6fbb23c15543"
+    }
+   }
+  ],
+  "L-2": [
+   {
+    "call_id": "L-2",
+    "plan_source": {
+     "printer": "vpmigration",
+     "tracks": "<tracks>",
+     "labels": "<labels>"
+    },
+    "plan_views": {
+     "view": "cube.flow",
+     "granularity": "standard",
+     "partition": "track",
+     "lens": "cube.lens.provenance"
+    },
+    "status": "RENDERED",
+    "check": "PASS",
+    "check_detail": {
+     "format": "aiaeao.cube.vp07-panel-check/1",
+     "profile": "P2-VP-MIGRATION/0.7.1",
+     "status": "PASS",
+     "panels": 2,
+     "coverage": {
+      "status": "COMPLETE",
+      "units_total": 4,
+      "units_covered": 4,
+      "uncovered_units": [],
+      "repeated_row_ids": [
+       "i1-tok-stock",
+       "i2-tok-credit"
+      ],
+      "repeated_cell_ids": [
+       "e-cross",
+       "e-stock"
+      ],
+      "is_minimum_proven": false
+     },
+     "source_sha256": "6591e978e3f426660cd71628f63e5977f3a819c2122cc6e45fe6c9354337cca1",
+     "semantic_conformance": "NOT_EVALUATED",
+     "epistemic_warrant": "NOT_EVALUATED",
+     "current_authority": "NOT_EVALUATED",
+     "canonical_admission": "NOT_EVALUATED"
+    },
+    "svgs": {
+     "L-2-00.svg": "02694352821aaf19862c03c25c5eddce07d05ea75ed24acf632454af408b7783",
+     "L-2-01.svg": "b44620742e8e5e5878bd3a6b15fccfc008407c2b13dd0c7f5b71faada0963ec8",
+     "L-2-02.svg": "2bb6dfb7d44e02464181d313fce3dd2747ea0154d9c572ae0feea159d38771c4"
+    }
+   }
+  ]
+ }
+}

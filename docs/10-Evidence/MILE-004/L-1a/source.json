@@ -1,0 +1,230 @@
+{
+ "format": "aiaeao.cube.plan-source/1",
+ "printer": "vpmigration",
+ "profile": "P2-VP-MIGRATION/0.7.1",
+ "source": {
+  "format": "aiaeao.cube.vp07-migration-source/1",
+  "profile": "P2-VP-MIGRATION/0.7.1",
+  "reference_version": "v9.4",
+  "context_id": "mile004-c4",
+  "plan_id": "mp-c4o",
+  "source_context_sha256": "a2873816dcd84de4c09f27cee8cb0e988f90881edc3cb869464fd51a9aa81afa",
+  "title": "mp-c4o · p0 → p1",
+  "steps": [
+   {
+    "id": "p0",
+    "label": "p0 · current"
+   },
+   {
+    "id": "p1",
+    "label": "p1 · target"
+   }
+  ],
+  "rows": [
+   {
+    "id": "c4:order-controller",
+    "anchor_id": "module-bodies.integration",
+    "form_id": "form.module-block",
+    "label": "c4:order-controller",
+    "semantic_ref": "Z:α:Integration[\"c4:order-controller\"]"
+   },
+   {
+    "id": "c4:api",
+    "anchor_id": "module-bodies.runtime",
+    "form_id": "form.module-block",
+    "label": "c4:api",
+    "semantic_ref": "Z:α:Runtime[\"c4:api\"]"
+   },
+   {
+    "id": "c4:order-repository",
+    "anchor_id": "module-bodies.integration",
+    "form_id": "form.module-block",
+    "label": "c4:order-repository",
+    "semantic_ref": "Z:α:Integration[\"c4:order-repository\"]"
+   }
+  ],
+  "objects": [
+   {
+    "id": "c4:db",
+    "anchor_id": "module-bodies.provider",
+    "form_id": "form.module-block",
+    "label": "c4:db",
+    "semantic_ref": "Z:α:Provider[\"c4:db\"]"
+   }
+  ],
+  "cells": [
+   {
+    "id": "e-writes",
+    "row": "c4:order-controller",
+    "object": "c4:db",
+    "predicate_id": "writes-orders-to",
+    "steps": [
+     "p0",
+     "p1"
+    ],
+    "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0",
+    "declared_end": "target"
+   },
+   {
+    "id": "e-implied",
+    "row": "c4:api",
+    "object": "c4:db",
+    "predicate_id": "uses-implied",
+    "steps": [
+     "p0",
+     "p1"
+    ],
+    "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1",
+    "declared_end": "target"
+   },
+   {
+    "id": "e-unbound",
+    "row": "c4:order-repository",
+    "object": "c4:db",
+    "predicate_id": "reads-orders-from",
+    "steps": [
+     "p0",
+     "p1"
+    ],
+    "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2",
+    "declared_end": "target"
+   }
+  ],
+  "transitions": [],
+  "facet_bindings": [
+   {
+    "lens": "cube.lens.execution",
+    "target_kind": "cell",
+    "target_id": "e-writes",
+    "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0",
+    "note": "kind other",
+    "basis": "declared_unverified"
+   },
+   {
+    "lens": "cube.lens.provenance",
+    "target_kind": "cell",
+    "target_id": "e-writes",
+    "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0/witness_ref",
+    "note": "witness model:c4-shop#orderController-db",
+    "basis": "declared_unverified"
+   },
+   {
+    "lens": "cube.lens.execution",
+    "target_kind": "cell",
+    "target_id": "e-implied",
+    "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1",
+    "note": "kind other",
+    "basis": "declared_unverified"
+   },
+   {
+    "lens": "cube.lens.provenance",
+    "target_kind": "cell",
+    "target_id": "e-implied",
+    "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1/witness_ref",
+    "note": "witness derived:c4-shop#implied-api-db",
+    "basis": "declared_unverified"
+   },
+   {
+    "lens": "cube.lens.execution",
+    "target_kind": "cell",
+    "target_id": "e-unbound",
+    "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2",
+    "note": "kind other",
+    "basis": "declared_unverified"
+   },
+   {
+    "lens": "cube.lens.provenance",
+    "target_kind": "cell",
+    "target_id": "e-unbound",
+    "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2/witness_ref",
+    "note": "witness unbound:c4-shop#repository-db",
+    "basis": "declared_unverified"
+   }
+  ],
+  "declaration_status": "declared_unverified",
+  "target_step": "p1"
+ },
+ "mapping": {
+  "format": "aiaeao.cube.vp07-mapping/1",
+  "profile": "P2-VP-MIGRATION/0.7.1",
+  "source_context_sha256": "a2873816dcd84de4c09f27cee8cb0e988f90881edc3cb869464fd51a9aa81afa",
+  "context_id": "mile004-c4",
+  "plan_id": "mp-c4o",
+  "slice": {
+   "steps": [
+    "p0",
+    "p1"
+   ],
+   "subjects": null,
+   "track": null
+  },
+  "track_map_sha256": null,
+  "label_map_sha256": null,
+  "witness_prefixes_sha256": null,
+  "referents": [
+   {
+    "ref": "c4:order-controller",
+    "id": "c4:order-controller",
+    "label": "c4:order-controller",
+    "concept_id": "Z:module-body:integration",
+    "anchor_id": "module-bodies.integration",
+    "form_id": "form.module-block"
+   },
+   {
+    "ref": "c4:db",
+    "id": "c4:db",
+    "label": "c4:db",
+    "concept_id": "Z:module-body:provider",
+    "anchor_id": "module-bodies.provider",
+    "form_id": "form.module-block"
+   },
+   {
+    "ref": "c4:api",
+    "id": "c4:api",
+    "label": "c4:api",
+    "concept_id": "Z:module-body:runtime",
+    "anchor_id": "module-bodies.runtime",
+    "form_id": "form.module-block"
+   },
+   {
+    "ref": "c4:order-repository",
+    "id": "c4:order-repository",
+    "label": "c4:order-repository",
+    "concept_id": "Z:module-body:integration",
+    "anchor_id": "module-bodies.integration",
+    "form_id": "form.module-block"
+   }
+  ],
+  "dependencies": [
+   {
+    "dependency_id": "e-writes",
+    "pointer": "/migration_plans/0/dependencies/0",
+    "steps": [
+     "p0",
+     "p1"
+    ]
+   },
+   {
+    "dependency_id": "e-implied",
+    "pointer": "/migration_plans/0/dependencies/1",
+    "steps": [
+     "p0",
+     "p1"
+    ]
+   },
+   {
+    "dependency_id": "e-unbound",
+    "pointer": "/migration_plans/0/dependencies/2",
+    "steps": [
+     "p0",
+     "p1"
+    ]
+   }
+  ],
+  "empty_steps": [],
+  "dropped_transitions": [],
+  "facets_generated": 6,
+  "p1_validation_performed": false,
+  "declaration_status": "declared_unverified"
+ }
+}

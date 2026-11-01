@@ -21,4 +21,8 @@ Proben ausführen, Beobachtung gegen Erwartung abgleichen, Abweichungen begründ
 
 [TASK-024](TASK-024-probe-plan.md)
 
-Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Noch kein Ausführungsnachweis vorhanden.
+Umfang gemäß [MILE-004](../02-Milestones/MILE-004-learning-balance.md). Keine Implementierung, keine Morphologie-, Envelope-, Printer- oder VG-Ankeränderung. Nutzen ist erwartet, nicht gemessen. Ausführungsnachweis siehe Ergebnis.
+
+## Ergebnis
+
+Erledigt am 2026-11-01. E-1 und E-2: alle Aufrufe und Ergebnisse schema-gültig, Träger wie erwartet, Regel R-E2 — der Envelope-Rahmen reicht; Typisierungslücke für Methodenergebnisse (LIB-Vertragsrevision mit Ergebnisschema) und Instanz je Eingang (G-08). L-1a/L-1b wie erwartet: LENS trägt je Linse eine binäre Hervorhebung, keine Herkunftsklassen. L-2 teilweise abweichend: Die Partition `track` packt beide Instanzen in ein Panel (PO-8); die instanzübergreifende Kante bleibt unmarkiert. MODE nicht ausführbar, präzise offen. Fehlversuch (Laufskript, Label-Map) protokolliert, Nachtrag vor dem zweiten Lauf committet. Bericht: [PROBE-RESULTS.md](../09-Research/learning-balance/PROBE-RESULTS.md).

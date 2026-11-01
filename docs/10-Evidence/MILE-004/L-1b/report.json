@@ -1,0 +1,920 @@
+{
+ "format": "aiaeao.cube.plan-views/1",
+ "printer": "vpmigration",
+ "profile": "P2-VP-MIGRATION/0.7.1",
+ "view": "cube.flow",
+ "report": {
+  "canonical_admission": "NOT_EVALUATED",
+  "coverage": {
+   "is_minimum_proven": false,
+   "repeated_cell_ids": [
+    "e-implied",
+    "e-unbound",
+    "e-writes"
+   ],
+   "repeated_row_ids": [
+    "c4:api",
+    "c4:order-controller",
+    "c4:order-repository"
+   ],
+   "status": "COMPLETE",
+   "uncovered_units": [],
+   "units_covered": 6,
+   "units_total": 6
+  },
+  "current_authority": "NOT_EVALUATED",
+  "declared_conflicts": [],
+  "declared_gaps": [],
+  "epistemic_warrant": "NOT_EVALUATED",
+  "files": {
+   "index.svg": "058915c903190da7212ba7572373673fb572adae5f9c3f9bf66b3db413bb17f8",
+   "panel-01.input.json": "09fffa7fd9cec52324c952e95135dbea34b6a250a74101d6f230861e1a3ea337",
+   "panel-01.svg": "54e9e857be17a5ef37e1827c4c15779509a64724d414375d007cf60d5a55d430",
+   "panel-02.input.json": "af2a751c0f280d455aa0590f92f04e97442aeed2d5984150affb65b8ff87a304",
+   "panel-02.svg": "bce3681bb5f8fff7ccb00557644af912410cb898a315bd0ed13e6fbb23c15543"
+  },
+  "format": "aiaeao.cube.vp07-panel-report/1",
+  "granularity": "standard",
+  "lens": "cube.lens.epistemology",
+  "migration_view_profile": "P2-VP-MIGRATION/0.7.1",
+  "notices": [
+   "Panels repeat rows for context; every repetition is listed.",
+   "Partition is deterministic (declared order), not a proven minimal partition.",
+   "The index is a drawn table of contents; it embeds no panel."
+  ],
+  "panel_count": 2,
+  "panel_ledger": [
+   {
+    "input_sha256": "09fffa7fd9cec52324c952e95135dbea34b6a250a74101d6f230861e1a3ea337",
+    "key_values": [
+     "c4:db"
+    ],
+    "panel": "panel-01",
+    "panel_report": {
+     "canonical_admission": "NOT_EVALUATED",
+     "completeness": "COMPLETE_INPUT_VIEW",
+     "conformance": {
+      "canonical_admission": "NOT_EVALUATED",
+      "chart_axis_rescaled": false,
+      "completeness": "COMPLETE_INPUT_VIEW",
+      "current_authority": "NOT_EVALUATED",
+      "decision": {
+       "action": "SINGLE_COMPLETE",
+       "rationale": "entire declared source is visible in this projection",
+       "status": "descriptive_display_only"
+      },
+      "dimensions": {
+       "granularity": "standard",
+       "lens": "cube.lens.epistemology",
+       "view": "cube.flow"
+      },
+      "displayed_item_ids": [
+       "c4:order-controller",
+       "c4:api",
+       "c4:order-repository",
+       "c4:db"
+      ],
+      "displayed_lens_declarations": 7,
+      "displayed_source_edge_ids": [
+       "e1",
+       "e2",
+       "e3"
+      ],
+      "epistemic_warrant": "NOT_EVALUATED",
+      "format": "aiaeao.cube.vp05-conformance-report/1",
+      "invariants_passed": [
+       "SOURCE_SHA256_LOCK",
+       "CUBE_VIEW_NAMESPACE",
+       "DECLARED_LENS_ONLY",
+       "GRANULARITY_SCOPE",
+       "EXACT_ITEM_PARTITION",
+       "EXACT_EDGE_PARTITION",
+       "LOSS_LEDGER_BALANCED",
+       "ORIGINAL_ITEMS_UNCHANGED",
+       "ORIGINAL_EDGES_UNCHANGED",
+       "LENS_EDGE_REMAP_DECLARED",
+       "EXACT_LENS_BINDING_PARTITION",
+       "SVG_SOURCE_LOCK",
+       "NO_ACTIVE_SVG_CONTENT",
+       "ONE_EMBEDDED_LOSS_LEDGER",
+       "EMBEDDED_REPORT_MATCH",
+       "NO_SEMANTIC_AUTHORITY_PROMOTION",
+       "SOURCE_IS_DECLARED_UNVERIFIED"
+      ],
+      "limits": [
+       "Split feasibility is a heuristic, not a generated multi-page export or optimal partition",
+       "Glyph rendering varies with installed fonts",
+       "P1 semantic conformance is not evaluated by the SVG printer"
+      ],
+      "omitted_item_ids": [],
+      "omitted_lens_declarations": 0,
+      "omitted_source_edge_ids": [],
+      "profile": "P2-VP-CONFORMANCE/0.5.0",
+      "reference_version": "v9.4",
+      "source_bundle_sha256": "d7ecd3eec6f6755add5d562c327a0835fb758c92daefa0abb61688d0aceec3f7",
+      "source_status": "declared_unverified",
+      "split_feasibility": {
+       "estimated_panel_count": 1,
+       "is_minimum_proven": false,
+       "panels": [
+        {
+         "focus": null,
+         "shown_edge_ids": [
+          "e1",
+          "e2",
+          "e3"
+         ],
+         "shown_item_ids": [
+          "c4:api",
+          "c4:db",
+          "c4:order-controller",
+          "c4:order-repository"
+         ]
+        }
+       ],
+       "panels_materialized": false,
+       "repeated_item_ids": [],
+       "status": "NOT_REQUIRED",
+       "strategy": "focused_panels_from_immutable_source",
+       "unavailable_focus_count": 0,
+       "uncovered_edge_ids": [],
+       "uncovered_item_ids": []
+      },
+      "status": "PASS",
+      "svg_sha256": "54e9e857be17a5ef37e1827c4c15779509a64724d414375d007cf60d5a55d430",
+      "vp04_report_sha256": "d5895557700758096a3f03351044578975df66dcc8931841f2288b66da72315c"
+     },
+     "current_authority": "NOT_EVALUATED",
+     "decision": {
+      "action": "SINGLE_COMPLETE",
+      "rationale": "entire declared source is visible in this projection",
+      "status": "descriptive_display_only"
+     },
+     "dimensions": {
+      "granularity": "standard",
+      "lens": "cube.lens.epistemology",
+      "view": "cube.flow"
+     },
+     "epistemic_warrant": "NOT_EVALUATED",
+     "format": "aiaeao.cube.vp06-print-result/1",
+     "limitations": [
+      "The source and facet declarations are unverified",
+      "P1 semantic conformance is not evaluated",
+      "Font availability varies by rendering environment",
+      "Split feasibility is not an automatic multi-SVG export"
+     ],
+     "loss_ledger": {
+      "displayed_item_ids": [
+       "c4:order-controller",
+       "c4:api",
+       "c4:order-repository",
+       "c4:db"
+      ],
+      "displayed_lens_declarations": 7,
+      "displayed_source_edge_ids": [
+       "e1",
+       "e2",
+       "e3"
+      ],
+      "omitted_item_ids": [],
+      "omitted_lens_declarations": 0,
+      "omitted_source_edge_ids": []
+     },
+     "profile": "P2-VP/1.0.0-rc1",
+     "reference_version": "v9.4",
+     "request_sha256": "f91a7c7173fe8404b814781a517c181c843fed97c8557582520092a0d481ab24",
+     "source_bundle_sha256": "d7ecd3eec6f6755add5d562c327a0835fb758c92daefa0abb61688d0aceec3f7",
+     "split_feasibility": {
+      "estimated_panel_count": 1,
+      "is_minimum_proven": false,
+      "panels": [
+       {
+        "focus": null,
+        "shown_edge_ids": [
+         "e1",
+         "e2",
+         "e3"
+        ],
+        "shown_item_ids": [
+         "c4:api",
+         "c4:db",
+         "c4:order-controller",
+         "c4:order-repository"
+        ]
+       }
+      ],
+      "panels_materialized": false,
+      "repeated_item_ids": [],
+      "status": "NOT_REQUIRED",
+      "strategy": "focused_panels_from_immutable_source",
+      "unavailable_focus_count": 0,
+      "uncovered_edge_ids": [],
+      "uncovered_item_ids": []
+     },
+     "status": "PASS",
+     "svg_sha256": "54e9e857be17a5ef37e1827c4c15779509a64724d414375d007cf60d5a55d430"
+    },
+    "shown_cell_ids": [
+     "e-writes",
+     "e-implied",
+     "e-unbound"
+    ],
+    "shown_row_ids": [
+     "c4:order-controller",
+     "c4:api",
+     "c4:order-repository"
+    ],
+    "step": "p0",
+    "svg_sha256": "54e9e857be17a5ef37e1827c4c15779509a64724d414375d007cf60d5a55d430",
+    "units": [
+     "e-implied@p0",
+     "e-unbound@p0",
+     "e-writes@p0"
+    ]
+   },
+   {
+    "input_sha256": "af2a751c0f280d455aa0590f92f04e97442aeed2d5984150affb65b8ff87a304",
+    "key_values": [
+     "c4:db"
+    ],
+    "panel": "panel-02",
+    "panel_report": {
+     "canonical_admission": "NOT_EVALUATED",
+     "completeness": "COMPLETE_INPUT_VIEW",
+     "conformance": {
+      "canonical_admission": "NOT_EVALUATED",
+      "chart_axis_rescaled": false,
+      "completeness": "COMPLETE_INPUT_VIEW",
+      "current_authority": "NOT_EVALUATED",
+      "decision": {
+       "action": "SINGLE_COMPLETE",
+       "rationale": "entire declared source is visible in this projection",
+       "status": "descriptive_display_only"
+      },
+      "dimensions": {
+       "granularity": "standard",
+       "lens": "cube.lens.epistemology",
+       "view": "cube.flow"
+      },
+      "displayed_item_ids": [
+       "c4:order-controller",
+       "c4:api",
+       "c4:order-repository",
+       "c4:db"
+      ],
+      "displayed_lens_declarations": 7,
+      "displayed_source_edge_ids": [
+       "e1",
+       "e2",
+       "e3"
+      ],
+      "epistemic_warrant": "NOT_EVALUATED",
+      "format": "aiaeao.cube.vp05-conformance-report/1",
+      "invariants_passed": [
+       "SOURCE_SHA256_LOCK",
+       "CUBE_VIEW_NAMESPACE",
+       "DECLARED_LENS_ONLY",
+       "GRANULARITY_SCOPE",
+       "EXACT_ITEM_PARTITION",
+       "EXACT_EDGE_PARTITION",
+       "LOSS_LEDGER_BALANCED",
+       "ORIGINAL_ITEMS_UNCHANGED",
+       "ORIGINAL_EDGES_UNCHANGED",
+       "LENS_EDGE_REMAP_DECLARED",
+       "EXACT_LENS_BINDING_PARTITION",
+       "SVG_SOURCE_LOCK",
+       "NO_ACTIVE_SVG_CONTENT",
+       "ONE_EMBEDDED_LOSS_LEDGER",
+       "EMBEDDED_REPORT_MATCH",
+       "NO_SEMANTIC_AUTHORITY_PROMOTION",
+       "SOURCE_IS_DECLARED_UNVERIFIED"
+      ],
+      "limits": [
+       "Split feasibility is a heuristic, not a generated multi-page export or optimal partition",
+       "Glyph rendering varies with installed fonts",
+       "P1 semantic conformance is not evaluated by the SVG printer"
+      ],
+      "omitted_item_ids": [],
+      "omitted_lens_declarations": 0,
+      "omitted_source_edge_ids": [],
+      "profile": "P2-VP-CONFORMANCE/0.5.0",
+      "reference_version": "v9.4",
+      "source_bundle_sha256": "109fb0cde617e09e7461c5e9ac154543613e086f4e64bfadc34cb4a235fecdb8",
+      "source_status": "declared_unverified",
+      "split_feasibility": {
+       "estimated_panel_count": 1,
+       "is_minimum_proven": false,
+       "panels": [
+        {
+         "focus": null,
+         "shown_edge_ids": [
+          "e1",
+          "e2",
+          "e3"
+         ],
+         "shown_item_ids": [
+          "c4:api",
+          "c4:db",
+          "c4:order-controller",
+          "c4:order-repository"
+         ]
+        }
+       ],
+       "panels_materialized": false,
+       "repeated_item_ids": [],
+       "status": "NOT_REQUIRED",
+       "strategy": "focused_panels_from_immutable_source",
+       "unavailable_focus_count": 0,
+       "uncovered_edge_ids": [],
+       "uncovered_item_ids": []
+      },
+      "status": "PASS",
+      "svg_sha256": "bce3681bb5f8fff7ccb00557644af912410cb898a315bd0ed13e6fbb23c15543",
+      "vp04_report_sha256": "8b2769d530ca811d9b7cf61470f8c79dee8687c6b6e5004ab96b6d8f81d71388"
+     },
+     "current_authority": "NOT_EVALUATED",
+     "decision": {
+      "action": "SINGLE_COMPLETE",
+      "rationale": "entire declared source is visible in this projection",
+      "status": "descriptive_display_only"
+     },
+     "dimensions": {
+      "granularity": "standard",
+      "lens": "cube.lens.epistemology",
+      "view": "cube.flow"
+     },
+     "epistemic_warrant": "NOT_EVALUATED",
+     "format": "aiaeao.cube.vp06-print-result/1",
+     "limitations": [
+      "The source and facet declarations are unverified",
+      "P1 semantic conformance is not evaluated",
+      "Font availability varies by rendering environment",
+      "Split feasibility is not an automatic multi-SVG export"
+     ],
+     "loss_ledger": {
+      "displayed_item_ids": [
+       "c4:order-controller",
+       "c4:api",
+       "c4:order-repository",
+       "c4:db"
+      ],
+      "displayed_lens_declarations": 7,
+      "displayed_source_edge_ids": [
+       "e1",
+       "e2",
+       "e3"
+      ],
+      "omitted_item_ids": [],
+      "omitted_lens_declarations": 0,
+      "omitted_source_edge_ids": []
+     },
+     "profile": "P2-VP/1.0.0-rc1",
+     "reference_version": "v9.4",
+     "request_sha256": "4168f63b1d3ce872a83f00daaa70456a741c5440c6201df3d5c04b53b5f4dd39",
+     "source_bundle_sha256": "109fb0cde617e09e7461c5e9ac154543613e086f4e64bfadc34cb4a235fecdb8",
+     "split_feasibility": {
+      "estimated_panel_count": 1,
+      "is_minimum_proven": false,
+      "panels": [
+       {
+        "focus": null,
+        "shown_edge_ids": [
+         "e1",
+         "e2",
+         "e3"
+        ],
+        "shown_item_ids": [
+         "c4:api",
+         "c4:db",
+         "c4:order-controller",
+         "c4:order-repository"
+        ]
+       }
+      ],
+      "panels_materialized": false,
+      "repeated_item_ids": [],
+      "status": "NOT_REQUIRED",
+      "strategy": "focused_panels_from_immutable_source",
+      "unavailable_focus_count": 0,
+      "uncovered_edge_ids": [],
+      "uncovered_item_ids": []
+     },
+     "status": "PASS",
+     "svg_sha256": "bce3681bb5f8fff7ccb00557644af912410cb898a315bd0ed13e6fbb23c15543"
+    },
+    "shown_cell_ids": [
+     "e-writes",
+     "e-implied",
+     "e-unbound"
+    ],
+    "shown_row_ids": [
+     "c4:order-controller",
+     "c4:api",
+     "c4:order-repository"
+    ],
+    "step": "p1",
+    "svg_sha256": "bce3681bb5f8fff7ccb00557644af912410cb898a315bd0ed13e6fbb23c15543",
+    "units": [
+     "e-implied@p1",
+     "e-unbound@p1",
+     "e-writes@p1"
+    ]
+   }
+  ],
+  "partition": "object",
+  "profile": "P2-VP-MIGRATION/0.7.1",
+  "reference_version": "v9.4",
+  "semantic_conformance": "NOT_EVALUATED",
+  "source": {
+   "cells": [
+    {
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0",
+     "declared_end": "target",
+     "id": "e-writes",
+     "object": "c4:db",
+     "predicate_id": "writes-orders-to",
+     "row": "c4:order-controller",
+     "steps": [
+      "p0",
+      "p1"
+     ]
+    },
+    {
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1",
+     "declared_end": "target",
+     "id": "e-implied",
+     "object": "c4:db",
+     "predicate_id": "uses-implied",
+     "row": "c4:api",
+     "steps": [
+      "p0",
+      "p1"
+     ]
+    },
+    {
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2",
+     "declared_end": "target",
+     "id": "e-unbound",
+     "object": "c4:db",
+     "predicate_id": "reads-orders-from",
+     "row": "c4:order-repository",
+     "steps": [
+      "p0",
+      "p1"
+     ]
+    }
+   ],
+   "context_id": "mile004-c4",
+   "declaration_status": "declared_unverified",
+   "facet_bindings": [
+    {
+     "basis": "declared_unverified",
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0",
+     "lens": "cube.lens.execution",
+     "note": "kind other",
+     "target_id": "e-writes",
+     "target_kind": "cell"
+    },
+    {
+     "basis": "declared_unverified",
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0/witness_ref",
+     "lens": "cube.lens.provenance",
+     "note": "witness model:c4-shop#orderController-db",
+     "target_id": "e-writes",
+     "target_kind": "cell"
+    },
+    {
+     "basis": "declared_unverified",
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1",
+     "lens": "cube.lens.execution",
+     "note": "kind other",
+     "target_id": "e-implied",
+     "target_kind": "cell"
+    },
+    {
+     "basis": "declared_unverified",
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1/witness_ref",
+     "lens": "cube.lens.provenance",
+     "note": "witness derived:c4-shop#implied-api-db",
+     "target_id": "e-implied",
+     "target_kind": "cell"
+    },
+    {
+     "basis": "declared_unverified",
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1/witness_ref",
+     "lens": "cube.lens.epistemology",
+     "note": "Herkunft abgeleitet",
+     "target_id": "e-implied",
+     "target_kind": "cell"
+    },
+    {
+     "basis": "declared_unverified",
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2",
+     "lens": "cube.lens.execution",
+     "note": "kind other",
+     "target_id": "e-unbound",
+     "target_kind": "cell"
+    },
+    {
+     "basis": "declared_unverified",
+     "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2/witness_ref",
+     "lens": "cube.lens.provenance",
+     "note": "witness unbound:c4-shop#repository-db",
+     "target_id": "e-unbound",
+     "target_kind": "cell"
+    }
+   ],
+   "format": "aiaeao.cube.vp07-migration-source/1",
+   "objects": [
+    {
+     "anchor_id": "module-bodies.provider",
+     "form_id": "form.module-block",
+     "id": "c4:db",
+     "label": "c4:db",
+     "semantic_ref": "Z:α:Provider[\"c4:db\"]"
+    }
+   ],
+   "plan_id": "mp-c4o",
+   "profile": "P2-VP-MIGRATION/0.7.1",
+   "reference_version": "v9.4",
+   "rows": [
+    {
+     "anchor_id": "module-bodies.integration",
+     "form_id": "form.module-block",
+     "id": "c4:order-controller",
+     "label": "c4:order-controller",
+     "semantic_ref": "Z:α:Integration[\"c4:order-controller\"]"
+    },
+    {
+     "anchor_id": "module-bodies.runtime",
+     "form_id": "form.module-block",
+     "id": "c4:api",
+     "label": "c4:api",
+     "semantic_ref": "Z:α:Runtime[\"c4:api\"]"
+    },
+    {
+     "anchor_id": "module-bodies.integration",
+     "form_id": "form.module-block",
+     "id": "c4:order-repository",
+     "label": "c4:order-repository",
+     "semantic_ref": "Z:α:Integration[\"c4:order-repository\"]"
+    }
+   ],
+   "source_context_sha256": "a2873816dcd84de4c09f27cee8cb0e988f90881edc3cb869464fd51a9aa81afa",
+   "steps": [
+    {
+     "id": "p0",
+     "label": "p0 · current"
+    },
+    {
+     "id": "p1",
+     "label": "p1 · target"
+    }
+   ],
+   "target_step": "p1",
+   "title": "mp-c4o · p0 → p1",
+   "transitions": []
+  },
+  "source_sha256": "fb16232e1984f8e0d7c5bfe0f52d60e2442fa0fbbcc21485219d7be0770b255c",
+  "source_status": "declared_unverified",
+  "status": "PASS",
+  "view": "cube.flow",
+  "warnings": []
+ },
+ "panels_meta": [
+  {
+   "name": "panel-01",
+   "sha256": "54e9e857be17a5ef37e1827c4c15779509a64724d414375d007cf60d5a55d430",
+   "input": {
+    "format": "aiaeao.cube.vp07-panel-input/1",
+    "job": {
+     "format": "aiaeao.cube.vp04-projection-request/1",
+     "profile": "P2-VP-GRANULARITY/0.4.0",
+     "projection": {
+      "budget": {
+       "max_edges": 4,
+       "max_items": 4
+      },
+      "focus": null,
+      "granularity": "standard",
+      "lens": "cube.lens.epistemology",
+      "overflow": "reject",
+      "view": "cube.flow"
+     },
+     "reference_version": "v9.4",
+     "source_bundle": {
+      "basis": "declared_unverified",
+      "facet_bindings": [
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "e1",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness model:c4-shop#orderController-db",
+        "target_id": "e1",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "e2",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness derived:c4-shop#implied-api-db",
+        "target_id": "e2",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1/witness_ref",
+        "lens": "cube.lens.epistemology",
+        "note": "Herkunft abgeleitet",
+        "target_id": "e2",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "e3",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness unbound:c4-shop#repository-db",
+        "target_id": "e3",
+        "target_kind": "edge"
+       }
+      ],
+      "format": "aiaeao.cube.vp03-lens-bundle/1",
+      "lens_profile": "P2-VP-LENSES/0.3.0",
+      "reference_version": "v9.4",
+      "source_view_sha256": "154a140294c0117583e20c970700431e7f691d20155809a7046532f9706737ef",
+      "view_plan": {
+       "declaration_status": "declared_unverified",
+       "direction": "left-to-right",
+       "edges": [
+        {
+         "arrow_anchor_id": "relation-arrows.reference",
+         "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0",
+         "from": "c4:order-controller",
+         "predicate_id": "writes-orders-to",
+         "to": "c4:db"
+        },
+        {
+         "arrow_anchor_id": "relation-arrows.reference",
+         "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1",
+         "from": "c4:api",
+         "predicate_id": "uses-implied",
+         "to": "c4:db"
+        },
+        {
+         "arrow_anchor_id": "relation-arrows.reference",
+         "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2",
+         "from": "c4:order-repository",
+         "predicate_id": "reads-orders-from",
+         "to": "c4:db"
+        }
+       ],
+       "granularity": "standard",
+       "lens": "neutral",
+       "nodes": [
+        {
+         "anchor_id": "module-bodies.integration",
+         "form_id": "form.module-block",
+         "id": "c4:order-controller",
+         "label": "c4:order-controller",
+         "semantic_ref": "Z:α:Integration[\"c4:order-controller\"]"
+        },
+        {
+         "anchor_id": "module-bodies.runtime",
+         "form_id": "form.module-block",
+         "id": "c4:api",
+         "label": "c4:api",
+         "semantic_ref": "Z:α:Runtime[\"c4:api\"]"
+        },
+        {
+         "anchor_id": "module-bodies.integration",
+         "form_id": "form.module-block",
+         "id": "c4:order-repository",
+         "label": "c4:order-repository",
+         "semantic_ref": "Z:α:Integration[\"c4:order-repository\"]"
+        },
+        {
+         "anchor_id": "module-bodies.provider",
+         "form_id": "form.module-block",
+         "id": "c4:db",
+         "label": "c4:db",
+         "semantic_ref": "Z:α:Provider[\"c4:db\"]"
+        }
+       ],
+       "order": [
+        "c4:order-controller",
+        "c4:api",
+        "c4:order-repository",
+        "c4:db"
+       ],
+       "printer_profile": "P2-VP-VIEWS/0.2.0",
+       "reference_version": "v9.4",
+       "subtitle": "step p0 · current · object: c4:db",
+       "title": "mp-c4o · p0 → p1 · panel 01/02",
+       "view": "cube.flow"
+      }
+     },
+     "source_bundle_sha256": "d7ecd3eec6f6755add5d562c327a0835fb758c92daefa0abb61688d0aceec3f7"
+    },
+    "key_values": [
+     "c4:db"
+    ],
+    "partition": "object",
+    "profile": "P2-VP-MIGRATION/0.7.1",
+    "step": "p0",
+    "view": "cube.flow"
+   },
+   "input_sha256": "09fffa7fd9cec52324c952e95135dbea34b6a250a74101d6f230861e1a3ea337"
+  },
+  {
+   "name": "panel-02",
+   "sha256": "bce3681bb5f8fff7ccb00557644af912410cb898a315bd0ed13e6fbb23c15543",
+   "input": {
+    "format": "aiaeao.cube.vp07-panel-input/1",
+    "job": {
+     "format": "aiaeao.cube.vp04-projection-request/1",
+     "profile": "P2-VP-GRANULARITY/0.4.0",
+     "projection": {
+      "budget": {
+       "max_edges": 4,
+       "max_items": 4
+      },
+      "focus": null,
+      "granularity": "standard",
+      "lens": "cube.lens.epistemology",
+      "overflow": "reject",
+      "view": "cube.flow"
+     },
+     "reference_version": "v9.4",
+     "source_bundle": {
+      "basis": "declared_unverified",
+      "facet_bindings": [
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "e1",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness model:c4-shop#orderController-db",
+        "target_id": "e1",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "e2",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness derived:c4-shop#implied-api-db",
+        "target_id": "e2",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1/witness_ref",
+        "lens": "cube.lens.epistemology",
+        "note": "Herkunft abgeleitet",
+        "target_id": "e2",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2",
+        "lens": "cube.lens.execution",
+        "note": "kind other",
+        "target_id": "e3",
+        "target_kind": "edge"
+       },
+       {
+        "basis": "declared_unverified",
+        "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2/witness_ref",
+        "lens": "cube.lens.provenance",
+        "note": "witness unbound:c4-shop#repository-db",
+        "target_id": "e3",
+        "target_kind": "edge"
+       }
+      ],
+      "format": "aiaeao.cube.vp03-lens-bundle/1",
+      "lens_profile": "P2-VP-LENSES/0.3.0",
+      "reference_version": "v9.4",
+      "source_view_sha256": "bfd5a6cb39651f6d11c98fe80fdaeae771e98addcd4f0aae3c8935c660886abd",
+      "view_plan": {
+       "declaration_status": "declared_unverified",
+       "direction": "left-to-right",
+       "edges": [
+        {
+         "arrow_anchor_id": "relation-arrows.reference",
+         "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/0",
+         "from": "c4:order-controller",
+         "predicate_id": "writes-orders-to",
+         "to": "c4:db"
+        },
+        {
+         "arrow_anchor_id": "relation-arrows.reference",
+         "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/1",
+         "from": "c4:api",
+         "predicate_id": "uses-implied",
+         "to": "c4:db"
+        },
+        {
+         "arrow_anchor_id": "relation-arrows.reference",
+         "declaration_ref": "decl:mile004-c4#/migration_plans/0/dependencies/2",
+         "from": "c4:order-repository",
+         "predicate_id": "reads-orders-from",
+         "to": "c4:db"
+        }
+       ],
+       "granularity": "standard",
+       "lens": "neutral",
+       "nodes": [
+        {
+         "anchor_id": "module-bodies.integration",
+         "form_id": "form.module-block",
+         "id": "c4:order-controller",
+         "label": "c4:order-controller",
+         "semantic_ref": "Z:α:Integration[\"c4:order-controller\"]"
+        },
+        {
+         "anchor_id": "module-bodies.runtime",
+         "form_id": "form.module-block",
+         "id": "c4:api",
+         "label": "c4:api",
+         "semantic_ref": "Z:α:Runtime[\"c4:api\"]"
+        },
+        {
+         "anchor_id": "module-bodies.integration",
+         "form_id": "form.module-block",
+         "id": "c4:order-repository",
+         "label": "c4:order-repository",
+         "semantic_ref": "Z:α:Integration[\"c4:order-repository\"]"
+        },
+        {
+         "anchor_id": "module-bodies.provider",
+         "form_id": "form.module-block",
+         "id": "c4:db",
+         "label": "c4:db",
+         "semantic_ref": "Z:α:Provider[\"c4:db\"]"
+        }
+       ],
+       "order": [
+        "c4:order-controller",
+        "c4:api",
+        "c4:order-repository",
+        "c4:db"
+       ],
+       "printer_profile": "P2-VP-VIEWS/0.2.0",
+       "reference_version": "v9.4",
+       "subtitle": "step p1 · target · object: c4:db",
+       "title": "mp-c4o · p0 → p1 · panel 02/02",
+       "view": "cube.flow"
+      }
+     },
+     "source_bundle_sha256": "109fb0cde617e09e7461c5e9ac154543613e086f4e64bfadc34cb4a235fecdb8"
+    },
+    "key_values": [
+     "c4:db"
+    ],
+    "partition": "object",
+    "profile": "P2-VP-MIGRATION/0.7.1",
+    "step": "p1",
+    "view": "cube.flow"
+   },
+   "input_sha256": "af2a751c0f280d455aa0590f92f04e97442aeed2d5984150affb65b8ff87a304"
+  }
+ ]
+}

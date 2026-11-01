@@ -35,4 +35,4 @@ A liefert die Antworten auf Frage 1 und 4 für B; C baut auf der Rangfolge aus B
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/prioritize-learning-balance/proposal.md) · [Aufgabenstatus](../../openspec/changes/prioritize-learning-balance/tasks.md) · [Abdeckung](../../openspec/changes/prioritize-learning-balance/TRACEABILITY.md) · [Arbeitsordner](../09-Research/learning-balance/README.md).
+[OpenSpec-Change](../../openspec/changes/prioritize-learning-balance/proposal.md) · [Aufgabenstatus](../../openspec/changes/prioritize-learning-balance/tasks.md) · [Abdeckung](../../openspec/changes/prioritize-learning-balance/TRACEABILITY.md) · [Arbeitsordner](../09-Research/learning-balance/README.md). MILE-004-A abgeschlossen: [Probeplan](../09-Research/learning-balance/probes/PROBE-PLAN.md), [Probeergebnisse](../09-Research/learning-balance/PROBE-RESULTS.md).

@@ -1,6 +1,6 @@
 # MILE-004 — Arbeitsordner Lernbilanz
 
-Status: in_progress. [Probeplan](probes/PROBE-PLAN.md) festgelegt (TASK-024); Ergebnisse folgen mit TASK-025–028.
+Status: in_progress. [Probeplan](probes/PROBE-PLAN.md) und [Probeergebnisse](PROBE-RESULTS.md) liegen vor (Charge A); Bewertungsrahmen, Lernbilanz und Plan MILE-005 folgen mit TASK-026–028.
 
 Vorgesehene Ablage: `probes/` (Probeplan und Probe-Eingaben, TASK-024), Probeergebnisse (TASK-025), Bewertungsrahmen (TASK-026), Lernbilanz (TASK-027), Plan MILE-005 (TASK-028).
 
