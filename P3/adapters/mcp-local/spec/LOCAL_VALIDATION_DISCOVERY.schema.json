@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local validation discovery extension v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "selection",
+    "context_omitted",
+    "contexts",
+    "presence_is_not_runtime_validation",
+    "evaluation_performed_by_cube",
+    "method_execution_by_cube",
+    "truth_authority_admission"
+  ],
+  "properties": {
+    "format": {
+      "const": "aiaeao.cube.local-validation-discovery/1"
+    },
+    "selection": {
+      "const": "explicit_context_format_no_auto_upgrade"
+    },
+    "context_omitted": {
+      "type": "string"
+    },
+    "contexts": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "context_format",
+          "entry_profile",
+          "dispatch_implemented",
+          "required_sources",
+          "required_sources_present",
+          "runtime_load_verified"
+        ],
+        "properties": {
+          "context_format": {
+            "type": "string",
+            "pattern": "^aiaeao\\.cube\\.binding-context/[1-7]$"
+          },
+          "entry_profile": {
+            "type": "string"
+          },
+          "dispatch_implemented": {
+            "const": true
+          },
+          "required_sources": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^P1/"
+            }
+          },
+          "required_sources_present": {
+            "type": "boolean"
+          },
+          "runtime_load_verified": {
+            "const": false
+          }
+        }
+      }
+    },
+    "presence_is_not_runtime_validation": {
+      "const": true
+    },
+    "evaluation_performed_by_cube": {
+      "const": false
+    },
+    "method_execution_by_cube": {
+      "const": false
+    },
+    "truth_authority_admission": {
+      "const": "NOT_EVALUATED"
+    }
+  }
+}
