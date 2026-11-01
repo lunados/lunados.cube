@@ -1,0 +1,393 @@
+{
+ "format": "mile004.probe-run/1",
+ "plan_sha256": "3fb79669cdc934bee855bc8dd9091041b5f7f2277ce7211761e7eaaf2c02c3ca",
+ "git_head": "a0f6e95",
+ "python": "3.13.16",
+ "jsonschema": "4.26.0",
+ "sources_verified": [
+  {
+   "path": "web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/contracts/evaluator-result.v0.2.schema.json",
+   "match": true
+  },
+  {
+   "path": "web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/contracts/evaluator-call.v0.1.schema.json",
+   "match": true
+  },
+  {
+   "path": "web/docs/cube/AIAEAO_EXP024_Charge3_Five_Envelopes_v0.1/evaluators/evaluators.v0.1.json",
+   "match": true
+  },
+  {
+   "path": "schema/entry.v1.schema.json",
+   "match": true
+  },
+  {
+   "path": "docs/09-Research/cube-grammar-2026-11-01/LERNVERGLEICH.md",
+   "match": true
+  },
+  {
+   "path": "P2/visual-printer-2d-lab/VP03_LENS_GRAMMAR.md",
+   "match": true
+  },
+  {
+   "path": "P2/visual-printer-migration-v1/VP07_ACCEPTANCE_SPEC.md",
+   "match": true
+  },
+  {
+   "path": "P2/visual-printer-migration-v1/vpmigration/adapter.py",
+   "match": true
+  },
+  {
+   "path": "P2/visual-printer-migration-v1/vpmigration/panels.py",
+   "match": true
+  },
+  {
+   "path": "P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py",
+   "match": true
+  },
+  {
+   "path": "AIAEAO_Pure_Cube_P0_v9.4/v9.4/morphology.md",
+   "match": true
+  },
+  {
+   "path": "AIAEAO_Pure_Cube_P0_v9.4/v9.4/grammar/constraints.json",
+   "match": true
+  }
+ ],
+ "envelope": {
+  "E-1": {
+   "instances": [
+    {
+     "case_id": "E-1a",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "assessed",
+     "outcome_value": "aggregated_with_loss"
+    },
+    {
+     "case_id": "E-1b",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "assessed",
+     "outcome_value": "aggregated_without_loss"
+    },
+    {
+     "case_id": "E-1c",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "unresolved",
+     "outcome_value": "origin_unbound"
+    }
+   ],
+   "distinctions": [
+    {
+     "id": "d1",
+     "what": "Endpunkte der verdichteten Kante",
+     "expected": "U",
+     "observed": "U",
+     "schema": "result",
+     "pointer": "/properties/outcome/properties/detail",
+     "match": true
+    },
+    {
+     "id": "d2",
+     "what": "welche Quellbeziehungen eingeflossen sind",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/derivation_ref",
+     "match": true
+    },
+    {
+     "id": "d3",
+     "what": "Verdichtungsstrategie",
+     "expected": "U",
+     "observed": "U",
+     "schema": "call",
+     "pointer": "/properties/parameters",
+     "match": true
+    },
+    {
+     "id": "d4",
+     "what": "Verlust (verworfene Beschreibungen)",
+     "expected": "U",
+     "observed": "U",
+     "schema": "result",
+     "pointer": "/properties/outcome/properties/detail",
+     "match": true
+    },
+    {
+     "id": "d5",
+     "what": "bewertet vs. unaufgelöst",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/disposition",
+     "match": true
+    },
+    {
+     "id": "d6",
+     "what": "Grund der Unauflösbarkeit (Herkunft nicht gebunden)",
+     "expected": "U",
+     "observed": "U",
+     "schema": "result",
+     "pointer": "/properties/outcome/properties/value",
+     "match": true
+    }
+   ],
+   "pairs": [
+    {
+     "pair": [
+      "E-1a",
+      "E-1b"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    },
+    {
+     "pair": [
+      "E-1a",
+      "E-1c"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref",
+      "disposition"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    },
+    {
+     "pair": [
+      "E-1b",
+      "E-1c"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref",
+      "disposition"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    }
+   ],
+   "rule": "R-E2",
+   "all_valid": true
+  },
+  "E-2": {
+   "instances": [
+    {
+     "case_id": "E-2a",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "assessed",
+     "outcome_value": "conforms"
+    },
+    {
+     "case_id": "E-2b",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "assessed",
+     "outcome_value": "cross_instance_violation"
+    },
+    {
+     "case_id": "E-2c",
+     "call_valid": true,
+     "call_errors": [],
+     "result_valid": true,
+     "result_errors": [],
+     "identity_ok": true,
+     "disposition": "unresolved",
+     "outcome_value": "waiting_for_input"
+    }
+   ],
+   "distinctions": [
+    {
+     "id": "d1",
+     "what": "Instanz der geprüften Aktivierung",
+     "expected": "U",
+     "observed": "U",
+     "schema": "call",
+     "pointer": "/properties/parameters",
+     "match": true
+    },
+    {
+     "id": "d2",
+     "what": "Instanz je verbrauchtem Token",
+     "expected": "U",
+     "observed": "U",
+     "schema": "call",
+     "pointer": "/properties/inputs/items/properties/content",
+     "match": true
+    },
+    {
+     "id": "d3",
+     "what": "konform vs. instanzübergreifender Verstoß",
+     "expected": "U",
+     "observed": "U",
+     "schema": "result",
+     "pointer": "/properties/outcome/properties/value",
+     "match": true
+    },
+    {
+     "id": "d4",
+     "what": "Verstoß vs. unvollständige Spur",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/disposition",
+     "match": true
+    },
+    {
+     "id": "d5",
+     "what": "ein Ergebnis je Instanz",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/derivation_ref",
+     "match": true
+    },
+    {
+     "id": "d6",
+     "what": "keine Ausführungsbehauptung",
+     "expected": "T",
+     "observed": "T",
+     "schema": "result",
+     "pointer": "/properties/effectful_execution_authorized",
+     "match": true
+    }
+   ],
+   "pairs": [
+    {
+     "pair": [
+      "E-2a",
+      "E-2b"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    },
+    {
+     "pair": [
+      "E-2a",
+      "E-2c"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref",
+      "disposition"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    },
+    {
+     "pair": [
+      "E-2b",
+      "E-2c"
+     ],
+     "typed_fields_differing": [
+      "derivation_ref",
+      "disposition"
+     ],
+     "untyped_fields_differing": [
+      "outcome",
+      "findings"
+     ],
+     "identical": false
+    }
+   ],
+   "rule": "R-E2",
+   "all_valid": true
+  }
+ },
+ "render": {
+  "L-1": [
+   {
+    "call_id": "L-1a",
+    "plan_source": {
+     "printer": "vpmigration"
+    },
+    "plan_views": {
+     "view": "cube.flow",
+     "granularity": "standard",
+     "partition": "object",
+     "lens": "cube.lens.provenance"
+    },
+    "status": "REFUSED",
+    "error": "PlanFailure('VP07_SOURCE_INVALID: input is not an aiaeao.cube.vp07-migration-source/1 document (a VP-04 request or VP-03 bundle cannot be partitioned, D-10)')"
+   },
+   {
+    "call_id": "L-1b",
+    "plan_source": {
+     "printer": "vpmigration",
+     "witness_prefixes": {
+      "format": "aiaeao.cube.vp07-witness-prefixes/1",
+      "prefixes": [
+       {
+        "prefix": "derived:",
+        "note": "Herkunft abgeleitet"
+       }
+      ]
+     }
+    },
+    "plan_views": {
+     "view": "cube.flow",
+     "granularity": "standard",
+     "partition": "object",
+     "lens": "cube.lens.epistemology"
+    },
+    "status": "REFUSED",
+    "error": "PlanFailure('VP07_SOURCE_INVALID: input is not an aiaeao.cube.vp07-migration-source/1 document (a VP-04 request or VP-03 bundle cannot be partitioned, D-10)')"
+   }
+  ],
+  "L-2": [
+   {
+    "call_id": "L-2",
+    "plan_source": {
+     "printer": "vpmigration",
+     "tracks": "<tracks>"
+    },
+    "plan_views": {
+     "view": "cube.flow",
+     "granularity": "standard",
+     "partition": "track",
+     "lens": "cube.lens.provenance"
+    },
+    "status": "REFUSED",
+    "error": "PlanFailure(\"VP07_ADAPTER_MAPPING: ref 'bpmn:i1/tok-stock' is not a valid display ID (<= 60 chars) and has no label-map entry (D-11)\")"
+   }
+  ]
+ }
+}

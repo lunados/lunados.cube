@@ -36,56 +36,56 @@
     {
       "label": "Prüfkriterium Envelope-Erweiterung (§1), Bestandteile LENS/MODE (§4)",
       "repo": "lunados.cube",
-      "commit": "dbddb17",
+      "commit": "a0f6e95",
       "path": "docs/09-Research/cube-grammar-2026-11-01/LERNVERGLEICH.md",
       "sha256": "4cb0dd702d452e5ad1c99a9047962ec005e7b70c5156c975b8ebf992764b0ea1"
     },
     {
       "label": "VP-03 Linsengrammatik (fünf Linsen, deklarierte Facettenbindungen)",
       "repo": "lunados.cube",
-      "commit": "dbddb17",
+      "commit": "a0f6e95",
       "path": "P2/visual-printer-2d-lab/VP03_LENS_GRAMMAR.md",
       "sha256": "11537443f79767ba45d4fbf62cc97204d8ce517a3396ff10b75d689b7911c333"
     },
     {
       "label": "VP-07 Partition subject/object/step/track, Track-Map (D-3)",
       "repo": "lunados.cube",
-      "commit": "dbddb17",
+      "commit": "a0f6e95",
       "path": "P2/visual-printer-migration-v1/VP07_ACCEPTANCE_SPEC.md",
       "sha256": "47480f38a56991f0f6c0c964cafd8b6a66731da1219fc4565a998e5c244cb9c8"
     },
     {
       "label": "VP-07 Adapter: Track nur für Zeilen (Subjekte)",
       "repo": "lunados.cube",
-      "commit": "dbddb17",
+      "commit": "a0f6e95",
       "path": "P2/visual-printer-migration-v1/vpmigration/adapter.py",
       "sha256": "dc04ce16bd4e789c0c122956f1ed2338311c52027aa0fe2cb24383a9247a6f06"
     },
     {
       "label": "VP-07 Panels: Partition track nach Zeilen-Track",
       "repo": "lunados.cube",
-      "commit": "dbddb17",
+      "commit": "a0f6e95",
       "path": "P2/visual-printer-migration-v1/vpmigration/panels.py",
       "sha256": "d6ced62b1fb2dc1c25253c01f555eaa8f7e0ffa584c292ec20f73eac2dbf4e05"
     },
     {
       "label": "Implementierung hinter cube_plan_source/views/check",
       "repo": "lunados.cube",
-      "commit": "dbddb17",
+      "commit": "a0f6e95",
       "path": "P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py",
       "sha256": "982ed3ff8acdc264552f22f8b3217416c83c0ee4d0e12c42265bd1f941e579d4"
     },
     {
       "label": "M — Mode (§3.10): Werte, Übergänge, Bindung nicht eingefroren",
       "repo": "lunados.cube",
-      "commit": "dbddb17",
+      "commit": "a0f6e95",
       "path": "AIAEAO_Pure_Cube_P0_v9.4/v9.4/morphology.md",
       "sha256": "749bb26b36bb4672a53cf8bc15d58b2cd75ebc07ee90ee6cb38cb6c86bd4bfd9"
     },
     {
       "label": "C021: Loose/Transitional/Strict sind keine autorisierten MODE-Werte",
       "repo": "lunados.cube",
-      "commit": "dbddb17",
+      "commit": "a0f6e95",
       "path": "AIAEAO_Pure_Cube_P0_v9.4/v9.4/grammar/constraints.json",
       "sha256": "eebc060a0f8c633226dd4739a86819808ca501062193d4e60c4e703125537d8a"
     }
@@ -923,12 +923,34 @@
           ]
         }
       },
+      "labels": {
+        "format": "aiaeao.cube.vp07-label-map/1",
+        "labels": {
+          "bpmn:i1/tok-stock": {
+            "id": "i1-tok-stock",
+            "label": "i1 · tok-stock"
+          },
+          "bpmn:i1/tok-credit": {
+            "id": "i1-tok-credit",
+            "label": "i1 · tok-credit"
+          },
+          "bpmn:i2/tok-credit": {
+            "id": "i2-tok-credit",
+            "label": "i2 · tok-credit"
+          },
+          "bpmn:j1": {
+            "id": "j1",
+            "label": "J1 · Join (AND)"
+          }
+        }
+      },
       "calls": [
         {
           "call_id": "L-2",
           "plan_source": {
             "printer": "vpmigration",
-            "tracks": "<tracks>"
+            "tracks": "<tracks>",
+            "labels": "<labels>"
           },
           "plan_views": {
             "view": "cube.flow",
@@ -955,6 +977,21 @@
       }
     }
   },
+  "amendments": [
+    {
+      "date": "2026-11-01",
+      "probe": "L-2",
+      "change": "Label-Map (aiaeao.cube.vp07-label-map/1) als Anzeigeargument ergänzt",
+      "reason": "Erster Lauf: VP07_ADAPTER_MAPPING — Referenten mit '/' sind keine gültigen Anzeige-IDs (D-11). Reines Anzeigeargument; Eingaben, Erwartungen und Entscheidungsregeln unverändert.",
+      "failed_run_log": "docs/10-Evidence/MILE-004/task025-probe-run-attempt1.json"
+    },
+    {
+      "date": "2026-11-01",
+      "probe": "L-1",
+      "change": "keine Planänderung",
+      "reason": "Erster Lauf: VP07_SOURCE_INVALID, weil das Laufskript die Hülle von plan_source statt des enthaltenen source an plan_views übergab; im Skript behoben."
+    }
+  ],
   "not_claimed": [
     "Vollständigkeit des Envelope-Rahmens über diese Fälle hinaus",
     "Nutzen oder Lesbarkeit",

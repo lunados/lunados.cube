@@ -169,7 +169,10 @@ L2 = {
     "mapping_note": "Darstellungsabbildung (A): Token und Join-Aktivierung J1 als Y:resource-object:resource (Adapterkonzept); J1 paart laut Aussage i1/tok-stock mit i2/tok-credit (BPMN-03). i1/tok-credit ist Referent, aber nicht Teil von J1. Instanz als deklarierte Track-Map (VP-07 D-3b); J1 ist i1 zugeordnet.",
     "context": L2_CTX, "plan_id": "mp-bpmn",
     "tracks": {"format": "aiaeao.cube.vp07-track-map/1", "tracks": {"i1": ["bpmn:i1/tok-stock", "bpmn:i1/tok-credit", "bpmn:j1"], "i2": ["bpmn:i2/tok-credit"]}},
-    "calls": [{"call_id": "L-2", "plan_source": {"printer": "vpmigration", "tracks": "<tracks>"}, "plan_views": {"view": "cube.flow", "granularity": "standard", "partition": "track", "lens": "cube.lens.provenance"}}],
+    "labels": {"format": "aiaeao.cube.vp07-label-map/1", "labels": {
+        "bpmn:i1/tok-stock": {"id": "i1-tok-stock", "label": "i1 · tok-stock"}, "bpmn:i1/tok-credit": {"id": "i1-tok-credit", "label": "i1 · tok-credit"},
+        "bpmn:i2/tok-credit": {"id": "i2-tok-credit", "label": "i2 · tok-credit"}, "bpmn:j1": {"id": "j1", "label": "J1 · Join (AND)"}}},
+    "calls": [{"call_id": "L-2", "plan_source": {"printer": "vpmigration", "tracks": "<tracks>", "labels": "<labels>"}, "plan_views": {"view": "cube.flow", "granularity": "standard", "partition": "track", "lens": "cube.lens.provenance"}}],
     "expected": {"L-2": ["plan_check PASS; zwei Panels mit Partitionswert i1 und i2", "Panel i1: e-stock; Panel i2: e-cross; J1 erscheint in beiden Panels und wird im Bericht als Wiederholung geführt",
                          "e-cross ist gezeichnet wie e-stock: keine Markierung als instanzübergreifend", "dass J1 zu i1 gehört, steht nirgends im Bild (Track nur für Subjekte)"]},
     "decision_rule": "Trennt die Partition die Instanzen und macht sie die Kante J1 ← i2/tok-credit als instanzübergreifend sichtbar, trägt die vorhandene Bindung die Instanzgruppierung. Trennt sie nur nach Subjekt-Track ohne Markierung: Gruppierung ist als Adapter-Map möglich, Instanzbindung und Verstoßmarkierung fehlen (G-08, VR-12)."}
@@ -198,6 +201,11 @@ plan = {
         "L-1": {"question": 4, "use_case": "Architektursichten", "case": "C4-02/C4-03", "gap": "G-02, VR-01, PO-3", **L1},
         "L-2": {"question": 4, "use_case": "Prozessspuren", "case": "BPMN-03", "gap": "G-08, VR-12", **L2, "mode": MODE_NE},
     },
+    "amendments": [{"date": "2026-11-01", "probe": "L-2", "change": "Label-Map (aiaeao.cube.vp07-label-map/1) als Anzeigeargument ergänzt",
+                    "reason": "Erster Lauf: VP07_ADAPTER_MAPPING — Referenten mit '/' sind keine gültigen Anzeige-IDs (D-11). Reines Anzeigeargument; Eingaben, Erwartungen und Entscheidungsregeln unverändert.",
+                    "failed_run_log": "docs/10-Evidence/MILE-004/task025-probe-run-attempt1.json"},
+                   {"date": "2026-11-01", "probe": "L-1", "change": "keine Planänderung",
+                    "reason": "Erster Lauf: VP07_SOURCE_INVALID, weil das Laufskript die Hülle von plan_source statt des enthaltenen source an plan_views übergab; im Skript behoben."}],
     "not_claimed": ["Vollständigkeit des Envelope-Rahmens über diese Fälle hinaus", "Nutzen oder Lesbarkeit", "Laufzeitverhalten eines echten Evaluators"],
 }
 OUT.write_text(json.dumps(plan, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
