@@ -66,4 +66,4 @@ Nutzen sehr hoch (Rang 1 und 2 der Lernbilanz), Komplexität mittel–hoch.
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/declare-completeness-and-instances/proposal.md) · [Aufgabenstatus](../../openspec/changes/declare-completeness-and-instances/tasks.md) · [Abdeckung](../../openspec/changes/declare-completeness-and-instances/TRACEABILITY.md) · [Arbeitsordner](../09-Research/completeness-instances/README.md). TASK-030: [Prüffälle](../09-Research/completeness-instances/CHECK-CASES.md), [Baseline](../10-Evidence/MILE-005/task030-baseline-check.json).
+[OpenSpec-Change](../../openspec/changes/declare-completeness-and-instances/proposal.md) · [Aufgabenstatus](../../openspec/changes/declare-completeness-and-instances/tasks.md) · [Abdeckung](../../openspec/changes/declare-completeness-and-instances/TRACEABILITY.md) · [Arbeitsordner](../09-Research/completeness-instances/README.md). TASK-030: [Prüffälle](../09-Research/completeness-instances/CHECK-CASES.md), [Baseline](../10-Evidence/MILE-005/task030-baseline-check.json). TASK-031: [Abnahmespezifikation P1.12](../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md) (Detailfragen Q-1–Q-6 offen).
