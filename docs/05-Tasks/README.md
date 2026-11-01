@@ -37,7 +37,9 @@ Führender Status: [sample-five-grammars/tasks.md](../../openspec/changes/archiv
 
 Summe: 16–24 h (2–3 PT); Planungsannahmen, keine Laufzeitmessung.
 
-## MILE-003 — geplant
+## MILE-003 — abgeschlossen
+
+Führender Status: [check-visual-distinctions/tasks.md](../../openspec/changes/archive/2026-11-01-check-visual-distinctions/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|
@@ -47,3 +49,5 @@ Summe: 16–24 h (2–3 PT); Planungsannahmen, keine Laufzeitmessung.
 | [TASK-021 — Handmockups](TASK-021-mockups.md) | US-013 | 3–4 h |
 | [TASK-022 — Agenten-Vorprüfung](TASK-022-agent-precheck.md) | US-014 | 2 h |
 | [TASK-023 — Übergabe MILE-003](TASK-023-visual-handover.md) | US-014 | 1–2 h |
+
+Summe: 11–15 h (1–2 PT); Planungsannahmen, keine Laufzeitmessung. [Nachweise](../10-Evidence/MILE-003/README.md).

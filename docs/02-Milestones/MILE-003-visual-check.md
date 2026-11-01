@@ -1,6 +1,6 @@
 # MILE-003 — Darstellung prüfen (Agenten-Vorprüfung)
 
-Status: in_progress · Stand: 2026-11-01 · Voraussetzung: MILE-002 abgeschlossen
+Status: done · Stand: 2026-11-01 · Voraussetzung: MILE-002 abgeschlossen
 
 ## Ergebnis
 
@@ -34,4 +34,4 @@ A geht B voraus; C verwendet A und B.
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/check-visual-distinctions/proposal.md) · [Aufgabenstatus](../../openspec/changes/check-visual-distinctions/tasks.md) · [Abdeckung](../../openspec/changes/check-visual-distinctions/TRACEABILITY.md). MILE-003-A abgeschlossen: [Inventur](../09-Research/visual-check/INVENTORY.md), [Render-Nachweise](../09-Research/visual-check/RENDER-RESULTS.md). MILE-003-B abgeschlossen: [Printer-Paare](../09-Research/visual-check/PAIRS.md), [Mockups](../09-Research/visual-check/MOCKUPS.md). TASK-022: [Agenten-Vorprüfung](../09-Research/visual-check/PRECHECK.md).
+[OpenSpec-Change](../../openspec/changes/archive/2026-11-01-check-visual-distinctions/proposal.md) · [Aufgabenstatus](../../openspec/changes/archive/2026-11-01-check-visual-distinctions/tasks.md) · [Abdeckung](../../openspec/changes/archive/2026-11-01-check-visual-distinctions/TRACEABILITY.md). MILE-003-A abgeschlossen: [Inventur](../09-Research/visual-check/INVENTORY.md), [Render-Nachweise](../09-Research/visual-check/RENDER-RESULTS.md). MILE-003-B abgeschlossen: [Printer-Paare](../09-Research/visual-check/PAIRS.md), [Mockups](../09-Research/visual-check/MOCKUPS.md). MILE-003-C abgeschlossen: [Agenten-Vorprüfung mit blinder Zweitprüfung](../09-Research/visual-check/PRECHECK.md), [Übergabe an MILE-004](../09-Research/visual-check/HANDOVER.md), [Menschentest-Skript](../09-Research/visual-check/HUMAN-TEST-SCRIPT.md). Alle Abschlusskriterien der drei Chargen sind mit Nachweisen erfüllt ([C-RESULT](../10-Evidence/MILE-003/C-RESULT.md)); ein menschlicher Lesbarkeitsnachweis ist bewusst nicht enthalten (D-1).

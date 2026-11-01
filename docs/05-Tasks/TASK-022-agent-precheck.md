@@ -1,6 +1,6 @@
 # TASK-022 — Agenten-Vorprüfung nach Protokoll
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/check-visual-distinctions/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-check-visual-distinctions/tasks.md).
 
 Story: [US-014](../04-US/US-014-agent-precheck-handover.md) · Mile: MILE-003-C · Aufwand: 2 h
 

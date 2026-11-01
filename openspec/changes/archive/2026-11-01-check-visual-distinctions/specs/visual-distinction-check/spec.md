@@ -1,6 +1,6 @@
 # Visual distinction check — research protocol
 
-Status: planned. Keine neue visuelle Grammatik.
+Status: done · konsolidiert in [specs/visual-distinction-check](../../../../../specs/visual-distinction-check/spec.md).
 
 ## ADDED Requirements
 

@@ -1,6 +1,6 @@
 # Check visual distinctions
 
-Status: planned · 2026-11-01 · [MILE-003](../../../docs/02-Milestones/MILE-003-visual-check.md)
+Status: done · 2026-11-01 · archiviert · [MILE-003](../../../../docs/02-Milestones/MILE-003-visual-check.md)
 
 ## Why
 

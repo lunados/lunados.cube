@@ -1,6 +1,6 @@
 # Design — Darstellungsprüfung
 
-Status: planned
+Status: done · umgesetzt in MILE-003
 
 ## Context
 

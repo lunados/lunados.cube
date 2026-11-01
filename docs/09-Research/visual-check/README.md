@@ -1,6 +1,6 @@
 # MILE-003 — Prüfprotokoll Darstellung
 
-Status: in_progress. [Inventur V-01–V-12](INVENTORY.md) [Render-Nachweise](RENDER-RESULTS.md), [Printer-Paare](PAIRS.md), [Mockups](MOCKUPS.md) und die [Agenten-Vorprüfung](PRECHECK.md) liegen vor.
+Status: done. [Inventur V-01–V-12](INVENTORY.md), [Render-Nachweise](RENDER-RESULTS.md), [Printer-Paare](PAIRS.md), [Mockups](MOCKUPS.md) die [Agenten-Vorprüfung](PRECHECK.md), die [Übergabe an MILE-004](HANDOVER.md) und das [Menschentest-Skript](HUMAN-TEST-SCRIPT.md) liegen vor.
 
 ## Vorrangige Unterscheidungen
 

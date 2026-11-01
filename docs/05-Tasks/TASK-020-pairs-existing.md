@@ -1,6 +1,6 @@
 # TASK-020 — Minimalpaare mit vorhandenen Printern
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/check-visual-distinctions/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-01-check-visual-distinctions/tasks.md).
 
 Story: [US-013](../04-US/US-013-minimal-pairs.md) · Mile: MILE-003-B · Aufwand: 2–3 h
 
