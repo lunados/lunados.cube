@@ -28,3 +28,8 @@ Jede Schlussfolgerung auf Fallberichte rückverfolgen. Diagnosen, semantische L�
 [TASK-011](TASK-011-c4-three-cases.md), [TASK-012](TASK-012-archimate-three-cases.md), [TASK-013](TASK-013-dsm-mdm-three-cases.md), [TASK-014](TASK-014-bpmn-three-cases.md), [TASK-015](TASK-015-dag-three-cases.md)
 
 Umfang gemäß [MILE-002](../02-Milestones/MILE-002-grammar-sampling.md). Keine neuen kanonischen Kategorien, Envelopes, produktiven Adapter oder Analysebibliotheken implementieren. Begrenzte Versuchsprofile bleiben Kandidaten. Noch kein Ausführungsnachweis vorhanden.
+
+## Ergebnis
+
+Abgeschlossen am 2026-11-01. [Lückenbilanz](../09-Research/grammar-sampling/GAP-LEDGER.md): Datenbasis mit Nachweisarten, acht belegte Stärken, zehn Lücken (G-01–G-10) mit Fall, Quelle, verlorener Unterscheidung, Nachweisgrad, kleinster Ebene, Wiederverwendung, erwartetem Nutzen, Aufwand und Komplexität, vier Werkzeugbefunde, begrenzte Antworten auf die sieben Leitfragen (Envelopes und LENS/MODE/Achsen ausdrücklich als nicht direkt geprüft bzw. weitgehend offen), zwölf Darstellungsanforderungen für MILE-003 und eine vorläufige Maßnahmenliste für MILE-004. Keine Morphologieänderung begründet; Nutzen nicht gemessen. Rückverfolgung: alle 15 Fall-IDs referenziert, jede mit Fallbericht.
+
