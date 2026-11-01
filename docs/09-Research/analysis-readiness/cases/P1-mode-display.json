@@ -1,0 +1,182 @@
+{
+  "format": "aiaeao.cube.research-case/1",
+  "case_id": "P1-mode-display",
+  "operation": "cube_validate",
+  "invocation_kind": "local_mcp_stdio",
+  "origin": {
+    "path": "docs/09-Research/cube-grammar-2026-11-01/evidence/mcp-probes.json",
+    "sha256": "278bd73b285dc01ffef295e450da9337ace61f37dbc2e31250f2d761b12942c4",
+    "probe_id": "P1-mode-display",
+    "reference_version": "v9.4",
+    "extraction": "exact_arguments"
+  },
+  "arguments": {
+    "input_text": "Y:α:Artifact[\"example:migration-plan\"]@M(mode=\"Strict\")",
+    "context": {
+      "format": "aiaeao.cube.binding-context/1",
+      "reference_version": "v9.4",
+      "context_id": "p1-fixture:migration",
+      "source_kind": "illustrative_fixture",
+      "scope_ref": "p1-fixture:migration",
+      "referents": [
+        {
+          "ref": "example:migration-plan",
+          "concept_id": "Y:resource-object:artifact",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "p1-fixture:migration"
+        },
+        {
+          "ref": "example:source-repository",
+          "concept_id": "Y:resource-object:resource",
+          "home": "Y",
+          "layers": [
+            "α"
+          ],
+          "provenance_status": "declared_unverified",
+          "scope_ref": "p1-fixture:migration"
+        }
+      ],
+      "method_contracts": [
+        {
+          "method_id": "analysis.describe/v1",
+          "revision": "p1-fixture:method/1",
+          "scope": "p1-fixture:migration",
+          "origin": "illustrative_fixture",
+          "argument_min": 1,
+          "argument_max": 1,
+          "argument_concept_ids": [
+            "Y:resource-object:artifact"
+          ],
+          "effect_class": "pure_declarative"
+        }
+      ],
+      "predicate_contracts": [
+        {
+          "predicate_id": "references",
+          "revision": "p1-fixture:migration:pred/1",
+          "scope": "p1-fixture:migration",
+          "origin": "illustrative_fixture",
+          "subject_concept_ids": [
+            "Y:resource-object:artifact"
+          ],
+          "object_concept_ids": [
+            "Y:resource-object:resource"
+          ],
+          "direction": "subject_to_object",
+          "required_qualifiers": [],
+          "additional_constraints": [
+            "This is a scoped fixture contract. It does not establish the truth of the assertion."
+          ]
+        }
+      ],
+      "profile_limitations": [
+        "Synthetic declarations only: referents are not independently authenticated.",
+        "No authorization, external execution, or canonical AIAEAO Thread admission is asserted."
+      ]
+    },
+    "qualification_profiles": {
+      "format": "aiaeao.cube.qualifier-profiles/1",
+      "reference_version": "v9.4",
+      "profile_id": "p1-fixture:migration:qualifiers",
+      "scope": "p1-fixture:migration",
+      "origin": "illustrative_fixture",
+      "witness_refs": [
+        "fixture:clock-01",
+        "fixture:observer-01"
+      ],
+      "qualifiers": [
+        {
+          "profile_ref": "fixture:T-occurrence/v1",
+          "coordinate": "T",
+          "required_parameters": [
+            "role",
+            "clock",
+            "origin",
+            "precision",
+            "source_ref",
+            "witness_ref"
+          ],
+          "allowed_parameters": [
+            "role",
+            "clock",
+            "origin",
+            "precision",
+            "source_ref",
+            "witness_ref"
+          ],
+          "allowed_values": {
+            "role": [
+              "occurrence"
+            ],
+            "precision": [
+              "second"
+            ]
+          },
+          "requires_witness": true
+        },
+        {
+          "profile_ref": "fixture:O-delivery/v1",
+          "coordinate": "O",
+          "required_parameters": [
+            "delivered",
+            "witness_ref"
+          ],
+          "allowed_parameters": [
+            "delivered",
+            "witness_ref"
+          ],
+          "allowed_values": {},
+          "requires_witness": true
+        },
+        {
+          "profile_ref": "fixture:M-display/v1",
+          "coordinate": "M",
+          "required_parameters": [
+            "mode"
+          ],
+          "allowed_parameters": [
+            "mode"
+          ],
+          "allowed_values": {
+            "mode": [
+              "Loose",
+              "Strict",
+              "Transitional"
+            ]
+          },
+          "requires_witness": false
+        },
+        {
+          "profile_ref": "fixture:F-description/v1",
+          "coordinate": "F",
+          "required_parameters": [
+            "method"
+          ],
+          "allowed_parameters": [
+            "method"
+          ],
+          "allowed_values": {
+            "method": [
+              "analysis.describe/v1"
+            ]
+          },
+          "requires_witness": false
+        }
+      ]
+    }
+  },
+  "arguments_sha256": "779b1a5a4c8cddae93b2df407586c655eea9243b2ebd506b90ca4845fd42a805",
+  "bindings": {
+    "context_format": "aiaeao.cube.binding-context/1",
+    "context_sha256": "04141b54ae313f0b0951fd2db0c2c13c6356b58f8e97292cb250c2f48efb774b",
+    "qualification_profiles_sha256": "c222be5f4eb71b33cac944890c9b573edfc2db61f7c4738e445a64468d097230"
+  },
+  "expected": {
+    "domain_status": "PASS",
+    "diagnostic_codes": []
+  }
+}

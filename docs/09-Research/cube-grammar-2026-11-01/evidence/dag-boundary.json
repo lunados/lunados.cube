@@ -1,0 +1,45 @@
+{
+  "case": "acyclic_edge_1_to_0",
+  "input": {
+    "inputs": {
+      "change": {
+        "sources": {
+          "1": 2
+        }
+      },
+      "graph": {
+        "n": 2,
+        "sources": [
+          0,
+          1
+        ],
+        "methods": [
+          0,
+          0
+        ],
+        "edges": [
+          [
+            1,
+            0,
+            1,
+            "dependsOn"
+          ]
+        ]
+      }
+    },
+    "method_id": "impact.propagate/v1",
+    "parameters": {
+      "modulus": 1000003
+    },
+    "schema": "lunados.lib/call/v1"
+  },
+  "returncode": 0,
+  "result": {
+    "disposition": "refused",
+    "effectful_execution_authorized": false,
+    "method_id": "impact.propagate/v1",
+    "reason": "cycle / reverse DAG edge rejected",
+    "runtime_authority": "not-evaluated"
+  },
+  "stderr": ""
+}

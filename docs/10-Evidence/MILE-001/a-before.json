@@ -1,0 +1,985 @@
+{
+  "at": "2026-11-01T10:47:42.668097+00:00",
+  "invocation": "fresh_local_mcp_stdio",
+  "python": "/Users/johannesklapproth/SitesHeroku/lunados.cube/P3/adapters/mcp-local/.venv/bin/python",
+  "tools": {
+    "_meta": {
+      "io.modelcontextprotocol/serverInfo": {
+        "name": "aiaeao-cube-local",
+        "version": ""
+      }
+    },
+    "ttlMs": 0,
+    "cacheScope": "private",
+    "nextCursor": null,
+    "tools": [
+      {
+        "name": "cube_get_capabilities",
+        "title": null,
+        "description": "Discover supported Cube views, lenses and budgets; no remote server or P1 validator.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "title": "cube_get_capabilitiesArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      },
+      {
+        "name": "cube_prepare_print",
+        "title": null,
+        "description": "Prepare a SHA-bound VP-04 job from an explicitly declared VP-03 lens bundle. Never infer facets.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "bundle": {
+              "additionalProperties": true,
+              "title": "Bundle",
+              "type": "object"
+            },
+            "lens": {
+              "title": "Lens",
+              "type": "string"
+            },
+            "granularity": {
+              "enum": [
+                "overview",
+                "standard",
+                "detail"
+              ],
+              "title": "Granularity",
+              "type": "string"
+            },
+            "overflow": {
+              "default": "summarize",
+              "enum": [
+                "summarize",
+                "reject"
+              ],
+              "title": "Overflow",
+              "type": "string"
+            },
+            "focus": {
+              "anyOf": [
+                {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Focus"
+            },
+            "max_items": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Max Items"
+            },
+            "max_edges": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Max Edges"
+            }
+          },
+          "required": [
+            "bundle",
+            "lens",
+            "granularity"
+          ],
+          "title": "cube_prepare_printArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      },
+      {
+        "name": "cube_check_print",
+        "title": null,
+        "description": "Validate VP-04 job and return VP-06 report in memory; does not produce a file.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "job": {
+              "additionalProperties": true,
+              "title": "Job",
+              "type": "object"
+            }
+          },
+          "required": [
+            "job"
+          ],
+          "title": "cube_check_printArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      },
+      {
+        "name": "cube_render_svg",
+        "title": null,
+        "description": "Return actual UTF-8 SVG XML and unmodified VP-06 audit report; source remains unverified.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "job": {
+              "additionalProperties": true,
+              "title": "Job",
+              "type": "object"
+            }
+          },
+          "required": [
+            "job"
+          ],
+          "title": "cube_render_svgArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      },
+      {
+        "name": "cube_read_reference",
+        "title": null,
+        "description": "Read a pinned P0 v9.4 reference via tool-only MCP bridges. Use index URI\naiaeao://p0/resources/v1 for exact allowlist/digests; page with next_offset.\nmax_bytes <= 32768. Never fetch arbitrary URLs/files or infer source truth.\n",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "title": "Uri",
+              "type": "string"
+            },
+            "offset": {
+              "default": 0,
+              "title": "Offset",
+              "type": "integer"
+            },
+            "max_bytes": {
+              "default": 8192,
+              "title": "Max Bytes",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "uri"
+          ],
+          "title": "cube_read_referenceArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      },
+      {
+        "name": "cube_validate",
+        "title": null,
+        "description": "Run frozen P1 for context/1 or additive P1.6 X instantiation for context/2.\nPASS, FAIL, UNRESOLVED are normal tool results; invalid config is isError.\nNo truth, authorization, P2 printing, or automatic ACG-to-SVG conversion.\n",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "input_text": {
+              "title": "Input Text",
+              "type": "string"
+            },
+            "input_format": {
+              "default": "acg_text",
+              "enum": [
+                "acg_text",
+                "json_ast"
+              ],
+              "title": "Input Format",
+              "type": "string"
+            },
+            "context": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Context"
+            },
+            "qualification_profiles": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Qualification Profiles"
+            }
+          },
+          "required": [
+            "input_text"
+          ],
+          "title": "cube_validateArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      },
+      {
+        "name": "cube_discover_surface",
+        "title": null,
+        "description": "Discover the complete local P0 Reference, P1 Validation and P2 SVG surface.\nUnlike cube_get_capabilities, this is whole-Cube, not printer-only.\nResources depend on host support; cube_read_reference is the tool fallback.\n",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "title": "cube_discover_surfaceArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      },
+      {
+        "name": "cube_plan_source",
+        "title": null,
+        "description": "Derive a VP-07 migration source or VP-09 axes input from a binding context, exactly as CLI from-plan.\nvpsequence is not supported (VP-08 sources are declared directly). No files; declared_unverified.\n",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "additionalProperties": true,
+              "title": "Context",
+              "type": "object"
+            },
+            "plan_id": {
+              "title": "Plan Id",
+              "type": "string"
+            },
+            "printer": {
+              "enum": [
+                "vpmigration",
+                "vpaxes",
+                "vpsequence"
+              ],
+              "title": "Printer",
+              "type": "string"
+            },
+            "track_map": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Track Map"
+            },
+            "track": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Track"
+            },
+            "labels": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Labels"
+            },
+            "layers": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Layers"
+            },
+            "witness_prefixes": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Witness Prefixes"
+            },
+            "edge_styles": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Edge Styles"
+            },
+            "steps": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Steps"
+            },
+            "subjects": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Subjects"
+            },
+            "profile": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Profile"
+            }
+          },
+          "required": [
+            "context",
+            "plan_id",
+            "printer"
+          ],
+          "title": "cube_plan_sourceArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      },
+      {
+        "name": "cube_plan_views",
+        "title": null,
+        "description": "Print plan panels in memory: SVGs, panel inputs, index and report, byte-identical to CLI print-panels.\nLimits: 512 KiB per SVG, 2 MiB per response; over a limit isError, never truncated. Display only.\nC-12 options (only for 0.7.5 / 0.9.2 sources): locale (de, en) and hide_ledger for cube.phases / cube.flow,\npartition 'method-sets' (VP-07.5); locale and hide_empty for cube.axes, rows/cols Y × Y (VP-09.2).\n",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "additionalProperties": true,
+              "title": "Source",
+              "type": "object"
+            },
+            "view": {
+              "enum": [
+                "cube.phases",
+                "cube.flow",
+                "cube.sequence",
+                "cube.axes"
+              ],
+              "title": "View",
+              "type": "string"
+            },
+            "granularity": {
+              "enum": [
+                "overview",
+                "standard",
+                "detail"
+              ],
+              "title": "Granularity",
+              "type": "string"
+            },
+            "partition": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Partition"
+            },
+            "rows": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Rows"
+            },
+            "cols": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Cols"
+            },
+            "lens": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Lens"
+            },
+            "overflow": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "summarize",
+                    "reject"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Overflow"
+            },
+            "locale": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Locale"
+            },
+            "hide_ledger": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Hide Ledger"
+            },
+            "hide_empty": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "rows",
+                    "cols",
+                    "both"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Hide Empty"
+            }
+          },
+          "required": [
+            "source",
+            "view",
+            "granularity"
+          ],
+          "title": "cube_plan_viewsArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      },
+      {
+        "name": "cube_plan_check",
+        "title": null,
+        "description": "Re-verify a cube_plan_views result like CLI check-panels (re-render, digests, coverage); no files.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "additionalProperties": true,
+              "title": "Result",
+              "type": "object"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "title": "cube_plan_checkArguments"
+        },
+        "execution": null,
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "_meta": null
+      }
+    ],
+    "resultType": "complete"
+  },
+  "discovery": {
+    "_meta": {
+      "io.modelcontextprotocol/serverInfo": {
+        "name": "aiaeao-cube-local",
+        "version": ""
+      }
+    },
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"compatibility\":{\"cube_get_capabilities_scope\":\"legacy_P2_printer_only\",\"g4_surface_unchanged_for_remote_g5\":true,\"legacy_adapter_card_tools\":[\"cube_get_capabilities\",\"cube_prepare_print\",\"cube_check_print\",\"cube_render_svg\"],\"legacy_adapter_card_version\":\"P3-MCP-LOCAL/0.1.1\",\"no_changes_to_p0_p1_p2\":true,\"prefer_this_tool_for_whole_cube_discovery\":true},\"cross_domain\":{\"canonical_admission\":\"NOT_EVALUATED\",\"current_authority\":\"NOT_EVALUATED\",\"epistemic_warrant\":\"NOT_EVALUATED\",\"overall_status\":\"NOT_DEFINED\",\"p0_to_p1\":\"NO_AUTOMATIC_REFERENCE_BINDING\",\"p1_to_p2\":\"NO_AUTOMATIC_ACG_TO_VP03_MAPPING\"},\"deployment\":{\"filesystem_side_effects_from_mcp_tools\":false,\"http_api_available\":false,\"local_mcp_available\":true,\"no_host_authentication_claim\":true,\"remote_mcp_available\":false,\"webmcp_available\":false},\"domains\":{\"P0\":{\"interface\":\"MCP Resources primary, one allowlisted paged Tool fallback\",\"reference_version\":\"v9.4\",\"resource_count\":14,\"role\":\"canonical_documentary_reference\",\"snapshot_lock_sha256\":\"cb259c5962a61c507ace6260d37ae364cf6658794a115052e3bc4fefdca477a1\",\"source_reference_count\":13,\"source_warrant\":\"canonical_documentary_reference_only\",\"tools\":[\"cube_read_reference\"],\"truth_evaluated\":false,\"validation_performed\":false},\"P1\":{\"admission\":\"NOT_EVALUATED\",\"authority\":\"NOT_EVALUATED\",\"checks\":[\"syntax\",\"structure\",\"concept_resolution\",\"referent_binding\",\"predicate_typing\",\"method_typing\",\"qualifier_typing\",\"scope_consistency\"],\"configuration_error_is_mcp_error\":true,\"core_profile\":\"P1-VC/1.0.0\",\"role\":\"descriptive_validation_only\",\"semantic_failure_is_mcp_error\":false,\"source_truth\":\"NOT_EVALUATED\",\"statuses\":[\"PASS\",\"FAIL\",\"UNRESOLVED\"],\"tools\":[\"cube_validate\"]},\"P2\":{\"automatic_acg_to_svg_mapping\":false,\"automatic_multi_svg\":false,\"core_profile\":\"P2-VP/1.0.0-rc1\",\"granularity\":[\"overview\",\"standard\",\"detail\"],\"lenses\":[\"cube.lens.semantics\",\"cube.lens.provenance\",\"cube.lens.execution\",\"cube.lens.governance\",\"cube.lens.epistemology\"],\"p1_validation_included\":false,\"plan_views\":{\"cli_parity\":\"byte_identical_files\",\"display_options\":{\"note\":\"display text only; IDs, method IDs, decl: references and report keys are never translated; en is the identity\",\"vpaxes\":{\"hide_empty\":[\"rows\",\"cols\",\"both\"],\"locale\":[\"de\",\"en\"],\"pairs_added\":[\"Y × Y\"],\"profile\":\"P2-VP-AXES/0.9.2\"},\"vpmigration\":{\"hide_ledger\":\"bool\",\"locale\":[\"de\",\"en\"],\"profile\":\"P2-VP-MIGRATION/0.7.5\",\"selections\":[\"method-sets\"]}},\"files_returned_inline\":true,\"filesystem_side_effects\":false,\"limits\":{\"max_request_bytes\":2097152,\"max_response_bytes\":2097152,\"max_svg_bytes\":524288,\"over_limit\":\"FAIL with P3_PLAN_SVG_TOO_LARGE / P3_PLAN_RESPONSE_TOO_LARGE; never truncated\"},\"p1_validation_included\":false,\"printers\":{\"vpaxes\":{\"default_profile\":\"P2-VP-AXES/0.9.0\",\"profiles\":[\"P2-VP-AXES/0.9.0\",\"P2-VP-AXES/0.9.1\",\"P2-VP-AXES/0.9.2\"]},\"vpmigration\":{\"default_profile\":\"context-dependent (as CLI from-plan)\",\"profiles\":[\"P2-VP-MIGRATION/0.7.0\",\"P2-VP-MIGRATION/0.7.1\",\"P2-VP-MIGRATION/0.7.2\",\"P2-VP-MIGRATION/0.7.3\",\"P2-VP-MIGRATION/0.7.4\",\"P2-VP-MIGRATION/0.7.5\"]},\"vpsequence\":{\"profiles\":[\"P2-VP-SEQUENCE/0.8.0\"],\"source\":\"declared directly; cube_plan_source unsupported\"}},\"remote_available\":false,\"source_warrant\":\"declared_unverified\",\"tools\":[\"cube_plan_source\",\"cube_plan_views\",\"cube_plan_check\"],\"views\":{\"cube.axes\":\"vpaxes\",\"cube.flow\":\"vpmigration\",\"cube.phases\":\"vpmigration\",\"cube.sequence\":\"vpsequence\"}},\"role\":\"presentation_projection_only\",\"source_warrant\":\"declared_unverified\",\"tools\":[\"cube_get_capabilities\",\"cube_prepare_print\",\"cube_check_print\",\"cube_render_svg\"],\"views\":[\"cube.flow\",\"cube.diagramm\",\"cube.tree\"]}},\"format\":\"aiaeao.cube.mcp-capability-surface/1\",\"mcp\":{\"fallback_when_host_hides_resources\":\"cube_read_reference\",\"host_resource_visibility\":\"host_dependent_unverified\",\"official_python_sdk_major\":2,\"protocol_target\":\"2026-07-28\",\"resource_uris\":[\"https://cube.lunados.net/manifest.json\",\"https://cube.lunados.net/v9.4/core.json\",\"https://cube.lunados.net/v9.4/grammar/concepts.json\",\"https://cube.lunados.net/v9.4/grammar/constraints.json\",\"https://cube.lunados.net/v9.4/grammar/relations.json\",\"https://cube.lunados.net/v9.4/morphology.md\",\"https://cube.lunados.net/v9.4/notation/ast.schema.json\",\"https://cube.lunados.net/v9.4/notation/grammar.ebnf\",\"https://cube.lunados.net/v9.4/notation/syntax.json\",\"https://cube.lunados.net/v9.4/observer.json\",\"https://cube.lunados.net/v9.4/time.json\",\"https://cube.lunados.net/v9.4/visual/README.md\",\"https://cube.lunados.net/v9.4/visual/symbols.json\",\"aiaeao://p0/resources/v1\"],\"tools\":[\"cube_get_capabilities\",\"cube_prepare_print\",\"cube_check_print\",\"cube_render_svg\",\"cube_read_reference\",\"cube_validate\",\"cube_discover_surface\",\"cube_plan_source\",\"cube_plan_views\",\"cube_plan_check\"],\"transport\":\"stdio\"},\"release\":{\"architecture\":\"ADR-001/ACCEPTED;CP-001/G0-G3/ACCEPTED;G6/plan-views\",\"name\":\"aiaeao-cube-local\",\"reference_version\":\"v9.4\",\"status\":\"release_candidate\",\"version\":\"P3-MCP-LOCAL/0.3.0-rc1\"}}",
+        "annotations": null,
+        "_meta": null
+      }
+    ],
+    "structuredContent": {
+      "format": "aiaeao.cube.mcp-capability-surface/1",
+      "release": {
+        "name": "aiaeao-cube-local",
+        "version": "P3-MCP-LOCAL/0.3.0-rc1",
+        "status": "release_candidate",
+        "architecture": "ADR-001/ACCEPTED;CP-001/G0-G3/ACCEPTED;G6/plan-views",
+        "reference_version": "v9.4"
+      },
+      "mcp": {
+        "transport": "stdio",
+        "protocol_target": "2026-07-28",
+        "official_python_sdk_major": 2,
+        "tools": [
+          "cube_get_capabilities",
+          "cube_prepare_print",
+          "cube_check_print",
+          "cube_render_svg",
+          "cube_read_reference",
+          "cube_validate",
+          "cube_discover_surface",
+          "cube_plan_source",
+          "cube_plan_views",
+          "cube_plan_check"
+        ],
+        "resource_uris": [
+          "https://cube.lunados.net/manifest.json",
+          "https://cube.lunados.net/v9.4/core.json",
+          "https://cube.lunados.net/v9.4/grammar/concepts.json",
+          "https://cube.lunados.net/v9.4/grammar/constraints.json",
+          "https://cube.lunados.net/v9.4/grammar/relations.json",
+          "https://cube.lunados.net/v9.4/morphology.md",
+          "https://cube.lunados.net/v9.4/notation/ast.schema.json",
+          "https://cube.lunados.net/v9.4/notation/grammar.ebnf",
+          "https://cube.lunados.net/v9.4/notation/syntax.json",
+          "https://cube.lunados.net/v9.4/observer.json",
+          "https://cube.lunados.net/v9.4/time.json",
+          "https://cube.lunados.net/v9.4/visual/README.md",
+          "https://cube.lunados.net/v9.4/visual/symbols.json",
+          "aiaeao://p0/resources/v1"
+        ],
+        "host_resource_visibility": "host_dependent_unverified",
+        "fallback_when_host_hides_resources": "cube_read_reference"
+      },
+      "domains": {
+        "P0": {
+          "role": "canonical_documentary_reference",
+          "reference_version": "v9.4",
+          "interface": "MCP Resources primary, one allowlisted paged Tool fallback",
+          "resource_count": 14,
+          "source_reference_count": 13,
+          "snapshot_lock_sha256": "cb259c5962a61c507ace6260d37ae364cf6658794a115052e3bc4fefdca477a1",
+          "source_warrant": "canonical_documentary_reference_only",
+          "validation_performed": false,
+          "truth_evaluated": false,
+          "tools": [
+            "cube_read_reference"
+          ]
+        },
+        "P1": {
+          "role": "descriptive_validation_only",
+          "core_profile": "P1-VC/1.0.0",
+          "tools": [
+            "cube_validate"
+          ],
+          "statuses": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED"
+          ],
+          "checks": [
+            "syntax",
+            "structure",
+            "concept_resolution",
+            "referent_binding",
+            "predicate_typing",
+            "method_typing",
+            "qualifier_typing",
+            "scope_consistency"
+          ],
+          "semantic_failure_is_mcp_error": false,
+          "configuration_error_is_mcp_error": true,
+          "source_truth": "NOT_EVALUATED",
+          "authority": "NOT_EVALUATED",
+          "admission": "NOT_EVALUATED"
+        },
+        "P2": {
+          "role": "presentation_projection_only",
+          "core_profile": "P2-VP/1.0.0-rc1",
+          "tools": [
+            "cube_get_capabilities",
+            "cube_prepare_print",
+            "cube_check_print",
+            "cube_render_svg"
+          ],
+          "views": [
+            "cube.flow",
+            "cube.diagramm",
+            "cube.tree"
+          ],
+          "lenses": [
+            "cube.lens.semantics",
+            "cube.lens.provenance",
+            "cube.lens.execution",
+            "cube.lens.governance",
+            "cube.lens.epistemology"
+          ],
+          "granularity": [
+            "overview",
+            "standard",
+            "detail"
+          ],
+          "source_warrant": "declared_unverified",
+          "p1_validation_included": false,
+          "automatic_acg_to_svg_mapping": false,
+          "automatic_multi_svg": false,
+          "plan_views": {
+            "tools": [
+              "cube_plan_source",
+              "cube_plan_views",
+              "cube_plan_check"
+            ],
+            "views": {
+              "cube.phases": "vpmigration",
+              "cube.flow": "vpmigration",
+              "cube.sequence": "vpsequence",
+              "cube.axes": "vpaxes"
+            },
+            "printers": {
+              "vpmigration": {
+                "profiles": [
+                  "P2-VP-MIGRATION/0.7.0",
+                  "P2-VP-MIGRATION/0.7.1",
+                  "P2-VP-MIGRATION/0.7.2",
+                  "P2-VP-MIGRATION/0.7.3",
+                  "P2-VP-MIGRATION/0.7.4",
+                  "P2-VP-MIGRATION/0.7.5"
+                ],
+                "default_profile": "context-dependent (as CLI from-plan)"
+              },
+              "vpsequence": {
+                "profiles": [
+                  "P2-VP-SEQUENCE/0.8.0"
+                ],
+                "source": "declared directly; cube_plan_source unsupported"
+              },
+              "vpaxes": {
+                "profiles": [
+                  "P2-VP-AXES/0.9.0",
+                  "P2-VP-AXES/0.9.1",
+                  "P2-VP-AXES/0.9.2"
+                ],
+                "default_profile": "P2-VP-AXES/0.9.0"
+              }
+            },
+            "display_options": {
+              "vpmigration": {
+                "profile": "P2-VP-MIGRATION/0.7.5",
+                "locale": [
+                  "de",
+                  "en"
+                ],
+                "hide_ledger": "bool",
+                "selections": [
+                  "method-sets"
+                ]
+              },
+              "vpaxes": {
+                "profile": "P2-VP-AXES/0.9.2",
+                "locale": [
+                  "de",
+                  "en"
+                ],
+                "hide_empty": [
+                  "rows",
+                  "cols",
+                  "both"
+                ],
+                "pairs_added": [
+                  "Y × Y"
+                ]
+              },
+              "note": "display text only; IDs, method IDs, decl: references and report keys are never translated; en is the identity"
+            },
+            "limits": {
+              "max_request_bytes": 2097152,
+              "max_svg_bytes": 524288,
+              "max_response_bytes": 2097152,
+              "over_limit": "FAIL with P3_PLAN_SVG_TOO_LARGE / P3_PLAN_RESPONSE_TOO_LARGE; never truncated"
+            },
+            "files_returned_inline": true,
+            "filesystem_side_effects": false,
+            "remote_available": false,
+            "cli_parity": "byte_identical_files",
+            "source_warrant": "declared_unverified",
+            "p1_validation_included": false
+          }
+        }
+      },
+      "compatibility": {
+        "cube_get_capabilities_scope": "legacy_P2_printer_only",
+        "legacy_adapter_card_version": "P3-MCP-LOCAL/0.1.1",
+        "legacy_adapter_card_tools": [
+          "cube_get_capabilities",
+          "cube_prepare_print",
+          "cube_check_print",
+          "cube_render_svg"
+        ],
+        "prefer_this_tool_for_whole_cube_discovery": true,
+        "no_changes_to_p0_p1_p2": true,
+        "g4_surface_unchanged_for_remote_g5": true
+      },
+      "deployment": {
+        "local_mcp_available": true,
+        "remote_mcp_available": false,
+        "http_api_available": false,
+        "webmcp_available": false,
+        "filesystem_side_effects_from_mcp_tools": false,
+        "no_host_authentication_claim": true
+      },
+      "cross_domain": {
+        "p0_to_p1": "NO_AUTOMATIC_REFERENCE_BINDING",
+        "p1_to_p2": "NO_AUTOMATIC_ACG_TO_VP03_MAPPING",
+        "overall_status": "NOT_DEFINED",
+        "epistemic_warrant": "NOT_EVALUATED",
+        "current_authority": "NOT_EVALUATED",
+        "canonical_admission": "NOT_EVALUATED"
+      }
+    },
+    "isError": false,
+    "resultType": "complete"
+  },
+  "legacy": {
+    "_meta": {
+      "io.modelcontextprotocol/serverInfo": {
+        "name": "aiaeao-cube-local",
+        "version": ""
+      }
+    },
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"adapter\":{\"filesystem_effects\":false,\"http_endpoint\":false,\"maximum_request_bytes\":2097152,\"maximum_svg_bytes\":524288,\"mcp_protocol_target\":\"2026-07-28\",\"name\":\"aiaeao-cube-mcp-local\",\"p1_validation\":false,\"remote_available\":false,\"sdk_major\":2,\"source_warrant\":\"declared_unverified\",\"tools\":[\"cube_get_capabilities\",\"cube_prepare_print\",\"cube_check_print\",\"cube_render_svg\"],\"transport\":\"stdio\",\"version\":\"P3-MCP-LOCAL/0.1.1\"},\"core\":{\"3d\":false,\"auto_multisvg\":false,\"budgets\":{\"detail\":{\"cube.diagramm\":{\"max_edges\":0,\"max_items\":6},\"cube.flow\":{\"max_edges\":8,\"max_items\":4},\"cube.tree\":{\"max_edges\":6,\"max_items\":7}},\"overview\":{\"cube.diagramm\":{\"max_edges\":0,\"max_items\":2},\"cube.flow\":{\"max_edges\":1,\"max_items\":2},\"cube.tree\":{\"max_edges\":2,\"max_items\":3}},\"standard\":{\"cube.diagramm\":{\"max_edges\":0,\"max_items\":4},\"cube.flow\":{\"max_edges\":4,\"max_items\":4},\"cube.tree\":{\"max_edges\":4,\"max_items\":5}}},\"format\":\"aiaeao.cube.vp06-capabilities/1\",\"granularities\":[\"overview\",\"standard\",\"detail\"],\"lenses\":[\"cube.lens.semantics\",\"cube.lens.provenance\",\"cube.lens.execution\",\"cube.lens.governance\",\"cube.lens.epistemology\"],\"network_api\":false,\"operations\":[\"prepare\",\"check\",\"print\",\"capabilities\"],\"output\":\"SVG + JSON report (local filesystem only)\",\"p1_validation_included\":false,\"print_job_input\":\"aiaeao.cube.vp04-projection-request/1\",\"profile\":\"P2-VP/1.0.0-rc1\",\"projection_semantics\":\"declared_unverified_display_only\",\"reference_version\":\"v9.4\",\"source_input\":\"aiaeao.cube.vp03-lens-bundle/1\",\"transport\":\"local_cli_only\",\"views\":[\"cube.flow\",\"cube.diagramm\",\"cube.tree\"]}}",
+        "annotations": null,
+        "_meta": null
+      }
+    ],
+    "structuredContent": {
+      "core": {
+        "format": "aiaeao.cube.vp06-capabilities/1",
+        "profile": "P2-VP/1.0.0-rc1",
+        "reference_version": "v9.4",
+        "views": [
+          "cube.flow",
+          "cube.diagramm",
+          "cube.tree"
+        ],
+        "lenses": [
+          "cube.lens.semantics",
+          "cube.lens.provenance",
+          "cube.lens.execution",
+          "cube.lens.governance",
+          "cube.lens.epistemology"
+        ],
+        "granularities": [
+          "overview",
+          "standard",
+          "detail"
+        ],
+        "budgets": {
+          "overview": {
+            "cube.flow": {
+              "max_items": 2,
+              "max_edges": 1
+            },
+            "cube.diagramm": {
+              "max_items": 2,
+              "max_edges": 0
+            },
+            "cube.tree": {
+              "max_items": 3,
+              "max_edges": 2
+            }
+          },
+          "standard": {
+            "cube.flow": {
+              "max_items": 4,
+              "max_edges": 4
+            },
+            "cube.diagramm": {
+              "max_items": 4,
+              "max_edges": 0
+            },
+            "cube.tree": {
+              "max_items": 5,
+              "max_edges": 4
+            }
+          },
+          "detail": {
+            "cube.flow": {
+              "max_items": 4,
+              "max_edges": 8
+            },
+            "cube.diagramm": {
+              "max_items": 6,
+              "max_edges": 0
+            },
+            "cube.tree": {
+              "max_items": 7,
+              "max_edges": 6
+            }
+          }
+        },
+        "operations": [
+          "prepare",
+          "check",
+          "print",
+          "capabilities"
+        ],
+        "source_input": "aiaeao.cube.vp03-lens-bundle/1",
+        "print_job_input": "aiaeao.cube.vp04-projection-request/1",
+        "output": "SVG + JSON report (local filesystem only)",
+        "transport": "local_cli_only",
+        "network_api": false,
+        "auto_multisvg": false,
+        "3d": false,
+        "p1_validation_included": false,
+        "projection_semantics": "declared_unverified_display_only"
+      },
+      "adapter": {
+        "name": "aiaeao-cube-mcp-local",
+        "version": "P3-MCP-LOCAL/0.1.1",
+        "transport": "stdio",
+        "remote_available": false,
+        "mcp_protocol_target": "2026-07-28",
+        "sdk_major": 2,
+        "tools": [
+          "cube_get_capabilities",
+          "cube_prepare_print",
+          "cube_check_print",
+          "cube_render_svg"
+        ],
+        "maximum_request_bytes": 2097152,
+        "maximum_svg_bytes": 524288,
+        "source_warrant": "declared_unverified",
+        "p1_validation": false,
+        "filesystem_effects": false,
+        "http_endpoint": false
+      }
+    },
+    "isError": false,
+    "resultType": "complete"
+  },
+  "protected_hash_encoding": "UTF8 sorted compact JSON, ensure_ascii=false",
+  "protected_hashes": {
+    "legacy": "670da85b2783b08b512139a87dd3ea964a2d5f5f4b18d0b0730bf37c9aa9a51a",
+    "g4": "c97504dcde28e1692d52352e00b4912524589281a8ddc774b4563bf742cc27f9"
+  },
+  "source_hashes": {
+    "P3/adapters/mcp-local/aiaeao_mcp_local/server.py": "54528cfaff18e9173f9ccfca5b522a18a64bf16d83b449e70e476beec6768478",
+    "P3/adapters/mcp-local/aiaeao_mcp_local/surface.py": "f70e9b5541f34e3227a85853e8a83a41879bda27b21c2d59e5563ff1f1da0787",
+    "P3/adapters/mcp-local/aiaeao_mcp_local/p1_adapter.py": "8fa37275e31f08bb0ea3bf857313e124edf4b92829f20a24c8856e4236f583db"
+  }
+}

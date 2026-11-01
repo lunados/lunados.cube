@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-01",
+  "hash": "sha256 of exact UTF-8 file bytes",
+  "files": {
+    "A-RESULT.md": "ea5ef67b59fee720f83745afe67d0d3f058aeb81c3884037ca3d21388f5c0b28",
+    "a-after.json": "58264195a6340399da8e5faed1da2d0c5f2390ba73eb2232a904d6907b7a4e5c",
+    "A-CAPABILITY-BASELINE.md": "64bf34cd2309edcbc90f5d710b0691457e7afe6065c73d3b0d707e7e41a1fff4",
+    "a-before.json": "8a12db1d129303e9b07f21cd8f015f5ba4065d9b73c60c73a33d3732439ba3f8",
+    "b-report.json": "a8dadcf2ad7e2f5c71d35ab421f12ab90771e0fc50773ed1f72423bbedea3f9e",
+    "B-RESULT.md": "1c53bdc85080e7d0f9c643a82c9dfabf8e9446f9e7e51e8c919a66faa38f7401",
+    "c-report.json": "3894c014f654b3ae8881a1d62bb67b10de2ac850456d98bf72f29819698fdfd4",
+    "README.md": "a085207aed0502dae7b47e304514180ff843cde6ed0cbe02a1e3738bd34f22e8",
+    "C-RESULT.md": "2e692012ccddb384ee2403f4335ee03ccdd529d3459537bd530f41ccf7503b16"
+  }
+}

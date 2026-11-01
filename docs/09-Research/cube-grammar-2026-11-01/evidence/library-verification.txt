@@ -1,0 +1,111 @@
+PASS decision.compare: entry.json sha256 matches INDEX
+PASS decision.compare/dominates: evaluator==expected True, oracle agrees True (assessed/a_dominates_b), no promotion True
+PASS decision.compare/incomparable: evaluator==expected True, oracle agrees True (assessed/incomparable), no promotion True
+PASS decision.compare/reverse_dominates: evaluator==expected True, oracle agrees True (assessed/b_dominates_a), no promotion True
+PASS decision.compare/equivalent: evaluator==expected True, oracle agrees True (assessed/equivalent), no promotion True
+PASS decision.compare/missing_basis: evaluator==expected True, oracle agrees True (unresolved/None), no promotion True
+PASS dialectics.compare: entry.json sha256 matches INDEX
+PASS dialectics.compare/dialectics__overlap_conflict: evaluator==expected True, oracle agrees True (assessed/conflict_candidate), no promotion True
+PASS dialectics.compare/dialectics__different_times: evaluator==expected True, oracle agrees True (assessed/context_separated), no promotion True
+PASS dialectics.compare/dialectics__missing_time: evaluator==expected True, oracle agrees True (unresolved/unknown_context), no promotion True
+PASS experimentation.plan: entry.json sha256 matches INDEX
+PASS experimentation.plan/experimentation__controlled_ready: evaluator==expected True, oracle agrees True (assessed/plan_ready), no promotion True
+PASS experimentation.plan/experimentation__missing_control: evaluator==expected True, oracle agrees True (unresolved/missing_control), no promotion True
+PASS experimentation.plan/experimentation__missing_metric: evaluator==expected True, oracle agrees True (unresolved/missing_metric), no promotion True
+PASS validation.assess: entry.json sha256 matches INDEX
+PASS validation.assess/validation__reported_match: evaluator==expected True, oracle agrees True (assessed/match), no promotion True
+PASS validation.assess/validation__reported_mismatch: evaluator==expected True, oracle agrees True (assessed/mismatch), no promotion True
+PASS validation.assess/validation__reference_missing: evaluator==expected True, oracle agrees True (unresolved/reference_missing), no promotion True
+PASS feedback.propose: entry.json sha256 matches INDEX
+PASS feedback.propose/feedback__change_proposal: evaluator==expected True, oracle agrees True (assessed/investigation_proposed), no promotion True
+PASS feedback.propose/feedback__nothing_to_change: evaluator==expected True, oracle agrees True (assessed/no_change_needed), no promotion True
+PASS feedback.propose/feedback__forbidden_only: evaluator==expected True, oracle agrees True (unresolved/no_permitted_proposal), no promotion True
+PASS measure.scale-check: entry.json sha256 matches INDEX
+PASS measure.scale-check/A01: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A02: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A03: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A04: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A05: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A06: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A07: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A08: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A09: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A10: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A11: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A12: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A13: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A14: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A15: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A16: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A17: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A18: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A19: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A20: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A21: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A22: adapter==expected True, gold oracle agrees True (admissible), no promotion True
+PASS measure.scale-check/A23: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS measure.scale-check/A24: adapter==expected True, gold oracle agrees True (refused), no promotion True
+PASS claim.compose: entry.json sha256 matches INDEX
+PASS claim.compose/C01_chain: adapter==expected True, program oracle agrees True (composed), no promotion True
+PASS claim.compose/C02_endpoint_mismatch: adapter==expected True, program oracle agrees True (untyped), no promotion True
+PASS claim.compose/C03_scope_mismatch: adapter==expected True, program oracle agrees True (not_composable), no promotion True
+PASS claim.compose/C04_disjoint_intervals: adapter==expected True, program oracle agrees True (not_composable), no promotion True
+PASS claim.compose/C05_missing_qualifier: adapter==expected True, program oracle agrees True (untyped), no promotion True
+PASS claim.compose/C06_qualified_single: adapter==expected True, program oracle agrees True (composed), no promotion True
+PASS claim.compose/C07_broken_chain: adapter==expected True, program oracle agrees True (not_composable), no promotion True
+PASS claim.compose/C08_unknown_predicate: adapter==expected True, program oracle agrees True (untyped), no promotion True
+PASS impact.propagate: entry.json sha256 matches INDEX
+PASS impact.propagate/I01_chain: adapter==expected True, program oracle agrees True (assessed), no promotion True
+PASS impact.propagate/I02_reference_does_not_propagate: adapter==expected True, program oracle agrees True (assessed), no promotion True
+PASS impact.propagate/I03_unchanged_value: adapter==expected True, program oracle agrees True (assessed), no promotion True
+PASS impact.propagate/I04_diamond_method_change: adapter==expected True, program oracle agrees True (assessed), no promotion True
+PASS impact.propagate/I05_reverse_edge: adapter==expected True, program oracle agrees True (refused), no promotion True
+PASS impact.propagate/I06_bad_weight: adapter==expected True, program oracle agrees True (refused), no promotion True
+PASS verify.reuse: entry.json sha256 matches INDEX
+PASS verify.reuse/V01_valid: adapter==expected True, program oracle agrees True (reusable), no promotion True
+PASS verify.reuse/V02_ttl_boundary: adapter==expected True, program oracle agrees True (reusable), no promotion True
+PASS verify.reuse/V03_expired: adapter==expected True, program oracle agrees True (not_reusable), no promotion True
+PASS verify.reuse/V04_source_changed: adapter==expected True, program oracle agrees True (not_reusable), no promotion True
+PASS verify.reuse/V05_relation_changed: adapter==expected True, program oracle agrees True (not_reusable), no promotion True
+PASS verify.reuse/V06_authority_changed: adapter==expected True, program oracle agrees True (not_reusable), no promotion True
+PASS verify.reuse/V07_blocked: adapter==expected True, program oracle agrees True (not_reusable), no promotion True
+PASS verify.reuse/V08_restored: adapter==expected True, program oracle agrees True (not_reusable), no promotion True
+PASS verify.reuse/V09_no_entry: adapter==expected True, program oracle agrees True (not_reusable), no promotion True
+PASS verify.reuse/V10_negative_age: adapter==expected True, program oracle agrees True (not_reusable), no promotion True
+PASS counterworld.diff: entry.json sha256 matches INDEX
+PASS counterworld.diff/MR-01-C-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-01-C-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-01-D-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-01-D-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-02-C-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-02-C-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-02-D-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-02-D-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-03-C-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-03-C-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-03-D-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-03-D-2: adapter==expected True, archive oracle agrees True (equal), no promotion True
+PASS counterworld.diff/MR-04-C-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-04-C-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-04-D-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-04-D-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-05-C-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-05-C-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-05-D-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-05-D-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-06-C-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-06-C-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-06-D-1: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS counterworld.diff/MR-06-D-2: adapter==expected True, archive oracle agrees True (differs), no promotion True
+PASS cube claim.compose: PASS []
+PASS cube counterworld.diff: PASS []
+PASS cube decision.compare: PASS []
+PASS cube dialectics.compare: PASS []
+PASS cube experimentation.plan: PASS []
+PASS cube feedback.propose: PASS []
+PASS cube impact.propagate: PASS []
+PASS cube measure.scale-check: PASS []
+PASS cube validation.assess: PASS []
+PASS cube verify.reuse: PASS []
+PASS lunados.lib: 10 entries, 109/109 checks
+
