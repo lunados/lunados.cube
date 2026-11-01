@@ -1,12 +1,12 @@
 # MILE-002 — Fünf Grammatiken gezielt abtasten
 
-Status: planned · Stand: 2026-11-01 · Voraussetzung: MILE-001 abgeschlossen
+Status: in_progress · Stand: 2026-11-01 · Voraussetzung: MILE-001 abgeschlossen
 
 ## Ergebnis
 
 15 konkrete Vergleichsfälle zeigen, was Cube von Structurizr/C4, ArchiMate, DSM/MDM, BPMN und DAG lernen kann. Je Fall werden Ausdruck, Vertragsbindung und heutige Prüfbarkeit getrennt beurteilt; Darstellungsbedarf und Nutzen werden erfasst. Das Ergebnis ist ein quellengebundenes Lückenregister und eine begrenzte Antwort auf die sieben Leitfragen.
 
-Die Planung ist erstellt; Quellenfestlegung, neue Fixtures und Analyse sind noch offen. Vollständige Interoperabilität, eine Erweiterung der Morphologie sowie Implementierung neuer LIB-Methoden oder einer Prozessengine gehören nicht zu diesem Milestone.
+Die Quellenfestlegung ist abgeschlossen ([Quellenregister](../09-Research/grammar-sampling/SOURCE-REGISTER.md)); neue Fixtures und Analyse sind noch offen. Vollständige Interoperabilität, eine Erweiterung der Morphologie sowie Implementierung neuer LIB-Methoden oder einer Prozessengine gehören nicht zu diesem Milestone.
 
 ## Drei Miles / Chargen
 
@@ -47,4 +47,4 @@ Die 129 visuellen Anker und 80 Konzeptindexeinträge aus der Bestandsaufnahme bl
 
 ## Nachverfolgung
 
-[Anforderungen und Abdeckung](../../openspec/changes/sample-five-grammars/TRACEABILITY.md) · [Voraussetzung: Nachweise MILE-001](../10-Evidence/MILE-001/C-RESULT.md). Es wurden für MILE-002 noch keine neuen Validierungen oder Fremdsprachenanalysen durchgeführt.
+[Anforderungen und Abdeckung](../../openspec/changes/sample-five-grammars/TRACEABILITY.md) · [Voraussetzung: Nachweise MILE-001](../10-Evidence/MILE-001/C-RESULT.md). Für MILE-002 liegt bisher nur der Quellennachweis (TASK-009) vor; noch keine neuen Validierungen oder Fallanalysen.

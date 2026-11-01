@@ -1,9 +1,10 @@
 # MILE-002 — Grammatikabtastung
 
-Status: planned. Noch keine neuen Vergleichsergebnisse.
+Status: in_progress. Quellenbasis fixiert; noch keine neuen Vergleichsergebnisse.
 
 - [Fallmatrix](CASE-MATRIX.md): 15 geplante Fälle, zwei Normalfälle und ein Gegenfall je Ansatz.
-- [Quellenplan](SOURCE-PLAN.md): Einstiegsquellen, offene Versionsbindung und Regeln zur Herkunft.
+- [Quellenplan](SOURCE-PLAN.md): Einstiegsquellen und Regeln zur Herkunft.
+- [Quellen- und Regelregister](SOURCE-REGISTER.md): fixierte Quellenstände, Regelstellen und Zuordnung der 15 Fälle (TASK-009).
 - [Milestone](../../02-Milestones/MILE-002-grammar-sampling.md): Umfang, Chargen und Abschluss.
 
 Bei Durchführung werden pro Fall ein Bericht und zugehörige Eingaben/Versuchsprofile hier abgelegt. Neue Rohprotokolle gehören unter `docs/10-Evidence/MILE-002/`. Dieser Ordner wird erst mit tatsächlichen Nachweisen befüllt. Der historische Research-Snapshot und MILE-001-Nachweise bleiben unverändert.

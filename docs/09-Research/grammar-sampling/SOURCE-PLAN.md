@@ -1,6 +1,6 @@
 # Quellenplan für MILE-002
 
-Status: planned. Folgende zuvor im Research verwendete Einstiegsquellen sind Arbeitsansätze, noch keine in diesem Milestone neu verifizierten oder vollständig gepinnten Normbaselines.
+Status: umgesetzt im [Quellenregister](SOURCE-REGISTER.md) (TASK-009, 2026-11-01). Folgende zuvor im Research verwendete Einstiegsquellen sind Arbeitsansätze, noch keine in diesem Milestone neu verifizierten oder vollständig gepinnten Normbaselines.
 
 | Ansatz | Einstieg | Vor Durchführung festzulegen |
 |---|---|---|

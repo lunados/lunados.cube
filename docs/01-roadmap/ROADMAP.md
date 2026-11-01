@@ -15,7 +15,7 @@ Die frühere reine Analyseabschätzung betrug 4–7 PT. Die 1–2 PT Vorbereitun
 
 ## Nächster Schritt
 
-[MILE-001](../02-Milestones/MILE-001-analysis-readiness.md) ist abgeschlossen. Der [Bereitschaftsnachweis](../10-Evidence/MILE-001/C-RESULT.md) enthält Wiederholungsanleitung und Grenzen. MILE-002 ist jetzt in drei Chargen mit US-005–011 und TASK-009–017 ausgearbeitet. Als Nächstes steht [TASK-009 — Quellenbasis](../05-Tasks/TASK-009-source-baselines.md) an; danach folgt die begrenzte Herkunftserweiterung vor den fünf Dreierpaketen. Die Entwicklung vollständiger Interoperabilität bleibt außerhalb des Auftrags.
+[MILE-001](../02-Milestones/MILE-001-analysis-readiness.md) ist abgeschlossen. Der [Bereitschaftsnachweis](../10-Evidence/MILE-001/C-RESULT.md) enthält Wiederholungsanleitung und Grenzen. MILE-002 ist jetzt in drei Chargen mit US-005–011 und TASK-009–017 ausgearbeitet. [TASK-009 — Quellenbasis](../05-Tasks/TASK-009-source-baselines.md) ist erledigt ([Quellenregister](../09-Research/grammar-sampling/SOURCE-REGISTER.md)). Als Nächstes folgt [TASK-010](../05-Tasks/TASK-010-authored-case-provenance.md), die begrenzte Herkunftserweiterung, vor den fünf Dreierpaketen. Die Entwicklung vollständiger Interoperabilität bleibt außerhalb des Auftrags.
 
 ## Maßstab
 

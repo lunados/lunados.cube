@@ -1,0 +1,252 @@
+{
+  "format": "aiaeao.cube.research-source-lock/1",
+  "milestone": "MILE-002-A",
+  "task": "TASK-009",
+  "retrieved": "2026-11-01",
+  "timezone": "Europe/Berlin",
+  "decisions": [
+    {
+      "id": "DEC-ARC-SPEC",
+      "date": "2026-11-01",
+      "decision": "ArchiMate 3.2 full specification (C226) unavailable; excluded from consideration by project owner",
+      "effect": "normative endpoint validity (R-AM-6) not checked in MILE-002"
+    }
+  ],
+  "levels": {
+    "N": "normative",
+    "K": "standards-body short reference",
+    "D": "documentary",
+    "H": "vendor documentation",
+    "A": "own working assumption"
+  },
+  "sources": [
+    {
+      "id": "S-C4-1",
+      "approach": "C4",
+      "ref": "https://c4model.com/abstractions/container",
+      "version": null,
+      "level": "D",
+      "access": "web",
+      "sha256": null
+    },
+    {
+      "id": "S-C4-2",
+      "approach": "C4",
+      "ref": "https://c4model.com/abstractions/component",
+      "version": null,
+      "level": "D",
+      "access": "web",
+      "sha256": null
+    },
+    {
+      "id": "S-SZ-1",
+      "approach": "Structurizr",
+      "ref": "https://docs.structurizr.com/dsl/implied-relationships",
+      "version": null,
+      "level": "D",
+      "access": "web",
+      "sha256": null
+    },
+    {
+      "id": "S-SZ-2",
+      "approach": "Structurizr",
+      "ref": "https://docs.structurizr.com/java/implied-relationships",
+      "version": null,
+      "level": "D",
+      "access": "web",
+      "sha256": null
+    },
+    {
+      "id": "S-AM-1",
+      "approach": "ArchiMate",
+      "ref": "The Open Group, ArchiMate 3.2 Specification Reference Cards (N221), Personal PDF Edition",
+      "version": "2022; PDF 2022-11-28",
+      "level": "K",
+      "access": "local_not_in_repo",
+      "sha256": "0dab858eda810c6bb67926e044951f540ec683dd5c35fbfd849ccffa0ef836df"
+    },
+    {
+      "id": "S-AM-2",
+      "approach": "ArchiMate",
+      "ref": "Bizzdesign, ArchiMate 3.2 Concepts v1.0",
+      "version": "PDF 2023-05-31",
+      "level": "H",
+      "access": "local_not_in_repo",
+      "sha256": "68361eb1641fa7d80d3e35f1749e160cf439158dbfb7de823ec91475d7ce8dc5"
+    },
+    {
+      "id": "S-AM-3",
+      "approach": "ArchiMate",
+      "ref": "Bizzdesign, ArchiMate 3.2 Elements and Relationships poster",
+      "version": "PDF 2022-10-17",
+      "level": "H",
+      "access": "local_not_in_repo",
+      "sha256": "d383051a95421441efb0942d4ed0fa6d5ba9716b608d41aed574097f892f2071"
+    },
+    {
+      "id": "S-AM-4",
+      "approach": "ArchiMate",
+      "ref": "Bizzdesign, ArchiMate 3.1 Concepts v1.0",
+      "version": "PDF 2019-05-28",
+      "level": "H",
+      "access": "local_not_in_repo_not_evaluated",
+      "sha256": "58d260c171a59612ecb5284ce1977d065af9684e43228ba5c7118eb244713266"
+    },
+    {
+      "id": "S-AM-X",
+      "approach": "ArchiMate",
+      "ref": "The Open Group, ArchiMate 3.2 Specification (C226)",
+      "version": null,
+      "level": "N",
+      "access": "unavailable_excluded_by_decision_2026-11-01",
+      "sha256": null
+    },
+    {
+      "id": "S-DSM-1",
+      "approach": "DSM",
+      "ref": "https://dsmweb.org/reading-a-dsm/",
+      "version": "published 2019-04-25, modified 2026-03-03",
+      "level": "D",
+      "access": "web",
+      "sha256": null
+    },
+    {
+      "id": "S-DSM-2",
+      "approach": "DMM",
+      "ref": "https://dsmweb.org/domain-mapping-matrix-dmm/",
+      "version": "published 2019-04-25, modified 2026-03-03",
+      "level": "D",
+      "access": "web",
+      "sha256": null
+    },
+    {
+      "id": "S-DSM-3",
+      "approach": "MDM",
+      "ref": "https://dsmweb.org/multiple-domain-matrix-mdm/",
+      "version": "published 2019-04-25, modified 2026-03-03",
+      "level": "D",
+      "access": "web",
+      "sha256": null
+    },
+    {
+      "id": "S-BPMN-1",
+      "approach": "BPMN",
+      "ref": "https://www.omg.org/spec/BPMN/2.0.2/PDF",
+      "version": "2.0.2, formal/13-12-09, 2014-01",
+      "level": "N",
+      "access": "web",
+      "sha256": null
+    },
+    {
+      "id": "S-DAG-1",
+      "approach": "DAG",
+      "ref": "https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.dag.topological_generations.html",
+      "version": "NetworkX 3.7 docs",
+      "level": "D",
+      "access": "web",
+      "sha256": null
+    },
+    {
+      "id": "S-DAG-2",
+      "approach": "DAG",
+      "ref": "https://networkx.org/documentation/networkx-2.3/reference/algorithms/dag.html",
+      "version": "NetworkX 2.3 docs (unmaintained)",
+      "level": "D",
+      "access": "web",
+      "sha256": null
+    }
+  ],
+  "case_rules": {
+    "C4-01": [
+      "R-C4-1",
+      "R-C4-2"
+    ],
+    "C4-02": [
+      "R-SZ-1",
+      "R-SZ-2"
+    ],
+    "C4-03": [
+      "R-SZ-1"
+    ],
+    "ARC-01": [
+      "R-AM-1",
+      "R-AM-2",
+      "R-AM-3",
+      "R-AM-6"
+    ],
+    "ARC-02": [
+      "R-AM-4",
+      "R-AM-5"
+    ],
+    "ARC-03": [
+      "R-AM-1"
+    ],
+    "DSM-01": [
+      "R-DSM-1",
+      "R-DSM-2"
+    ],
+    "DSM-02": [
+      "R-DSM-3",
+      "R-DSM-4"
+    ],
+    "DSM-03": [
+      "R-DSM-2"
+    ],
+    "BPMN-01": [
+      "R-BPMN-1",
+      "R-BPMN-3"
+    ],
+    "BPMN-02": [
+      "R-BPMN-2",
+      "R-BPMN-3"
+    ],
+    "BPMN-03": [
+      "R-BPMN-2",
+      "R-BPMN-3"
+    ],
+    "DAG-01": [
+      "R-DAG-1",
+      "R-DAG-4"
+    ],
+    "DAG-02": [
+      "R-DAG-2",
+      "R-DAG-3"
+    ],
+    "DAG-03": [
+      "R-DAG-1",
+      "R-DAG-2",
+      "R-DAG-3"
+    ]
+  },
+  "baseline": {
+    "cube_head": "4e80df4275692864aa81a6dea953141d6ab879f6",
+    "cube_main": "7792d0dbfe007631cc4515aa49860043bf68ff4a",
+    "cube_head_contains_unmerged": "feature/c12-locale-and-runbooks@47d915deb689560434460dc0a65e05da53fe9e4d",
+    "files": {
+      "AIAEAO_Pure_Cube_P0_v9.4/v9.4/morphology.md": "749bb26b36bb4672a53cf8bc15d58b2cd75ebc07ee90ee6cb38cb6c86bd4bfd9",
+      "AIAEAO_Pure_Cube_P0_v9.4/v9.4/grammar/concepts.json": "a15b0db3a3cfdb5874b8ab59de0ec9f4af08e8280e0634c48e3b37c3498000b8",
+      "AIAEAO_Pure_Cube_P0_v9.4/v9.4/grammar/relations.json": "a1c0c98b8c91fa5d7e59c790d7e3fdf894708694a67b4d693cf55533effd0488",
+      "AIAEAO_Pure_Cube_P0_v9.4/v9.4/grammar/constraints.json": "eebc060a0f8c633226dd4739a86819808ca501062193d4e60c4e703125537d8a",
+      "P3/adapters/mcp-local/p0_snapshot/lock.json": "cb259c5962a61c507ace6260d37ae364cf6658794a115052e3bc4fefdca477a1",
+      "scripts/research/comparison_runner.py": "e1e480c7a0097eba480e51f84a62c4c0c36891394a46dd3a7b2a8f0aec739919",
+      "docs/09-Research/grammar-sampling/CASE-MATRIX.md": "be2d7c889fef8800a948adbfeb8beef78072b9a50b0e013088c8db7c14302a58"
+    },
+    "p0_matches_public_manifest": true,
+    "working_tree_uncommitted_p3": [
+      "P3/adapters/mcp-local/aiaeao_mcp_local/server.py",
+      "P3/adapters/mcp-local/aiaeao_mcp_local/surface.py",
+      "P3/adapters/mcp-local/aiaeao_mcp_local/validation_discovery.py"
+    ],
+    "lib_head": "4d0765016816b3274446ebe49474268f35c72ba4",
+    "lib_files": {
+      "entries/impact.propagate/v1/entry.json": "459bdfaa04d52b918f4de3d2f9dd9c631c7aa12766f315dd20c6a3327b2ed204",
+      "entries/impact.propagate/v1/evaluator/evaluate.py": "c98411f927cfcd10facbb8749da758b40f939a2b709e9f35d9b970a8ed0ec668"
+    }
+  },
+  "limits": [
+    "web pages not archived; statements valid for retrieval date",
+    "no normative ArchiMate endpoint validity",
+    "BPMN section numbers from table of contents; rule wording read in TASK-014",
+    "no Cube validation performed in TASK-009"
+  ]
+}

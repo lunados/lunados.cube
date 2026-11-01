@@ -27,3 +27,7 @@ Quellenregister mit den 15 geplanten Fall-IDs abgleichen. Strittige Regelstellen
 [MILE-001 abgeschlossen](../02-Milestones/MILE-001-analysis-readiness.md)
 
 Umfang gemäß [MILE-002](../02-Milestones/MILE-002-grammar-sampling.md). Keine neuen kanonischen Kategorien, Envelopes, produktiven Adapter oder Analysebibliotheken implementieren. Begrenzte Versuchsprofile bleiben Kandidaten. Noch kein Ausführungsnachweis vorhanden.
+
+## Ergebnis
+
+Abgeschlossen am 2026-11-01. [Quellen- und Regelregister](../09-Research/grammar-sampling/SOURCE-REGISTER.md) mit 15 Quellen, 21 Regeln und Zuordnung aller 15 Fall-IDs; maschinenlesbar in [SOURCE-LOCK.json](../10-Evidence/MILE-002/SOURCE-LOCK.json). ArchiMate: vollständige Spezifikation 3.2 nicht verfügbar und per Entscheidung vom 2026-11-01 ausgelassen; Bindung an Reference Cards N221 und Herstellerbeispiele, normative Endpunkt-Zulässigkeit ungeprüft. BPMN: Fundstellen gebunden, Regelwortlaut wird in TASK-014 gelesen. Keine Cube-Prüfung ausgeführt.
