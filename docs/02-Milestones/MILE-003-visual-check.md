@@ -1,6 +1,6 @@
 # MILE-003 — Darstellung prüfen (Agenten-Vorprüfung)
 
-Status: planned · Stand: 2026-11-01 · Voraussetzung: MILE-002 abgeschlossen
+Status: in_progress · Stand: 2026-11-01 · Voraussetzung: MILE-002 abgeschlossen
 
 ## Ergebnis
 
@@ -34,4 +34,4 @@ A geht B voraus; C verwendet A und B.
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/check-visual-distinctions/proposal.md) · [Aufgabenstatus](../../openspec/changes/check-visual-distinctions/tasks.md) · [Abdeckung](../../openspec/changes/check-visual-distinctions/TRACEABILITY.md). Noch keine Ausführung.
+[OpenSpec-Change](../../openspec/changes/check-visual-distinctions/proposal.md) · [Aufgabenstatus](../../openspec/changes/check-visual-distinctions/tasks.md) · [Abdeckung](../../openspec/changes/check-visual-distinctions/TRACEABILITY.md). TASK-018 erledigt: [Inventur](../09-Research/visual-check/INVENTORY.md).

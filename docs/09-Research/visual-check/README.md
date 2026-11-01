@@ -1,6 +1,6 @@
 # MILE-003 — Prüfprotokoll Darstellung
 
-Status: planned. Noch keine Ergebnisse.
+Status: in_progress. [Inventur V-01–V-12](INVENTORY.md) liegt vor (Doku/Code, noch nicht gerendert).
 
 ## Vorrangige Unterscheidungen
 

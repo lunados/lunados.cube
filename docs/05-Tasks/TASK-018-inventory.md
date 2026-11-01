@@ -21,3 +21,8 @@ Für V-01–V-12 aus Spezifikationen, READMEs und Code der Printer VP-03…VP-09
 [MILE-002 abgeschlossen](../02-Milestones/MILE-002-grammar-sampling.md)
 
 Umfang gemäß [MILE-003](../02-Milestones/MILE-003-visual-check.md). Keine Printer-, Morphologie- oder VG-Ankeränderung. Mockups sind Kandidaten, kein Printer-Output. Die Agenten-Vorprüfung ist kein menschlicher Lesbarkeitsnachweis. Noch kein Ausführungsnachweis vorhanden.
+
+## Ergebnis
+
+Abgeschlossen am 2026-11-01. [Inventur](../09-Research/visual-check/INVENTORY.md): acht vorhandene Mechanismen (M-1 Kantenstil je Prädikat, M-2 Linsenakzent, M-3 farbfreie Schraffur, M-4 Auslassungsledger, M-5 Matrix mit Mitgliedschaftslegende, M-6 Sequenzfragmente, M-7 Baumsicht, M-8 VG-Anker) mit Fundstelle und Grenze; Urteil je Anforderung: 0 × trägt, 9 × teilweise, 3 × Lücke (V-07, V-11, V-12). Vorrang: V-01 und V-09 als Printer-Paar möglich, V-05 teilweise, V-12 nur als Mockup. Nachweisart ausschließlich Doku/Code; ob `--hide-empty` im SVG sichtbar wird, prüft TASK-019.
+
