@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-Keine.
+- [check-visual-distinctions](check-visual-distinctions/proposal.md) — MILE-003 geplant; drei Chargen, sechs offene Tasks.
 
 ## Abgeschlossen
 

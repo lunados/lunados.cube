@@ -36,3 +36,14 @@ Führender Status: [sample-five-grammars/tasks.md](../../openspec/changes/archiv
 | [TASK-017 — Nachweise prüfen und MILE-002 übergeben](TASK-017-sampling-handover.md) | US-011 | 1 h |
 
 Summe: 16–24 h (2–3 PT); Planungsannahmen, keine Laufzeitmessung.
+
+## MILE-003 — geplant
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-018 — Inventur](TASK-018-inventory.md) | US-012 | 2 h |
+| [TASK-019 — Vorhandene Printer rendern](TASK-019-render-existing.md) | US-012 | 2 h |
+| [TASK-020 — Minimalpaare mit Printern](TASK-020-pairs-existing.md) | US-013 | 2–3 h |
+| [TASK-021 — Handmockups](TASK-021-mockups.md) | US-013 | 3–4 h |
+| [TASK-022 — Agenten-Vorprüfung](TASK-022-agent-precheck.md) | US-014 | 2 h |
+| [TASK-023 — Übergabe MILE-003](TASK-023-visual-handover.md) | US-014 | 1–2 h |
