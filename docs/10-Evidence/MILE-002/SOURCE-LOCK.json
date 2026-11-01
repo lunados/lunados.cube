@@ -144,8 +144,9 @@
       "ref": "https://www.omg.org/spec/BPMN/2.0.2/PDF",
       "version": "2.0.2, formal/13-12-09, 2014-01",
       "level": "N",
-      "access": "web",
-      "sha256": null
+      "access": "web + local_not_in_repo (provided 2026-11-01 for TASK-014)",
+      "sha256": "d3d9258a70bf808c11ac52becea4ce645540a8b881117535f60a56fbf13e22f2",
+      "note": "Execution semantics are in Clause 13 (13.2, 13.4.1, 13.4.2); the conformance clause still refers to \"Clause 14 / sub clause 14.2.2\"."
     },
     {
       "id": "S-DAG-1",
