@@ -1,0 +1,15 @@
+{
+  "format": "aiaeao.cube.p1.13.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P1 validator vocabulary; descriptive only",
+  "rules": [
+    {"id": "P113-SHAPE", "coverage": "enforced", "source": "P1.13 §1, §2; Q-10", "implementation": "/9 is a strict /8 superset; malformed P1.13 fields are caller configuration errors"},
+    {"id": "P113-CF-RESOLUTION", "coverage": "enforced", "source": "P1.13 CF-1, Q-1, Q-2", "implementation": "gateways, flows and targets are declared referents; unresolved refs use P1_BINDING_CONTEXT_REQUIRED"},
+    {"id": "P113-CF-EXCLUSIVE", "coverage": "enforced", "source": "P1.13 CF-2", "implementation": "at most one default, distinct conditional order, no order or condition on default"},
+    {"id": "P113-CF-PARALLEL", "coverage": "enforced", "source": "P1.13 CF-3", "implementation": "no default, order or condition_ref"},
+    {"id": "P113-CF-OWNERSHIP", "coverage": "enforced", "source": "P1.13 CF-4", "implementation": "each flow has at most one incoming owner and one outgoing owner"},
+    {"id": "P113-CF-UNSUPPORTED", "coverage": "enforced", "source": "P1.13 CF-5", "implementation": "other gateway types remain UNRESOLVED; their flows still count as declared"},
+    {"id": "P113-TB", "coverage": "enforced", "source": "P1.13 TB-1…TB-3", "implementation": "routing binds to the token gateway's outgoing targets; on_flow binds to declared flows; other predicates unchanged"},
+    {"id": "P113-NO-TRACE-EVALUATION", "coverage": "documentary", "source": "P1.13 §0, §6; MILE-008 D-4, D-5", "implementation": "P1 checks single statements only; trace conformance and recorded conditions belong to LIB"}
+  ]
+}

@@ -1,0 +1,80 @@
+{
+ "format": "mile008.lib-rerun/1",
+ "entry": {
+  "entry_id": "analyze.trace-conformance",
+  "index_sha256": "bf59c17edd03c452b27952e712a7e6ddd69bc4f955c73033ee529ea024de5bef"
+ },
+ "lib_head": "f9dfb20",
+ "check_cases_sha256": "10c33dbf020c5ee0908cc41253dceeba89ae73e6973bb9cfb4a7dbd69db68ed6",
+ "rows": [
+  {
+   "case_id": "CF-12",
+   "question": "BPMN-01-exclusivity: Nahm i1 zwei Pfade?",
+   "status": "FAIL",
+   "value": "exclusive_two_paths",
+   "paths": [
+    "bpmn:approve-auto",
+    "bpmn:approve-manual"
+   ],
+   "preregistered": {
+    "layer": "LIB",
+    "status": "FAIL",
+    "value": "exclusive_two_paths",
+    "paths": [
+     "bpmn:approve-auto",
+     "bpmn:approve-manual"
+    ]
+   },
+   "match": true
+  },
+  {
+   "case_id": "CF-22",
+   "question": "BPMN-02-sync-condition: Startete Ship für i2 ohne Lagerprüfung?",
+   "status": "FAIL",
+   "value": "join_incomplete",
+   "missing": [
+    "bpmn:f-stock-done"
+   ],
+   "foreign": [],
+   "excess": {},
+   "activations": 1,
+   "preregistered": {
+    "layer": "LIB",
+    "status": "FAIL",
+    "value": "join_incomplete",
+    "activations": 1,
+    "missing": [
+     "bpmn:f-stock-done"
+    ],
+    "foreign": [],
+    "excess": {}
+   },
+   "match": true
+  },
+  {
+   "case_id": "CF-23",
+   "question": "BPMN-02-sync-condition: Warum wartet i2?",
+   "status": "PASS",
+   "value": "join_waiting",
+   "missing": [
+    "bpmn:f-stock-done"
+   ],
+   "foreign": [],
+   "excess": {},
+   "activations": 0,
+   "preregistered": {
+    "layer": "LIB",
+    "status": "PASS",
+    "value": "join_waiting",
+    "activations": 0,
+    "missing": [
+     "bpmn:f-stock-done"
+    ],
+    "foreign": [],
+    "excess": {}
+   },
+   "match": true
+  }
+ ],
+ "all_match": true
+}

@@ -1,0 +1,405 @@
+{
+ "format": "aiaeao.cube.research-case/2",
+ "case_id": "BPMN-01-routed-v9",
+ "origin": {
+  "kind": "authored_synthetic",
+  "authored_at": "2026-11-02",
+  "reference_version": "v9.4",
+  "profile_revision": "P1.13/control-flow-profile-v1 (context/9), source KF-01",
+  "source_register": {
+   "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+   "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+  },
+  "rule_refs": [
+   "R-BPMN-1",
+   "R-BPMN-3",
+   "cube:P1/control-flow-profile-v1/P1_13_ACCEPTANCE_SPEC.md"
+  ],
+  "matrix_case": "BPMN-01",
+  "model": {
+   "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+   "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+  }
+ },
+ "operation": "cube_validate",
+ "invocation_kind": "local_mcp_stdio",
+ "arguments": {
+  "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+  "context": {
+   "format": "aiaeao.cube.binding-context/9",
+   "reference_version": "v9.4",
+   "context_id": "p113-cf-01",
+   "source_kind": "illustrative_fixture",
+   "scope_ref": "bpmn:i1",
+   "referents": [
+    {
+     "ref": "bpmn:i1/tok-route",
+     "concept_id": "Y:resource-object:evidence",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1",
+     "instance_ref": "bpmn:i1",
+     "at_gateway": "bpmn:xor"
+    },
+    {
+     "ref": "bpmn:i1/tok-stock",
+     "concept_id": "Y:resource-object:evidence",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:i1/tok-credit",
+     "concept_id": "Y:resource-object:evidence",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:approve-manual",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:approve-auto",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:i1",
+     "concept_id": "Y:identified-object:bounded-execution",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:xor",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-checked",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-manual",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-auto",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:merge",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-manual-done",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-auto-done",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-approved",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:split",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-stock",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:check-stock",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-credit",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:check-credit",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:join",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-stock-done",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-credit-done",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:f-ship",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:ship",
+     "concept_id": "Y:identified-object:work-item",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:i1"
+    }
+   ],
+   "predicate_contracts": [
+    {
+     "predicate_id": "routedTo",
+     "revision": "mile002:bpmn:pred/1",
+     "scope": "bpmn:i1",
+     "origin": "illustrative_fixture",
+     "subject_concept_ids": [
+      "Y:resource-object:evidence"
+     ],
+     "object_concept_ids": [
+      "Y:identified-object:work-item"
+     ],
+     "direction": "subject_to_object",
+     "required_qualifiers": [],
+     "additional_constraints": [
+      "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+     ],
+     "control_flow_role": "routing"
+    },
+    {
+     "predicate_id": "joins",
+     "revision": "mile002:bpmn:pred/1",
+     "scope": "bpmn:i1",
+     "origin": "illustrative_fixture",
+     "subject_concept_ids": [
+      "Y:resource-object:evidence"
+     ],
+     "object_concept_ids": [
+      "Y:resource-object:evidence"
+     ],
+     "direction": "subject_to_object",
+     "required_qualifiers": [],
+     "additional_constraints": [
+      "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+     ]
+    }
+   ],
+   "method_contracts": [],
+   "profile_limitations": [
+    "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+    "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+    "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+   ],
+   "control_flow": {
+    "gateways": [
+     {
+      "gateway": "bpmn:xor",
+      "type": "exclusive",
+      "incoming": [
+       "bpmn:f-checked"
+      ],
+      "outgoing": [
+       {
+        "flow": "bpmn:f-manual",
+        "order": 1,
+        "target": "bpmn:approve-manual",
+        "condition_ref": "model:bpmn-order#amount > 1000"
+       },
+       {
+        "flow": "bpmn:f-auto",
+        "default": true,
+        "target": "bpmn:approve-auto"
+       }
+      ]
+     },
+     {
+      "gateway": "bpmn:merge",
+      "type": "exclusive",
+      "incoming": [
+       "bpmn:f-manual-done",
+       "bpmn:f-auto-done"
+      ],
+      "outgoing": [
+       {
+        "flow": "bpmn:f-approved",
+        "target": "bpmn:split"
+       }
+      ]
+     },
+     {
+      "gateway": "bpmn:split",
+      "type": "parallel",
+      "incoming": [
+       "bpmn:f-approved"
+      ],
+      "outgoing": [
+       {
+        "flow": "bpmn:f-stock",
+        "target": "bpmn:check-stock"
+       },
+       {
+        "flow": "bpmn:f-credit",
+        "target": "bpmn:check-credit"
+       }
+      ]
+     },
+     {
+      "gateway": "bpmn:join",
+      "type": "parallel",
+      "incoming": [
+       "bpmn:f-stock-done",
+       "bpmn:f-credit-done"
+      ],
+      "outgoing": [
+       {
+        "flow": "bpmn:f-ship",
+        "target": "bpmn:ship"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "arguments_sha256": "5564df2746c4a6f418bd07daeb6b57510bebad4c2985f1535fb7181a0b2c0ac7",
+ "bindings": {
+  "context_format": "aiaeao.cube.binding-context/9",
+  "context_sha256": "1971cf96c4254f0f02dd73fa696b5215ac8a37b617481b40473d21faaa79e36c",
+  "qualification_profiles_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+ },
+ "expected": {
+  "domain_status": "PASS",
+  "diagnostic_codes": [],
+  "fixed_before_execution": true,
+  "rationale": "Deklariertes XOR mit Reihenfolge und Default; i1/tok-route steht am XOR und wird an approve-manual geleitet, Ziel von f-manual: PASS (TB-1)."
+ },
+ "rerun_of": "BPMN-01-routed"
+}

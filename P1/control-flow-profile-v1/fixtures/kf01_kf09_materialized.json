@@ -1,0 +1,3382 @@
+{
+  "format": "aiaeao.cube.p1.13-vectors/1",
+  "reference_version": "v9.4",
+  "source": "Fixed CF-01..CF-09, independent KF oracle, and synthetic MILE-002 context",
+  "cases": [
+    {
+      "id": "KF-01",
+      "check_case": "CF-01",
+      "question": "Ist das deklarierte Modell wohlgeformt, und leitet i1/tok-route an ein Ziel eines ausgehenden Flusses?",
+      "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+      "input_format": "acg_text",
+      "context": {
+        "format": "aiaeao.cube.binding-context/9",
+        "reference_version": "v9.4",
+        "context_id": "p113-cf-01",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "bpmn:i1",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-route",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1",
+            "at_gateway": "bpmn:xor"
+          },
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1",
+            "concept_id": "Y:identified-object:bounded-execution",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:xor",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-checked",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:merge",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-approved",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:split",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:join",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "predicate_id": "routedTo",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+            ],
+            "control_flow_role": "routing"
+          },
+          {
+            "predicate_id": "joins",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+            ]
+          }
+        ],
+        "method_contracts": [],
+        "profile_limitations": [
+          "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+          "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+          "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+        ],
+        "control_flow": {
+          "gateways": [
+            {
+              "gateway": "bpmn:xor",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-checked"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-manual",
+                  "order": 1,
+                  "target": "bpmn:approve-manual",
+                  "condition_ref": "model:bpmn-order#amount > 1000"
+                },
+                {
+                  "flow": "bpmn:f-auto",
+                  "default": true,
+                  "target": "bpmn:approve-auto"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:merge",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-manual-done",
+                "bpmn:f-auto-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-approved",
+                  "target": "bpmn:split"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:split",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-approved"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-stock",
+                  "target": "bpmn:check-stock"
+                },
+                {
+                  "flow": "bpmn:f-credit",
+                  "target": "bpmn:check-credit"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:join",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-stock-done",
+                "bpmn:f-credit-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-ship",
+                  "target": "bpmn:ship"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": []
+    },
+    {
+      "id": "KF-02",
+      "check_case": "CF-02",
+      "question": "Ein exklusives Gateway mit zwei Default-Flüssen?",
+      "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+      "input_format": "acg_text",
+      "context": {
+        "format": "aiaeao.cube.binding-context/9",
+        "reference_version": "v9.4",
+        "context_id": "p113-cf-02",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "bpmn:i1",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-route",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1",
+            "at_gateway": "bpmn:xor"
+          },
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1",
+            "concept_id": "Y:identified-object:bounded-execution",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:xor",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-checked",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:merge",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-approved",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:split",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:join",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "predicate_id": "routedTo",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+            ],
+            "control_flow_role": "routing"
+          },
+          {
+            "predicate_id": "joins",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+            ]
+          }
+        ],
+        "method_contracts": [],
+        "profile_limitations": [
+          "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+          "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+          "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+        ],
+        "control_flow": {
+          "gateways": [
+            {
+              "gateway": "bpmn:xor",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-checked"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-manual",
+                  "order": 1,
+                  "default": true,
+                  "target": "bpmn:approve-manual",
+                  "condition_ref": "model:bpmn-order#amount > 1000"
+                },
+                {
+                  "flow": "bpmn:f-auto",
+                  "default": true,
+                  "target": "bpmn:approve-auto"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:merge",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-manual-done",
+                "bpmn:f-auto-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-approved",
+                  "target": "bpmn:split"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:split",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-approved"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-stock",
+                  "target": "bpmn:check-stock"
+                },
+                {
+                  "flow": "bpmn:f-credit",
+                  "target": "bpmn:check-credit"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:join",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-stock-done",
+                "bpmn:f-credit-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-ship",
+                  "target": "bpmn:ship"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "expected_overall": "FAIL",
+      "required_codes": [
+        "P1_CONTROL_FLOW_INVALID"
+      ],
+      "forbidden_codes": []
+    },
+    {
+      "id": "KF-03",
+      "check_case": "CF-03",
+      "question": "Zwei bedingte Flüsse mit derselben Reihenfolge?",
+      "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+      "input_format": "acg_text",
+      "context": {
+        "format": "aiaeao.cube.binding-context/9",
+        "reference_version": "v9.4",
+        "context_id": "p113-cf-03",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "bpmn:i1",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-route",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1",
+            "at_gateway": "bpmn:xor"
+          },
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1",
+            "concept_id": "Y:identified-object:bounded-execution",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:xor",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-checked",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-review",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-review",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:merge",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-approved",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:split",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:join",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "predicate_id": "routedTo",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+            ],
+            "control_flow_role": "routing"
+          },
+          {
+            "predicate_id": "joins",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+            ]
+          }
+        ],
+        "method_contracts": [],
+        "profile_limitations": [
+          "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+          "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+          "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+        ],
+        "control_flow": {
+          "gateways": [
+            {
+              "gateway": "bpmn:xor",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-checked"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-manual",
+                  "order": 1,
+                  "target": "bpmn:approve-manual",
+                  "condition_ref": "model:bpmn-order#amount > 1000"
+                },
+                {
+                  "flow": "bpmn:f-review",
+                  "order": 1,
+                  "target": "bpmn:approve-review",
+                  "condition_ref": "model:bpmn-order#amount > 500"
+                },
+                {
+                  "flow": "bpmn:f-auto",
+                  "default": true,
+                  "target": "bpmn:approve-auto"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:merge",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-manual-done",
+                "bpmn:f-auto-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-approved",
+                  "target": "bpmn:split"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:split",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-approved"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-stock",
+                  "target": "bpmn:check-stock"
+                },
+                {
+                  "flow": "bpmn:f-credit",
+                  "target": "bpmn:check-credit"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:join",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-stock-done",
+                "bpmn:f-credit-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-ship",
+                  "target": "bpmn:ship"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "expected_overall": "FAIL",
+      "required_codes": [
+        "P1_CONTROL_FLOW_INVALID"
+      ],
+      "forbidden_codes": []
+    },
+    {
+      "id": "KF-04",
+      "check_case": "CF-04",
+      "question": "Ein paralleles Gateway mit Default-Fluss?",
+      "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+      "input_format": "acg_text",
+      "context": {
+        "format": "aiaeao.cube.binding-context/9",
+        "reference_version": "v9.4",
+        "context_id": "p113-cf-04",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "bpmn:i1",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-route",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1",
+            "at_gateway": "bpmn:xor"
+          },
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1",
+            "concept_id": "Y:identified-object:bounded-execution",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:xor",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-checked",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:merge",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-approved",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:split",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:join",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "predicate_id": "routedTo",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+            ],
+            "control_flow_role": "routing"
+          },
+          {
+            "predicate_id": "joins",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+            ]
+          }
+        ],
+        "method_contracts": [],
+        "profile_limitations": [
+          "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+          "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+          "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+        ],
+        "control_flow": {
+          "gateways": [
+            {
+              "gateway": "bpmn:xor",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-checked"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-manual",
+                  "order": 1,
+                  "target": "bpmn:approve-manual",
+                  "condition_ref": "model:bpmn-order#amount > 1000"
+                },
+                {
+                  "flow": "bpmn:f-auto",
+                  "default": true,
+                  "target": "bpmn:approve-auto"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:merge",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-manual-done",
+                "bpmn:f-auto-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-approved",
+                  "target": "bpmn:split"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:split",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-approved"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-stock",
+                  "default": true,
+                  "target": "bpmn:check-stock"
+                },
+                {
+                  "flow": "bpmn:f-credit",
+                  "target": "bpmn:check-credit"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:join",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-stock-done",
+                "bpmn:f-credit-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-ship",
+                  "target": "bpmn:ship"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "expected_overall": "FAIL",
+      "required_codes": [
+        "P1_CONTROL_FLOW_INVALID"
+      ],
+      "forbidden_codes": []
+    },
+    {
+      "id": "KF-05",
+      "check_case": "CF-05",
+      "question": "Ein inklusives Gateway?",
+      "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+      "input_format": "acg_text",
+      "context": {
+        "format": "aiaeao.cube.binding-context/9",
+        "reference_version": "v9.4",
+        "context_id": "p113-cf-05",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "bpmn:i1",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-route",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1",
+            "at_gateway": "bpmn:xor"
+          },
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1",
+            "concept_id": "Y:identified-object:bounded-execution",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:xor",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-checked",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:merge",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-approved",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:split",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:join",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "predicate_id": "routedTo",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+            ],
+            "control_flow_role": "routing"
+          },
+          {
+            "predicate_id": "joins",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+            ]
+          }
+        ],
+        "method_contracts": [],
+        "profile_limitations": [
+          "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+          "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+          "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+        ],
+        "control_flow": {
+          "gateways": [
+            {
+              "gateway": "bpmn:xor",
+              "type": "inclusive",
+              "incoming": [
+                "bpmn:f-checked"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-manual",
+                  "order": 1,
+                  "target": "bpmn:approve-manual",
+                  "condition_ref": "model:bpmn-order#amount > 1000"
+                },
+                {
+                  "flow": "bpmn:f-auto",
+                  "default": true,
+                  "target": "bpmn:approve-auto"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:merge",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-manual-done",
+                "bpmn:f-auto-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-approved",
+                  "target": "bpmn:split"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:split",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-approved"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-stock",
+                  "target": "bpmn:check-stock"
+                },
+                {
+                  "flow": "bpmn:f-credit",
+                  "target": "bpmn:check-credit"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:join",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-stock-done",
+                "bpmn:f-credit-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-ship",
+                  "target": "bpmn:ship"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "expected_overall": "UNRESOLVED",
+      "required_codes": [
+        "P1_CONTROL_FLOW_UNSUPPORTED"
+      ],
+      "forbidden_codes": [
+        "P1_CONTROL_FLOW_INVALID"
+      ]
+    },
+    {
+      "id": "KF-06",
+      "check_case": "CF-06",
+      "question": "Leitet i1/tok-route an Ship, das kein Ziel des XOR ist?",
+      "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:ship\"])",
+      "input_format": "acg_text",
+      "context": {
+        "format": "aiaeao.cube.binding-context/9",
+        "reference_version": "v9.4",
+        "context_id": "p113-cf-06",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "bpmn:i1",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-route",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1",
+            "at_gateway": "bpmn:xor"
+          },
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1",
+            "concept_id": "Y:identified-object:bounded-execution",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:xor",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-checked",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:merge",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-approved",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:split",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:join",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "predicate_id": "routedTo",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+            ],
+            "control_flow_role": "routing"
+          },
+          {
+            "predicate_id": "joins",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+            ]
+          }
+        ],
+        "method_contracts": [],
+        "profile_limitations": [
+          "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+          "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+          "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+        ],
+        "control_flow": {
+          "gateways": [
+            {
+              "gateway": "bpmn:xor",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-checked"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-manual",
+                  "order": 1,
+                  "target": "bpmn:approve-manual",
+                  "condition_ref": "model:bpmn-order#amount > 1000"
+                },
+                {
+                  "flow": "bpmn:f-auto",
+                  "default": true,
+                  "target": "bpmn:approve-auto"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:merge",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-manual-done",
+                "bpmn:f-auto-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-approved",
+                  "target": "bpmn:split"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:split",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-approved"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-stock",
+                  "target": "bpmn:check-stock"
+                },
+                {
+                  "flow": "bpmn:f-credit",
+                  "target": "bpmn:check-credit"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:join",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-stock-done",
+                "bpmn:f-credit-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-ship",
+                  "target": "bpmn:ship"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "expected_overall": "FAIL",
+      "required_codes": [
+        "P1_FLOW_UNDECLARED"
+      ],
+      "forbidden_codes": []
+    },
+    {
+      "id": "KF-07",
+      "check_case": "CF-07",
+      "question": "Liegt i1/tok-stock auf einem nicht deklarierten Fluss?",
+      "input_text": "rel(\"onFlow\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:WorkItem[\"bpmn:f-ghost\"])",
+      "input_format": "acg_text",
+      "context": {
+        "format": "aiaeao.cube.binding-context/9",
+        "reference_version": "v9.4",
+        "context_id": "p113-cf-07",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "bpmn:i1",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-route",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1",
+            "concept_id": "Y:identified-object:bounded-execution",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:xor",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-checked",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:merge",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-approved",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:split",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:join",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ghost",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "predicate_id": "routedTo",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+            ],
+            "control_flow_role": "routing"
+          },
+          {
+            "predicate_id": "joins",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+            ]
+          },
+          {
+            "predicate_id": "onFlow",
+            "revision": "p113:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [],
+            "control_flow_role": "on_flow"
+          }
+        ],
+        "method_contracts": [],
+        "profile_limitations": [
+          "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+          "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+          "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+        ],
+        "control_flow": {
+          "gateways": [
+            {
+              "gateway": "bpmn:xor",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-checked"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-manual",
+                  "order": 1,
+                  "target": "bpmn:approve-manual",
+                  "condition_ref": "model:bpmn-order#amount > 1000"
+                },
+                {
+                  "flow": "bpmn:f-auto",
+                  "default": true,
+                  "target": "bpmn:approve-auto"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:merge",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-manual-done",
+                "bpmn:f-auto-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-approved",
+                  "target": "bpmn:split"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:split",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-approved"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-stock",
+                  "target": "bpmn:check-stock"
+                },
+                {
+                  "flow": "bpmn:f-credit",
+                  "target": "bpmn:check-credit"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:join",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-stock-done",
+                "bpmn:f-credit-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-ship",
+                  "target": "bpmn:ship"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "expected_overall": "FAIL",
+      "required_codes": [
+        "P1_FLOW_UNDECLARED"
+      ],
+      "forbidden_codes": []
+    },
+    {
+      "id": "KF-08",
+      "check_case": "CF-08",
+      "question": "Bleibt binding-context/8 ohne Kontrollfluss unverändert?",
+      "input_text": "rel(\"onFlow\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:WorkItem[\"bpmn:f-stock-done\"])",
+      "input_format": "acg_text",
+      "context": {
+        "format": "aiaeao.cube.binding-context/8",
+        "reference_version": "v9.4",
+        "context_id": "p113-cf-08",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "bpmn:i1",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-route",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1",
+            "concept_id": "Y:identified-object:bounded-execution",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:xor",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-checked",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:merge",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-approved",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:split",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:join",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "predicate_id": "routedTo",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+            ]
+          },
+          {
+            "predicate_id": "joins",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+            ]
+          },
+          {
+            "predicate_id": "onFlow",
+            "revision": "p113:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": []
+          }
+        ],
+        "method_contracts": [],
+        "profile_limitations": [
+          "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+          "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+          "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+        ]
+      },
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_CONTROL_FLOW_INVALID",
+        "P1_FLOW_UNDECLARED"
+      ]
+    },
+    {
+      "id": "KF-09",
+      "check_case": "CF-09",
+      "question": "routedTo von einem Token ohne deklarierte Position am Gateway?",
+      "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:approve-manual\"])",
+      "input_format": "acg_text",
+      "context": {
+        "format": "aiaeao.cube.binding-context/9",
+        "reference_version": "v9.4",
+        "context_id": "p113-cf-09",
+        "source_kind": "illustrative_fixture",
+        "scope_ref": "bpmn:i1",
+        "referents": [
+          {
+            "ref": "bpmn:i1/tok-route",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1",
+            "instance_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-stock",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1/tok-credit",
+            "concept_id": "Y:resource-object:evidence",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:approve-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:i1",
+            "concept_id": "Y:identified-object:bounded-execution",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:xor",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-checked",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:merge",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-manual-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-auto-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-approved",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:split",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-stock",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:check-credit",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:join",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-stock-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-credit-done",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:f-ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          },
+          {
+            "ref": "bpmn:ship",
+            "concept_id": "Y:identified-object:work-item",
+            "home": "Y",
+            "layers": [
+              "α"
+            ],
+            "provenance_status": "declared_unverified",
+            "scope_ref": "bpmn:i1"
+          }
+        ],
+        "predicate_contracts": [
+          {
+            "predicate_id": "routedTo",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:identified-object:work-item"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+            ],
+            "control_flow_role": "routing"
+          },
+          {
+            "predicate_id": "joins",
+            "revision": "mile002:bpmn:pred/1",
+            "scope": "bpmn:i1",
+            "origin": "illustrative_fixture",
+            "subject_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "object_concept_ids": [
+              "Y:resource-object:evidence"
+            ],
+            "direction": "subject_to_object",
+            "required_qualifiers": [],
+            "additional_constraints": [
+              "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+            ]
+          }
+        ],
+        "method_contracts": [],
+        "profile_limitations": [
+          "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+          "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+          "Instanz als Scope: Jede Prozessinstanz ist ein eigener Validierungsscope."
+        ],
+        "control_flow": {
+          "gateways": [
+            {
+              "gateway": "bpmn:xor",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-checked"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-manual",
+                  "order": 1,
+                  "target": "bpmn:approve-manual",
+                  "condition_ref": "model:bpmn-order#amount > 1000"
+                },
+                {
+                  "flow": "bpmn:f-auto",
+                  "default": true,
+                  "target": "bpmn:approve-auto"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:merge",
+              "type": "exclusive",
+              "incoming": [
+                "bpmn:f-manual-done",
+                "bpmn:f-auto-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-approved",
+                  "target": "bpmn:split"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:split",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-approved"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-stock",
+                  "target": "bpmn:check-stock"
+                },
+                {
+                  "flow": "bpmn:f-credit",
+                  "target": "bpmn:check-credit"
+                }
+              ]
+            },
+            {
+              "gateway": "bpmn:join",
+              "type": "parallel",
+              "incoming": [
+                "bpmn:f-stock-done",
+                "bpmn:f-credit-done"
+              ],
+              "outgoing": [
+                {
+                  "flow": "bpmn:f-ship",
+                  "target": "bpmn:ship"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "expected_overall": "UNRESOLVED",
+      "required_codes": [
+        "P1_TOKEN_POSITION_UNDECLARED"
+      ],
+      "forbidden_codes": [
+        "P1_FLOW_UNDECLARED"
+      ]
+    }
+  ]
+}
