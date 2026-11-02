@@ -1,10 +1,10 @@
 # Design — Kontrollfluss prüfen
 
-Status: decided · Umsetzung offen
+Status: done · 2026-11-02 · umgesetzt (P1.13 `binding-context/9`, lunados.lib analyze.trace-conformance/v1, lokaler Adapter, Wiederholung)
 
 ## Context
 
-Entscheidungen D-1–D-8 in [MILE-008](../../../docs/02-Milestones/MILE-008-control-flow.md) (entschieden 2026-11-02).
+Entscheidungen D-1–D-8 in [MILE-008](../../../../docs/02-Milestones/MILE-008-control-flow.md) (entschieden 2026-11-02).
 
 ## Decisions
 

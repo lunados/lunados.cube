@@ -1,6 +1,6 @@
 # Konsolidierte Spezifikationen
 
-Die folgenden begrenzten Fähigkeiten sind umgesetzt und anhand MILE-001 bis MILE-007 geprüft:
+Die folgenden begrenzten Fähigkeiten sind umgesetzt und anhand MILE-001 bis MILE-008 geprüft:
 
 - [comparison-evidence](comparison-evidence/spec.md): fixierte lokale Prüffälle (v1 historisch, v2 neu erstellt mit gepinnter Herkunft), getrennte Ergebnisse, Wiederholung, Variantenvergleich, dokumentierte Nichtausführbarkeit.
 - [grammar-sampling](grammar-sampling/spec.md): Research-Protokoll für quellengebundene Fremdansatz-Vergleiche (MILE-002).
@@ -14,6 +14,8 @@ Die folgenden begrenzten Fähigkeiten sind umgesetzt und anhand MILE-001 bis MIL
 - [readability-check](readability-check/spec.md): kurze, angeleitete Sichtprüfung von Darstellungsänderungen (MILE-006).
 - [statement-set-display](statement-set-display/spec.md): Aussagenmengen ohne Migrationsplan als Zellmatrix (VP-10 0.11.0; MILE-007).
 - [relation-aggregation](relation-aggregation/spec.md): Verdichtung mit Quellenspur und Verlustbericht in lunados.lib, im Cube nur gelesen (MILE-007).
+- [control-flow-declaration](control-flow-declaration/spec.md): Gateways, Flüsse, Bedingungsreihenfolge und Default deklarieren; Spur-Aussagen an deklarierte Flüsse binden (P1.13 `binding-context/9`; MILE-008).
+- [trace-conformance](trace-conformance/spec.md): Spur je Instanz gegen den deklarierten Kontrollfluss, in lunados.lib berechnet, ohne Bedingungsauswertung (MILE-008).
 - [local-discovery-accuracy](local-discovery-accuracy/spec.md): additive lokale Kontext-/Profilmetadaten mit ausdrücklichen Präsenz-/Runtime-Grenzen.
 
 Die übrigen bestehenden P0/P1/P2/P3-Verträge wurden nicht nach OpenSpec migriert und behalten ihre bisherigen Orte und Geltung. Der neue Specs-Bereich ersetzt nicht die Cube-Morphologie.

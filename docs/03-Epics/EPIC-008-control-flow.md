@@ -1,6 +1,6 @@
 # EPIC-008 — Kontrollfluss und Spurkonformität
 
-Status: planned · Milestone: [MILE-008](../02-Milestones/MILE-008-control-flow.md) · Voraussetzung: [EPIC-005](EPIC-005-completeness-and-instances.md)
+Status: done · Milestone: [MILE-008](../02-Milestones/MILE-008-control-flow.md) · Voraussetzung: [EPIC-005](EPIC-005-completeness-and-instances.md)
 
 ## Ergebnis
 

@@ -1,6 +1,6 @@
 # TASK-051 — LIB `analyze.trace-conformance/v1`
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/check-control-flow/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-check-control-flow/tasks.md).
 
 Story: [US-027](../04-US/US-027-trace-conformance.md) · Mile: MILE-008-B · Aufwand: 1–1,5 PT
 

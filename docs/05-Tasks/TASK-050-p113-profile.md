@@ -1,6 +1,6 @@
 # TASK-050 — Profil P1.13
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/check-control-flow/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-check-control-flow/tasks.md).
 
 Story: [US-026](../04-US/US-026-control-flow-profile.md) · Mile: MILE-008-B · Aufwand: 1,25–1,75 PT
 

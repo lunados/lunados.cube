@@ -47,7 +47,7 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 - [US-024 — Aussagenmenge ohne Plan darstellen](US-024-statement-set-view.md)
 - [US-025 — Beziehungen mit Quellenspur verdichten](US-025-relation-aggregation.md)
 
-## MILE-008 — geplant
+## MILE-008 — abgeschlossen
 
 - [US-026 — Kontrollfluss deklarieren](US-026-control-flow-profile.md)
 - [US-027 — Spur gegen das Modell prüfen](US-027-trace-conformance.md)

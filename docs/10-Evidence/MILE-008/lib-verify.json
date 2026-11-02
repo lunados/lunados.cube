@@ -1,0 +1,16 @@
+{
+ "lib_head": "f9dfb20",
+ "lib_clean": true,
+ "lunados_lib_verify": {
+  "exit": 0,
+  "tail": [
+   "PASS lunados.lib: 13 entries, 159/159 checks"
+  ]
+ },
+ "lunados_lib_differential": {
+  "exit": 0,
+  "tail": [
+   "PASS trace differential: 471 full-output/schema comparisons, 18 preregistered projections, 9 invalid-call rejections"
+  ]
+ }
+}

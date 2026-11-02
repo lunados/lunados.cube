@@ -1,6 +1,6 @@
 # US-026 — Kontrollfluss deklarieren
 
-Status: planned · Epic: [EPIC-008](../03-Epics/EPIC-008-control-flow.md) · Mile: [MILE-008-A, -B, -C](../02-Milestones/MILE-008-control-flow.md)
+Status: done · Epic: [EPIC-008](../03-Epics/EPIC-008-control-flow.md) · Mile: [MILE-008-A, -B, -C](../02-Milestones/MILE-008-control-flow.md)
 
 Als Prozessmodellierer möchte ich Gateways mit Typ, Flüssen, Bedingungsreihenfolge und Default deklarieren, damit Spur-Aussagen an das Modell gebunden sind und widersprüchliche Leitentscheidungen nicht mehr je einzeln bestehen.
 
@@ -17,4 +17,4 @@ Als Prozessmodellierer möchte ich Gateways mit Typ, Flüssen, Bedingungsreihenf
 - [TASK-050 — Profil P1.13](../05-Tasks/TASK-050-p113-profile.md)
 - [TASK-052 — Adapter, Wiederholung und Abschluss](../05-Tasks/TASK-052-mile008-adapter-rerun.md)
 
-[Requirement-Zuordnung](../../openspec/changes/check-control-flow/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/check-control-flow/tasks.md).
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-check-control-flow/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-check-control-flow/tasks.md).

@@ -112,9 +112,9 @@ Führender Status: [project-statement-sets/tasks.md](../../openspec/changes/arch
 
 Summe: 2,25–3,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
 
-## MILE-008 — geplant
+## MILE-008 — abgeschlossen
 
-Führender Status: [check-control-flow/tasks.md](../../openspec/changes/check-control-flow/tasks.md).
+Führender Status: [check-control-flow/tasks.md](../../openspec/changes/archive/2026-11-02-check-control-flow/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|

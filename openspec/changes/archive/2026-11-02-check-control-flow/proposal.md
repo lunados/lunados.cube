@@ -1,6 +1,6 @@
 # Check control flow
 
-Status: decided · 2026-11-02 · [MILE-008](../../../docs/02-Milestones/MILE-008-control-flow.md) · noch nicht umgesetzt
+Status: done · 2026-11-02 · archiviert · [MILE-008](../../../../docs/02-Milestones/MILE-008-control-flow.md) · [Nachweis](../../../../docs/10-Evidence/MILE-008/C-RESULT.md)
 
 ## Why
 
