@@ -1,10 +1,10 @@
 # Design — Herkunft von Beziehungen
 
-Status: planned · Entscheidungen D-1–D-8 offen
+Status: decided · Umsetzung offen
 
 ## Context
 
-Vorschlag D-1–D-8 in [MILE-011](../../../docs/02-Milestones/MILE-011-relation-origin.md). Grundlage: Lückenbilanz G-02, Darstellungsregel VR-01 und Mockup M-01A (MILE-003), Lernbilanz Rang 3 (MILE-004), Aussagenmengen und Verdichtung (MILE-007), Plansichten remote (MILE-010).
+Entscheidungen D-1–D-8 in [MILE-011](../../../docs/02-Milestones/MILE-011-relation-origin.md) (entschieden 2026-11-02). Grundlage: Lückenbilanz G-02, Darstellungsregel VR-01 und Mockup M-01A (MILE-003), Lernbilanz Rang 3 (MILE-004), Aussagenmengen und Verdichtung (MILE-007), Plansichten remote (MILE-010).
 
 ## Decisions
 

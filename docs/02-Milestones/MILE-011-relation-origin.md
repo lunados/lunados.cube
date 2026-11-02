@@ -1,6 +1,6 @@
 # MILE-011 — Herkunft von Beziehungen deklarieren und zeigen
 
-Status: planned · Stand: 2026-11-02 · Voraussetzung: MILE-007 ([Abschluss](../10-Evidence/MILE-007/C-RESULT.md)), MILE-010 ([Abschluss](../10-Evidence/MILE-010/C-RESULT.md))
+Status: in_progress · Stand: 2026-11-02 · Voraussetzung: MILE-007 ([Abschluss](../10-Evidence/MILE-007/C-RESULT.md)), MILE-010 ([Abschluss](../10-Evidence/MILE-010/C-RESULT.md))
 
 ## Ergebnis
 
@@ -19,9 +19,11 @@ Heute: `rel("uses", Boundary[api], Boundary[db])` besteht P1 auch dann, wenn die
 - Der Cube berechnet keine Herkunft und keine Ableitung. Er prüft die deklarierte Bindung und zeigt sie. Ein Abgleich mit einem Fremdmodell (ist `api → db` dort ausdrücklich festgelegt?) ist eine Adapter- oder LIB-Aufgabe und nicht Teil dieser Mile.
 - Keine Kundendaten in Repo, Prüfunterlagen oder auf cube.lunados.net; alle Fälle synthetisch.
 
-## Entscheidungen (Vorschlag, offen)
+## Entscheidungen (2026-11-02, Nutzer)
 
-| ID | Frage | Vorschlag | Grund | Nicht gewählt |
+D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
+
+| ID | Frage | Entscheidung | Grund | Nicht gewählt |
 |---|---|---|---|---|
 | **D-1** | Rahmen | **Drei Chargen** wie MILE-008: A Spezifikation und Prüffälle, B Profil P1.14, C Printer, Auslieferung und Sichtprüfung; Epic, zwei Stories, sechs Tasks, OpenSpec-Change | Profil und Darstellung hängen voneinander ab, sind aber getrennt prüfbar | zwei Miles (Profil, dann Printer) |
 | **D-2** | Ort der Herkunft | **Profil P1.14 mit `binding-context/10`**, opt-in: typisierter Relationsparameter `origin ∈ {declared, derived, unknown}`, gebunden über einen Parametervertrag je Prädikat. Fehlt `origin` in einem `/10`-Kontext → UNRESOLVED (`P1_ORIGIN_UNDECLARED`); ein Wert außerhalb der Menge → FAIL | `relations.json` sieht `origin` bereits vor; kein Morphologieeingriff (C4-03) | Pflicht-Qualifikator; Ableitungsprädikat je Beziehung (`uses.derived`) |

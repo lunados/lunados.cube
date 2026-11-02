@@ -1,6 +1,6 @@
 # Declare relation origin
 
-Status: planned · 2026-11-02 · [MILE-011](../../../docs/02-Milestones/MILE-011-relation-origin.md) · Entscheidungen offen
+Status: decided · 2026-11-02 · [MILE-011](../../../docs/02-Milestones/MILE-011-relation-origin.md) · noch nicht umgesetzt
 
 ## Why
 
