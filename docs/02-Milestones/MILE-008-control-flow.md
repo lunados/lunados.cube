@@ -64,4 +64,4 @@ D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/check-control-flow/proposal.md) · [Aufgabenstatus](../../openspec/changes/check-control-flow/tasks.md) · [Abdeckung](../../openspec/changes/check-control-flow/TRACEABILITY.md).
+[OpenSpec-Change](../../openspec/changes/check-control-flow/proposal.md) · [Aufgabenstatus](../../openspec/changes/check-control-flow/tasks.md) · [Abdeckung](../../openspec/changes/check-control-flow/TRACEABILITY.md). TASK-048: [27 Prüffälle](../09-Research/control-flow/CHECK-CASES.md) vor der Spezifikation (`aefe6aa`); Baseline-Lauf und Probe bestätigen 27/27 Erwartungen für heute ([Abgleich](../10-Evidence/MILE-008/task048-baseline-check.json)).

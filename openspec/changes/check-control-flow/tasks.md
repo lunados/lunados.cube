@@ -1,10 +1,10 @@
 # Tasks — check-control-flow
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben, fünf Aufgaben offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-048 erledigt (27 Prüffälle vor der Spezifikation, Baseline 27/27); vier Aufgaben offen.
 
 ## A — Prüffälle und Spezifikation
 
-- [ ] 1. [TASK-048 — Prüffälle und Baseline](../../../docs/05-Tasks/TASK-048-control-flow-cases.md)
+- [x] 1. [TASK-048 — Prüffälle und Baseline](../../../docs/05-Tasks/TASK-048-control-flow-cases.md)
 - [ ] 2. [TASK-049 — Spezifikation und Detailfragen](../../../docs/05-Tasks/TASK-049-control-flow-spec.md)
 
 ## B — Profil und LIB

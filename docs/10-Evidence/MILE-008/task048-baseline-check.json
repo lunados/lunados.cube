@@ -1,0 +1,435 @@
+{
+ "format": "mile008.baseline-check/1",
+ "task": "TASK-048",
+ "check_cases_sha256": "10c33dbf020c5ee0908cc41253dceeba89ae73e6973bb9cfb4a7dbd69db68ed6",
+ "report": "task048-baseline-report.json",
+ "report_git_head": "aefe6aa",
+ "repeats_semantically_equal": true,
+ "source_unchanged_during_run": true,
+ "readiness_checks_passed": true,
+ "all_match": true,
+ "rows": [
+  {
+   "case_id": "CF-01",
+   "mile002_case": "BPMN-01-routed",
+   "expected_today": "P1 PASS",
+   "observed": [
+    [
+     "PASS",
+     []
+    ],
+    [
+     "PASS",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-02",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-03",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-04",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-05",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-06",
+   "expected_today": "P1 PASS",
+   "probe": {
+    "input_text": "rel(\"routedTo\",Y:α:Evidence[\"bpmn:i1/tok-route\"],Y:α:WorkItem[\"bpmn:ship\"])",
+    "status": "PASS",
+    "codes": [],
+    "profile": "P1.12/coverage-instance-profile-v1"
+   },
+   "match": true
+  },
+  {
+   "case_id": "CF-07",
+   "expected_today": "P1 PASS",
+   "probe": {
+    "input_text": "rel(\"onFlow\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:WorkItem[\"bpmn:f-ghost\"])",
+    "status": "PASS",
+    "codes": [],
+    "profile": "P1.12/coverage-instance-profile-v1"
+   },
+   "match": true
+  },
+  {
+   "case_id": "CF-08",
+   "mile002_case": "BPMN-02-join-same-instance",
+   "expected_today": "P1 PASS",
+   "observed": [
+    [
+     "PASS",
+     []
+    ],
+    [
+     "PASS",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-09",
+   "mile002_case": "BPMN-01-routed",
+   "expected_today": "P1 PASS",
+   "observed": [
+    [
+     "PASS",
+     []
+    ],
+    [
+     "PASS",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-11",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-12",
+   "mile002_case": "BPMN-01-ctrl-other-branch",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "PASS",
+     []
+    ],
+    [
+     "PASS",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-13",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-14",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-15",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-16",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-17",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-18",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-19",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-21",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-22",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-23",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-24",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-25",
+   "mile002_case": "BPMN-03-join-cross-instance-shared",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "PASS",
+     []
+    ],
+    [
+     "PASS",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-26",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-27",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-28",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CF-29",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     []
+    ],
+    [
+     "NOT_EXECUTED",
+     []
+    ]
+   ],
+   "match": true
+  }
+ ]
+}
