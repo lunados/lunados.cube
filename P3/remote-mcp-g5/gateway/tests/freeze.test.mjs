@@ -28,3 +28,7 @@ test('G5 R5 registers ten tools and leaves room above the 2 MiB plan limit',()=>
   assert.match(src,/MAX_RESPONSE_BYTES = 2 \* 1024 \* 1024 \+ 64 \* 1024/);
   assert.match(src,/version:'0\.2\.0-proof'/);
 });
+test('G5 R6 exposes the opt-in origin_lines wire option without adding a tool',()=>{
+  assert.match(src,/origin_lines:z\.boolean\(\)\.nullable\(\)\.optional\(\)/);
+  assert.match(src,/vpmigration 0\.7\.6: binding-context\/10/);
+});

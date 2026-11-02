@@ -142,9 +142,53 @@ class G5R5PlanAndControlFlowTests(unittest.TestCase):
         self.assertEqual(r['result']['report']['overall_status'],'FAIL')
         self.assertIn('P1_FLOW_UNDECLARED',{d['code'] for d in r['result']['report']['diagnostics']})
         s=self.dispatch('cube_discover_surface')['result']
-        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.8.0-proof')
+        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.0-proof')
         self.assertEqual(s['p113_control_flow']['binding_context_formats'],['aiaeao.cube.binding-context/9'])
         self.assertIs(s['domains']['P2']['plan_views']['remote_available'],True)
         self.assertEqual(s['mcp']['tools'][-3:],['cube_plan_source','cube_plan_views','cube_plan_check'])
+
+
+class G5R6RelationOriginTests(unittest.TestCase):
+    """R6 (MILE-011): /10, statement flow, new wire option, local byte parity."""
+    @classmethod
+    def setUpClass(cls):
+        import sys
+        cls.home=Path(__file__).resolve().parents[1]; cls.repo=cls.home.parents[1]
+        sys.path.insert(0,str(cls.home/'.g5-runtime'))
+        from core_runtime import dispatch
+        from aiaeao_mcp_local import plan_views
+        cls.dispatch=staticmethod(dispatch); cls.pv=plan_views
+        cls.ho={c['id']:c for c in json.loads((cls.repo/'P1/relation-origin-profile-v1/fixtures/ho01_ho12_materialized.json').read_text('utf-8'))['cases']}
+        cls.ol={c['id']:c for c in json.loads((cls.repo/'P2/visual-printer-migration-v1/fixtures/ol01_ol12_materialized.json').read_text('utf-8'))['cases']}
+
+    def test_discovery(self):
+        s=self.dispatch('cube_discover_surface')['result']
+        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.0-proof')
+        self.assertEqual(s['p114_relation_origin']['binding_context_formats'],['aiaeao.cube.binding-context/10'])
+        self.assertFalse(s['p114_relation_origin']['origin_computed_by_cube'])
+        self.assertIn('P2-VP-MIGRATION/0.7.6',s['domains']['P2']['plan_views']['printers']['vpmigration']['profiles'])
+
+    def test_p114_status_and_code(self):
+        for ident in ('HO-01','HO-03','HO-05'):
+            c=self.ho[ident]
+            r=self.dispatch('cube_validate',{'input_text':c['input_text'],'input_format':c['input_format'],'context':c['context']})
+            self.assertTrue(r['ok'],ident)
+            self.assertEqual(r['result']['report']['overall_status'],c['expected_overall'],ident)
+            self.assertTrue(set(c['required_codes']) <= {d['code'] for d in r['result']['report']['diagnostics']},ident)
+
+    def test_origin_chain_and_diagnostic(self):
+        c=self.ol['OL-02']
+        src=self.dispatch('cube_plan_source',c['plan_source'])
+        self.assertTrue(src['ok'])
+        local=self.pv.plan_source(**c['plan_source'])
+        self.assertEqual(self.pv.canonical(src['result']),self.pv.canonical(local))
+        views=self.dispatch('cube_plan_views',{'source':src['result']['source'],**c['plan_views']})
+        self.assertTrue(views['ok'])
+        expected=self.pv.plan_views(local['source'],**c['plan_views'])
+        self.assertEqual(self.pv.canonical(views['result']),self.pv.canonical(expected))
+        self.assertEqual(self.dispatch('cube_plan_check',{'result':views['result']})['result']['status'],'PASS')
+        bad=self.dispatch('cube_plan_source',self.ol['OL-08']['plan_source'])
+        self.assertFalse(bad['ok'])
+        self.assertEqual(bad['diagnostic']['code'],'VP07_ORIGIN_STYLE_CONFLICT')
 
 if __name__=='__main__':unittest.main()

@@ -31,7 +31,9 @@ def main():
     assert dispatch('cube_check_print',{'job':job['result']})['result']==core_report
     assert wire_call({'operation':'__import__','arguments':{}})['ok'] is False
     assert len(json.loads((HERE/'evidence/G5_R5_EXPECTATIONS.json').read_text())['calls'])==87  # R5 expectations present (MILE-010)
-    print('PASS G5 OFFLINE: 14 P0 registry entries, P1 semantic failures, exact P2 SVG/report parity, denylist input; R5 core 0.8.0-proof')
+    assert len(json.loads((HERE/'evidence/G5_R6_EXPECTATIONS.json').read_text())['calls'])==25  # MILE-011 fixed before G5 code
+    assert dispatch('cube_discover_surface')['result']['release']['version']=='P3-MCP-REMOTE/0.9.0-proof'
+    print('PASS G5 OFFLINE: 14 P0 registry entries, P1 semantic failures, exact P2 SVG/report parity, denylist input; R6 core 0.9.0-proof')
     subprocess.run([sys.executable,str(HERE/'scripts/check_runtime_assets.py')],check=True)
     suite=unittest.defaultTestLoader.discover(str(HERE/'tests'),pattern='test_*.py')
     result=unittest.TextTestRunner(verbosity=1).run(suite)

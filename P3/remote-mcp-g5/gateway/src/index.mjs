@@ -63,12 +63,13 @@ function createServer(env) {
   add('cube_discover_surface','Describe whole P0/P1/P2 capability surface and trust boundaries.',z.object({}));
   // R5 (MILE-010): the G6 plan tools, schemas as the local tool signatures (Q-1); results byte-identical to local (D-4).
   const rec=z.record(z.string(),z.unknown()), str=z.string().nullable().optional();
-  add('cube_plan_source','Derive a plan-view source from a binding context, exactly as the local tool (vpmigration, vpaxes, vpcells, vpinstances; vpsequence is declared directly). vpinstances: binding-context/9, plan_id null, statements = trace, optional records of lunados.lib analyze.trace-conformance/v1. Display only; declared_unverified.',z.object({
+  add('cube_plan_source','Derive a plan-view source from a binding context, exactly as the local tool (vpmigration, vpaxes, vpcells, vpinstances; vpsequence is declared directly). vpmigration 0.7.6: binding-context/10, origin_lines and optional statement-set/1 or /2 with projection records. vpinstances: binding-context/9, plan_id null, statements = trace, optional records of lunados.lib analyze.trace-conformance/v1. Display only; declared_unverified.',z.object({
     context:rec,plan_id:z.string().nullable(),printer:z.enum(['vpmigration','vpaxes','vpcells','vpinstances','vpsequence']),
     track_map:rec.nullable().optional(),track:str,labels:rec.nullable().optional(),layers:rec.nullable().optional(),
     witness_prefixes:rec.nullable().optional(),edge_styles:z.array(rec).nullable().optional(),steps:str,
     subjects:z.array(z.string()).nullable().optional(),profile:str,predicate:str,
-    statements:rec.nullable().optional(),projection:rec.nullable().optional(),records:z.array(rec).nullable().optional()}));
+    statements:rec.nullable().optional(),projection:rec.nullable().optional(),records:z.array(rec).nullable().optional(),
+    origin_lines:z.boolean().nullable().optional()}));
   add('cube_plan_views','Print plan panels in memory (cube.phases, cube.flow, cube.sequence, cube.axes, cube.cells, cube.instances); SVGs, inputs, index and report as the local tool. 512 KiB per SVG, 2 MiB per response; over a limit isError, never truncated.',z.object({
     source:rec,view:z.enum(['cube.phases','cube.flow','cube.sequence','cube.axes','cube.cells','cube.instances']),
     granularity:z.enum(['overview','standard','detail']),partition:str,rows:str,cols:str,lens:str,

@@ -15,7 +15,7 @@ if str(ADAPTER) not in sys.path:
     sys.path.insert(0, str(ADAPTER))
 from aiaeao_mcp_local import bridge, p0_resources, p0_tool, p1_adapter, surface
 
-VERSION = 'P3-MCP-REMOTE/0.8.0-proof'  # R5 (MILE-010): binding-context/9 and the plan tools of G6
+VERSION = 'P3-MCP-REMOTE/0.9.0-proof'  # R6 (MILE-011): binding-context/10 and origin lines in G6
 PLAN_OPERATIONS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
 
 
@@ -177,6 +177,19 @@ def _remote_surface():
         'current_authority': 'NOT_EVALUATED',
         'canonical_admission': 'NOT_EVALUATED',
     }
+    result['p114_relation_origin'] = {
+        'profile': 'P1.14/relation-origin-profile-v1',
+        'binding_context_formats': ['aiaeao.cube.binding-context/10'],
+        'activation': 'explicit_context_format_10_only',
+        'scope': 'declared_relation_origin_and_basis',
+        'origin_values': ['declared', 'derived', 'unknown'],
+        'origin_computed_by_cube': False,
+        'derivation_computed_by_cube': False,
+        'evaluation_performed_by_cube': False,
+        'epistemic_warrant': 'NOT_EVALUATED',
+        'current_authority': 'NOT_EVALUATED',
+        'canonical_admission': 'NOT_EVALUATED',
+    }
     # R5 (MILE-010, Q-6): the plan tools are remote now; this supersedes G6 C-13 §5 for the remote card only.
     pv = _plan_views()
     result['mcp'] = {**result['mcp'], 'tools': list(result['mcp']['tools']) + list(PLAN_OPERATIONS)}
@@ -231,7 +244,8 @@ def dispatch(operation, arguments=None):
             result = _plan_views().plan_source(a['context'], a['plan_id'], a['printer'], tracks=a.get('track_map'), track=a.get('track'),
                 labels=a.get('labels'), layers=a.get('layers'), witness_prefixes=a.get('witness_prefixes'), edge_styles=a.get('edge_styles'),
                 steps=a.get('steps'), subjects=a.get('subjects'), profile=a.get('profile'), predicate=a.get('predicate'),
-                statements=a.get('statements'), projection=a.get('projection'), records=a.get('records'))
+                statements=a.get('statements'), projection=a.get('projection'), records=a.get('records'),
+                origin_lines=a.get('origin_lines'))
         elif operation == 'cube_plan_views':
             a = arguments
             result = _plan_views().plan_views(a['source'], a['view'], a['granularity'], partition=a.get('partition'), rows=a.get('rows'),

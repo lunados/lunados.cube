@@ -11,6 +11,7 @@ import r5_calls
 REPO = Path(__file__).resolve().parents[3]
 HOST = {'D-01', 'V-HO-01', 'V-HO-03', 'V-HO-05', 'P-OL-02', 'P-OL-04',
         'P-OL-06', 'P-OL-08', 'P-OL-11'}
+run_chain = r5_calls.run_chain
 
 
 def _cases(path):
