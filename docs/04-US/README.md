@@ -30,8 +30,14 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 - [US-016 — Maßnahmen nach Anwendungsfall priorisieren](US-016-prioritized-measures.md)
 - [US-017 — Folgeumsetzung vorbereiten und Epic abschließen](US-017-follow-up-plan.md)
 
-## MILE-005 — geplant
+## MILE-005 — abgeschlossen
 
 - [US-018 — Vollständigkeit erklären und prüfen](US-018-completeness.md)
 - [US-019 — Instanzen typisiert binden](US-019-instance-binding.md)
 - [US-020 — Vier Zellzustände darstellen](US-020-cell-states.md)
+
+## MILE-006 — geplant
+
+- [US-021 — `/8` remote prüfen](US-021-remote-v8.md)
+- [US-022 — Matrix in deklarierter Reihenfolge lesen](US-022-declared-order.md)
+- [US-023 — Lesbarkeit mit Menschen prüfen](US-023-readability-test.md)

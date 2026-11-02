@@ -67,7 +67,7 @@ Führender Status: [prioritize-learning-balance/tasks.md](../../openspec/changes
 
 Summe: 9–12 h (1–1,5 PT); Planungsannahmen. [Nachweise](../10-Evidence/MILE-004/README.md).
 
-## MILE-005 — geplant
+## MILE-005 — abgeschlossen
 
 Führender Status: [declare-completeness-and-instances/tasks.md](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/tasks.md).
 
@@ -82,3 +82,18 @@ Führender Status: [declare-completeness-and-instances/tasks.md](../../openspec/
 | [TASK-036 — Adapter und Übergabe](TASK-036-adapter-acceptance.md) | US-020 | 0,75–1 PT |
 
 Summe: 5,25–7,25 PT; Planungsannahmen.
+
+## MILE-006 — geplant
+
+Führender Status: [deliver-remote-and-ordered-cells/tasks.md](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-037 — G5-Kern mit P1.12](TASK-037-g5-core.md) | US-021 | 0,5 PT |
+| [TASK-038 — Bereitstellung und Host-Abnahme](TASK-038-g5-host-acceptance.md) | US-021 | 0,25–0,5 PT |
+| [TASK-039 — Spezifikation VP-10.1 und Orakel](TASK-039-vp101-spec.md) | US-022 | 0,25 PT |
+| [TASK-040 — VP-10.1 umsetzen](TASK-040-vp101-impl.md) | US-022 | 0,5–0,75 PT |
+| [TASK-041 — Testunterlagen](TASK-041-readability-materials.md) | US-023 | 0,25 PT |
+| [TASK-042 — Durchführung und Auswertung](TASK-042-readability-evaluation.md) | US-023 | 0,25 PT |
+
+Summe: 1,75–2,5 PT; Planungsannahmen, ohne Zeit des Nutzers.

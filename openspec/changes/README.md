@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-Keine.
+- [deliver-remote-and-ordered-cells](deliver-remote-and-ordered-cells/proposal.md) — MILE-006 entschieden, nicht umgesetzt; sechs offene Tasks.
 
 ## Abgeschlossen
 

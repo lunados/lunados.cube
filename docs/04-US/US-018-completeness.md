@@ -18,4 +18,4 @@ Als Architekt möchte ich erklären können, für welchen Umfang ein Modell voll
 - [TASK-033 — P1-Profil implementieren](../05-Tasks/TASK-033-profile-impl.md)
 - [TASK-034 — Populationsprüfung als LIB-Eintrag](../05-Tasks/TASK-034-lib-population.md)
 
-[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/tasks.md). Noch keine Ausführung.
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/tasks.md). Ausgeführt; [Nachweis](../10-Evidence/MILE-005/C-RESULT.md).
