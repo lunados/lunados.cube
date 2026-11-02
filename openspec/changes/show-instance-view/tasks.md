@@ -1,6 +1,6 @@
 # Tasks — show-instance-view
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-053 erledigt (Spezifikation VP-11, Q-1–Q-10 nach Vorschlag); TASK-054 erledigt (Vektoren I-01–I-34, Orakel und Pins vor Code); Charge A abgeschlossen; TASK-055 erledigt (Printer `vpinstances`, I-01–I-34 34/34); Charge B abgeschlossen, TASK-056 offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-053 erledigt (Spezifikation VP-11, Q-1–Q-10 nach Vorschlag); TASK-054 erledigt (Vektoren I-01–I-34, Orakel und Pins vor Code); Charge A abgeschlossen; TASK-055 erledigt (Printer `vpinstances`, I-01–I-34 34/34); Charge B abgeschlossen; TASK-056 erledigt (G6 `vpinstances`, G6 = CLI); TASK-057 offen.
 
 ## A — Spezifikation und Prüffälle
 
@@ -13,7 +13,7 @@ Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8
 
 ## C — G6 und Abnahme
 
-- [ ] 4. [TASK-056 — G6-Anbindung](../../../docs/05-Tasks/TASK-056-vp11-g6.md)
+- [x] 4. [TASK-056 — G6-Anbindung](../../../docs/05-Tasks/TASK-056-vp11-g6.md)
 - [ ] 5. [TASK-057 — Sichtprüfung und Abschluss](../../../docs/05-Tasks/TASK-057-mile009-close.md)
 
 [Milestone](../../../docs/02-Milestones/MILE-009-instance-view.md) · [Abdeckung](TRACEABILITY.md).
