@@ -1,10 +1,10 @@
 # Design — Kontrollfluss prüfen
 
-Status: proposed · Umsetzung offen
+Status: decided · Umsetzung offen
 
 ## Context
 
-Entscheidungen D-1–D-8 in [MILE-008](../../../docs/02-Milestones/MILE-008-control-flow.md) (Vorschlag).
+Entscheidungen D-1–D-8 in [MILE-008](../../../docs/02-Milestones/MILE-008-control-flow.md) (entschieden 2026-11-02).
 
 ## Decisions
 

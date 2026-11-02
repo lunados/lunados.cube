@@ -1,6 +1,6 @@
 # MILE-008 — Kontrollfluss und Spurkonformität prüfbar machen
 
-Status: planned · Stand: 2026-11-02 · Voraussetzung: MILE-005 (Instanzbindung, Populationsregeln), MILE-007 ([Abschluss](../10-Evidence/MILE-007/C-RESULT.md))
+Status: in_progress · Stand: 2026-11-02 · Voraussetzung: MILE-005 (Instanzbindung, Populationsregeln), MILE-007 ([Abschluss](../10-Evidence/MILE-007/C-RESULT.md))
 
 ## Ergebnis
 
@@ -20,9 +20,11 @@ Heute: Zwei widersprüchliche Leitentscheidungen für denselben Token bestehen j
 - Keine Kundendaten in Repo, Fixtures, Fällen oder auf cube.lunados.net.
 - Die Lernbilanz bewertet den Nutzen als „hoch, aber nur bei bestätigtem Prozess-Anwendungsfall“; der Nutzer hat den Milestone ausdrücklich angelegt (2026-11-02).
 
-## Entscheidungen (Vorschlag, offen)
+## Entscheidungen (2026-11-02, Nutzer)
 
-| ID | Frage | Vorschlag | Grund | Nicht gewählt |
+D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
+
+| ID | Frage | Entscheidung | Grund | Nicht gewählt |
 |---|---|---|---|---|
 | **D-1** | Rahmen | **Voller Milestone** wie MILE-005: drei Chargen, Epic, Stories, Tasks, OpenSpec-Change | neue Prüfsemantik in P1 und LIB | schlanker Milestone |
 | **D-2** | Gateway-Umfang | **Exklusiv (XOR) und parallel (AND)**, jeweils Split und Join | BPMN-01/02; WCP-2/3/4/5 | inklusiv (OR), ereignisbasiert, komplex (später) |

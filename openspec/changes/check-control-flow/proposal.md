@@ -1,6 +1,6 @@
 # Check control flow
 
-Status: proposed · 2026-11-02 · [MILE-008](../../../docs/02-Milestones/MILE-008-control-flow.md) · Entscheidungen D-1–D-8 offen
+Status: decided · 2026-11-02 · [MILE-008](../../../docs/02-Milestones/MILE-008-control-flow.md) · noch nicht umgesetzt
 
 ## Why
 

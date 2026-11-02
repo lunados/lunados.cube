@@ -1,6 +1,6 @@
 # Tasks — check-control-flow
 
-Status: planned. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben, fünf Aufgaben offen.
 
 ## A — Prüffälle und Spezifikation
 
