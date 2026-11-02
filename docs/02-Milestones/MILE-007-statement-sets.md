@@ -1,6 +1,6 @@
 # MILE-007 — Aussagenmengen ohne Plan darstellen und verdichten
 
-Status: planned · Stand: 2026-11-02 · Voraussetzung: MILE-006 ([Abschluss](../10-Evidence/MILE-006/C-RESULT.md))
+Status: in_progress · Stand: 2026-11-02 · Voraussetzung: MILE-006 ([Abschluss](../10-Evidence/MILE-006/C-RESULT.md))
 
 ## Ergebnis
 
@@ -17,9 +17,11 @@ Der nächste schlanke Schritt aus der [Übergabe von MILE-005](../09-Research/co
 - Ablauf wie bisher: Spezifikation mit Entscheidungen, Prüffälle und Orakel vor Code, Tests, Nachweise.
 - Keine Kundendaten in Repo, Fixtures, Fällen oder auf cube.lunados.net.
 
-## Entscheidungen (Vorschlag, offen)
+## Entscheidungen (2026-11-02, Nutzer)
 
-| ID | Frage | Vorschlag | Grund | Nicht gewählt |
+D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („ja“).
+
+| ID | Frage | Entscheidung | Grund | Nicht gewählt |
 |---|---|---|---|---|
 | **D-1** | Rahmen | **Schlankes MILE-007** mit Milestone, Epic, Stories, Tasks und OpenSpec-Change | gleiche Nachverfolgung wie MILE-001–006 | nur Spezifikation je Paket |
 | **D-2** | Form der Aussagenmenge | **JSON-Format `aiaeao.cube.statement-set/1`**: Bezug auf einen `binding-context/8`, Aussagen `{statement_id, subject, predicate_id, object}` wie in `analyze.population/v1`, optional `derived_from` und `origin` (`declared` / `derived`) | gleiche Aussageform wie in LIB; Referenten und Prädikate aus dem Kontext | ACG-Ausdrücke parsen; Plan-Wrapper erzeugen (biegt Vokabular und Titel um) |

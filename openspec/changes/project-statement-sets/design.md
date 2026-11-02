@@ -1,10 +1,10 @@
 # Design — Aussagenmengen projizieren
 
-Status: proposed · Umsetzung offen
+Status: decided · Umsetzung offen
 
 ## Context
 
-Entscheidungen D-1–D-8 in [MILE-007](../../../docs/02-Milestones/MILE-007-statement-sets.md) (Vorschlag).
+Entscheidungen D-1–D-8 in [MILE-007](../../../docs/02-Milestones/MILE-007-statement-sets.md) (entschieden 2026-11-02).
 
 ## Decisions
 
