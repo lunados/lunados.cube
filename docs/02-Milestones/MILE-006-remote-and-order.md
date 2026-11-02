@@ -53,4 +53,4 @@ A und B sind unabhängig. C nutzt die Renderings aus B, wenn B fertig ist, sonst
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/deliver-remote-and-ordered-cells/proposal.md) · [Aufgabenstatus](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md) · [Abdeckung](../../openspec/changes/deliver-remote-and-ordered-cells/TRACEABILITY.md). TASK-037: G5-Kern `0.7.0-proof` mit P1.12, Parität 21/21, [Erwartungen](../../P3/remote-mcp-g5/evidence/G5_R4_P112_EXPECTATIONS.json).
+[OpenSpec-Change](../../openspec/changes/deliver-remote-and-ordered-cells/proposal.md) · [Aufgabenstatus](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md) · [Abdeckung](../../openspec/changes/deliver-remote-and-ordered-cells/TRACEABILITY.md). TASK-037: G5-Kern `0.7.0-proof` mit P1.12, Parität 21/21, [Erwartungen](../../P3/remote-mcp-g5/evidence/G5_R4_P112_EXPECTATIONS.json). TASK-038: bereitgestellt (`42e7b8a9…`), Host-Abnahme PASS, [Bericht](../../P3/remote-mcp-g5/evidence/G5_R4_P112_HOST_REPORT.md). Charge A abgeschlossen.

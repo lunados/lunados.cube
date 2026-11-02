@@ -1,11 +1,11 @@
 # Tasks — deliver-remote-and-ordered-cells
 
-Status: in_progress. Führende Ausführungsstatusliste; TASK-037 erledigt (G5-Kern 0.7.0-proof offline geprüft), fünf Aufgaben offen.
+Status: in_progress. Führende Ausführungsstatusliste; TASK-037–038 erledigt (G5 0.7.0-proof bereitgestellt, Host-Abnahme PASS; Charge A abgeschlossen), vier Aufgaben offen.
 
 ## A — Remote `/8`
 
 - [x] 1. [TASK-037 — G5-Kern mit P1.12](../../../docs/05-Tasks/TASK-037-g5-core.md)
-- [ ] 2. [TASK-038 — Bereitstellung und Host-Abnahme](../../../docs/05-Tasks/TASK-038-g5-host-acceptance.md)
+- [x] 2. [TASK-038 — Bereitstellung und Host-Abnahme](../../../docs/05-Tasks/TASK-038-g5-host-acceptance.md)
 
 ## B — Achsenreihenfolge
 
