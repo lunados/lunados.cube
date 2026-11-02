@@ -111,3 +111,17 @@ Führender Status: [project-statement-sets/tasks.md](../../openspec/changes/arch
 | [TASK-047 — Sichtprüfung und Abschluss](TASK-047-mile007-close.md) | US-024 | 0,25 PT |
 
 Summe: 2,25–3,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
+
+## MILE-008 — geplant
+
+Führender Status: [check-control-flow/tasks.md](../../openspec/changes/check-control-flow/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-048 — Prüffälle und Baseline](TASK-048-control-flow-cases.md) | US-026, US-027 | 0,5 PT |
+| [TASK-049 — Spezifikation und Detailfragen](TASK-049-control-flow-spec.md) | US-026, US-027 | 0,25–0,5 PT |
+| [TASK-050 — Profil P1.13](TASK-050-p113-profile.md) | US-026 | 1,25–1,75 PT |
+| [TASK-051 — LIB `analyze.trace-conformance/v1`](TASK-051-trace-conformance-lib.md) | US-027 | 1–1,5 PT |
+| [TASK-052 — Adapter, Wiederholung und Abschluss](TASK-052-mile008-adapter-rerun.md) | US-026, US-027 | 0,75–1,25 PT |
+
+Summe: 4–5,5 PT; Planungsannahmen, ohne Zeit des Nutzers.

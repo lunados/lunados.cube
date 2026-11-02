@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-Keine.
+- [check-control-flow](check-control-flow/proposal.md) — MILE-008 vorgeschlagen; Entscheidungen D-1–D-8 offen, fünf Tasks.
 
 ## Abgeschlossen
 
