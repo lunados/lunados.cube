@@ -6,6 +6,7 @@
 
 ## Abgeschlossen
 
+- [2026-11-02 — record-current-state](archive/2026-11-02-record-current-state/proposal.md) — MILE-012 umgesetzt: G5-Ledger und bekannte Grenzen, RELEASE_INDEX, Live-Ausgangswert R5 86/88 und R6 25/26; keine Codeänderung; mit Nachweisen archiviert.
 - [2026-11-02 — declare-relation-origin](archive/2026-11-02-declare-relation-origin/proposal.md) — MILE-011 umgesetzt: P1.14 gebundene Herkunft (`binding-context/10`), `cube.flow` 0.7.6 mit Herkunftslinie, G4, G6 und G5 `0.9.0-proof`, Sichtprüfung 6/6; mit Nachweisen archiviert.
 - [2026-11-02 — deliver-remote-plan-views](archive/2026-11-02-deliver-remote-plan-views/proposal.md) — MILE-010 umgesetzt: `/9` und die Plansichten VP-07 bis VP-11 im G5-Remote (`0.8.0-proof`), Offline-Parität 88/88, Host-Abnahme 7/7, CPU-Grenze dokumentiert; mit Nachweisen archiviert.
 - [2026-11-02 — show-instance-view](archive/2026-11-02-show-instance-view/proposal.md) — MILE-009 umgesetzt: VP-11 `cube.instances`, G6 lokal, Sichtprüfung 5/5; mit Nachweisen archiviert.

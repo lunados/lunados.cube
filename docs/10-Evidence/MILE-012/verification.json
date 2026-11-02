@@ -1,0 +1,79 @@
+{
+ "head": "548bc41",
+ "base": "0d15c4b",
+ "python": "3.10.12",
+ "note": "HEAD vor dem Abschluss-Commit; Statusänderungen dieses Commits liegen im Arbeitsbaum.",
+ "order": [
+  {
+   "what": "Plan vor Ledger und Grenzen-Seite",
+   "ok": true
+  },
+  {
+   "what": "Plan vor RELEASE_INDEX",
+   "ok": true
+  },
+  {
+   "what": "Grenzen-Seite vor dem Ausgangswert",
+   "ok": true
+  }
+ ],
+ "changed_outside_allowed": [],
+ "facts": {
+  "R5 offline": true,
+  "R5 live runs": true,
+  "R5 host 7/7": true,
+  "R6 offline": true,
+  "R6 legacy": true,
+  "R6 live runs": true,
+  "R6 host": true,
+  "CPU R5": true,
+  "CPU R6": true,
+  "baseline R5": true,
+  "baseline R6": true
+ },
+ "release_index": {
+  "links_ok": true,
+  "versions_in_code": {
+   "0.2.0-proof": true,
+   "P1-VC/1.0.0": true,
+   "P2-VP-2D/0.1.0": true,
+   "P2-VP-AXES/0.9.0": true,
+   "P2-VP-AXES/0.9.2": true,
+   "P2-VP-CELLS/0.10.0": true,
+   "P2-VP-CELLS/0.10.1": true,
+   "P2-VP-CELLS/0.11.0": true,
+   "P2-VP-CONFORMANCE/0.5.0": true,
+   "P2-VP-GRANULARITY/0.4.0": true,
+   "P2-VP-INSTANCES/0.12.0": true,
+   "P2-VP-LENSES/0.3.0": true,
+   "P2-VP-MIGRATION/0.7.0": true,
+   "P2-VP-MIGRATION/0.7.6": true,
+   "P2-VP-SEQUENCE/0.8.0": true,
+   "P2-VP-VIEWS/0.2.0": true,
+   "P2-VP/1.0.0-rc1": true,
+   "P3-MCP-LOCAL/0.3.0-rc1": true,
+   "P3-MCP-REMOTE/0.9.0-proof": true
+  }
+ },
+ "sha256sums": {
+  "AIAEAO_Pure_Cube_P0_v9.4/SHA256SUMS.txt": true,
+  "P1/contract-v1/SHA256SUMS.txt": true,
+  "P1/migration-methods-v1/SHA256SUMS.txt": true,
+  "P1/migration-profile-v1/SHA256SUMS.txt": true,
+  "P1/semantic-validator-v1/SHA256SUMS.txt": true,
+  "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/SHA256SUMS.txt": true,
+  "P2/visual-printer-2d-lab/SHA256SUMS.txt": true,
+  "P2/visual-printer-2d-lab/VP02_SHA256SUMS.txt": true,
+  "P2/visual-printer-2d-lab/VP03_SHA256SUMS.txt": true,
+  "P2/visual-printer-axes-v1/VP09_SHA256SUMS.txt": true,
+  "P2/visual-printer-conformance-v1/VP05_SHA256SUMS.txt": true,
+  "P2/visual-printer-granularity-v1/VP04_SHA256SUMS.txt": true,
+  "P2/visual-printer-migration-v1/VP07_SHA256SUMS.txt": true,
+  "P2/visual-printer-release-v1/VP06_SHA256SUMS.txt": true,
+  "P2/visual-printer-sequence-v1/VP08_SHA256SUMS.txt": true,
+  "P3/public-reference-mcp/SHA256SUMS.txt": true,
+  "P3/remote-mcp-g5/SHA256SUMS.txt": true
+ },
+ "broken_links": [],
+ "all_ok": true
+}

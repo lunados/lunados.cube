@@ -168,3 +168,16 @@ Führender Status: [declare-relation-origin/tasks.md](../../openspec/changes/arc
 | [TASK-068 — Sichtprüfung und Abschluss](TASK-068-mile011-close.md) | US-032, US-033 | 0,25–0,5 PT |
 
 Summe: 3–4,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
+
+## MILE-012 — abgeschlossen
+
+Führender Status: [record-current-state/tasks.md](../../openspec/changes/archive/2026-11-02-record-current-state/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-069 — G5-Ledger und bekannte Grenzen](TASK-069-g5-ledger-limits.md) | US-034 | 0,25 PT |
+| [TASK-070 — Gesamtüberblick RELEASE_INDEX](TASK-070-release-index.md) | US-034 | 0,25 PT |
+| [TASK-071 — Live-Ausgangswert R5 und R6](TASK-071-live-baseline.md) | US-034 | 0,25 PT |
+| [TASK-072 — Abschluss, Integration und Tag](TASK-072-mile012-close.md) | US-034 | 0,25 PT |
+
+Summe: etwa 1 PT; ohne Zeit des Nutzers.
