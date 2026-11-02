@@ -38,7 +38,7 @@
    "expected": {"checked": {}, "unknown": "all empty", "marked": "base", "warnings": ["VP10_COVERAGE_REF_UNKNOWN"]}},
   {"id": "J-11", "variant": "outgoing references at m:printer with instance_ref", "predicate": "references",
    "expected": {"checked": {}, "unknown": "all empty", "marked": "base", "warnings": ["VP10_COVERAGE_INSTANCE_IGNORED"]}},
-  {"id": "J-12", "variant": "d-pv holds only in p0; plus d-pr m:printer->m:resolver (recovers-via, p0,p1); outgoing references at m:printer; slice steps p1:p1", "predicate": "references", "steps": "p1:p1",
+  {"id": "J-12", "variant": "plan with a third phase p2; d-pv holds only in p0, every other dependency in p0..p2; plus d-pr m:printer->m:resolver (recovers-via, p0..p2); outgoing references at m:printer; slice steps p1:p2 (corrected before the code commit: cube.phases needs two steps, p1:p1 is refused)", "predicate": "references", "steps": "p1:p2",
    "expected": {"checked": {"m:printer|m:parser": "row", "m:printer|m:resolver": "row"},
                 "marked": ["m:resolver|m:parser", "m:validator|m:resolver", "m:parser|m:validator", "m:printer|m:validator"],
                 "unknown": ["m:parser|m:resolver", "m:parser|m:printer", "m:resolver|m:validator", "m:resolver|m:printer", "m:validator|m:parser", "m:validator|m:printer"],

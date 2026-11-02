@@ -1,6 +1,12 @@
 # VP-10 — Cell states from declared coverage · Acceptance specification
 
-**Status:** SPECIFIED — decisions D-1…D-9 resolved 2026-11-02 (all as proposed). Not implemented.
+**Status:** IMPLEMENTED locally 2026-11-02 (decisions D-1…D-9 as proposed; oracle before code, `2316f45`). J-01…J-14 14/14; VP-07 and VP-09 byte-identical.
+**Implementation notes:**
+1. J-12 was corrected before the code commit: the plan gets a third phase and the slice is `p1:p2`, because `cube.phases` refuses a one-step slice. Expected states are unchanged.
+2. A cell that has only entries of another predicate keeps those entries; its state line is appended (`none references · checked (pair)` or `references · not surveyed`).
+3. The VP-09.2 legend line about blank cells is replaced in place by "no blank cell: every cell carries a state". The footer view ID reads `cube.cells`.
+4. In `de`, the predicate is shown with its VP-07.5 display name (`„verweist auf“`).
+5. While preparing the golden, P1.12 was fixed: predicates imported through `predicate_profile_refs` now resolve (`5f32bce`).
 **Profile:** `P2-VP-CELLS/0.10.0` (working name), new package `vpcells` in `P2/visual-printer-cells-v1/` (D-1). VP-09 (`vpaxes`, 0.9.0…0.9.2) and VP-07 stay byte-identical.
 **Requirement:** VR-05 (MILE-003 handover, rank 2) and PO-6; MILE-005 US-020 / TASK-035. Builds on P1.12 (`binding-context/8`, coverage declarations CV-1…CV-5).
 **Basis:**
