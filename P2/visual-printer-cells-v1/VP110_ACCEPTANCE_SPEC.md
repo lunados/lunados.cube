@@ -1,6 +1,6 @@
 # VP-10 0.11.0 — Statement sets and aggregated relations · Acceptance specification
 
-**Status:** DRAFT. MILE-007 decisions D-1…D-8 apply; detail questions Q-1…Q-10 (§7) are open. Not implemented.
+**Status:** SPECIFIED. MILE-007 decisions D-1…D-8 apply; detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). Not implemented.
 **Profile:** `P2-VP-CELLS/0.11.0` in `vpcells`, a new input path next to `from-plan`. `0.10.0`, `0.10.1`, VP-09 and VP-07 stay byte-identical.
 **Requirement:** PO-7 (MILE-003 handover), G-03 (MILE-002 gap ledger); MILE-007 US-024, US-025, TASK-043…047.
 **Basis:**
@@ -108,9 +108,9 @@ Input: a statement set, the method parameters and the context. Output (shape; th
 
 Planned vectors: S-01 DSM-01 set (Y × Y); S-02 S-01 with coverage (checked and unknown cells); S-03 S-01 with `axis_order`; S-04…S-06 C4-02 aggregated with `all`, `unless_same`, `unless_any` (with a declared container relation for the latter two); S-07…S-11 §5 errors and warnings; S-12 G6 equals CLI.
 
-## 7. Detail questions (to be decided)
+## 7. Detail questions (resolved 2026-11-02, all as proposed)
 
-| ID | Question | Proposal | Reason |
+| ID | Question | Decision | Reason |
 |---|---|---|---|
 | **Q-1** | Which referents form the axes? | The set lists them in `referents` (required); order = declared order | DSM needs isolated modules too; no hidden universe from the context |
 | **Q-2** | Which pairs? | **Y × Y and Z × Z** (one home on both axes); mixed homes rejected | C4 boundaries and tools are Z (MILE-002 context), DSM modules are Y |

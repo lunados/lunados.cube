@@ -22,4 +22,4 @@ Die Plansichten lesen nur P1.10-Migrationspläne; anderes Material muss umgeboge
 
 ## Impact
 
-Neues Profil in `vpcells` (P2), neuer LIB-Eintrag (lunados.lib), G6-Option (P3 lokal). Keine Änderung an P0, P1.1–P1.12, VP-07, VP-09, VP-10 0.10.x oder der Morphologie. Grobe Planung: 2–3 PT.
+Neues Profil in `vpcells` (P2), neuer LIB-Eintrag (lunados.lib), G6-Option (P3 lokal). Keine Änderung an P0, P1.1–P1.12, VP-07, VP-09, VP-10 0.10.x oder der Morphologie. Grobe Planung: 2,25–3,5 PT (nach Q-3).

@@ -1,10 +1,10 @@
 # Tasks — project-statement-sets
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben, fünf Aufgaben offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-043 erledigt (Spezifikation, Q-1–Q-10 nach Vorschlag), vier Aufgaben offen.
 
 ## A — Vertrag und Prüffälle
 
-- [ ] 1. [TASK-043 — Spezifikation und Detailfragen](../../../docs/05-Tasks/TASK-043-statement-set-spec.md)
+- [x] 1. [TASK-043 — Spezifikation und Detailfragen](../../../docs/05-Tasks/TASK-043-statement-set-spec.md)
 - [ ] 2. [TASK-044 — Prüffälle und Orakel](../../../docs/05-Tasks/TASK-044-statement-set-cases.md)
 
 ## B — Verdichtung in LIB

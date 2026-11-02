@@ -46,13 +46,13 @@ B und C hängen von A ab. C nutzt für abgeleitete Einträge das Ergebnis aus B,
 
 [EPIC-007](../03-Epics/EPIC-007-statement-sets.md). US-024–025, TASK-043–047.
 
-**Aufwand: 2–3 PT**, ohne die Zeit des Nutzers für die Sichtprüfung.
+**Aufwand: 2,25–3,5 PT**, ohne die Zeit des Nutzers für die Sichtprüfung. Angehoben nach Q-3 (eigener Matrix-Zeichner, +0,25–0,5 PT in C).
 
 | Charge | Aufwand |
 |---|---|
 | A | 0,5–0,75 PT |
 | B | 0,75–1 PT |
-| C | 0,75–1,25 PT |
+| C | 1–1,75 PT |
 
 ## Nicht Teil von MILE-007
 
@@ -63,4 +63,4 @@ B und C hängen von A ab. C nutzt für abgeleitete Einträge das Ergebnis aus B,
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/project-statement-sets/proposal.md) · [Aufgabenstatus](../../openspec/changes/project-statement-sets/tasks.md) · [Abdeckung](../../openspec/changes/project-statement-sets/TRACEABILITY.md).
+[OpenSpec-Change](../../openspec/changes/project-statement-sets/proposal.md) · [Aufgabenstatus](../../openspec/changes/project-statement-sets/tasks.md) · [Abdeckung](../../openspec/changes/project-statement-sets/TRACEABILITY.md). TASK-043: [Spezifikation VP-10 0.11.0](../../P2/visual-printer-cells-v1/VP110_ACCEPTANCE_SPEC.md), Entwurf `3279fe4`, Q-1–Q-10 nach Vorschlag (Y × Y und Z × Z, eigener Zeichner, Zugehörigkeit als Aussagen, Strategien ohne Spurverlust).

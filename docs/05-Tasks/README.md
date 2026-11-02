@@ -107,7 +107,7 @@ Führender Status: [project-statement-sets/tasks.md](../../openspec/changes/proj
 | [TASK-043 — Spezifikation und Detailfragen](TASK-043-statement-set-spec.md) | US-024 | 0,25–0,5 PT |
 | [TASK-044 — Prüffälle und Orakel](TASK-044-statement-set-cases.md) | US-024, US-025 | 0,25 PT |
 | [TASK-045 — LIB `project.aggregate-relations/v1`](TASK-045-aggregate-relations-lib.md) | US-025 | 0,75–1 PT |
-| [TASK-046 — VP-10 0.11.0 und G6](TASK-046-vp110-impl.md) | US-024, US-025 | 0,5–1 PT |
+| [TASK-046 — VP-10 0.11.0 und G6](TASK-046-vp110-impl.md) | US-024, US-025 | 0,75–1,5 PT |
 | [TASK-047 — Sichtprüfung und Abschluss](TASK-047-mile007-close.md) | US-024 | 0,25 PT |
 
-Summe: 2–3 PT; Planungsannahmen, ohne Zeit des Nutzers.
+Summe: 2,25–3,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
