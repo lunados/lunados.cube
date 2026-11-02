@@ -20,6 +20,17 @@
 
 The cut-off points differ (139 ms, 522 ms) and lie far below the 30 s default of the Workers Paid plan; this fits the Workers Free plan (10 ms nominal with tolerated bursts). The account's plan is not recorded here.
 
+## Baseline of the current state (MILE-012, 2026-11-02)
+
+One run of each live script against core `0.9.0-proof` and gateway `0.2.0-proof`, bearer token unchanged:
+
+| Run | Result | Deviations |
+|---|---|---|
+| [R5](evidence/G5_M12_BASELINE_R5.json) | 86/88 | D-01: only `release.version` and `remote_adapter.version` differ (R5 expects `0.8.0-proof`, `0.9.0-proof` is deployed); all other discovery fields match. P-K08-sequence: `G5_CORE_UNAVAILABLE` (same diagnostic digest as every earlier abort). P-K07-flow completed this time |
+| [R6](evidence/G5_M12_BASELINE_R6.json) | 25/26 | P-OL-07 `cube_plan_views`: `G5_CORE_UNAVAILABLE` |
+
+Every other call is byte-identical to its fixed expectation. The general remote smoke test ran before both scripts.
+
 ## Way out for heavy tasks
 
 Run them locally: the G4/G6 tools of the local adapter (`P3/adapters/mcp-local`) produce the same bytes without a CPU limit. A heavy remote call that ended with `G5_CORE_UNAVAILABLE` can simply be repeated locally with the same arguments.
