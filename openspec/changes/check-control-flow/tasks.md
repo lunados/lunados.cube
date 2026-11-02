@@ -18,4 +18,4 @@ Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8
 
 [Milestone](../../../docs/02-Milestones/MILE-008-control-flow.md) · [Abdeckung](TRACEABILITY.md).
 
-TASK-051: [Prüfnachweis](../../../docs/10-Evidence/MILE-008/TASK-051-LIB.md), LIB-Commits `ebb3110` (Orakel vor Code), `d823a4a` (Evaluator, INDEX und Differenzprüfung).
+TASK-051: [Prüfnachweis](../../../docs/10-Evidence/MILE-008/TASK-051-LIB.md), LIB-Commits `ebb3110` (Orakel vor Code), `d823a4a` (Evaluator, INDEX und Differenzprüfung), `5511574` (Review-Korrektur für bedingungslosen Merge).
