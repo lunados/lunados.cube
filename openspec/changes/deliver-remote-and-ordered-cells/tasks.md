@@ -1,6 +1,6 @@
 # Tasks — deliver-remote-and-ordered-cells
 
-Status: in_progress. Führende Ausführungsstatusliste; TASK-037–040 erledigt (G5 0.7.0-proof bereitgestellt, Host-Abnahme PASS; Charge A abgeschlossen; VP-10.1 spezifiziert und umgesetzt, Charge B abgeschlossen), zwei Aufgaben offen.
+Status: in_progress. Führende Ausführungsstatusliste; TASK-037–040 erledigt (G5 0.7.0-proof bereitgestellt, Host-Abnahme PASS; Charge A abgeschlossen; VP-10.1 spezifiziert und umgesetzt, Charge B abgeschlossen); TASK-041 erledigt (Anleitung Sichtprüfung), TASK-042 offen.
 
 ## A — Remote `/8`
 
@@ -14,7 +14,7 @@ Status: in_progress. Führende Ausführungsstatusliste; TASK-037–040 erledigt 
 
 ## C — Sichtprüfung
 
-- [ ] 5. [TASK-041 — Anleitung Sichtprüfung](../../../docs/05-Tasks/TASK-041-readability-materials.md)
+- [x] 5. [TASK-041 — Anleitung Sichtprüfung](../../../docs/05-Tasks/TASK-041-readability-materials.md)
 - [ ] 6. [TASK-042 — Sichtprüfung und Mängel](../../../docs/05-Tasks/TASK-042-readability-evaluation.md)
 
 [Milestone](../../../docs/02-Milestones/MILE-006-remote-and-order.md) · [Abdeckung](TRACEABILITY.md).
