@@ -1,6 +1,6 @@
 # P1.14 — Declared Relation Origin Profile · Acceptance specification
 
-**Status:** DRAFT. MILE-011 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-9 open (§7). Not implemented.
+**Status:** SPECIFIED. MILE-011 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-9 resolved 2026-11-02 (all as proposed). Not implemented.
 **Numbering:** New profile `P1.14/relation-origin-profile-v1`, context `aiaeao.cube.binding-context/10`, directory `P1/relation-origin-profile-v1/`. Builds on P1.13 (`binding-context/9`). P1.7 stays reserved.
 **Basis:** Morphology v9.4 (no change); `relations.json` `qualified_relation_form` (`Rel(subject, predicate, object; {…, origin?, evidence?, …})`); P1.4 contract notes (a relation with parameters is UNRESOLVED without a typed parameter contract); MILE-002 gap ledger G-02 and reports C4-02, C4-03; MILE-007 statement sets and LIB `project.aggregate-relations/v1` (derived statements with `origin` and `derived_from`); MILE-011 decisions (`docs/02-Milestones/MILE-011-relation-origin.md`).
 **Motivation:** Findings of MILE-002 (C4-03, all synthetic):
@@ -114,9 +114,9 @@ P1.14 binds the **origin of a relation** (`declared`, `derived`, `unknown`) and,
 - P1 does not check that a basis really yields the relation; it checks that a basis is named and well-formed. A printer that reads a projection record checks its digest and shape (MILE-007 Q-10), never recomputes it.
 - Everything stays `declared_unverified`; `epistemic_warrant`, `current_authority`, `canonical_admission` stay `NOT_EVALUATED`.
 
-## 7. Detail questions (open; proposals)
+## 7. Detail questions (resolved 2026-11-02, all as proposed)
 
-| ID | Question | Proposal | Reason |
+| ID | Question | Decision | Reason |
 |---|---|---|---|
 | **Q-1** | Where is origin switched on? | Predicate contract field **`origin_binding: "required"`**; no global switch | opt-in per predicate, as `control_flow_role` in P1.13; other predicates keep their behaviour |
 | **Q-2** | Which values? | **`declared`, `derived`, `unknown`**, closed | M-01A and C4-03; `unknown` keeps the honest case visible |

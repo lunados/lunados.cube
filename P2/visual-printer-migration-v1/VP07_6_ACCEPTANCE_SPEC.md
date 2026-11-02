@@ -1,6 +1,6 @@
 # VP-07.6 — Origin lines and statement sets in `cube.flow` · Acceptance specification
 
-**Status:** DRAFT. MILE-011 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 open (§7). Not implemented.
+**Status:** SPECIFIED. MILE-011 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). Not implemented.
 **Profile:** `P2-VP-MIGRATION/0.7.6`, opt-in follow-up to `0.7.5` in the same package `vpmigration`. `0.7.0…0.7.5` stay byte-identical.
 **Requirement:** VR-01 of the MILE-003 handover (`docs/09-Research/visual-check/HANDOVER.md` §2, rank 1), mockup M-01A; PO-1 (two meanings of "declared"); PO-7 for `cube.flow` (statement sets without a migration plan); MILE-011 D-4, D-5.
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` (ES-1…ES-6 edge styles, PE-1…PE-5 panels, AD-1…AD-9 adapter, MS-1…MS-3 source), `VP07_1…VP07_5_ACCEPTANCE_SPEC.md`; VP-02 `vpviews` (edges as `g[data-edge-id][data-declaration-ref]`); P1.14 (`binding-context/10`, `origin`, `basis`, `statement-set/2`); VP-10 0.11.0 statement sets and projection records (MILE-007, SS-1…SS-4, PR-1…PR-6, Q-10).
@@ -94,9 +94,9 @@ VP-07.6 draws each edge by its **bound origin** and lets `cube.flow` read a stat
 - Dashed against dotted is the weakest distinction (MILE-003 mockups, open question 3); the text carries the origin on its own, and the visual check of TASK-068 asks for it.
 - Large flows stay subject to the panel budgets of VP-06/VP-07 and, remotely, to the CPU limit of the G5 Worker (MILE-010 spec §10).
 
-## 7. Detail questions (open; proposals)
+## 7. Detail questions (resolved 2026-11-02, all as proposed)
 
-| ID | Question | Proposal | Reason |
+| ID | Question | Decision | Reason |
 |---|---|---|---|
 | **Q-1** | How is origin mode switched on? | Opt-in flag **`origin_lines`** (G6 source option, CLI `--origin-lines`), only with profile `0.7.6` | keeps every existing call byte-identical |
 | **Q-2** | Which concepts does the statement path map? | AD-2 **plus** `Z:boundary:boundary` → `governance-boundary.boundary`, `Z:module-body:tool` → `module-bodies.tool`, `Y:resource-object:artifact` → `resource-objects.artifact` (forms as for their families); closed table, unknown still `VP07_ADAPTER_MAPPING` | the C4 and DSM cases need exactly these; anchors exist in `symbols.json` |

@@ -1,10 +1,10 @@
 # Tasks — declare-relation-origin
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-063 in Arbeit.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-063 erledigt (Spezifikationen P1.14 und VP-07.6, Q nach Vorschlag); TASK-064 in Arbeit.
 
 ## A — Spezifikation und Prüffälle
 
-- [ ] 1. [TASK-063 — Spezifikation und Detailfragen](../../../docs/05-Tasks/TASK-063-origin-spec.md)
+- [x] 1. [TASK-063 — Spezifikation und Detailfragen](../../../docs/05-Tasks/TASK-063-origin-spec.md)
 - [ ] 2. [TASK-064 — Prüffälle, Orakel und Pins vor Code](../../../docs/05-Tasks/TASK-064-origin-cases.md)
 
 ## B — Profil P1.14
