@@ -1,6 +1,6 @@
 # P1.13 — Control Flow Profile and Trace Conformance · Acceptance specification
 
-**Status:** DRAFT. MILE-008 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 (§7) are open. Not implemented.
+**Status:** SPECIFIED. MILE-008 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). Not implemented.
 **Numbering:** New profile `P1.13/control-flow-profile-v1`, context `aiaeao.cube.binding-context/9`, directory `P1/control-flow-profile-v1/`. Builds on P1.12 (`binding-context/8`). P1.7 stays reserved.
 **Basis:** Morphology v9.4 (no change); P1.10.1 D-2 and P1.12 D-3 (incomplete declaration → UNRESOLVED, never FAIL); P1.12 coverage, population rules and typed instances; MILE-002 gap ledger G-07 (control-flow and transition semantics) and reports BPMN-01, BPMN-02, BPMN-03; BPMN 2.0.2 §10.6.2, §13.4.1, §13.4.2 (local PDF referenced by hash in the MILE-002 source lock); MILE-008 decisions (`docs/02-Milestones/MILE-008-control-flow.md`); check cases `docs/09-Research/control-flow/CHECK-CASES.json` (`aefe6aa`, fixed before this specification).
 **Motivation:** Findings of the baseline run (TASK-048, all synthetic):
@@ -136,9 +136,9 @@ The LIB cases CF-11…CF-29 become the cases of `analyze.trace-conformance/v1` (
 - TC-5 (merge): every incoming token yields exactly one outgoing token.
 - TC-6: several activations of one check → FAIL if any fails, else UNRESOLVED if any is unresolved, else PASS; details per activation.
 
-## 7. Detail questions (to be decided)
+## 7. Detail questions (resolved 2026-11-02, all as proposed)
 
-| ID | Question | Proposal | Reason |
+| ID | Question | Decision | Reason |
 |---|---|---|---|
 | **Q-1** | What is a flow? | A **declared referent** named in `control_flow`; the profile does not fix its concept | on-flow statements and coverage need flows as referents (as in P1.12 K-14) |
 | **Q-2** | What is a gateway? | Also a declared referent, concept free | tokens point at it (`at_gateway`) |
