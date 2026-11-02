@@ -86,3 +86,30 @@ python3 P3/remote-mcp-g5/scripts/sdk_remote_smoke.py --evidence P3/remote-mcp-g5
 ```
 
 The sanitized JSON contains no token, prompts or arbitrary response bodies. The host should independently re-read `morphology.md` and `visual/README.md` via MCP Resource Discovery and confirm `text/markdown`, rehash SVG bytes, and capture a new G5-R4 report. Do not mark G5-R4 ACCEPTED before those tests.
+
+## 9. R5 — control flow and plan views (MILE-010)
+
+Core `P3-MCP-REMOTE/0.8.0-proof` adds `binding-context/9` and the plan tools; gateway `0.2.0-proof` adds the tools `cube_plan_source`, `cube_plan_views`, `cube_plan_check`. **Both Workers are redeployed; the bearer secret stays.** From the repository root:
+
+```sh
+cd /Users/johannesklapproth/SitesHeroku/lunados.cube
+python3 P3/remote-mcp-g5/scripts/verify_g5.py          # offline gate: PASS G5 OFFLINE, contract tests OK
+python3 P3/remote-mcp-g5/scripts/r5_parity.py          # 88/88 as expected
+cd P3/remote-mcp-g5/.g5-runtime && uv run pywrangler deploy && cd ../../..        # private core first
+cd P3/remote-mcp-g5/gateway && npm ci && npm run check:freeze && npm run deploy && cd ../../..
+```
+
+Then the live checks, in the G4 MCP SDK venv (token as in §5, never in chat):
+
+```sh
+cd /Users/johannesklapproth/SitesHeroku/lunados.cube/P3/adapters/mcp-local && source .venv/bin/activate && cd ../../..
+export AIAEAO_G5_URL='https://<deployed-gateway>.workers.dev/mcp'
+export AIAEAO_G5_TOKEN='<local secret>'
+python P3/remote-mcp-g5/scripts/sdk_remote_smoke.py                     # now 10 tools
+python P3/remote-mcp-g5/scripts/r5_remote_acceptance.py --evidence P3/remote-mcp-g5/evidence/G5_R5_LIVE_SCRIPT.json
+```
+
+Expected: `PASS G5 ACTUAL REMOTE MCP: … 10 tools …` and `PASS G5 R5 LIVE: 88/88 as expected`. Afterwards reconnect the G5 connector in the Claude host (the host caches the tool list), so that the agent can run the host subset. If a call ends in `G5_CORE_UNAVAILABLE` by the runtime limit, stop and report the call id (D-6).
+
+**R5 notes (2026-11-02).** Skip §1 (`rsync` of the original G5 ZIP): it overwrites the current `P3/remote-mcp-g5` with the first proof (SDK 2.0.0, gateway 0.1.0-proof); the sources are already in the repository. The deployed core has a small CPU limit per call: the largest plan results (e.g. `cube_plan_check` on 26 `cube.flow` panels) can end with `G5_CORE_UNAVAILABLE` (`exceededCpu` in `npx wrangler tail aiaeao-cube-g5-core --status error`). This is the documented limit of R5 (spec §10); raising it needs a paid Workers plan and `limits.cpu_ms`.
+

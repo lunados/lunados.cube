@@ -39,7 +39,10 @@
         "P2/visual-printer-2d-lab/reference/*.ebnf",
         "P2/visual-printer-2d-lab/reference/**/*.ebnf",
         "P2/visual-printer-2d-lab/reference/*.txt",
-        "P2/visual-printer-2d-lab/reference/**/*.txt"
+        "P2/visual-printer-2d-lab/reference/**/*.txt",
+        "P2/visual-printer-migration-v1/vpmigration/locales/*.json",
+        "P2/visual-printer-cells-v1/vpcells/locales/*.json",
+        "P2/visual-printer-instances-v1/vpinstances/locales/*.json"
       ]
     }
   ]

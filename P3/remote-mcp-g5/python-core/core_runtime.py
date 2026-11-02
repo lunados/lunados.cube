@@ -15,10 +15,20 @@ if str(ADAPTER) not in sys.path:
     sys.path.insert(0, str(ADAPTER))
 from aiaeao_mcp_local import bridge, p0_resources, p0_tool, p1_adapter, surface
 
+VERSION = 'P3-MCP-REMOTE/0.8.0-proof'  # R5 (MILE-010): binding-context/9 and the plan tools of G6
+PLAN_OPERATIONS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
+
+
+def _plan_views():
+    """The G6 plan layer, imported on first use so that the other tools keep their cold start (R5 §1)."""
+    from aiaeao_mcp_local import plan_views
+    return plan_views
+
 OPERATIONS = frozenset({
     'cube_get_capabilities', 'cube_prepare_print', 'cube_check_print',
     'cube_render_svg', 'cube_read_reference', 'cube_validate',
     'cube_discover_surface', 'p0_resource_read',
+    *PLAN_OPERATIONS,
 })
 
 class RemoteDiagnostic(Exception):
@@ -30,8 +40,8 @@ class RemoteDiagnostic(Exception):
 
 
 def _sanitized_error(exc):
-    if isinstance(exc, (bridge.BridgeFailure, p1_adapter.P1AdapterFailure)):
-        return exc.diagnostic
+    if isinstance(exc, (bridge.BridgeFailure, p1_adapter.P1AdapterFailure)) or type(exc).__name__ == 'PlanFailure':
+        return exc.diagnostic  # RW-2: the local diagnostic, unchanged
     if isinstance(exc, p0_resources.P0ResourceError):
         return {'code': exc.code, 'message': exc.message,
                 'format': 'aiaeao.cube.mcp-p0-error/1', 'files_written': False}
@@ -43,7 +53,7 @@ def _sanitized_error(exc):
 def _remote_surface():
     result = copy.deepcopy(surface.discover_surface())
     result['release'] = {**result['release'], 'name':'aiaeao-cube-mcp-remote-g5',
-        'version':'P3-MCP-REMOTE/0.7.0-proof',
+        'version':VERSION,
         'status':'remote_proof_not_accepted',
         'local_surface_profile':'P3-MCP-LOCAL/0.2.0-rc1'}
     result['mcp'] = {**result['mcp'], 'transport':'streamable_http',
@@ -153,8 +163,27 @@ def _remote_surface():
         'current_authority': 'NOT_EVALUATED',
         'canonical_admission': 'NOT_EVALUATED',
     }
+    result['p113_control_flow'] = {
+        'profile': 'P1.13/control-flow-profile-v1',
+        'binding_context_formats': ['aiaeao.cube.binding-context/9'],
+        'activation': 'explicit_context_format_9_only',
+        'scope': 'p112_rules_plus_declared_control_flow_and_flow_binding',
+        'additional_diagnostics': ['P1_CONTROL_FLOW_INVALID', 'P1_CONTROL_FLOW_UNSUPPORTED', 'P1_FLOW_UNDECLARED', 'P1_TOKEN_POSITION_UNDECLARED'],
+        'trace_conformance': 'lunados.lib analyze.trace-conformance/v1 (not run by the Cube)',
+        'trace_evaluation_by_cube': False,
+        'condition_evaluation_by_cube': False,
+        'evaluation_performed_by_cube': False,
+        'epistemic_warrant': 'NOT_EVALUATED',
+        'current_authority': 'NOT_EVALUATED',
+        'canonical_admission': 'NOT_EVALUATED',
+    }
+    # R5 (MILE-010, Q-6): the plan tools are remote now; this supersedes G6 C-13 §5 for the remote card only.
+    pv = _plan_views()
+    result['mcp'] = {**result['mcp'], 'tools': list(result['mcp']['tools']) + list(PLAN_OPERATIONS)}
+    result['domains']['P2'] = {**result['domains']['P2'], 'plan_views': {**pv.capabilities(), 'remote_available': True,
+                                                                          'transport': 'streamable_http'}}
     result['remote_adapter'] = {'name':'aiaeao-cube-mcp-g5',
-        'version':'P3-MCP-REMOTE/0.7.0-proof',
+        'version':VERSION,
         'profile':'remote_service_binding_to_frozen_P0_P1_P2'}
     return result
 
@@ -176,7 +205,7 @@ def dispatch(operation, arguments=None):
             result = copy.deepcopy(bridge.get_capabilities())
             result['remote_adapter'] = {'transport':'streamable_http',
                 'remote_available':True,'name':'aiaeao-cube-mcp-g5',
-                'version':'P3-MCP-REMOTE/0.7.0-proof'}
+                'version':VERSION}
         elif operation == 'cube_discover_surface':
             result = _remote_surface()
         elif operation == 'cube_prepare_print':
@@ -197,6 +226,19 @@ def dispatch(operation, arguments=None):
                 arguments['input_text'],arguments.get('input_format','acg_text'),
                 arguments.get('context'),arguments.get('qualification_profiles')))
             result['transport'] = 'remote_mcp_streamable_http'
+        elif operation == 'cube_plan_source':          # RW-1: as the local server passes the options
+            a = arguments
+            result = _plan_views().plan_source(a['context'], a['plan_id'], a['printer'], tracks=a.get('track_map'), track=a.get('track'),
+                labels=a.get('labels'), layers=a.get('layers'), witness_prefixes=a.get('witness_prefixes'), edge_styles=a.get('edge_styles'),
+                steps=a.get('steps'), subjects=a.get('subjects'), profile=a.get('profile'), predicate=a.get('predicate'),
+                statements=a.get('statements'), projection=a.get('projection'), records=a.get('records'))
+        elif operation == 'cube_plan_views':
+            a = arguments
+            result = _plan_views().plan_views(a['source'], a['view'], a['granularity'], partition=a.get('partition'), rows=a.get('rows'),
+                cols=a.get('cols'), lens=a.get('lens'), overflow=a.get('overflow'), locale=a.get('locale'),
+                hide_ledger=a.get('hide_ledger') or None, hide_empty=a.get('hide_empty'), axis_order=a.get('axis_order'))
+        elif operation == 'cube_plan_check':
+            result = _plan_views().plan_check(arguments['result'])
         else:  # p0_resource_read; resources hosted by Gateway using same pinned backend.
             uri = arguments['uri']
             result = {'uri':uri,'text':p0_resources.read_text(uri),
@@ -207,12 +249,12 @@ def dispatch(operation, arguments=None):
     except (bridge.BridgeFailure,p1_adapter.P1AdapterFailure,p0_resources.P0ResourceError,
             RemoteDiagnostic) as exc:
         return {'ok':False,'diagnostic':_sanitized_error(exc)}
-    except (KeyError,ValueError,TypeError,RecursionError):
-        return {'ok':False,'diagnostic':RemoteDiagnostic(
-            'G5_ARGUMENTS_INVALID','Invalid operation arguments').diagnostic}
-    except Exception:
-        return {'ok':False,'diagnostic':RemoteDiagnostic(
-            'G5_INTERNAL_ERROR','Internal operation failed').diagnostic}
+    except Exception as exc:  # noqa: BLE001
+        if type(exc).__name__ == 'PlanFailure':   # plan_views.PlanFailure (lazy import, RW-2)
+            return {'ok':False,'diagnostic':_sanitized_error(exc)}
+        if isinstance(exc,(KeyError,ValueError,TypeError,RecursionError)):
+            return {'ok':False,'diagnostic':RemoteDiagnostic('G5_ARGUMENTS_INVALID','Invalid operation arguments').diagnostic}
+        return {'ok':False,'diagnostic':RemoteDiagnostic('G5_INTERNAL_ERROR','Internal operation failed').diagnostic}
 
 
 def wire_call(payload):

@@ -21,3 +21,10 @@ test('G5 exposes only health and authenticated MCP endpoints',()=>{
   assert.match(src,/url\.pathname !== '\/mcp'/);
   assert.match(src,/request\.method !== 'POST'/);
 });
+test('G5 R5 registers ten tools and leaves room above the 2 MiB plan limit',()=>{
+  const names=[...src.matchAll(/add\('([a-z_]+)'/g)].map(m=>m[1]);
+  assert.deepEqual(names,['cube_get_capabilities','cube_prepare_print','cube_check_print','cube_render_svg','cube_read_reference',
+    'cube_validate','cube_discover_surface','cube_plan_source','cube_plan_views','cube_plan_check']);
+  assert.match(src,/MAX_RESPONSE_BYTES = 2 \* 1024 \* 1024 \+ 64 \* 1024/);
+  assert.match(src,/version:'0\.2\.0-proof'/);
+});

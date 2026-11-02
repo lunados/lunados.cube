@@ -1,0 +1,875 @@
+{
+ "format": "aiaeao.cube.g5-r5-live-script/1",
+ "date": "2026-11-02T16:49:36.315823+00:00",
+ "release": "P3-MCP-REMOTE/0.8.0-proof",
+ "gateway_tools_as_expected": true,
+ "gateway_health_version_as_expected": true,
+ "calls": 88,
+ "matched": 86,
+ "mismatched": [
+  "P-K07-flow",
+  "P-K08-sequence"
+ ],
+ "wall_s_top5": [
+  {
+   "id": "P-K07-flow",
+   "wall_s": 1.837
+  },
+  {
+   "id": "P-K08-sequence",
+   "wall_s": 0.825
+  },
+  {
+   "id": "P-K14-axes-context",
+   "wall_s": 0.725
+  },
+  {
+   "id": "P-K09-axes",
+   "wall_s": 0.653
+  },
+  {
+   "id": "P-LIMIT-svg",
+   "wall_s": 0.419
+  }
+ ],
+ "rows": [
+  {
+   "id": "D-01",
+   "match": true,
+   "checks": {
+    "release.version": true,
+    "remote_adapter.version": true,
+    "p113_control_flow.profile": true,
+    "p113_control_flow.binding_context_formats": true,
+    "domains.P2.plan_views.tools": true,
+    "domains.P2.plan_views.remote_available": true,
+    "p113_control_flow.false_flags": true,
+    "domains.P2.plan_views.printers": true
+   },
+   "wall_s": [
+    0.36
+   ]
+  },
+  {
+   "id": "V-KF-01",
+   "match": true,
+   "wall_s": [
+    0.183
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-KF-02",
+   "match": true,
+   "wall_s": [
+    0.082
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-KF-03",
+   "match": true,
+   "wall_s": [
+    0.091
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-KF-04",
+   "match": true,
+   "wall_s": [
+    0.093
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-KF-05",
+   "match": true,
+   "wall_s": [
+    0.058
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-KF-06",
+   "match": true,
+   "wall_s": [
+    0.067
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-KF-07",
+   "match": true,
+   "wall_s": [
+    0.075
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-KF-08",
+   "match": true,
+   "wall_s": [
+    0.057
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-KF-09",
+   "match": true,
+   "wall_s": [
+    0.059
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-BPMN-01-ctrl-other-branch-v9",
+   "match": true,
+   "wall_s": [
+    0.056
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-BPMN-01-routed-to-ship-v9",
+   "match": true,
+   "wall_s": [
+    0.051
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-BPMN-01-routed-v9",
+   "match": true,
+   "wall_s": [
+    0.052
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-BPMN-01-token-position-v9",
+   "match": true,
+   "wall_s": [
+    0.055
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-BPMN-02-join-same-instance-v8",
+   "match": true,
+   "wall_s": [
+    0.049
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-BPMN-02-onflow-undeclared-v9",
+   "match": true,
+   "wall_s": [
+    0.059
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-BPMN-03-join-cross-instance-shared-v9",
+   "match": true,
+   "wall_s": [
+    0.054
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-K01-phases",
+   "match": true,
+   "wall_s": [
+    0.057,
+    0.142,
+    0.163
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-K07-flow",
+   "match": false,
+   "wall_s": [
+    0.051,
+    0.909,
+    1.837
+   ],
+   "host_subset": false,
+   "steps": [
+    {
+     "op": "cube_plan_source",
+     "match": true
+    },
+    {
+     "op": "cube_plan_views",
+     "match": true
+    },
+    {
+     "op": "cube_plan_check",
+     "match": false,
+     "is_error": true,
+     "payload_sha256": "1a2e3cff30dd8b6081fbfe1dca30694ff82aad3b8bce1ff941138c82a8506ac8"
+    }
+   ]
+  },
+  {
+   "id": "P-K08-sequence",
+   "match": false,
+   "wall_s": [
+    0.825
+   ],
+   "host_subset": true,
+   "steps": [
+    {
+     "op": "cube_plan_views",
+     "match": false,
+     "is_error": true,
+     "payload_sha256": "1a2e3cff30dd8b6081fbfe1dca30694ff82aad3b8bce1ff941138c82a8506ac8"
+    }
+   ]
+  },
+  {
+   "id": "P-K09-axes",
+   "match": true,
+   "wall_s": [
+    0.653,
+    0.143,
+    0.206
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-K11-context9",
+   "match": true,
+   "wall_s": [
+    0.04
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-K12-view-unknown",
+   "match": true,
+   "wall_s": [
+    0.051,
+    0.037
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-K13-axes-detail",
+   "match": true,
+   "wall_s": [
+    0.048,
+    0.054
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-K14-axes-context",
+   "match": true,
+   "wall_s": [
+    0.116,
+    0.725
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-K16-sequence-source",
+   "match": true,
+   "wall_s": [
+    0.03
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-O-01",
+   "match": true,
+   "wall_s": [
+    0.035,
+    0.049,
+    0.073
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-O-02",
+   "match": true,
+   "wall_s": [
+    0.035,
+    0.053,
+    0.076
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-O-03",
+   "match": true,
+   "wall_s": [
+    0.035,
+    0.048,
+    0.065
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-O-04",
+   "match": true,
+   "wall_s": [
+    0.033,
+    0.052,
+    0.069
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-O-05",
+   "match": true,
+   "wall_s": [
+    0.032,
+    0.034
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-O-06",
+   "match": true,
+   "wall_s": [
+    0.036,
+    0.058,
+    0.066
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-O-07",
+   "match": true,
+   "wall_s": [
+    0.033,
+    0.05,
+    0.072
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-O-08",
+   "match": true,
+   "wall_s": [
+    0.035,
+    0.05,
+    0.069
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-O-09",
+   "match": true,
+   "wall_s": [
+    0.068,
+    0.053,
+    0.081
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-01",
+   "match": true,
+   "wall_s": [
+    0.03,
+    0.054,
+    0.055
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-02",
+   "match": true,
+   "wall_s": [
+    0.028,
+    0.035,
+    0.051
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-03",
+   "match": true,
+   "wall_s": [
+    0.028,
+    0.038,
+    0.053
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-04",
+   "match": true,
+   "wall_s": [
+    0.032,
+    0.033,
+    0.058
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-05",
+   "match": true,
+   "wall_s": [
+    0.033,
+    0.034,
+    0.048
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-06",
+   "match": true,
+   "wall_s": [
+    0.049,
+    0.037,
+    0.048
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-07",
+   "match": true,
+   "wall_s": [
+    0.027
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-08",
+   "match": true,
+   "wall_s": [
+    0.027
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-09",
+   "match": true,
+   "wall_s": [
+    0.028
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-10",
+   "match": true,
+   "wall_s": [
+    0.028
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-11",
+   "match": true,
+   "wall_s": [
+    0.029
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-12",
+   "match": true,
+   "wall_s": [
+    0.033
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-13",
+   "match": true,
+   "wall_s": [
+    0.031,
+    0.034,
+    0.052
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-14",
+   "match": true,
+   "wall_s": [
+    0.027,
+    0.035,
+    0.054
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-15",
+   "match": true,
+   "wall_s": [
+    0.034,
+    0.036,
+    0.044
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-S-16",
+   "match": true,
+   "wall_s": [
+    0.031,
+    0.037,
+    0.042
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-01",
+   "match": true,
+   "wall_s": [
+    0.031,
+    0.033,
+    0.046
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-02",
+   "match": true,
+   "wall_s": [
+    0.039,
+    0.034,
+    0.045
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-03",
+   "match": true,
+   "wall_s": [
+    0.03,
+    0.036,
+    0.047
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-04",
+   "match": true,
+   "wall_s": [
+    0.031,
+    0.037,
+    0.044
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-05",
+   "match": true,
+   "wall_s": [
+    0.034,
+    0.034,
+    0.045
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-06",
+   "match": true,
+   "wall_s": [
+    0.034,
+    0.041,
+    0.047
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-07",
+   "match": true,
+   "wall_s": [
+    0.033,
+    0.038,
+    0.046
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-08",
+   "match": true,
+   "wall_s": [
+    0.031,
+    0.039,
+    0.044
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-09",
+   "match": true,
+   "wall_s": [
+    0.037,
+    0.057,
+    0.058
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-10",
+   "match": true,
+   "wall_s": [
+    0.032,
+    0.035,
+    0.055
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-11",
+   "match": true,
+   "wall_s": [
+    0.033,
+    0.035,
+    0.052
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-12",
+   "match": true,
+   "wall_s": [
+    0.038,
+    0.033,
+    0.044
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-13",
+   "match": true,
+   "wall_s": [
+    0.033,
+    0.032,
+    0.056
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-14",
+   "match": true,
+   "wall_s": [
+    0.033,
+    0.04,
+    0.049
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-I-15",
+   "match": true,
+   "wall_s": [
+    0.037,
+    0.038,
+    0.045
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-16",
+   "match": true,
+   "wall_s": [
+    0.033,
+    0.035,
+    0.051
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-17",
+   "match": true,
+   "wall_s": [
+    0.032,
+    0.036,
+    0.054
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-18",
+   "match": true,
+   "wall_s": [
+    0.034,
+    0.036,
+    0.046
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-19",
+   "match": true,
+   "wall_s": [
+    0.028,
+    0.031,
+    0.042
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-20",
+   "match": true,
+   "wall_s": [
+    0.032,
+    0.04,
+    0.042
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-21",
+   "match": true,
+   "wall_s": [
+    0.034,
+    0.039,
+    0.051
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-22",
+   "match": true,
+   "wall_s": [
+    0.068,
+    0.051,
+    0.076
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-23",
+   "match": true,
+   "wall_s": [
+    0.027
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-24",
+   "match": true,
+   "wall_s": [
+    0.033
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-25",
+   "match": true,
+   "wall_s": [
+    0.028
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-26",
+   "match": true,
+   "wall_s": [
+    0.031
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-27",
+   "match": true,
+   "wall_s": [
+    0.031
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-28",
+   "match": true,
+   "wall_s": [
+    0.033
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-29",
+   "match": true,
+   "wall_s": [
+    0.032
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-30",
+   "match": true,
+   "wall_s": [
+    0.032
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-31",
+   "match": true,
+   "wall_s": [
+    0.032,
+    0.035,
+    0.047
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-32",
+   "match": true,
+   "wall_s": [
+    0.03,
+    0.034,
+    0.041
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-33",
+   "match": true,
+   "wall_s": [
+    0.028,
+    0.032,
+    0.04
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-I-34",
+   "match": true,
+   "wall_s": [
+    0.058,
+    0.045,
+    0.077
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-LIMIT-svg",
+   "match": true,
+   "wall_s": [
+    0.176,
+    0.419
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-ARG-plan-id",
+   "match": true,
+   "wall_s": [
+    0.032
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-ARG-view-option",
+   "match": true,
+   "wall_s": [
+    0.03,
+    0.025
+   ],
+   "host_subset": false
+  }
+ ],
+ "status": "FAIL"
+}

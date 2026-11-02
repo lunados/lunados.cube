@@ -1,0 +1,18 @@
+{
+ "format": "aiaeao.cube.g5-core-tail-event/1",
+ "source": "npx wrangler tail aiaeao-cube-g5-core --status error --format json (run 4)",
+ "outcome": "exceededCpu",
+ "cpuTime_ms": 139,
+ "wallTime_ms": 143,
+ "exceptions": [
+  "Worker exceeded CPU time limit."
+ ],
+ "eventTimestamp": 1793638298802,
+ "scriptName": "aiaeao-cube-g5-core",
+ "scriptVersion": "f8e8ec9d-1624-44b8-990b-b0d295ba75c0",
+ "request": {
+  "url": "https://core.internal/execute",
+  "method": "POST"
+ },
+ "call": "P-K07-flow step 3 (cube_plan_check)"
+}

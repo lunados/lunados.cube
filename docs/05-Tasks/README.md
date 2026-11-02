@@ -139,3 +139,17 @@ Führender Status: [show-instance-view/tasks.md](../../openspec/changes/archive/
 | [TASK-057 — Sichtprüfung und Abschluss](TASK-057-mile009-close.md) | US-028, US-029 | 0,25 PT |
 
 Summe: 2–3,25 PT; Planungsannahmen, ohne Zeit des Nutzers.
+
+## MILE-010 — geplant
+
+Führender Status: [deliver-remote-plan-views/tasks.md](../../openspec/changes/deliver-remote-plan-views/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-058 — Spezifikation und Detailfragen](TASK-058-g5-r5-spec.md) | US-030, US-031 | 0,25 PT |
+| [TASK-059 — Erwartungen vor Code](TASK-059-g5-r5-expectations.md) | US-030, US-031 | 0,25–0,5 PT |
+| [TASK-060 — Kern und Gateway](TASK-060-g5-core-gateway.md) | US-030, US-031 | 1,25–2 PT |
+| [TASK-061 — Bereitstellung und Host-Abnahme](TASK-061-g5-deploy-acceptance.md) | US-030, US-031 | 0,25–0,5 PT |
+| [TASK-062 — Abschluss](TASK-062-mile010-close.md) | US-030, US-031 | 0,25 PT |
+
+Summe: 2,25–3,5 PT; Planungsannahmen, ohne Zeit des Nutzers.

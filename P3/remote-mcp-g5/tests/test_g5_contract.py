@@ -18,7 +18,7 @@ class G5ContractTests(unittest.TestCase):
         uris=[e['uri'] for e in self.index['resources']]
         self.assertEqual(len(set(uris)),14)
         self.assertIn('aiaeao://p0/resources/v1',uris)
-    def test_operations_exact(self):self.assertEqual(len(self.operations),8) # 7 tools + resource operation
+    def test_operations_exact(self):self.assertEqual(len(self.operations),11) # 10 tools (R5: + 3 plan tools) + resource operation
     def test_ref_indexes_offline(self):
         r=self.dispatch('cube_read_reference',{'uri':'aiaeao://p0/resources/v1'})
         self.assertTrue(r['ok']);self.assertEqual(r['result']['complete'],True)
@@ -102,5 +102,49 @@ class G5ContractTests(unittest.TestCase):
     def test_registry_has_p0_only(self):
         for item in self.index['resources']:
             self.assertTrue(item['uri'].startswith('https://cube.lunados.net/') or item['uri'].startswith('aiaeao://p0/'))
+
+
+class G5R5PlanAndControlFlowTests(unittest.TestCase):
+    """R5 (MILE-010): /9 and the plan tools through the core equal the local functions (full sweep: scripts/r5_parity.py)."""
+    @classmethod
+    def setUpClass(cls):
+        import sys
+        cls.home=Path(__file__).resolve().parents[1]; cls.repo=cls.home.parents[1]
+        sys.path.insert(0,str(cls.home/'.g5-runtime'))
+        from core_runtime import dispatch
+        from aiaeao_mcp_local import plan_views
+        cls.dispatch=staticmethod(dispatch); cls.pv=plan_views
+        cls.inst={c['id']:c for c in json.loads((cls.repo/'P2/visual-printer-instances-v1/fixtures/i01_i34_materialized.json').read_text('utf-8'))['cases']}
+
+    def test_plan_chain_equals_local(self):
+        c=self.inst['I-22']
+        src=self.dispatch('cube_plan_source',{'context':c['context'],'plan_id':None,'printer':'vpinstances','statements':c['trace'],'records':c['records']})
+        self.assertTrue(src['ok'])
+        local=self.pv.plan_source(c['context'],None,'vpinstances',statements=c['trace'],records=c['records'])
+        self.assertEqual(self.pv.canonical(src['result']),self.pv.canonical(local))
+        res=self.dispatch('cube_plan_views',{'source':src['result']['source'],'view':'cube.instances','granularity':'standard','locale':'de'})
+        self.assertEqual(self.pv.canonical(res['result']),self.pv.canonical(self.pv.plan_views(local['source'],'cube.instances','standard',locale='de')))
+        self.assertNotIn('transport',res['result'])                       # RW-3
+        chk=self.dispatch('cube_plan_check',{'result':res['result']})
+        self.assertEqual((chk['ok'],chk['result']['status']),(True,'PASS'))
+
+    def test_plan_errors_pass_through(self):
+        c=self.inst['I-14']
+        r=self.dispatch('cube_plan_source',{'context':c['context'],'plan_id':'mp-x','printer':'vpinstances','statements':c['trace']})
+        self.assertFalse(r['ok']); self.assertEqual(r['diagnostic']['code'],'P3_PLAN_ARGUMENT_INVALID')   # RW-2
+        self.assertEqual(r['diagnostic']['format'],'aiaeao.cube.mcp-plan-diagnostic/1')
+        r=self.dispatch('cube_plan_views',{'view':'cube.instances','granularity':'standard'})
+        self.assertEqual(r['diagnostic']['code'],'G5_ARGUMENTS_INVALID')
+
+    def test_context9_and_discovery(self):
+        kf={c['id']:c for c in json.loads((self.repo/'P1/control-flow-profile-v1/fixtures/kf01_kf09_materialized.json').read_text('utf-8'))['cases']}
+        r=self.dispatch('cube_validate',{'input_text':kf['KF-06']['input_text'],'context':kf['KF-06']['context']})
+        self.assertEqual(r['result']['report']['overall_status'],'FAIL')
+        self.assertIn('P1_FLOW_UNDECLARED',{d['code'] for d in r['result']['report']['diagnostics']})
+        s=self.dispatch('cube_discover_surface')['result']
+        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.8.0-proof')
+        self.assertEqual(s['p113_control_flow']['binding_context_formats'],['aiaeao.cube.binding-context/9'])
+        self.assertIs(s['domains']['P2']['plan_views']['remote_available'],True)
+        self.assertEqual(s['mcp']['tools'][-3:],['cube_plan_source','cube_plan_views','cube_plan_check'])
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,591 @@
+{
+ "format": "aiaeao.cube.g5-r5-offline-parity/1",
+ "release": "P3-MCP-REMOTE/0.8.0-proof",
+ "expectations": "evidence/G5_R5_EXPECTATIONS.json",
+ "interpreter": "CPython 3.13.16 (not Pyodide)",
+ "calls": 88,
+ "matched": 88,
+ "mismatched": [],
+ "cpu_s_max": 0.886,
+ "cpu_top5": [
+  {
+   "id": "P-K07-flow",
+   "cpu_s": 0.886
+  },
+  {
+   "id": "P-K14-axes-context",
+   "cpu_s": 0.486
+  },
+  {
+   "id": "P-LIMIT-svg",
+   "cpu_s": 0.227
+  },
+  {
+   "id": "P-K09-axes",
+   "cpu_s": 0.166
+  },
+  {
+   "id": "P-K08-sequence",
+   "cpu_s": 0.123
+  }
+ ],
+ "cpu_rule_2s": true,
+ "files_read_outside_runtime_and_stdlib": [],
+ "runtime_data_files_read": [
+  "P1/instantiation-profile-v1/instantiation_reference_v1.json",
+  "P1/semantic-validator-v1/baseline/P0_reference/grammar/concepts.json",
+  "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/contract/concept_keys.json",
+  "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/contract/diagnostics.json",
+  "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/contract/source_lock.json",
+  "P2/visual-printer-2d-lab/reference/p0-concepts-v9.4.json",
+  "P2/visual-printer-2d-lab/reference/p0-core-v9.4.json",
+  "P2/visual-printer-2d-lab/reference/p0-symbols-v9.4.json",
+  "P2/visual-printer-2d-lab/reference/p1-anchors.json",
+  "P2/visual-printer-2d-lab/reference/p1-form-color.json",
+  "P2/visual-printer-cells-v1/vpcells/locales/de-0101.json",
+  "P2/visual-printer-cells-v1/vpcells/locales/de-0110.json",
+  "P2/visual-printer-cells-v1/vpcells/locales/de.json",
+  "P2/visual-printer-instances-v1/vpinstances/locales/de.json",
+  "P2/visual-printer-migration-v1/vpmigration/locales/de.json",
+  "P2/visual-printer-migration-v1/vpmigration/locales/en.json",
+  "P3/adapters/mcp-local/p0_snapshot/lock.json"
+ ],
+ "rows": [
+  {
+   "id": "D-01",
+   "match": true,
+   "checks": {
+    "release.version": true,
+    "remote_adapter.version": true,
+    "p113_control_flow.profile": true,
+    "p113_control_flow.binding_context_formats": true,
+    "domains.P2.plan_views.tools": true,
+    "domains.P2.plan_views.remote_available": true,
+    "p113_control_flow.false_flags": true,
+    "domains.P2.plan_views.printers": true
+   }
+  },
+  {
+   "id": "V-KF-01",
+   "match": true,
+   "cpu_s_core": 0.058,
+   "cpu_s_local": 0.044
+  },
+  {
+   "id": "V-KF-02",
+   "match": true,
+   "cpu_s_core": 0.02,
+   "cpu_s_local": 0.02
+  },
+  {
+   "id": "V-KF-03",
+   "match": true,
+   "cpu_s_core": 0.02,
+   "cpu_s_local": 0.02
+  },
+  {
+   "id": "V-KF-04",
+   "match": true,
+   "cpu_s_core": 0.019,
+   "cpu_s_local": 0.019
+  },
+  {
+   "id": "V-KF-05",
+   "match": true,
+   "cpu_s_core": 0.021,
+   "cpu_s_local": 0.019
+  },
+  {
+   "id": "V-KF-06",
+   "match": true,
+   "cpu_s_core": 0.024,
+   "cpu_s_local": 0.019
+  },
+  {
+   "id": "V-KF-07",
+   "match": true,
+   "cpu_s_core": 0.021,
+   "cpu_s_local": 0.02
+  },
+  {
+   "id": "V-KF-08",
+   "match": true,
+   "cpu_s_core": 0.017,
+   "cpu_s_local": 0.017
+  },
+  {
+   "id": "V-KF-09",
+   "match": true,
+   "cpu_s_core": 0.019,
+   "cpu_s_local": 0.019
+  },
+  {
+   "id": "V-BPMN-01-ctrl-other-branch-v9",
+   "match": true,
+   "cpu_s_core": 0.021,
+   "cpu_s_local": 0.019
+  },
+  {
+   "id": "V-BPMN-01-routed-to-ship-v9",
+   "match": true,
+   "cpu_s_core": 0.021,
+   "cpu_s_local": 0.018
+  },
+  {
+   "id": "V-BPMN-01-routed-v9",
+   "match": true,
+   "cpu_s_core": 0.02,
+   "cpu_s_local": 0.019
+  },
+  {
+   "id": "V-BPMN-01-token-position-v9",
+   "match": true,
+   "cpu_s_core": 0.02,
+   "cpu_s_local": 0.019
+  },
+  {
+   "id": "V-BPMN-02-join-same-instance-v8",
+   "match": true,
+   "cpu_s_core": 0.017,
+   "cpu_s_local": 0.016
+  },
+  {
+   "id": "V-BPMN-02-onflow-undeclared-v9",
+   "match": true,
+   "cpu_s_core": 0.021,
+   "cpu_s_local": 0.02
+  },
+  {
+   "id": "V-BPMN-03-join-cross-instance-shared-v9",
+   "match": true,
+   "cpu_s_core": 0.01,
+   "cpu_s_local": 0.013
+  },
+  {
+   "id": "P-K01-phases",
+   "match": true,
+   "cpu_s_core": 0.071,
+   "cpu_s_local": 0.085
+  },
+  {
+   "id": "P-K07-flow",
+   "match": true,
+   "cpu_s_core": 0.886,
+   "cpu_s_local": 0.979
+  },
+  {
+   "id": "P-K08-sequence",
+   "match": true,
+   "cpu_s_core": 0.123,
+   "cpu_s_local": 0.151
+  },
+  {
+   "id": "P-K09-axes",
+   "match": true,
+   "cpu_s_core": 0.166,
+   "cpu_s_local": 0.138
+  },
+  {
+   "id": "P-K11-context9",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-K12-view-unknown",
+   "match": true,
+   "cpu_s_core": 0.011,
+   "cpu_s_local": 0.009
+  },
+  {
+   "id": "P-K13-axes-detail",
+   "match": true,
+   "cpu_s_core": 0.018,
+   "cpu_s_local": 0.018
+  },
+  {
+   "id": "P-K14-axes-context",
+   "match": true,
+   "cpu_s_core": 0.486,
+   "cpu_s_local": 0.43
+  },
+  {
+   "id": "P-K16-sequence-source",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-O-01",
+   "match": true,
+   "cpu_s_core": 0.027,
+   "cpu_s_local": 0.028
+  },
+  {
+   "id": "P-O-02",
+   "match": true,
+   "cpu_s_core": 0.035,
+   "cpu_s_local": 0.027
+  },
+  {
+   "id": "P-O-03",
+   "match": true,
+   "cpu_s_core": 0.031,
+   "cpu_s_local": 0.028
+  },
+  {
+   "id": "P-O-04",
+   "match": true,
+   "cpu_s_core": 0.034,
+   "cpu_s_local": 0.028
+  },
+  {
+   "id": "P-O-05",
+   "match": true,
+   "cpu_s_core": 0.011,
+   "cpu_s_local": 0.011
+  },
+  {
+   "id": "P-O-06",
+   "match": true,
+   "cpu_s_core": 0.028,
+   "cpu_s_local": 0.027
+  },
+  {
+   "id": "P-O-07",
+   "match": true,
+   "cpu_s_core": 0.026,
+   "cpu_s_local": 0.026
+  },
+  {
+   "id": "P-O-08",
+   "match": true,
+   "cpu_s_core": 0.026,
+   "cpu_s_local": 0.028
+  },
+  {
+   "id": "P-O-09",
+   "match": true,
+   "cpu_s_core": 0.03,
+   "cpu_s_local": 0.034
+  },
+  {
+   "id": "P-S-01",
+   "match": true,
+   "cpu_s_core": 0.013,
+   "cpu_s_local": 0.009
+  },
+  {
+   "id": "P-S-02",
+   "match": true,
+   "cpu_s_core": 0.006,
+   "cpu_s_local": 0.008
+  },
+  {
+   "id": "P-S-03",
+   "match": true,
+   "cpu_s_core": 0.008,
+   "cpu_s_local": 0.008
+  },
+  {
+   "id": "P-S-04",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-S-05",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-S-06",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-S-07",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-S-08",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-S-09",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-S-10",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-S-11",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-S-12",
+   "match": true,
+   "cpu_s_core": 0.001,
+   "cpu_s_local": 0.001
+  },
+  {
+   "id": "P-S-13",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-S-14",
+   "match": true,
+   "cpu_s_core": 0.007,
+   "cpu_s_local": 0.007
+  },
+  {
+   "id": "P-S-15",
+   "match": true,
+   "cpu_s_core": 0.006,
+   "cpu_s_local": 0.007
+  },
+  {
+   "id": "P-S-16",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-01",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-02",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.006
+  },
+  {
+   "id": "P-I-03",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-04",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-05",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-06",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-07",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-08",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-09",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-10",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-11",
+   "match": true,
+   "cpu_s_core": 0.008,
+   "cpu_s_local": 0.006
+  },
+  {
+   "id": "P-I-12",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-13",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-14",
+   "match": true,
+   "cpu_s_core": 0.006,
+   "cpu_s_local": 0.007
+  },
+  {
+   "id": "P-I-15",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-16",
+   "match": true,
+   "cpu_s_core": 0.006,
+   "cpu_s_local": 0.006
+  },
+  {
+   "id": "P-I-17",
+   "match": true,
+   "cpu_s_core": 0.006,
+   "cpu_s_local": 0.006
+  },
+  {
+   "id": "P-I-18",
+   "match": true,
+   "cpu_s_core": 0.008,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-19",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.004
+  },
+  {
+   "id": "P-I-20",
+   "match": true,
+   "cpu_s_core": 0.004,
+   "cpu_s_local": 0.004
+  },
+  {
+   "id": "P-I-21",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.006
+  },
+  {
+   "id": "P-I-22",
+   "match": true,
+   "cpu_s_core": 0.016,
+   "cpu_s_local": 0.016
+  },
+  {
+   "id": "P-I-23",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-I-24",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-I-25",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-I-26",
+   "match": true,
+   "cpu_s_core": 0.0,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-I-27",
+   "match": true,
+   "cpu_s_core": 0.001,
+   "cpu_s_local": 0.001
+  },
+  {
+   "id": "P-I-28",
+   "match": true,
+   "cpu_s_core": 0.001,
+   "cpu_s_local": 0.001
+  },
+  {
+   "id": "P-I-29",
+   "match": true,
+   "cpu_s_core": 0.001,
+   "cpu_s_local": 0.001
+  },
+  {
+   "id": "P-I-30",
+   "match": true,
+   "cpu_s_core": 0.001,
+   "cpu_s_local": 0.001
+  },
+  {
+   "id": "P-I-31",
+   "match": true,
+   "cpu_s_core": 0.006,
+   "cpu_s_local": 0.005
+  },
+  {
+   "id": "P-I-32",
+   "match": true,
+   "cpu_s_core": 0.005,
+   "cpu_s_local": 0.004
+  },
+  {
+   "id": "P-I-33",
+   "match": true,
+   "cpu_s_core": 0.003,
+   "cpu_s_local": 0.003
+  },
+  {
+   "id": "P-I-34",
+   "match": true,
+   "cpu_s_core": 0.017,
+   "cpu_s_local": 0.017
+  },
+  {
+   "id": "P-LIMIT-svg",
+   "match": true,
+   "cpu_s_core": 0.227,
+   "cpu_s_local": 0.203
+  },
+  {
+   "id": "P-ARG-plan-id",
+   "match": true,
+   "cpu_s_core": 0.001,
+   "cpu_s_local": 0.0
+  },
+  {
+   "id": "P-ARG-view-option",
+   "match": true,
+   "cpu_s_core": 0.001,
+   "cpu_s_local": 0.001
+  }
+ ]
+}

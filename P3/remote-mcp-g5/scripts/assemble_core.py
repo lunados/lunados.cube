@@ -25,6 +25,7 @@ FILES={
  'P1/migration-profile-v2/cube_p1101':'*',
  'P1/migration-methods-v1/cube_p111':'*',
  'P1/coverage-instance-profile-v1/cube_p112':'*',
+ 'P1/control-flow-profile-v1/cube_p113':'*',
  'P2/visual-printer-release-v1/vpprint':'*',
  'P2/visual-printer-conformance-v1/vpconformance':'*',
  'P2/visual-printer-granularity-v1/vpgranularity':'*',
@@ -32,6 +33,12 @@ FILES={
  'P2/visual-printer-2d-lab/vplenses':'*',
  'P2/visual-printer-2d-lab/vpviews':'*',
  'P2/visual-printer-2d-lab/reference':'*',
+ # R5 (MILE-010): the plan printers of G6 (VP-07…VP-11), staged unchanged
+ 'P2/visual-printer-migration-v1/vpmigration':'*',
+ 'P2/visual-printer-sequence-v1/vpsequence':'*',
+ 'P2/visual-printer-axes-v1/vpaxes':'*',
+ 'P2/visual-printer-cells-v1/vpcells':'*',
+ 'P2/visual-printer-instances-v1/vpinstances':'*',
 }
 KEEP={'.py','.json','.md','.ebnf','.txt'}
 
@@ -126,9 +133,24 @@ def main():
     r=dispatch('cube_validate',{'input_text':kvec['K-08']['input_text'],'context':k7})
     assert not r['ok'] and r['diagnostic']['code']=='P1_MCP_CONFIG_INVALID',r
     assert dispatch('cube_discover_surface')['result']['p112_coverage_instance']['profile']=='P1.12/coverage-instance-profile-v1'
+    # R5 (MILE-010, ST-3): binding-context/9 through P1.13 and one chain per plan view through the core
+    for c in json.loads((REPO/'P1/control-flow-profile-v1/fixtures/kf01_kf09_materialized.json').read_text('utf-8'))['cases']:
+        r=dispatch('cube_validate',{'input_text':c['input_text'],'context':c['context']})
+        assert r['ok'] and r['result']['report']['overall_status']==c['expected_overall'],(c['id'],r)
+        if c['context']['format'].endswith('/9'):
+            assert r['result']['control_flow_profile']=='P1.13/control-flow-profile-v1' and r['result']['trace_evaluation_by_cube'] is False,(c['id'],r)
+    surf=dispatch('cube_discover_surface')['result']
+    assert surf['p113_control_flow']['binding_context_formats']==['aiaeao.cube.binding-context/9'],surf['p113_control_flow']
+    assert surf['domains']['P2']['plan_views']['remote_available'] is True and len(surf['domains']['P2']['plan_views']['views'])==6
+    sys.path.insert(0,str(HERE/'scripts'))
+    import r5_calls
+    one={'P-K01-phases','P-K07-flow','P-K08-sequence','P-K09-axes','P-S-04','P-I-22'}
+    for call in (c for c in r5_calls.calls() if c['id'] in one):
+        steps=r5_calls.run_chain(call,lambda op,a:(lambda r:(not r['ok'],r.get('result',r.get('diagnostic'))))(dispatch(op,a)))
+        assert len(steps)==len(call['steps']) and not any(e for e,_ in steps) and steps[-1][1]['status']=='PASS',(call['id'],steps[-1])
     (OUT/'G5_SOURCE_MANIFEST.json').write_text(json.dumps({'format':'aiaeao.cube.g5-assembly/1',
          'files':manifest,'p0_snapshot_lock':report['lock_sha256']},sort_keys=True,indent=2)+'\n','utf-8')
-    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9 + P1.10 + P1.10.1 + P1.11 + P1.12); pinned P0 %s' % (len(manifest),report['lock_sha256']))
+    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9 + P1.10 + P1.10.1 + P1.11 + P1.12 + R5: P1.13, plan printers VP-07…VP-11); pinned P0 %s' % (len(manifest),report['lock_sha256']))
     print('Deployable candidate assembled at: '+str(OUT))
 
 if __name__=='__main__': main()

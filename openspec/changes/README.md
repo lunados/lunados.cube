@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-- keine
+- [deliver-remote-plan-views](deliver-remote-plan-views/proposal.md) — MILE-010 entschieden (D-1–D-8), in Arbeit; fünf offene Tasks.
 
 ## Abgeschlossen
 

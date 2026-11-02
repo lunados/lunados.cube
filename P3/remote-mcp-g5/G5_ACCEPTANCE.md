@@ -12,6 +12,7 @@
 | R3 Remote SDK conformance | PASS user-reported | Actual Python SDK client returned `PASS G5 ACTUAL REMOTE MCP: auth, Origin, 7 tools, 14 resources, P0, P1, VP06 byte parity` |
 | R4 Independent Claude host | Functional PASS; FORMAL INCOMPLETE | Claude report: 27 remote calls plus earlier discovery, 7/7 tools, P0 hashes, P1 states, P2 renders; R4.8 missing persisted raw R3, R4.5 host did not hash SVG bytes himself, MIME divergence observed before fix |
 | R5 Post-consolidation redeploy | PENDING | Redeploy private Core if source change included; deploy updated Gateway; repeat remote SDK and Claude MIME checks |
+| R5.PV Control flow and plan views (MILE-010) | OFFLINE PASS; LIVE 87/88 (CPU limit documented, spec §10); HOST PENDING | Core `P3-MCP-REMOTE/0.8.0-proof`, gateway `0.2.0-proof`: `/9` and the three plan tools ([spec](G5_R5_ACCEPTANCE_SPEC.md)); offline parity 88/88 ([report](evidence/G5_R5_OFFLINE_PARITY.json)); live script and host subset after redeploying core and gateway, which also repeats the R5 remote SDK check |
 | R6 Production operations | NOT APPROVED | OAuth / tenant isolation, rate limiting, observability, rollback/secret rotation, cost controls require separate gate |
 
 The old G5 prototype's `R3 Security / R4 Exact parity / R5 Host UX` were descriptive draft gate names. This ledger uses the user's operational R1–R4 naming. Do not merge them without mapping.
