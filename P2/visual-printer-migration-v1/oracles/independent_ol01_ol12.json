@@ -1,0 +1,288 @@
+{
+ "format": "aiaeao.cube.vp07-oracle/1",
+ "profile": "P2-VP-MIGRATION/0.7.6",
+ "independence": "Expected origin, line style and text per edge transcribed by hand from VP07_6_ACCEPTANCE_SPEC.md §1, §2, §3, §5 and Q-4, Q-6, Q-7 before any 0.7.6 runtime code; never generated from printer output.",
+ "transcribed_at": "2026-11-02",
+ "spec_sha256": "943c7349427f7d74ae2c822d1322252905796d995b5eb6a88142a474ae380dbb",
+ "rules": {
+  "legend_rows": [
+   "solid · declared",
+   "dashed · derived",
+   "dotted · origin unknown or not bound"
+  ],
+  "arrowhead": "relation-arrows.reference",
+  "header_0_7_6": "CUBE.FLOW · FIXTURE ASSERTIONS · no inferred chronology or causality",
+  "no_colour_for_origin": true,
+  "max_ids_in_label": 3
+ },
+ "cases": [
+  {
+   "id": "OL-01",
+   "case": "C4-02 statement set as /2: uses statements declared, contains statements without origin",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "m-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "m-2",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-1",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    },
+    {
+     "edge": "s-2",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    },
+    {
+     "edge": "s-3",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-02",
+   "case": "C4-02 aggregated (strategy all) through the projection record of S-04",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "d-1",
+     "origin": "derived",
+     "style": "dashed",
+     "text": "· derived from s-1, s-2"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-03a",
+   "case": "C4-03: api → db declared",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "x-1",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-03b",
+   "case": "C4-03: api → db derived with basis b-api-db (s-1, s-2)",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "x-1",
+     "origin": "derived",
+     "style": "dashed",
+     "text": "· derived from s-1, s-2"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-04",
+   "case": "statement-set/1 (no origin)",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "m-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "m-2",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-2",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-3",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-05",
+   "case": "OL-01 with s-1 origin unknown",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "m-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "m-2",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-1",
+     "origin": "unknown",
+     "style": "dotted",
+     "text": "· origin unknown"
+    },
+    {
+     "edge": "s-2",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    },
+    {
+     "edge": "s-3",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-06",
+   "case": "api → db derived without basis",
+   "expected_status": "PASS",
+   "required_codes": [
+    "VP07_ORIGIN_UNRESOLVED"
+   ],
+   "edges": [
+    {
+     "edge": "x-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-07",
+   "case": "plan path: P1.11 golden plan as /10, dependencies m01a declared, m01b unknown, the others without origin",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge_dependency": "m01a",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    },
+    {
+     "edge_dependency": "m01b",
+     "origin": "unknown",
+     "style": "dotted",
+     "text": "· origin unknown"
+    },
+    {
+     "other_dependencies": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-08",
+   "case": "origin mode plus edge_styles",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ORIGIN_STYLE_CONFLICT"
+   ],
+   "edges": [],
+   "also": []
+  },
+  {
+   "id": "OL-09",
+   "case": "origin mode with cube.phases",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ORIGIN_VIEW"
+   ],
+   "edges": [],
+   "also": []
+  },
+  {
+   "id": "OL-10",
+   "case": "projection record with a wrong input_set_sha256",
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ORIGIN_RECORD_INVALID"
+   ],
+   "edges": [],
+   "also": []
+  },
+  {
+   "id": "OL-11",
+   "case": "OL-03b with locale de",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "x-1",
+     "origin": "derived",
+     "style": "dashed",
+     "text": "· abgeleitet aus s-1, s-2"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-12",
+   "case": "G6 round trip of OL-02 and cube_plan_check",
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "d-1",
+     "origin": "derived",
+     "style": "dashed",
+     "text": "· derived from s-1, s-2"
+    }
+   ],
+   "also": [
+    "G6 files byte-identical to CLI",
+    "cube_plan_check PASS"
+   ]
+  }
+ ]
+}

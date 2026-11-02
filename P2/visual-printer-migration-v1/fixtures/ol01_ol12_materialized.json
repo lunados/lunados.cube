@@ -1,0 +1,5668 @@
+{
+ "format": "aiaeao.cube.vp07-vectors/1",
+ "profile": "P2-VP-MIGRATION/0.7.6",
+ "reference_version": "v9.4",
+ "source": "synthetic; MILE-007 C4 set, VP-10 S-04 projection record, P1.14 HO contexts, P1.11 GM-pos; no client data",
+ "oracle_sha256": "ad1e55440d28ba3a710e5f38951a4c6f89e9db6ad8076e2106e9c1aa00266068",
+ "cases": [
+  {
+   "id": "OL-01",
+   "case": "C4-02 statement set as /2: uses statements declared, contains statements without origin",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/2",
+     "set_id": "c4-components",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db",
+      "c4:shop/api/order-controller",
+      "c4:shop/api/order-repository"
+     ],
+     "statements": [
+      {
+       "statement_id": "m-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-controller"
+      },
+      {
+       "statement_id": "m-2",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-repository"
+      },
+      {
+       "statement_id": "s-1",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Writes orders to",
+       "origin": "declared"
+      },
+      {
+       "statement_id": "s-2",
+       "subject": "c4:shop/api/order-repository",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Reads orders from",
+       "origin": "declared"
+      },
+      {
+       "statement_id": "s-3",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/api/order-repository",
+       "label": "Uses",
+       "origin": "declared"
+      }
+     ],
+     "witness_ref": "synthetic:mile007#c4-components"
+    }
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "m-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "m-2",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-1",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    },
+    {
+     "edge": "s-2",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    },
+    {
+     "edge": "s-3",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-02",
+   "case": "C4-02 aggregated (strategy all) through the projection record of S-04",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/1",
+     "set_id": "c4-components",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db",
+      "c4:shop/api/order-controller",
+      "c4:shop/api/order-repository"
+     ],
+     "statements": [
+      {
+       "statement_id": "m-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-controller"
+      },
+      {
+       "statement_id": "m-2",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-repository"
+      },
+      {
+       "statement_id": "s-1",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Writes orders to"
+      },
+      {
+       "statement_id": "s-2",
+       "subject": "c4:shop/api/order-repository",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Reads orders from"
+      },
+      {
+       "statement_id": "s-3",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/api/order-repository",
+       "label": "Uses"
+      }
+     ],
+     "witness_ref": "synthetic:mile007#c4-components"
+    },
+    "records": [
+     {
+      "format": "aiaeao.cube.projection-record/1",
+      "library_ref": {
+       "library_id": "lunados.lib",
+       "entry_id": "project.aggregate-relations",
+       "revision": "v1",
+       "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+      },
+      "call": {
+       "inputs": {
+        "context": {
+         "context_id": "mile007-c4",
+         "format": "aiaeao.cube.binding-context/8",
+         "method_contracts": [
+          {
+           "argument_max": 64,
+           "argument_min": 1,
+           "effect_class": "pure_declarative",
+           "method_id": "c4.implied-unless-any/v1",
+           "origin": "illustrative_fixture",
+           "revision": "mile002:c4:method/1",
+           "scope": "mile002:c4"
+          }
+         ],
+         "predicate_contracts": [
+          {
+           "additional_constraints": [
+            "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:module-body:tool"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "contains",
+           "required_qualifiers": [],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:module-body:tool",
+            "Z:boundary:boundary"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "uses",
+           "required_qualifiers": [],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:module-body:tool",
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:boundary:boundary"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "uses.derived",
+           "required_qualifiers": [
+            "F"
+           ],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:boundary:boundary",
+            "Z:module-body:tool"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "derivedFrom",
+           "required_qualifiers": [],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:boundary:boundary"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "monitors",
+           "required_qualifiers": [
+            "F"
+           ],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          }
+         ],
+         "profile_limitations": [
+          "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+          "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+          "Keine Wahrheit, Autorität oder Zulassung behauptet."
+         ],
+         "reference_version": "v9.4",
+         "referents": [
+          {
+           "concept_id": "Z:boundary:boundary",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/api",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Z:boundary:boundary",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/db",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Z:module-body:tool",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/api/order-controller",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Z:module-body:tool",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/api/order-repository",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Y:identity-anchor:actor",
+           "home": "Y",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:team/ops",
+           "scope_ref": "mile002:c4"
+          }
+         ],
+         "scope_ref": "mile002:c4",
+         "source_kind": "illustrative_fixture"
+        },
+        "statement_set": {
+         "context_id": "mile007-c4",
+         "format": "aiaeao.cube.statement-set/1",
+         "referents": [
+          "c4:shop/api",
+          "c4:shop/db",
+          "c4:shop/api/order-controller",
+          "c4:shop/api/order-repository"
+         ],
+         "set_id": "c4-components",
+         "statements": [
+          {
+           "object": "c4:shop/api/order-controller",
+           "predicate_id": "contains",
+           "statement_id": "m-1",
+           "subject": "c4:shop/api"
+          },
+          {
+           "object": "c4:shop/api/order-repository",
+           "predicate_id": "contains",
+           "statement_id": "m-2",
+           "subject": "c4:shop/api"
+          },
+          {
+           "label": "Writes orders to",
+           "object": "c4:shop/db",
+           "predicate_id": "uses",
+           "statement_id": "s-1",
+           "subject": "c4:shop/api/order-controller"
+          },
+          {
+           "label": "Reads orders from",
+           "object": "c4:shop/db",
+           "predicate_id": "uses",
+           "statement_id": "s-2",
+           "subject": "c4:shop/api/order-repository"
+          },
+          {
+           "label": "Uses",
+           "object": "c4:shop/api/order-repository",
+           "predicate_id": "uses",
+           "statement_id": "s-3",
+           "subject": "c4:shop/api/order-controller"
+          }
+         ],
+         "witness_ref": "synthetic:mile007#c4-components"
+        }
+       },
+       "method_id": "project.aggregate-relations/v1",
+       "parameters": {
+        "derived_predicate": "uses.derived",
+        "membership_predicate": "contains",
+        "source_predicate": "uses",
+        "strategy": "all"
+       },
+       "schema": "lunados.lib/call/v1"
+      },
+      "result": {
+       "effectful_execution_authorized": false,
+       "input_set_sha256": "4c6eee1aebd556f1743bb2e6505215713df6736df0574175a1a04149aa698001",
+       "internal": [
+        "s-3"
+       ],
+       "loss": {
+        "derived": 1,
+        "internal": 1,
+        "labels_dropped": 1,
+        "merged": 2,
+        "passed_through": 0,
+        "sources": 3,
+        "suppressed": 0
+       },
+       "method_id": "project.aggregate-relations/v1",
+       "parameters": {
+        "derived_predicate": "uses.derived",
+        "membership_predicate": "contains",
+        "source_predicate": "uses",
+        "strategy": "all"
+       },
+       "referents": [
+        "c4:shop/api",
+        "c4:shop/db"
+       ],
+       "runtime_authority": "not-evaluated",
+       "schema": "aiaeao.projection-result/v1",
+       "statements": [
+        {
+         "derived_from": [
+          "s-1",
+          "s-2"
+         ],
+         "label": "Writes orders to",
+         "labels_dropped": 1,
+         "object": "c4:shop/db",
+         "origin": "derived",
+         "predicate_id": "uses.derived",
+         "statement_id": "d-1",
+         "subject": "c4:shop/api"
+        }
+       ],
+       "status": "declared_unverified",
+       "suppressed": []
+      }
+     }
+    ]
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "d-1",
+     "origin": "derived",
+     "style": "dashed",
+     "text": "· derived from s-1, s-2"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-03a",
+   "case": "C4-03: api → db declared",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/2",
+     "set_id": "c4-containers",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db"
+     ],
+     "statements": [
+      {
+       "statement_id": "x-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "origin": "declared"
+      }
+     ],
+     "witness_ref": "synthetic:mile011#c4-containers"
+    }
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "x-1",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-03b",
+   "case": "C4-03: api → db derived with basis b-api-db (s-1, s-2)",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/2",
+     "set_id": "c4-containers",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db"
+     ],
+     "statements": [
+      {
+       "statement_id": "x-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "origin": "derived",
+       "basis": "b-api-db"
+      }
+     ],
+     "witness_ref": "synthetic:mile011#c4-containers"
+    }
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "x-1",
+     "origin": "derived",
+     "style": "dashed",
+     "text": "· derived from s-1, s-2"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-04",
+   "case": "statement-set/1 (no origin)",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/1",
+     "set_id": "c4-components",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db",
+      "c4:shop/api/order-controller",
+      "c4:shop/api/order-repository"
+     ],
+     "statements": [
+      {
+       "statement_id": "m-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-controller"
+      },
+      {
+       "statement_id": "m-2",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-repository"
+      },
+      {
+       "statement_id": "s-1",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Writes orders to"
+      },
+      {
+       "statement_id": "s-2",
+       "subject": "c4:shop/api/order-repository",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Reads orders from"
+      },
+      {
+       "statement_id": "s-3",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/api/order-repository",
+       "label": "Uses"
+      }
+     ],
+     "witness_ref": "synthetic:mile007#c4-components"
+    }
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "m-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "m-2",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-2",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-3",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-05",
+   "case": "OL-01 with s-1 origin unknown",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/2",
+     "set_id": "c4-components",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db",
+      "c4:shop/api/order-controller",
+      "c4:shop/api/order-repository"
+     ],
+     "statements": [
+      {
+       "statement_id": "m-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-controller"
+      },
+      {
+       "statement_id": "m-2",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-repository"
+      },
+      {
+       "statement_id": "s-1",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Writes orders to",
+       "origin": "unknown"
+      },
+      {
+       "statement_id": "s-2",
+       "subject": "c4:shop/api/order-repository",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Reads orders from",
+       "origin": "declared"
+      },
+      {
+       "statement_id": "s-3",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/api/order-repository",
+       "label": "Uses",
+       "origin": "declared"
+      }
+     ],
+     "witness_ref": "synthetic:mile007#c4-components"
+    }
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "m-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "m-2",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    },
+    {
+     "edge": "s-1",
+     "origin": "unknown",
+     "style": "dotted",
+     "text": "· origin unknown"
+    },
+    {
+     "edge": "s-2",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    },
+    {
+     "edge": "s-3",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-06",
+   "case": "api → db derived without basis",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/2",
+     "set_id": "c4-containers",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db"
+     ],
+     "statements": [
+      {
+       "statement_id": "x-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "origin": "derived"
+      }
+     ],
+     "witness_ref": "synthetic:mile011#c4-containers"
+    }
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "PASS",
+   "required_codes": [
+    "VP07_ORIGIN_UNRESOLVED"
+   ],
+   "edges": [
+    {
+     "edge": "x-1",
+     "origin": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-07",
+   "case": "plan path: P1.11 golden plan as /10, dependencies m01a declared, m01b unknown, the others without origin",
+   "op": "from-plan",
+   "plan_source": {
+    "context": {
+     "context_id": "p114-gm",
+     "format": "aiaeao.cube.binding-context/10",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "m01a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-01",
+         "successor_ref": "m01b",
+         "witness_ref": "repo:example/mail-job-01",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-01",
+           "new_object": "acme:new-mail"
+          }
+         },
+         "origin": "declared"
+        },
+        {
+         "dependency_id": "m01b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-01",
+         "witness_ref": "plan:mp-acme#m01b",
+         "origin": "unknown"
+        },
+        {
+         "dependency_id": "m02a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-02",
+         "successor_ref": "m02b",
+         "witness_ref": "repo:example/mail-job-02",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-02",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m02b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-02",
+         "witness_ref": "plan:mp-acme#m02b"
+        },
+        {
+         "dependency_id": "m03a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-03",
+         "successor_ref": "m03b",
+         "witness_ref": "repo:example/mail-job-03",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-03",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m03b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-03",
+         "witness_ref": "plan:mp-acme#m03b"
+        },
+        {
+         "dependency_id": "m04a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-04",
+         "successor_ref": "m04b",
+         "witness_ref": "repo:example/mail-job-04",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-04",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m04b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-04",
+         "witness_ref": "plan:mp-acme#m04b"
+        },
+        {
+         "dependency_id": "m05a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-05",
+         "successor_ref": "m05b",
+         "witness_ref": "repo:example/mail-job-05",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-05",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m05b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-05",
+         "witness_ref": "plan:mp-acme#m05b"
+        },
+        {
+         "dependency_id": "m06a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-06",
+         "successor_ref": "m06b",
+         "witness_ref": "repo:example/mail-job-06",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-06",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m06b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-06",
+         "witness_ref": "plan:mp-acme#m06b"
+        },
+        {
+         "dependency_id": "m07a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-07",
+         "successor_ref": "m07b",
+         "witness_ref": "repo:example/mail-job-07",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-07",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m07b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-07",
+         "witness_ref": "plan:mp-acme#m07b"
+        },
+        {
+         "dependency_id": "m08a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-08",
+         "successor_ref": "m08b",
+         "witness_ref": "repo:example/mail-job-08",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-08",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m08b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-08",
+         "witness_ref": "plan:mp-acme#m08b"
+        },
+        {
+         "dependency_id": "m09a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-09",
+         "successor_ref": "m09b",
+         "witness_ref": "repo:example/mail-job-09",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-09",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m09b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-09",
+         "witness_ref": "plan:mp-acme#m09b"
+        },
+        {
+         "dependency_id": "f01a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-01",
+         "successor_ref": "f01b",
+         "witness_ref": "repo:example/file-job-01",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:file-job-01",
+           "new_object": "acme:new-files"
+          }
+         }
+        },
+        {
+         "dependency_id": "f01b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-01",
+         "witness_ref": "plan:mp-acme#f01b"
+        },
+        {
+         "dependency_id": "f02a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-02",
+         "successor_ref": "f02b",
+         "witness_ref": "repo:example/file-job-02",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:file-job-02",
+           "new_object": "acme:new-files"
+          }
+         }
+        },
+        {
+         "dependency_id": "f02b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-02",
+         "witness_ref": "plan:mp-acme#f02b"
+        },
+        {
+         "dependency_id": "f03a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-03",
+         "successor_ref": "f03b",
+         "witness_ref": "repo:example/file-job-03",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:file-job-03",
+           "new_object": "acme:new-files"
+          }
+         }
+        },
+        {
+         "dependency_id": "f03b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-03",
+         "witness_ref": "plan:mp-acme#f03b"
+        },
+        {
+         "dependency_id": "f04a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-04",
+         "successor_ref": "f04b",
+         "witness_ref": "repo:example/file-job-04",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:file-job-04",
+           "new_object": "acme:new-files"
+          }
+         }
+        },
+        {
+         "dependency_id": "f04b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-04",
+         "witness_ref": "plan:mp-acme#f04b"
+        },
+        {
+         "dependency_id": "a01a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-01",
+         "successor_ref": "a01b",
+         "witness_ref": "repo:example/account-01",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:account-01",
+           "new_object": "acme:new-directory"
+          }
+         }
+        },
+        {
+         "dependency_id": "a01b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-01",
+         "witness_ref": "plan:mp-acme#a01b"
+        },
+        {
+         "dependency_id": "a02a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-02",
+         "successor_ref": "a02b",
+         "witness_ref": "repo:example/account-02",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:account-02",
+           "new_object": "acme:new-directory"
+          }
+         }
+        },
+        {
+         "dependency_id": "a02b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-02",
+         "witness_ref": "plan:mp-acme#a02b"
+        },
+        {
+         "dependency_id": "a03a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-03",
+         "successor_ref": "a03b",
+         "witness_ref": "repo:example/account-03",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:account-03",
+           "new_object": "acme:new-directory"
+          }
+         }
+        },
+        {
+         "dependency_id": "a03b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-03",
+         "witness_ref": "plan:mp-acme#a03b"
+        },
+        {
+         "dependency_id": "g01",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:archive-store",
+         "predicate_id": "depends-on",
+         "subject": "acme:mail-job-09",
+         "witness_ref": "repo:example/mail-job-09/archive",
+         "dropped": true
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-acme",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p1",
+         "introduces": [
+          "acme:new-mail"
+         ],
+         "retires": [],
+         "transition_id": "t-intro-mail",
+         "witness_ref": "synthetic:contract#scope",
+         "methods": [
+          {
+           "method_id": "migrate.rebuild/v1",
+           "arguments": {
+            "target": "acme:new-mail"
+           }
+          }
+         ]
+        },
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [],
+         "retires": [
+          "acme:legacy-mail"
+         ],
+         "transition_id": "t-mail-cut",
+         "witness_ref": "synthetic:contract#scope",
+         "methods": [
+          {
+           "method_id": "migrate.import/v1",
+           "arguments": {
+            "source": "acme:legacy-mail",
+            "target": "acme:new-mail"
+           }
+          },
+          {
+           "method_id": "migrate.retire/v1",
+           "arguments": {
+            "retired": "acme:legacy-mail"
+           }
+          }
+         ]
+        },
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "acme:new-files"
+         ],
+         "retires": [
+          "acme:legacy-files"
+         ],
+         "transition_id": "t-files-switch",
+         "witness_ref": "synthetic:contract#scope",
+         "methods": [
+          {
+           "method_id": "migrate.import/v1",
+           "arguments": {
+            "source": "acme:legacy-files",
+            "target": "acme:new-files"
+           }
+          },
+          {
+           "method_id": "migrate.retire/v1",
+           "arguments": {
+            "retired": "acme:legacy-files"
+           }
+          }
+         ]
+        },
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "acme:new-directory"
+         ],
+         "retires": [
+          "acme:legacy-directory"
+         ],
+         "transition_id": "t-directory-switch",
+         "witness_ref": "synthetic:contract#scope",
+         "methods": [
+          {
+           "method_id": "migrate.rebuild/v1",
+           "arguments": {
+            "target": "acme:new-directory"
+           }
+          },
+          {
+           "method_id": "migrate.retire/v1",
+           "arguments": {
+            "retired": "acme:legacy-directory"
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:legacy-files",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:new-files",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:legacy-directory",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:new-directory",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:archive-store",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-01",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-02",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-03",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-04",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-05",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-06",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-07",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-08",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-09",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:file-job-01",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:file-job-02",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:file-job-03",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:file-job-04",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:account-01",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:account-02",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:account-03",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture",
+     "method_profile_refs": [
+      "P1.11/migration-methods-v1"
+     ]
+    },
+    "plan_id": "mp-acme",
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge_dependency": "m01a",
+     "origin": "declared",
+     "style": "solid",
+     "text": "· declared"
+    },
+    {
+     "edge_dependency": "m01b",
+     "origin": "unknown",
+     "style": "dotted",
+     "text": "· origin unknown"
+    },
+    {
+     "other_dependencies": "unbound",
+     "style": "dotted",
+     "text": "· origin not bound"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-08",
+   "case": "origin mode plus edge_styles",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/2",
+     "set_id": "c4-components",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db",
+      "c4:shop/api/order-controller",
+      "c4:shop/api/order-repository"
+     ],
+     "statements": [
+      {
+       "statement_id": "m-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-controller"
+      },
+      {
+       "statement_id": "m-2",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-repository"
+      },
+      {
+       "statement_id": "s-1",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Writes orders to",
+       "origin": "declared"
+      },
+      {
+       "statement_id": "s-2",
+       "subject": "c4:shop/api/order-repository",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Reads orders from",
+       "origin": "declared"
+      },
+      {
+       "statement_id": "s-3",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/api/order-repository",
+       "label": "Uses",
+       "origin": "declared"
+      }
+     ],
+     "witness_ref": "synthetic:mile007#c4-components"
+    },
+    "edge_styles": [
+     {
+      "predicate_id": "uses",
+      "style": "dashed",
+      "legend": "uses"
+     }
+    ]
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ORIGIN_STYLE_CONFLICT"
+   ],
+   "edges": [],
+   "also": []
+  },
+  {
+   "id": "OL-09",
+   "case": "origin mode with cube.phases",
+   "op": "from-plan",
+   "plan_source": {
+    "context": {
+     "context_id": "p114-gm",
+     "format": "aiaeao.cube.binding-context/10",
+     "migration_plans": [
+      {
+       "dependencies": [
+        {
+         "dependency_id": "m01a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-01",
+         "successor_ref": "m01b",
+         "witness_ref": "repo:example/mail-job-01",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-01",
+           "new_object": "acme:new-mail"
+          }
+         },
+         "origin": "declared"
+        },
+        {
+         "dependency_id": "m01b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-01",
+         "witness_ref": "plan:mp-acme#m01b",
+         "origin": "unknown"
+        },
+        {
+         "dependency_id": "m02a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-02",
+         "successor_ref": "m02b",
+         "witness_ref": "repo:example/mail-job-02",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-02",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m02b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-02",
+         "witness_ref": "plan:mp-acme#m02b"
+        },
+        {
+         "dependency_id": "m03a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-03",
+         "successor_ref": "m03b",
+         "witness_ref": "repo:example/mail-job-03",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-03",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m03b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-03",
+         "witness_ref": "plan:mp-acme#m03b"
+        },
+        {
+         "dependency_id": "m04a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-04",
+         "successor_ref": "m04b",
+         "witness_ref": "repo:example/mail-job-04",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-04",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m04b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-04",
+         "witness_ref": "plan:mp-acme#m04b"
+        },
+        {
+         "dependency_id": "m05a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-05",
+         "successor_ref": "m05b",
+         "witness_ref": "repo:example/mail-job-05",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-05",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m05b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-05",
+         "witness_ref": "plan:mp-acme#m05b"
+        },
+        {
+         "dependency_id": "m06a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-06",
+         "successor_ref": "m06b",
+         "witness_ref": "repo:example/mail-job-06",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-06",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m06b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-06",
+         "witness_ref": "plan:mp-acme#m06b"
+        },
+        {
+         "dependency_id": "m07a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-07",
+         "successor_ref": "m07b",
+         "witness_ref": "repo:example/mail-job-07",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-07",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m07b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-07",
+         "witness_ref": "plan:mp-acme#m07b"
+        },
+        {
+         "dependency_id": "m08a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-08",
+         "successor_ref": "m08b",
+         "witness_ref": "repo:example/mail-job-08",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-08",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m08b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-08",
+         "witness_ref": "plan:mp-acme#m08b"
+        },
+        {
+         "dependency_id": "m09a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-09",
+         "successor_ref": "m09b",
+         "witness_ref": "repo:example/mail-job-09",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:mail-job-09",
+           "new_object": "acme:new-mail"
+          }
+         }
+        },
+        {
+         "dependency_id": "m09b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-mail",
+         "predicate_id": "sends-via",
+         "subject": "acme:mail-job-09",
+         "witness_ref": "plan:mp-acme#m09b"
+        },
+        {
+         "dependency_id": "f01a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-01",
+         "successor_ref": "f01b",
+         "witness_ref": "repo:example/file-job-01",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:file-job-01",
+           "new_object": "acme:new-files"
+          }
+         }
+        },
+        {
+         "dependency_id": "f01b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-01",
+         "witness_ref": "plan:mp-acme#f01b"
+        },
+        {
+         "dependency_id": "f02a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-02",
+         "successor_ref": "f02b",
+         "witness_ref": "repo:example/file-job-02",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:file-job-02",
+           "new_object": "acme:new-files"
+          }
+         }
+        },
+        {
+         "dependency_id": "f02b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-02",
+         "witness_ref": "plan:mp-acme#f02b"
+        },
+        {
+         "dependency_id": "f03a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-03",
+         "successor_ref": "f03b",
+         "witness_ref": "repo:example/file-job-03",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:file-job-03",
+           "new_object": "acme:new-files"
+          }
+         }
+        },
+        {
+         "dependency_id": "f03b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-03",
+         "witness_ref": "plan:mp-acme#f03b"
+        },
+        {
+         "dependency_id": "f04a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-04",
+         "successor_ref": "f04b",
+         "witness_ref": "repo:example/file-job-04",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:file-job-04",
+           "new_object": "acme:new-files"
+          }
+         }
+        },
+        {
+         "dependency_id": "f04b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-files",
+         "predicate_id": "syncs-with",
+         "subject": "acme:file-job-04",
+         "witness_ref": "plan:mp-acme#f04b"
+        },
+        {
+         "dependency_id": "a01a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-01",
+         "successor_ref": "a01b",
+         "witness_ref": "repo:example/account-01",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:account-01",
+           "new_object": "acme:new-directory"
+          }
+         }
+        },
+        {
+         "dependency_id": "a01b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-01",
+         "witness_ref": "plan:mp-acme#a01b"
+        },
+        {
+         "dependency_id": "a02a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-02",
+         "successor_ref": "a02b",
+         "witness_ref": "repo:example/account-02",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:account-02",
+           "new_object": "acme:new-directory"
+          }
+         }
+        },
+        {
+         "dependency_id": "a02b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-02",
+         "witness_ref": "plan:mp-acme#a02b"
+        },
+        {
+         "dependency_id": "a03a",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:legacy-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-03",
+         "successor_ref": "a03b",
+         "witness_ref": "repo:example/account-03",
+         "method": {
+          "method_id": "migrate.rewrite/v1",
+          "arguments": {
+           "dependant": "acme:account-03",
+           "new_object": "acme:new-directory"
+          }
+         }
+        },
+        {
+         "dependency_id": "a03b",
+         "holds_in": [
+          "p2",
+          "p3"
+         ],
+         "kind": "job",
+         "object": "acme:new-directory",
+         "predicate_id": "depends-on",
+         "subject": "acme:account-03",
+         "witness_ref": "plan:mp-acme#a03b"
+        },
+        {
+         "dependency_id": "g01",
+         "holds_in": [
+          "p0",
+          "p1"
+         ],
+         "kind": "job",
+         "object": "acme:archive-store",
+         "predicate_id": "depends-on",
+         "subject": "acme:mail-job-09",
+         "witness_ref": "repo:example/mail-job-09/archive",
+         "dropped": true
+        }
+       ],
+       "origin": "illustrative_fixture",
+       "phases": [
+        {
+         "phase_id": "p0",
+         "role": "current"
+        },
+        {
+         "phase_id": "p1",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p2",
+         "role": "intermediate"
+        },
+        {
+         "phase_id": "p3",
+         "role": "target"
+        }
+       ],
+       "plan_id": "mp-acme",
+       "revision": "synthetic:v1",
+       "scope": "acme:migration",
+       "transitions": [
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p1",
+         "introduces": [
+          "acme:new-mail"
+         ],
+         "retires": [],
+         "transition_id": "t-intro-mail",
+         "witness_ref": "synthetic:contract#scope",
+         "methods": [
+          {
+           "method_id": "migrate.rebuild/v1",
+           "arguments": {
+            "target": "acme:new-mail"
+           }
+          }
+         ]
+        },
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [],
+         "retires": [
+          "acme:legacy-mail"
+         ],
+         "transition_id": "t-mail-cut",
+         "witness_ref": "synthetic:contract#scope",
+         "methods": [
+          {
+           "method_id": "migrate.import/v1",
+           "arguments": {
+            "source": "acme:legacy-mail",
+            "target": "acme:new-mail"
+           }
+          },
+          {
+           "method_id": "migrate.retire/v1",
+           "arguments": {
+            "retired": "acme:legacy-mail"
+           }
+          }
+         ]
+        },
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "acme:new-files"
+         ],
+         "retires": [
+          "acme:legacy-files"
+         ],
+         "transition_id": "t-files-switch",
+         "witness_ref": "synthetic:contract#scope",
+         "methods": [
+          {
+           "method_id": "migrate.import/v1",
+           "arguments": {
+            "source": "acme:legacy-files",
+            "target": "acme:new-files"
+           }
+          },
+          {
+           "method_id": "migrate.retire/v1",
+           "arguments": {
+            "retired": "acme:legacy-files"
+           }
+          }
+         ]
+        },
+        {
+         "T": {
+          "role": "scheduling",
+          "value": "TBD"
+         },
+         "at_phase": "p2",
+         "introduces": [
+          "acme:new-directory"
+         ],
+         "retires": [
+          "acme:legacy-directory"
+         ],
+         "transition_id": "t-directory-switch",
+         "witness_ref": "synthetic:contract#scope",
+         "methods": [
+          {
+           "method_id": "migrate.rebuild/v1",
+           "arguments": {
+            "target": "acme:new-directory"
+           }
+          },
+          {
+           "method_id": "migrate.retire/v1",
+           "arguments": {
+            "retired": "acme:legacy-directory"
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "predicate_contracts": [],
+     "predicate_profile_refs": [
+      "P1.10/migration-predicates-v1"
+     ],
+     "reference_version": "v9.4",
+     "referents": [
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:legacy-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:new-mail",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:legacy-files",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:new-files",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:third-party-dependency",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:legacy-directory",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:provider",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:new-directory",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Y:resource-object:resource",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:archive-store",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-01",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-02",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-03",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-04",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-05",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-06",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-07",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-08",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:mail-job-09",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:file-job-01",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:file-job-02",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:file-job-03",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:file-job-04",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:account-01",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:account-02",
+       "scope_ref": "acme:migration"
+      },
+      {
+       "concept_id": "Z:module-body:integration",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "ref": "acme:account-03",
+       "scope_ref": "acme:migration"
+      }
+     ],
+     "scope_ref": "acme:migration",
+     "source_kind": "illustrative_fixture",
+     "method_profile_refs": [
+      "P1.11/migration-methods-v1"
+     ]
+    },
+    "plan_id": "mp-acme",
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true
+   },
+   "plan_views": {
+    "view": "cube.phases",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ORIGIN_VIEW"
+   ],
+   "edges": [],
+   "also": []
+  },
+  {
+   "id": "OL-10",
+   "case": "projection record with a wrong input_set_sha256",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/1",
+     "set_id": "c4-components",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db",
+      "c4:shop/api/order-controller",
+      "c4:shop/api/order-repository"
+     ],
+     "statements": [
+      {
+       "statement_id": "m-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-controller"
+      },
+      {
+       "statement_id": "m-2",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-repository"
+      },
+      {
+       "statement_id": "s-1",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Writes orders to"
+      },
+      {
+       "statement_id": "s-2",
+       "subject": "c4:shop/api/order-repository",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Reads orders from"
+      },
+      {
+       "statement_id": "s-3",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/api/order-repository",
+       "label": "Uses"
+      }
+     ],
+     "witness_ref": "synthetic:mile007#c4-components"
+    },
+    "records": [
+     {
+      "format": "aiaeao.cube.projection-record/1",
+      "library_ref": {
+       "library_id": "lunados.lib",
+       "entry_id": "project.aggregate-relations",
+       "revision": "v1",
+       "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+      },
+      "call": {
+       "inputs": {
+        "context": {
+         "context_id": "mile007-c4",
+         "format": "aiaeao.cube.binding-context/8",
+         "method_contracts": [
+          {
+           "argument_max": 64,
+           "argument_min": 1,
+           "effect_class": "pure_declarative",
+           "method_id": "c4.implied-unless-any/v1",
+           "origin": "illustrative_fixture",
+           "revision": "mile002:c4:method/1",
+           "scope": "mile002:c4"
+          }
+         ],
+         "predicate_contracts": [
+          {
+           "additional_constraints": [
+            "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:module-body:tool"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "contains",
+           "required_qualifiers": [],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:module-body:tool",
+            "Z:boundary:boundary"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "uses",
+           "required_qualifiers": [],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:module-body:tool",
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:boundary:boundary"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "uses.derived",
+           "required_qualifiers": [
+            "F"
+           ],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:boundary:boundary",
+            "Z:module-body:tool"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "derivedFrom",
+           "required_qualifiers": [],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:boundary:boundary"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "monitors",
+           "required_qualifiers": [
+            "F"
+           ],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          }
+         ],
+         "profile_limitations": [
+          "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+          "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+          "Keine Wahrheit, Autorität oder Zulassung behauptet."
+         ],
+         "reference_version": "v9.4",
+         "referents": [
+          {
+           "concept_id": "Z:boundary:boundary",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/api",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Z:boundary:boundary",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/db",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Z:module-body:tool",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/api/order-controller",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Z:module-body:tool",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/api/order-repository",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Y:identity-anchor:actor",
+           "home": "Y",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:team/ops",
+           "scope_ref": "mile002:c4"
+          }
+         ],
+         "scope_ref": "mile002:c4",
+         "source_kind": "illustrative_fixture"
+        },
+        "statement_set": {
+         "context_id": "mile007-c4",
+         "format": "aiaeao.cube.statement-set/1",
+         "referents": [
+          "c4:shop/api",
+          "c4:shop/db",
+          "c4:shop/api/order-controller",
+          "c4:shop/api/order-repository"
+         ],
+         "set_id": "c4-components",
+         "statements": [
+          {
+           "object": "c4:shop/api/order-controller",
+           "predicate_id": "contains",
+           "statement_id": "m-1",
+           "subject": "c4:shop/api"
+          },
+          {
+           "object": "c4:shop/api/order-repository",
+           "predicate_id": "contains",
+           "statement_id": "m-2",
+           "subject": "c4:shop/api"
+          },
+          {
+           "label": "Writes orders to",
+           "object": "c4:shop/db",
+           "predicate_id": "uses",
+           "statement_id": "s-1",
+           "subject": "c4:shop/api/order-controller"
+          },
+          {
+           "label": "Reads orders from",
+           "object": "c4:shop/db",
+           "predicate_id": "uses",
+           "statement_id": "s-2",
+           "subject": "c4:shop/api/order-repository"
+          },
+          {
+           "label": "Uses",
+           "object": "c4:shop/api/order-repository",
+           "predicate_id": "uses",
+           "statement_id": "s-3",
+           "subject": "c4:shop/api/order-controller"
+          }
+         ],
+         "witness_ref": "synthetic:mile007#c4-components"
+        }
+       },
+       "method_id": "project.aggregate-relations/v1",
+       "parameters": {
+        "derived_predicate": "uses.derived",
+        "membership_predicate": "contains",
+        "source_predicate": "uses",
+        "strategy": "all"
+       },
+       "schema": "lunados.lib/call/v1"
+      },
+      "result": {
+       "effectful_execution_authorized": false,
+       "input_set_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+       "internal": [
+        "s-3"
+       ],
+       "loss": {
+        "derived": 1,
+        "internal": 1,
+        "labels_dropped": 1,
+        "merged": 2,
+        "passed_through": 0,
+        "sources": 3,
+        "suppressed": 0
+       },
+       "method_id": "project.aggregate-relations/v1",
+       "parameters": {
+        "derived_predicate": "uses.derived",
+        "membership_predicate": "contains",
+        "source_predicate": "uses",
+        "strategy": "all"
+       },
+       "referents": [
+        "c4:shop/api",
+        "c4:shop/db"
+       ],
+       "runtime_authority": "not-evaluated",
+       "schema": "aiaeao.projection-result/v1",
+       "statements": [
+        {
+         "derived_from": [
+          "s-1",
+          "s-2"
+         ],
+         "label": "Writes orders to",
+         "labels_dropped": 1,
+         "object": "c4:shop/db",
+         "origin": "derived",
+         "predicate_id": "uses.derived",
+         "statement_id": "d-1",
+         "subject": "c4:shop/api"
+        }
+       ],
+       "status": "declared_unverified",
+       "suppressed": []
+      }
+     }
+    ]
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "FAIL",
+   "required_codes": [
+    "VP07_ORIGIN_RECORD_INVALID"
+   ],
+   "edges": [],
+   "also": []
+  },
+  {
+   "id": "OL-11",
+   "case": "OL-03b with locale de",
+   "op": "statements",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/2",
+     "set_id": "c4-containers",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db"
+     ],
+     "statements": [
+      {
+       "statement_id": "x-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "origin": "derived",
+       "basis": "b-api-db"
+      }
+     ],
+     "witness_ref": "synthetic:mile011#c4-containers"
+    }
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject",
+    "locale": "de"
+   },
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "x-1",
+     "origin": "derived",
+     "style": "dashed",
+     "text": "· abgeleitet aus s-1, s-2"
+    }
+   ],
+   "also": []
+  },
+  {
+   "id": "OL-12",
+   "case": "G6 round trip of OL-02 and cube_plan_check",
+   "op": "g6",
+   "plan_source": {
+    "context": {
+     "format": "aiaeao.cube.binding-context/10",
+     "reference_version": "v9.4",
+     "context_id": "mile007-c4",
+     "source_kind": "illustrative_fixture",
+     "scope_ref": "mile002:c4",
+     "referents": [
+      {
+       "ref": "c4:shop/api",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/db",
+       "concept_id": "Z:boundary:boundary",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-controller",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:shop/api/order-repository",
+       "concept_id": "Z:module-body:tool",
+       "home": "Z",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      },
+      {
+       "ref": "c4:team/ops",
+       "concept_id": "Y:identity-anchor:actor",
+       "home": "Y",
+       "layers": [
+        "α"
+       ],
+       "provenance_status": "declared_unverified",
+       "scope_ref": "mile002:c4"
+      }
+     ],
+     "predicate_contracts": [
+      {
+       "predicate_id": "contains",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+       ]
+      },
+      {
+       "predicate_id": "uses",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:tool",
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+       ],
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "uses.derived",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      },
+      {
+       "predicate_id": "derivedFrom",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary",
+        "Z:module-body:tool"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [],
+       "additional_constraints": [
+        "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+       ]
+      },
+      {
+       "predicate_id": "monitors",
+       "revision": "mile002:c4:pred/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "subject_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "object_concept_ids": [
+        "Z:boundary:boundary"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "F"
+       ],
+       "additional_constraints": [
+        "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+       ]
+      }
+     ],
+     "method_contracts": [
+      {
+       "method_id": "c4.implied-unless-any/v1",
+       "revision": "mile002:c4:method/1",
+       "scope": "mile002:c4",
+       "origin": "illustrative_fixture",
+       "argument_min": 1,
+       "argument_max": 64,
+       "effect_class": "pure_declarative"
+      }
+     ],
+     "profile_limitations": [
+      "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+      "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+      "Keine Wahrheit, Autorität oder Zulassung behauptet."
+     ],
+     "origin_bases": [
+      {
+       "basis_id": "b-api-db",
+       "kind": "statements",
+       "set_id": "c4-components",
+       "statement_ids": [
+        "s-1",
+        "s-2"
+       ],
+       "witness_ref": "synthetic:mile007#c4-components"
+      },
+      {
+       "basis_id": "b-agg",
+       "kind": "projection_record",
+       "record_sha256": "4d3d04ed0f23574545e0016f91f3bb4bad32df678cfc1f65452eef9947d39b31",
+       "statement_id": "d-1",
+       "library_ref": {
+        "library_id": "lunados.lib",
+        "entry_id": "project.aggregate-relations",
+        "revision": "v1",
+        "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+       }
+      }
+     ]
+    },
+    "plan_id": null,
+    "printer": "vpmigration",
+    "profile": "P2-VP-MIGRATION/0.7.6",
+    "origin_lines": true,
+    "statements": {
+     "format": "aiaeao.cube.statement-set/1",
+     "set_id": "c4-components",
+     "context_id": "mile007-c4",
+     "referents": [
+      "c4:shop/api",
+      "c4:shop/db",
+      "c4:shop/api/order-controller",
+      "c4:shop/api/order-repository"
+     ],
+     "statements": [
+      {
+       "statement_id": "m-1",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-controller"
+      },
+      {
+       "statement_id": "m-2",
+       "subject": "c4:shop/api",
+       "predicate_id": "contains",
+       "object": "c4:shop/api/order-repository"
+      },
+      {
+       "statement_id": "s-1",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Writes orders to"
+      },
+      {
+       "statement_id": "s-2",
+       "subject": "c4:shop/api/order-repository",
+       "predicate_id": "uses",
+       "object": "c4:shop/db",
+       "label": "Reads orders from"
+      },
+      {
+       "statement_id": "s-3",
+       "subject": "c4:shop/api/order-controller",
+       "predicate_id": "uses",
+       "object": "c4:shop/api/order-repository",
+       "label": "Uses"
+      }
+     ],
+     "witness_ref": "synthetic:mile007#c4-components"
+    },
+    "records": [
+     {
+      "format": "aiaeao.cube.projection-record/1",
+      "library_ref": {
+       "library_id": "lunados.lib",
+       "entry_id": "project.aggregate-relations",
+       "revision": "v1",
+       "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+      },
+      "call": {
+       "inputs": {
+        "context": {
+         "context_id": "mile007-c4",
+         "format": "aiaeao.cube.binding-context/8",
+         "method_contracts": [
+          {
+           "argument_max": 64,
+           "argument_min": 1,
+           "effect_class": "pure_declarative",
+           "method_id": "c4.implied-unless-any/v1",
+           "origin": "illustrative_fixture",
+           "revision": "mile002:c4:method/1",
+           "scope": "mile002:c4"
+          }
+         ],
+         "predicate_contracts": [
+          {
+           "additional_constraints": [
+            "Versuchsabbildung: C4-Container enthält C4-Komponente. Kein v9.4-Prädikat."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:module-body:tool"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "contains",
+           "required_qualifiers": [],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Deklarierte Abhängigkeit auf beliebiger C4-Ebene, wie im Fremdmodell definiert."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:module-body:tool",
+            "Z:boundary:boundary"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "uses",
+           "required_qualifiers": [],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:module-body:tool",
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:boundary:boundary"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "uses.derived",
+           "required_qualifiers": [
+            "F"
+           ],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Technische Referenzart derivedFrom (Morphologie 7.6); Operanden hier als Relationen gedacht."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:boundary:boundary",
+            "Z:module-body:tool"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "derivedFrom",
+           "required_qualifiers": [],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          },
+          {
+           "additional_constraints": [
+            "Aus untergeordneten Beziehungen abgeleitete Container-Beziehung; F-Qualifikator mit Ableitungsmethode verpflichtend."
+           ],
+           "direction": "subject_to_object",
+           "object_concept_ids": [
+            "Z:boundary:boundary"
+           ],
+           "origin": "illustrative_fixture",
+           "predicate_id": "monitors",
+           "required_qualifiers": [
+            "F"
+           ],
+           "revision": "mile002:c4:pred/1",
+           "scope": "mile002:c4",
+           "subject_concept_ids": [
+            "Z:boundary:boundary"
+           ]
+          }
+         ],
+         "profile_limitations": [
+          "Synthetische Versuchsabbildung für MILE-002 C4-01..03; keine adoptierte Fremdabbildung.",
+          "Container→Z:boundary:boundary und Komponente→Z:module-body:tool sind Arbeitsannahmen (A), keine Begriffsgleichheit.",
+          "Keine Wahrheit, Autorität oder Zulassung behauptet."
+         ],
+         "reference_version": "v9.4",
+         "referents": [
+          {
+           "concept_id": "Z:boundary:boundary",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/api",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Z:boundary:boundary",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/db",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Z:module-body:tool",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/api/order-controller",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Z:module-body:tool",
+           "home": "Z",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:shop/api/order-repository",
+           "scope_ref": "mile002:c4"
+          },
+          {
+           "concept_id": "Y:identity-anchor:actor",
+           "home": "Y",
+           "layers": [
+            "α"
+           ],
+           "provenance_status": "declared_unverified",
+           "ref": "c4:team/ops",
+           "scope_ref": "mile002:c4"
+          }
+         ],
+         "scope_ref": "mile002:c4",
+         "source_kind": "illustrative_fixture"
+        },
+        "statement_set": {
+         "context_id": "mile007-c4",
+         "format": "aiaeao.cube.statement-set/1",
+         "referents": [
+          "c4:shop/api",
+          "c4:shop/db",
+          "c4:shop/api/order-controller",
+          "c4:shop/api/order-repository"
+         ],
+         "set_id": "c4-components",
+         "statements": [
+          {
+           "object": "c4:shop/api/order-controller",
+           "predicate_id": "contains",
+           "statement_id": "m-1",
+           "subject": "c4:shop/api"
+          },
+          {
+           "object": "c4:shop/api/order-repository",
+           "predicate_id": "contains",
+           "statement_id": "m-2",
+           "subject": "c4:shop/api"
+          },
+          {
+           "label": "Writes orders to",
+           "object": "c4:shop/db",
+           "predicate_id": "uses",
+           "statement_id": "s-1",
+           "subject": "c4:shop/api/order-controller"
+          },
+          {
+           "label": "Reads orders from",
+           "object": "c4:shop/db",
+           "predicate_id": "uses",
+           "statement_id": "s-2",
+           "subject": "c4:shop/api/order-repository"
+          },
+          {
+           "label": "Uses",
+           "object": "c4:shop/api/order-repository",
+           "predicate_id": "uses",
+           "statement_id": "s-3",
+           "subject": "c4:shop/api/order-controller"
+          }
+         ],
+         "witness_ref": "synthetic:mile007#c4-components"
+        }
+       },
+       "method_id": "project.aggregate-relations/v1",
+       "parameters": {
+        "derived_predicate": "uses.derived",
+        "membership_predicate": "contains",
+        "source_predicate": "uses",
+        "strategy": "all"
+       },
+       "schema": "lunados.lib/call/v1"
+      },
+      "result": {
+       "effectful_execution_authorized": false,
+       "input_set_sha256": "4c6eee1aebd556f1743bb2e6505215713df6736df0574175a1a04149aa698001",
+       "internal": [
+        "s-3"
+       ],
+       "loss": {
+        "derived": 1,
+        "internal": 1,
+        "labels_dropped": 1,
+        "merged": 2,
+        "passed_through": 0,
+        "sources": 3,
+        "suppressed": 0
+       },
+       "method_id": "project.aggregate-relations/v1",
+       "parameters": {
+        "derived_predicate": "uses.derived",
+        "membership_predicate": "contains",
+        "source_predicate": "uses",
+        "strategy": "all"
+       },
+       "referents": [
+        "c4:shop/api",
+        "c4:shop/db"
+       ],
+       "runtime_authority": "not-evaluated",
+       "schema": "aiaeao.projection-result/v1",
+       "statements": [
+        {
+         "derived_from": [
+          "s-1",
+          "s-2"
+         ],
+         "label": "Writes orders to",
+         "labels_dropped": 1,
+         "object": "c4:shop/db",
+         "origin": "derived",
+         "predicate_id": "uses.derived",
+         "statement_id": "d-1",
+         "subject": "c4:shop/api"
+        }
+       ],
+       "status": "declared_unverified",
+       "suppressed": []
+      }
+     }
+    ]
+   },
+   "plan_views": {
+    "view": "cube.flow",
+    "granularity": "standard",
+    "partition": "subject"
+   },
+   "expected_status": "PASS",
+   "required_codes": [],
+   "edges": [
+    {
+     "edge": "d-1",
+     "origin": "derived",
+     "style": "dashed",
+     "text": "· derived from s-1, s-2"
+    }
+   ],
+   "also": [
+    "G6 files byte-identical to CLI",
+    "cube_plan_check PASS"
+   ]
+  }
+ ]
+}

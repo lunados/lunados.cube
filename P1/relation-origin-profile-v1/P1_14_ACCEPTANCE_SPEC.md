@@ -127,3 +127,11 @@ P1.14 binds the **origin of a relation** (`declared`, `derived`, `unknown`) and,
 | **Q-7** | Codes? | `P1_ORIGIN_UNDECLARED` (UNRESOLVED), `P1_ORIGIN_BASIS_MISSING` (UNRESOLVED), `P1_ORIGIN_INVALID` (FAIL) | the working titles of D-2, D-3 |
 | **Q-8** | Origin on the derivation predicate `uses.derived`? | Allowed and checked like any other predicate; **no implicit origin from the predicate name** | no hard-coded predicate names (as P1.13 Q-4) |
 | **Q-9** | Relation to P1.13? | `/10` strict superset of `/9`; validator projects `/10` → `/9`, runs P1.13 unchanged, then OR | same pattern as P1.13 over P1.12 |
+
+## 8. Precisions fixed with the vectors (TASK-064, before any code)
+
+These close gaps in §1–§5 without changing a decision.
+
+- **HO-1:** The C4 vectors use the MILE-007 context `ctx-c4.json` raised to `/10` (`origin_binding: required` on `uses` only) with two bases: `b-api-db` (`statements`, set `c4-components`, `s-1`, `s-2`) and `b-agg` (`projection_record`, the S-04 record of VP-10 0.11.0, statement `d-1`). `record_sha256` is the SHA-256 of the canonical record JSON (sorted keys, compact, UTF-8).
+- **HO-2:** HO-11 is the P1.13 vector KF-01 unchanged; HO-12 is the P1.11 golden GM-pos raised to `/10` with `origin_binding` on `sends-via`, every dependency `declared` except `m01b`, and the statement itself `origin="declared"`, so that only OR-6 can report. The oracle requires a pointer below `/migration_plans/0/dependencies/`.
+- **HO-3 (baseline):** the same inputs projected to `/9` with the current validator ([`baseline_p113.json`](fixtures/baseline_p113.json)): HO-01 and HO-11 PASS, every other case UNRESOLVED · `P1_PREDICATE_PROFILE_MISSING`. HO-01 shows the gap; without the origin parameter, HO-08 and HO-12 PASS, so their inputs are sound.

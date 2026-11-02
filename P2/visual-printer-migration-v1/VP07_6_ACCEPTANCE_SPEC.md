@@ -108,3 +108,13 @@ VP-07.6 draws each edge by its **bound origin** and lets `cube.flow` read a stat
 | **Q-8** | PO-1 header? | `FIXTURE ASSERTIONS` in 0.7.6 only, by post-processing the frozen header | PO-1 without touching VP-02 |
 | **Q-9** | Codes for invalid statement sets? | Reuse the VP-10 checks SS-1…SS-4 with `VP07_` codes (`VP07_STATEMENT_SET_INVALID`, `…_REF_UNKNOWN`, `…_PREDICATE_INVALID`) | one rule set, printer-specific prefix |
 | **Q-10** | Arrowhead for derived edges? | **Neutral** `relation-arrows.reference` for all; `relation-arrows.derivation` is not used | D-5: the arrowhead must not encode origin twice or imply causality |
+
+## 8. Precisions fixed with the vectors (TASK-064, before any code)
+
+These close gaps in §1–§5 without changing a decision.
+
+- **OL-A:** OL-03 runs twice (OL-03a declared, OL-03b derived): one panel cannot hold the same edge twice, and M-01A shows the two cases side by side for the same reason. The oracle therefore has 13 cases.
+- **OL-B:** Statement-path contexts are the P1.14 C4 context with `context_id` `mile007-c4`, so that the MILE-007 set and the S-04 projection record match it unchanged. OL-02, OL-10 and OL-12 pass the S-04 set (`/1`) with its record; the edge is the record's derived statement `d-1` (`uses.derived`), drawn dashed with `· derived from s-1, s-2`.
+- **OL-C:** A warning code required by the oracle (OL-06 `VP07_ORIGIN_UNRESOLVED`) does not change the status PASS.
+- **OL-D:** Vectors are written in G6 wire form (`cube_plan_source` arguments, then `cube_plan_views` arguments); the CLI form is fixed in TASK-066 and must give the same bytes (VP076-06).
+- **OL-E:** `0.7.5` outputs are pinned in `fixtures/regression_075_digests.json` (16 scenarios: O vectors and the golden plan, phases and flow, en and de), pinned on the unchanged 0.7.5 code; `0.7.0…0.7.4` keep their pins.

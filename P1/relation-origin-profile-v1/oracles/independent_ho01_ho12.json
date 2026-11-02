@@ -1,0 +1,137 @@
+{
+ "format": "aiaeao.cube.p1.14-oracle/1",
+ "reference_version": "v9.4",
+ "independence": "Expected results transcribed by hand from P1_14_ACCEPTANCE_SPEC.md §2, §3 and §5 before any P1.14 runtime code; never generated from validator output.",
+ "transcribed_at": "2026-11-02",
+ "spec_sha256": "80fa0b570afed7ca650364b84674d9c893526da7e1c301468f8055ff8a72dec5",
+ "cases": [
+  {
+   "id": "HO-01",
+   "case": "C4-03 api → db without origin",
+   "input_text": "rel(\"uses\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"])",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_ORIGIN_UNDECLARED"
+   ],
+   "forbidden_codes": [
+    "P1_ORIGIN_INVALID",
+    "P1_ORIGIN_BASIS_MISSING"
+   ]
+  },
+  {
+   "id": "HO-02",
+   "case": "HO-01 with origin derived and basis of kind statements",
+   "input_text": "rel(\"uses\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"];origin=\"derived\",basis=\"b-api-db\")",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "HO-03",
+   "case": "HO-01 with origin derived and basis of kind projection_record (C4-02 aggregated, statement d-1)",
+   "input_text": "rel(\"uses\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"];origin=\"derived\",basis=\"b-agg\")",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "HO-04",
+   "case": "origin derived without basis",
+   "input_text": "rel(\"uses\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"];origin=\"derived\")",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_ORIGIN_BASIS_MISSING"
+   ],
+   "forbidden_codes": [
+    "P1_ORIGIN_INVALID"
+   ]
+  },
+  {
+   "id": "HO-05",
+   "case": "origin outside the closed set",
+   "input_text": "rel(\"uses\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"];origin=\"inferred\")",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_ORIGIN_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "HO-06",
+   "case": "origin declared with a basis",
+   "input_text": "rel(\"uses\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"];origin=\"declared\",basis=\"b-api-db\")",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_ORIGIN_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "HO-07",
+   "case": "origin unknown",
+   "input_text": "rel(\"uses\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"];origin=\"unknown\")",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "HO-08",
+   "case": "C4-02 source statement order-controller → db, declared",
+   "input_text": "rel(\"uses\",Z:α:Tool[\"c4:shop/api/order-controller\"],Z:α:Boundary[\"c4:shop/db\"];origin=\"declared\")",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": []
+  },
+  {
+   "id": "HO-09",
+   "case": "basis names an undeclared origin_bases entry",
+   "input_text": "rel(\"uses\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"];origin=\"derived\",basis=\"b-ghost\")",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_BINDING_CONTEXT_REQUIRED"
+   ],
+   "forbidden_codes": [
+    "P1_ORIGIN_INVALID"
+   ]
+  },
+  {
+   "id": "HO-10",
+   "case": "predicate derivedFrom without origin_binding, relation with origin",
+   "input_text": "rel(\"derivedFrom\",Z:α:Boundary[\"c4:shop/api\"],Z:α:Boundary[\"c4:shop/db\"];origin=\"declared\")",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "forbidden_codes": [
+    "P1_ORIGIN_UNDECLARED",
+    "P1_ORIGIN_INVALID",
+    "P1_ORIGIN_BASIS_MISSING"
+   ]
+  },
+  {
+   "id": "HO-11",
+   "case": "P1.13 KF-01 as /9, unchanged (regression)",
+   "input_text": "(input of KF-01)",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_ORIGIN_UNDECLARED",
+    "P1_ORIGIN_INVALID",
+    "P1_ORIGIN_BASIS_MISSING"
+   ]
+  },
+  {
+   "id": "HO-12",
+   "case": "P1.11 golden plan GM-pos as /10; statement declared, one dependency (m01b) without origin (OR-6)",
+   "input_text": "(GM-pos input_text with ;origin=\"declared\")",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_ORIGIN_UNDECLARED"
+   ],
+   "forbidden_codes": [
+    "P1_ORIGIN_INVALID"
+   ],
+   "required_pointer_prefix": "/migration_plans/0/dependencies/"
+  }
+ ]
+}
