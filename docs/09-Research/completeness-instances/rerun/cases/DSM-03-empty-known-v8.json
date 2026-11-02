@@ -1,0 +1,191 @@
+{
+ "format": "aiaeao.cube.research-case/2",
+ "case_id": "DSM-03-empty-known-v8",
+ "origin": {
+  "kind": "authored_synthetic",
+  "authored_at": "2026-11-02",
+  "reference_version": "v9.4",
+  "profile_revision": "P1.12/coverage-instance-profile-v1 (binding-context/8), vector K-04",
+  "source_register": {
+   "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+   "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+  },
+  "rule_refs": [
+   "R-DSM-2",
+   "cube:P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md"
+  ],
+  "matrix_case": "DSM-03",
+  "model": {
+   "path": "docs/09-Research/grammar-sampling/models/dsm-modules.json",
+   "sha256": "47721b54b8fe5c832af94e96e6dde25f80cb96f7a9870496e8fdc50527ad3f98"
+  }
+ },
+ "operation": "cube_validate",
+ "invocation_kind": "local_mcp_stdio",
+ "arguments": {
+  "input_text": "rel(\"dependsOn\",Y:α:Artifact[\"m:resolver\"],Y:α:Artifact[\"m:parser\"])",
+  "context": {
+   "format": "aiaeao.cube.binding-context/8",
+   "reference_version": "v9.4",
+   "context_id": "p112-cc-04",
+   "source_kind": "illustrative_fixture",
+   "scope_ref": "mile002:dsm",
+   "referents": [
+    {
+     "ref": "m:parser",
+     "concept_id": "Y:resource-object:artifact",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:dsm"
+    },
+    {
+     "ref": "m:resolver",
+     "concept_id": "Y:resource-object:artifact",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:dsm"
+    },
+    {
+     "ref": "m:validator",
+     "concept_id": "Y:resource-object:artifact",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:dsm"
+    },
+    {
+     "ref": "m:printer",
+     "concept_id": "Y:resource-object:artifact",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:dsm"
+    },
+    {
+     "ref": "t:core",
+     "concept_id": "Y:identity-anchor:actor",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:dsm"
+    },
+    {
+     "ref": "t:viz",
+     "concept_id": "Y:identity-anchor:actor",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:dsm"
+    }
+   ],
+   "predicate_contracts": [
+    {
+     "predicate_id": "dependsOn",
+     "revision": "mile002:dsm:pred/1",
+     "scope": "mile002:dsm",
+     "origin": "illustrative_fixture",
+     "subject_concept_ids": [
+      "Y:resource-object:artifact"
+     ],
+     "object_concept_ids": [
+      "Y:resource-object:artifact"
+     ],
+     "direction": "subject_to_object",
+     "required_qualifiers": [],
+     "additional_constraints": [
+      "DSM-Zelle Domäne modules: Subjekt hängt von Objekt ab. Aus IR/FAD: Zeile = Subjekt, Spalte = Objekt."
+     ]
+    },
+    {
+     "predicate_id": "maintains",
+     "revision": "mile002:dsm:pred/1",
+     "scope": "mile002:dsm",
+     "origin": "illustrative_fixture",
+     "subject_concept_ids": [
+      "Y:identity-anchor:actor"
+     ],
+     "object_concept_ids": [
+      "Y:resource-object:artifact"
+     ],
+     "direction": "subject_to_object",
+     "required_qualifiers": [],
+     "additional_constraints": [
+      "DMM-Zelle teams × modules: Zeilenteam pflegt Spaltenmodul."
+     ]
+    },
+    {
+     "predicate_id": "related",
+     "revision": "mile002:dsm:pred/1",
+     "scope": "mile002:dsm",
+     "origin": "illustrative_fixture",
+     "subject_concept_ids": [
+      "Y:identity-anchor:actor",
+      "Y:resource-object:artifact"
+     ],
+     "object_concept_ids": [
+      "Y:identity-anchor:actor",
+      "Y:resource-object:artifact"
+     ],
+     "direction": "subject_to_object",
+     "required_qualifiers": [],
+     "additional_constraints": [
+      "Absichtlich breite technische Referenzart 'related' (Morphologie 7.6) für die Abflachungskontrolle."
+     ]
+    }
+   ],
+   "method_contracts": [],
+   "profile_limitations": [
+    "Synthetische Versuchsabbildung MILE-002 DSM-01..03: Module→Y:resource-object:artifact, Teams→Y:identity-anchor:actor (Arbeitsannahme A).",
+    "Nicht aufgeführte Zellen sind unbekannt, nicht leer.",
+    "Keine Wahrheit, Autorität oder Zulassung behauptet."
+   ],
+   "coverage_declarations": [
+    {
+     "declaration_id": "cv-1",
+     "scope": "pair",
+     "subject": "m:printer",
+     "predicate_id": "dependsOn",
+     "object": "m:parser",
+     "witness_ref": "synthetic:coverage#dsm_modules.cells: empty_known 'analysed; no dependency'"
+    }
+   ],
+   "population_rules": [
+    {
+     "rule_id": "pr-cc-04",
+     "kind": "absence",
+     "predicate_id": "dependsOn",
+     "witness_ref": "synthetic:rule#CC-04",
+     "subject": "m:printer",
+     "object": "m:parser"
+    }
+   ]
+  }
+ },
+ "arguments_sha256": "1fdbc43d2367cb6fdbcd2e9f17aaa3b02ae03e38146609ce7e24214fce53e495",
+ "bindings": {
+  "context_format": "aiaeao.cube.binding-context/8",
+  "context_sha256": "c20c6c6f7b1edecadb03149e551adbc5d2e88b6cc2bb8f7f0e28dd3bb4e26d94",
+  "qualification_profiles_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+ },
+ "expected": {
+  "domain_status": "PASS",
+  "diagnostic_codes": [],
+  "fixed_before_execution": true,
+  "rationale": "Paar (printer, parser) als erhoben erklärt; die Abwesenheitsregel für genau dieses Paar ist abgedeckt: PASS. Die Auswertung „geprüft leer“ liefert der LIB-Eintrag. Früher nicht ausführbar."
+ },
+ "rerun_of": "DSM-03-empty-known"
+}

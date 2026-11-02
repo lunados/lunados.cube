@@ -1,0 +1,148 @@
+{
+ "format": "aiaeao.cube.research-case/2",
+ "case_id": "BPMN-03-join-cross-instance-shared-v8",
+ "origin": {
+  "kind": "authored_synthetic",
+  "authored_at": "2026-11-02",
+  "reference_version": "v9.4",
+  "profile_revision": "P1.12/coverage-instance-profile-v1 (binding-context/8), vector K-17",
+  "source_register": {
+   "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+   "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+  },
+  "rule_refs": [
+   "R-BPMN-2",
+   "R-BPMN-3",
+   "cube:P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md"
+  ],
+  "matrix_case": "BPMN-03",
+  "model": {
+   "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+   "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+  }
+ },
+ "operation": "cube_validate",
+ "invocation_kind": "local_mcp_stdio",
+ "arguments": {
+  "input_text": "rel(\"joins\",Y:α:Evidence[\"bpmn:i1/tok-stock\"],Y:α:Evidence[\"bpmn:i2/tok-credit\"])",
+  "context": {
+   "format": "aiaeao.cube.binding-context/8",
+   "reference_version": "v9.4",
+   "context_id": "p112-ci-01",
+   "source_kind": "illustrative_fixture",
+   "scope_ref": "bpmn:trace",
+   "referents": [
+    {
+     "ref": "bpmn:i1/tok-stock",
+     "concept_id": "Y:resource-object:evidence",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:trace",
+     "instance_ref": "bpmn:i1"
+    },
+    {
+     "ref": "bpmn:i2/tok-credit",
+     "concept_id": "Y:resource-object:evidence",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:trace",
+     "instance_ref": "bpmn:i2"
+    },
+    {
+     "ref": "bpmn:i1/tok-credit",
+     "concept_id": "Y:resource-object:evidence",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:trace"
+    },
+    {
+     "ref": "bpmn:i1",
+     "concept_id": "Y:identified-object:bounded-execution",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:trace"
+    },
+    {
+     "ref": "bpmn:i2",
+     "concept_id": "Y:identified-object:bounded-execution",
+     "home": "Y",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "bpmn:trace"
+    }
+   ],
+   "predicate_contracts": [
+    {
+     "predicate_id": "routedTo",
+     "revision": "mile002:bpmn:pred/1",
+     "scope": "bpmn:trace",
+     "origin": "illustrative_fixture",
+     "subject_concept_ids": [
+      "Y:resource-object:evidence"
+     ],
+     "object_concept_ids": [
+      "Y:identified-object:work-item"
+     ],
+     "direction": "subject_to_object",
+     "required_qualifiers": [],
+     "additional_constraints": [
+      "Token-Aufzeichnung wurde an einem Exclusive Gateway zu dieser Aktivität geleitet. Exklusivität ist nicht Teil der Signatur."
+     ]
+    },
+    {
+     "predicate_id": "joins",
+     "revision": "mile002:bpmn:pred/1",
+     "scope": "bpmn:trace",
+     "origin": "illustrative_fixture",
+     "subject_concept_ids": [
+      "Y:resource-object:evidence"
+     ],
+     "object_concept_ids": [
+      "Y:resource-object:evidence"
+     ],
+     "direction": "subject_to_object",
+     "required_qualifiers": [],
+     "additional_constraints": [
+      "Zwei Token-Aufzeichnungen werden an einem Parallel Gateway synchronisiert. Instanzgleichheit ist nicht Teil der Signatur."
+     ],
+     "requires_same_instance": true
+    }
+   ],
+   "method_contracts": [],
+   "profile_limitations": [
+    "Synthetische Versuchsabbildung MILE-002 BPMN-01..03: Token-Aufzeichnung→Y:resource-object:evidence, Aktivität→Y:identified-object:work-item (Arbeitsannahme A). Token sind keine X Events.",
+    "Handgeschriebene Spur, keine Engine-Ausführung; keine Wahrheit, Autorität oder Zulassung behauptet.",
+    "Gemeinsamer Scope für die ganze Spur; die Instanzzugehörigkeit steht nur im Referentnamen."
+   ]
+  }
+ },
+ "arguments_sha256": "1cbf81a77ffc907a251d1b150c204a17236816567af30a3823168b51526cdb99",
+ "bindings": {
+  "context_format": "aiaeao.cube.binding-context/8",
+  "context_sha256": "a6c49e2273bf6565cbe562b80803f07aafd0c1fd4b170b61822177c37f505f65",
+  "qualification_profiles_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+ },
+ "expected": {
+  "domain_status": "FAIL",
+  "diagnostic_codes": [
+   "P1_INSTANCE_MISMATCH"
+  ],
+  "fixed_before_execution": true,
+  "rationale": "Gemeinsamer Scope, aber jetzt typisierte Instanzbindung (i1, i2) und joins verlangt gleiche Instanz: FAIL. Die Baseline (TASK-030) gab PASS, weil die Instanz nur im Namen steckte (G-08)."
+ },
+ "rerun_of": "BPMN-03-join-cross-instance-shared"
+}
