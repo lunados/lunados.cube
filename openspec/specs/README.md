@@ -1,6 +1,6 @@
 # Konsolidierte Spezifikationen
 
-Die folgenden begrenzten Fähigkeiten sind umgesetzt und anhand MILE-001 bis MILE-010 geprüft:
+Die folgenden begrenzten Fähigkeiten sind umgesetzt und anhand MILE-001 bis MILE-011 geprüft:
 
 - [comparison-evidence](comparison-evidence/spec.md): fixierte lokale Prüffälle (v1 historisch, v2 neu erstellt mit gepinnter Herkunft), getrennte Ergebnisse, Wiederholung, Variantenvergleich, dokumentierte Nichtausführbarkeit.
 - [grammar-sampling](grammar-sampling/spec.md): Research-Protokoll für quellengebundene Fremdansatz-Vergleiche (MILE-002).
@@ -18,6 +18,8 @@ Die folgenden begrenzten Fähigkeiten sind umgesetzt und anhand MILE-001 bis MIL
 - [trace-conformance](trace-conformance/spec.md): Spur je Instanz gegen den deklarierten Kontrollfluss, in lunados.lib berechnet, ohne Bedingungsauswertung (MILE-008).
 - [instance-view](instance-view/spec.md): deklarierte Spur je Instanz mit genommenem Pfad und Join je Eingang, Urteile aus lunados.lib gelesen (VP-11; MILE-009).
 - [remote-plan-views](remote-plan-views/spec.md): Plansichten VP-07 bis VP-11 über den G5-Remote-Connector, byte-gleich zu lokal; CPU-Grenze des Workers dokumentiert (MILE-010).
+- [relation-origin](relation-origin/spec.md): gebundene Herkunft einer Beziehung (`declared`, `derived` mit Grundlage, `unknown`), P1.14 `binding-context/10` (MILE-011).
+- [origin-line-view](origin-line-view/spec.md): Herkunftslinie in `cube.flow` 0.7.6, auch für Aussagenmengen (MILE-011).
 - [local-discovery-accuracy](local-discovery-accuracy/spec.md): additive lokale Kontext-/Profilmetadaten mit ausdrücklichen Präsenz-/Runtime-Grenzen.
 
 Die übrigen bestehenden P0/P1/P2/P3-Verträge wurden nicht nach OpenSpec migriert und behalten ihre bisherigen Orte und Geltung. Der neue Specs-Bereich ersetzt nicht die Cube-Morphologie.

@@ -1,6 +1,6 @@
 # EPIC-011 — Herkunft von Beziehungen
 
-Status: planned · Milestone: [MILE-011](../02-Milestones/MILE-011-relation-origin.md) · Voraussetzung: [EPIC-007](EPIC-007-statement-sets.md), [EPIC-010](EPIC-010-remote-plan-views.md)
+Status: done · Milestone: [MILE-011](../02-Milestones/MILE-011-relation-origin.md) · Voraussetzung: [EPIC-007](EPIC-007-statement-sets.md), [EPIC-010](EPIC-010-remote-plan-views.md)
 
 ## Ergebnis
 

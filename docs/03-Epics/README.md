@@ -11,9 +11,9 @@
 | [EPIC-008](EPIC-008-control-flow.md) | Kontrollfluss und Spurkonformität | MILE-008; abgeschlossen |
 | [EPIC-009](EPIC-009-instance-view.md) | Instanzsicht | MILE-009; abgeschlossen |
 | [EPIC-010](EPIC-010-remote-plan-views.md) | Kontrollfluss und Plansichten remote | MILE-010; abgeschlossen |
-| [EPIC-011](EPIC-011-relation-origin.md) | Herkunft von Beziehungen | MILE-011; geplant |
+| [EPIC-011](EPIC-011-relation-origin.md) | Herkunft von Beziehungen | MILE-011; abgeschlossen |
 
-Die IDs bleiben stabil; Reihenfolge folgt der Roadmap. EPIC-001 bis EPIC-010 sind abgeschlossen; EPIC-011 ist geplant.
+Die IDs bleiben stabil; Reihenfolge folgt der Roadmap. EPIC-001 bis EPIC-011 sind abgeschlossen.
 
 
 Abgeschlossen: [EPIC-004 — Quellengebundene Vergleichsfälle](EPIC-004-source-bound-comparison-cases.md) für MILE-002-A. Der bestehende EPIC-001 trägt MILE-002-B/C und bleibt Eigentümer der anschließenden Lernanalyse.

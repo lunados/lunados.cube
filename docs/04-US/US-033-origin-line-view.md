@@ -1,6 +1,6 @@
 # US-033 — Herkunftslinie sehen
 
-Status: planned · Epic: [EPIC-011](../03-Epics/EPIC-011-relation-origin.md) · Mile: [MILE-011-A, -C](../02-Milestones/MILE-011-relation-origin.md)
+Status: done · Epic: [EPIC-011](../03-Epics/EPIC-011-relation-origin.md) · Mile: [MILE-011-A, -C](../02-Milestones/MILE-011-relation-origin.md)
 
 Als Leser einer Architektur- oder Migrationsübersicht möchte ich auf einen Blick sehen, welche Linien deklariert, abgeleitet oder in ihrer Herkunft unbekannt sind, damit ich eine Verdichtung nicht als Entscheidung lese.
 
@@ -20,4 +20,4 @@ Als Leser einer Architektur- oder Migrationsübersicht möchte ich auf einen Bli
 - [TASK-067 — G5 und Host-Abnahme](../05-Tasks/TASK-067-origin-g5.md)
 - [TASK-068 — Sichtprüfung und Abschluss](../05-Tasks/TASK-068-mile011-close.md)
 
-[Requirement-Zuordnung](../../openspec/changes/declare-relation-origin/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/declare-relation-origin/tasks.md).
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-declare-relation-origin/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-declare-relation-origin/tasks.md).

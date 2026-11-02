@@ -1,0 +1,290 @@
+{
+ "head": "e860778",
+ "base": "ec18401",
+ "python": "3.13.16",
+ "note": "HEAD vor dem Abschluss-Commit; Statusänderungen dieses Commits liegen im Arbeitsbaum.",
+ "order": {
+  "steps": [
+   {
+    "what": "Entscheidungen D-1–D-8 vor den Spezifikationsentwürfen",
+    "first": "79da657",
+    "then": "64cf9c0",
+    "ok": true
+   },
+   {
+    "what": "Detailfragen Q vor Orakeln, Vektoren und Pins",
+    "first": "e2cf8e3",
+    "then": "bfe5308",
+    "ok": true
+   },
+   {
+    "what": "Orakel, Vektoren und Pins vor dem P1.14-Code",
+    "first": "bfe5308",
+    "then": "8dd8b94",
+    "ok": true
+   },
+   {
+    "what": "Orakel, Vektoren und Pins vor dem VP-07.6-Code",
+    "first": "bfe5308",
+    "then": "177e24d",
+    "ok": true
+   },
+   {
+    "what": "lokale Umsetzung vor den G5-Erwartungen",
+    "first": "177e24d",
+    "then": "58ae4a8",
+    "ok": true
+   },
+   {
+    "what": "G5-Erwartungen (R6) vor dem G5-Code",
+    "first": "58ae4a8",
+    "then": "c120c3c",
+    "ok": true
+   },
+   {
+    "what": "G5-Code vor Live-Läufen und Host-Bericht",
+    "first": "c120c3c",
+    "then": "4d18689",
+    "ok": true
+   },
+   {
+    "what": "Host-Abnahme vor der Sichtprüfung",
+    "first": "4d18689",
+    "then": "e860778",
+    "ok": true
+   }
+  ],
+  "pinned_unchanged": {
+   "P1/relation-origin-profile-v1/oracles/independent_ho01_ho12.json": true,
+   "P2/visual-printer-migration-v1/oracles/independent_ol01_ol12.json": true,
+   "P2/visual-printer-migration-v1/fixtures/regression_075_digests.json": true,
+   "P3/remote-mcp-g5/evidence/G5_R6_EXPECTATIONS.json": true,
+   "P3/remote-mcp-g5/scripts/r6_expectations.py": true,
+   "P2/visual-printer-migration-v1/fixtures/regression_070_digests.json": true,
+   "P2/visual-printer-migration-v1/fixtures/regression_071_digests.json": true,
+   "P2/visual-printer-migration-v1/fixtures/regression_072_digests.json": true,
+   "P2/visual-printer-migration-v1/fixtures/regression_073_digests.json": true,
+   "P2/visual-printer-migration-v1/fixtures/regression_074_digests.json": true
+  },
+  "issues": 0
+ },
+ "gates": {
+  "head_copy": "e860778",
+  "how": "git archive HEAD, Gates einzeln ausgeführt (Ergebnisse je HEAD zwischengespeichert)"
+ },
+ "runs": {
+  "p114_tests": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ],
+   "python": "3.13.16"
+  },
+  "p113_vectors": {
+   "exit": 0,
+   "tail": [
+    "9/9 match"
+   ],
+   "python": "3.13.16"
+  },
+  "p112_vectors": {
+   "exit": 0,
+   "tail": [
+    "21/21 match"
+   ],
+   "python": "3.13.16"
+  },
+  "adapter_tests": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ],
+   "python": "3.13.16"
+  },
+  "vp076_vectors": {
+   "exit": 0,
+   "tail": [
+    "13/13 status, code and per-edge matches"
+   ],
+   "python": "3.13.16"
+  },
+  "vp076_tests": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ],
+   "python": "3.13.16"
+  },
+  "g5_verify": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ],
+   "python": "3.13.16"
+  },
+  "g5_gateway_tests": {
+   "exit": 0,
+   "tail": [
+    "# duration_ms 110.610959"
+   ],
+   "python": "3.13.16"
+  },
+  "g5_verify_release": {
+   "exit": 0,
+   "tail": [
+    "PASS G5 source SHA-256: 40 files; registry MIME exact to pinned lock"
+   ],
+   "python": "3.13.16"
+  },
+  "g5_r6_parity": {
+   "exit": 0,
+   "tail": [
+    "mismatched: []"
+   ],
+   "python": "3.13.16"
+  },
+  "g5_r5_legacy_parity": {
+   "exit": 0,
+   "tail": [
+    "87/87 historical R5 calls byte-identical; mismatched []"
+   ],
+   "python": "3.13.16"
+  },
+  "vp07_pin_070": {
+   "exit": 0,
+   "tail": [
+    "14/14 scenarios byte-identical"
+   ],
+   "python": "3.13.16"
+  },
+  "vp07_pin_071": {
+   "exit": 0,
+   "tail": [
+    "16/16 scenarios byte-identical"
+   ],
+   "python": "3.13.16"
+  },
+  "vp07_pin_072": {
+   "exit": 0,
+   "tail": [
+    "13/13 scenarios byte-identical"
+   ],
+   "python": "3.13.16"
+  },
+  "vp07_pin_073": {
+   "exit": 0,
+   "tail": [
+    "14/14 scenarios byte-identical"
+   ],
+   "python": "3.13.16"
+  },
+  "vp07_pin_074": {
+   "exit": 0,
+   "tail": [
+    "16/16 scenarios byte-identical"
+   ],
+   "python": "3.13.16"
+  },
+  "vp07_pin_075": {
+   "exit": 0,
+   "tail": [
+    "16/16 scenarios byte-identical"
+   ],
+   "python": "3.13.16"
+  }
+ },
+ "live": {
+  "r6_script_runs": [
+   {
+    "run": "G5_R6_LIVE_SCRIPT",
+    "matched": 25,
+    "calls": 26,
+    "mismatched": [
+     "P-OL-07"
+    ],
+    "gateway_tools": true,
+    "gateway_version": true,
+    "only_core_unavailable": true
+   },
+   {
+    "run": "G5_R6_LIVE_SCRIPT_RUN2",
+    "matched": 25,
+    "calls": 26,
+    "mismatched": [
+     "V-HO-11"
+    ],
+    "gateway_tools": true,
+    "gateway_version": true,
+    "only_core_unavailable": true
+   },
+   {
+    "run": "G5_R6_LIVE_SCRIPT_RUN3",
+    "matched": 25,
+    "calls": 26,
+    "mismatched": [
+     "P-OL-07"
+    ],
+    "gateway_tools": true,
+    "gateway_version": true,
+    "only_core_unavailable": true
+   }
+  ],
+  "cpu_event": {
+   "exception": "introspection.CpuLimitExceeded: Python Worker exceeded CPU time limit",
+   "cpu_ms": 522,
+   "call": "P-OL-07 cube_plan_views (targeted recheck 3)",
+   "core_version": "445c6d50-8d06-4d67-acdd-c246419357c8"
+  },
+  "host_results": {
+   "host_calls": 9,
+   "matched": 9,
+   "digests_matched": 16,
+   "view_steps_with_svg_digests_matched": 4
+  }
+ },
+ "visual_check": {
+  "answers": {
+   "S-1": "ja",
+   "S-2": "ja",
+   "S-3": "ja",
+   "S-4": "ja",
+   "S-5": "ja",
+   "S-6": "ja"
+  },
+  "all_yes": true
+ },
+ "layers": {
+  "frozen_unchanged_since_base": true,
+  "frozen_worktree_unchanged": true,
+  "changed_outside_allowed": [],
+  "vp07_older_profiles": "byte-identisch über die Pins 0.7.0–0.7.5 (Abschnitt 2)",
+  "charge3_p16_sums": "nicht geprüft: Pfade relativ zur Repo-Wurzel, schon vor MILE-011 so",
+  "sha256sums": {
+   "AIAEAO_Pure_Cube_P0_v9.4/SHA256SUMS.txt": true,
+   "P1/contract-v1/SHA256SUMS.txt": true,
+   "P1/migration-methods-v1/SHA256SUMS.txt": true,
+   "P1/migration-profile-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP02_SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP03_SHA256SUMS.txt": true,
+   "P2/visual-printer-axes-v1/VP09_SHA256SUMS.txt": true,
+   "P2/visual-printer-conformance-v1/VP05_SHA256SUMS.txt": true,
+   "P2/visual-printer-granularity-v1/VP04_SHA256SUMS.txt": true,
+   "P2/visual-printer-migration-v1/VP07_SHA256SUMS.txt": true,
+   "P2/visual-printer-release-v1/VP06_SHA256SUMS.txt": true,
+   "P2/visual-printer-sequence-v1/VP08_SHA256SUMS.txt": true,
+   "P3/public-reference-mcp/SHA256SUMS.txt": true,
+   "P3/remote-mcp-g5/SHA256SUMS.txt": true
+  }
+ },
+ "broken_links": 0,
+ "broken_link_list": [],
+ "links_outside_repo_not_checked": [
+  "docs/09-Research/cube-grammar-2026-11-01/ANALYSE.md -> ../../../../lunados.lib/LIBRARY_CONTRACT.md",
+  "docs/09-Research/grammar-sampling/reports/DAG-01.md -> ../../../../../lunados.lib/LIBRARY_CONTRACT.md",
+  "docs/09-Research/grammar-sampling/reports/DAG-01.md -> ../../../../../lunados.lib/entries/impact.propagate/v1/entry.json"
+ ],
+ "all_ok": true
+}

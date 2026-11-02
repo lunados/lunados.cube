@@ -154,9 +154,9 @@ Führender Status: [deliver-remote-plan-views/tasks.md](../../openspec/changes/a
 
 Summe: 2,25–3,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
 
-## MILE-011 — geplant
+## MILE-011 — abgeschlossen
 
-Führender Status: [declare-relation-origin/tasks.md](../../openspec/changes/declare-relation-origin/tasks.md).
+Führender Status: [declare-relation-origin/tasks.md](../../openspec/changes/archive/2026-11-02-declare-relation-origin/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|

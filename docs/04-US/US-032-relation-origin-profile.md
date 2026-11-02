@@ -1,6 +1,6 @@
 # US-032 — Herkunft einer Beziehung deklarieren und prüfen
 
-Status: planned · Epic: [EPIC-011](../03-Epics/EPIC-011-relation-origin.md) · Mile: [MILE-011-A, -B, -C](../02-Milestones/MILE-011-relation-origin.md)
+Status: done · Epic: [EPIC-011](../03-Epics/EPIC-011-relation-origin.md) · Mile: [MILE-011-A, -B, -C](../02-Milestones/MILE-011-relation-origin.md)
 
 Als Modellierer möchte ich für jede Beziehung festhalten, ob sie deklariert, abgeleitet oder in ihrer Herkunft unbekannt ist, damit eine verdichtete Beziehung nicht als festgelegte Tatsache durch die Prüfung geht.
 
@@ -19,4 +19,4 @@ Als Modellierer möchte ich für jede Beziehung festhalten, ob sie deklariert, a
 - [TASK-067 — G5 und Host-Abnahme](../05-Tasks/TASK-067-origin-g5.md)
 - [TASK-068 — Sichtprüfung und Abschluss](../05-Tasks/TASK-068-mile011-close.md)
 
-[Requirement-Zuordnung](../../openspec/changes/declare-relation-origin/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/declare-relation-origin/tasks.md).
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-declare-relation-origin/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-declare-relation-origin/tasks.md).
