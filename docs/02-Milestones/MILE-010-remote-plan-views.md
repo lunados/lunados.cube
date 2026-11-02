@@ -1,6 +1,6 @@
 # MILE-010 — Kontrollfluss und Plansichten remote
 
-Status: planned · Stand: 2026-11-02 · Voraussetzung: MILE-008 ([Abschluss](../10-Evidence/MILE-008/C-RESULT.md)), MILE-009 ([Abschluss](../10-Evidence/MILE-009/C-RESULT.md))
+Status: in_progress · Stand: 2026-11-02 · Voraussetzung: MILE-008 ([Abschluss](../10-Evidence/MILE-008/C-RESULT.md)), MILE-009 ([Abschluss](../10-Evidence/MILE-009/C-RESULT.md))
 
 ## Ergebnis
 
@@ -19,9 +19,11 @@ Heute: G5 (`P3-MCP-REMOTE/0.7.0-proof`, MILE-006) prüft bis `/8`; `/9` endet re
 - G5 bleibt ein Proof (`G5_PROOF_NOT_PRODUCTION_AUTHORIZED`); keine Änderung an Authentifizierung, Herkunftsregeln oder `cube.lunados.net`.
 - Keine Kundendaten in Repo, Prüfunterlagen oder auf cube.lunados.net.
 
-## Entscheidungen (Vorschlag, offen)
+## Entscheidungen (2026-11-02, Nutzer)
 
-| ID | Frage | Vorschlag | Grund | Nicht gewählt |
+D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
+
+| ID | Frage | Entscheidung | Grund | Nicht gewählt |
 |---|---|---|---|---|
 | **D-1** | Rahmen | **Schlanke Mile wie MILE-006:** drei Chargen, Epic, zwei Stories, fünf Tasks, OpenSpec-Change | reine Auslieferung | zwei getrennte Miles |
 | **D-2** | Umfang `/9` | `cube_validate` mit **`/9` (P1.13)** und Discovery, wie lokal; neue Kernversion `P3-MCP-REMOTE/0.8.0-proof` | gleicher Weg wie `/8` in MILE-006 | nur Discovery |

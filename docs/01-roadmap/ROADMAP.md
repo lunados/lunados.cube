@@ -1,6 +1,6 @@
 # Roadmap — Lernen aus fünf Grammatikvergleichen
 
-Status: in_progress · Stand: 2026-11-02 · MILE-001 bis MILE-009 abgeschlossen; MILE-010 geplant
+Status: in_progress · Stand: 2026-11-02 · MILE-001 bis MILE-009 abgeschlossen; MILE-010 in Arbeit
 
 Cube an Structurizr/C4, ArchiMate, DSM/MDM, BPMN und DAG untersuchen. Ergebnis sind konkrete Erkenntnisse zu Envelopes, LIB, Referenz-/Kardinalitätsprofilen, LENS/MODE/Achsen und visueller Grammatik. Lücken werden benannt, bevor Erweiterungen umgesetzt werden.
 
@@ -21,7 +21,7 @@ Die frühere reine Analyseabschätzung betrug 4–7 PT. Die 1–2 PT Vorbereitun
 
 ## Nächster Schritt
 
-MILE-001 bis MILE-009 sind abgeschlossen; die sieben Leitfragen sind in der [Lernbilanz](../09-Research/learning-balance/LERNBILANZ.md) beantwortet oder präzise offen. Weder Envelope noch Morphologie brauchen eine Erweiterung. MILE-005 hat Vollständigkeit und Instanzbindung umgesetzt, MILE-006 `/8` remote verfügbar gemacht und die Matrix geordnet. [MILE-007](../02-Milestones/MILE-007-statement-sets.md) hat Aussagenmengen ohne Migrationsplan darstellbar gemacht und Beziehungen mit Quellenspur und Verlustbericht verdichtet (PO-7, G-03). [MILE-008](../02-Milestones/MILE-008-control-flow.md) hat Kontrollfluss deklarierbar und Spuren je Instanz prüfbar gemacht (G-07); BPMN-01/02 sind ausführbar. [MILE-009](../02-Milestones/MILE-009-instance-view.md) hat die Instanzsicht mit genommenem Pfad und Join je Eingang gebracht (VR-12, schlank). **[MILE-010](../02-Milestones/MILE-010-remote-plan-views.md)** ist geplant: `/9` und die Plansichten remote.
+MILE-001 bis MILE-009 sind abgeschlossen; die sieben Leitfragen sind in der [Lernbilanz](../09-Research/learning-balance/LERNBILANZ.md) beantwortet oder präzise offen. Weder Envelope noch Morphologie brauchen eine Erweiterung. MILE-005 hat Vollständigkeit und Instanzbindung umgesetzt, MILE-006 `/8` remote verfügbar gemacht und die Matrix geordnet. [MILE-007](../02-Milestones/MILE-007-statement-sets.md) hat Aussagenmengen ohne Migrationsplan darstellbar gemacht und Beziehungen mit Quellenspur und Verlustbericht verdichtet (PO-7, G-03). [MILE-008](../02-Milestones/MILE-008-control-flow.md) hat Kontrollfluss deklarierbar und Spuren je Instanz prüfbar gemacht (G-07); BPMN-01/02 sind ausführbar. [MILE-009](../02-Milestones/MILE-009-instance-view.md) hat die Instanzsicht mit genommenem Pfad und Join je Eingang gebracht (VR-12, schlank). **[MILE-010](../02-Milestones/MILE-010-remote-plan-views.md)** ist in Arbeit: `/9` und die Plansichten remote.
 
 ## Maßstab
 

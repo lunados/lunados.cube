@@ -1,10 +1,10 @@
 # Design — Plansichten remote
 
-Status: proposed · Entscheidungen offen
+Status: decided · Umsetzung offen
 
 ## Context
 
-Entscheidungen D-1–D-8 in [MILE-010](../../../docs/02-Milestones/MILE-010-remote-plan-views.md) (Vorschlag, offen). Grundlage: G5 `0.7.0-proof` (MILE-006), G6 lokal (MILE-005–009).
+Entscheidungen D-1–D-8 in [MILE-010](../../../docs/02-Milestones/MILE-010-remote-plan-views.md) (entschieden 2026-11-02). Grundlage: G5 `0.7.0-proof` (MILE-006), G6 lokal (MILE-005–009).
 
 ## Decisions
 

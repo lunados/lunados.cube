@@ -1,6 +1,6 @@
 # Tasks — deliver-remote-plan-views
 
-Status: planned. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-058 in Arbeit.
 
 ## A — Spezifikation und Erwartungen
 
