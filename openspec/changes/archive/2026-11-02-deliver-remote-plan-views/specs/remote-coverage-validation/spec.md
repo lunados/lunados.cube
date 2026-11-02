@@ -1,6 +1,6 @@
 # Remote coverage validation
 
-Status: planned.
+Status: implemented · 2026-11-02.
 
 ## MODIFIED Requirements
 

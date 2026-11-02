@@ -1,6 +1,6 @@
 # EPIC-010 — Kontrollfluss und Plansichten remote
 
-Status: planned · Milestone: [MILE-010](../02-Milestones/MILE-010-remote-plan-views.md) · Voraussetzung: [EPIC-006](EPIC-006-remote-and-readability.md), [EPIC-008](EPIC-008-control-flow.md), [EPIC-009](EPIC-009-instance-view.md)
+Status: done · Milestone: [MILE-010](../02-Milestones/MILE-010-remote-plan-views.md) · Voraussetzung: [EPIC-006](EPIC-006-remote-and-readability.md), [EPIC-008](EPIC-008-control-flow.md), [EPIC-009](EPIC-009-instance-view.md)
 
 ## Ergebnis
 
