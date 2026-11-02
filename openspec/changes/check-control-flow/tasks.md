@@ -9,7 +9,7 @@ Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8
 
 ## B — Profil und LIB
 
-- [ ] 3. [TASK-050 — Profil P1.13](../../../docs/05-Tasks/TASK-050-p113-profile.md)
+- [x] 3. [TASK-050 — Profil P1.13](../../../docs/05-Tasks/TASK-050-p113-profile.md)
 - [ ] 4. [TASK-051 — LIB `analyze.trace-conformance/v1`](../../../docs/05-Tasks/TASK-051-trace-conformance-lib.md)
 
 ## C — Adapter und Wiederholung

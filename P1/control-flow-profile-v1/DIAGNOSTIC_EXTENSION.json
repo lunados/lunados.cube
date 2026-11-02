@@ -1,0 +1,12 @@
+{
+  "format": "aiaeao.cube.p1.13.diagnostic-extension/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "disposition": "Additive P1.13 only. Frozen P0 and P1.1…P1.12 files stay byte-identical. P1_BINDING_CONTEXT_REQUIRED and P1_MCP_CONFIG_INVALID are reused.",
+  "codes": [
+    {"code": "P1_CONTROL_FLOW_INVALID", "stage": "scope_consistency", "default_status": "FAIL", "reference_rule": "P1.13 CF-2…CF-4: invalid gateway control-flow declaration"},
+    {"code": "P1_CONTROL_FLOW_UNSUPPORTED", "stage": "scope_consistency", "default_status": "UNRESOLVED", "reference_rule": "P1.13 CF-5: gateway type outside exclusive and parallel"},
+    {"code": "P1_FLOW_UNDECLARED", "stage": "scope_consistency", "default_status": "FAIL", "reference_rule": "P1.13 TB-1…TB-2: statement names a flow or target outside the declaration"},
+    {"code": "P1_TOKEN_POSITION_UNDECLARED", "stage": "scope_consistency", "default_status": "UNRESOLVED", "reference_rule": "P1.13 TB-1: routing token has no at_gateway position"}
+  ]
+}
