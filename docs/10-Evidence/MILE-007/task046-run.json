@@ -1,0 +1,62 @@
+{
+ "format": "aiaeao.cube.mile007.task046-run/1",
+ "task": "TASK-046",
+ "date": "2026-11-02",
+ "commits": {
+  "spec": "3279fe4",
+  "decisions": "594563c",
+  "vectors_and_pins_before_code": "91e1c57",
+  "lib_evaluator": "lunados.lib a9b6dd6",
+  "implementation": "310b522"
+ },
+ "vectors_s": [
+  "PASS S-01 {'marked': 4, 'checked': 0, 'unknown': 8, 'element': 4, 'hidden': 0} warnings ['VP10_COVERAGE_NONE']",
+  "PASS S-02 {'marked': 4, 'checked': 1, 'unknown': 7, 'element': 4, 'hidden': 0} warnings []",
+  "PASS S-03 {'marked': 4, 'checked': 0, 'unknown': 8, 'element': 4, 'hidden': 0} warnings ['VP10_COVERAGE_NONE']",
+  "PASS S-04 {'marked': 1, 'checked': 0, 'unknown': 1, 'element': 2, 'hidden': 0} warnings ['VP10_COVERAGE_NONE']",
+  "PASS S-05 {'marked': 1, 'checked': 0, 'unknown': 1, 'element': 2, 'hidden': 0} warnings ['VP10_COVERAGE_NONE']",
+  "PASS S-06 {'marked': 0, 'checked': 0, 'unknown': 2, 'element': 2, 'hidden': 0} warnings ['VP10_COVERAGE_NONE', 'VP10_PREDICATE_EMPTY']",
+  "PASS S-07 error VP10_STATEMENT_REF_UNKNOWN",
+  "PASS S-08 error VP10_STATEMENT_PREDICATE_INVALID",
+  "PASS S-09 error VP10_STATEMENT_SET_INVALID",
+  "PASS S-10 error VP10_STATEMENT_SET_INVALID",
+  "PASS S-11 error VP10_PAIR_INVALID",
+  "PASS S-12 error VP10_PROJECTION_INVALID",
+  "PASS S-13 {'marked': 1, 'checked': 0, 'unknown': 1, 'element': 2, 'hidden': 0} warnings ['VP10_COVERAGE_NOT_PROJECTED']",
+  "PASS S-14 {'marked': 0, 'checked': 0, 'unknown': 12, 'element': 4, 'hidden': 0} warnings ['VP10_COVERAGE_NONE', 'VP10_PREDICATE_EMPTY']",
+  "PASS S-15 {'marked': 1, 'checked': 0, 'unknown': 1, 'element': 2, 'hidden': 0} warnings ['VP10_COVERAGE_NONE']",
+  "PASS S-16 G6 svg == CLI, check PASS",
+  "16/16 match",
+  "exit=0"
+ ],
+ "pins": {
+  "0.10.0": [
+   "16/16 byte-identical"
+  ],
+  "0.10.1": [
+   "9/9 byte-identical"
+  ]
+ },
+ "vectors_j": [
+  "14/14 match"
+ ],
+ "vectors_o": [
+  "10/10 match"
+ ],
+ "tests": {
+  "vpcells test_vp110+test_vp101+test_vp10": [
+   "Ran 55 tests in 20.826s",
+   "OK"
+  ],
+  "mcp-local": [
+   "test_mile007_statements 6, test_mile006_order 5, test_mile005_adapter 9, test_validation_discovery 5, test_bridge 36, test_g4_surface 56, test_p0_resources 40, test_p0_tool_fallback 25, test_p1_validation 36: OK",
+   "test_g6_plan_views: 18 tests OK; K-01..K-16, K-18 PASS; K-17 parity sweep run in two parts because of the device time limit: 65/65 + 136/136 = 201/201"
+  ],
+  "frozen": [
+   "VP07_SHA256SUMS OK",
+   "VP09_SHA256SUMS OK"
+  ]
+ },
+ "oracle_reading": "svg_must_not_contain is checked as whole tokens; as raw substrings \"p1\" also hits the attribute prefix data-vp10- (documented in run_vectors_s.py)",
+ "limits": "display only; derived entries follow from declared sources under the chosen strategy; the Cube reads the LIB result and never recomputes it; synthetic, no client data"
+}
