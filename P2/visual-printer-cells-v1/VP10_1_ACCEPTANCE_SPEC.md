@@ -1,6 +1,6 @@
 # VP-10.1 — Declared axis order and feedback reading · Acceptance specification
 
-**Status:** SPECIFIED. MILE-006 decisions D-4 and D-5 apply; detail questions Q-1…Q-6 resolved 2026-11-02 (all as proposed). Not implemented.
+**Status:** SPECIFIED. MILE-006 decisions D-4 and D-5 apply; detail questions Q-1…Q-6 resolved 2026-11-02 (all as proposed). IMPLEMENTED locally 2026-11-02 (TASK-040): O-01…O-10 10/10, 0.10.0 pins 16/16 byte-identical.
 **Profile:** `P2-VP-CELLS/0.10.1`, follow-up to `0.10.0` in `vpcells`; opt-in (Q-2). `0.10.0`, VP-09 and VP-07 stay byte-identical.
 **Requirement:** PO-5 (MILE-003 handover); MILE-006 US-022, TASK-039/040.
 **Basis:**

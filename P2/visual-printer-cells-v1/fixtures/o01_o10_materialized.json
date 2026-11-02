@@ -1,0 +1,1692 @@
+{
+ "format": "aiaeao.p2.vp101-vectors/1",
+ "source": "VP10_1_ACCEPTANCE_SPEC.md §4; base J-02; synthetic, no client data",
+ "cases": [
+  {
+   "id": "O-01",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp101-o-01",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": null,
+   "locale": null,
+   "axis_order": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+   ],
+   "via": "cli",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.10.1",
+    "rows": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "cols": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "unordered_values": [],
+    "feedback_cells": [
+     "m:parser|m:validator"
+    ],
+    "warnings": [],
+    "text": {
+     "m:parser|m:validator": [
+      "d-fb · references",
+      "feedback"
+     ]
+    }
+   }
+  },
+  {
+   "id": "O-02",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp101-o-02",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": null,
+   "locale": null,
+   "axis_order": [
+    "m:printer",
+    "m:validator",
+    "m:resolver",
+    "m:parser"
+   ],
+   "via": "cli",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.10.1",
+    "rows": [
+     "m:printer",
+     "m:validator",
+     "m:resolver",
+     "m:parser"
+    ],
+    "cols": [
+     "m:printer",
+     "m:validator",
+     "m:resolver",
+     "m:parser"
+    ],
+    "unordered_values": [],
+    "feedback_cells": [
+     "m:printer|m:validator",
+     "m:resolver|m:parser",
+     "m:validator|m:resolver"
+    ],
+    "warnings": []
+   }
+  },
+  {
+   "id": "O-03",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp10-j-02",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": null,
+   "locale": null,
+   "axis_order": null,
+   "via": "cli",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.10.0",
+    "byte_identical_to_pin": "J-02"
+   }
+  },
+  {
+   "id": "O-04",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp101-o-04",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": null,
+   "locale": null,
+   "axis_order": [
+    "m:parser",
+    "m:validator"
+   ],
+   "via": "cli",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.10.1",
+    "rows": [
+     "m:parser",
+     "m:validator",
+     "m:resolver",
+     "m:printer"
+    ],
+    "cols": [
+     "m:parser",
+     "m:validator",
+     "m:resolver",
+     "m:printer"
+    ],
+    "unordered_values": [
+     "m:resolver",
+     "m:printer"
+    ],
+    "feedback_cells": [
+     "m:parser|m:validator",
+     "m:validator|m:resolver"
+    ],
+    "warnings": [
+     "VP10_ORDER_PARTIAL"
+    ]
+   }
+  },
+  {
+   "id": "O-05",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp101-o-05",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": null,
+   "locale": null,
+   "axis_order": [
+    "m:parser",
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+   ],
+   "via": "cli",
+   "expected": {
+    "error": "VP10_ORDER_INVALID"
+   }
+  },
+  {
+   "id": "O-06",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp101-o-06",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": null,
+   "locale": null,
+   "axis_order": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer",
+    "m:lexer"
+   ],
+   "via": "cli",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.10.1",
+    "rows": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "cols": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "unordered_values": [],
+    "feedback_cells": [
+     "m:parser|m:validator"
+    ],
+    "warnings": [
+     "VP10_ORDER_NOT_IN_VIEW"
+    ]
+   }
+  },
+  {
+   "id": "O-07",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp101-o-07",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": "cols",
+   "locale": null,
+   "axis_order": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+   ],
+   "via": "cli",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.10.1",
+    "rows": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "cols": [
+     "m:parser",
+     "m:resolver",
+     "m:validator"
+    ],
+    "hidden_cols": [
+     "m:printer"
+    ],
+    "unordered_values": [],
+    "feedback_cells": [
+     "m:parser|m:validator"
+    ],
+    "warnings": []
+   }
+  },
+  {
+   "id": "O-08",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp101-o-08",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       },
+       {
+        "dependency_id": "d-rv",
+        "subject": "m:resolver",
+        "object": "m:validator",
+        "predicate_id": "recovers-via",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "synthetic:dsm#d-rv"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": null,
+   "locale": null,
+   "axis_order": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+   ],
+   "via": "cli",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.10.1",
+    "rows": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "cols": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "unordered_values": [],
+    "feedback_cells": [
+     "m:parser|m:validator"
+    ],
+    "warnings": [],
+    "text": {
+     "m:resolver|m:validator": [
+      "d-rv · recovers-via",
+      "references · not surveyed"
+     ]
+    }
+   }
+  },
+  {
+   "id": "O-09",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp101-o-09",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": null,
+   "locale": "de",
+   "axis_order": [
+    "m:parser",
+    "m:validator"
+   ],
+   "via": "cli",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.10.1",
+    "rows": [
+     "m:parser",
+     "m:validator",
+     "m:resolver",
+     "m:printer"
+    ],
+    "cols": [
+     "m:parser",
+     "m:validator",
+     "m:resolver",
+     "m:printer"
+    ],
+    "unordered_values": [
+     "m:resolver",
+     "m:printer"
+    ],
+    "feedback_cells": [
+     "m:parser|m:validator",
+     "m:validator|m:resolver"
+    ],
+    "warnings": [
+     "VP10_ORDER_PARTIAL"
+    ],
+    "text": {
+     "m:parser|m:validator": [
+      "d-fb · verweist auf",
+      "Rückkopplung"
+     ]
+    },
+    "header_contains": {
+     "m:resolver": "nicht geordnet",
+     "m:printer": "nicht geordnet"
+    }
+   }
+  },
+  {
+   "id": "O-10",
+   "context": {
+    "format": "aiaeao.cube.binding-context/8",
+    "reference_version": "v9.4",
+    "context_id": "vp101-o-10",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "mile003:dsm",
+    "referents": [
+     {
+      "ref": "m:parser",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:resolver",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:validator",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     },
+     {
+      "ref": "m:printer",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "mile003:dsm"
+     }
+    ],
+    "predicate_contracts": [],
+    "predicate_profile_refs": [
+     "P1.10/migration-predicates-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "mp-dsm",
+      "revision": "mile003:v1",
+      "scope": "mile003:dsm",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "p0",
+        "role": "current"
+       },
+       {
+        "phase_id": "p1",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d-rp",
+        "subject": "m:resolver",
+        "object": "m:parser",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#resolver-parser"
+       },
+       {
+        "dependency_id": "d-vr",
+        "subject": "m:validator",
+        "object": "m:resolver",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#validator-resolver"
+       },
+       {
+        "dependency_id": "d-pv",
+        "subject": "m:printer",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#printer-validator"
+       },
+       {
+        "dependency_id": "d-fb",
+        "subject": "m:parser",
+        "object": "m:validator",
+        "predicate_id": "references",
+        "kind": "other",
+        "holds_in": [
+         "p0",
+         "p1"
+        ],
+        "witness_ref": "model:dsm-modules#parser-validator-feedback"
+       }
+      ]
+     }
+    ],
+    "coverage_declarations": [
+     {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "subject": "m:printer",
+      "predicate_id": "references",
+      "object": "m:parser",
+      "witness_ref": "synthetic:survey#cv-pp"
+     }
+    ]
+   },
+   "plan_id": "mp-dsm",
+   "predicate": "references",
+   "steps": null,
+   "rows": "Y:referent",
+   "cols": "Y:referent",
+   "hide_empty": null,
+   "locale": null,
+   "axis_order": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+   ],
+   "via": "G6 cube_plan_views + cube_plan_check",
+   "expected": {
+    "svg_equals_cli_of": "O-01",
+    "check": "PASS"
+   }
+  }
+ ]
+}

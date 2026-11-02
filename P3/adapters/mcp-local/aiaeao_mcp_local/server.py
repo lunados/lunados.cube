@@ -124,15 +124,18 @@ def cube_plan_views(
     rows: str | None=None, cols: str | None=None, lens: str | None=None,
     overflow: Literal['summarize','reject'] | None=None, locale: str | None=None,
     hide_ledger: bool | None=None, hide_empty: Literal['rows','cols','both'] | None=None,
+    axis_order: list[str] | None=None,
 ) -> CallToolResult:
     """Print plan panels in memory: SVGs, panel inputs, index and report, byte-identical to CLI print-panels.
     Limits: 512 KiB per SVG, 2 MiB per response; over a limit isError, never truncated. Display only.
     C-12 options (only for 0.7.5 / 0.9.2 sources): locale (de, en) and hide_ledger for cube.phases / cube.flow,
     partition 'method-sets' (VP-07.5); locale and hide_empty for cube.axes, rows/cols Y × Y (VP-09.2).
     cube.cells (VP-10): Y × Y cell states (marked, checked, unknown, hidden) from declared coverage; locale, hide_empty.
+    axis_order (cube.cells only, VP-10.1): declared order of the Y display IDs; marks entries above the diagonal as feedback.
     """
     return _result(plan_views.plan_views, source, view, granularity, partition=partition, rows=rows, cols=cols,
-                   lens=lens, overflow=overflow, locale=locale, hide_ledger=hide_ledger or None, hide_empty=hide_empty)
+                   lens=lens, overflow=overflow, locale=locale, hide_ledger=hide_ledger or None, hide_empty=hide_empty,
+                   axis_order=axis_order)
 
 
 @mcp.tool()

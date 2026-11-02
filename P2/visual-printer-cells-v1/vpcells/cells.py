@@ -9,7 +9,7 @@ from xml.etree import ElementTree as ET
 
 from vpaxes.axes import AxesPrinter, GX0, GX1
 from vpaxes.common import BUDGET, HIDE_EMPTY, MUTED, INK, add, line, rect, text, fmt, no_active_content
-from .common import (PROFILE, BASE_PROFILE, REPORT_FORMAT, NS, NOT_EVALUATED, Texts, need, sha_bytes, sha_json, cjson, wrap_sep)
+from .common import (PROFILE, PROFILE_101, BASE_PROFILE, REPORT_FORMAT, NS, NOT_EVALUATED, Texts, OrderTexts, need, sha_bytes, sha_json, cjson, wrap_sep)
 from .source import normalize
 
 CHECK_STROKE = '2.6'      # bold border: checked empty (non-colour attribute, CS-6)
@@ -21,12 +21,25 @@ def _key(r, c):
     return f'{r}|{c}'
 
 
+def _ordered(values, axis_order):
+    """AO-1 (Q-3, Q-5): declared order within each kind group; unlisted values follow in their previous order."""
+    rank = {v: i for i, v in enumerate(axis_order)}
+    out, kinds = [], []
+    for v in values:
+        if v[2] not in kinds:
+            kinds.append(v[2])
+    for k in kinds:
+        grp = [v for v in values if v[2] == k]
+        out += sorted((v for v in grp if v[0] in rank), key=lambda v: rank[v[0]]) + [v for v in grp if v[0] not in rank]
+    return out
+
+
 class CellsPrinter:
     def __init__(self):
         self.axes = AxesPrinter()
 
     # -- states (CS-1…CS-5) ---------------------------------------------------
-    def project(self, doc, rows, cols, granularity='standard', hide_empty=None, locale=None):
+    def project(self, doc, rows, cols, granularity='standard', hide_empty=None, locale=None, axis_order=None):
         doc = normalize(doc)
         need(rows == 'Y:referent' and cols == 'Y:referent', 'VP10_PAIR_INVALID', 'VP-10 draws cell states in Y:referent × Y:referent only (D-3)')
         need(hide_empty in (None,)+HIDE_EMPTY, 'VP10_AXIS_INVALID', 'hide_empty must be rows|cols|both')
@@ -54,6 +67,16 @@ class CellsPrinter:
                     return 'column', d['declaration_id']
             return None, None
         rall, call = list(pr['rv']), list(pr['cv'])
+        order = None
+        if axis_order is not None:                           # VP-10.1 (Q-1, Q-2): a display option; its presence selects 0.10.1
+            need(isinstance(axis_order, list) and axis_order and all(isinstance(v, str) and v for v in axis_order), 'VP10_ORDER_INVALID',
+                 'axis_order must be a non-empty list of display IDs')
+            need(len(set(axis_order)) == len(axis_order), 'VP10_ORDER_INVALID',
+                 'axis_order lists a value twice: '+', '.join(sorted({v for v in axis_order if axis_order.count(v) > 1})))
+            known = {v for v, _, _ in rall}
+            rall, call = _ordered(rall, axis_order), _ordered(call, axis_order)
+            order = {'axis_order': list(axis_order), 'not_in_view': [v for v in axis_order if v not in known],
+                     'unordered_values': [v for v, _, _ in rall if v not in set(axis_order)]}
         states = {}
         for r, _, _ in rall:
             for c, _, _ in call:
@@ -98,15 +121,27 @@ class CellsPrinter:
             elif x['reason'] == 'instance_ref':
                 warnings.append({'code': 'VP10_COVERAGE_INSTANCE_IGNORED', 'declaration_id': x['declaration_id'],
                                  'detail': 'instance-restricted declaration; a plan dependency carries no instance (D-7); ignored'})
+        if order is not None:
+            pos = {v: i for i, (v, _, _) in enumerate(rall)}
+            order['feedback_cells'] = sorted(_key(r, c) for (r, c), st in states.items()
+                                             if st['state'] == 'marked' and pos[r] < pos[c] and _key(r, c) not in hidden_cells)
+            for v in order['not_in_view']:
+                warnings.append({'code': 'VP10_ORDER_NOT_IN_VIEW', 'value': v,
+                                 'detail': 'axis_order names a value that is not a Y:referent of this view (unknown or outside the slice); ignored'})
+            if order['unordered_values']:
+                warnings.append({'code': 'VP10_ORDER_PARTIAL', 'values': order['unordered_values'],
+                                 'detail': 'values not listed in axis_order follow at the end of their group, marked unordered'})
+            order['OT'] = OrderTexts(locale)
         pr.update(vp10={'T': T, 'predicate': pred, 'states': states, 'hidden_rows': hidden_rows, 'hidden_cols': hidden_cols,
                         'hidden_cells': hidden_cells, 'hide_empty': hide_empty, 'warnings': warnings, 'coverage': cov,
-                        'doc_sha': sha_json(doc)})
+                        'doc_sha': sha_json(doc), 'order': order})
         pr['hidden'], pr['all_empty'] = None, False         # VP-09.2 hiding is replaced by CS-5; its count note is not drawn
         return pr
 
     # -- drawing --------------------------------------------------------------
     def render(self, pr):
         x = pr['vp10']; T = x['T']; pred = x['predicate']
+        order = x['order']; OT = order['OT'] if order else None
         L = pr['L']
         pname = L.pred(pred)                                 # display name as in the VP-09.2 cells (ID unchanged in en)
         blank_line = L.t('axes.legend.blank', 'blank cell = nothing declared for this pair, not "no relation"')
@@ -145,6 +180,10 @@ class CellsPrinter:
                     n = sum(1 for _ in g.iter(q('text')))
                     for j, s in enumerate(wrap_sep(note, width)[0]):
                         text(g, fmt(x0+9), fmt(y0+17+(n+j)*15), s, 11, INK, 'bold')
+                if order and k in order['feedback_cells']:      # AO-2, AO-3: a text line, no colour or line style
+                    n = sum(1 for _ in g.iter(q('text')))
+                    g.set('data-vp10-feedback', 'true')
+                    text(g, fmt(x0+9), fmt(y0+17+n*15), OT.t('order.feedback', 'feedback'), 11, INK).set('font-style', 'italic')
                 continue
             cg = add(root, 'g', **{'data-vp10-cell': k, 'data-vp10-state': st['state']})
             if st['state'] == 'checked':
@@ -176,6 +215,23 @@ class CellsPrinter:
             body.append(T.t('cells.legend.hidden_rows', 'hidden rows: {names} (their cells, unknown ones included, are not shown)', names=', '.join(x['hidden_rows'])))
         if x['hidden_cols']:
             body.append(T.t('cells.legend.hidden_cols', 'hidden columns: {names} (their cells, unknown ones included, are not shown)', names=', '.join(x['hidden_cols'])))
+        if order:                                           # AO-4
+            body.append(OT.t('order.legend', 'declared axis order: rows and columns follow the declared order; "feedback" = entry above the diagonal: '
+                                             'the row depends on an element declared later; follows only from the declared order, not a finding about the system'))
+            if order['unordered_values']:
+                body.append(OT.t('order.legend.unordered', '"unordered" = not in the declared order: {names} (they follow at the end of their group)',
+                                 names=', '.join(order['unordered_values'])))
+            unordered = set(order['unordered_values'])
+            for g in root.iter(q('g')):
+                for attr, is_row in (('data-vp09-row', True), ('data-vp09-col', False)):
+                    v = g.get(attr)
+                    if v in unordered:
+                        ts = list(g.iter(q('text')))
+                        g.set('data-vp10-unordered', 'true')
+                        if is_row:
+                            text(g, ts[-1].get('x'), fmt(float(ts[-1].get('y'))+14), OT.t('order.unordered', 'unordered'), 10, MUTED).set('font-style', 'italic')
+                        else:
+                            text(g, ts[-1].get('x'), '196', OT.t('order.unordered', 'unordered'), 10, MUTED, anchor='middle').set('font-style', 'italic')
         body = [s for b in body for s in wrap_sep(b, 120)[0]]
         leg = next(g for g in root.iter(q('g')) if g.get('data-vp09-legend'))
         for t in leg.iter(q('text')):                       # VP-10 draws no blank cell: the VP-09.2 blank-cell line is replaced in place
@@ -196,7 +252,7 @@ class CellsPrinter:
             if el.tag == q('rect') and el.get('x') == '0' and el.get('y') == '0' and el.get('height') == str(old_h):
                 el.set('height', str(new_h))
         root.set('height', str(new_h)); root.set('viewBox', f'0 0 1200 {new_h}')
-        root.set('data-printer-profile', PROFILE); root.set('data-cube-view', 'cube.cells')
+        root.set('data-printer-profile', PROFILE_101 if order else PROFILE); root.set('data-cube-view', 'cube.cells')
         root.set('data-vp10-predicate', pred)
         for t in root.iter(q('text')):
             if t.text and 'VP-09.2' in t.text and t.get('y') == '75':      # subtitle names the printer
@@ -219,10 +275,16 @@ class CellsPrinter:
                 cells[k] = {'state': 'hidden'}
                 continue
             cells[k] = {kk: v for kk, v in st.items() if kk != 'entries' or v}
-        return {'profile': PROFILE, 'base_profile': BASE_PROFILE, 'predicate': x['predicate'], 'cells': dict(sorted(cells.items())),
-                'hidden_rows': x['hidden_rows'], 'hidden_cols': x['hidden_cols'], 'ignored_declarations': x['coverage']['ignored'],
-                'locale': x['T'].record(), 'status': 'declared_unverified',
-                'nonimplications': ['truth', 'completeness in the world', 'distance', 'rank', 'score', 'causality', 'time']}
+        led = {'profile': PROFILE, 'base_profile': BASE_PROFILE, 'predicate': x['predicate'], 'cells': dict(sorted(cells.items())),
+               'hidden_rows': x['hidden_rows'], 'hidden_cols': x['hidden_cols'], 'ignored_declarations': x['coverage']['ignored'],
+               'locale': x['T'].record(), 'status': 'declared_unverified',
+               'nonimplications': ['truth', 'completeness in the world', 'distance', 'rank', 'score', 'causality', 'time']}
+        o = x['order']
+        if o:                                               # VP-10.1 keys only with a declared order (0.10.0 bytes unchanged)
+            led.update(profile=PROFILE_101, axis_order=o['axis_order'], unordered_values=o['unordered_values'],
+                       order_not_in_view=o['not_in_view'], feedback_cells=o['feedback_cells'], order_locale=o['OT'].record())
+            led['nonimplications'] = led['nonimplications'] + ['feedback as a finding (it follows from the declared order only)']
+        return led
 
     def report(self, pr, svg, states_drawn):
         inv = []
@@ -256,7 +318,8 @@ class CellsPrinter:
         summary = {}
         for w in warnings:
             summary.setdefault(w['code'], {'code': w['code'], 'count': 0})['count'] += 1
-        return {'format': REPORT_FORMAT, 'profile': PROFILE, 'base_profile': BASE_PROFILE, 'reference_version': 'v9.4', 'render_status': 'PASS',
+        extra = {k: led[k] for k in ('axis_order', 'unordered_values', 'order_not_in_view', 'feedback_cells', 'order_locale') if k in led}
+        return {'format': REPORT_FORMAT, 'profile': led['profile'], **extra, 'base_profile': BASE_PROFILE, 'reference_version': 'v9.4', 'render_status': 'PASS',
                 'view': 'cube.cells', 'rows_axis': pr['rows'], 'cols_axis': pr['cols'], 'granularity': pr['granularity'],
                 'predicate': led['predicate'], 'input_sha256': pr['vp10']['doc_sha'], 'svg_sha256': sha_bytes(svg),
                 'row_values': [v for v, _, _ in pr['rv']], 'col_values': [v for v, _, _ in pr['cv']],
@@ -271,8 +334,8 @@ class CellsPrinter:
                             'No colour, size or position encodes a state or a quantity.']}
 
 
-def render_cells(doc, rows='Y:referent', cols='Y:referent', granularity='standard', hide_empty=None, locale=None):
+def render_cells(doc, rows='Y:referent', cols='Y:referent', granularity='standard', hide_empty=None, locale=None, axis_order=None):
     p = CellsPrinter()
-    pr = p.project(doc, rows, cols, granularity, hide_empty, locale)
+    pr = p.project(doc, rows, cols, granularity, hide_empty, locale, axis_order)
     svg, drawn = p.render(pr)
     return p.report(pr, svg, drawn), svg
