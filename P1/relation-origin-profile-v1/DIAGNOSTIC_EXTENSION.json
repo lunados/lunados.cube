@@ -1,0 +1,12 @@
+{
+  "format": "aiaeao.cube.p1.14.diagnostic-extension/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "disposition": "Additive P1.14 only. P0 and P1.1…P1.13 stay frozen. P1_BINDING_CONTEXT_REQUIRED, P1_PREDICATE_PROFILE_MISSING and P1_MCP_CONFIG_INVALID are reused.",
+  "codes": [
+    {"code": "P1_ORIGIN_UNDECLARED", "stage": "predicate_typing", "default_status": "UNRESOLVED", "reference_rule": "P1.14 OR-2, OR-6: opted-in relation or dependency origin is required"},
+    {"code": "P1_ORIGIN_BASIS_MISSING", "stage": "predicate_typing", "default_status": "UNRESOLVED", "reference_rule": "P1.14 OR-3: derived origin requires a basis"},
+    {"code": "P1_ORIGIN_INVALID", "stage": "predicate_typing", "default_status": "FAIL", "reference_rule": "P1.14 OR-2…OR-3: invalid origin or forbidden basis"}
+  ],
+  "plan_dependency_stage": "scope_consistency"
+}

@@ -1,0 +1,16 @@
+{
+  "format": "aiaeao.cube.p1.14.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P1 validator vocabulary; descriptive only",
+  "rules": [
+    {"id": "P114-SHAPE", "coverage": "enforced", "source": "P1.14 §1, §2", "vectors": ["HO-02", "HO-03", "HO-12"], "implementation": "/10 projects to /9; malformed declarations are MCP config errors"},
+    {"id": "P114-OR-1", "coverage": "enforced", "source": "P1.14 OR-1", "vectors": ["HO-10", "HO-11"], "implementation": "Only predicate contracts with origin_binding required opt in"},
+    {"id": "P114-OR-2", "coverage": "enforced", "source": "P1.14 OR-2", "vectors": ["HO-01", "HO-05", "HO-07", "HO-08"], "implementation": "Missing origin is unresolved; invalid origin fails; unknown is a valid declaration"},
+    {"id": "P114-OR-3", "coverage": "enforced", "source": "P1.14 OR-3", "vectors": ["HO-04", "HO-06"], "implementation": "Derived needs basis; declared and unknown forbid basis"},
+    {"id": "P114-OR-4", "coverage": "enforced", "source": "P1.14 OR-4", "vectors": ["HO-02", "HO-03", "HO-09"], "implementation": "Both basis shapes checked; basis_id resolved within origin_bases; no source opened"},
+    {"id": "P114-OR-5", "coverage": "enforced", "source": "P1.14 OR-5", "vectors": ["HO-02", "HO-03", "HO-08"], "implementation": "No origin is inferred from predicate name"},
+    {"id": "P114-OR-6", "coverage": "enforced", "source": "P1.14 OR-6", "vectors": ["HO-12"], "implementation": "Opted-in migration dependencies use the same origin/basis checks"},
+    {"id": "P114-OR-7", "coverage": "schema_only", "source": "P1.14 OR-7", "vectors": [], "implementation": "statement-set/2 schema adds optional origin and basis; printer resolution is TASK-066"},
+    {"id": "P114-NO-ORIGIN-VERIFICATION", "coverage": "documentary", "source": "P1.14 §6", "vectors": [], "implementation": "P1 does not verify declared origin, recompute derived relations, or open source data"}
+  ]
+}

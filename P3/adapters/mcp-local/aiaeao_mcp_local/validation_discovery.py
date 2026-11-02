@@ -14,6 +14,7 @@ PROFILES = (
     ('P1.11/migration-methods-v1', 'migration-methods-v1/cube_p111/validator.py'),
     ('P1.12/coverage-instance-profile-v1', 'coverage-instance-profile-v1/cube_p112/validator.py'),
     ('P1.13/control-flow-profile-v1', 'control-flow-profile-v1/cube_p113/validator.py'),
+    ('P1.14/relation-origin-profile-v1', 'relation-origin-profile-v1/cube_p114/validator.py'),
 )
 
 def describe_validation_contexts():
@@ -27,6 +28,8 @@ def describe_validation_contexts():
             'required_sources': sources,
             'required_sources_present': all((ROOT / p).is_file() for p in sources),
             'runtime_load_verified': False,
+            **({'diagnostic_codes': ['P1_ORIGIN_UNDECLARED', 'P1_ORIGIN_BASIS_MISSING',
+                                      'P1_ORIGIN_INVALID']} if index == 10 else {}),
         })
     return {
         'format': 'aiaeao.cube.local-validation-discovery/1',

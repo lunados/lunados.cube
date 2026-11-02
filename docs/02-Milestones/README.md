@@ -1,6 +1,6 @@
 # Milestones
 
-MILE-001 bis MILE-010 sind abgeschlossen, MILE-002 und MILE-003 am 2026-11-01 abgenommen. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
+MILE-001 bis MILE-010 sind abgeschlossen, MILE-002 und MILE-003 am 2026-11-01 abgenommen; MILE-011 ist in Arbeit. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
 
 | ID | Ergebnis / Abschlusskriterium | Abhängigkeit |
 |---|---|---|
@@ -14,5 +14,6 @@ MILE-001 bis MILE-010 sind abgeschlossen, MILE-002 und MILE-003 am 2026-11-01 ab
 | [MILE-008 — Kontrollfluss und Spurkonformität](MILE-008-control-flow.md) | Drei Chargen: Prüffälle und Spezifikation, Profil P1.13 und LIB `analyze.trace-conformance/v1`, Adapter und Wiederholung der BPMN-Fälle; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-008/C-RESULT.md)) | MILE-005, MILE-007 |
 | [MILE-009 — Instanzsicht](MILE-009-instance-view.md) | Drei Chargen: Spezifikation und Prüffälle, Printer VP-11 `cube.instances`, G6 und Sichtprüfung; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-009/C-RESULT.md)) | MILE-008 |
 | [MILE-010 — Kontrollfluss und Plansichten remote](MILE-010-remote-plan-views.md) | Drei Chargen: Spezifikation und Erwartungen, G5-Kern und Gateway, Bereitstellung und Host-Abnahme; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-010/C-RESULT.md)) | MILE-008, MILE-009 |
+| [MILE-011 — Herkunft von Beziehungen](MILE-011-relation-origin.md) | Drei Chargen: Spezifikation und Prüffälle, Profil P1.14, Herkunftslinie in `cube.flow` mit Auslieferung (G4, G6, G5) und Sichtprüfung; in Arbeit (D-1–D-8 entschieden) | MILE-007, MILE-010 |
 
 [Roadmap](../01-roadmap/ROADMAP.md) · [Vorlage](../99-templates/WORK-ITEM.md)

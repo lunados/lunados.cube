@@ -1,0 +1,15 @@
+{
+  "format": "aiaeao.cube.vp07.diagnostics-extension/1",
+  "profile": "P2-VP-MIGRATION/0.7.6",
+  "reference_version": "v9.4",
+  "basis": "VP07_6_ACCEPTANCE_SPEC.md §3; additive to DIAGNOSTICS.json",
+  "codes": [
+    {"code": "VP07_ORIGIN_STYLE_CONFLICT", "default_status": "FAIL", "rule": "origin_lines and edge_styles cannot be combined"},
+    {"code": "VP07_ORIGIN_VIEW", "default_status": "FAIL", "rule": "origin_lines applies only to cube.flow"},
+    {"code": "VP07_ORIGIN_RECORD_INVALID", "default_status": "FAIL", "rule": "projection record shape, method, or input-set digest is invalid"},
+    {"code": "VP07_ORIGIN_UNRESOLVED", "default_status": "WARNING", "rule": "derived edge has no resolvable basis; draw and label it as not bound"},
+    {"code": "VP07_STATEMENT_SET_INVALID", "default_status": "FAIL", "rule": "statement-set/1 or /2 shape is invalid"},
+    {"code": "VP07_STATEMENT_REF_UNKNOWN", "default_status": "FAIL", "rule": "statement referent is absent from the binding context"},
+    {"code": "VP07_STATEMENT_PREDICATE_INVALID", "default_status": "FAIL", "rule": "predicate contract is absent or does not admit the endpoint concepts"}
+  ]
+}

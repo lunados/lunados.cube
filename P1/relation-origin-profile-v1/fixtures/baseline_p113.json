@@ -1,0 +1,98 @@
+{
+ "format": "aiaeao.cube.p1.14-baseline/1",
+ "note": "P1.13 on the same inputs with P1.14 fields removed (context /9); before any P1.14 code",
+ "rows": [
+  {
+   "id": "HO-01",
+   "status_p113": "PASS",
+   "codes_p113": [],
+   "expected_p114": "UNRESOLVED"
+  },
+  {
+   "id": "HO-02",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "PASS"
+  },
+  {
+   "id": "HO-03",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "PASS"
+  },
+  {
+   "id": "HO-04",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "UNRESOLVED"
+  },
+  {
+   "id": "HO-05",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "FAIL"
+  },
+  {
+   "id": "HO-06",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "FAIL"
+  },
+  {
+   "id": "HO-07",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "PASS"
+  },
+  {
+   "id": "HO-08",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "PASS"
+  },
+  {
+   "id": "HO-09",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "UNRESOLVED"
+  },
+  {
+   "id": "HO-10",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "UNRESOLVED"
+  },
+  {
+   "id": "HO-11",
+   "status_p113": "PASS",
+   "codes_p113": [],
+   "expected_p114": "PASS"
+  },
+  {
+   "id": "HO-12",
+   "status_p113": "UNRESOLVED",
+   "codes_p113": [
+    "P1_PREDICATE_PROFILE_MISSING"
+   ],
+   "expected_p114": "UNRESOLVED"
+  }
+ ]
+}

@@ -153,3 +153,18 @@ Führender Status: [deliver-remote-plan-views/tasks.md](../../openspec/changes/a
 | [TASK-062 — Abschluss](TASK-062-mile010-close.md) | US-030, US-031 | 0,25 PT |
 
 Summe: 2,25–3,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
+
+## MILE-011 — geplant
+
+Führender Status: [declare-relation-origin/tasks.md](../../openspec/changes/declare-relation-origin/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-063 — Spezifikation und Detailfragen](TASK-063-origin-spec.md) | US-032, US-033 | 0,25–0,5 PT |
+| [TASK-064 — Prüffälle, Orakel und Pins vor Code](TASK-064-origin-cases.md) | US-032, US-033 | 0,25 PT |
+| [TASK-065 — Profil P1.14 und G4](TASK-065-p114-profile.md) | US-032 | 1–1,5 PT |
+| [TASK-066 — Printer VP-07.6 und G6](TASK-066-vp076-printer.md) | US-033 | 0,75–1 PT |
+| [TASK-067 — G5 und Host-Abnahme](TASK-067-origin-g5.md) | US-032, US-033 | 0,5–0,75 PT |
+| [TASK-068 — Sichtprüfung und Abschluss](TASK-068-mile011-close.md) | US-032, US-033 | 0,25–0,5 PT |
+
+Summe: 3–4,5 PT; Planungsannahmen, ohne Zeit des Nutzers.

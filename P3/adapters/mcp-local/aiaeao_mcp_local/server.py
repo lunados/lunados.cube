@@ -108,7 +108,7 @@ def cube_plan_source(
     edge_styles: list[dict[str, Any]] | None=None, steps: str | None=None, subjects: list[str] | None=None,
     profile: str | None=None, predicate: str | None=None,
     statements: dict[str, Any] | None=None, projection: dict[str, Any] | None=None,
-    records: list[dict[str, Any]] | None=None,
+    records: list[dict[str, Any]] | None=None, origin_lines: bool | None=None,
 ) -> CallToolResult:
     """Derive a VP-07 migration source, VP-09 axes input or VP-10 cells input from a binding context, exactly as CLI from-plan.
     vpcells needs predicate (one per view) and reads coverage from binding-context/8.
@@ -116,11 +116,13 @@ def cube_plan_source(
     lunados.lib project.aggregate-relations/v1; the aggregation is read, never recomputed.
     vpinstances (VP-11): a binding-context/9, plan_id null, statements = the trace, optional records
     (aiaeao.cube.conformance-record/1 of lunados.lib analyze.trace-conformance/v1); verdicts are read, never recomputed.
+    vpmigration 0.7.6: origin_lines with a /10 plan or statement-set/1 or /2, optional projection records; cube.flow only.
     vpsequence is not supported (VP-08 sources are declared directly). No files; declared_unverified.
     """
     return _result(plan_views.plan_source, context, plan_id, printer, tracks=track_map, track=track, labels=labels,
                    layers=layers, witness_prefixes=witness_prefixes, edge_styles=edge_styles, steps=steps,
-                   subjects=subjects, profile=profile, predicate=predicate, statements=statements, projection=projection, records=records)
+                   subjects=subjects, profile=profile, predicate=predicate, statements=statements, projection=projection,
+                   records=records, origin_lines=origin_lines)
 
 
 @mcp.tool()

@@ -1,0 +1,14 @@
+{
+  "format": "aiaeao.cube.vp07.rule-coverage-extension/1",
+  "profile": "P2-VP-MIGRATION/0.7.6",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P2 display vocabulary; descriptive only",
+  "basis": "VP07_6_ACCEPTANCE_SPEC.md; additive to RULE_COVERAGE.json",
+  "rules": [
+    {"id": "VP076-ORIGIN", "coverage": "enforced", "implementation": "opt-in origin_lines; per-edge style by bound origin; textual origin and full source IDs in report; unresolved basis warned"},
+    {"id": "VP076-STATEMENTS", "coverage": "enforced", "implementation": "statement-set/1 or /2 against binding-context/10; projection records read with shape, method, and set digest check; subject/object partition only"},
+    {"id": "VP076-RENDER", "coverage": "enforced", "implementation": "frozen flow renderer followed by per-edge dash and text, fixed legend and PO-1 header; neutral reference arrowhead and colours"},
+    {"id": "VP076-G6", "coverage": "enforced", "implementation": "cube_plan_source origin_lines and statement inputs; cube_plan_views and cube_plan_check; CLI/G6 file parity"},
+    {"id": "VP076-COMPATIBILITY", "coverage": "enforced", "implementation": "0.7.0–0.7.5 output digests checked with versioned pin scripts; older source paths stay profile-dispatched"}
+  ]
+}
