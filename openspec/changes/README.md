@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-- keine
+- [record-current-state](record-current-state/proposal.md) — MILE-012 entschieden (D-1–D-4), vier offene Tasks.
 
 ## Abgeschlossen
 
