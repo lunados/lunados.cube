@@ -1,0 +1,322 @@
+{
+ "format": "aiaeao.cube.g5-r6-live-script/1",
+ "date": "2026-11-02T20:31:28.095587+00:00",
+ "release": "P3-MCP-REMOTE/0.9.0-proof",
+ "gateway_tools_as_expected": true,
+ "gateway_health_version_as_expected": true,
+ "calls": 26,
+ "matched": 25,
+ "mismatched": [
+  "P-OL-07"
+ ],
+ "wall_s_top5": [
+  {
+   "id": "P-OL-07",
+   "wall_s": 1.011
+  },
+  {
+   "id": "P-OL-08",
+   "wall_s": 0.57
+  },
+  {
+   "id": "V-HO-01",
+   "wall_s": 0.117
+  },
+  {
+   "id": "P-OL-05",
+   "wall_s": 0.111
+  },
+  {
+   "id": "P-OL-04",
+   "wall_s": 0.103
+  }
+ ],
+ "rows": [
+  {
+   "id": "D-01",
+   "match": true,
+   "checks": {
+    "release.version": true,
+    "p114_relation_origin.profile": true,
+    "p114_relation_origin.binding_context_formats": true,
+    "domains.P2.plan_views.printers.vpmigration.profiles": true,
+    "domains.P2.plan_views.remote_available": true
+   },
+   "wall_s": [
+    0.031
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-HO-01",
+   "match": true,
+   "wall_s": [
+    0.117
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-HO-02",
+   "match": true,
+   "wall_s": [
+    0.046
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-03",
+   "match": true,
+   "wall_s": [
+    0.048
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-HO-04",
+   "match": true,
+   "wall_s": [
+    0.047
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-05",
+   "match": true,
+   "wall_s": [
+    0.045
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-HO-06",
+   "match": true,
+   "wall_s": [
+    0.043
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-07",
+   "match": true,
+   "wall_s": [
+    0.045
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-08",
+   "match": true,
+   "wall_s": [
+    0.046
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-09",
+   "match": true,
+   "wall_s": [
+    0.048
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-10",
+   "match": true,
+   "wall_s": [
+    0.05
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-11",
+   "match": true,
+   "wall_s": [
+    0.05
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-12",
+   "match": true,
+   "wall_s": [
+    0.079
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-01",
+   "match": true,
+   "wall_s": [
+    0.031,
+    0.095,
+    0.096
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-02",
+   "match": true,
+   "wall_s": [
+    0.036,
+    0.055,
+    0.054
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-03a",
+   "match": true,
+   "wall_s": [
+    0.042,
+    0.052,
+    0.056
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-03b",
+   "match": true,
+   "wall_s": [
+    0.032,
+    0.057,
+    0.058
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-04",
+   "match": true,
+   "wall_s": [
+    0.032,
+    0.09,
+    0.103
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-05",
+   "match": true,
+   "wall_s": [
+    0.034,
+    0.092,
+    0.111
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-06",
+   "match": true,
+   "wall_s": [
+    0.037,
+    0.057,
+    0.066
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-07",
+   "match": false,
+   "wall_s": [
+    0.061,
+    0.894,
+    1.011
+   ],
+   "host_subset": false,
+   "steps": [
+    {
+     "op": "cube_plan_source",
+     "is_error": false,
+     "payload_sha256": "5db5c1e837244e76379a2898bb1b8b458c1ba0c52c34dd9471aab8fcfd9e6751",
+     "match": true
+    },
+    {
+     "op": "cube_plan_views",
+     "is_error": false,
+     "payload_sha256": "79cd0205df944ab226a749d5c5583d2b54d5b7a42e9281eddb87ca9d2955162f",
+     "svg_sha256": [
+      "1cbf5e1e03d9f9bc48e2c97ccb1fc40147bd56e5c7224eab978a5aabb5bb6911",
+      "895e47c5757e4f41c28fbca1644197ea7469f35725d179d72a94e27dc31f9615",
+      "b9f6004691f9bb75650edec2947d99e63909406b8b22b34de5cc68d3d0f0dfe8",
+      "1d16e69b8dd5bb0dd946126010203707545d2b4a5c7b607948c40e0e27c43f22",
+      "fb243a2fc618c884b13fb92f5c8507f0bbc6278942cc3035e2c4b2b3b93858e3",
+      "eb4bec8cd95749dcbed96150e16021abd918ff19a1355c8b9d1d9a7b773f756c",
+      "fe4c4c43ad5fef8515a8db53a5a7961c3a98bcd66345c30ab80b4f974823f3b3",
+      "be829e9517647557440009320f9918a818a798753f95d4a9d8aeb391fa6ef7cc",
+      "cae1a660f98a09da3bdb2790ebd208e077b9ec7a07debbdf8a691d15dc2b9982",
+      "9fffd7382a5bd85592132800d86b69f63656f7035560c5a1b4c0460ae6546cde",
+      "eeaf9605e78944bf2de41942f02a0394de097da9eb52d28678d574c09374717a",
+      "f87d8963e3df961cb2b32da339e6e5582d8273a25758bb935572ae2e315e5551",
+      "9b67932e9fc5a9cd18fd7c1032b92e819634907cf6b8cfcb0f6882a9bc9660b8",
+      "d9a1215b3deaea93b3f44941ad955867ccf5d0377ff18b8b4a86681c10b89b2c",
+      "45ea657827b385e8523284ed7c41b11688f8f47ef0a8ed48371767a3b7328d4e",
+      "1a0d4d7983a0c964bdf17e206622e0e8461cc5eac7c039764c775c27fe327b77",
+      "346b4074f26523761adef282c4b4a163f3993c9ef394268fbd5ad14537cbff90",
+      "c9f823849994d63045546f5d51dde7d0faabb0fd5b617d3e986f0112b71948a7",
+      "9a13e010c202af55e0cdbc3d9a715bbb8ab555fcd1cd85e63c32e9981ac64caf",
+      "c7ee79246f04aafcdf459b51b75efba2971306fc8da7d312da3b111bfef62879",
+      "b7c53fb29d3217f9245fbba24d7cea8a7e532c334ce277d3b50059538527a60a",
+      "ffb97e9314a2c4720d507782bc89fe75f58465c6f33c5f06770be74f14e38424",
+      "dada34ac24771397f440774235bce18f1b7d2b9f5cb8c724884a31122f38f6cb",
+      "fd322a6d040155c92c61e69da2724712ec8b2648700cf3ef37b03dff71bf9448",
+      "c986fb171f62906e7446d5e818ba7f42ab0385e6e22f36992dcc2eadc5f24247",
+      "8c9d1079dae37430b55c3d904079e42bb8b59b8b824e60b8add76d41ff5c9ffd"
+     ],
+     "match": true
+    },
+    {
+     "op": "cube_plan_check",
+     "is_error": true,
+     "payload_sha256": "1a2e3cff30dd8b6081fbfe1dca30694ff82aad3b8bce1ff941138c82a8506ac8",
+     "code": "G5_CORE_UNAVAILABLE",
+     "match": false
+    }
+   ]
+  },
+  {
+   "id": "P-OL-08",
+   "match": true,
+   "wall_s": [
+    0.57
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-09",
+   "match": true,
+   "wall_s": [
+    0.059,
+    0.053
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-10",
+   "match": true,
+   "wall_s": [
+    0.032
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-11",
+   "match": true,
+   "wall_s": [
+    0.088,
+    0.059,
+    0.056
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-12",
+   "match": true,
+   "wall_s": [
+    0.04,
+    0.054,
+    0.06
+   ],
+   "host_subset": false
+  }
+ ],
+ "status": "FAIL"
+}

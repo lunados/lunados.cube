@@ -1,0 +1,282 @@
+{
+ "format": "aiaeao.cube.g5-r6-live-script/1",
+ "date": "2026-11-02T20:29:11.593572+00:00",
+ "release": "P3-MCP-REMOTE/0.9.0-proof",
+ "gateway_tools_as_expected": true,
+ "gateway_health_version_as_expected": true,
+ "calls": 26,
+ "matched": 25,
+ "mismatched": [
+  "V-HO-11"
+ ],
+ "wall_s_top5": [
+  {
+   "id": "P-OL-07",
+   "wall_s": 0.94
+  },
+  {
+   "id": "V-HO-12",
+   "wall_s": 0.535
+  },
+  {
+   "id": "P-OL-01",
+   "wall_s": 0.215
+  },
+  {
+   "id": "V-HO-01",
+   "wall_s": 0.128
+  },
+  {
+   "id": "P-OL-05",
+   "wall_s": 0.114
+  }
+ ],
+ "rows": [
+  {
+   "id": "D-01",
+   "match": true,
+   "checks": {
+    "release.version": true,
+    "p114_relation_origin.profile": true,
+    "p114_relation_origin.binding_context_formats": true,
+    "domains.P2.plan_views.printers.vpmigration.profiles": true,
+    "domains.P2.plan_views.remote_available": true
+   },
+   "wall_s": [
+    0.045
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-HO-01",
+   "match": true,
+   "wall_s": [
+    0.128
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-HO-02",
+   "match": true,
+   "wall_s": [
+    0.056
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-03",
+   "match": true,
+   "wall_s": [
+    0.055
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-HO-04",
+   "match": true,
+   "wall_s": [
+    0.045
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-05",
+   "match": true,
+   "wall_s": [
+    0.061
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-HO-06",
+   "match": true,
+   "wall_s": [
+    0.073
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-07",
+   "match": true,
+   "wall_s": [
+    0.046
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-08",
+   "match": true,
+   "wall_s": [
+    0.051
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-09",
+   "match": true,
+   "wall_s": [
+    0.072
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-10",
+   "match": true,
+   "wall_s": [
+    0.063
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-11",
+   "match": false,
+   "wall_s": [
+    0.05
+   ],
+   "host_subset": false,
+   "steps": [
+    {
+     "op": "cube_validate",
+     "is_error": true,
+     "payload_sha256": "1a2e3cff30dd8b6081fbfe1dca30694ff82aad3b8bce1ff941138c82a8506ac8",
+     "code": "G5_CORE_UNAVAILABLE",
+     "match": false
+    }
+   ]
+  },
+  {
+   "id": "V-HO-12",
+   "match": true,
+   "wall_s": [
+    0.535
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-01",
+   "match": true,
+   "wall_s": [
+    0.215,
+    0.111,
+    0.113
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-02",
+   "match": true,
+   "wall_s": [
+    0.042,
+    0.069,
+    0.082
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-03a",
+   "match": true,
+   "wall_s": [
+    0.041,
+    0.081,
+    0.069
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-03b",
+   "match": true,
+   "wall_s": [
+    0.048,
+    0.07,
+    0.064
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-04",
+   "match": true,
+   "wall_s": [
+    0.049,
+    0.105,
+    0.096
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-05",
+   "match": true,
+   "wall_s": [
+    0.038,
+    0.107,
+    0.114
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-06",
+   "match": true,
+   "wall_s": [
+    0.038,
+    0.06,
+    0.064
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-07",
+   "match": true,
+   "wall_s": [
+    0.065,
+    0.9,
+    0.94
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-08",
+   "match": true,
+   "wall_s": [
+    0.053
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-09",
+   "match": true,
+   "wall_s": [
+    0.069,
+    0.06
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-10",
+   "match": true,
+   "wall_s": [
+    0.041
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-11",
+   "match": true,
+   "wall_s": [
+    0.039,
+    0.067,
+    0.059
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-12",
+   "match": true,
+   "wall_s": [
+    0.043,
+    0.073,
+    0.064
+   ],
+   "host_subset": false
+  }
+ ],
+ "status": "FAIL"
+}
