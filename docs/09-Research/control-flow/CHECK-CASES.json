@@ -1,0 +1,3115 @@
+{
+ "format": "mile008.check-cases/1",
+ "task": "TASK-048",
+ "fixed_at": "2026-11-02",
+ "fixed_before_spec": true,
+ "decisions": "MILE-008 D-1–D-8 (460592a)",
+ "model_completion": "Flüsse bpmn:f-checked, bpmn:f-manual-done, bpmn:f-auto-done, bpmn:f-approved, bpmn:f-ship und das Merge-Gateway ergänzen die Modellnotiz („both lead to split“, „join leads to ship“) um Namen",
+ "layers": {
+  "P1": "Deklaration (P1.13, binding-context/9): Wohlgeformtheit des Kontrollflusses, Flussbindung der Spur-Aussagen",
+  "LIB": "analyze.trace-conformance/v1: Spur je Instanz gegen das Modell (exklusiv, Bedingungsreihenfolge, Join, Split, Merge)"
+ },
+ "status_rule": {
+  "violation_proven": "FAIL",
+  "coverage_or_conditions_missing": "UNRESOLVED (nie FAIL)",
+  "excess_tokens": "gezählt, kein FAIL",
+  "outside_profile": "UNRESOLVED P1_CONTROL_FLOW_UNSUPPORTED"
+ },
+ "naming": "Diagnosecodes und value-Bezeichner sind Arbeitstitel; TASK-049 darf sie umbenennen, Status und Schicht nicht.",
+ "baseline_cases": [
+  "BPMN-01-routed",
+  "BPMN-01-ctrl-other-branch",
+  "BPMN-01-exclusivity",
+  "BPMN-02-join-same-instance",
+  "BPMN-02-sync-condition",
+  "BPMN-03-join-cross-instance-shared"
+ ],
+ "cases": [
+  {
+   "case_id": "CF-01",
+   "story": "US-026",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Ist das deklarierte Modell wohlgeformt, und leitet i1/tok-route an ein Ziel eines ausgehenden Flusses?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-manual"
+    }
+   ],
+   "coverage": [],
+   "claim": {
+    "check": "declaration",
+    "statement": "routedTo(bpmn:i1/tok-route, bpmn:approve-manual)"
+   },
+   "expected_today": {
+    "kind": "P1",
+    "status": "PASS",
+    "diagnostic_codes": [],
+    "mile002_case": "BPMN-01-routed",
+    "verified_by": "Baseline-Lauf TASK-048"
+   },
+   "expected_with_profile": {
+    "layer": "P1",
+    "status": "PASS",
+    "diagnostic_codes": []
+   },
+   "rationale": "Gültiges XOR (Reihenfolge 1 + Default), AND-Split und -Join; Ziel approve-manual ist Ziel von f-manual."
+  },
+  {
+   "case_id": "CF-02",
+   "story": "US-026",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Ein exklusives Gateway mit zwei Default-Flüssen?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000",
+       "default": true
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [],
+   "coverage": [],
+   "claim": {
+    "check": "declaration"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "P1",
+    "status": "FAIL",
+    "diagnostic_codes": [
+     "P1_CONTROL_FLOW_INVALID"
+    ]
+   },
+   "rationale": "Höchstens ein Default je exklusivem Gateway (§10.6.2).",
+   "variant_of_model": "zwei Defaults"
+  },
+  {
+   "case_id": "CF-03",
+   "story": "US-026",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Zwei bedingte Flüsse mit derselben Reihenfolge?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-review",
+       "to": "bpmn:approve-review",
+       "order": 1,
+       "condition": "amount > 500"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [],
+   "coverage": [],
+   "claim": {
+    "check": "declaration"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "P1",
+    "status": "FAIL",
+    "diagnostic_codes": [
+     "P1_CONTROL_FLOW_INVALID"
+    ]
+   },
+   "rationale": "Die Bedingungsreihenfolge muss eindeutig sein (§13.4.2: erste wahre entscheidet).",
+   "variant_of_model": "doppelte Reihenfolge"
+  },
+  {
+   "case_id": "CF-04",
+   "story": "US-026",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Ein paralleles Gateway mit Default-Fluss?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock",
+       "default": true
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [],
+   "coverage": [],
+   "claim": {
+    "check": "declaration"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-02-sync-condition"
+   },
+   "expected_with_profile": {
+    "layer": "P1",
+    "status": "FAIL",
+    "diagnostic_codes": [
+     "P1_CONTROL_FLOW_INVALID"
+    ]
+   },
+   "rationale": "Default und Bedingungen gibt es nur am exklusiven Gateway.",
+   "variant_of_model": "Default am AND"
+  },
+  {
+   "case_id": "CF-05",
+   "story": "US-026",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Ein inklusives Gateway?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "inclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [],
+   "coverage": [],
+   "claim": {
+    "check": "declaration"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "P1",
+    "status": "UNRESOLVED",
+    "diagnostic_codes": [
+     "P1_CONTROL_FLOW_UNSUPPORTED"
+    ]
+   },
+   "rationale": "Außerhalb des Profilumfangs (D-2): nicht beurteilt, nicht FAIL.",
+   "variant_of_model": "inklusives Gateway"
+  },
+  {
+   "case_id": "CF-06",
+   "story": "US-026",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Leitet i1/tok-route an Ship, das kein Ziel des XOR ist?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:ship"
+    }
+   ],
+   "coverage": [],
+   "claim": {
+    "check": "declaration",
+    "statement": "routedTo(bpmn:i1/tok-route, bpmn:ship)"
+   },
+   "expected_today": {
+    "kind": "P1",
+    "status": "PASS",
+    "diagnostic_codes": [],
+    "verified_by": "Probe heute (P1.12, /8) in TASK-048"
+   },
+   "expected_with_profile": {
+    "layer": "P1",
+    "status": "FAIL",
+    "diagnostic_codes": [
+     "P1_FLOW_UNDECLARED"
+    ]
+   },
+   "rationale": "Heute besteht jede typgerechte routedTo-Aussage; mit Profil nur an Ziele ausgehender Flüsse.",
+   "variant_of_model": "Leitung an Ship"
+  },
+  {
+   "case_id": "CF-07",
+   "story": "US-026",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Liegt i1/tok-stock auf einem nicht deklarierten Fluss?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-stock",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-ghost"
+    }
+   ],
+   "coverage": [],
+   "claim": {
+    "check": "declaration",
+    "statement": "onFlow(bpmn:i1/tok-stock, bpmn:f-ghost)"
+   },
+   "expected_today": {
+    "kind": "P1",
+    "status": "PASS",
+    "diagnostic_codes": [],
+    "verified_by": "Probe heute (P1.12, /8) in TASK-048"
+   },
+   "expected_with_profile": {
+    "layer": "P1",
+    "status": "FAIL",
+    "diagnostic_codes": [
+     "P1_FLOW_UNDECLARED"
+    ]
+   },
+   "rationale": "f-ghost ist Referent, aber kein deklarierter Fluss.",
+   "variant_of_model": "unbekannter Fluss"
+  },
+  {
+   "case_id": "CF-08",
+   "story": "US-026",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Bleibt binding-context/8 ohne Kontrollfluss unverändert?",
+   "control_flow": null,
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-stock",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-stock-done"
+    },
+    {
+     "token": "bpmn:i1/tok-credit",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-credit-done"
+    }
+   ],
+   "coverage": [],
+   "claim": {
+    "check": "regression",
+    "statement": "joins(bpmn:i1/tok-stock, bpmn:i1/tok-credit), /8"
+   },
+   "expected_today": {
+    "kind": "P1",
+    "status": "PASS",
+    "diagnostic_codes": [],
+    "mile002_case": "BPMN-02-join-same-instance",
+    "verified_by": "Baseline-Lauf TASK-048"
+   },
+   "expected_with_profile": {
+    "layer": "P1",
+    "status": "PASS",
+    "diagnostic_codes": []
+   },
+   "rationale": "Regressionsschutz: /8 wird von P1.12 unverändert geprüft (CI-03)."
+  },
+  {
+   "case_id": "CF-09",
+   "story": "US-026",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "routedTo von einem Token ohne deklarierte Position am Gateway?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "routed_to": "bpmn:approve-manual"
+    }
+   ],
+   "coverage": [],
+   "claim": {
+    "check": "declaration",
+    "statement": "routedTo(bpmn:i1/tok-route, bpmn:approve-manual), Token ohne at"
+   },
+   "expected_today": {
+    "kind": "P1",
+    "status": "PASS",
+    "diagnostic_codes": [],
+    "mile002_case": "BPMN-01-routed",
+    "verified_by": "Baseline-Lauf TASK-048"
+   },
+   "expected_with_profile": {
+    "layer": "P1",
+    "status": "UNRESOLVED",
+    "diagnostic_codes": [
+     "P1_TOKEN_POSITION_UNDECLARED"
+    ]
+   },
+   "rationale": "Ohne Position ist die Flussbindung nicht prüfbar: unentschieden wie P1_INSTANCE_UNDECLARED, nicht FAIL.",
+   "variant_of_model": "Token ohne Position"
+  },
+  {
+   "case_id": "CF-11",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Nahm i1 am XOR genau einen Pfad?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-manual"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:i1/tok-route",
+     "predicate": "routedTo",
+     "direction": "outgoing",
+     "source": "Leitentscheidungen dieses Tokens vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "exclusive",
+    "gateway": "bpmn:xor",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext; Teilersatz über P1.12-Zählregel CC-11",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "PASS",
+    "value": "exclusive_one_path",
+    "paths": [
+     "bpmn:approve-manual"
+    ]
+   },
+   "rationale": "Eine Aktivierung, eine Leitentscheidung (§13.4.2)."
+  },
+  {
+   "case_id": "CF-12",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Nahm i1 am XOR zwei Pfade?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-manual"
+    },
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-auto"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:i1/tok-route",
+     "predicate": "routedTo",
+     "direction": "outgoing",
+     "source": "Leitentscheidungen dieses Tokens vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "exclusive",
+    "gateway": "bpmn:xor",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext; Teilersatz CC-12",
+    "mile002_case": "BPMN-01-ctrl-other-branch"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "FAIL",
+    "value": "exclusive_two_paths",
+    "paths": [
+     "bpmn:approve-auto",
+     "bpmn:approve-manual"
+    ]
+   },
+   "rationale": "Zwei Pfade für eine Aktivierung (§10.6.2).",
+   "variant_of_model": "zweite Leitentscheidung"
+  },
+  {
+   "case_id": "CF-13",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Erreichte i1/tok-route das XOR, ohne geleitet zu werden?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:i1/tok-route",
+     "predicate": "routedTo",
+     "direction": "outgoing",
+     "source": "Leitentscheidungen dieses Tokens vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "exclusive",
+    "gateway": "bpmn:xor",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "FAIL",
+    "value": "exclusive_no_path",
+    "paths": []
+   },
+   "rationale": "Aktivierung ohne Leitung bei vollständiger Spur (§13.4.2: Exception).",
+   "variant_of_model": "keine Leitung"
+  },
+  {
+   "case_id": "CF-14",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Nahm i1 genau einen Pfad, wenn die Spur nicht als vollständig erklärt ist?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-manual"
+    }
+   ],
+   "coverage": [],
+   "claim": {
+    "check": "exclusive",
+    "gateway": "bpmn:xor",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext; Teilersatz CC-13",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "UNRESOLVED",
+    "value": "coverage_undeclared"
+   },
+   "rationale": "Ohne Abdeckung keine Aussage über weitere Leitungen (P1.12 D-3)."
+  },
+  {
+   "case_id": "CF-15",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Nahm i1 die erste wahre Bedingung?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-manual",
+     "conditions": {
+      "bpmn:f-manual": true
+     }
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:i1/tok-route",
+     "predicate": "routedTo",
+     "direction": "outgoing",
+     "source": "Leitentscheidungen dieses Tokens vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "condition_order",
+    "gateway": "bpmn:xor",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "PASS",
+    "value": "condition_first_true",
+    "taken": "bpmn:f-manual"
+   },
+   "rationale": "amount 1500 > 1000: f-manual wahr und genommen."
+  },
+  {
+   "case_id": "CF-16",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Nahm i1 den Default, als keine Bedingung wahr war?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-auto",
+     "conditions": {
+      "bpmn:f-manual": false
+     }
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:i1/tok-route",
+     "predicate": "routedTo",
+     "direction": "outgoing",
+     "source": "Leitentscheidungen dieses Tokens vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "condition_order",
+    "gateway": "bpmn:xor",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "PASS",
+    "value": "default_without_true",
+    "taken": "bpmn:f-auto"
+   },
+   "rationale": "Default genau dann, wenn keine Bedingung wahr ist.",
+   "variant_of_model": "Betrag unter Schwelle"
+  },
+  {
+   "case_id": "CF-17",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Nahm i1 den Default, obwohl f-manual wahr war?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-auto",
+     "conditions": {
+      "bpmn:f-manual": true
+     }
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:i1/tok-route",
+     "predicate": "routedTo",
+     "direction": "outgoing",
+     "source": "Leitentscheidungen dieses Tokens vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "condition_order",
+    "gateway": "bpmn:xor",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "FAIL",
+    "value": "default_with_true_condition",
+    "taken": "bpmn:f-auto",
+    "first_true": "bpmn:f-manual"
+   },
+   "rationale": "Default trotz wahrer Bedingung (§13.4.2).",
+   "variant_of_model": "Default trotz wahrer Bedingung"
+  },
+  {
+   "case_id": "CF-18",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Nahm i1 die richtige Bedingung, wenn keine Bedingungsergebnisse aufgezeichnet sind?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-manual"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:i1/tok-route",
+     "predicate": "routedTo",
+     "direction": "outgoing",
+     "source": "Leitentscheidungen dieses Tokens vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "condition_order",
+    "gateway": "bpmn:xor",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "UNRESOLVED",
+    "value": "conditions_unrecorded"
+   },
+   "rationale": "Der Cube wertet keine Bedingungen aus (D-5)."
+  },
+  {
+   "case_id": "CF-19",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Nahm i1 die zweite wahre Bedingung statt der ersten?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-review",
+       "to": "bpmn:approve-review",
+       "order": 2,
+       "condition": "amount > 500"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-route",
+     "instance": "bpmn:i1",
+     "at": "bpmn:xor",
+     "routed_to": "bpmn:approve-review",
+     "conditions": {
+      "bpmn:f-manual": true,
+      "bpmn:f-review": true
+     }
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:i1/tok-route",
+     "predicate": "routedTo",
+     "direction": "outgoing",
+     "source": "Leitentscheidungen dieses Tokens vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "condition_order",
+    "gateway": "bpmn:xor",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "FAIL",
+    "value": "not_first_true",
+    "taken": "bpmn:f-review",
+    "first_true": "bpmn:f-manual"
+   },
+   "rationale": "Bedingungen in Reihenfolge, die erste wahre entscheidet.",
+   "variant_of_model": "dritter Fluss f-review"
+  },
+  {
+   "case_id": "CF-21",
+   "story": "US-027",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Durfte Ship für i1 starten?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-stock",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-stock-done"
+    },
+    {
+     "token": "bpmn:i1/tok-credit",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-credit-done"
+    },
+    {
+     "token": "bpmn:i1/tok-ship",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-ship"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-stock-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-stock-done für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-credit-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-credit-done für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-ship",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-ship für bpmn:i1 vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "join",
+    "gateway": "bpmn:join",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext; Teilersatz CC-14",
+    "mile002_case": "BPMN-02-sync-condition"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "PASS",
+    "value": "join_complete",
+    "activations": 1,
+    "missing": [],
+    "foreign": [],
+    "excess": {}
+   },
+   "rationale": "Ein Token je Eingang derselben Instanz (§13.4.1)."
+  },
+  {
+   "case_id": "CF-22",
+   "story": "US-027",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Startete Ship für i2 ohne Lagerprüfung?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i2/tok-credit",
+     "instance": "bpmn:i2",
+     "on_flow": "bpmn:f-credit-done"
+    },
+    {
+     "token": "bpmn:i2/tok-ship",
+     "instance": "bpmn:i2",
+     "on_flow": "bpmn:f-ship"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-stock-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i2",
+     "source": "Token auf bpmn:f-stock-done für bpmn:i2 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-credit-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i2",
+     "source": "Token auf bpmn:f-credit-done für bpmn:i2 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-ship",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i2",
+     "source": "Token auf bpmn:f-ship für bpmn:i2 vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "join",
+    "gateway": "bpmn:join",
+    "instance": "bpmn:i2"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext; Teilersatz CC-15",
+    "mile002_case": "BPMN-02-sync-condition"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "FAIL",
+    "value": "join_incomplete",
+    "activations": 1,
+    "missing": [
+     "bpmn:f-stock-done"
+    ],
+    "foreign": [],
+    "excess": {}
+   },
+   "rationale": "Aktivierung ohne Token auf f-stock-done.",
+   "variant_of_model": "Ship in i2 gestartet"
+  },
+  {
+   "case_id": "CF-23",
+   "story": "US-027",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Warum wartet i2?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i2/tok-credit",
+     "instance": "bpmn:i2",
+     "on_flow": "bpmn:f-credit-done"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-stock-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i2",
+     "source": "Token auf bpmn:f-stock-done für bpmn:i2 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-credit-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i2",
+     "source": "Token auf bpmn:f-credit-done für bpmn:i2 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-ship",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i2",
+     "source": "Token auf bpmn:f-ship für bpmn:i2 vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "join",
+    "gateway": "bpmn:join",
+    "instance": "bpmn:i2"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-02-sync-condition"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "PASS",
+    "value": "join_waiting",
+    "activations": 0,
+    "missing": [
+     "bpmn:f-stock-done"
+    ],
+    "foreign": [],
+    "excess": {}
+   },
+   "rationale": "Nicht aktiviert, fehlender Eingang benannt: kein Verstoß, sondern die Antwort auf „warum wartet sie?“."
+  },
+  {
+   "case_id": "CF-24",
+   "story": "US-027",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Wartet i2, wenn die Spur nicht als vollständig erklärt ist?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i2/tok-credit",
+     "instance": "bpmn:i2",
+     "on_flow": "bpmn:f-credit-done"
+    }
+   ],
+   "coverage": [],
+   "claim": {
+    "check": "join",
+    "gateway": "bpmn:join",
+    "instance": "bpmn:i2"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext; Teilersatz CC-16",
+    "mile002_case": "BPMN-02-sync-condition"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "UNRESOLVED",
+    "value": "coverage_undeclared"
+   },
+   "rationale": "Ohne Abdeckung von Ein- und Ausgängen keine Aussage."
+  },
+  {
+   "case_id": "CF-25",
+   "story": "US-027",
+   "matrix_case": "BPMN-03",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Startete Ship für i1 mit dem Kreditergebnis von i2?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-stock",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-stock-done"
+    },
+    {
+     "token": "bpmn:i2/tok-credit",
+     "instance": "bpmn:i2",
+     "on_flow": "bpmn:f-credit-done"
+    },
+    {
+     "token": "bpmn:i1/tok-ship",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-ship"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-stock-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-stock-done für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-credit-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-credit-done für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-ship",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-ship für bpmn:i1 vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "join",
+    "gateway": "bpmn:join",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-03-join-cross-instance-shared"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "FAIL",
+    "value": "join_incomplete",
+    "activations": 1,
+    "missing": [
+     "bpmn:f-credit-done"
+    ],
+    "foreign": [
+     "bpmn:i2/tok-credit"
+    ],
+    "excess": {}
+   },
+   "rationale": "Ein Token einer fremden Instanz zählt nicht (G-08).",
+   "variant_of_model": "fremder Token"
+  },
+  {
+   "case_id": "CF-26",
+   "story": "US-027",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Bleibt in i1 ein überzähliger Lager-Token liegen?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-stock",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-stock-done"
+    },
+    {
+     "token": "bpmn:i1/tok-stock-2",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-stock-done"
+    },
+    {
+     "token": "bpmn:i1/tok-credit",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-credit-done"
+    },
+    {
+     "token": "bpmn:i1/tok-ship",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-ship"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-stock-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-stock-done für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-credit-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-credit-done für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-ship",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-ship für bpmn:i1 vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "join",
+    "gateway": "bpmn:join",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-02-sync-condition"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "PASS",
+    "value": "join_complete",
+    "activations": 1,
+    "missing": [],
+    "foreign": [],
+    "excess": {
+     "bpmn:f-stock-done": 1
+    }
+   },
+   "rationale": "Überschuss bleibt liegen (§13.4.1) und wird gezählt, nicht als FAIL gewertet (D-6).",
+   "variant_of_model": "zweiter Lager-Token"
+  },
+  {
+   "case_id": "CF-27",
+   "story": "US-027",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Erzeugte der Split für i1 je Ausgang einen Token?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-approved",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-approved"
+    },
+    {
+     "token": "bpmn:i1/tok-s",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-stock"
+    },
+    {
+     "token": "bpmn:i1/tok-c",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-credit"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-approved",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-approved für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-stock",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-stock für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-credit",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-credit für bpmn:i1 vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "split",
+    "gateway": "bpmn:split",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-02-sync-condition"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "PASS",
+    "value": "split_complete",
+    "activations": 1,
+    "missing": []
+   },
+   "rationale": "Ein Token je Ausgang je Aktivierung (§13.4.1)."
+  },
+  {
+   "case_id": "CF-28",
+   "story": "US-027",
+   "matrix_case": "BPMN-02",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Fehlt nach dem Split für i1 der Kredit-Zweig?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-approved",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-approved"
+    },
+    {
+     "token": "bpmn:i1/tok-s",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-stock"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-approved",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-approved für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-stock",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-stock für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-credit",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-credit für bpmn:i1 vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "split",
+    "gateway": "bpmn:split",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-02-sync-condition"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "FAIL",
+    "value": "split_incomplete",
+    "activations": 1,
+    "missing": [
+     "bpmn:f-credit"
+    ]
+   },
+   "rationale": "Kein Token auf f-credit bei vollständiger Spur.",
+   "variant_of_model": "Kredit-Zweig fehlt"
+  },
+  {
+   "case_id": "CF-29",
+   "story": "US-027",
+   "matrix_case": "BPMN-01",
+   "model": {
+    "path": "docs/09-Research/grammar-sampling/models/bpmn-order.json",
+    "sha256": "4a403cb85bb4d8e82bd588e99ed43565d8d36ac9dad17d643477002e90a30100"
+   },
+   "question": "Reicht das Merge den Token von approve-manual einmal weiter?",
+   "control_flow": [
+    {
+     "id": "bpmn:xor",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-checked"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-manual",
+       "to": "bpmn:approve-manual",
+       "order": 1,
+       "condition": "amount > 1000"
+      },
+      {
+       "flow": "bpmn:f-auto",
+       "to": "bpmn:approve-auto",
+       "default": true
+      }
+     ]
+    },
+    {
+     "id": "bpmn:merge",
+     "type": "exclusive",
+     "incoming": [
+      "bpmn:f-manual-done",
+      "bpmn:f-auto-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-approved",
+       "to": "bpmn:split"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:split",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-approved"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-stock",
+       "to": "bpmn:check-stock"
+      },
+      {
+       "flow": "bpmn:f-credit",
+       "to": "bpmn:check-credit"
+      }
+     ]
+    },
+    {
+     "id": "bpmn:join",
+     "type": "parallel",
+     "incoming": [
+      "bpmn:f-stock-done",
+      "bpmn:f-credit-done"
+     ],
+     "outgoing": [
+      {
+       "flow": "bpmn:f-ship",
+       "to": "bpmn:ship"
+      }
+     ]
+    }
+   ],
+   "trace": [
+    {
+     "token": "bpmn:i1/tok-md",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-manual-done"
+    },
+    {
+     "token": "bpmn:i1/tok-approved",
+     "instance": "bpmn:i1",
+     "on_flow": "bpmn:f-approved"
+    }
+   ],
+   "coverage": [
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-manual-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-manual-done für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-auto-done",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-auto-done für bpmn:i1 vollständig aufgezeichnet"
+    },
+    {
+     "scope": "referent_relation_direction",
+     "referent": "bpmn:f-approved",
+     "predicate": "onFlow",
+     "direction": "incoming",
+     "instance_ref": "bpmn:i1",
+     "source": "Token auf bpmn:f-approved für bpmn:i1 vollständig aufgezeichnet"
+    }
+   ],
+   "claim": {
+    "check": "merge",
+    "gateway": "bpmn:merge",
+    "instance": "bpmn:i1"
+   },
+   "expected_today": {
+    "kind": "NE",
+    "reason": "kein Gateway-Typ, keine Flussbindung, keine Bedingungsreihenfolge im Kontext",
+    "mile002_case": "BPMN-01-exclusivity"
+   },
+   "expected_with_profile": {
+    "layer": "LIB",
+    "status": "PASS",
+    "value": "merge_pass_through",
+    "incoming": 1,
+    "outgoing": 1
+   },
+   "rationale": "Exklusives Merge synchronisiert nicht: ein Token hinein, einer hinaus (WCP-5)."
+  }
+ ]
+}
