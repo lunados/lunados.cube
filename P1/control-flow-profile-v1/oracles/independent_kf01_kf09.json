@@ -1,0 +1,19 @@
+{
+  "format": "aiaeao.cube.p1.13-oracle/1",
+  "reference_version": "v9.4",
+  "independence": "Expected results transcribed from the fixed CF-01..CF-09 cases and P1_13_ACCEPTANCE_SPEC.md §5 before P1.13 runtime code; never generated from validator output.",
+  "transcribed_at": "2026-11-02",
+  "spec_sha256": "de254a0fc76eb8e6916844e6cc0e07cf928be6e3213538090944442487ba80ad",
+  "check_cases_sha256": "10c33dbf020c5ee0908cc41253dceeba89ae73e6973bb9cfb4a7dbd69db68ed6",
+  "cases": [
+    {"id": "KF-01", "check_case": "CF-01", "expected_overall": "PASS", "required_codes": [], "forbidden_codes": []},
+    {"id": "KF-02", "check_case": "CF-02", "expected_overall": "FAIL", "required_codes": ["P1_CONTROL_FLOW_INVALID"], "forbidden_codes": []},
+    {"id": "KF-03", "check_case": "CF-03", "expected_overall": "FAIL", "required_codes": ["P1_CONTROL_FLOW_INVALID"], "forbidden_codes": []},
+    {"id": "KF-04", "check_case": "CF-04", "expected_overall": "FAIL", "required_codes": ["P1_CONTROL_FLOW_INVALID"], "forbidden_codes": []},
+    {"id": "KF-05", "check_case": "CF-05", "expected_overall": "UNRESOLVED", "required_codes": ["P1_CONTROL_FLOW_UNSUPPORTED"], "forbidden_codes": ["P1_CONTROL_FLOW_INVALID"]},
+    {"id": "KF-06", "check_case": "CF-06", "expected_overall": "FAIL", "required_codes": ["P1_FLOW_UNDECLARED"], "forbidden_codes": []},
+    {"id": "KF-07", "check_case": "CF-07", "expected_overall": "FAIL", "required_codes": ["P1_FLOW_UNDECLARED"], "forbidden_codes": []},
+    {"id": "KF-08", "check_case": "CF-08", "expected_overall": "PASS", "required_codes": [], "forbidden_codes": ["P1_CONTROL_FLOW_INVALID", "P1_FLOW_UNDECLARED"]},
+    {"id": "KF-09", "check_case": "CF-09", "expected_overall": "UNRESOLVED", "required_codes": ["P1_TOKEN_POSITION_UNDECLARED"], "forbidden_codes": ["P1_FLOW_UNDECLARED"]}
+  ]
+}
