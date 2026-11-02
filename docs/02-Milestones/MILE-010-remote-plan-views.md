@@ -62,4 +62,4 @@ D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/deliver-remote-plan-views/proposal.md) · [Aufgabenstatus](../../openspec/changes/deliver-remote-plan-views/tasks.md) · [Abdeckung](../../openspec/changes/deliver-remote-plan-views/TRACEABILITY.md).
+[OpenSpec-Change](../../openspec/changes/deliver-remote-plan-views/proposal.md) · [Aufgabenstatus](../../openspec/changes/deliver-remote-plan-views/tasks.md) · [Abdeckung](../../openspec/changes/deliver-remote-plan-views/TRACEABILITY.md). TASK-058: [Spezifikation G5 R5](../../P3/remote-mcp-g5/G5_R5_ACCEPTANCE_SPEC.md), Entwurf mit Detailfragen Q-1–Q-10 offen.
