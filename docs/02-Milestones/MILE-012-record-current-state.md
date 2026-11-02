@@ -1,6 +1,6 @@
 # MILE-012 — Aktuellen Entwicklungsstand festhalten
 
-Status: planned · Stand: 2026-11-02 · Voraussetzung: MILE-010 ([Abschluss](../10-Evidence/MILE-010/C-RESULT.md)), MILE-011 ([Abschluss](../10-Evidence/MILE-011/C-RESULT.md))
+Status: in_progress · Stand: 2026-11-02 · Voraussetzung: MILE-010 ([Abschluss](../10-Evidence/MILE-010/C-RESULT.md)), MILE-011 ([Abschluss](../10-Evidence/MILE-011/C-RESULT.md))
 
 ## Ergebnis
 

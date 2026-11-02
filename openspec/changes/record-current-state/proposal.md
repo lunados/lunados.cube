@@ -1,6 +1,6 @@
 # Record current state
 
-Status: decided · 2026-11-02 · [MILE-012](../../../docs/02-Milestones/MILE-012-record-current-state.md) · noch nicht umgesetzt
+Status: decided · 2026-11-02 · [MILE-012](../../../docs/02-Milestones/MILE-012-record-current-state.md) · in Arbeit
 
 ## Why
 
