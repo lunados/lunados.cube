@@ -1,6 +1,6 @@
 # VP-10 — Cell states from declared coverage · Acceptance specification
 
-**Status:** DRAFT — decisions D-1…D-9 open, each with a proposal (§6). Not implemented.
+**Status:** SPECIFIED — decisions D-1…D-9 resolved 2026-11-02 (all as proposed). Not implemented.
 **Profile:** `P2-VP-CELLS/0.10.0` (working name), new package `vpcells` in `P2/visual-printer-cells-v1/` (D-1). VP-09 (`vpaxes`, 0.9.0…0.9.2) and VP-07 stay byte-identical.
 **Requirement:** VR-05 (MILE-003 handover, rank 2) and PO-6; MILE-005 US-020 / TASK-035. Builds on P1.12 (`binding-context/8`, coverage declarations CV-1…CV-5).
 **Basis:**
@@ -118,9 +118,9 @@ The base is a synthetic plan with modules m:parser, m:resolver, m:validator and 
 | J-13 | pair other than Y × Y | `VP10_PAIR_INVALID` |
 | J-14 | `--locale de` | `keine · geprüft (Paar/Zeile/Spalte)`; legend in German |
 
-## 6. Decisions (open; proposal in bold)
+## 6. Decisions (resolved 2026-11-02, all as proposed)
 
-| Decision | Options | Proposal | Reason |
+| Decision | Options | Resolution | Reason |
 |---|---|---|---|
 | D-1 Place | (a) new package `vpcells` that imports `vpaxes` unchanged · (b) profile 0.9.3 inside `vpaxes` | **(a)** | TASK-035 requires VP-09 byte-identical. `VP09_SHA256SUMS` pins the `vpaxes` code, so (b) would change pinned files. (a) follows the P1.12-over-P1.11 pattern. |
 | D-2 Source | (a) migration plan via the unchanged VP-07 adapter (`from-plan`, as R-1 did for DSM) · (b) a direct statement set plus a `/8` context | **(a)** | The pipeline exists and R-1 already showed DSM as a plan. (b) is the general projection PO-7 / G-03 and would add about 0.5 PT; it fits as a follow-up. |
