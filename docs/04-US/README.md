@@ -61,3 +61,8 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 
 - [US-030 — Kontrollfluss remote prüfen](US-030-remote-control-flow.md)
 - [US-031 — Plansichten remote drucken](US-031-remote-plan-views.md)
+
+## MILE-011 — geplant
+
+- [US-032 — Herkunft einer Beziehung deklarieren und prüfen](US-032-relation-origin-profile.md)
+- [US-033 — Herkunftslinie sehen](US-033-origin-line-view.md)

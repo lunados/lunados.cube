@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-- keine
+- [declare-relation-origin](declare-relation-origin/proposal.md) — MILE-011 geplant (G-02 → VR-01); Entscheidungen D-1–D-8 offen.
 
 ## Abgeschlossen
 
