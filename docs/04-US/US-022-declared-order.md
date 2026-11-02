@@ -1,6 +1,6 @@
 # US-022 — Matrix in deklarierter Reihenfolge lesen
 
-Status: planned · Epic: [EPIC-006](../03-Epics/EPIC-006-remote-and-readability.md) · Mile: [MILE-006-B](../02-Milestones/MILE-006-remote-and-order.md)
+Status: done · Epic: [EPIC-006](../03-Epics/EPIC-006-remote-and-readability.md) · Mile: [MILE-006-B](../02-Milestones/MILE-006-remote-and-order.md)
 
 Als Leser einer DSM-Sicht möchte ich die Elemente in der deklarierten Reihenfolge sehen und Rückkopplungen erkennen, damit die DSM-Lesart „über der Diagonale“ funktioniert.
 
@@ -15,4 +15,4 @@ Als Leser einer DSM-Sicht möchte ich die Elemente in der deklarierten Reihenfol
 - [TASK-039 — Spezifikation VP-10.1 und Orakel](../05-Tasks/TASK-039-vp101-spec.md)
 - [TASK-040 — VP-10.1 umsetzen](../05-Tasks/TASK-040-vp101-impl.md)
 
-[Requirement-Zuordnung](../../openspec/changes/deliver-remote-and-ordered-cells/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md).
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-deliver-remote-and-ordered-cells/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-deliver-remote-and-ordered-cells/tasks.md).

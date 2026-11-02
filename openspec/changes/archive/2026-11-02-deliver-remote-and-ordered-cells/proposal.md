@@ -1,6 +1,6 @@
 # Deliver remote and ordered cells
 
-Status: decided · 2026-11-02 · [MILE-006](../../../docs/02-Milestones/MILE-006-remote-and-order.md) · noch nicht umgesetzt
+Status: done · 2026-11-02 · archiviert · [MILE-006](../../../../docs/02-Milestones/MILE-006-remote-and-order.md) · [Nachweis](../../../../docs/10-Evidence/MILE-006/C-RESULT.md)
 
 ## Why
 

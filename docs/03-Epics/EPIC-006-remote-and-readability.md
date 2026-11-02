@@ -1,6 +1,6 @@
 # EPIC-006 — Remote nutzbar und lesbar
 
-Status: planned · Milestone: [MILE-006](../02-Milestones/MILE-006-remote-and-order.md) · Voraussetzung: [EPIC-005](EPIC-005-completeness-and-instances.md)
+Status: done · Milestone: [MILE-006](../02-Milestones/MILE-006-remote-and-order.md) · Voraussetzung: [EPIC-005](EPIC-005-completeness-and-instances.md)
 
 ## Ergebnis
 

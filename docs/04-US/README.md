@@ -36,7 +36,7 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 - [US-019 — Instanzen typisiert binden](US-019-instance-binding.md)
 - [US-020 — Vier Zellzustände darstellen](US-020-cell-states.md)
 
-## MILE-006 — geplant
+## MILE-006 — abgeschlossen
 
 - [US-021 — `/8` remote prüfen](US-021-remote-v8.md)
 - [US-022 — Matrix in deklarierter Reihenfolge lesen](US-022-declared-order.md)

@@ -1,8 +1,13 @@
 # Remote coverage validation
 
-Status: planned.
+Status: implemented · 2026-11-02. Konsolidiert aus `deliver-remote-and-ordered-cells` (MILE-006); Nachweis [C-RESULT](../../../docs/10-Evidence/MILE-006/C-RESULT.md).
 
-## ADDED Requirements
+## Purpose
+
+`cube_validate` im G5-Remote-Connector prüft `binding-context/8` mit dem unveränderten P1.12-Profil (`P3-MCP-REMOTE/0.7.0-proof`).
+
+## Requirements
+
 
 ### Requirement: Remote validation of binding-context/8
 

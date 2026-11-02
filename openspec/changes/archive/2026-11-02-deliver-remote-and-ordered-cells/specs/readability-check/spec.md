@@ -1,6 +1,6 @@
 # Readability check
 
-Status: planned. Revised 2026-11-02 (D-6): a short guided visual check instead of a readability test with several people.
+Status: implemented · 2026-11-02. Revised 2026-11-02 (D-6): a short guided visual check instead of a readability test with several people.
 
 ## ADDED Requirements
 

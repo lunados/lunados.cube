@@ -83,9 +83,9 @@ Führender Status: [declare-completeness-and-instances/tasks.md](../../openspec/
 
 Summe: 5,25–7,25 PT; Planungsannahmen.
 
-## MILE-006 — geplant
+## MILE-006 — abgeschlossen
 
-Führender Status: [deliver-remote-and-ordered-cells/tasks.md](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md).
+Führender Status: [deliver-remote-and-ordered-cells/tasks.md](../../openspec/changes/archive/2026-11-02-deliver-remote-and-ordered-cells/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|

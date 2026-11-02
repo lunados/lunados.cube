@@ -1,6 +1,6 @@
 # TASK-042 — Sichtprüfung und Mängel
 
-Planungsstand: ausgearbeitet, revidiert 2026-11-02 (D-6). Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md).
+Planungsstand: ausgearbeitet, revidiert 2026-11-02 (D-6). Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-deliver-remote-and-ordered-cells/tasks.md).
 
 Story: [US-023](../04-US/US-023-readability-test.md) · Mile: MILE-006-C · Aufwand: 0–0,15 PT (plus etwa 10 Minuten des Nutzers)
 

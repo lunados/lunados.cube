@@ -1,10 +1,10 @@
 # Design — Remote und geordnete Zellen
 
-Status: decided · Umsetzung offen
+Status: done · 2026-11-02 · umgesetzt (G5 0.7.0-proof, VP-10 0.10.1, Sichtprüfung)
 
 ## Context
 
-Entscheidungen D-1–D-6 in [MILE-006](../../../docs/02-Milestones/MILE-006-remote-and-order.md).
+Entscheidungen D-1–D-6 in [MILE-006](../../../../docs/02-Milestones/MILE-006-remote-and-order.md).
 
 ## Decisions
 

@@ -1,6 +1,6 @@
 # TASK-038 — Bereitstellung und Host-Abnahme
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-deliver-remote-and-ordered-cells/tasks.md).
 
 Story: [US-021](../04-US/US-021-remote-v8.md) · Mile: MILE-006-A · Aufwand: 0,25–0,5 PT (plus Bereitstellung durch den Nutzer)
 

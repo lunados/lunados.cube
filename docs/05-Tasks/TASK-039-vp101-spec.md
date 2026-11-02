@@ -1,6 +1,6 @@
 # TASK-039 — Spezifikation VP-10.1 und Orakel
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-deliver-remote-and-ordered-cells/tasks.md).
 
 Story: [US-022](../04-US/US-022-declared-order.md) · Mile: MILE-006-B · Aufwand: 0,25 PT
 
