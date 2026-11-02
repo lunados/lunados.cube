@@ -1,0 +1,450 @@
+{
+  "canonical_admission": "NOT_EVALUATED",
+  "content_status": "declared_unverified",
+  "context_id": "vp11-i-22",
+  "current_authority": "NOT_EVALUATED",
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp11-instances-report/1",
+  "frames": [
+    {
+      "blocks": [
+        {
+          "gateway": "bpmn:xor",
+          "header": "bpmn:xor · exklusiver Split",
+          "role": "xs",
+          "rows": [
+            {
+              "state": "activation",
+              "text": "Aktivierung bpmn:i1/tok-route"
+            },
+            {
+              "state": "not_taken",
+              "text": "bpmn:f-manual → bpmn:approve-manual · Reihenfolge 1 · nicht genommen"
+            },
+            {
+              "state": "taken",
+              "text": "bpmn:f-auto → bpmn:approve-auto · Default · genommen"
+            }
+          ],
+          "verdicts": [
+            {
+              "check": "exclusive",
+              "claim": {
+                "check": "exclusive",
+                "gateway": "bpmn:xor",
+                "instance": "bpmn:i1"
+              },
+              "kind": "checked",
+              "text": "Exklusivität: geprüft · ein Pfad"
+            },
+            {
+              "check": "condition_order",
+              "claim": {
+                "check": "condition_order",
+                "gateway": "bpmn:xor",
+                "instance": "bpmn:i1"
+              },
+              "kind": "checked",
+              "text": "Bedingungsreihenfolge: geprüft · Default ohne wahre Bedingung · genommen bpmn:f-auto"
+            }
+          ]
+        },
+        {
+          "gateway": "bpmn:merge",
+          "header": "bpmn:merge · exklusiver Merge",
+          "role": "xm",
+          "rows": [
+            {
+              "state": "no_token",
+              "text": "bpmn:f-manual-done · kein Token"
+            },
+            {
+              "state": "token",
+              "text": "bpmn:f-auto-done · Token bpmn:i1/tok-ad"
+            },
+            {
+              "state": "token",
+              "text": "bpmn:f-approved → bpmn:split · Token bpmn:i1/tok-ap"
+            }
+          ],
+          "verdicts": [
+            {
+              "check": "merge",
+              "claim": {
+                "check": "merge",
+                "gateway": "bpmn:merge",
+                "instance": "bpmn:i1"
+              },
+              "kind": "checked",
+              "text": "Merge: geprüft · durchgereicht"
+            }
+          ]
+        },
+        {
+          "gateway": "bpmn:split",
+          "header": "bpmn:split · paralleler Split",
+          "role": "ps",
+          "rows": [
+            {
+              "state": "token",
+              "text": "bpmn:f-approved · Token bpmn:i1/tok-ap"
+            },
+            {
+              "state": "token",
+              "text": "bpmn:f-stock → bpmn:check-stock · Token bpmn:i1/tok-s"
+            },
+            {
+              "state": "token",
+              "text": "bpmn:f-credit → bpmn:check-credit · Token bpmn:i1/tok-c"
+            }
+          ],
+          "verdicts": [
+            {
+              "check": "split",
+              "claim": {
+                "check": "split",
+                "gateway": "bpmn:split",
+                "instance": "bpmn:i1"
+              },
+              "kind": "checked",
+              "text": "Split: geprüft · alle Ausgänge"
+            }
+          ]
+        },
+        {
+          "gateway": "bpmn:join",
+          "header": "bpmn:join · paralleler Join",
+          "role": "pj",
+          "rows": [
+            {
+              "state": "arrived",
+              "text": "bpmn:f-stock-done · angekommen · bpmn:i1/tok-sd"
+            },
+            {
+              "state": "arrived",
+              "text": "bpmn:f-credit-done · angekommen · bpmn:i1/tok-cd"
+            },
+            {
+              "state": "token",
+              "text": "bpmn:f-ship → bpmn:ship · Token bpmn:i1/tok-ship"
+            }
+          ],
+          "verdicts": [
+            {
+              "check": "join",
+              "claim": {
+                "check": "join",
+                "gateway": "bpmn:join",
+                "instance": "bpmn:i1"
+              },
+              "kind": "checked",
+              "text": "Join: geprüft · alle Eingänge · fremd bpmn:i2/tok-cd"
+            }
+          ]
+        }
+      ],
+      "instance": "bpmn:i1",
+      "title": "Instanz bpmn:i1"
+    },
+    {
+      "blocks": [
+        {
+          "gateway": "bpmn:xor",
+          "header": "bpmn:xor · exklusiver Split",
+          "role": "xs",
+          "rows": [
+            {
+              "state": "activation",
+              "text": "Aktivierung bpmn:i2/tok-route"
+            },
+            {
+              "state": "taken",
+              "text": "bpmn:f-manual → bpmn:approve-manual · Reihenfolge 1 · genommen"
+            },
+            {
+              "state": "not_taken",
+              "text": "bpmn:f-auto → bpmn:approve-auto · Default · nicht genommen"
+            }
+          ],
+          "verdicts": [
+            {
+              "check": null,
+              "claim": null,
+              "kind": "not_checked",
+              "text": "nicht geprüft"
+            }
+          ]
+        },
+        {
+          "gateway": "bpmn:merge",
+          "header": "bpmn:merge · exklusiver Merge",
+          "role": "xm",
+          "rows": [
+            {
+              "state": "token",
+              "text": "bpmn:f-manual-done · Token bpmn:i2/tok-md"
+            },
+            {
+              "state": "no_token",
+              "text": "bpmn:f-auto-done · kein Token"
+            },
+            {
+              "state": "token",
+              "text": "bpmn:f-approved → bpmn:split · Token bpmn:i2/tok-ap"
+            }
+          ],
+          "verdicts": [
+            {
+              "check": null,
+              "claim": null,
+              "kind": "not_checked",
+              "text": "nicht geprüft"
+            }
+          ]
+        },
+        {
+          "gateway": "bpmn:split",
+          "header": "bpmn:split · paralleler Split",
+          "role": "ps",
+          "rows": [
+            {
+              "state": "token",
+              "text": "bpmn:f-approved · Token bpmn:i2/tok-ap"
+            },
+            {
+              "state": "token",
+              "text": "bpmn:f-stock → bpmn:check-stock · Token bpmn:i2/tok-s"
+            },
+            {
+              "state": "token",
+              "text": "bpmn:f-credit → bpmn:check-credit · Token bpmn:i2/tok-c"
+            }
+          ],
+          "verdicts": [
+            {
+              "check": null,
+              "claim": null,
+              "kind": "not_checked",
+              "text": "nicht geprüft"
+            }
+          ]
+        },
+        {
+          "gateway": "bpmn:join",
+          "header": "bpmn:join · paralleler Join",
+          "role": "pj",
+          "rows": [
+            {
+              "foreign": [
+                "bpmn:i1/tok-sd"
+              ],
+              "state": "missing",
+              "text": "bpmn:f-stock-done · fehlt · Token aus Instanz bpmn:i1 vorhanden · nicht Teil (bpmn:i1/tok-sd)"
+            },
+            {
+              "state": "arrived",
+              "text": "bpmn:f-credit-done · angekommen · bpmn:i2/tok-cd"
+            },
+            {
+              "state": "no_token",
+              "text": "bpmn:f-ship → bpmn:ship · kein Token"
+            }
+          ],
+          "verdicts": [
+            {
+              "check": "join",
+              "claim": {
+                "check": "join",
+                "gateway": "bpmn:join",
+                "instance": "bpmn:i2"
+              },
+              "kind": "checked",
+              "text": "Join: geprüft · wartet · fehlt bpmn:f-stock-done · fremd bpmn:i1/tok-cd, bpmn:i1/tok-sd"
+            }
+          ]
+        }
+      ],
+      "instance": "bpmn:i2",
+      "title": "Instanz bpmn:i2"
+    }
+  ],
+  "input_sha256": "28cf004cf92615ca5aff024d2d7f76c4153a6d3742dce63cc2e824e496eb4e0d",
+  "invariants_passed": [
+    "NO_ACTIVE_SVG_CONTENT_NO_PATTERN",
+    "EMBEDDED_LEDGER_MATCH",
+    "STATES_DIFFER_WITHOUT_COLOUR",
+    "VERDICTS_FROM_RECORDS_ONLY",
+    "MODEL_SEPARATE_FROM_TRACE"
+  ],
+  "locale": {
+    "code": "de",
+    "sha256": "fec3e6024fc9dff3fb9c562d6be400487190f565720eaf1480264d138c9d73bd"
+  },
+  "model": [
+    "bpmn:xor · exklusiver Split",
+    "ein bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · Reihenfolge 1",
+    "bpmn:f-auto → bpmn:approve-auto · Default",
+    "bpmn:merge · exklusiver Merge",
+    "ein bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · paralleler Split",
+    "ein bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · paralleler Join",
+    "ein bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+  ],
+  "not_drawn": [],
+  "notices": [
+    "Verdicts are read from lunados.lib analyze.trace-conformance/v1 records; the view computes none (D-5).",
+    "\"not checked\" means no record was given, not that the trace conforms.",
+    "A step counts as started only if a token on its flow shows it; the process model carries no trace.",
+    "No colour, size or position encodes a state or a quantity."
+  ],
+  "profile": "P2-VP-INSTANCES/0.12.0",
+  "records": [
+    {
+      "claim": {
+        "check": "exclusive",
+        "gateway": "bpmn:xor",
+        "instance": "bpmn:i1"
+      },
+      "details": [
+        {
+          "activation": "bpmn:i1/tok-route",
+          "paths": [
+            "bpmn:approve-auto"
+          ],
+          "status": "PASS",
+          "value": "exclusive_one_path"
+        }
+      ],
+      "library_ref": {
+        "entry_id": "analyze.trace-conformance",
+        "library_id": "lunados.lib",
+        "revision": 1,
+        "sha256": "bf59c17edd03c452b27952e712a7e6ddd69bc4f955c73033ee529ea024de5bef"
+      },
+      "status": "PASS",
+      "value": "exclusive_one_path"
+    },
+    {
+      "claim": {
+        "check": "condition_order",
+        "gateway": "bpmn:xor",
+        "instance": "bpmn:i1"
+      },
+      "details": [
+        {
+          "activation": "bpmn:i1/tok-route",
+          "status": "PASS",
+          "taken": "bpmn:f-auto",
+          "value": "default_without_true"
+        }
+      ],
+      "library_ref": {
+        "entry_id": "analyze.trace-conformance",
+        "library_id": "lunados.lib",
+        "revision": 1,
+        "sha256": "bf59c17edd03c452b27952e712a7e6ddd69bc4f955c73033ee529ea024de5bef"
+      },
+      "status": "PASS",
+      "value": "default_without_true"
+    },
+    {
+      "claim": {
+        "check": "merge",
+        "gateway": "bpmn:merge",
+        "instance": "bpmn:i1"
+      },
+      "details": [
+        {
+          "activation": "bpmn:i1/tok-ad",
+          "status": "PASS",
+          "value": "merge_pass_through"
+        }
+      ],
+      "library_ref": {
+        "entry_id": "analyze.trace-conformance",
+        "library_id": "lunados.lib",
+        "revision": 1,
+        "sha256": "bf59c17edd03c452b27952e712a7e6ddd69bc4f955c73033ee529ea024de5bef"
+      },
+      "status": "PASS",
+      "value": "merge_pass_through"
+    },
+    {
+      "claim": {
+        "check": "split",
+        "gateway": "bpmn:split",
+        "instance": "bpmn:i1"
+      },
+      "details": [
+        {
+          "activation": "bpmn:i1/tok-ap",
+          "missing": [],
+          "status": "PASS",
+          "value": "split_complete"
+        }
+      ],
+      "library_ref": {
+        "entry_id": "analyze.trace-conformance",
+        "library_id": "lunados.lib",
+        "revision": 1,
+        "sha256": "bf59c17edd03c452b27952e712a7e6ddd69bc4f955c73033ee529ea024de5bef"
+      },
+      "status": "PASS",
+      "value": "split_complete"
+    },
+    {
+      "claim": {
+        "check": "join",
+        "gateway": "bpmn:join",
+        "instance": "bpmn:i1"
+      },
+      "details": [
+        {
+          "activation": "bpmn:i1/tok-ship",
+          "missing": [],
+          "status": "PASS",
+          "value": "join_complete"
+        }
+      ],
+      "library_ref": {
+        "entry_id": "analyze.trace-conformance",
+        "library_id": "lunados.lib",
+        "revision": 1,
+        "sha256": "bf59c17edd03c452b27952e712a7e6ddd69bc4f955c73033ee529ea024de5bef"
+      },
+      "status": "PASS",
+      "value": "join_complete"
+    },
+    {
+      "claim": {
+        "check": "join",
+        "gateway": "bpmn:join",
+        "instance": "bpmn:i2"
+      },
+      "details": [],
+      "library_ref": {
+        "entry_id": "analyze.trace-conformance",
+        "library_id": "lunados.lib",
+        "revision": 1,
+        "sha256": "bf59c17edd03c452b27952e712a7e6ddd69bc4f955c73033ee529ea024de5bef"
+      },
+      "status": "PASS",
+      "value": "join_waiting"
+    }
+  ],
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "semantic_conformance": "NOT_EVALUATED",
+  "set_id": "trace-vp11-i-22",
+  "svg_sha256": "cd36646b8dda7b2cd05ac86cadb2bbd31cf2bdd57b1fd9ada087d80b72aad7f8",
+  "view": "cube.instances",
+  "violation_marks": 0,
+  "warning_summary": [],
+  "warnings": []
+}
