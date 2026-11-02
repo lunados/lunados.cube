@@ -52,7 +52,7 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 - [US-026 — Kontrollfluss deklarieren](US-026-control-flow-profile.md)
 - [US-027 — Spur gegen das Modell prüfen](US-027-trace-conformance.md)
 
-## MILE-009 — geplant
+## MILE-009 — abgeschlossen
 
 - [US-028 — Instanz und genommenen Pfad sehen](US-028-instance-path-view.md)
 - [US-029 — Join je Eingang sehen](US-029-join-input-view.md)

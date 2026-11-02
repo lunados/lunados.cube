@@ -1,6 +1,6 @@
 # TASK-055 — Printer VP-11 `cube.instances`
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/show-instance-view/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-show-instance-view/tasks.md).
 
 Story: [US-028](../04-US/US-028-instance-path-view.md), [US-029](../04-US/US-029-join-input-view.md) · Mile: MILE-009-B · Aufwand: 1–1,5 PT
 

@@ -1,6 +1,6 @@
 # TASK-056 — G6-Anbindung
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/show-instance-view/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-show-instance-view/tasks.md).
 
 Story: [US-028](../04-US/US-028-instance-path-view.md) · Mile: MILE-009-C · Aufwand: 0,25–0,5 PT
 

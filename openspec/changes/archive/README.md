@@ -8,3 +8,4 @@
 - [2026-11-02 — project-statement-sets](2026-11-02-project-statement-sets/proposal.md): MILE-007 in drei Chargen umgesetzt (Vertrag und Prüffälle, lunados.lib project.aggregate-relations/v1, VP-10 0.11.0), Specs konsolidiert, Nachweise verlinkt.
 - [2026-11-02 — deliver-remote-and-ordered-cells](2026-11-02-deliver-remote-and-ordered-cells/proposal.md): MILE-006 in drei Chargen umgesetzt (G5 0.7.0-proof mit Host-Abnahme, VP-10 0.10.1, Sichtprüfung), Specs konsolidiert, Nachweise verlinkt.
 - [2026-11-02 — check-control-flow](2026-11-02-check-control-flow/proposal.md): MILE-008 in drei Chargen umgesetzt (Prüffälle und Spezifikation, P1.13 und lunados.lib analyze.trace-conformance/v1, Adapter und Wiederholung), Specs konsolidiert, Nachweise verlinkt.
+- [2026-11-02 — show-instance-view](2026-11-02-show-instance-view/proposal.md): MILE-009 in drei Chargen umgesetzt (Spezifikation und Vektoren, Printer VP-11, G6 und Sichtprüfung), Spec konsolidiert, Nachweise verlinkt.

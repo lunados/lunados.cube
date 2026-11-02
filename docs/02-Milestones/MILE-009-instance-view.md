@@ -1,6 +1,6 @@
 # MILE-009 — Instanzsicht: Pfad und Join je Instanz zeigen
 
-Status: in_progress · Stand: 2026-11-02 · Voraussetzung: MILE-008 ([Abschluss](../10-Evidence/MILE-008/C-RESULT.md))
+Status: done · Stand: 2026-11-02 · Voraussetzung: MILE-008 ([Abschluss](../10-Evidence/MILE-008/C-RESULT.md)) · **abgeschlossen** ([Nachweis](../10-Evidence/MILE-009/C-RESULT.md))
 
 ## Ergebnis
 
@@ -65,4 +65,4 @@ D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/show-instance-view/proposal.md) · [Aufgabenstatus](../../openspec/changes/show-instance-view/tasks.md) · [Abdeckung](../../openspec/changes/show-instance-view/TRACEABILITY.md). TASK-053: [Spezifikation VP-11](../../P2/visual-printer-instances-v1/VP11_ACCEPTANCE_SPEC.md), Entwurf `0b5b114`, Q-1–Q-10 nach Vorschlag (Spur als Aussagenmenge zum `/9`-Kontext, LIB-Ergebnis als Datensatz mit `library_ref`, Aufrufeingaben gegen Kontext und Spur geprüft, Rahmen untereinander, fremde Token nur am fehlenden Join-Eingang, `records` in G6). TASK-054: [Vektoren I-01–I-34](../../P2/visual-printer-instances-v1/README.md), Orakel und Pins von VP-10 0.11.0 vor Code; Präzisierungen in §9. Charge A abgeschlossen. TASK-055: Printer `vpinstances` (I-01–I-34 34/34, 15 Tests, VP-10 byte-gleich). Charge B abgeschlossen. TASK-056: `vpinstances` in G6, alle Vektoren G6 = Printer, Adapter-Suiten grün, G5 unverändert.
+[OpenSpec-Change](../../openspec/changes/archive/2026-11-02-show-instance-view/proposal.md) · [Aufgabenstatus](../../openspec/changes/archive/2026-11-02-show-instance-view/tasks.md) · [Abdeckung](../../openspec/changes/archive/2026-11-02-show-instance-view/TRACEABILITY.md). TASK-053: [Spezifikation VP-11](../../P2/visual-printer-instances-v1/VP11_ACCEPTANCE_SPEC.md), Entwurf `0b5b114`, Q-1–Q-10 nach Vorschlag (Spur als Aussagenmenge zum `/9`-Kontext, LIB-Ergebnis als Datensatz mit `library_ref`, Aufrufeingaben gegen Kontext und Spur geprüft, Rahmen untereinander, fremde Token nur am fehlenden Join-Eingang, `records` in G6). TASK-054: [Vektoren I-01–I-34](../../P2/visual-printer-instances-v1/README.md), Orakel und Pins von VP-10 0.11.0 vor Code; Präzisierungen in §9. Charge A abgeschlossen. TASK-055: Printer `vpinstances` (I-01–I-34 34/34, 15 Tests, VP-10 byte-gleich). Charge B abgeschlossen. TASK-056: `vpinstances` in G6, alle Vektoren G6 = Printer, Adapter-Suiten grün, G5 unverändert. TASK-057: [Sichtprüfung](../10-Evidence/MILE-009/SICHTPRUEFUNG.md) 5/5 ja; Abschlussprüfung `all_ok`. Charge C abgeschlossen.

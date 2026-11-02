@@ -30,3 +30,7 @@ i1 lief vollständig durch; i2 hat die Kreditprüfung, aber nicht die Lagerprüf
 ## Rückmeldung
 
 Im Chat, zum Beispiel `1–5 ja` oder `1 ja, 2 ja, 3 nein – …`. Jedes „nein“ wird behoben oder als offen benannt.
+
+## Ergebnis (2026-11-02)
+
+Nutzer: 1–5 ja (Antwort `1 - 5 ja`). Keine Mängel; nichts offen.

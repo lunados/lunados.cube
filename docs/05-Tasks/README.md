@@ -126,9 +126,9 @@ Führender Status: [check-control-flow/tasks.md](../../openspec/changes/archive/
 
 Summe: 4–5,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
 
-## MILE-009 — geplant
+## MILE-009 — abgeschlossen
 
-Führender Status: [show-instance-view/tasks.md](../../openspec/changes/show-instance-view/tasks.md).
+Führender Status: [show-instance-view/tasks.md](../../openspec/changes/archive/2026-11-02-show-instance-view/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|

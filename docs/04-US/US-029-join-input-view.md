@@ -1,6 +1,6 @@
 # US-029 — Join je Eingang sehen
 
-Status: planned · Epic: [EPIC-009](../03-Epics/EPIC-009-instance-view.md) · Mile: [MILE-009-A, -B, -C](../02-Milestones/MILE-009-instance-view.md)
+Status: done · Epic: [EPIC-009](../03-Epics/EPIC-009-instance-view.md) · Mile: [MILE-009-A, -B, -C](../02-Milestones/MILE-009-instance-view.md)
 
 Als Prozessverantwortlicher möchte ich an einem parallelen Join jeden erwarteten Eingang mit seinem Status sehen, damit ich „wartet noch“ von „ohne alle Eingänge weitergelaufen“ unterscheiden kann.
 
@@ -17,4 +17,4 @@ Als Prozessverantwortlicher möchte ich an einem parallelen Join jeden erwartete
 - [TASK-055 — Printer VP-11 `cube.instances`](../05-Tasks/TASK-055-vp11-printer.md)
 - [TASK-057 — Sichtprüfung und Abschluss](../05-Tasks/TASK-057-mile009-close.md)
 
-[Requirement-Zuordnung](../../openspec/changes/show-instance-view/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/show-instance-view/tasks.md).
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-show-instance-view/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-show-instance-view/tasks.md).

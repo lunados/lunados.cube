@@ -2,10 +2,11 @@
 
 ## Aktiv
 
-- [show-instance-view](show-instance-view/proposal.md) — MILE-009 entschieden (D-1–D-8), in Arbeit; fünf offene Tasks.
+- keine
 
 ## Abgeschlossen
 
+- [2026-11-02 — show-instance-view](archive/2026-11-02-show-instance-view/proposal.md) — MILE-009 umgesetzt: VP-11 `cube.instances`, G6 lokal, Sichtprüfung 5/5; mit Nachweisen archiviert.
 - [2026-11-02 — check-control-flow](archive/2026-11-02-check-control-flow/proposal.md) — MILE-008 umgesetzt: P1.13 `binding-context/9`, lunados.lib `analyze.trace-conformance/v1`, lokaler Adapter, BPMN-Wiederholung 7/7 und LIB-Teil 3/3; mit Nachweisen archiviert.
 - [2026-11-02 — project-statement-sets](archive/2026-11-02-project-statement-sets/proposal.md) — MILE-007 umgesetzt: Aussagenmengen ohne Plan (VP-10 0.11.0), lunados.lib `project.aggregate-relations/v1`, Sichtprüfung 5/5; mit Nachweisen archiviert.
 - [2026-11-02 — deliver-remote-and-ordered-cells](archive/2026-11-02-deliver-remote-and-ordered-cells/proposal.md) — MILE-006 umgesetzt: `/8` im G5-Remote mit Host-Abnahme, VP-10 0.10.1 mit Achsenreihenfolge, Sichtprüfung 7/7; mit Nachweisen archiviert.

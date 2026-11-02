@@ -1,6 +1,6 @@
 # US-028 — Instanz und genommenen Pfad sehen
 
-Status: planned · Epic: [EPIC-009](../03-Epics/EPIC-009-instance-view.md) · Mile: [MILE-009-A, -B, -C](../02-Milestones/MILE-009-instance-view.md)
+Status: done · Epic: [EPIC-009](../03-Epics/EPIC-009-instance-view.md) · Mile: [MILE-009-A, -B, -C](../02-Milestones/MILE-009-instance-view.md)
 
 Als Prozessverantwortlicher möchte ich je Instanz sehen, welchen Pfad ein exklusives Gateway genommen hat und welcher Token zu welcher Instanz gehört, damit zwei Pfade für eine Aktivierung und ein fremder Token sofort auffallen.
 
@@ -18,4 +18,4 @@ Als Prozessverantwortlicher möchte ich je Instanz sehen, welchen Pfad ein exklu
 - [TASK-056 — G6-Anbindung](../05-Tasks/TASK-056-vp11-g6.md)
 - [TASK-057 — Sichtprüfung und Abschluss](../05-Tasks/TASK-057-mile009-close.md)
 
-[Requirement-Zuordnung](../../openspec/changes/show-instance-view/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/show-instance-view/tasks.md).
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-show-instance-view/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-show-instance-view/tasks.md).

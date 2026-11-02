@@ -1,6 +1,6 @@
 # EPIC-009 — Instanzsicht
 
-Status: planned · Milestone: [MILE-009](../02-Milestones/MILE-009-instance-view.md) · Voraussetzung: [EPIC-008](EPIC-008-control-flow.md)
+Status: done · Milestone: [MILE-009](../02-Milestones/MILE-009-instance-view.md) · Voraussetzung: [EPIC-008](EPIC-008-control-flow.md)
 
 ## Ergebnis
 

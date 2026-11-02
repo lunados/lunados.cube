@@ -1,6 +1,6 @@
 # Milestones
 
-MILE-001 bis MILE-008 sind abgeschlossen, MILE-002 und MILE-003 am 2026-11-01 abgenommen; MILE-009 ist in Arbeit. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
+MILE-001 bis MILE-009 sind abgeschlossen, MILE-002 und MILE-003 am 2026-11-01 abgenommen. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
 
 | ID | Ergebnis / Abschlusskriterium | Abhängigkeit |
 |---|---|---|
@@ -12,6 +12,6 @@ MILE-001 bis MILE-008 sind abgeschlossen, MILE-002 und MILE-003 am 2026-11-01 ab
 | [MILE-006 — Remote prüfen und Matrix ordnen](MILE-006-remote-and-order.md) | Drei Chargen: `/8` im G5-Remote mit Host-Abnahme, VP-10 0.10.1 mit deklarierter Achsenreihenfolge, kurze Sichtprüfung; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-006/C-RESULT.md)) | MILE-005 |
 | [MILE-007 — Aussagenmengen ohne Plan darstellen und verdichten](MILE-007-statement-sets.md) | Drei Chargen: Vertrag und Prüffälle, lunados.lib `project.aggregate-relations/v1`, VP-10 0.11.0 mit Aussagenmengen und abgeleiteten Einträgen; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-007/C-RESULT.md)) | MILE-006 |
 | [MILE-008 — Kontrollfluss und Spurkonformität](MILE-008-control-flow.md) | Drei Chargen: Prüffälle und Spezifikation, Profil P1.13 und LIB `analyze.trace-conformance/v1`, Adapter und Wiederholung der BPMN-Fälle; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-008/C-RESULT.md)) | MILE-005, MILE-007 |
-| [MILE-009 — Instanzsicht](MILE-009-instance-view.md) | Drei Chargen: Spezifikation und Prüffälle, Printer VP-11 `cube.instances`, G6 und Sichtprüfung; geplant | MILE-008 |
+| [MILE-009 — Instanzsicht](MILE-009-instance-view.md) | Drei Chargen: Spezifikation und Prüffälle, Printer VP-11 `cube.instances`, G6 und Sichtprüfung; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-009/C-RESULT.md)) | MILE-008 |
 
 [Roadmap](../01-roadmap/ROADMAP.md) · [Vorlage](../99-templates/WORK-ITEM.md)

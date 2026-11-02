@@ -1,6 +1,6 @@
 # VP-11 — Instance view · Acceptance specification
 
-**Status:** SPECIFIED. MILE-009 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). Not implemented.
+**Status:** SPECIFIED. MILE-009 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). IMPLEMENTED locally 2026-11-02 (TASK-055, TASK-056): I-01…I-34 34/34, G6 = CLI, visual check 5/5.
 **Profile:** `P2-VP-INSTANCES/0.12.0`, package `vpinstances` in `P2/visual-printer-instances-v1/`, view `cube.instances` (D-2). VP-07, VP-08, VP-09 and VP-10 (0.10.0, 0.10.1, 0.11.0) stay byte-identical.
 **Requirement:** VR-12 (MILE-003 handover) with V-10, V-11, V-12 (MILE-002 gap ledger, MILE-003 inventory); MILE-009 US-028, US-029, TASK-053…057.
 **Basis:**
