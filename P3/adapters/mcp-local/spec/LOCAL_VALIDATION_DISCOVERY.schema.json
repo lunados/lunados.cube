@@ -26,7 +26,7 @@
     "contexts": {
       "type": "array",
       "minItems": 9,
-      "maxItems": 9,
+      "maxItems": 10,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -41,7 +41,7 @@
         "properties": {
           "context_format": {
             "type": "string",
-            "pattern": "^aiaeao\\.cube\\.binding-context/[1-9]$"
+            "pattern": "^aiaeao\\.cube\\.binding-context/(?:[1-9]|10)$"
           },
           "entry_profile": {
             "type": "string"
@@ -63,6 +63,11 @@
           },
           "runtime_load_verified": {
             "const": false
+          },
+          "diagnostic_codes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string", "pattern": "^P1_[A-Z_]+$"}
           }
         }
       }

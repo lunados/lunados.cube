@@ -39,6 +39,13 @@ def c4_context():
 def plan_context():
     ctx = copy.deepcopy(GM['context'])
     ctx['format'] = 'aiaeao.cube.binding-context/10'; ctx['context_id'] = 'p114-gm'
+    # GM-pos imports the P1.10 profile and has no local contracts. For this
+    # opt-in vector, materialize the same pinned declarations as local contracts;
+    # P1.10 forbids redefining an imported predicate in predicate_contracts.
+    profile = json.loads((REPO/'P1/migration-profile-v1/cube_p110/profiles/migration-predicates-v1.json').read_text('utf-8'))
+    ctx['predicate_profile_refs'] = []
+    ctx['predicate_contracts'] = [dict(copy.deepcopy(p), scope=ctx['scope_ref'],
+                                       origin='external_declaration_unverified') for p in profile['contracts']]
     for p in ctx['predicate_contracts']:
         if p['predicate_id'] == 'sends-via':
             p['origin_binding'] = 'required'

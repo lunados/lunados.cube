@@ -1,6 +1,6 @@
 # Tasks — declare-relation-origin
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-063 erledigt (Spezifikationen P1.14 und VP-07.6, Q nach Vorschlag); TASK-064 erledigt (Orakel, Vektoren HO-01–HO-12 und OL-01–OL-12, Pins 0.7.5, vor Code); Charge A abgeschlossen; TASK-065 offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-063 und TASK-064 erledigt; Charge A abgeschlossen; TASK-065 lokal implementiert und geprüft; Charge C offen.
 
 ## A — Spezifikation und Prüffälle
 
@@ -9,7 +9,7 @@ Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8
 
 ## B — Profil P1.14
 
-- [ ] 3. [TASK-065 — Profil P1.14 und G4](../../../docs/05-Tasks/TASK-065-p114-profile.md)
+- [x] 3. [TASK-065 — Profil P1.14 und G4](../../../docs/05-Tasks/TASK-065-p114-profile.md)
 
 ## C — Herkunftslinie und Auslieferung
 

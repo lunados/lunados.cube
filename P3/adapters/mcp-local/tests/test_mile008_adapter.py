@@ -57,11 +57,11 @@ class P113Adapter(unittest.TestCase):
         self.assertEqual(e.exception.diagnostic['code'], 'P1_MCP_CONFIG_INVALID')
 
     def test_discovery_lists_v9(self):
-        row = vd.describe_validation_contexts()['contexts'][-1]
+        row = vd.describe_validation_contexts()['contexts'][8]
         self.assertEqual((row['context_format'], row['entry_profile']), ('aiaeao.cube.binding-context/9', 'P1.13/control-flow-profile-v1'))
         self.assertTrue(row['required_sources_present'])
         self.assertIs(row['runtime_load_verified'], False)
-        self.assertEqual(surface.discover_surface_local()['domains']['P1']['validation_contexts']['contexts'][-1], row)
+        self.assertEqual(surface.discover_surface_local()['domains']['P1']['validation_contexts']['contexts'][8], row)
 
 
 if __name__ == '__main__':
