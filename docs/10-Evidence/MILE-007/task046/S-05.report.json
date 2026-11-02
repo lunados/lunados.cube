@@ -1,0 +1,121 @@
+{
+  "aggregation": {
+    "derived": {
+      "d-1": [
+        "s-1",
+        "s-2"
+      ]
+    },
+    "input_set_sha256": "ea718913d519071722af35a30cc33478b2ade5e9c7b6cf0027b4f8d01e3f84ce",
+    "internal": [
+      "s-3"
+    ],
+    "library_ref": {
+      "entry_id": "project.aggregate-relations",
+      "library_id": "lunados.lib",
+      "revision": "v1",
+      "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+    },
+    "loss": {
+      "derived": 1,
+      "internal": 1,
+      "labels_dropped": 1,
+      "merged": 2,
+      "passed_through": 1,
+      "sources": 4,
+      "suppressed": 0
+    },
+    "method_id": "project.aggregate-relations/v1",
+    "parameters": {
+      "derived_predicate": "uses.derived",
+      "membership_predicate": "contains",
+      "source_predicate": "uses",
+      "strategy": "all"
+    },
+    "suppressed": []
+  },
+  "canonical_admission": "NOT_EVALUATED",
+  "cells": {
+    "c4:shop/api|c4:shop/api": {
+      "state": "element"
+    },
+    "c4:shop/api|c4:shop/db": {
+      "entries": [
+        "s-4",
+        "d-1"
+      ],
+      "state": "marked"
+    },
+    "c4:shop/db|c4:shop/api": {
+      "state": "unknown"
+    },
+    "c4:shop/db|c4:shop/db": {
+      "state": "element"
+    }
+  },
+  "col_values": [
+    "c4:shop/api",
+    "c4:shop/db"
+  ],
+  "cols_axis": "Z:referent",
+  "content_status": "declared_unverified",
+  "current_authority": "NOT_EVALUATED",
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp10-cells-report/1",
+  "granularity": "standard",
+  "hidden_cells": [],
+  "hidden_cols": [],
+  "hidden_rows": [],
+  "hide_empty": null,
+  "home": "Z",
+  "ignored_declarations": [],
+  "input_sha256": "6586e5ed5064f7d209a35edd3c4e02a7ff202577be9aef6c455831376ff01aa5",
+  "invariants_passed": [
+    "NO_ACTIVE_SVG_CONTENT_NO_PATTERN",
+    "EMBEDDED_LEDGER_MATCH",
+    "ONE_STATE_PER_DRAWN_CELL",
+    "STATES_DIFFER_WITHOUT_COLOUR"
+  ],
+  "locale": null,
+  "loss_line": "aggregation all: sources 4 → derived 1; passed through 1; internal 1; suppressed 0; labels dropped 1",
+  "matrix_locale": null,
+  "notices": [
+    "Rows are subjects, columns are objects; there is no transposed reading (D-6).",
+    "\"checked\" means no declared statement within the declared survey scope, not that none exists (CV-5).",
+    "A derived entry follows from its declared sources under the chosen strategy only; nothing is recomputed by the Cube.",
+    "No colour, size or position encodes a state or a quantity."
+  ],
+  "predicate": "uses.derived",
+  "profile": "P2-VP-CELLS/0.11.0",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "row_values": [
+    "c4:shop/api",
+    "c4:shop/db"
+  ],
+  "rows_axis": "Z:referent",
+  "semantic_conformance": "NOT_EVALUATED",
+  "set_id": "c4-components-s4",
+  "source": "statement_set",
+  "state_counts": {
+    "checked": 0,
+    "element": 2,
+    "hidden": 0,
+    "marked": 1,
+    "unknown": 1
+  },
+  "svg_sha256": "d361dd2795e01addc29bc8a88989ef8cb32007ad9a40efa54660b2a2e0a942fe",
+  "view": "cube.cells",
+  "warning_summary": [
+    {
+      "code": "VP10_COVERAGE_NONE",
+      "count": 1
+    }
+  ],
+  "warnings": [
+    {
+      "code": "VP10_COVERAGE_NONE",
+      "detail": "no coverage_declarations in the context: every empty cell is unknown (D-9)"
+    }
+  ]
+}

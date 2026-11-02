@@ -1,0 +1,130 @@
+{
+ "format": "aiaeao.cube.binding-context/8",
+ "reference_version": "v9.4",
+ "context_id": "mile007-dsm",
+ "source_kind": "illustrative_fixture",
+ "scope_ref": "mile002:dsm",
+ "referents": [
+  {
+   "ref": "m:parser",
+   "concept_id": "Y:resource-object:artifact",
+   "home": "Y",
+   "layers": [
+    "α"
+   ],
+   "provenance_status": "declared_unverified",
+   "scope_ref": "mile002:dsm"
+  },
+  {
+   "ref": "m:resolver",
+   "concept_id": "Y:resource-object:artifact",
+   "home": "Y",
+   "layers": [
+    "α"
+   ],
+   "provenance_status": "declared_unverified",
+   "scope_ref": "mile002:dsm"
+  },
+  {
+   "ref": "m:validator",
+   "concept_id": "Y:resource-object:artifact",
+   "home": "Y",
+   "layers": [
+    "α"
+   ],
+   "provenance_status": "declared_unverified",
+   "scope_ref": "mile002:dsm"
+  },
+  {
+   "ref": "m:printer",
+   "concept_id": "Y:resource-object:artifact",
+   "home": "Y",
+   "layers": [
+    "α"
+   ],
+   "provenance_status": "declared_unverified",
+   "scope_ref": "mile002:dsm"
+  },
+  {
+   "ref": "t:core",
+   "concept_id": "Y:identity-anchor:actor",
+   "home": "Y",
+   "layers": [
+    "α"
+   ],
+   "provenance_status": "declared_unverified",
+   "scope_ref": "mile002:dsm"
+  },
+  {
+   "ref": "t:viz",
+   "concept_id": "Y:identity-anchor:actor",
+   "home": "Y",
+   "layers": [
+    "α"
+   ],
+   "provenance_status": "declared_unverified",
+   "scope_ref": "mile002:dsm"
+  }
+ ],
+ "predicate_contracts": [
+  {
+   "predicate_id": "dependsOn",
+   "revision": "mile002:dsm:pred/1",
+   "scope": "mile002:dsm",
+   "origin": "illustrative_fixture",
+   "subject_concept_ids": [
+    "Y:resource-object:artifact"
+   ],
+   "object_concept_ids": [
+    "Y:resource-object:artifact"
+   ],
+   "direction": "subject_to_object",
+   "required_qualifiers": [],
+   "additional_constraints": [
+    "DSM-Zelle Domäne modules: Subjekt hängt von Objekt ab. Aus IR/FAD: Zeile = Subjekt, Spalte = Objekt."
+   ]
+  },
+  {
+   "predicate_id": "maintains",
+   "revision": "mile002:dsm:pred/1",
+   "scope": "mile002:dsm",
+   "origin": "illustrative_fixture",
+   "subject_concept_ids": [
+    "Y:identity-anchor:actor"
+   ],
+   "object_concept_ids": [
+    "Y:resource-object:artifact"
+   ],
+   "direction": "subject_to_object",
+   "required_qualifiers": [],
+   "additional_constraints": [
+    "DMM-Zelle teams × modules: Zeilenteam pflegt Spaltenmodul."
+   ]
+  },
+  {
+   "predicate_id": "related",
+   "revision": "mile002:dsm:pred/1",
+   "scope": "mile002:dsm",
+   "origin": "illustrative_fixture",
+   "subject_concept_ids": [
+    "Y:identity-anchor:actor",
+    "Y:resource-object:artifact"
+   ],
+   "object_concept_ids": [
+    "Y:identity-anchor:actor",
+    "Y:resource-object:artifact"
+   ],
+   "direction": "subject_to_object",
+   "required_qualifiers": [],
+   "additional_constraints": [
+    "Absichtlich breite technische Referenzart 'related' (Morphologie 7.6) für die Abflachungskontrolle."
+   ]
+  }
+ ],
+ "method_contracts": [],
+ "profile_limitations": [
+  "Synthetische Versuchsabbildung MILE-002 DSM-01..03: Module→Y:resource-object:artifact, Teams→Y:identity-anchor:actor (Arbeitsannahme A).",
+  "Nicht aufgeführte Zellen sind unbekannt, nicht leer.",
+  "Keine Wahrheit, Autorität oder Zulassung behauptet."
+ ]
+}

@@ -102,19 +102,22 @@ def cube_discover_surface() -> CallToolResult:
 # CP-001 / G6: VP-07, VP-08, VP-09 and VP-10 plan views in memory; the view selects the printer (local stdio only).
 @mcp.tool()
 def cube_plan_source(
-    context: dict[str, Any], plan_id: str, printer: Literal['vpmigration','vpaxes','vpcells','vpsequence'],
+    context: dict[str, Any], plan_id: str | None, printer: Literal['vpmigration','vpaxes','vpcells','vpsequence'],
     track_map: dict[str, Any] | None=None, track: str | None=None, labels: dict[str, Any] | None=None,
     layers: dict[str, Any] | None=None, witness_prefixes: dict[str, Any] | None=None,
     edge_styles: list[dict[str, Any]] | None=None, steps: str | None=None, subjects: list[str] | None=None,
     profile: str | None=None, predicate: str | None=None,
+    statements: dict[str, Any] | None=None, projection: dict[str, Any] | None=None,
 ) -> CallToolResult:
     """Derive a VP-07 migration source, VP-09 axes input or VP-10 cells input from a binding context, exactly as CLI from-plan.
     vpcells needs predicate (one per view) and reads coverage from binding-context/8.
+    vpcells 0.11.0: plan_id null plus statements (aiaeao.cube.statement-set/1), optionally a projection record of
+    lunados.lib project.aggregate-relations/v1; the aggregation is read, never recomputed.
     vpsequence is not supported (VP-08 sources are declared directly). No files; declared_unverified.
     """
     return _result(plan_views.plan_source, context, plan_id, printer, tracks=track_map, track=track, labels=labels,
                    layers=layers, witness_prefixes=witness_prefixes, edge_styles=edge_styles, steps=steps,
-                   subjects=subjects, profile=profile, predicate=predicate)
+                   subjects=subjects, profile=profile, predicate=predicate, statements=statements, projection=projection)
 
 
 @mcp.tool()

@@ -1,0 +1,129 @@
+{
+  "aggregation": {
+    "derived": {},
+    "input_set_sha256": "d46198d5e8f6d9c496beb252a0d9a6f8e932e892bd456a3c809c4ab6983da669",
+    "internal": [
+      "s-3"
+    ],
+    "library_ref": {
+      "entry_id": "project.aggregate-relations",
+      "library_id": "lunados.lib",
+      "revision": "v1",
+      "sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+    },
+    "loss": {
+      "derived": 0,
+      "internal": 1,
+      "labels_dropped": 0,
+      "merged": 0,
+      "passed_through": 0,
+      "sources": 3,
+      "suppressed": 2
+    },
+    "method_id": "project.aggregate-relations/v1",
+    "parameters": {
+      "derived_predicate": "uses.derived",
+      "membership_predicate": "contains",
+      "source_predicate": "uses",
+      "strategy": "unless_any"
+    },
+    "suppressed": [
+      {
+        "statement_id": "s-1",
+        "suppressed_by": "s-5"
+      },
+      {
+        "statement_id": "s-2",
+        "suppressed_by": "s-5"
+      }
+    ]
+  },
+  "canonical_admission": "NOT_EVALUATED",
+  "cells": {
+    "c4:shop/api|c4:shop/api": {
+      "state": "element"
+    },
+    "c4:shop/api|c4:shop/db": {
+      "state": "unknown"
+    },
+    "c4:shop/db|c4:shop/api": {
+      "state": "unknown"
+    },
+    "c4:shop/db|c4:shop/db": {
+      "state": "element"
+    }
+  },
+  "col_values": [
+    "c4:shop/api",
+    "c4:shop/db"
+  ],
+  "cols_axis": "Z:referent",
+  "content_status": "declared_unverified",
+  "current_authority": "NOT_EVALUATED",
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp10-cells-report/1",
+  "granularity": "standard",
+  "hidden_cells": [],
+  "hidden_cols": [],
+  "hidden_rows": [],
+  "hide_empty": null,
+  "home": "Z",
+  "ignored_declarations": [],
+  "input_sha256": "e7c27e22dd690ad6788ab286d3a60cbbf55a218fa93224016cbf675a0a286677",
+  "invariants_passed": [
+    "NO_ACTIVE_SVG_CONTENT_NO_PATTERN",
+    "EMBEDDED_LEDGER_MATCH",
+    "ONE_STATE_PER_DRAWN_CELL",
+    "STATES_DIFFER_WITHOUT_COLOUR"
+  ],
+  "locale": null,
+  "loss_line": "aggregation unless_any: sources 3 → derived 0; passed through 0; internal 1; suppressed 2; labels dropped 0",
+  "matrix_locale": null,
+  "notices": [
+    "Rows are subjects, columns are objects; there is no transposed reading (D-6).",
+    "\"checked\" means no declared statement within the declared survey scope, not that none exists (CV-5).",
+    "A derived entry follows from its declared sources under the chosen strategy only; nothing is recomputed by the Cube.",
+    "No colour, size or position encodes a state or a quantity."
+  ],
+  "predicate": "uses.derived",
+  "profile": "P2-VP-CELLS/0.11.0",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "row_values": [
+    "c4:shop/api",
+    "c4:shop/db"
+  ],
+  "rows_axis": "Z:referent",
+  "semantic_conformance": "NOT_EVALUATED",
+  "set_id": "c4-components-s5",
+  "source": "statement_set",
+  "state_counts": {
+    "checked": 0,
+    "element": 2,
+    "hidden": 0,
+    "marked": 0,
+    "unknown": 2
+  },
+  "svg_sha256": "2f81073154661b6cbf1ef66279b6b1a5da95a0613c06408d465d5eb2f9d9da92",
+  "view": "cube.cells",
+  "warning_summary": [
+    {
+      "code": "VP10_COVERAGE_NONE",
+      "count": 1
+    },
+    {
+      "code": "VP10_PREDICATE_EMPTY",
+      "count": 1
+    }
+  ],
+  "warnings": [
+    {
+      "code": "VP10_COVERAGE_NONE",
+      "detail": "no coverage_declarations in the context: every empty cell is unknown (D-9)"
+    },
+    {
+      "code": "VP10_PREDICATE_EMPTY",
+      "detail": "no statement of uses.derived in this input: every off-diagonal cell is unknown or checked"
+    }
+  ]
+}

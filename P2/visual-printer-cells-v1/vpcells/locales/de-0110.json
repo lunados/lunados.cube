@@ -1,0 +1,19 @@
+{
+ "format": "aiaeao.cube.vp10-locale/1",
+ "locale": "de",
+ "profile": "P2-VP-CELLS/0.11.0",
+ "text": {
+  "matrix.subtitle": "v9.4 · VP-10 0.11.0 · Aussagenmenge {set_id} · {pair} · kategorial, keine Distanzen",
+  "matrix.header": "CUBE.CELLS · DEKLARIERTE AUSSAGEN JE ZELLE · {pair} · kategoriale Matrix, keine Rangfolge, keine Distanz",
+  "matrix.legend.title": "LEGENDE · deklarierte Darstellungsregeln · kein Urteil",
+  "matrix.legend.convention": "Zeile = Subjekt, Spalte = Objekt: eine Zelle listet die deklarierten Aussagen „{pred}“ vom Zeilen- zum Spaltenreferenten; es gibt keine transponierte Lesart",
+  "matrix.legend.equal": "gleiche Zellgröße, keine Schattierung: nichts wird gemessen, gereiht oder in Abstand gesetzt",
+  "matrix.legend.entry": "Eintrag = deklarierte Aussage „<ID> · <Prädikat>“ der Aussagenmenge; Beschreibungen stehen im Register",
+  "matrix.legend.derived": "„abgeleitet · n Quellen“ = verdichtete Aussage aus n deklarierten Quellen ({method}); alle Quellen sowie interne und unterdrückte Quellen stehen im Register",
+  "matrix.derived": "abgeleitet · {n} Quellen",
+  "matrix.loss": "Verdichtung {strategy}: Quellen {sources} → abgeleitet {derived}; durchgereicht {passed}; intern {internal}; unterdrückt {suppressed}; Beschreibungen verworfen {dropped}",
+  "matrix.legend.not_projected": "Die Abdeckung des Kontexts gilt für die Quellaussagen, nicht für die verdichteten Paare: sie wird hier nicht angewendet (VP10_COVERAGE_NOT_PROJECTED).",
+  "matrix.legend.empty": "Keine Aussage „{pred}“ in dieser Eingabe (VP10_PREDICATE_EMPTY).",
+  "matrix.footer": "NUR DARSTELLUNG · keine ACG-Validierung, keine Gewähr, keine Autoritätsentscheidung"
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "format": "aiaeao.cube.statement-set/1",
+ "set_id": "c4-two-parents",
+ "context_id": "mile007-c4",
+ "referents": [
+  "c4:shop/api",
+  "c4:shop/db",
+  "c4:shop/api/order-controller",
+  "c4:shop/api/order-repository"
+ ],
+ "statements": [
+  {
+   "statement_id": "m-1",
+   "subject": "c4:shop/api",
+   "predicate_id": "contains",
+   "object": "c4:shop/api/order-controller"
+  },
+  {
+   "statement_id": "m-2",
+   "subject": "c4:shop/api",
+   "predicate_id": "contains",
+   "object": "c4:shop/api/order-repository"
+  },
+  {
+   "statement_id": "s-1",
+   "subject": "c4:shop/api/order-controller",
+   "predicate_id": "uses",
+   "object": "c4:shop/db",
+   "label": "Writes orders to"
+  },
+  {
+   "statement_id": "s-2",
+   "subject": "c4:shop/api/order-repository",
+   "predicate_id": "uses",
+   "object": "c4:shop/db",
+   "label": "Reads orders from"
+  },
+  {
+   "statement_id": "s-3",
+   "subject": "c4:shop/api/order-controller",
+   "predicate_id": "uses",
+   "object": "c4:shop/api/order-repository",
+   "label": "Uses"
+  },
+  {
+   "statement_id": "m-3",
+   "subject": "c4:shop/db",
+   "predicate_id": "contains",
+   "object": "c4:shop/api/order-repository"
+  }
+ ],
+ "witness_ref": "synthetic:mile007#c4-two-parents"
+}

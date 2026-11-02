@@ -1,0 +1,127 @@
+{
+  "aggregation": null,
+  "canonical_admission": "NOT_EVALUATED",
+  "cells": {
+    "m:parser|m:parser": {
+      "state": "element"
+    },
+    "m:parser|m:printer": {
+      "state": "unknown"
+    },
+    "m:parser|m:resolver": {
+      "state": "unknown"
+    },
+    "m:parser|m:validator": {
+      "entries": [
+        "s-fb"
+      ],
+      "state": "marked"
+    },
+    "m:printer|m:parser": {
+      "declaration_id": "cv-pp",
+      "scope": "pair",
+      "state": "checked"
+    },
+    "m:printer|m:printer": {
+      "state": "element"
+    },
+    "m:printer|m:resolver": {
+      "state": "unknown"
+    },
+    "m:printer|m:validator": {
+      "entries": [
+        "s-pv"
+      ],
+      "state": "marked"
+    },
+    "m:resolver|m:parser": {
+      "entries": [
+        "s-rp"
+      ],
+      "state": "marked"
+    },
+    "m:resolver|m:printer": {
+      "state": "unknown"
+    },
+    "m:resolver|m:resolver": {
+      "state": "element"
+    },
+    "m:resolver|m:validator": {
+      "state": "unknown"
+    },
+    "m:validator|m:parser": {
+      "state": "unknown"
+    },
+    "m:validator|m:printer": {
+      "state": "unknown"
+    },
+    "m:validator|m:resolver": {
+      "entries": [
+        "s-vr"
+      ],
+      "state": "marked"
+    },
+    "m:validator|m:validator": {
+      "state": "element"
+    }
+  },
+  "col_values": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+  ],
+  "cols_axis": "Y:referent",
+  "content_status": "declared_unverified",
+  "current_authority": "NOT_EVALUATED",
+  "epistemic_warrant": "NOT_EVALUATED",
+  "format": "aiaeao.cube.vp10-cells-report/1",
+  "granularity": "standard",
+  "hidden_cells": [],
+  "hidden_cols": [],
+  "hidden_rows": [],
+  "hide_empty": null,
+  "home": "Y",
+  "ignored_declarations": [],
+  "input_sha256": "81dbe9ef40307c951bf370e02c87d23c485eaa105c3ef005d674b062bcfa6a88",
+  "invariants_passed": [
+    "NO_ACTIVE_SVG_CONTENT_NO_PATTERN",
+    "EMBEDDED_LEDGER_MATCH",
+    "ONE_STATE_PER_DRAWN_CELL",
+    "STATES_DIFFER_WITHOUT_COLOUR"
+  ],
+  "locale": null,
+  "loss_line": null,
+  "matrix_locale": null,
+  "notices": [
+    "Rows are subjects, columns are objects; there is no transposed reading (D-6).",
+    "\"checked\" means no declared statement within the declared survey scope, not that none exists (CV-5).",
+    "A derived entry follows from its declared sources under the chosen strategy only; nothing is recomputed by the Cube.",
+    "No colour, size or position encodes a state or a quantity."
+  ],
+  "predicate": "dependsOn",
+  "profile": "P2-VP-CELLS/0.11.0",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "row_values": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+  ],
+  "rows_axis": "Y:referent",
+  "semantic_conformance": "NOT_EVALUATED",
+  "set_id": "dsm-modules",
+  "source": "statement_set",
+  "state_counts": {
+    "checked": 1,
+    "element": 4,
+    "hidden": 0,
+    "marked": 4,
+    "unknown": 7
+  },
+  "svg_sha256": "d6c1c6d53cf6e8d99b8dabc87ba3b27048e8cbd4d1042df2f82c4f56b92d36ba",
+  "view": "cube.cells",
+  "warning_summary": [],
+  "warnings": []
+}

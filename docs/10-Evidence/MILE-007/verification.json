@@ -1,0 +1,164 @@
+{
+ "head": "4fda006",
+ "main_base": "ff1612e",
+ "note": "HEAD vor dem Abschluss-Commit; Statusänderungen dieses Commits liegen im Arbeitsbaum.",
+ "order": {
+  "items": [
+   {
+    "file": "docs/09-Research/statement-sets/CHECK-CASES.json",
+    "what": "A-Fälle vor LIB und Printer",
+    "expectation": "91e1c57",
+    "code": "310b522",
+    "before_code": true,
+    "unchanged_since": true
+   },
+   {
+    "file": "P2/visual-printer-cells-v1/oracles/independent_s01_s16.json",
+    "what": "S-Orakel vor dem Printercode",
+    "expectation": "91e1c57",
+    "code": "310b522",
+    "before_code": true,
+    "unchanged_since": true
+   },
+   {
+    "file": "P2/visual-printer-cells-v1/fixtures/regression_0101_digests.json",
+    "what": "Pins 0.10.1 vor dem Printercode",
+    "expectation": "91e1c57",
+    "code": "310b522",
+    "before_code": true,
+    "unchanged_since": true
+   },
+   {
+    "file": "P2/visual-printer-cells-v1/fixtures/regression_0100_digests.json",
+    "what": "Pins 0.10.0 (MILE-006)",
+    "expectation": "507f8a6",
+    "code": "310b522",
+    "before_code": true,
+    "unchanged_since": true
+   },
+   {
+    "file": "P2/visual-printer-cells-v1/VP110_ACCEPTANCE_SPEC.md",
+    "what": "Entscheidungen Q-1–Q-10 vor dem Code",
+    "expectation": "594563c",
+    "code": "310b522",
+    "before_code": true,
+    "unchanged_since": "precisions §8 and status added later"
+   }
+  ],
+  "lunados_lib": {
+   "repo": "lunados.lib",
+   "branch": "feature/aggregate-relations",
+   "oracle_cases_before_evaluator": true,
+   "oracle_cases_unchanged_since": true
+  },
+  "issues": 0
+ },
+ "runs": {
+  "vp110_vectors_s": {
+   "exit": 0,
+   "tail": [
+    "16/16 match"
+   ]
+  },
+  "vp100_pins": {
+   "exit": 0,
+   "tail": [
+    "16/16 byte-identical"
+   ]
+  },
+  "vp101_pins": {
+   "exit": 0,
+   "tail": [
+    "9/9 byte-identical"
+   ]
+  },
+  "vp10_vectors_j": {
+   "exit": 0,
+   "tail": [
+    "14/14 match"
+   ]
+  },
+  "vp101_vectors_o": {
+   "exit": 0,
+   "tail": [
+    "10/10 match"
+   ]
+  },
+  "vpcells_tests": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "adapter_tests": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "lunados_lib_verify": {
+   "exit": 0,
+   "tail": [
+    "PASS lunados.lib: 12 entries, 139/139 checks"
+   ]
+  }
+ },
+ "g6_parity_from_task046": [
+  "test_mile007_statements 6, test_mile006_order 5, test_mile005_adapter 9, test_validation_discovery 5, test_bridge 36, test_g4_surface 56, test_p0_resources 40, test_p0_tool_fallback 25, test_p1_validation 36: OK",
+  "test_g6_plan_views: 18 tests OK; K-01..K-16, K-18 PASS; K-17 parity sweep run in two parts because of the device time limit: 65/65 + 136/136 = 201/201"
+ ],
+ "visual_check": {
+  "guide": "docs/10-Evidence/MILE-007/SICHTPRUEFUNG.md",
+  "user_answer": "1–5 ja"
+ },
+ "layers": {
+  "frozen_unchanged_since_main": true,
+  "frozen_worktree_unchanged": true,
+  "vpcells_0100_0101_sources_unchanged": true,
+  "vp10x_byte_identity": "via pins 0.10.0 (16) and 0.10.1 (9)",
+  "changed_outside_docs": [
+   "P2/.vp071.bundle",
+   "P2/visual-printer-cells-v1/README.md",
+   "P2/visual-printer-cells-v1/VP110_ACCEPTANCE_SPEC.md",
+   "P2/visual-printer-cells-v1/fixtures/regression_0101_digests.json",
+   "P2/visual-printer-cells-v1/fixtures/s01_s16_materialized.json",
+   "P2/visual-printer-cells-v1/oracles/independent_s01_s16.json",
+   "P2/visual-printer-cells-v1/scripts/materialize_s01_s16.py",
+   "P2/visual-printer-cells-v1/scripts/pin_0101_digests.py",
+   "P2/visual-printer-cells-v1/scripts/run_vectors_s.py",
+   "P2/visual-printer-cells-v1/tests/test_vp110.py",
+   "P2/visual-printer-cells-v1/vpcells/__main__.py",
+   "P2/visual-printer-cells-v1/vpcells/api.py",
+   "P2/visual-printer-cells-v1/vpcells/cells.py",
+   "P2/visual-printer-cells-v1/vpcells/common.py",
+   "P2/visual-printer-cells-v1/vpcells/locales/de-0110.json",
+   "P2/visual-printer-cells-v1/vpcells/matrix.py",
+   "P2/visual-printer-cells-v1/vpcells/statements.py",
+   "P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py",
+   "P3/adapters/mcp-local/aiaeao_mcp_local/server.py",
+   "P3/adapters/mcp-local/tests/test_mile007_statements.py"
+  ],
+  "sha256sums": {
+   "AIAEAO_Pure_Cube_P0_v9.4/SHA256SUMS.txt": true,
+   "P1/contract-v1/SHA256SUMS.txt": true,
+   "P1/migration-methods-v1/SHA256SUMS.txt": true,
+   "P1/migration-profile-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP02_SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP03_SHA256SUMS.txt": true,
+   "P2/visual-printer-axes-v1/VP09_SHA256SUMS.txt": true,
+   "P2/visual-printer-conformance-v1/VP05_SHA256SUMS.txt": true,
+   "P2/visual-printer-granularity-v1/VP04_SHA256SUMS.txt": true,
+   "P2/visual-printer-migration-v1/VP07_SHA256SUMS.txt": true,
+   "P2/visual-printer-release-v1/VP06_SHA256SUMS.txt": true,
+   "P2/visual-printer-sequence-v1/VP08_SHA256SUMS.txt": true,
+   "P3/public-reference-mcp/SHA256SUMS.txt": true,
+   "P3/remote-mcp-g5/SHA256SUMS.txt": true
+  }
+ },
+ "broken_links": 0,
+ "broken_link_list": [],
+ "all_ok": true
+}

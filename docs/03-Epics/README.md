@@ -7,8 +7,9 @@
 | [EPIC-001](EPIC-001-grammar-learning.md) | Eigentliche Lernanalyse über fünf Ansätze | MILE-002–004; abgeschlossen |
 | [EPIC-005](EPIC-005-completeness-and-instances.md) | Vollständigkeit und Instanzbindung prüfbar und darstellbar | MILE-005; abgeschlossen |
 | [EPIC-006](EPIC-006-remote-and-readability.md) | Remote nutzbar und lesbar | MILE-006; abgeschlossen |
+| [EPIC-007](EPIC-007-statement-sets.md) | Aussagenmengen darstellen und verdichten | MILE-007; abgeschlossen |
 
-Die IDs bleiben stabil; Reihenfolge folgt der Roadmap. EPIC-001 bis EPIC-006 sind abgeschlossen.
+Die IDs bleiben stabil; Reihenfolge folgt der Roadmap. EPIC-001 bis EPIC-007 sind abgeschlossen.
 
 
 Abgeschlossen: [EPIC-004 — Quellengebundene Vergleichsfälle](EPIC-004-source-bound-comparison-cases.md) für MILE-002-A. Der bestehende EPIC-001 trägt MILE-002-B/C und bleibt Eigentümer der anschließenden Lernanalyse.
