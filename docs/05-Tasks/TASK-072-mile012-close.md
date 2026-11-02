@@ -21,5 +21,5 @@ Umfang gemäß [MILE-012](../02-Milestones/MILE-012-record-current-state.md). Ke
 ## Ergebnis (2026-11-02)
 
 - Abschlussprüfung `all_ok` ([verification.json](../10-Evidence/MILE-012/verification.json)): Reihenfolge, nur Dokumente und Nachweise geändert, 11 Zahlen gegen die Nachweise, Ausgangswert nur mit erwarteten Abweichungen, RELEASE_INDEX mit 19 Versionsangaben im Code, Prüfsummen, Links. [C-RESULT](../10-Evidence/MILE-012/C-RESULT.md); Change archiviert.
-- Tag: Vorschlag `cube-2026-11-02`. Offen beim Nutzer: Merge von MILE-010, MILE-011 und MILE-012 nach `main` und Setzen des Tags.
+- Integration durch den Nutzer: MILE-010, MILE-011 und MILE-012 als Merge-Commits nach `main` (PR #42 zuletzt, `340d495`); Tag `cube-2026-11-02` auf `340d495`.
 

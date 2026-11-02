@@ -27,7 +27,7 @@ Der Stand nach MILE-011 ist nachvollziehbar festgehalten, ohne Code an Gateway, 
 | **D-3** | Anmeldung | Bearer-Token bleibt; OAuth erst nach dem Test des aktuellen Stands |
 | **D-4** | Produktion | CPU-Budget, OAuth, Rate-Limits, Betrieb und Freigabe als ungeplanter Kandidat in der Roadmap |
 
-In den Tasks entschieden: keine Rotation des Bearer-Tokens (TASK-071); vorgeschlagener Tag `cube-2026-11-02` (TASK-072).
+In den Tasks entschieden: keine Rotation des Bearer-Tokens (TASK-071); Tag `cube-2026-11-02` auf dem Merge von MILE-012 in `main` (`340d495`, TASK-072).
 
 ## Tasks und Aufwand
 
