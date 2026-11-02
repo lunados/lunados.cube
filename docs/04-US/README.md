@@ -40,4 +40,4 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 
 - [US-021 — `/8` remote prüfen](US-021-remote-v8.md)
 - [US-022 — Matrix in deklarierter Reihenfolge lesen](US-022-declared-order.md)
-- [US-023 — Lesbarkeit mit Menschen prüfen](US-023-readability-test.md)
+- [US-023 — Kurze Sichtprüfung](US-023-readability-test.md)

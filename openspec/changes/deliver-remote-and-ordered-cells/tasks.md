@@ -12,9 +12,9 @@ Status: in_progress. Führende Ausführungsstatusliste; TASK-037–040 erledigt 
 - [x] 3. [TASK-039 — Spezifikation VP-10.1 und Orakel](../../../docs/05-Tasks/TASK-039-vp101-spec.md)
 - [x] 4. [TASK-040 — VP-10.1 umsetzen](../../../docs/05-Tasks/TASK-040-vp101-impl.md)
 
-## C — Lesbarkeitstest
+## C — Sichtprüfung
 
-- [ ] 5. [TASK-041 — Testunterlagen](../../../docs/05-Tasks/TASK-041-readability-materials.md)
-- [ ] 6. [TASK-042 — Durchführung und Auswertung](../../../docs/05-Tasks/TASK-042-readability-evaluation.md)
+- [ ] 5. [TASK-041 — Anleitung Sichtprüfung](../../../docs/05-Tasks/TASK-041-readability-materials.md)
+- [ ] 6. [TASK-042 — Sichtprüfung und Mängel](../../../docs/05-Tasks/TASK-042-readability-evaluation.md)
 
 [Milestone](../../../docs/02-Milestones/MILE-006-remote-and-order.md) · [Abdeckung](TRACEABILITY.md).

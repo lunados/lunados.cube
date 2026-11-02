@@ -1,16 +1,16 @@
-# TASK-042 — Durchführung und Auswertung
+# TASK-042 — Sichtprüfung und Mängel
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md).
+Planungsstand: ausgearbeitet, revidiert 2026-11-02 (D-6). Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/deliver-remote-and-ordered-cells/tasks.md).
 
-Story: [US-023](../04-US/US-023-readability-test.md) · Mile: MILE-006-C · Aufwand: 0,25 PT (plus Zeit der Testpersonen)
+Story: [US-023](../04-US/US-023-readability-test.md) · Mile: MILE-006-C · Aufwand: 0–0,15 PT (plus etwa 10 Minuten des Nutzers)
 
 ## Ziel und Arbeit
 
-Der Nutzer lässt einige Personen die Unterlagen lesen und sammelt die Antwortbögen; der Agent wertet gegen die vorab festgelegten Antworten aus und benennt Grenzen und Folgen für die Darstellung.
+Der Nutzer sichtet die beiden Renderings nach der Anleitung und meldet die Prüfpunkte mit ja/nein. Der Agent behebt jedes „nein“ in einer neuen Printer-Revision (0.10.0 bleibt byte-gleich) oder benennt es als offen.
 
 ## Ergebnis und Akzeptanz
 
-- Auswertung je Frage und Zustand; Folgerungen nur so weit, wie die kleine Zahl trägt.
+- Rückmeldung festgehalten; jedes „nein“ behoben oder als offen benannt. Keine Statistik.
 
 ## Abhängigkeiten und Grenze
 

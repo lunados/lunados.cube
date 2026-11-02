@@ -93,7 +93,7 @@ Führender Status: [deliver-remote-and-ordered-cells/tasks.md](../../openspec/ch
 | [TASK-038 — Bereitstellung und Host-Abnahme](TASK-038-g5-host-acceptance.md) | US-021 | 0,25–0,5 PT |
 | [TASK-039 — Spezifikation VP-10.1 und Orakel](TASK-039-vp101-spec.md) | US-022 | 0,25 PT |
 | [TASK-040 — VP-10.1 umsetzen](TASK-040-vp101-impl.md) | US-022 | 0,5–0,75 PT |
-| [TASK-041 — Testunterlagen](TASK-041-readability-materials.md) | US-023 | 0,25 PT |
-| [TASK-042 — Durchführung und Auswertung](TASK-042-readability-evaluation.md) | US-023 | 0,25 PT |
+| [TASK-041 — Anleitung Sichtprüfung](TASK-041-readability-materials.md) | US-023 | 0,1 PT |
+| [TASK-042 — Sichtprüfung und Mängel](TASK-042-readability-evaluation.md) | US-023 | 0–0,15 PT |
 
 Summe: 1,75–2,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
