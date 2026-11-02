@@ -23,6 +23,10 @@ This is one **self-contained P3 overlay** that supersedes the sequence P3 0.1.1 
 
 **Discovery priority for agents:** call `cube_discover_surface` for whole-Cube questions. Call `cube_get_capabilities` only for VP-06 Printer dimensions/budgets. The latter continues reporting the legacy P3 0.1.1 printer-adapter card; this is compatibility, not the G4 release version.
 
+## binding-context/8 (P1.12, MILE-005)
+
+`cube_validate` dispatches `aiaeao.cube.binding-context/8` explicitly to P1.12 (`P1/coverage-instance-profile-v1`). That profile adds coverage declarations, population rules and typed instance membership. The envelope adds `coverage_profile: P1.12/coverage-instance-profile-v1` and `population_evaluation_by_cube: false`. P1 checks only declarations and coverage; lunados.lib `analyze.population/v1` evaluates the rules. Local validation discovery lists `/8` with entry profile P1.12. A missing module fails closed with `P1_MCP_P112_UNAVAILABLE`. The tool list is unchanged.
+
 ## Zero semantic promotion
 
 P0 source integrity is not truth. P1 semantic status is not authority or admission. P2 render success is not P1 status or source evidence. MCP connection success is not a semantic outcome. No automatic ACG → VP-03 conversion, external network access, remote MCP or WebMCP is included.

@@ -81,7 +81,7 @@ def cube_read_reference(uri: str, offset: int = 0, max_bytes: int = 8192) -> Cal
 def cube_validate(input_text: str, input_format: Literal['acg_text','json_ast']='acg_text',
                   context: dict[str, Any] | None=None,
                   qualification_profiles: dict[str, Any] | None=None) -> CallToolResult:
-    """Run descriptive P1 validation with explicit binding-context/1 through /7.
+    """Run descriptive P1 validation with explicit binding-context/1 through /8.
     Use local cube_discover_surface for entry profiles and module-presence limits.
     Higher-context validators are loaded lazily; discovery is not a runtime test.
     PASS, FAIL, UNRESOLVED are normal tool results; invalid config is isError.
@@ -99,26 +99,27 @@ def cube_discover_surface() -> CallToolResult:
     return _result(surface.discover_surface_local)
 
 
-# CP-001 / G6: VP-07, VP-08 and VP-09 plan views in memory; the view selects the printer (local stdio only).
+# CP-001 / G6: VP-07, VP-08, VP-09 and VP-10 plan views in memory; the view selects the printer (local stdio only).
 @mcp.tool()
 def cube_plan_source(
-    context: dict[str, Any], plan_id: str, printer: Literal['vpmigration','vpaxes','vpsequence'],
+    context: dict[str, Any], plan_id: str, printer: Literal['vpmigration','vpaxes','vpcells','vpsequence'],
     track_map: dict[str, Any] | None=None, track: str | None=None, labels: dict[str, Any] | None=None,
     layers: dict[str, Any] | None=None, witness_prefixes: dict[str, Any] | None=None,
     edge_styles: list[dict[str, Any]] | None=None, steps: str | None=None, subjects: list[str] | None=None,
-    profile: str | None=None,
+    profile: str | None=None, predicate: str | None=None,
 ) -> CallToolResult:
-    """Derive a VP-07 migration source or VP-09 axes input from a binding context, exactly as CLI from-plan.
+    """Derive a VP-07 migration source, VP-09 axes input or VP-10 cells input from a binding context, exactly as CLI from-plan.
+    vpcells needs predicate (one per view) and reads coverage from binding-context/8.
     vpsequence is not supported (VP-08 sources are declared directly). No files; declared_unverified.
     """
     return _result(plan_views.plan_source, context, plan_id, printer, tracks=track_map, track=track, labels=labels,
                    layers=layers, witness_prefixes=witness_prefixes, edge_styles=edge_styles, steps=steps,
-                   subjects=subjects, profile=profile)
+                   subjects=subjects, profile=profile, predicate=predicate)
 
 
 @mcp.tool()
 def cube_plan_views(
-    source: dict[str, Any], view: Literal['cube.phases','cube.flow','cube.sequence','cube.axes'],
+    source: dict[str, Any], view: Literal['cube.phases','cube.flow','cube.sequence','cube.axes','cube.cells'],
     granularity: Literal['overview','standard','detail'], partition: str | None=None,
     rows: str | None=None, cols: str | None=None, lens: str | None=None,
     overflow: Literal['summarize','reject'] | None=None, locale: str | None=None,
@@ -128,6 +129,7 @@ def cube_plan_views(
     Limits: 512 KiB per SVG, 2 MiB per response; over a limit isError, never truncated. Display only.
     C-12 options (only for 0.7.5 / 0.9.2 sources): locale (de, en) and hide_ledger for cube.phases / cube.flow,
     partition 'method-sets' (VP-07.5); locale and hide_empty for cube.axes, rows/cols Y × Y (VP-09.2).
+    cube.cells (VP-10): Y × Y cell states (marked, checked, unknown, hidden) from declared coverage; locale, hide_empty.
     """
     return _result(plan_views.plan_views, source, view, granularity, partition=partition, rows=rows, cols=cols,
                    lens=lens, overflow=overflow, locale=locale, hide_ledger=hide_ledger or None, hide_empty=hide_empty)
