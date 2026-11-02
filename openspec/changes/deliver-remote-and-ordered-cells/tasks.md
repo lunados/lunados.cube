@@ -1,6 +1,6 @@
 # Tasks — deliver-remote-and-ordered-cells
 
-Status: in_progress. Führende Ausführungsstatusliste; TASK-037–039 erledigt (G5 0.7.0-proof bereitgestellt, Host-Abnahme PASS; Charge A abgeschlossen; Spezifikation VP-10.1 und Orakel), drei Aufgaben offen.
+Status: in_progress. Führende Ausführungsstatusliste; TASK-037–040 erledigt (G5 0.7.0-proof bereitgestellt, Host-Abnahme PASS; Charge A abgeschlossen; VP-10.1 spezifiziert und umgesetzt, Charge B abgeschlossen), zwei Aufgaben offen.
 
 ## A — Remote `/8`
 
@@ -10,7 +10,7 @@ Status: in_progress. Führende Ausführungsstatusliste; TASK-037–039 erledigt 
 ## B — Achsenreihenfolge
 
 - [x] 3. [TASK-039 — Spezifikation VP-10.1 und Orakel](../../../docs/05-Tasks/TASK-039-vp101-spec.md)
-- [ ] 4. [TASK-040 — VP-10.1 umsetzen](../../../docs/05-Tasks/TASK-040-vp101-impl.md)
+- [x] 4. [TASK-040 — VP-10.1 umsetzen](../../../docs/05-Tasks/TASK-040-vp101-impl.md)
 
 ## C — Lesbarkeitstest
 
