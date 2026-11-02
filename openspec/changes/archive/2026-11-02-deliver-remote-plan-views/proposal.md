@@ -1,6 +1,6 @@
 # Deliver remote plan views
 
-Status: decided · 2026-11-02 · [MILE-010](../../../docs/02-Milestones/MILE-010-remote-plan-views.md) · noch nicht umgesetzt
+Status: done · 2026-11-02 · archiviert · [MILE-010](../../../../docs/02-Milestones/MILE-010-remote-plan-views.md) · [Nachweis](../../../../docs/10-Evidence/MILE-010/C-RESULT.md)
 
 ## Why
 

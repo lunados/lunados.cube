@@ -1,0 +1,247 @@
+{
+ "head": "31d9686",
+ "main_base": "4106c75",
+ "python": "3.13.7",
+ "note": "HEAD vor dem Abschluss-Commit; Statusänderungen dieses Commits liegen im Arbeitsbaum.",
+ "order": {
+  "steps": [
+   {
+    "what": "Entscheidungen D-1–D-8 vor dem Spezifikationsentwurf",
+    "first": "c44a89d",
+    "then": "7cc8505",
+    "ok": true
+   },
+   {
+    "what": "Detailfragen Q-1–Q-10 vor den Erwartungen",
+    "first": "d7ed25a",
+    "then": "a29450a",
+    "ok": true
+   },
+   {
+    "what": "Erwartungen (87 Aufrufe) vor Kern- und Gateway-Code",
+    "first": "a29450a",
+    "then": "d5124d0",
+    "ok": true
+   },
+   {
+    "what": "Kern und Gateway vor den Live-Läufen per Skript",
+    "first": "d5124d0",
+    "then": "75eb528",
+    "ok": true
+   },
+   {
+    "what": "Live-Läufe vor dem Host-Bericht",
+    "first": "75eb528",
+    "then": "31d9686",
+    "ok": true
+   }
+  ],
+  "expectations_unchanged_since_a29450a": {
+   "P3/remote-mcp-g5/evidence/G5_R5_EXPECTATIONS.json": true,
+   "P3/remote-mcp-g5/scripts/r5_calls.py": true,
+   "P3/remote-mcp-g5/scripts/r5_expectations.py": true
+  },
+  "issues": 0
+ },
+ "gates": {
+  "head_copy": "31d9686",
+  "how": "git archive HEAD, gates einzeln ausgeführt (Ergebnisse je HEAD zwischengespeichert)"
+ },
+ "r5_offline_parity": {
+  "calls": 88,
+  "matched": 88,
+  "cpu_s_max": 0.782,
+  "cpu_rule_2s": true,
+  "interpreter": "CPython 3.13.7 (not Pyodide)",
+  "ok": true
+ },
+ "runs": {
+  "verify_g5": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ],
+   "python": "3.13.7"
+  },
+  "r5_offline_parity": {
+   "exit": 0,
+   "tail": [
+    "mismatched: []"
+   ],
+   "summary": {
+    "calls": 88,
+    "matched": 88,
+    "cpu_s_max": 0.782,
+    "cpu_rule_2s": true,
+    "interpreter": "CPython 3.13.7 (not Pyodide)"
+   },
+   "python": "3.13.7"
+  },
+  "gateway_tests": {
+   "exit": 0,
+   "tail": [
+    "# duration_ms 197.488058"
+   ],
+   "python": "3.13.7"
+  },
+  "verify_release": {
+   "exit": 0,
+   "tail": [
+    "PASS G5 source SHA-256: 34 files; registry MIME exact to pinned lock"
+   ],
+   "python": "3.13.7"
+  },
+  "parity_g4_g5_migration-profile-v1": {
+   "exit": 0,
+   "tail": [
+    "22/22 identical"
+   ],
+   "python": "3.13.7"
+  },
+  "parity_g4_g5_migration-profile-v2": {
+   "exit": 0,
+   "tail": [
+    "10/10 identical"
+   ],
+   "python": "3.13.7"
+  },
+  "parity_g4_g5_migration-methods-v1": {
+   "exit": 0,
+   "tail": [
+    "15/15 identical"
+   ],
+   "python": "3.13.7"
+  },
+  "parity_g4_g5_coverage-instance-profile-v1": {
+   "exit": 0,
+   "tail": [
+    "21/21 identical"
+   ],
+   "python": "3.13.7"
+  }
+ },
+ "live": {
+  "script_runs": [
+   {
+    "run": 1,
+    "matched": 87,
+    "calls": 88,
+    "mismatched": [
+     "P-K07-flow"
+    ],
+    "gateway_tools": true,
+    "gateway_version": true,
+    "only_documented_limit": true
+   },
+   {
+    "run": 2,
+    "matched": 87,
+    "calls": 88,
+    "mismatched": [
+     "P-K08-sequence"
+    ],
+    "gateway_tools": true,
+    "gateway_version": true,
+    "only_documented_limit": true
+   },
+   {
+    "run": 3,
+    "matched": 86,
+    "calls": 88,
+    "mismatched": [
+     "P-K07-flow",
+     "P-K08-sequence"
+    ],
+    "gateway_tools": true,
+    "gateway_version": true,
+    "only_documented_limit": true
+   },
+   {
+    "run": 4,
+    "matched": 87,
+    "calls": 88,
+    "mismatched": [
+     "P-K07-flow"
+    ],
+    "gateway_tools": true,
+    "gateway_version": true,
+    "only_documented_limit": true
+   }
+  ],
+  "cpu_event": {
+   "outcome": "exceededCpu",
+   "call": "P-K07-flow step 3 (cube_plan_check)",
+   "core_version": "f8e8ec9d-1624-44b8-990b-b0d295ba75c0"
+  },
+  "host_report": {
+   "overall_pass": true,
+   "result_cells": {
+    "PASS": 18,
+    "FAIL": 0
+   }
+  }
+ },
+ "layers": {
+  "frozen_unchanged_since_main": true,
+  "frozen_worktree_unchanged": true,
+  "changed_outside_docs": [
+   "P3/remote-mcp-g5/DEPLOYMENT.md",
+   "P3/remote-mcp-g5/G5_ACCEPTANCE.md",
+   "P3/remote-mcp-g5/G5_R5_ACCEPTANCE_SPEC.md",
+   "P3/remote-mcp-g5/README.md",
+   "P3/remote-mcp-g5/SHA256SUMS.txt",
+   "P3/remote-mcp-g5/evidence/G5_R5_CORE_CPU_EVENT.json",
+   "P3/remote-mcp-g5/evidence/G5_R5_EXPECTATIONS.json",
+   "P3/remote-mcp-g5/evidence/G5_R5_HOST_REPORT.md",
+   "P3/remote-mcp-g5/evidence/G5_R5_LIVE_SCRIPT_RUN1.json",
+   "P3/remote-mcp-g5/evidence/G5_R5_LIVE_SCRIPT_RUN2.json",
+   "P3/remote-mcp-g5/evidence/G5_R5_LIVE_SCRIPT_RUN3.json",
+   "P3/remote-mcp-g5/evidence/G5_R5_LIVE_SCRIPT_RUN4.json",
+   "P3/remote-mcp-g5/evidence/G5_R5_OFFLINE_PARITY.json",
+   "P3/remote-mcp-g5/gateway/src/index.mjs",
+   "P3/remote-mcp-g5/gateway/tests/freeze.test.mjs",
+   "P3/remote-mcp-g5/python-core/core_runtime.py",
+   "P3/remote-mcp-g5/python-core/entry.py",
+   "P3/remote-mcp-g5/python-core/wrangler.jsonc",
+   "P3/remote-mcp-g5/scripts/assemble_core.py",
+   "P3/remote-mcp-g5/scripts/check_runtime_assets.py",
+   "P3/remote-mcp-g5/scripts/r5_calls.py",
+   "P3/remote-mcp-g5/scripts/r5_dump_call.py",
+   "P3/remote-mcp-g5/scripts/r5_expectations.py",
+   "P3/remote-mcp-g5/scripts/r5_parity.py",
+   "P3/remote-mcp-g5/scripts/r5_remote_acceptance.py",
+   "P3/remote-mcp-g5/scripts/sdk_remote_smoke.py",
+   "P3/remote-mcp-g5/scripts/verify_g5.py",
+   "P3/remote-mcp-g5/tests/test_g5_contract.py"
+  ],
+  "lunados_lib": "nicht in diesem Repository; MILE-010 ändert keine Einträge (D-Rahmen)",
+  "sha256sums": {
+   "AIAEAO_Pure_Cube_P0_v9.4/SHA256SUMS.txt": true,
+   "P1/contract-v1/SHA256SUMS.txt": true,
+   "P1/migration-methods-v1/SHA256SUMS.txt": true,
+   "P1/migration-profile-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP02_SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP03_SHA256SUMS.txt": true,
+   "P2/visual-printer-axes-v1/VP09_SHA256SUMS.txt": true,
+   "P2/visual-printer-conformance-v1/VP05_SHA256SUMS.txt": true,
+   "P2/visual-printer-granularity-v1/VP04_SHA256SUMS.txt": true,
+   "P2/visual-printer-migration-v1/VP07_SHA256SUMS.txt": true,
+   "P2/visual-printer-release-v1/VP06_SHA256SUMS.txt": true,
+   "P2/visual-printer-sequence-v1/VP08_SHA256SUMS.txt": true,
+   "P3/public-reference-mcp/SHA256SUMS.txt": true,
+   "P3/remote-mcp-g5/SHA256SUMS.txt": true
+  },
+  "only_g5_changed": true
+ },
+ "broken_links": 0,
+ "broken_link_list": [],
+ "links_outside_repo_not_checked": [
+  "docs/09-Research/cube-grammar-2026-11-01/ANALYSE.md -> ../../../../lunados.lib/LIBRARY_CONTRACT.md",
+  "docs/09-Research/grammar-sampling/reports/DAG-01.md -> ../../../../../lunados.lib/LIBRARY_CONTRACT.md",
+  "docs/09-Research/grammar-sampling/reports/DAG-01.md -> ../../../../../lunados.lib/entries/impact.propagate/v1/entry.json"
+ ],
+ "all_ok": true
+}

@@ -140,9 +140,9 @@ Führender Status: [show-instance-view/tasks.md](../../openspec/changes/archive/
 
 Summe: 2–3,25 PT; Planungsannahmen, ohne Zeit des Nutzers.
 
-## MILE-010 — geplant
+## MILE-010 — abgeschlossen
 
-Führender Status: [deliver-remote-plan-views/tasks.md](../../openspec/changes/deliver-remote-plan-views/tasks.md).
+Führender Status: [deliver-remote-plan-views/tasks.md](../../openspec/changes/archive/2026-11-02-deliver-remote-plan-views/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|

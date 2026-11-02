@@ -1,10 +1,10 @@
 # Design — Plansichten remote
 
-Status: decided · Umsetzung offen
+Status: done · 2026-11-02 · umgesetzt (G5-Kern `0.8.0-proof`, Gateway `0.2.0-proof`, Offline-Parität 88/88, Host-Abnahme 7/7; D-6 revidiert: alle Sichten remote, CPU-Grenze dokumentiert)
 
 ## Context
 
-Entscheidungen D-1–D-8 in [MILE-010](../../../docs/02-Milestones/MILE-010-remote-plan-views.md) (entschieden 2026-11-02). Grundlage: G5 `0.7.0-proof` (MILE-006), G6 lokal (MILE-005–009).
+Entscheidungen D-1–D-8 in [MILE-010](../../../../docs/02-Milestones/MILE-010-remote-plan-views.md) (entschieden 2026-11-02). Grundlage: G5 `0.7.0-proof` (MILE-006), G6 lokal (MILE-005–009).
 
 ## Decisions
 

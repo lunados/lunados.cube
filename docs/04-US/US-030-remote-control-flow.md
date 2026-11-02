@@ -1,6 +1,6 @@
 # US-030 — Kontrollfluss remote prüfen
 
-Status: planned · Epic: [EPIC-010](../03-Epics/EPIC-010-remote-plan-views.md) · Mile: [MILE-010-A, -B, -C](../02-Milestones/MILE-010-remote-plan-views.md)
+Status: done · Epic: [EPIC-010](../03-Epics/EPIC-010-remote-plan-views.md) · Mile: [MILE-010-A, -B, -C](../02-Milestones/MILE-010-remote-plan-views.md)
 
 Als Nutzer des Remote-Connectors möchte ich Kontexte mit Kontrollfluss (`binding-context/9`) remote prüfen, damit ich dafür keinen lokalen Server brauche.
 
@@ -17,4 +17,4 @@ Als Nutzer des Remote-Connectors möchte ich Kontexte mit Kontrollfluss (`bindin
 - [TASK-061 — Bereitstellung und Host-Abnahme](../05-Tasks/TASK-061-g5-deploy-acceptance.md)
 - [TASK-062 — Abschluss](../05-Tasks/TASK-062-mile010-close.md)
 
-[Requirement-Zuordnung](../../openspec/changes/deliver-remote-plan-views/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/deliver-remote-plan-views/tasks.md).
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-deliver-remote-plan-views/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-deliver-remote-plan-views/tasks.md).
