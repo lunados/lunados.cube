@@ -111,3 +111,5 @@ python P3/remote-mcp-g5/scripts/r5_remote_acceptance.py --evidence P3/remote-mcp
 
 Expected: `PASS G5 ACTUAL REMOTE MCP: … 10 tools …` and `PASS G5 R5 LIVE: 88/88 as expected`. Afterwards reconnect the G5 connector in the Claude host (the host caches the tool list), so that the agent can run the host subset. If a call ends in `G5_CORE_UNAVAILABLE` by the runtime limit, stop and report the call id (D-6).
 
+**R5 notes (2026-11-02).** Skip §1 (`rsync` of the original G5 ZIP): it overwrites the current `P3/remote-mcp-g5` with the first proof (SDK 2.0.0, gateway 0.1.0-proof); the sources are already in the repository. The deployed core has a small CPU limit per call: the largest plan results (e.g. `cube_plan_check` on 26 `cube.flow` panels) can end with `G5_CORE_UNAVAILABLE` (`exceededCpu` in `npx wrangler tail aiaeao-cube-g5-core --status error`). This is the documented limit of R5 (spec §10); raising it needs a paid Workers plan and `limits.cpu_ms`.
+

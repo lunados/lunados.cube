@@ -106,3 +106,10 @@ These close gaps found while building; no decision changes.
 - **W-4 (Q-6):** the remote discovery lists the plan tools; this supersedes the G6 note C-13 §5 ("the remote surface must not list plan tools") for the remote card only. The local `surface.discover_surface()` stays byte-identical.
 - **W-5 (Q-5):** the file-read trace of all 88 calls through the assembled core found no read outside the staged runtime and the standard library; the only new runtime data files are six locale files (`vpmigration` de/en, `vpcells` de/de-0101/de-0110, `vpinstances` de), now covered by Text rules and counted as family `P2LOC` in `check_runtime_assets.py` (49 assets).
 - **W-6:** the plan layer is imported on first use, so the seven earlier tools keep their cold start.
+
+## 10. Live finding and revised decision D-6 (TASK-061, 2026-11-02)
+
+- **Finding:** four scripted live runs gave 87/88, 87/88, 86/88 and 87/88. Every mismatching step was the gateway diagnostic `G5_CORE_UNAVAILABLE`, never a different result; all other steps were byte-identical to the expectations. The core tail of run 4 shows the cause: `exceededCpu` ("Worker exceeded CPU time limit", 139 ms CPU, 143 ms wall) in `cube_plan_check` of P-K07-flow, which re-renders all 26 `cube.flow` panels of a 650 KB result ([event](evidence/G5_R5_CORE_CPU_EVENT.json)). A failure of the next call (P-K08-sequence, runs 2 and 3) follows from the restart of the core after the abort. The effective CPU limit of the deployed core is far below the 30 s of a paid Workers plan.
+- **Decision (user, 2026-11-02), revising D-6 and RM-3:** all plan views stay remote. The Worker CPU limit is documented: a call above it ends cleanly with `G5_CORE_UNAVAILABLE` (`isError`), nothing is truncated or altered. No Workers plan change. R5-05 counts a runtime-limit abort as the documented limit, not as a different result.
+- **Not chosen:** raising the CPU limit (Workers Paid, `limits.cpu_ms`); removing `cube.flow` from the remote scope.
+

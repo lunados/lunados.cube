@@ -85,7 +85,7 @@ async def main(args):
                     ok = all(checks.values())
                     rows.append({'id': 'D-01', 'match': ok, 'checks': checks, 'wall_s': cache['wall']})
                 else:
-                    w, ok = want[call['id']], True
+                    w, ok, got = want[call['id']], True, []
                     if len(steps) != len(w['steps']):
                         ok = False
                     for i, ((e, p), x) in enumerate(zip(steps, w['steps'])):
@@ -95,8 +95,15 @@ async def main(args):
                         f = {'is_error': e, 'payload_sha256': hashlib.sha256(canon(p)).hexdigest() if p is not None else None}
                         if not e and call['steps'][i]['op'] == 'cube_plan_views':
                             f['svg_sha256'] = [q['sha256'] for q in p['panels']]
-                        ok = ok and f['is_error'] == x['is_error'] and f['payload_sha256'] == x['payload_sha256'] and f.get('svg_sha256') == x.get('svg_sha256')
-                    rows.append({'id': call['id'], 'match': ok, 'wall_s': cache['wall'], 'host_subset': call['live'] == 'host'})
+                        same = f['is_error'] == x['is_error'] and f['payload_sha256'] == x['payload_sha256'] and f.get('svg_sha256') == x.get('svg_sha256')
+                        got.append({'op': call['steps'][i]['op'], 'match': same, **({} if same else f)})
+                        ok = ok and same
+                    rows.append({'id': call['id'], 'match': ok, 'wall_s': cache['wall'], 'host_subset': call['live'] == 'host',
+                                 **({} if ok else {'steps': got})})
+                    if not ok and args.dump_dir:            # diagnosis: the remote payloads of a mismatching chain (no token)
+                        Path(args.dump_dir).mkdir(parents=True, exist_ok=True)
+                        (Path(args.dump_dir)/f"r5_mismatch_{call['id']}.json").write_text(
+                            json.dumps([{'is_error': e, 'payload': p} for e, p in steps], ensure_ascii=False)+'\n', 'utf-8')
                 if not rows[-1]['match']:
                     bad.append(call['id'])
                 print('PASS' if rows[-1]['match'] else 'FAIL', call['id'], rows[-1]['wall_s'], flush=True)
@@ -117,4 +124,5 @@ async def main(args):
 if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('--evidence', help='write the sanitized JSON report (no token)')
+    p.add_argument('--dump-dir', help='on a mismatch, save the remote payloads of that chain here (diagnosis)')
     asyncio.run(main(p.parse_args()))

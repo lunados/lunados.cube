@@ -21,7 +21,7 @@ Heute: G5 (`P3-MCP-REMOTE/0.7.0-proof`, MILE-006) prüft bis `/8`; `/9` endet re
 
 ## Entscheidungen (2026-11-02, Nutzer)
 
-D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
+D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“). D-6 hat der Nutzer nach der Live-Abnahme revidiert (2026-11-02): alle Sichten bleiben remote, die CPU-Grenze des Workers wird dokumentiert ([Spezifikation §10](../../P3/remote-mcp-g5/G5_R5_ACCEPTANCE_SPEC.md)).
 
 | ID | Frage | Entscheidung | Grund | Nicht gewählt |
 |---|---|---|---|---|
@@ -62,4 +62,4 @@ D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/deliver-remote-plan-views/proposal.md) · [Aufgabenstatus](../../openspec/changes/deliver-remote-plan-views/tasks.md) · [Abdeckung](../../openspec/changes/deliver-remote-plan-views/TRACEABILITY.md). TASK-058: [Spezifikation G5 R5](../../P3/remote-mcp-g5/G5_R5_ACCEPTANCE_SPEC.md), Entwurf `7cc8505`, Q-1–Q-10 nach Vorschlag (gleiche Tool-Namen und Fehler wie lokal, kein Zusatzfeld, Gateway-Grenze 2 MiB + 64 KiB, Paketumfang aus Import- und Lesespur, Rechenzeit unter 2 s offline, Kern 0.8.0-proof, Gateway 0.2.0-proof). TASK-059: Erwartungen für 87 Aufrufe vor Code ([Erwartungen](../../P3/remote-mcp-g5/evidence/G5_R5_EXPECTATIONS.json)); Live-Abnahme per Skript und im Host (CL-3). Charge A abgeschlossen. TASK-060: Kern `0.8.0-proof` und Gateway `0.2.0-proof`, Offline-Parität 88/88, alle G5-Gates grün. Charge B abgeschlossen.
+[OpenSpec-Change](../../openspec/changes/deliver-remote-plan-views/proposal.md) · [Aufgabenstatus](../../openspec/changes/deliver-remote-plan-views/tasks.md) · [Abdeckung](../../openspec/changes/deliver-remote-plan-views/TRACEABILITY.md). TASK-058: [Spezifikation G5 R5](../../P3/remote-mcp-g5/G5_R5_ACCEPTANCE_SPEC.md), Entwurf `7cc8505`, Q-1–Q-10 nach Vorschlag (gleiche Tool-Namen und Fehler wie lokal, kein Zusatzfeld, Gateway-Grenze 2 MiB + 64 KiB, Paketumfang aus Import- und Lesespur, Rechenzeit unter 2 s offline, Kern 0.8.0-proof, Gateway 0.2.0-proof). TASK-059: Erwartungen für 87 Aufrufe vor Code ([Erwartungen](../../P3/remote-mcp-g5/evidence/G5_R5_EXPECTATIONS.json)); Live-Abnahme per Skript und im Host (CL-3). Charge A abgeschlossen. TASK-060: Kern `0.8.0-proof` und Gateway `0.2.0-proof`, Offline-Parität 88/88, alle G5-Gates grün. Charge B abgeschlossen. TASK-061: bereitgestellt; vier Skript-Läufe live je 87/88 bzw. 86/88, jede Abweichung ein Abbruch `exceededCpu` des Kerns bei der größten Plansicht (K-07 Check), nie ein anderes Ergebnis; D-6 revidiert (Grenze dokumentiert, alle Sichten bleiben remote). Host-Prüfung offen.
