@@ -150,3 +150,10 @@ The LIB cases CF-11…CF-29 become the cases of `analyze.trace-conformance/v1` (
 | **Q-8** | Is a waiting join a violation? | **No**: `join_waiting` is PASS and lists the missing inputs | it answers "why does it wait?", nothing was violated |
 | **Q-9** | Several activations? | Per activation; FAIL > UNRESOLVED > PASS overall, details per activation (TC-6) | an instance can pass a gateway more than once |
 | **Q-10** | Relation to P1.12? | `/9` strict superset of `/8`; validator projects `/9` → `/8`, runs P1.12 unchanged, then CF and TB | same pattern as P1.12 over P1.11 |
+
+## 8. Precisions found in review (TASK-052)
+
+These close two gaps between §3 and the check cases; both implementations (P1.13 and the LIB entry) already behave this way.
+
+- **CF-2a:** An exclusive gateway with exactly one outgoing flow that carries neither `order`, `condition_ref` nor `default` is valid (an exclusive merge, as `bpmn:merge` in the check cases). `order` is required only when a gateway has more than one outgoing flow or the flow carries `condition_ref`.
+- **CF-2b:** The default flow carries neither `order` nor `condition_ref`.

@@ -14,7 +14,7 @@ Vorab-Erwartungen: TASK-048 CF-11…CF-19 und CF-21…CF-29. CF-20 existiert nic
 
 ## Ausgeführte Prüfungen
 
-- Vor Evaluator: Programmorakel gleich handfestgelegtem Vollergebnis für 18/18 Fälle; bestehendes `python3 scripts/verify.py --cube /Users/johannesklapproth/SitesHeroku/lunados.cube`: 12 Einträge, 139/139.
+- Vor Evaluator: Programmorakel gleich handfestgelegtem Vollergebnis für 18/18 Fälle; bestehendes `python3 scripts/verify.py --cube <lunados.cube>`: 12 Einträge, 139/139.
 - Nach Implementierung: derselbe Gesamtprüfbefehl: **13 Einträge, 159/159**. Alle 18 neuen Evaluatorausgaben entsprechen Erwartung und Orakel exakt und validieren gegen `schema/trace-conformance-result.v1.schema.json`; Cube-Referenzfall PASS ohne Diagnosen und ohne Warrant-/Authority-/Admission-Promotion.
 - `python3 scripts/differential_trace.py`: **471** vollständige Ergebnis-/Schemaabgleiche, **18** unveränderte Projektionen auf die Vorab-Erwartungen, **9** Ablehnungen ungültiger Aufrufe. Umfasst mehrfachen Tokenbedarf, Join/ Split/ Merge-Kapazitäten 0…3, doppelte/umgeordnete Beobachtungen, Bedingungsreihenfolge mit unbekannten Werten, FAIL vor UNRESOLVED, fremde Instanz und globale/andere/paarweise Abdeckung.
 - Neues `entry.json` gegen `schema/entry.v1.schema.json`: gültig. `git diff --check`: ohne Befund. Bestehende LIB-Einträge unverändert; Cube-P0/P1/P2 in TASK-051 nicht geändert.
