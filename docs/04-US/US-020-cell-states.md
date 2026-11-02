@@ -1,6 +1,6 @@
 # US-020 — Vier Zellzustände darstellen
 
-Status: planned · Epic: [EPIC-005](../03-Epics/EPIC-005-completeness-and-instances.md) · Mile: [MILE-005-C](../02-Milestones/MILE-005-completeness-instances.md)
+Status: done · Epic: [EPIC-005](../03-Epics/EPIC-005-completeness-and-instances.md) · Mile: [MILE-005-C](../02-Milestones/MILE-005-completeness-instances.md)
 
 Als Leser einer Matrixsicht möchte ich markiert, geprüft leer, unbekannt und ausgeblendet unterscheiden, damit ich „keine Abhängigkeit“ nicht mit „nicht erhoben“ verwechsle.
 
@@ -15,4 +15,4 @@ Als Leser einer Matrixsicht möchte ich markiert, geprüft leer, unbekannt und a
 - [TASK-035 — Printer-Stand für vier Zellzustände](../05-Tasks/TASK-035-cell-state-printer.md)
 - [TASK-036 — Adapter, Wiederholung der MILE-002-Fälle und Übergabe](../05-Tasks/TASK-036-adapter-acceptance.md)
 
-[Requirement-Zuordnung](../../openspec/changes/declare-completeness-and-instances/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/declare-completeness-and-instances/tasks.md). Noch keine Ausführung.
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/tasks.md). Ausgeführt: TASK-035, TASK-036.

@@ -69,7 +69,7 @@ Summe: 9–12 h (1–1,5 PT); Planungsannahmen. [Nachweise](../10-Evidence/MILE-
 
 ## MILE-005 — geplant
 
-Führender Status: [declare-completeness-and-instances/tasks.md](../../openspec/changes/declare-completeness-and-instances/tasks.md).
+Führender Status: [declare-completeness-and-instances/tasks.md](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|

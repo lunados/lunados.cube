@@ -1,6 +1,6 @@
 # EPIC-005 — Vollständigkeit und Instanzbindung
 
-Status: planned · Milestone: [MILE-005](../02-Milestones/MILE-005-completeness-instances.md) · Voraussetzung: [EPIC-001](EPIC-001-grammar-learning.md) (Lernbilanz)
+Status: done · Milestone: [MILE-005](../02-Milestones/MILE-005-completeness-instances.md) · Voraussetzung: [EPIC-001](EPIC-001-grammar-learning.md) (Lernbilanz)
 
 ## Ergebnis
 

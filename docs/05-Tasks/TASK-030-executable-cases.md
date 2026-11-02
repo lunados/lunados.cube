@@ -1,6 +1,6 @@
 # TASK-030 — Ausführbare Prüffälle mit Erwartung vorab
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/declare-completeness-and-instances/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/tasks.md).
 
 Story: [US-018](../04-US/US-018-completeness.md), [US-019](../04-US/US-019-instance-binding.md) · Mile: MILE-005-A · Aufwand: 0,5 PT
 

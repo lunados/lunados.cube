@@ -1,6 +1,6 @@
 # MILE-005 — Nachweise
 
-Stand: 2026-11-01 · in Arbeit.
+Stand: 2026-11-02 · abgeschlossen ([C-RESULT](C-RESULT.md)).
 
 | Datei | Inhalt |
 |---|---|
@@ -11,3 +11,6 @@ Stand: 2026-11-01 · in Arbeit.
 | [task034_differential.py](task034_differential.py) | TASK-034: Differenzprüfung Evaluator gegen Orakel über abgeleitete Varianten |
 | [task035-run.json](task035-run.json) | TASK-035: VP-10, J-01–J-14 14/14, 24 Tests, VP-07/VP-09 unverändert, Render-Hashes; `all_ok` |
 | [task035/](task035/) | TASK-035: Renderings und Berichte (Golden en/de, J-07, J-08 de, J-12) |
+| [task036-rerun/report.json](task036-rerun/report.json) | TASK-036: Wiederholung von ARC-03, DSM-03, BPMN-03 (plus Kontrolle BPMN-02) als `/8` über lokales MCP stdio, 7/7 wie erwartet, zwei Verbindungen |
+| [verify_mile005.py](verify_mile005.py), [verification.json](verification.json) | Abschlussprüfung (Reihenfolge, Läufe, Wiederholung, Schichten, Prüfsummen, Links); `all_ok` |
+| [C-RESULT.md](C-RESULT.md), [MANIFEST.json](MANIFEST.json) | Abschlussnachweis und Hashes |

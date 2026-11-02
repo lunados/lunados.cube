@@ -1,6 +1,6 @@
 # TASK-034 — Populationsprüfung als LIB-Eintrag
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/declare-completeness-and-instances/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/tasks.md).
 
 Story: [US-018](../04-US/US-018-completeness.md) · Mile: MILE-005-B · Aufwand: 0,75–1 PT
 

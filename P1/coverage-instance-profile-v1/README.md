@@ -1,6 +1,8 @@
 # P1.12 — Declared Coverage and Instance Profile (`binding-context/8`)
 
-**Status:** IMPLEMENTED locally 2026-11-01 (TASK-033). The LIB entry `analyze.population/v1` (TASK-034), the cell-state printer (TASK-035) and the G4/G6 adapter with host acceptance (TASK-036) are still open.
+**Status:** IMPLEMENTED locally 2026-11-01 (TASK-033).
+
+Available through the local MCP since 2026-11-02 (TASK-036): `cube_validate` with `/8`, and local discovery. The LIB entry is lunados.lib `analyze.population/v1` (TASK-034), and the cell-state printer is VP-10 (TASK-035). G5 and host acceptance are the follow-up step.
 
 Gaps G-01 (completeness and population) and G-08 (instance correlation) from the MILE-002 grammar comparison. `/8` is a strict superset of `/7`. P1.12 runs P1.11 unchanged on a `/7` projection and adds three things:
 
@@ -66,4 +68,4 @@ python3 P1/coverage-instance-profile-v1/tests/test_p112.py
 
 - Rule evaluation over statement sets: `lunados.lib` `analyze.population/v1`, TASK-034.
 - Cell-state display: P2, TASK-035.
-- G4/G6 dispatch for `/8` and discovery of `binding-context/8`: TASK-036.
+- G5 (remote) delivery and host acceptance: follow-up step (MILE-005 D-5).

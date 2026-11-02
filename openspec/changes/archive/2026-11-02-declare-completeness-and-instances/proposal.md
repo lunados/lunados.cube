@@ -1,10 +1,10 @@
 # Declare completeness and instances
 
-Status: decided · 2026-11-01 · [MILE-005](../../../docs/02-Milestones/MILE-005-completeness-instances.md) · noch nicht umgesetzt
+Status: done · 2026-11-02 · archiviert · [MILE-005](../../../../docs/02-Milestones/MILE-005-completeness-instances.md)
 
 ## Why
 
-Die [Lernbilanz](../../../docs/09-Research/learning-balance/LERNBILANZ.md) stellt Vollständigkeit mit Populationsprüfung samt Darstellung (G-01 → VR-05) und typisierte Instanzbindung (G-08) auf Rang 1 und 2 für Architektursichten und Prozessspuren. Heute fallen „unbekannt“ und „geprüft leer“ zusammen, und ein instanzübergreifender Join besteht im gemeinsamen Scope.
+Die [Lernbilanz](../../../../docs/09-Research/learning-balance/LERNBILANZ.md) stellt Vollständigkeit mit Populationsprüfung samt Darstellung (G-01 → VR-05) und typisierte Instanzbindung (G-08) auf Rang 1 und 2 für Architektursichten und Prozessspuren. Heute fallen „unbekannt“ und „geprüft leer“ zusammen, und ein instanzübergreifender Join besteht im gemeinsamen Scope.
 
 ## What Changes
 

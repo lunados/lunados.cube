@@ -1,8 +1,12 @@
 # Completeness declaration
 
-Status: planned.
+Status: implemented · 2026-11-02. Konsolidiert aus `declare-completeness-and-instances` (MILE-005); Nachweis [C-RESULT](../../../docs/10-Evidence/MILE-005/C-RESULT.md).
 
-## ADDED Requirements
+## Purpose
+
+Erklären, für welchen Umfang Aussagen vollständig erhoben sind; Abwesenheit nur dort als „geprüft leer“ werten, sonst UNRESOLVED; Populationsregeln erklären (P1.12) und über Aussagenmengen auswerten (lunados.lib `analyze.population/v1`).
+
+## Requirements
 
 ### Requirement: Declared completeness scope
 

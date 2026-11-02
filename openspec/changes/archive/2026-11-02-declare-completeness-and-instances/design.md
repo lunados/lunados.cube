@@ -1,6 +1,6 @@
 # Design — Vollständigkeit und Instanzbindung
 
-Status: decided · Umsetzung offen
+Status: done · 2026-11-02 · umgesetzt (P1.12, lunados.lib analyze.population/v1, VP-10, G4/G6)
 
 ## Context
 
@@ -12,7 +12,7 @@ Vollständigkeit erklärbar und prüfbar machen, Instanzen typisiert binden, vie
 
 ## Decisions
 
-Entschieden am 2026-11-01 (Nutzer, TASK-032 vorgezogen); Gründe und nicht gewählte Optionen im [Milestone](../../../docs/02-Milestones/MILE-005-completeness-instances.md).
+Entschieden am 2026-11-01 (Nutzer, TASK-032 vorgezogen); Gründe und nicht gewählte Optionen im [Milestone](../../../../docs/02-Milestones/MILE-005-completeness-instances.md).
 
 1. **D-1:** ein gemeinsames Profil (Arbeitstitel P1.12, `binding-context/8`) mit getrennten Abschnitten Vollständigkeit und Instanzbindung.
 2. **D-2:** Erklärungsumfang Referent × Relationstyp × Richtung, zusätzlich je Paar; keine Erklärung je Sicht.
@@ -20,7 +20,7 @@ Entschieden am 2026-11-01 (Nutzer, TASK-032 vorgezogen); Gründe und nicht gewä
 4. **D-4:** typisierte, optionale `instance_ref`; Prädikatvertragseigenschaft „gleiche Instanz verlangt“.
 5. **D-5:** Auslieferung lokal (G4/G6); G5 als eigener Folgeschritt.
 6. **D-6:** Profil erklärt, P1-Validator prüft Wohlgeformtheit und Status, LIB-Eintrag zählt mit typisiertem Ergebnisschema.
-7. **Q-1–Q-6** der [Abnahmespezifikation](../../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md) am 2026-11-01 nach Vorschlag entschieden.
+7. **Q-1–Q-6** der [Abnahmespezifikation](../../../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md) am 2026-11-01 nach Vorschlag entschieden.
 
 ## Risks / Trade-offs
 

@@ -1,6 +1,6 @@
 # TASK-035 — Printer-Stand für vier Zellzustände
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/declare-completeness-and-instances/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-declare-completeness-and-instances/tasks.md).
 
 Story: [US-020](../04-US/US-020-cell-states.md) · Mile: MILE-005-C · Aufwand: 1–1,5 PT
 

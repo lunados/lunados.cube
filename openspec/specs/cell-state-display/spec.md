@@ -1,8 +1,12 @@
 # Cell state display
 
-Status: planned.
+Status: implemented · 2026-11-02. Konsolidiert aus `declare-completeness-and-instances` (MILE-005); Nachweis [C-RESULT](../../../docs/10-Evidence/MILE-005/C-RESULT.md).
 
-## ADDED Requirements
+## Purpose
+
+Matrixsichten unterscheiden markiert, geprüft leer, unbekannt und ausgeblendet ohne Farbe (VP-10 `cube.cells`).
+
+## Requirements
 
 ### Requirement: Four cell states
 
