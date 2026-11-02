@@ -1,6 +1,6 @@
 # Tasks — declare-completeness-and-instances
 
-Status: in_progress. Führende Ausführungsstatusliste; TASK-030–033 erledigt (Charge A abgeschlossen; Detailfragen Q-1–Q-6 entschieden; P1.12 lokal umgesetzt, 21/21), drei Aufgaben offen (LIB, Printer, Adapter und Abnahme).
+Status: in_progress. Führende Ausführungsstatusliste; TASK-030–034 erledigt (Charge A abgeschlossen; Detailfragen Q-1–Q-6 entschieden; P1.12 lokal umgesetzt, 21/21; LIB-Eintrag analyze.population/v1, 16/16), zwei Aufgaben offen (Printer, Adapter und Abnahme).
 
 ## A — Prüffälle und Spezifikation
 
@@ -11,11 +11,11 @@ Status: in_progress. Führende Ausführungsstatusliste; TASK-030–033 erledigt 
 ## B — Profil und LIB
 
 - [x] 4. [TASK-033 — P1-Profil implementieren](../../../docs/05-Tasks/TASK-033-profile-impl.md)
-- [ ] 5. [TASK-034 — Populationsprüfung als LIB-Eintrag](../../../docs/05-Tasks/TASK-034-lib-population.md)
+- [x] 5. [TASK-034 — Populationsprüfung als LIB-Eintrag](../../../docs/05-Tasks/TASK-034-lib-population.md)
 
 ## C — Darstellung und Abnahme
 
 - [ ] 6. [TASK-035 — Printer-Stand für vier Zellzustände](../../../docs/05-Tasks/TASK-035-cell-state-printer.md)
 - [ ] 7. [TASK-036 — Adapter, Wiederholung der MILE-002-Fälle und Übergabe](../../../docs/05-Tasks/TASK-036-adapter-acceptance.md)
 
-[Milestone](../../../docs/02-Milestones/MILE-005-completeness-instances.md) · [Abdeckung](TRACEABILITY.md). Nachweis TASK-030: [Prüffälle](../../../docs/09-Research/completeness-instances/CHECK-CASES.md). TASK-031: [Abnahmespezifikation P1.12](../../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md). TASK-032: [Entscheidungen](../../../docs/02-Milestones/MILE-005-completeness-instances.md). TASK-033: [Profil P1.12](../../../P1/coverage-instance-profile-v1/README.md), [Lauf](../../../docs/10-Evidence/MILE-005/task033-run.json).
+[Milestone](../../../docs/02-Milestones/MILE-005-completeness-instances.md) · [Abdeckung](TRACEABILITY.md). Nachweis TASK-030: [Prüffälle](../../../docs/09-Research/completeness-instances/CHECK-CASES.md). TASK-031: [Abnahmespezifikation P1.12](../../../P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md). TASK-032: [Entscheidungen](../../../docs/02-Milestones/MILE-005-completeness-instances.md). TASK-033: [Profil P1.12](../../../P1/coverage-instance-profile-v1/README.md), [Lauf](../../../docs/10-Evidence/MILE-005/task033-run.json). TASK-034: lunados.lib `analyze.population/v1`, [Lauf](../../../docs/10-Evidence/MILE-005/task034-run.json).
