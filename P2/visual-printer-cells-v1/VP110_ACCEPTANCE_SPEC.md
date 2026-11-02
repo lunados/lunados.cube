@@ -122,3 +122,14 @@ Planned vectors: S-01 DSM-01 set (Y × Y); S-02 S-01 with coverage (checked and 
 | **Q-8** | What happens to labels? | The derived statement keeps the label of its first source in set order; the others count as `labels_dropped` | reproduces C4-02 "first defined" and makes the loss visible |
 | **Q-9** | Coverage with aggregation? | Not transferred: child coverage says nothing about the parent pair. Coverage is ignored with a warning; empty cells read unknown | avoids a false "checked empty" |
 | **Q-10** | How much does the Cube check of the LIB result? | Format, `method_id`, `library_ref` shape, `input_set_sha256`; no recomputation | same boundary as `analyze.population/v1` |
+
+## 8. Precisions fixed with the vectors (TASK-044, before any code)
+
+These close gaps in §1–§5 without changing a decision.
+
+- **SS-4:** Every statement endpoint must be listed in the set's `referents`; otherwise `VP10_STATEMENT_SET_INVALID`. Check order: set shape and duplicate IDs → resolution in the context (`VP10_STATEMENT_REF_UNKNOWN`) → predicate and concepts (`VP10_STATEMENT_PREDICATE_INVALID`) → endpoints in `referents` → one home on the axes (`VP10_PAIR_INVALID`).
+- **PR-4:** A statement whose ends both map to themselves passes through unchanged (`origin: declared`) and counts as `passed_through`. Statements of other predicates and the membership statements are not part of the result. `loss` has the keys `sources`, `passed_through`, `derived`, `merged`, `internal`, `suppressed`, `labels_dropped`. Suppressed sources are listed as `{statement_id, suppressed_by}`.
+- **PR-5:** Derived statements are numbered `d-1`, `d-2`, … in the order of their first source in the set. The result's `referents` are the images of the set's referents, in order of first appearance.
+- **DR-7:** With an aggregation result the view shows all statements of the result (passed-through `source_predicate` and `derived_predicate`), passed-through first; the title names the `derived_predicate`. `--predicate` may be omitted or must equal the `derived_predicate`.
+- **DR-8:** The loss line is exact and has no plural forms: `aggregation <strategy>: sources <n> → derived <n>; passed through <n>; internal <n>; suppressed <n>; labels dropped <n>` (de: `Verdichtung <strategy>: Quellen <n> → abgeleitet <n>; durchgereicht <n>; intern <n>; unterdrückt <n>; Beschreibungen verworfen <n>`).
+- **Vectors:** the planned list in §6 is fixed as S-01…S-16 in `oracles/independent_s01_s16.json`; the aggregation cases A-01…A-10 are in `docs/09-Research/statement-sets/CHECK-CASES.json`. The 0.10.1 outputs are pinned in `fixtures/regression_0101_digests.json` (9), the 0.10.0 outputs stay pinned (16).

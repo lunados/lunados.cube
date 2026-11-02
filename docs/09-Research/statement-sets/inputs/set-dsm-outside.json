@@ -1,0 +1,31 @@
+{
+ "format": "aiaeao.cube.statement-set/1",
+ "set_id": "dsm-outside",
+ "context_id": "mile007-dsm",
+ "referents": [
+  "m:parser",
+  "m:resolver",
+  "m:validator"
+ ],
+ "statements": [
+  {
+   "statement_id": "s-rp",
+   "subject": "m:resolver",
+   "predicate_id": "dependsOn",
+   "object": "m:parser"
+  },
+  {
+   "statement_id": "s-vr",
+   "subject": "m:validator",
+   "predicate_id": "dependsOn",
+   "object": "m:resolver"
+  },
+  {
+   "statement_id": "s-pp",
+   "subject": "m:printer",
+   "predicate_id": "dependsOn",
+   "object": "m:parser"
+  }
+ ],
+ "witness_ref": "synthetic:mile007#dsm-outside"
+}

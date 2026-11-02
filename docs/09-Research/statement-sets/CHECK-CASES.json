@@ -1,0 +1,478 @@
+{
+ "format": "mile007.check-cases/1",
+ "task": "TASK-044",
+ "fixed_at": "2026-11-02",
+ "fixed_before_code": true,
+ "spec": "P2/visual-printer-cells-v1/VP110_ACCEPTANCE_SPEC.md (Q-1–Q-10 resolved, 594563c)",
+ "canonical_json": "json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(\",\", \":\")), UTF-8, SHA-256",
+ "inputs": {
+  "ctx-c4-cov.json": "48c2ab19ac70d5750a6e2ba473486a3a1edd4a7ecc9f6db1ea1ffffacab00287",
+  "ctx-c4.json": "c8a08604a271ead2160de4a30fc9ea49deeb8591e43f01ced2eeb9b93a249cb4",
+  "ctx-dsm-cov.json": "ea4080e4323e7a998da8604e2d11ada3fe2694a0e730f4198eb27193a343a73b",
+  "ctx-dsm.json": "2f1cfc243bcc95982b4fa8d1fd495d4ce87cad3f460dc8c16d0014700f4ddbb7",
+  "set-c4-mixed.json": "92e46296638c13f8c1ce351328edb33610bef2a4fd270716330216b8e80a2995",
+  "set-c4-s4.json": "93addbacdb9a14428f64cf7ceb2425a5fdc86114cd2cd824ff1bff8ee169c89d",
+  "set-c4-s5.json": "85218a2fbf13ce422c5f64e51ab8d18e84c7509fca110b595030235b14bb546d",
+  "set-c4-two-parents.json": "e1e9d2e45e5ffca8c20a30252fc45f7a0971d15ff5700329589bb51e80852cbf",
+  "set-c4.json": "941bfb81a8d1acf9c230e96d6acdba121fea153d6182482e54fcbccbf292e525",
+  "set-dsm-dup.json": "7e6b0e9b22d835e12d1f577125be6b5c70ef99975bf18d7e2da2556a5512a69c",
+  "set-dsm-outside.json": "b78a52100eeb6e8f7d0ad10ef283903e352a5679b306c5d38767ce952f229b5b",
+  "set-dsm-pred-invalid.json": "e711f7878cb9820a21cfb1729ffa60cad36dd7bab399bd2d78359b94c6a8dff3",
+  "set-dsm-ref-unknown.json": "f9595c967c941dfcc51c14b507395344ba9f7c166d6201784af32d9eca9f591b",
+  "set-dsm.json": "bfc46b03613027272cf5c3410c0640e662cebe2b19fa24a0860e257f8de5ce7a"
+ },
+ "layer": "LIB project.aggregate-relations/v1; error codes are working titles, TASK-045 may rename them, not the disposition",
+ "cases": [
+  {
+   "case_id": "A-01",
+   "question": "C4-02 mit all: welche Container-Beziehung, aus welchen Quellen?",
+   "set": "set-c4.json",
+   "strategy": "all",
+   "expected": {
+    "schema": "aiaeao.projection-result/v1",
+    "method_id": "project.aggregate-relations/v1",
+    "parameters": {
+     "source_predicate": "uses",
+     "derived_predicate": "uses.derived",
+     "membership_predicate": "contains",
+     "strategy": "all"
+    },
+    "input_set_sha256": "4c6eee1aebd556f1743bb2e6505215713df6736df0574175a1a04149aa698001",
+    "referents": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "statements": [
+     {
+      "statement_id": "d-1",
+      "subject": "c4:shop/api",
+      "predicate_id": "uses.derived",
+      "object": "c4:shop/db",
+      "origin": "derived",
+      "derived_from": [
+       "s-1",
+       "s-2"
+      ],
+      "label": "Writes orders to",
+      "labels_dropped": 1
+     }
+    ],
+    "internal": [
+     "s-3"
+    ],
+    "suppressed": [],
+    "loss": {
+     "sources": 3,
+     "passed_through": 0,
+     "derived": 1,
+     "merged": 2,
+     "internal": 1,
+     "suppressed": 0,
+     "labels_dropped": 1
+    },
+    "status": "declared_unverified",
+    "runtime_authority": "not-evaluated"
+   },
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "uses.derived",
+    "membership_predicate": "contains"
+   },
+   "context": "ctx-c4.json"
+  },
+  {
+   "case_id": "A-02",
+   "question": "C4-02 mit unless_same ohne deklarierte Container-Beziehung",
+   "set": "set-c4.json",
+   "strategy": "unless_same",
+   "expected": {
+    "schema": "aiaeao.projection-result/v1",
+    "method_id": "project.aggregate-relations/v1",
+    "parameters": {
+     "source_predicate": "uses",
+     "derived_predicate": "uses.derived",
+     "membership_predicate": "contains",
+     "strategy": "unless_same"
+    },
+    "input_set_sha256": "4c6eee1aebd556f1743bb2e6505215713df6736df0574175a1a04149aa698001",
+    "referents": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "statements": [
+     {
+      "statement_id": "d-1",
+      "subject": "c4:shop/api",
+      "predicate_id": "uses.derived",
+      "object": "c4:shop/db",
+      "origin": "derived",
+      "derived_from": [
+       "s-1",
+       "s-2"
+      ],
+      "label": "Writes orders to",
+      "labels_dropped": 1
+     }
+    ],
+    "internal": [
+     "s-3"
+    ],
+    "suppressed": [],
+    "loss": {
+     "sources": 3,
+     "passed_through": 0,
+     "derived": 1,
+     "merged": 2,
+     "internal": 1,
+     "suppressed": 0,
+     "labels_dropped": 1
+    },
+    "status": "declared_unverified",
+    "runtime_authority": "not-evaluated"
+   },
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "uses.derived",
+    "membership_predicate": "contains"
+   },
+   "context": "ctx-c4.json"
+  },
+  {
+   "case_id": "A-03",
+   "question": "C4-02 mit unless_any ohne deklarierte Container-Beziehung",
+   "set": "set-c4.json",
+   "strategy": "unless_any",
+   "expected": {
+    "schema": "aiaeao.projection-result/v1",
+    "method_id": "project.aggregate-relations/v1",
+    "parameters": {
+     "source_predicate": "uses",
+     "derived_predicate": "uses.derived",
+     "membership_predicate": "contains",
+     "strategy": "unless_any"
+    },
+    "input_set_sha256": "4c6eee1aebd556f1743bb2e6505215713df6736df0574175a1a04149aa698001",
+    "referents": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "statements": [
+     {
+      "statement_id": "d-1",
+      "subject": "c4:shop/api",
+      "predicate_id": "uses.derived",
+      "object": "c4:shop/db",
+      "origin": "derived",
+      "derived_from": [
+       "s-1",
+       "s-2"
+      ],
+      "label": "Writes orders to",
+      "labels_dropped": 1
+     }
+    ],
+    "internal": [
+     "s-3"
+    ],
+    "suppressed": [],
+    "loss": {
+     "sources": 3,
+     "passed_through": 0,
+     "derived": 1,
+     "merged": 2,
+     "internal": 1,
+     "suppressed": 0,
+     "labels_dropped": 1
+    },
+    "status": "declared_unverified",
+    "runtime_authority": "not-evaluated"
+   },
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "uses.derived",
+    "membership_predicate": "contains"
+   },
+   "context": "ctx-c4.json"
+  },
+  {
+   "case_id": "A-04",
+   "question": "all neben deklarierter API uses DB (s-4)",
+   "set": "set-c4-s4.json",
+   "strategy": "all",
+   "expected": {
+    "schema": "aiaeao.projection-result/v1",
+    "method_id": "project.aggregate-relations/v1",
+    "parameters": {
+     "source_predicate": "uses",
+     "derived_predicate": "uses.derived",
+     "membership_predicate": "contains",
+     "strategy": "all"
+    },
+    "input_set_sha256": "ea718913d519071722af35a30cc33478b2ade5e9c7b6cf0027b4f8d01e3f84ce",
+    "referents": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "statements": [
+     {
+      "statement_id": "s-4",
+      "subject": "c4:shop/api",
+      "predicate_id": "uses",
+      "object": "c4:shop/db",
+      "origin": "declared",
+      "label": "Stores data in"
+     },
+     {
+      "statement_id": "d-1",
+      "subject": "c4:shop/api",
+      "predicate_id": "uses.derived",
+      "object": "c4:shop/db",
+      "origin": "derived",
+      "derived_from": [
+       "s-1",
+       "s-2"
+      ],
+      "label": "Writes orders to",
+      "labels_dropped": 1
+     }
+    ],
+    "internal": [
+     "s-3"
+    ],
+    "suppressed": [],
+    "loss": {
+     "sources": 4,
+     "passed_through": 1,
+     "derived": 1,
+     "merged": 2,
+     "internal": 1,
+     "suppressed": 0,
+     "labels_dropped": 1
+    },
+    "status": "declared_unverified",
+    "runtime_authority": "not-evaluated"
+   },
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "uses.derived",
+    "membership_predicate": "contains"
+   },
+   "context": "ctx-c4.json"
+  },
+  {
+   "case_id": "A-05",
+   "question": "unless_same neben deklarierter API uses DB (s-4)",
+   "set": "set-c4-s4.json",
+   "strategy": "unless_same",
+   "expected": {
+    "schema": "aiaeao.projection-result/v1",
+    "method_id": "project.aggregate-relations/v1",
+    "parameters": {
+     "source_predicate": "uses",
+     "derived_predicate": "uses.derived",
+     "membership_predicate": "contains",
+     "strategy": "unless_same"
+    },
+    "input_set_sha256": "ea718913d519071722af35a30cc33478b2ade5e9c7b6cf0027b4f8d01e3f84ce",
+    "referents": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "statements": [
+     {
+      "statement_id": "s-4",
+      "subject": "c4:shop/api",
+      "predicate_id": "uses",
+      "object": "c4:shop/db",
+      "origin": "declared",
+      "label": "Stores data in"
+     }
+    ],
+    "internal": [
+     "s-3"
+    ],
+    "suppressed": [
+     {
+      "statement_id": "s-1",
+      "suppressed_by": "s-4"
+     },
+     {
+      "statement_id": "s-2",
+      "suppressed_by": "s-4"
+     }
+    ],
+    "loss": {
+     "sources": 4,
+     "passed_through": 1,
+     "derived": 0,
+     "merged": 0,
+     "internal": 1,
+     "suppressed": 2,
+     "labels_dropped": 0
+    },
+    "status": "declared_unverified",
+    "runtime_authority": "not-evaluated"
+   },
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "uses.derived",
+    "membership_predicate": "contains"
+   },
+   "context": "ctx-c4.json"
+  },
+  {
+   "case_id": "A-06",
+   "question": "unless_same neben API monitors DB (anderes Prädikat, s-5)",
+   "set": "set-c4-s5.json",
+   "strategy": "unless_same",
+   "expected": {
+    "schema": "aiaeao.projection-result/v1",
+    "method_id": "project.aggregate-relations/v1",
+    "parameters": {
+     "source_predicate": "uses",
+     "derived_predicate": "uses.derived",
+     "membership_predicate": "contains",
+     "strategy": "unless_same"
+    },
+    "input_set_sha256": "d46198d5e8f6d9c496beb252a0d9a6f8e932e892bd456a3c809c4ab6983da669",
+    "referents": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "statements": [
+     {
+      "statement_id": "d-1",
+      "subject": "c4:shop/api",
+      "predicate_id": "uses.derived",
+      "object": "c4:shop/db",
+      "origin": "derived",
+      "derived_from": [
+       "s-1",
+       "s-2"
+      ],
+      "label": "Writes orders to",
+      "labels_dropped": 1
+     }
+    ],
+    "internal": [
+     "s-3"
+    ],
+    "suppressed": [],
+    "loss": {
+     "sources": 3,
+     "passed_through": 0,
+     "derived": 1,
+     "merged": 2,
+     "internal": 1,
+     "suppressed": 0,
+     "labels_dropped": 1
+    },
+    "status": "declared_unverified",
+    "runtime_authority": "not-evaluated"
+   },
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "uses.derived",
+    "membership_predicate": "contains"
+   },
+   "context": "ctx-c4.json"
+  },
+  {
+   "case_id": "A-07",
+   "question": "unless_any neben API monitors DB (s-5)",
+   "set": "set-c4-s5.json",
+   "strategy": "unless_any",
+   "expected": {
+    "schema": "aiaeao.projection-result/v1",
+    "method_id": "project.aggregate-relations/v1",
+    "parameters": {
+     "source_predicate": "uses",
+     "derived_predicate": "uses.derived",
+     "membership_predicate": "contains",
+     "strategy": "unless_any"
+    },
+    "input_set_sha256": "d46198d5e8f6d9c496beb252a0d9a6f8e932e892bd456a3c809c4ab6983da669",
+    "referents": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "statements": [],
+    "internal": [
+     "s-3"
+    ],
+    "suppressed": [
+     {
+      "statement_id": "s-1",
+      "suppressed_by": "s-5"
+     },
+     {
+      "statement_id": "s-2",
+      "suppressed_by": "s-5"
+     }
+    ],
+    "loss": {
+     "sources": 3,
+     "passed_through": 0,
+     "derived": 0,
+     "merged": 0,
+     "internal": 1,
+     "suppressed": 2,
+     "labels_dropped": 0
+    },
+    "status": "declared_unverified",
+    "runtime_authority": "not-evaluated"
+   },
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "uses.derived",
+    "membership_predicate": "contains"
+   },
+   "context": "ctx-c4.json"
+  },
+  {
+   "case_id": "A-08",
+   "question": "Strategie fehlt",
+   "set": "set-c4.json",
+   "strategy": null,
+   "expected": {
+    "error": "PROJECTION_PARAMETER_INVALID"
+   },
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "uses.derived",
+    "membership_predicate": "contains"
+   },
+   "context": "ctx-c4.json"
+  },
+  {
+   "case_id": "A-09",
+   "question": "Order Repository hat zwei Eltern (m-2, m-3)",
+   "set": "set-c4-two-parents.json",
+   "strategy": "all",
+   "expected": {
+    "error": "PROJECTION_PARENT_AMBIGUOUS"
+   },
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "uses.derived",
+    "membership_predicate": "contains"
+   },
+   "context": "ctx-c4.json"
+  },
+  {
+   "case_id": "A-10",
+   "question": "derived_predicate contains erlaubt Boundary → Boundary nicht",
+   "set": "set-c4.json",
+   "strategy": "all",
+   "parameters": {
+    "source_predicate": "uses",
+    "derived_predicate": "contains",
+    "membership_predicate": "contains"
+   },
+   "expected": {
+    "error": "PROJECTION_PREDICATE_INVALID"
+   },
+   "context": "ctx-c4.json"
+  }
+ ]
+}

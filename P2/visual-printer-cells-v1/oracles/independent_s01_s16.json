@@ -1,0 +1,424 @@
+{
+ "format": "aiaeao.p2.vp110-oracle/1",
+ "fixed_at": "2026-11-02",
+ "fixed_before_code": true,
+ "spec": "P2/visual-printer-cells-v1/VP110_ACCEPTANCE_SPEC.md (Q-1–Q-10 resolved, 594563c)",
+ "canonical_json": "json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(\",\", \":\")), UTF-8, SHA-256",
+ "inputs": {
+  "ctx-c4-cov.json": "48c2ab19ac70d5750a6e2ba473486a3a1edd4a7ecc9f6db1ea1ffffacab00287",
+  "ctx-c4.json": "c8a08604a271ead2160de4a30fc9ea49deeb8591e43f01ced2eeb9b93a249cb4",
+  "ctx-dsm-cov.json": "ea4080e4323e7a998da8604e2d11ada3fe2694a0e730f4198eb27193a343a73b",
+  "ctx-dsm.json": "2f1cfc243bcc95982b4fa8d1fd495d4ce87cad3f460dc8c16d0014700f4ddbb7",
+  "set-c4-mixed.json": "92e46296638c13f8c1ce351328edb33610bef2a4fd270716330216b8e80a2995",
+  "set-c4-s4.json": "93addbacdb9a14428f64cf7ceb2425a5fdc86114cd2cd824ff1bff8ee169c89d",
+  "set-c4-s5.json": "85218a2fbf13ce422c5f64e51ab8d18e84c7509fca110b595030235b14bb546d",
+  "set-c4-two-parents.json": "e1e9d2e45e5ffca8c20a30252fc45f7a0971d15ff5700329589bb51e80852cbf",
+  "set-c4.json": "941bfb81a8d1acf9c230e96d6acdba121fea153d6182482e54fcbccbf292e525",
+  "set-dsm-dup.json": "7e6b0e9b22d835e12d1f577125be6b5c70ef99975bf18d7e2da2556a5512a69c",
+  "set-dsm-outside.json": "b78a52100eeb6e8f7d0ad10ef283903e352a5679b306c5d38767ce952f229b5b",
+  "set-dsm-pred-invalid.json": "e711f7878cb9820a21cfb1729ffa60cad36dd7bab399bd2d78359b94c6a8dff3",
+  "set-dsm-ref-unknown.json": "f9595c967c941dfcc51c14b507395344ba9f7c166d6201784af32d9eca9f591b",
+  "set-dsm.json": "bfc46b03613027272cf5c3410c0640e662cebe2b19fa24a0860e257f8de5ce7a"
+ },
+ "inputs_dir": "docs/09-Research/statement-sets/inputs",
+ "projections": "A cases in docs/09-Research/statement-sets/CHECK-CASES.json",
+ "legend_line_rule": "one line, exact; en and de as given",
+ "cases": [
+  {
+   "id": "S-01",
+   "context": "ctx-dsm.json",
+   "set": "set-dsm.json",
+   "predicate": "dependsOn",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.11.0",
+    "title": "dsm-modules · dependsOn",
+    "rows": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "cols": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "marked": {
+     "m:resolver|m:parser": "s-rp",
+     "m:validator|m:resolver": "s-vr",
+     "m:printer|m:validator": "s-pv",
+     "m:parser|m:validator": "s-fb"
+    },
+    "checked": {},
+    "unknown": [
+     "m:parser|m:printer",
+     "m:parser|m:resolver",
+     "m:printer|m:parser",
+     "m:printer|m:resolver",
+     "m:resolver|m:printer",
+     "m:resolver|m:validator",
+     "m:validator|m:parser",
+     "m:validator|m:printer"
+    ],
+    "warnings": [
+     "VP10_COVERAGE_NONE"
+    ],
+    "text": {
+     "m:resolver|m:parser": [
+      "s-rp · dependsOn"
+     ]
+    },
+    "svg_must_not_contain": [
+     "p0",
+     "p1",
+     "phase",
+     "Phase",
+     "migration",
+     "Migration",
+     "plan ",
+     "Plan ",
+     "d-x*"
+    ]
+   }
+  },
+  {
+   "id": "S-02",
+   "context": "ctx-dsm-cov.json",
+   "set": "set-dsm.json",
+   "predicate": "dependsOn",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.11.0",
+    "rows": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "cols": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "marked": {
+     "m:resolver|m:parser": "s-rp",
+     "m:validator|m:resolver": "s-vr",
+     "m:printer|m:validator": "s-pv",
+     "m:parser|m:validator": "s-fb"
+    },
+    "checked": {
+     "m:printer|m:parser": "pair"
+    },
+    "unknown": [
+     "m:parser|m:printer",
+     "m:parser|m:resolver",
+     "m:printer|m:resolver",
+     "m:resolver|m:printer",
+     "m:resolver|m:validator",
+     "m:validator|m:parser",
+     "m:validator|m:printer"
+    ],
+    "warnings": []
+   }
+  },
+  {
+   "id": "S-03",
+   "context": "ctx-dsm.json",
+   "set": "set-dsm.json",
+   "predicate": "dependsOn",
+   "axis_order": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+   ],
+   "expected": {
+    "profile": "P2-VP-CELLS/0.11.0",
+    "rows": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "cols": [
+     "m:parser",
+     "m:resolver",
+     "m:validator",
+     "m:printer"
+    ],
+    "marked": {
+     "m:resolver|m:parser": "s-rp",
+     "m:validator|m:resolver": "s-vr",
+     "m:printer|m:validator": "s-pv",
+     "m:parser|m:validator": "s-fb"
+    },
+    "feedback_cells": [
+     "m:parser|m:validator"
+    ],
+    "warnings": [
+     "VP10_COVERAGE_NONE"
+    ],
+    "text": {
+     "m:parser|m:validator": [
+      "s-fb · dependsOn",
+      "feedback"
+     ]
+    }
+   }
+  },
+  {
+   "id": "S-04",
+   "context": "ctx-c4.json",
+   "set": "set-c4.json",
+   "projection": "A-01",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.11.0",
+    "title": "c4-components · uses.derived",
+    "rows": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "cols": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "marked": {
+     "c4:shop/api|c4:shop/db": "d-1"
+    },
+    "checked": {},
+    "unknown": [
+     "c4:shop/db|c4:shop/api"
+    ],
+    "warnings": [
+     "VP10_COVERAGE_NONE"
+    ],
+    "text": {
+     "c4:shop/api|c4:shop/db": [
+      "d-1 · uses.derived · derived · 2 sources"
+     ]
+    },
+    "loss": {
+     "sources": 3,
+     "passed_through": 0,
+     "derived": 1,
+     "merged": 2,
+     "internal": 1,
+     "suppressed": 0,
+     "labels_dropped": 1
+    },
+    "legend_line": "aggregation all: sources 3 → derived 1; passed through 0; internal 1; suppressed 0; labels dropped 1",
+    "ledger_derived": {
+     "d-1": [
+      "s-1",
+      "s-2"
+     ]
+    },
+    "svg_must_not_contain": [
+     "p0",
+     "p1",
+     "phase",
+     "Phase",
+     "migration",
+     "Migration",
+     "plan ",
+     "Plan ",
+     "d-x*"
+    ]
+   }
+  },
+  {
+   "id": "S-05",
+   "context": "ctx-c4.json",
+   "set": "set-c4-s4.json",
+   "projection": "A-04",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.11.0",
+    "rows": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "cols": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "marked": {
+     "c4:shop/api|c4:shop/db": "s-4, d-1"
+    },
+    "unknown": [
+     "c4:shop/db|c4:shop/api"
+    ],
+    "warnings": [
+     "VP10_COVERAGE_NONE"
+    ],
+    "text": {
+     "c4:shop/api|c4:shop/db": [
+      "s-4 · uses",
+      "d-1 · uses.derived · derived · 2 sources"
+     ]
+    },
+    "legend_line": "aggregation all: sources 4 → derived 1; passed through 1; internal 1; suppressed 0; labels dropped 1"
+   }
+  },
+  {
+   "id": "S-06",
+   "context": "ctx-c4.json",
+   "set": "set-c4-s5.json",
+   "projection": "A-07",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.11.0",
+    "rows": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "cols": [
+     "c4:shop/api",
+     "c4:shop/db"
+    ],
+    "marked": {},
+    "unknown": [
+     "c4:shop/api|c4:shop/db",
+     "c4:shop/db|c4:shop/api"
+    ],
+    "warnings": [
+     "VP10_COVERAGE_NONE",
+     "VP10_PREDICATE_EMPTY"
+    ],
+    "legend_line": "aggregation unless_any: sources 3 → derived 0; passed through 0; internal 1; suppressed 2; labels dropped 0",
+    "ledger_suppressed": {
+     "s-1": "s-5",
+     "s-2": "s-5"
+    }
+   }
+  },
+  {
+   "id": "S-07",
+   "context": "ctx-dsm.json",
+   "set": "set-dsm-ref-unknown.json",
+   "predicate": "dependsOn",
+   "expected": {
+    "error": "VP10_STATEMENT_REF_UNKNOWN"
+   }
+  },
+  {
+   "id": "S-08",
+   "context": "ctx-dsm.json",
+   "set": "set-dsm-pred-invalid.json",
+   "predicate": "dependsOn",
+   "expected": {
+    "error": "VP10_STATEMENT_PREDICATE_INVALID"
+   }
+  },
+  {
+   "id": "S-09",
+   "context": "ctx-dsm.json",
+   "set": "set-dsm-dup.json",
+   "predicate": "dependsOn",
+   "expected": {
+    "error": "VP10_STATEMENT_SET_INVALID"
+   }
+  },
+  {
+   "id": "S-10",
+   "context": "ctx-dsm.json",
+   "set": "set-dsm-outside.json",
+   "predicate": "dependsOn",
+   "expected": {
+    "error": "VP10_STATEMENT_SET_INVALID"
+   }
+  },
+  {
+   "id": "S-11",
+   "context": "ctx-c4.json",
+   "set": "set-c4-mixed.json",
+   "predicate": "uses",
+   "expected": {
+    "error": "VP10_PAIR_INVALID"
+   }
+  },
+  {
+   "id": "S-12",
+   "context": "ctx-c4.json",
+   "set": "set-c4-s4.json",
+   "projection": "A-01",
+   "expected": {
+    "error": "VP10_PROJECTION_INVALID"
+   }
+  },
+  {
+   "id": "S-13",
+   "context": "ctx-c4-cov.json",
+   "set": "set-c4.json",
+   "projection": "A-01",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.11.0",
+    "marked": {
+     "c4:shop/api|c4:shop/db": "d-1"
+    },
+    "checked": {},
+    "unknown": [
+     "c4:shop/db|c4:shop/api"
+    ],
+    "warnings": [
+     "VP10_COVERAGE_NOT_PROJECTED"
+    ]
+   }
+  },
+  {
+   "id": "S-14",
+   "context": "ctx-dsm.json",
+   "set": "set-dsm.json",
+   "predicate": "related",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.11.0",
+    "marked": {},
+    "checked": {},
+    "unknown": [
+     "m:parser|m:printer",
+     "m:parser|m:resolver",
+     "m:parser|m:validator",
+     "m:printer|m:parser",
+     "m:printer|m:resolver",
+     "m:printer|m:validator",
+     "m:resolver|m:parser",
+     "m:resolver|m:printer",
+     "m:resolver|m:validator",
+     "m:validator|m:parser",
+     "m:validator|m:printer",
+     "m:validator|m:resolver"
+    ],
+    "warnings": [
+     "VP10_COVERAGE_NONE",
+     "VP10_PREDICATE_EMPTY"
+    ]
+   }
+  },
+  {
+   "id": "S-15",
+   "context": "ctx-c4.json",
+   "set": "set-c4.json",
+   "projection": "A-01",
+   "locale": "de",
+   "expected": {
+    "profile": "P2-VP-CELLS/0.11.0",
+    "text": {
+     "c4:shop/api|c4:shop/db": [
+      "d-1 · uses.derived · abgeleitet · 2 Quellen"
+     ]
+    },
+    "legend_line": "Verdichtung all: Quellen 3 → abgeleitet 1; durchgereicht 0; intern 1; unterdrückt 0; Beschreibungen verworfen 1"
+   }
+  },
+  {
+   "id": "S-16",
+   "context": "ctx-c4.json",
+   "set": "set-c4.json",
+   "projection": "A-01",
+   "via": "G6 cube_plan_source + cube_plan_views + cube_plan_check",
+   "expected": {
+    "svg_equals_cli_of": "S-04",
+    "check": "PASS"
+   }
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "format": "aiaeao.cube.statement-set/1",
+ "set_id": "dsm-ref-unknown",
+ "context_id": "mile007-dsm",
+ "referents": [
+  "m:parser",
+  "m:resolver",
+  "m:validator",
+  "m:printer"
+ ],
+ "statements": [
+  {
+   "statement_id": "s-rp",
+   "subject": "m:resolver",
+   "predicate_id": "dependsOn",
+   "object": "m:parser"
+  },
+  {
+   "statement_id": "s-vr",
+   "subject": "m:validator",
+   "predicate_id": "dependsOn",
+   "object": "m:resolver"
+  },
+  {
+   "statement_id": "s-pv",
+   "subject": "m:printer",
+   "predicate_id": "dependsOn",
+   "object": "m:validator"
+  },
+  {
+   "statement_id": "s-fb",
+   "subject": "m:parser",
+   "predicate_id": "dependsOn",
+   "object": "m:validator"
+  },
+  {
+   "statement_id": "s-lx",
+   "subject": "m:lexer",
+   "predicate_id": "dependsOn",
+   "object": "m:parser"
+  }
+ ],
+ "witness_ref": "synthetic:mile007#dsm-ref-unknown"
+}

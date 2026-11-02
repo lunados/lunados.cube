@@ -1,0 +1,11 @@
+{
+ "format": "aiaeao.cube.statement-set/1",
+ "set_id": "c4-mixed",
+ "context_id": "mile007-c4",
+ "referents": [
+  "c4:shop/api",
+  "c4:team/ops"
+ ],
+ "statements": [],
+ "witness_ref": "synthetic:mile007#c4-mixed"
+}
