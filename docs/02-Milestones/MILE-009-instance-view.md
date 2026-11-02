@@ -65,4 +65,4 @@ D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/show-instance-view/proposal.md) · [Aufgabenstatus](../../openspec/changes/show-instance-view/tasks.md) · [Abdeckung](../../openspec/changes/show-instance-view/TRACEABILITY.md). TASK-053: [Spezifikation VP-11](../../P2/visual-printer-instances-v1/VP11_ACCEPTANCE_SPEC.md), Entwurf mit Detailfragen Q-1–Q-10 offen.
+[OpenSpec-Change](../../openspec/changes/show-instance-view/proposal.md) · [Aufgabenstatus](../../openspec/changes/show-instance-view/tasks.md) · [Abdeckung](../../openspec/changes/show-instance-view/TRACEABILITY.md). TASK-053: [Spezifikation VP-11](../../P2/visual-printer-instances-v1/VP11_ACCEPTANCE_SPEC.md), Entwurf `0b5b114`, Q-1–Q-10 nach Vorschlag (Spur als Aussagenmenge zum `/9`-Kontext, LIB-Ergebnis als Datensatz mit `library_ref`, Aufrufeingaben gegen Kontext und Spur geprüft, Rahmen untereinander, fremde Token nur am fehlenden Join-Eingang, `records` in G6).

@@ -1,6 +1,6 @@
 # VP-11 — Instance view · Acceptance specification
 
-**Status:** DRAFT. MILE-009 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 open (§8). Not implemented.
+**Status:** SPECIFIED. MILE-009 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). Not implemented.
 **Profile:** `P2-VP-INSTANCES/0.12.0`, package `vpinstances` in `P2/visual-printer-instances-v1/`, view `cube.instances` (D-2). VP-07, VP-08, VP-09 and VP-10 (0.10.0, 0.10.1, 0.11.0) stay byte-identical.
 **Requirement:** VR-12 (MILE-003 handover) with V-10, V-11, V-12 (MILE-002 gap ledger, MILE-003 inventory); MILE-009 US-028, US-029, TASK-053…057.
 **Basis:**
@@ -155,9 +155,9 @@ Errors use the VP-10 error shape (`format`, `profile`, `status: FAIL`, `code`, `
 
 Planned vectors: I-01…I-18 the LIB cases CF-11…CF-19 and CF-21…CF-29 as context, trace and record (record result = the case's `expected`, `library_ref` from the lunados.lib INDEX); I-19…I-21 BPMN-01 two paths, BPMN-02 waiting join and CF-25 foreign token without records; I-22 BPMN-02 model with i1 and i2 and several records; I-23…I-30 the §6 rows; I-31 German locale. All synthetic, derived from `docs/09-Research/control-flow/CHECK-CASES.json`.
 
-## 8. Detail questions (proposals, open)
+## 8. Detail questions (resolved 2026-11-02, all as proposed)
 
-| ID | Question | Proposal | Reason |
+| ID | Question | Decision | Reason |
 |---|---|---|---|
 | **Q-1** | Where does the trace come from? A `binding-context/9` holds no statements; MILE-008 checked them one by one through `cube_validate` | A **statement set** `aiaeao.cube.statement-set/1` for the `/9` context (as VP-10 0.11.0 for `/8`); trace statements are those with a `control_flow_role` predicate | one existing format for declared statements; precises D-3 without changing it |
 | **Q-2** | Form of a LIB result as input? | **Record** `aiaeao.cube.conformance-record/1` `{format, library_ref, call, result}`, zero or more | same pattern as the projection record (VP-10 PR-6); the evaluator cannot know its INDEX hash |
