@@ -1,6 +1,6 @@
 # MILE-011 — Herkunft von Beziehungen deklarieren und zeigen
 
-Status: in_progress · Stand: 2026-11-02 · Voraussetzung: MILE-007 ([Abschluss](../10-Evidence/MILE-007/C-RESULT.md)), MILE-010 ([Abschluss](../10-Evidence/MILE-010/C-RESULT.md))
+Status: done · Stand: 2026-11-02 · Voraussetzung: MILE-007 ([Abschluss](../10-Evidence/MILE-007/C-RESULT.md)), MILE-010 ([Abschluss](../10-Evidence/MILE-010/C-RESULT.md)) · **abgeschlossen** ([Nachweis](../10-Evidence/MILE-011/C-RESULT.md))
 
 ## Ergebnis
 
@@ -68,4 +68,4 @@ D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/declare-relation-origin/proposal.md) · [Aufgabenstatus](../../openspec/changes/declare-relation-origin/tasks.md) · [Abdeckung](../../openspec/changes/declare-relation-origin/TRACEABILITY.md). TASK-063: Spezifikationen [P1.14](../../P1/relation-origin-profile-v1/P1_14_ACCEPTANCE_SPEC.md) und [VP-07.6](../../P2/visual-printer-migration-v1/VP07_6_ACCEPTANCE_SPEC.md), Entwurf `64cf9c0`, Q nach Vorschlag. TASK-064: Orakel, Vektoren HO-01–HO-12 und OL-01–OL-12, Pins 0.7.5 vor Code. Charge A abgeschlossen. TASK-065: P1.14 und lokaler G4-Adapter mit `/10`, Orakel und Regression geprüft; Charge B abgeschlossen. TASK-066: VP-07.6 und lokaler G6-Adapter, OL-Orakel, ältere Pins und CLI/G6-Parität geprüft. Charge C läuft; TASK-067/068 offen.
+[OpenSpec-Change](../../openspec/changes/archive/2026-11-02-declare-relation-origin/proposal.md) · [Aufgabenstatus](../../openspec/changes/archive/2026-11-02-declare-relation-origin/tasks.md) · [Abdeckung](../../openspec/changes/archive/2026-11-02-declare-relation-origin/TRACEABILITY.md). TASK-063: Spezifikationen [P1.14](../../P1/relation-origin-profile-v1/P1_14_ACCEPTANCE_SPEC.md) und [VP-07.6](../../P2/visual-printer-migration-v1/VP07_6_ACCEPTANCE_SPEC.md), Entwurf `64cf9c0`, Q nach Vorschlag. TASK-064: Orakel, Vektoren HO-01–HO-12 und OL-01–OL-12, Pins 0.7.5 vor Code. Charge A abgeschlossen. TASK-065: P1.14 und lokaler G4-Adapter mit `/10`, Orakel und Regression geprüft; Charge B abgeschlossen. TASK-066: VP-07.6 und lokaler G6-Adapter, OL-Orakel, ältere Pins und CLI/G6-Parität geprüft. TASK-067: G5 `0.9.0-proof`, Offline-Parität 26/26, drei Live-Läufe je 25/26 (CPU-Grenze dokumentiert), Host-Teilmenge 9/9. TASK-068: Prüfsummen nachgezogen, Kantenprüfung gegen das Orakel ergänzt, Sichtprüfung 6/6 ja, Abschlussprüfung `all_ok`; Charge C abgeschlossen ([C-RESULT](../10-Evidence/MILE-011/C-RESULT.md)).

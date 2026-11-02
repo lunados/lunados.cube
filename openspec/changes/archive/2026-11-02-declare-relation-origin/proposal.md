@@ -1,10 +1,10 @@
 # Declare relation origin
 
-Status: decided · 2026-11-02 · [MILE-011](../../../docs/02-Milestones/MILE-011-relation-origin.md) · noch nicht umgesetzt
+Status: done · 2026-11-02 · archiviert · [MILE-011](../../../../docs/02-Milestones/MILE-011-relation-origin.md) · [Nachweis](../../../../docs/10-Evidence/MILE-011/C-RESULT.md)
 
 ## Why
 
-Eine nur verdichtete Beziehung besteht P1 wie eine deklarierte ([C4-03](../../../docs/09-Research/grammar-sampling/reports/C4-03.md)); die in `relations.json` vorgesehene Form `origin=` hat keinen Vertrag. `cube.flow` unterscheidet Linien nur nach Prädikat und liest nur Migrationspläne. Eine Übersicht kann so als festgelegte Architekturentscheidung gelesen werden (G-02, VR-01).
+Eine nur verdichtete Beziehung besteht P1 wie eine deklarierte ([C4-03](../../../../docs/09-Research/grammar-sampling/reports/C4-03.md)); die in `relations.json` vorgesehene Form `origin=` hat keinen Vertrag. `cube.flow` unterscheidet Linien nur nach Prädikat und liest nur Migrationspläne. Eine Übersicht kann so als festgelegte Architekturentscheidung gelesen werden (G-02, VR-01).
 
 ## What Changes
 

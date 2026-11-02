@@ -113,3 +113,32 @@ Expected: `PASS G5 ACTUAL REMOTE MCP: … 10 tools …` and `PASS G5 R5 LIVE: 88
 
 **R5 notes (2026-11-02).** Skip §1 (`rsync` of the original G5 ZIP): it overwrites the current `P3/remote-mcp-g5` with the first proof (SDK 2.0.0, gateway 0.1.0-proof); the sources are already in the repository. The deployed core has a small CPU limit per call: the largest plan results (e.g. `cube_plan_check` on 26 `cube.flow` panels) can end with `G5_CORE_UNAVAILABLE` (`exceededCpu` in `npx wrangler tail aiaeao-cube-g5-core --status error`). This is the documented limit of R5 (spec §10); raising it needs a paid Workers plan and `limits.cpu_ms`.
 
+## 10. R6 — relation origin and origin lines (MILE-011 TASK-067)
+
+Core `P3-MCP-REMOTE/0.9.0-proof` adds P1.14 (`binding-context/10`) and VP-07.6. The gateway remains `0.2.0-proof` with ten tools, but its `cube_plan_source` schema gains the optional `origin_lines` boolean. **Redeploy both Workers, private core first.** The bearer secret and public routes remain as in §9.
+
+From the repository root, after pulling the reviewed MILE-011 branch:
+
+```sh
+python3 P3/remote-mcp-g5/scripts/verify_g5.py
+python3 P3/remote-mcp-g5/scripts/r6_parity.py
+python3 P3/remote-mcp-g5/scripts/r6_legacy_parity.py
+python3 P3/remote-mcp-g5/scripts/verify_release.py --require-npm-lock
+cd P3/remote-mcp-g5/.g5-runtime
+uv run pywrangler deploy
+cd ../gateway
+npm ci
+npm run check:freeze
+npm run deploy
+cd ../../..
+```
+
+The fixed local expectations are in `evidence/G5_R6_EXPECTATIONS.json` (12 HO calls, 13 OL chains, plus Discovery). After deployment, with `AIAEAO_G5_URL` and `AIAEAO_G5_TOKEN` supplied from the existing secure local setup, activate the G4 MCP SDK venv and run:
+
+```sh
+python3 P3/remote-mcp-g5/scripts/sdk_remote_smoke.py
+python3 P3/remote-mcp-g5/scripts/r6_remote_acceptance.py --evidence P3/remote-mcp-g5/evidence/G5_R6_LIVE_SCRIPT.json
+```
+
+Reconnect the G5 host connector so it refreshes the `cube_plan_source` schema. The agent then checks the nine preselected host calls from `scripts/r6_calls.py` and records their digests and codes. If `G5_CORE_UNAVAILABLE` appears, record the failing call and Worker CPU event; do not substitute a local result for a remote acceptance. The live script stores no token or response bodies.
+

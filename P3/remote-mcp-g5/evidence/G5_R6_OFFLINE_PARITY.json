@@ -1,0 +1,213 @@
+{
+ "format": "aiaeao.cube.g5-r6-offline-parity/1",
+ "release": "P3-MCP-REMOTE/0.9.0-proof",
+ "expectations": "evidence/G5_R6_EXPECTATIONS.json",
+ "interpreter": "CPython 3.13.7 (not Pyodide)",
+ "calls": 26,
+ "matched": 26,
+ "mismatched": [],
+ "cpu_s_max": 0.879,
+ "cpu_top5": [
+  {
+   "id": "P-OL-07",
+   "cpu_s": 0.879
+  },
+  {
+   "id": "P-OL-01",
+   "cpu_s": 0.068
+  },
+  {
+   "id": "P-OL-05",
+   "cpu_s": 0.065
+  },
+  {
+   "id": "P-OL-04",
+   "cpu_s": 0.065
+  },
+  {
+   "id": "V-HO-01",
+   "cpu_s": 0.058
+  }
+ ],
+ "cpu_rule_2s": true,
+ "files_read_outside_runtime_and_stdlib": [],
+ "runtime_data_files_read": [
+  "P1/instantiation-profile-v1/instantiation_reference_v1.json",
+  "P1/migration-methods-v1/cube_p111/profiles/migration-methods-v1.json",
+  "P1/semantic-validator-v1/baseline/P0_reference/grammar/concepts.json",
+  "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/contract/concept_keys.json",
+  "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/contract/diagnostics.json",
+  "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/contract/source_lock.json",
+  "P2/visual-printer-2d-lab/reference/p0-concepts-v9.4.json",
+  "P2/visual-printer-2d-lab/reference/p0-core-v9.4.json",
+  "P2/visual-printer-2d-lab/reference/p0-symbols-v9.4.json",
+  "P2/visual-printer-2d-lab/reference/p1-anchors.json",
+  "P2/visual-printer-2d-lab/reference/p1-form-color.json",
+  "P2/visual-printer-migration-v1/vpmigration/locales/de.json",
+  "P2/visual-printer-migration-v1/vpmigration/locales/en.json",
+  "P3/adapters/mcp-local/p0_snapshot/lock.json"
+ ],
+ "rows": [
+  {
+   "id": "D-01",
+   "match": true,
+   "checks": {
+    "release.version": true,
+    "p114_relation_origin.profile": true,
+    "p114_relation_origin.binding_context_formats": true,
+    "domains.P2.plan_views.printers.vpmigration.profiles": true,
+    "domains.P2.plan_views.remote_available": true
+   }
+  },
+  {
+   "id": "V-HO-01",
+   "match": true,
+   "cpu_s_core": 0.058,
+   "cpu_s_local": 0.029
+  },
+  {
+   "id": "V-HO-02",
+   "match": true,
+   "cpu_s_core": 0.018,
+   "cpu_s_local": 0.014
+  },
+  {
+   "id": "V-HO-03",
+   "match": true,
+   "cpu_s_core": 0.018,
+   "cpu_s_local": 0.013
+  },
+  {
+   "id": "V-HO-04",
+   "match": true,
+   "cpu_s_core": 0.017,
+   "cpu_s_local": 0.012
+  },
+  {
+   "id": "V-HO-05",
+   "match": true,
+   "cpu_s_core": 0.018,
+   "cpu_s_local": 0.015
+  },
+  {
+   "id": "V-HO-06",
+   "match": true,
+   "cpu_s_core": 0.018,
+   "cpu_s_local": 0.012
+  },
+  {
+   "id": "V-HO-07",
+   "match": true,
+   "cpu_s_core": 0.017,
+   "cpu_s_local": 0.012
+  },
+  {
+   "id": "V-HO-08",
+   "match": true,
+   "cpu_s_core": 0.018,
+   "cpu_s_local": 0.012
+  },
+  {
+   "id": "V-HO-09",
+   "match": true,
+   "cpu_s_core": 0.018,
+   "cpu_s_local": 0.014
+  },
+  {
+   "id": "V-HO-10",
+   "match": true,
+   "cpu_s_core": 0.016,
+   "cpu_s_local": 0.011
+  },
+  {
+   "id": "V-HO-11",
+   "match": true,
+   "cpu_s_core": 0.02,
+   "cpu_s_local": 0.014
+  },
+  {
+   "id": "V-HO-12",
+   "match": true,
+   "cpu_s_core": 0.049,
+   "cpu_s_local": 0.035
+  },
+  {
+   "id": "P-OL-01",
+   "match": true,
+   "cpu_s_core": 0.068,
+   "cpu_s_local": 0.07
+  },
+  {
+   "id": "P-OL-02",
+   "match": true,
+   "cpu_s_core": 0.033,
+   "cpu_s_local": 0.032
+  },
+  {
+   "id": "P-OL-03a",
+   "match": true,
+   "cpu_s_core": 0.032,
+   "cpu_s_local": 0.033
+  },
+  {
+   "id": "P-OL-03b",
+   "match": true,
+   "cpu_s_core": 0.034,
+   "cpu_s_local": 0.032
+  },
+  {
+   "id": "P-OL-04",
+   "match": true,
+   "cpu_s_core": 0.065,
+   "cpu_s_local": 0.066
+  },
+  {
+   "id": "P-OL-05",
+   "match": true,
+   "cpu_s_core": 0.065,
+   "cpu_s_local": 0.065
+  },
+  {
+   "id": "P-OL-06",
+   "match": true,
+   "cpu_s_core": 0.033,
+   "cpu_s_local": 0.032
+  },
+  {
+   "id": "P-OL-07",
+   "match": true,
+   "cpu_s_core": 0.879,
+   "cpu_s_local": 0.861
+  },
+  {
+   "id": "P-OL-08",
+   "match": true,
+   "cpu_s_core": 0.001,
+   "cpu_s_local": 0.001
+  },
+  {
+   "id": "P-OL-09",
+   "match": true,
+   "cpu_s_core": 0.009,
+   "cpu_s_local": 0.009
+  },
+  {
+   "id": "P-OL-10",
+   "match": true,
+   "cpu_s_core": 0.001,
+   "cpu_s_local": 0.001
+  },
+  {
+   "id": "P-OL-11",
+   "match": true,
+   "cpu_s_core": 0.04,
+   "cpu_s_local": 0.036
+  },
+  {
+   "id": "P-OL-12",
+   "match": true,
+   "cpu_s_core": 0.032,
+   "cpu_s_local": 0.034
+  }
+ ]
+}

@@ -26,6 +26,7 @@ FILES={
  'P1/migration-methods-v1/cube_p111':'*',
  'P1/coverage-instance-profile-v1/cube_p112':'*',
  'P1/control-flow-profile-v1/cube_p113':'*',
+ 'P1/relation-origin-profile-v1/cube_p114':'*',
  'P2/visual-printer-release-v1/vpprint':'*',
  'P2/visual-printer-conformance-v1/vpconformance':'*',
  'P2/visual-printer-granularity-v1/vpgranularity':'*',
@@ -150,7 +151,7 @@ def main():
         assert len(steps)==len(call['steps']) and not any(e for e,_ in steps) and steps[-1][1]['status']=='PASS',(call['id'],steps[-1])
     (OUT/'G5_SOURCE_MANIFEST.json').write_text(json.dumps({'format':'aiaeao.cube.g5-assembly/1',
          'files':manifest,'p0_snapshot_lock':report['lock_sha256']},sort_keys=True,indent=2)+'\n','utf-8')
-    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9 + P1.10 + P1.10.1 + P1.11 + P1.12 + R5: P1.13, plan printers VP-07…VP-11); pinned P0 %s' % (len(manifest),report['lock_sha256']))
+    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9 + P1.10 + P1.10.1 + P1.11 + P1.12 + P1.13 + R6: P1.14, plan printers VP-07…VP-11); pinned P0 %s' % (len(manifest),report['lock_sha256']))
     print('Deployable candidate assembled at: '+str(OUT))
 
 if __name__=='__main__': main()

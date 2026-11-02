@@ -1,0 +1,29 @@
+{
+ "format": "aiaeao.cube.g5-r6-live-script/1",
+ "date": "2026-11-02T20:28:55.255152+00:00",
+ "release": "P3-MCP-REMOTE/0.9.0-proof",
+ "gateway_tools_as_expected": true,
+ "gateway_health_version_as_expected": true,
+ "calls": 1,
+ "matched": 1,
+ "mismatched": [],
+ "wall_s_top5": [
+  {
+   "id": "P-OL-07",
+   "wall_s": 1.242
+  }
+ ],
+ "rows": [
+  {
+   "id": "P-OL-07",
+   "match": true,
+   "wall_s": [
+    0.405,
+    1.242,
+    1.003
+   ],
+   "host_subset": false
+  }
+ ],
+ "status": "PASS"
+}

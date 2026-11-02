@@ -1,0 +1,358 @@
+{
+ "format": "aiaeao.cube.g5-r6-legacy-parity/1",
+ "release": "P3-MCP-REMOTE/0.9.0-proof",
+ "historical_expectations": "evidence/G5_R5_EXPECTATIONS.json",
+ "calls": 87,
+ "matched": 87,
+ "mismatched": [],
+ "rows": [
+  {
+   "id": "V-KF-01",
+   "match": true
+  },
+  {
+   "id": "V-KF-02",
+   "match": true
+  },
+  {
+   "id": "V-KF-03",
+   "match": true
+  },
+  {
+   "id": "V-KF-04",
+   "match": true
+  },
+  {
+   "id": "V-KF-05",
+   "match": true
+  },
+  {
+   "id": "V-KF-06",
+   "match": true
+  },
+  {
+   "id": "V-KF-07",
+   "match": true
+  },
+  {
+   "id": "V-KF-08",
+   "match": true
+  },
+  {
+   "id": "V-KF-09",
+   "match": true
+  },
+  {
+   "id": "V-BPMN-01-ctrl-other-branch-v9",
+   "match": true
+  },
+  {
+   "id": "V-BPMN-01-routed-to-ship-v9",
+   "match": true
+  },
+  {
+   "id": "V-BPMN-01-routed-v9",
+   "match": true
+  },
+  {
+   "id": "V-BPMN-01-token-position-v9",
+   "match": true
+  },
+  {
+   "id": "V-BPMN-02-join-same-instance-v8",
+   "match": true
+  },
+  {
+   "id": "V-BPMN-02-onflow-undeclared-v9",
+   "match": true
+  },
+  {
+   "id": "V-BPMN-03-join-cross-instance-shared-v9",
+   "match": true
+  },
+  {
+   "id": "P-K01-phases",
+   "match": true
+  },
+  {
+   "id": "P-K07-flow",
+   "match": true
+  },
+  {
+   "id": "P-K08-sequence",
+   "match": true
+  },
+  {
+   "id": "P-K09-axes",
+   "match": true
+  },
+  {
+   "id": "P-K11-context9",
+   "match": true
+  },
+  {
+   "id": "P-K12-view-unknown",
+   "match": true
+  },
+  {
+   "id": "P-K13-axes-detail",
+   "match": true
+  },
+  {
+   "id": "P-K14-axes-context",
+   "match": true
+  },
+  {
+   "id": "P-K16-sequence-source",
+   "match": true
+  },
+  {
+   "id": "P-O-01",
+   "match": true
+  },
+  {
+   "id": "P-O-02",
+   "match": true
+  },
+  {
+   "id": "P-O-03",
+   "match": true
+  },
+  {
+   "id": "P-O-04",
+   "match": true
+  },
+  {
+   "id": "P-O-05",
+   "match": true
+  },
+  {
+   "id": "P-O-06",
+   "match": true
+  },
+  {
+   "id": "P-O-07",
+   "match": true
+  },
+  {
+   "id": "P-O-08",
+   "match": true
+  },
+  {
+   "id": "P-O-09",
+   "match": true
+  },
+  {
+   "id": "P-S-01",
+   "match": true
+  },
+  {
+   "id": "P-S-02",
+   "match": true
+  },
+  {
+   "id": "P-S-03",
+   "match": true
+  },
+  {
+   "id": "P-S-04",
+   "match": true
+  },
+  {
+   "id": "P-S-05",
+   "match": true
+  },
+  {
+   "id": "P-S-06",
+   "match": true
+  },
+  {
+   "id": "P-S-07",
+   "match": true
+  },
+  {
+   "id": "P-S-08",
+   "match": true
+  },
+  {
+   "id": "P-S-09",
+   "match": true
+  },
+  {
+   "id": "P-S-10",
+   "match": true
+  },
+  {
+   "id": "P-S-11",
+   "match": true
+  },
+  {
+   "id": "P-S-12",
+   "match": true
+  },
+  {
+   "id": "P-S-13",
+   "match": true
+  },
+  {
+   "id": "P-S-14",
+   "match": true
+  },
+  {
+   "id": "P-S-15",
+   "match": true
+  },
+  {
+   "id": "P-S-16",
+   "match": true
+  },
+  {
+   "id": "P-I-01",
+   "match": true
+  },
+  {
+   "id": "P-I-02",
+   "match": true
+  },
+  {
+   "id": "P-I-03",
+   "match": true
+  },
+  {
+   "id": "P-I-04",
+   "match": true
+  },
+  {
+   "id": "P-I-05",
+   "match": true
+  },
+  {
+   "id": "P-I-06",
+   "match": true
+  },
+  {
+   "id": "P-I-07",
+   "match": true
+  },
+  {
+   "id": "P-I-08",
+   "match": true
+  },
+  {
+   "id": "P-I-09",
+   "match": true
+  },
+  {
+   "id": "P-I-10",
+   "match": true
+  },
+  {
+   "id": "P-I-11",
+   "match": true
+  },
+  {
+   "id": "P-I-12",
+   "match": true
+  },
+  {
+   "id": "P-I-13",
+   "match": true
+  },
+  {
+   "id": "P-I-14",
+   "match": true
+  },
+  {
+   "id": "P-I-15",
+   "match": true
+  },
+  {
+   "id": "P-I-16",
+   "match": true
+  },
+  {
+   "id": "P-I-17",
+   "match": true
+  },
+  {
+   "id": "P-I-18",
+   "match": true
+  },
+  {
+   "id": "P-I-19",
+   "match": true
+  },
+  {
+   "id": "P-I-20",
+   "match": true
+  },
+  {
+   "id": "P-I-21",
+   "match": true
+  },
+  {
+   "id": "P-I-22",
+   "match": true
+  },
+  {
+   "id": "P-I-23",
+   "match": true
+  },
+  {
+   "id": "P-I-24",
+   "match": true
+  },
+  {
+   "id": "P-I-25",
+   "match": true
+  },
+  {
+   "id": "P-I-26",
+   "match": true
+  },
+  {
+   "id": "P-I-27",
+   "match": true
+  },
+  {
+   "id": "P-I-28",
+   "match": true
+  },
+  {
+   "id": "P-I-29",
+   "match": true
+  },
+  {
+   "id": "P-I-30",
+   "match": true
+  },
+  {
+   "id": "P-I-31",
+   "match": true
+  },
+  {
+   "id": "P-I-32",
+   "match": true
+  },
+  {
+   "id": "P-I-33",
+   "match": true
+  },
+  {
+   "id": "P-I-34",
+   "match": true
+  },
+  {
+   "id": "P-LIMIT-svg",
+   "match": true
+  },
+  {
+   "id": "P-ARG-plan-id",
+   "match": true
+  },
+  {
+   "id": "P-ARG-view-option",
+   "match": true
+  }
+ ]
+}

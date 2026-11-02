@@ -1,6 +1,6 @@
 # TASK-066 — Printer VP-07.6 und G6
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/declare-relation-origin/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-declare-relation-origin/tasks.md).
 
 Story: [US-033](../04-US/US-033-origin-line-view.md) · Mile: MILE-011-C · Aufwand: 0,75–1 PT
 

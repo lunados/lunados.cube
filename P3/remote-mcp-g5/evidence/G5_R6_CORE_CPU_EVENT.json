@@ -1,0 +1,18 @@
+{
+  "format": "aiaeao.cube.g5-core-tail-event/1",
+  "source": "wrangler tail aiaeao-cube-g5-core --format json --status error --sampling-rate 0.99",
+  "eventTimestamp": 1793651551276,
+  "eventTime_utc": "2026-11-02T20:32:31.276Z",
+  "scriptName": "aiaeao-cube-g5-core",
+  "scriptVersion": "445c6d50-8d06-4d67-acdd-c246419357c8",
+  "outcome": "exception",
+  "exception": "introspection.CpuLimitExceeded: Python Worker exceeded CPU time limit",
+  "cpuTime_ms": 522,
+  "wallTime_ms": 523,
+  "request": {
+    "url": "https://core.internal/execute",
+    "method": "POST"
+  },
+  "call": "P-OL-07 cube_plan_views (targeted recheck 3)",
+  "location": "vpmigration.panels.print_panels -> vpprint.core.render_job -> vpviews.printer._edges"
+}
