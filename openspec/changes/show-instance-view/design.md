@@ -1,10 +1,10 @@
 # Design — Instanzsicht
 
-Status: proposed · Entscheidungen offen
+Status: decided · Umsetzung offen
 
 ## Context
 
-Entscheidungen D-1–D-8 in [MILE-009](../../../docs/02-Milestones/MILE-009-instance-view.md) (Vorschlag, offen). Grundlage: VR-12 und Mockup M-12B aus MILE-003, Ergebnis von MILE-008.
+Entscheidungen D-1–D-8 in [MILE-009](../../../docs/02-Milestones/MILE-009-instance-view.md) (entschieden 2026-11-02). Grundlage: VR-12 und Mockup M-12B aus MILE-003, Ergebnis von MILE-008.
 
 ## Decisions
 

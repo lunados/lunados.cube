@@ -1,6 +1,6 @@
 # Show instance view
 
-Status: proposed · 2026-11-02 · [MILE-009](../../../docs/02-Milestones/MILE-009-instance-view.md) · Entscheidungen offen
+Status: decided · 2026-11-02 · [MILE-009](../../../docs/02-Milestones/MILE-009-instance-view.md) · noch nicht umgesetzt
 
 ## Why
 

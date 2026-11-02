@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-- [show-instance-view](show-instance-view/proposal.md) — MILE-009 geplant; Entscheidungen D-1–D-8 offen.
+- [show-instance-view](show-instance-view/proposal.md) — MILE-009 entschieden (D-1–D-8), in Arbeit; fünf offene Tasks.
 
 ## Abgeschlossen
 

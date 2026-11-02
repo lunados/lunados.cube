@@ -1,6 +1,6 @@
 # Tasks — show-instance-view
 
-Status: planned. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-053 in Arbeit.
 
 ## A — Spezifikation und Prüffälle
 

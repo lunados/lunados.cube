@@ -1,6 +1,6 @@
 # MILE-009 — Instanzsicht: Pfad und Join je Instanz zeigen
 
-Status: planned · Stand: 2026-11-02 · Voraussetzung: MILE-008 ([Abschluss](../10-Evidence/MILE-008/C-RESULT.md))
+Status: in_progress · Stand: 2026-11-02 · Voraussetzung: MILE-008 ([Abschluss](../10-Evidence/MILE-008/C-RESULT.md))
 
 ## Ergebnis
 
@@ -21,9 +21,11 @@ Heute: Keine Sicht gruppiert nach Prozessinstanz; `cube.sequence` zeigt Alternat
 - Schlank nach Absprache (2026-11-02): kein bestätigter Prozess-Anwendungsfall genannt; Prüffälle nur aus BPMN-01/02/03 und den MILE-008-Fällen.
 - Keine Kundendaten in Repo, Fixtures, Fällen oder auf cube.lunados.net.
 
-## Entscheidungen (Vorschlag, offen)
+## Entscheidungen (2026-11-02, Nutzer)
 
-| ID | Frage | Vorschlag | Grund | Nicht gewählt |
+D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
+
+| ID | Frage | Entscheidung | Grund | Nicht gewählt |
 |---|---|---|---|---|
 | **D-1** | Rahmen | **Schlanke Mile wie MILE-007:** drei Chargen, Epic, zwei Stories, fünf Tasks, OpenSpec-Change | gleiche Nachverfolgung; reine Darstellung ohne neue Prüfsemantik | voller Milestone mit Baseline-Wiederholung; nur Spezifikation |
 | **D-2** | Ort | **Neues Paket VP-11** `P2/visual-printer-instances-v1` mit der Sicht `cube.instances` | keine vorhandene Sicht trägt Instanz und Join; vorhandene Printer bleiben byte-gleich | `par` in `cube.sequence` (VP-08); neues Profil in `vpcells` (Matrix passt nicht zu Pfad und Join) |
