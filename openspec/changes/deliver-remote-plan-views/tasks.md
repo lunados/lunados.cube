@@ -1,6 +1,6 @@
 # Tasks — deliver-remote-plan-views
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-058 erledigt (Spezifikation G5 R5, Q-1–Q-10 nach Vorschlag); TASK-059 erledigt (Erwartungen für 87 Aufrufe vor Code); Charge A abgeschlossen, TASK-060 offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-058 erledigt (Spezifikation G5 R5, Q-1–Q-10 nach Vorschlag); TASK-059 erledigt (Erwartungen für 87 Aufrufe vor Code); Charge A abgeschlossen, TASK-060 erledigt (Kern 0.8.0-proof, Gateway 0.2.0-proof, Offline-Parität 88/88); Charge B abgeschlossen, TASK-061 offen.
 
 ## A — Spezifikation und Erwartungen
 
@@ -9,7 +9,7 @@ Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8
 
 ## B — Kern und Gateway
 
-- [ ] 3. [TASK-060 — Kern und Gateway](../../../docs/05-Tasks/TASK-060-g5-core-gateway.md)
+- [x] 3. [TASK-060 — Kern und Gateway](../../../docs/05-Tasks/TASK-060-g5-core-gateway.md)
 
 ## C — Bereitstellung und Abnahme
 

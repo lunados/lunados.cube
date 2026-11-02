@@ -15,7 +15,8 @@ class Default(WorkerEntrypoint):
                 return Response('Payload too large',status=413)
             payload = json.loads(raw)
             result = wire_call(payload)
-            return Response(json.dumps(result,ensure_ascii=False,sort_keys=True,allow_nan=False),
+            # R5 (Q-4, W-1): compact JSON, so the wire adds only the {ok, result} envelope to the local 2 MiB plan limit
+            return Response(json.dumps(result,ensure_ascii=False,sort_keys=True,allow_nan=False,separators=(',',':')),
                             headers={'content-type':'application/json;charset=utf-8',
                                      'cache-control':'no-store', 'x-content-type-options':'nosniff'})
         except (ValueError,UnicodeError,TypeError,RecursionError):

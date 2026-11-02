@@ -36,7 +36,8 @@ async def main():
         async with Client(transport,mode='2026-07-28') as client:
             names=[v.name for v in (await client.list_tools()).tools]
             assert names==['cube_get_capabilities','cube_prepare_print','cube_check_print','cube_render_svg',
-                           'cube_read_reference','cube_validate','cube_discover_surface'],names
+                           'cube_read_reference','cube_validate','cube_discover_surface',
+                           'cube_plan_source','cube_plan_views','cube_plan_check'],names  # R5 (MILE-010): + 3 plan tools
             refs=await client.list_resources()
             assert len(refs.resources)==14
             expected={x['uri']:x['mime_type'] for x in json.loads((REPO/'P3/remote-mcp-g5/gateway/src/p0-registry.json').read_text())['resources']}
@@ -83,7 +84,7 @@ async def main():
             evidence['auth_wrong_token_rejected']=True
             evidence['wrong_origin_rejected']=True
             evidence['status']='PASS'
-    print('PASS G5 ACTUAL REMOTE MCP: auth, Origin, 7 tools, 14 resources, P0, P1, VP06 byte parity')
+    print('PASS G5 ACTUAL REMOTE MCP: auth, Origin, 10 tools, 14 resources, P0, P1, VP06 byte parity')
     if args.evidence:
         dest=Path(args.evidence)
         dest.parent.mkdir(parents=True,exist_ok=True)
