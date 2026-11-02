@@ -1,0 +1,58 @@
+{
+ "format": "aiaeao.cube.mile005.task035-run/1",
+ "task": "TASK-035",
+ "date": "2026-11-02",
+ "commits": {
+  "spec_draft": "af74525",
+  "decisions": "1ab7fc2",
+  "oracle_before_code": "2316f45",
+  "p112_fix": "5f32bce",
+  "implementation": "639e6c0"
+ },
+ "vectors": {
+  "exit": 0,
+  "lines": [
+   "PASS J-01 states ok scopes {} warnings ['VP10_COVERAGE_NONE']",
+   "PASS J-02 states ok scopes {'m:printer|m:parser': 'pair'} warnings []",
+   "PASS J-03 states ok scopes {'m:printer|m:parser': 'row', 'm:printer|m:resolver': 'row'} warnings []",
+   "PASS J-04 states ok scopes {'m:validator|m:parser': 'column', 'm:printer|m:parser': 'column'} warnings []",
+   "PASS J-05 states ok scopes {} warnings []",
+   "PASS J-06 states ok scopes {} warnings []",
+   "PASS J-07 states ok scopes {'m:printer|m:parser': 'pair'} warnings []",
+   "PASS J-08 states ok scopes {'m:printer|m:parser': 'pair'} warnings []",
+   "PASS J-09 states ok scopes {'m:parser|m:printer': 'column', 'm:resolver|m:printer': 'column', 'm:validator|m:printer': 'column'} warnings []",
+   "PASS J-10 states ok scopes {} warnings ['VP10_COVERAGE_REF_UNKNOWN']",
+   "PASS J-11 states ok scopes {} warnings ['VP10_COVERAGE_INSTANCE_IGNORED']",
+   "PASS J-12 states ok scopes {'m:printer|m:parser': 'row', 'm:printer|m:resolver': 'row'} warnings []",
+   "PASS J-13 error VP10_PAIR_INVALID",
+   "PASS J-14 states ok scopes {'m:printer|m:parser': 'row', 'm:printer|m:resolver': 'row'} warnings []",
+   "14/14 match"
+  ]
+ },
+ "tests": {
+  "exit": 0,
+  "summary": [
+   "Ran 24 tests in 4.521s",
+   "OK"
+  ]
+ },
+ "frozen": {
+  "sha256sums_ok": {
+   "visual-printer-migration-v1/VP07_SHA256SUMS.txt": true,
+   "visual-printer-axes-v1/VP09_SHA256SUMS.txt": true
+  },
+  "vpaxes_suite": {
+   "exit": 0,
+   "summary": "OK"
+  }
+ },
+ "renders_sha256": {
+  "GC-de.svg": "8546534112f50a2efa331fc28315b2ecd4742c77a86c9b078da1cba118a69934",
+  "GC-en.svg": "69d949a89c2407b0a57dca7feb04253c2c839706557ffa2e5c444d46dc972a85",
+  "J-07.svg": "3605e78be5bbd6e127f3032648977a318193a78cb723a17fb45ceefff0b03951",
+  "J-08-de.svg": "0df41f8225db0636cedc288133664a8e3000eab2559a6b803dc33ba9a704e6c2",
+  "J-12.svg": "4deda722e93ae76c6b2baa71512caba860d7115ae5e3316271b4d9182656553e"
+ },
+ "m05c_comparison": "P2/visual-printer-cells-v1/M05C_COMPARISON.md",
+ "all_ok": true
+}

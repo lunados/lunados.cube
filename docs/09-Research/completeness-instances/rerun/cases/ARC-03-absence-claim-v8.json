@@ -1,0 +1,153 @@
+{
+ "format": "aiaeao.cube.research-case/2",
+ "case_id": "ARC-03-absence-claim-v8",
+ "origin": {
+  "kind": "authored_synthetic",
+  "authored_at": "2026-11-02",
+  "reference_version": "v9.4",
+  "profile_revision": "P1.12/coverage-instance-profile-v1 (binding-context/8), vector K-01",
+  "source_register": {
+   "path": "docs/09-Research/grammar-sampling/SOURCE-REGISTER.md",
+   "sha256": "c42fdfef0a409522036a03d410907d059bf0b150f9174d91fbbad47b2c61865b"
+  },
+  "rule_refs": [
+   "R-AM-1",
+   "cube:P1/coverage-instance-profile-v1/P1_12_ACCEPTANCE_SPEC.md"
+  ],
+  "matrix_case": "ARC-03",
+  "model": {
+   "path": "docs/09-Research/grammar-sampling/models/archimate-billing.json",
+   "sha256": "77f04593e4ff417756d314637e4e65723cdd5ac9a8cec7fa5456137113c6943f"
+  }
+ },
+ "operation": "cube_validate",
+ "invocation_kind": "local_mcp_stdio",
+ "arguments": {
+  "input_text": "rel(\"composedOf\",Z:α:Tool[\"am:financial-processing\"],Z:α:Tool[\"am:billing\"])",
+  "context": {
+   "format": "aiaeao.cube.binding-context/8",
+   "reference_version": "v9.4",
+   "context_id": "p112-cc-01",
+   "source_kind": "illustrative_fixture",
+   "scope_ref": "mile002:am",
+   "referents": [
+    {
+     "ref": "am:financial-processing",
+     "concept_id": "Z:module-body:tool",
+     "home": "Z",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:am"
+    },
+    {
+     "ref": "am:accounting",
+     "concept_id": "Z:module-body:tool",
+     "home": "Z",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:am"
+    },
+    {
+     "ref": "am:billing",
+     "concept_id": "Z:module-body:tool",
+     "home": "Z",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:am"
+    },
+    {
+     "ref": "am:payment",
+     "concept_id": "Z:module-body:tool",
+     "home": "Z",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:am"
+    },
+    {
+     "ref": "am:transaction-processing",
+     "concept_id": "Z:boundary:capability",
+     "home": "Z",
+     "layers": [
+      "α"
+     ],
+     "provenance_status": "declared_unverified",
+     "scope_ref": "mile002:am"
+    }
+   ],
+   "predicate_contracts": [
+    {
+     "predicate_id": "realizes",
+     "revision": "mile002:am:pred/1",
+     "scope": "mile002:am",
+     "origin": "illustrative_fixture",
+     "subject_concept_ids": [
+      "Z:module-body:tool"
+     ],
+     "object_concept_ids": [
+      "Z:boundary:capability"
+     ],
+     "direction": "subject_to_object",
+     "required_qualifiers": [],
+     "additional_constraints": [
+      "Versuchsabbildung der ArchiMate-Realization für das Paar Application Function → Application Service (Herstellerbeispiel S-AM-2). Normative Endpunkt-Zulässigkeit ausgelassen (R-AM-6)."
+     ]
+    },
+    {
+     "predicate_id": "composedOf",
+     "revision": "mile002:am:pred/1",
+     "scope": "mile002:am",
+     "origin": "illustrative_fixture",
+     "subject_concept_ids": [
+      "Z:module-body:tool"
+     ],
+     "object_concept_ids": [
+      "Z:module-body:tool"
+     ],
+     "direction": "subject_to_object",
+     "required_qualifiers": [],
+     "additional_constraints": [
+      "Versuchsabbildung der ArchiMate-Composition (Ganzes → Teil). Die lokale Zählregel min 2/max 3 ist hier nicht ausdrückbar."
+     ]
+    }
+   ],
+   "method_contracts": [],
+   "profile_limitations": [
+    "Synthetische Versuchsabbildung MILE-002 ARC-01..03: Application Function→Z:module-body:tool, Application Service→Z:boundary:capability (Arbeitsannahme A).",
+    "Keine Wahrheit, Autorität oder Zulassung behauptet."
+   ],
+   "coverage_declarations": [],
+   "population_rules": [
+    {
+     "rule_id": "pr-cc-01",
+     "kind": "absence",
+     "predicate_id": "realizes",
+     "witness_ref": "synthetic:rule#CC-01",
+     "object": "am:transaction-processing"
+    }
+   ]
+  }
+ },
+ "arguments_sha256": "a5582fd1ef392e7ee6930299797a1d0827ee3bcf9506565143f7c00ec0177bb9",
+ "bindings": {
+  "context_format": "aiaeao.cube.binding-context/8",
+  "context_sha256": "ff4f34ffec518189bc184f1e3c5ad0afa4c8c81537c2d936df6d360e7af139f1",
+  "qualification_profiles_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+ },
+ "expected": {
+  "domain_status": "UNRESOLVED",
+  "diagnostic_codes": [
+   "P1_COVERAGE_UNDECLARED"
+  ],
+  "fixed_before_execution": true,
+  "rationale": "Service-Sicht ohne Abdeckungserklärung für eingehende realizes von Transaction Processing: Die Abwesenheitsregel ist erklärt, aber nicht abgedeckt. Abwesenheit bleibt unbekannt, nicht null (CV-3, D-3). Früher nicht ausführbar."
+ },
+ "rerun_of": "ARC-03-absence-claim"
+}

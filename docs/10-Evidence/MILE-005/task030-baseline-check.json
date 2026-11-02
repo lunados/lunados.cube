@@ -1,0 +1,289 @@
+{
+ "format": "mile005.baseline-check/1",
+ "task": "TASK-030",
+ "check_cases_sha256": "ab78e0d45cefd6f1b5f5ff4936f72b31264bea10eea391100325a3a8a1483b01",
+ "report": "task030-baseline-report.json",
+ "report_git_head": "52cc773",
+ "repeats_semantically_equal": true,
+ "source_unchanged_during_run": true,
+ "readiness_checks_passed": true,
+ "all_match": true,
+ "rows": [
+  {
+   "case_id": "CC-01",
+   "mile002_case": "ARC-03-absence-claim",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-02",
+   "mile002_case": "ARC-03-absence-claim",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-03",
+   "mile002_case": "ARC-03-absence-claim",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-04",
+   "mile002_case": "DSM-03-empty-known",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-05",
+   "mile002_case": "DSM-03-empty-known",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-06",
+   "mile002_case": "DSM-03-empty-known",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-07",
+   "mile002_case": "DSM-03-empty-known",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-08",
+   "mile002_case": "ARC-02-count-rule",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-09",
+   "mile002_case": "ARC-02-count-rule",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-10",
+   "mile002_case": "ARC-02-count-rule",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-11",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-12",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-13",
+   "mile002_case": "BPMN-01-exclusivity",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-14",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-15",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CC-16",
+   "mile002_case": "BPMN-02-sync-condition",
+   "expected_today": "NE",
+   "observed": [
+    [
+     "NOT_EXECUTED",
+     null,
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CI-01",
+   "mile002_case": "BPMN-03-join-cross-instance-shared",
+   "expected_today": "PASS",
+   "observed": [
+    [
+     "RETURNED",
+     "PASS",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CI-02",
+   "mile002_case": "BPMN-03-join-cross-instance-scoped",
+   "expected_today": "FAIL",
+   "observed": [
+    [
+     "RETURNED",
+     "FAIL",
+     [
+      "P1_REFERENT_MISMATCH",
+      "P1_SCOPE_CONFLICT"
+     ]
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CI-03",
+   "mile002_case": "BPMN-02-join-same-instance",
+   "expected_today": "PASS",
+   "observed": [
+    [
+     "RETURNED",
+     "PASS",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CI-04",
+   "mile002_case": "BPMN-03-join-cross-instance-shared",
+   "expected_today": "PASS",
+   "observed": [
+    [
+     "RETURNED",
+     "PASS",
+     []
+    ]
+   ],
+   "match": true
+  },
+  {
+   "case_id": "CI-05",
+   "mile002_case": "BPMN-01-routed",
+   "expected_today": "PASS",
+   "observed": [
+    [
+     "RETURNED",
+     "PASS",
+     []
+    ]
+   ],
+   "match": true
+  }
+ ]
+}

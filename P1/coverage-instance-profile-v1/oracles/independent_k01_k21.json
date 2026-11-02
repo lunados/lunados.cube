@@ -1,0 +1,283 @@
+{
+  "format": "aiaeao.cube.p1.12-oracle/1",
+  "reference_version": "v9.4",
+  "independence": "Expected values transcribed from P1_12_ACCEPTANCE_SPEC.md §5 and docs/09-Research/completeness-instances/CHECK-CASES.json (committed 52cc773, before the specification) before any P1.12 runtime code existed; no generation from validator output",
+  "transcribed_at": "2026-11-01",
+  "spec_sha256": "7d93c4c8c7eca912111d74d575958da96c1e9a60baa10ce7783394296893d8ac",
+  "check_cases_sha256": "ab78e0d45cefd6f1b5f5ff4936f72b31264bea10eea391100325a3a8a1483b01",
+  "lib_note": "lib_expected is the oracle for the LIB entry (AC P1.12-07, TASK-034); P1 never evaluates it.",
+  "cases": [
+    {
+      "id": "K-01",
+      "check_case": "CC-01",
+      "expected_overall": "UNRESOLVED",
+      "required_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "forbidden_codes": [],
+      "lib_expected": {
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared"
+      }
+    },
+    {
+      "id": "K-02",
+      "check_case": "CC-02",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "PASS",
+        "value": "absent_checked",
+        "count": 0
+      }
+    },
+    {
+      "id": "K-03",
+      "check_case": "CC-03",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "FAIL",
+        "value": "absence_contradicted",
+        "count": 1
+      }
+    },
+    {
+      "id": "K-04",
+      "check_case": "CC-04",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "PASS",
+        "value": "absent_checked",
+        "count": 0
+      }
+    },
+    {
+      "id": "K-05",
+      "check_case": "CC-05",
+      "expected_overall": "UNRESOLVED",
+      "required_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "forbidden_codes": [],
+      "lib_expected": {
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared"
+      }
+    },
+    {
+      "id": "K-06",
+      "check_case": "CC-06",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "PASS",
+        "value": "absent_checked",
+        "count": 0
+      }
+    },
+    {
+      "id": "K-07",
+      "check_case": "CC-07",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "FAIL",
+        "value": "absence_contradicted",
+        "count": 1
+      }
+    },
+    {
+      "id": "K-08",
+      "check_case": "CC-08",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "PASS",
+        "value": "within_bounds",
+        "count": 3
+      }
+    },
+    {
+      "id": "K-09",
+      "check_case": "CC-09",
+      "expected_overall": "UNRESOLVED",
+      "required_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "forbidden_codes": [],
+      "lib_expected": {
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared"
+      }
+    },
+    {
+      "id": "K-10",
+      "check_case": "CC-10",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "FAIL",
+        "value": "out_of_bounds",
+        "count": 1
+      }
+    },
+    {
+      "id": "K-11",
+      "check_case": "CC-11",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "PASS",
+        "value": "within_bounds",
+        "count": 1
+      }
+    },
+    {
+      "id": "K-12",
+      "check_case": "CC-12",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "FAIL",
+        "value": "out_of_bounds",
+        "count": 2
+      }
+    },
+    {
+      "id": "K-13",
+      "check_case": "CC-13",
+      "expected_overall": "UNRESOLVED",
+      "required_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "forbidden_codes": [],
+      "lib_expected": {
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared"
+      }
+    },
+    {
+      "id": "K-14",
+      "check_case": "CC-14",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "PASS",
+        "value": "join_enabled"
+      }
+    },
+    {
+      "id": "K-15",
+      "check_case": "CC-15",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "lib_expected": {
+        "status": "FAIL",
+        "value": "join_not_enabled"
+      }
+    },
+    {
+      "id": "K-16",
+      "check_case": "CC-16",
+      "expected_overall": "UNRESOLVED",
+      "required_codes": [
+        "P1_COVERAGE_UNDECLARED"
+      ],
+      "forbidden_codes": [],
+      "lib_expected": {
+        "status": "UNRESOLVED",
+        "value": "coverage_undeclared"
+      }
+    },
+    {
+      "id": "K-17",
+      "check_case": "CI-01",
+      "expected_overall": "FAIL",
+      "required_codes": [
+        "P1_INSTANCE_MISMATCH"
+      ],
+      "forbidden_codes": [
+        "P1_INSTANCE_UNDECLARED"
+      ]
+    },
+    {
+      "id": "K-18",
+      "check_case": "CI-02",
+      "expected_overall": "FAIL",
+      "required_codes": [
+        "P1_REFERENT_MISMATCH",
+        "P1_SCOPE_CONFLICT"
+      ],
+      "forbidden_codes": [
+        "P1_INSTANCE_MISMATCH",
+        "P1_INSTANCE_UNDECLARED"
+      ]
+    },
+    {
+      "id": "K-19",
+      "check_case": "CI-03",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_INSTANCE_MISMATCH",
+        "P1_INSTANCE_UNDECLARED"
+      ]
+    },
+    {
+      "id": "K-20",
+      "check_case": "CI-04",
+      "expected_overall": "UNRESOLVED",
+      "required_codes": [
+        "P1_INSTANCE_UNDECLARED"
+      ],
+      "forbidden_codes": [
+        "P1_INSTANCE_MISMATCH"
+      ]
+    },
+    {
+      "id": "K-21",
+      "check_case": "CI-05",
+      "expected_overall": "PASS",
+      "required_codes": [],
+      "forbidden_codes": [
+        "P1_INSTANCE_MISMATCH",
+        "P1_INSTANCE_UNDECLARED"
+      ]
+    }
+  ]
+}

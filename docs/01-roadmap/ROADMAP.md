@@ -16,7 +16,7 @@ Die frühere reine Analyseabschätzung betrug 4–7 PT. Die 1–2 PT Vorbereitun
 
 ## Nächster Schritt
 
-MILE-001 bis MILE-004 sind abgeschlossen; die sieben Leitfragen sind in der [Lernbilanz](../09-Research/learning-balance/LERNBILANZ.md) beantwortet oder präzise offen. Weder Envelope noch Morphologie brauchen eine Erweiterung. **[MILE-005](../02-Milestones/MILE-005-completeness-instances.md)** ist geplant: Vollständigkeitserklärung mit Populationsprüfung und Darstellung der vier Zellzustände sowie typisierte Instanzbindung, als eigenes P1-Profil und eigener Printer-Stand. Vor der Implementierung sind sechs Entscheidungen (O-1 bis O-6) offen. Ein menschlicher Lesbarkeitstest ist [vorbereitet](../09-Research/visual-check/HUMAN-TEST-SCRIPT.md), aber nicht durchgeführt.
+MILE-001 bis MILE-004 sind abgeschlossen; die sieben Leitfragen sind in der [Lernbilanz](../09-Research/learning-balance/LERNBILANZ.md) beantwortet oder präzise offen. Weder Envelope noch Morphologie brauchen eine Erweiterung. **[MILE-005](../02-Milestones/MILE-005-completeness-instances.md)** ist geplant: Vollständigkeitserklärung mit Populationsprüfung und Darstellung der vier Zellzustände sowie typisierte Instanzbindung, als eigenes P1-Profil und eigener Printer-Stand. Die sechs Entscheidungen sind getroffen (ein Profil, Erklärung je Referent × Relationstyp × Richtung, UNRESOLVED mit eigenem Code, typisierte Instanzbindung, lokal zuerst, LIB zählt); die Umsetzung beginnt mit ausführbaren Prüffällen. Ein menschlicher Lesbarkeitstest ist [vorbereitet](../09-Research/visual-check/HUMAN-TEST-SCRIPT.md), aber nicht durchgeführt.
 
 ## Maßstab
 

@@ -1,0 +1,62 @@
+{
+ "format": "aiaeao.cube.mile005.task034-run/1",
+ "task": "TASK-034",
+ "date": "2026-11-02",
+ "lib": {
+  "repo": "lunados.lib",
+  "branch": "feature/analyze-population",
+  "commits": {
+   "oracle_and_cases_before_evaluator": "33ce6c3",
+   "entry": "c649931"
+  },
+  "entry": {
+   "cases": 16,
+   "entry_id": "analyze.population",
+   "method_id": "analyze.population/v1",
+   "path": "entries/analyze.population/v1/entry.json",
+   "revision": "v1",
+   "sha256": "f69963e0b0f5ae3fa46c1f867e78608d489cf4b6bb3da480f8dfce6c8e6f6720",
+   "status": "candidate-authored"
+  }
+ },
+ "verify": {
+  "exit": 0,
+  "population_lines": [
+   "PASS analyze.population: entry.json sha256 matches INDEX",
+   "PASS analyze.population/CC01_absence_unknown_service_view: adapter==expected True, program oracle agrees True (coverage_undeclared), no promotion True, result schema True",
+   "PASS analyze.population/CC02_absence_checked: adapter==expected True, program oracle agrees True (absent_checked), no promotion True, result schema True",
+   "PASS analyze.population/CC03_absence_contradicted: adapter==expected True, program oracle agrees True (absence_contradicted), no promotion True, result schema True",
+   "PASS analyze.population/CC04_absence_checked_pair: adapter==expected True, program oracle agrees True (absent_checked), no promotion True, result schema True",
+   "PASS analyze.population/CC05_absence_unknown_other_pair: adapter==expected True, program oracle agrees True (coverage_undeclared), no promotion True, result schema True",
+   "PASS analyze.population/CC06_absence_checked_row: adapter==expected True, program oracle agrees True (absent_checked), no promotion True, result schema True",
+   "PASS analyze.population/CC07_absence_contradicted_row: adapter==expected True, program oracle agrees True (absence_contradicted), no promotion True, result schema True",
+   "PASS analyze.population/CC08_count_within: adapter==expected True, program oracle agrees True (within_bounds), no promotion True, result schema True",
+   "PASS analyze.population/CC09_count_unknown: adapter==expected True, program oracle agrees True (coverage_undeclared), no promotion True, result schema True",
+   "PASS analyze.population/CC10_count_below: adapter==expected True, program oracle agrees True (out_of_bounds), no promotion True, result schema True",
+   "PASS analyze.population/CC11_exclusive_one_path: adapter==expected True, program oracle agrees True (within_bounds), no promotion True, result schema True",
+   "PASS analyze.population/CC12_exclusive_two_paths: adapter==expected True, program oracle agrees True (out_of_bounds), no promotion True, result schema True",
+   "PASS analyze.population/CC13_exclusive_unknown: adapter==expected True, program oracle agrees True (coverage_undeclared), no promotion True, result schema True",
+   "PASS analyze.population/CC14_join_enabled_i1: adapter==expected True, program oracle agrees True (join_enabled), no promotion True, result schema True",
+   "PASS analyze.population/CC15_join_not_enabled_i2: adapter==expected True, program oracle agrees True (join_not_enabled), no promotion True, result schema True",
+   "PASS analyze.population/CC16_join_unknown_i2: adapter==expected True, program oracle agrees True (coverage_undeclared), no promotion True, result schema True",
+   "PASS cube analyze.population: PASS []"
+  ],
+  "summary": "PASS lunados.lib: 11 entries, 127/127 checks"
+ },
+ "differential": {
+  "variants": 105,
+  "differences": 0,
+  "values": {
+   "absence_contradicted": 8,
+   "absent_checked": 11,
+   "coverage_undeclared": 51,
+   "join_enabled": 4,
+   "join_not_enabled": 7,
+   "out_of_bounds": 14,
+   "within_bounds": 10
+  },
+  "malformed_refused": "3/3",
+  "all_ok": true
+ },
+ "all_ok": true
+}

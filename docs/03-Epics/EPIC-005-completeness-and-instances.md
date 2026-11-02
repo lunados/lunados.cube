@@ -1,6 +1,6 @@
 # EPIC-005 — Vollständigkeit und Instanzbindung
 
-Status: planned · Milestone: [MILE-005](../02-Milestones/MILE-005-completeness-instances.md) · Voraussetzung: [EPIC-001](EPIC-001-grammar-learning.md) (Lernbilanz)
+Status: done · Milestone: [MILE-005](../02-Milestones/MILE-005-completeness-instances.md) · Voraussetzung: [EPIC-001](EPIC-001-grammar-learning.md) (Lernbilanz)
 
 ## Ergebnis
 
@@ -8,7 +8,7 @@ Status: planned · Milestone: [MILE-005](../02-Milestones/MILE-005-completeness-
 
 ## Umfang
 
-Ein neues P1-Profil (Vollständigkeitserklärung, Instanzbindung), eine Populationsprüfung (Profil und/oder LIB nach O-6), ein neuer Printer-Stand für vier Zellzustände. Keine Änderung an P0, P1.1–P1.9, P2 oder der Morphologie.
+Ein neues P1-Profil (Vollständigkeitserklärung, Instanzbindung), eine Populationsprüfung (Profil erklärt, LIB zählt; D-6), ein neuer Printer-Stand für vier Zellzustände. Keine Änderung an P0, P1.1–P1.9, P2 oder der Morphologie.
 
 ## Akzeptanz
 

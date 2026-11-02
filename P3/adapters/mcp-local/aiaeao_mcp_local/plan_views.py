@@ -1,4 +1,4 @@
-"""CP-001 / G6: VP-07, VP-08 and VP-09 plan views as in-memory MCP operations (local stdio only).
+"""CP-001 / G6: VP-07, VP-08, VP-09 and VP-10 plan views as in-memory MCP operations (local stdio only).
 
 The view decides the printer. Printers run unchanged through their `api` modules; this layer only
 validates arguments, dispatches, enforces the transport limits and turns printer errors into tool
@@ -12,7 +12,7 @@ from typing import Any
 
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[4]
-_PKGS = ('visual-printer-migration-v1', 'visual-printer-sequence-v1', 'visual-printer-axes-v1')
+_PKGS = ('visual-printer-migration-v1', 'visual-printer-sequence-v1', 'visual-printer-axes-v1', 'visual-printer-cells-v1')
 for _d in _PKGS:
     if not (ROOT/'P2'/_d).is_dir():
         raise RuntimeError('P2 plan printer required as sibling tree: '+_d)
@@ -24,23 +24,29 @@ from vpsequence import api as vp08, common as c08  # noqa: E402
 from vpsequence.source import FORMAT as VP08_SOURCE  # noqa: E402
 from vpaxes import api as vp09, common as c09  # noqa: E402
 from vpaxes.common import INPUT_FORMAT as VP09_INPUT  # noqa: E402
+from vpcells import api as vp10, common as c10  # noqa: E402
+from vpcells.common import INPUT_FORMAT as VP10_INPUT  # noqa: E402
 
 DIAG_FORMAT = 'aiaeao.cube.mcp-plan-diagnostic/1'
 MAX_REQUEST_BYTES = 2*1024*1024
 MAX_SVG_BYTES = 512*1024
 MAX_RESPONSE_BYTES = 2*1024*1024
 TOOLS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
-VIEWS = {'cube.phases': 'vpmigration', 'cube.flow': 'vpmigration', 'cube.sequence': 'vpsequence', 'cube.axes': 'vpaxes'}
-PRINTERS = ('vpmigration', 'vpsequence', 'vpaxes')
+VIEWS = {'cube.phases': 'vpmigration', 'cube.flow': 'vpmigration', 'cube.sequence': 'vpsequence', 'cube.axes': 'vpaxes',
+         'cube.cells': 'vpcells'}
+PRINTERS = ('vpmigration', 'vpsequence', 'vpaxes', 'vpcells')
 # options each view takes (MT-1, §2 P3_PLAN_ARGUMENT_INVALID); `granularity` is common to all
 OPTIONS = {'cube.phases': {'partition', 'locale', 'hide_ledger'}, 'cube.flow': {'partition', 'lens', 'locale', 'hide_ledger'},
-           'cube.sequence': {'partition', 'overflow'}, 'cube.axes': {'rows', 'cols', 'hide_empty', 'locale'}}
+           'cube.sequence': {'partition', 'overflow'}, 'cube.axes': {'rows', 'cols', 'hide_empty', 'locale'},
+           'cube.cells': {'rows', 'cols', 'hide_empty', 'locale'}}
 # C-12: display options of VP-07.5 / VP-09.2; the printers accept them only for their 0.7.5 / 0.9.2 sources (D-1)
 DISPLAY_OPTIONS = {'vpmigration': {'profile': c07.P075, 'locale': None, 'hide_ledger': 'bool', 'selections': [c07.METHOD_SETS]},
                    'vpaxes': {'profile': c09.P092, 'locale': None, 'hide_empty': list(c09.HIDE_EMPTY), 'pairs_added': ['Y × Y']}}
-REQUIRED = {'cube.phases': {'partition'}, 'cube.flow': {'partition', 'lens'}, 'cube.sequence': set(), 'cube.axes': {'rows', 'cols'}}
+REQUIRED = {'cube.phases': {'partition'}, 'cube.flow': {'partition', 'lens'}, 'cube.sequence': set(), 'cube.axes': {'rows', 'cols'},
+            'cube.cells': set()}
 SOURCE_OPTIONS = {'vpmigration': {'tracks', 'track', 'labels', 'steps', 'subjects', 'edge_styles', 'witness_prefixes', 'profile', 'layers'},
-                  'vpaxes': {'tracks', 'track', 'labels', 'steps', 'subjects', 'layers', 'profile'}}
+                  'vpaxes': {'tracks', 'track', 'labels', 'steps', 'subjects', 'layers', 'profile'},
+                  'vpcells': {'predicate', 'tracks', 'track', 'labels', 'steps', 'subjects', 'layers'}}
 HINT = 'choose a partition, the granularity overview or standard, or a step/subject/track slice (from-plan); nothing was truncated'
 ERRORS = (c07.VP07Error, c08.VP08Error, c09.VP09Error)
 NOT_EVALUATED = {'epistemic_warrant': 'NOT_EVALUATED', 'current_authority': 'NOT_EVALUATED', 'canonical_admission': 'NOT_EVALUATED'}
@@ -106,10 +112,12 @@ def plan_source(context: Any, plan_id: Any, printer: Any, **options) -> dict:
         _fail('P3_PLAN_SOURCE_UNSUPPORTED', 'VP-08 sequence sources are declared directly; there is no from-plan for VP-08 '
               '(G6 D-7). Pass the sequence source to cube_plan_views with view cube.sequence.', 'input', printer=printer)
     if printer not in SOURCE_OPTIONS:
-        _fail('P3_PLAN_ARGUMENT_INVALID', 'printer must be vpmigration, vpaxes or vpsequence', 'input')
+        _fail('P3_PLAN_ARGUMENT_INVALID', 'printer must be vpmigration, vpaxes, vpcells or vpsequence', 'input')
     extra = set(options)-SOURCE_OPTIONS[printer]
     if extra:
         _fail('P3_PLAN_ARGUMENT_INVALID', f'{printer} from-plan takes no option '+', '.join(sorted(extra)), 'input', printer=printer)
+    if printer == 'vpcells':                             # VP-10: one predicate per view (D-3); binding-context/8 coverage
+        return _limit(_printer(printer, c10.PROFILE, vp10.source, context, plan_id, **options), printer)
     api = vp07 if printer == 'vpmigration' else vp09
     return _limit(_printer(printer, options.get('profile'), api.source, context, plan_id, **options), printer)
 
@@ -122,7 +130,7 @@ def plan_views(source: Any, view: Any, granularity: Any, **options) -> dict:
         _fail('P3_PLAN_VIEW_UNKNOWN', f'view {view!r} is not one of '+', '.join(VIEWS), 'input')
     printer = VIEWS[view]
     fmt = source.get('format') if isinstance(source, dict) else None
-    owner = {VP07_SOURCE: ('vpmigration', 'vpaxes'), VP08_SOURCE: ('vpsequence',), VP09_INPUT: ('vpaxes',)}.get(fmt)
+    owner = {VP07_SOURCE: ('vpmigration', 'vpaxes'), VP08_SOURCE: ('vpsequence',), VP09_INPUT: ('vpaxes',), VP10_INPUT: ('vpcells',)}.get(fmt)
     if owner is not None and printer not in owner:      # a source of another printer; anything else the printer judges (MP-2)
         _fail('P3_PLAN_ARGUMENT_INVALID', f'view {view} needs a {printer} source; got a {owner[0]} source ({fmt})', 'input', printer=printer)
     extra, missing = set(options)-OPTIONS[view], REQUIRED[view]-set(options)
@@ -136,6 +144,9 @@ def plan_views(source: Any, view: Any, granularity: Any, **options) -> dict:
                        options.get('locale'), options.get('hide_ledger', False))
     elif printer == 'vpsequence':
         res = _printer(printer, prof, vp08.views, source, view, granularity, options.get('partition', 'trigger'), options.get('overflow', 'summarize'))
+    elif printer == 'vpcells':
+        res = _printer(printer, prof, vp10.views, source, view, granularity, options.get('rows'), options.get('cols'),
+                       options.get('hide_empty'), options.get('locale'))
     else:
         res = _printer(printer, prof, vp09.views, source, view, granularity, options['rows'], options['cols'],
                        options.get('hide_empty'), options.get('locale'))
@@ -147,8 +158,8 @@ def plan_check(result: Any) -> dict:
     _bound({'result': result})
     printer = result.get('printer') if isinstance(result, dict) else None
     if printer not in PRINTERS:
-        _fail('P3_PLAN_ARGUMENT_INVALID', 'result must be a cube_plan_views result (printer vpmigration, vpsequence or vpaxes)', 'input')
-    api = {'vpmigration': vp07, 'vpsequence': vp08, 'vpaxes': vp09}[printer]
+        _fail('P3_PLAN_ARGUMENT_INVALID', 'result must be a cube_plan_views result (printer vpmigration, vpsequence, vpaxes or vpcells)', 'input')
+    api = {'vpmigration': vp07, 'vpsequence': vp08, 'vpaxes': vp09, 'vpcells': vp10}[printer]
     return {**_printer(printer, result.get('profile'), api.check, result), 'printer': printer}
 
 
@@ -168,7 +179,9 @@ def capabilities() -> dict:
         'views': dict(VIEWS),
         'printers': {'vpmigration': {'profiles': list(c07.PROFILES), 'default_profile': 'context-dependent (as CLI from-plan)'},
                      'vpsequence': {'profiles': [c08.PROFILE], 'source': 'declared directly; cube_plan_source unsupported'},
-                     'vpaxes': {'profiles': list(c09.PROFILES), 'default_profile': c09.PROFILE}},
+                     'vpaxes': {'profiles': list(c09.PROFILES), 'default_profile': c09.PROFILE},
+                     'vpcells': {'profiles': [c10.PROFILE], 'base_profile': c10.BASE_PROFILE, 'source_option': 'predicate (required)',
+                                 'coverage_source': 'binding-context/8 coverage_declarations (P1.12)'}},
         'display_options': _display_options(),
         'limits': {'max_request_bytes': MAX_REQUEST_BYTES, 'max_svg_bytes': MAX_SVG_BYTES, 'max_response_bytes': MAX_RESPONSE_BYTES,
                    'over_limit': 'FAIL with P3_PLAN_SVG_TOO_LARGE / P3_PLAN_RESPONSE_TOO_LARGE; never truncated'},

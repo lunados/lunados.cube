@@ -39,6 +39,10 @@ On older sources the printer answers with its own code (`VP07_LOCALE_INVALID`, `
 `domains.P2.plan_views.printers` and the options under `display_options`. The G4 card and therefore G5 are unchanged:
 G5 gets plan tools only after its own decision (migration contexts can hold client data).
 
+## VP-10 cell states (MILE-005, TASK-036)
+
+`cube_plan_source` with `printer: vpcells` and `predicate`, for example `references`, reads a `binding-context/8`. It returns the VP-10 input, which is the unchanged VP-09.2 axes input plus a `coverage` block. `cube_plan_views` with `view: cube.cells` draws the Y:referent × Y:referent matrix with the states marked, checked empty, unknown and hidden. It takes `hide_empty` and `locale`. The result has one panel; the index carries the same SVG. `cube_plan_check` re-renders that panel. VP-10 errors pass through as `VP10_*`, and VP-09 errors keep their `VP09_` codes. `P2/visual-printer-cells-v1/README.md` describes the printer. G5 delivery is a separate step (MILE-005 D-5).
+
 ## Local test (target Mac)
 
 ```bash

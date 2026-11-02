@@ -1,0 +1,24 @@
+{
+ "format": "aiaeao.cube.vp10-locale/1",
+ "locale": "de",
+ "text": {
+  "cells.scope.pair": "Paar",
+  "cells.scope.row": "Zeile",
+  "cells.scope.column": "Spalte",
+  "cells.checked": "keine · geprüft ({scope})",
+  "cells.checked_pred": "keine „{pred}“ · geprüft ({scope})",
+  "cells.unknown_pred": "„{pred}“ · nicht erhoben",
+  "cells.unknown_title": "nicht erhoben (unbekannt, nicht leer)",
+  "cells.element": "Element",
+  "cells.legend.title": "ZELLZUSTÄNDE · VP-10 · erklärter Erhebungsumfang, kein Urteil",
+  "cells.legend.marked": "Eintrag = deklarierte Aussage; „d-x*“ = im Plan deklariert, außerhalb des Ausschnitts dieser Eingabe",
+  "cells.legend.checked": "„keine · geprüft“ (fetter Rahmen) = keine deklarierte Aussage „{pred}“ im erklärten Umfang (Paar, Zeile oder Spalte); nicht „existiert nicht“",
+  "cells.legend.unknown": "waagrechte Schraffur = nicht erhoben: unbekannt, nicht leer",
+  "cells.legend.element": "„Element“ = das Element selbst (Diagonale); kein Zustand",
+  "cells.legend.no_blank": "kein leeres Feld: jede Zelle trägt einen Zustand (siehe ZELLZUSTÄNDE)",
+  "cells.legend.colour": "Zustände unterscheiden sich durch Text und Linien, nicht durch Farbe",
+  "cells.legend.none": "Im Kontext ist keine Abdeckung erklärt: jede leere Zelle ist unbekannt (VP10_COVERAGE_NONE).",
+  "cells.legend.hidden_rows": "ausgeblendete Zeilen: {names} (ihre Zellen, auch unbekannte, sind nicht gezeigt)",
+  "cells.legend.hidden_cols": "ausgeblendete Spalten: {names} (ihre Zellen, auch unbekannte, sind nicht gezeigt)"
+ }
+}

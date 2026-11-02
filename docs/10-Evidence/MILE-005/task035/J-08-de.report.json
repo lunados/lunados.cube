@@ -1,0 +1,131 @@
+{
+ "base_profile": "P2-VP-AXES/0.9.2",
+ "canonical_admission": "NOT_EVALUATED",
+ "cells": {
+  "m:parser|m:parser": {
+   "state": "element"
+  },
+  "m:parser|m:printer": {
+   "state": "hidden"
+  },
+  "m:parser|m:resolver": {
+   "state": "unknown"
+  },
+  "m:parser|m:validator": {
+   "entries": [
+    "d-fb · references"
+   ],
+   "state": "marked"
+  },
+  "m:printer|m:parser": {
+   "declaration_id": "cv-pp",
+   "scope": "pair",
+   "state": "checked"
+  },
+  "m:printer|m:printer": {
+   "state": "hidden"
+  },
+  "m:printer|m:resolver": {
+   "state": "unknown"
+  },
+  "m:printer|m:validator": {
+   "entries": [
+    "d-pv · references"
+   ],
+   "state": "marked"
+  },
+  "m:resolver|m:parser": {
+   "entries": [
+    "d-rp · references"
+   ],
+   "state": "marked"
+  },
+  "m:resolver|m:printer": {
+   "state": "hidden"
+  },
+  "m:resolver|m:resolver": {
+   "state": "element"
+  },
+  "m:resolver|m:validator": {
+   "state": "unknown"
+  },
+  "m:validator|m:parser": {
+   "state": "unknown"
+  },
+  "m:validator|m:printer": {
+   "state": "hidden"
+  },
+  "m:validator|m:resolver": {
+   "entries": [
+    "d-vr · references"
+   ],
+   "state": "marked"
+  },
+  "m:validator|m:validator": {
+   "state": "element"
+  }
+ },
+ "col_values": [
+  "m:resolver",
+  "m:validator",
+  "m:parser"
+ ],
+ "cols_axis": "Y:referent",
+ "content_status": "declared_unverified",
+ "current_authority": "NOT_EVALUATED",
+ "declarations_other_predicate": 0,
+ "epistemic_warrant": "NOT_EVALUATED",
+ "format": "aiaeao.cube.vp10-cells-report/1",
+ "granularity": "standard",
+ "hidden_cells": [
+  "m:resolver|m:printer",
+  "m:validator|m:printer",
+  "m:printer|m:printer",
+  "m:parser|m:printer"
+ ],
+ "hidden_cols": [
+  "m:printer"
+ ],
+ "hidden_rows": [],
+ "hide_empty": "cols",
+ "ignored_declarations": [],
+ "input_sha256": "9d48e41b693b614c6c20b5610073e8a4fe469f4e1c3af41b71422ce210c04a88",
+ "invariants_passed": [
+  "NO_ACTIVE_SVG_CONTENT_NO_PATTERN",
+  "EMBEDDED_LEDGER_MATCH",
+  "ONE_STATE_PER_DRAWN_CELL",
+  "STATES_DIFFER_WITHOUT_COLOUR"
+ ],
+ "locale": {
+  "code": "de",
+  "sha256": "73447ba2a023f9b1d1016d2ae017519ed2e46d84f5c782eb55650dd29fa3b831"
+ },
+ "notices": [
+  "\"checked\" means no declared statement within the declared survey scope, not that none exists (CV-5).",
+  "Unknown cells are hatched, not blank; hidden values are named.",
+  "No colour, size or position encodes a state or a quantity."
+ ],
+ "predicate": "references",
+ "profile": "P2-VP-CELLS/0.10.0",
+ "reference_version": "v9.4",
+ "render_status": "PASS",
+ "row_values": [
+  "m:resolver",
+  "m:validator",
+  "m:printer",
+  "m:parser"
+ ],
+ "rows_axis": "Y:referent",
+ "semantic_conformance": "NOT_EVALUATED",
+ "state_counts": {
+  "checked": 1,
+  "element": 3,
+  "hidden": 4,
+  "marked": 4,
+  "unknown": 4
+ },
+ "svg_sha256": "0df41f8225db0636cedc288133664a8e3000eab2559a6b803dc33ba9a704e6c2",
+ "view": "cube.cells",
+ "warning_summary": [],
+ "warnings": []
+}

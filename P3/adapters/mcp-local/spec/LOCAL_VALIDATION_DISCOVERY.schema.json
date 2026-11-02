@@ -25,8 +25,8 @@
     },
     "contexts": {
       "type": "array",
-      "minItems": 7,
-      "maxItems": 7,
+      "minItems": 8,
+      "maxItems": 8,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -41,7 +41,7 @@
         "properties": {
           "context_format": {
             "type": "string",
-            "pattern": "^aiaeao\\.cube\\.binding-context/[1-7]$"
+            "pattern": "^aiaeao\\.cube\\.binding-context/[1-8]$"
           },
           "entry_profile": {
             "type": "string"

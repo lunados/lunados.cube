@@ -1,0 +1,285 @@
+{
+ "head": "bede236",
+ "main_base": "d319a85",
+ "note": "HEAD vor dem Abschluss-Commit; Statusänderungen dieses Commits liegen im Arbeitsbaum.",
+ "order": {
+  "items": [
+   {
+    "file": "docs/09-Research/completeness-instances/CHECK-CASES.json",
+    "what": "Prüffälle vor der Spezifikation",
+    "expectation": "52cc773",
+    "code": "26c32b6",
+    "before_code": true,
+    "unchanged_since": true
+   },
+   {
+    "file": "P1/coverage-instance-profile-v1/oracles/independent_k01_k21.json",
+    "what": "P1.12-Orakel vor dem Profilcode",
+    "expectation": "8297b82",
+    "code": "4c05b5b",
+    "before_code": true,
+    "unchanged_since": true
+   },
+   {
+    "file": "docs/09-Research/completeness-instances/rerun/cases",
+    "what": "Wiederholungserwartung vor dem /8-Adapter",
+    "expectation": "1250feb",
+    "code": "bede236",
+    "before_code": true,
+    "unchanged_since": true
+   },
+   {
+    "file": "P2/visual-printer-cells-v1/oracles/independent_j01_j14.json",
+    "what": "VP-10-Orakel vor dem Printercode",
+    "expectation": "2316f45",
+    "code": "639e6c0",
+    "before_code": true,
+    "expected_states_unchanged": true,
+    "amendment": "J-12 Aufrufbeschreibung (dritte Phase, Ausschnitt p1:p2) vor dem Code-Commit korrigiert"
+   }
+  ],
+  "lunados_lib": {
+   "repo": "lunados.lib",
+   "branch": "feature/analyze-population",
+   "oracle_before_evaluator": true,
+   "cases_unchanged_since": true
+  },
+  "issues": 0
+ },
+ "runs": {
+  "p112_vectors": {
+   "exit": 0,
+   "tail": [
+    "21/21 match"
+   ]
+  },
+  "p112_tests": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p111_vectors": {
+   "exit": 0,
+   "tail": [
+    "16/16 match"
+   ]
+  },
+  "vp10_vectors": {
+   "exit": 0,
+   "tail": [
+    "14/14 match"
+   ]
+  },
+  "vp10_tests": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "adapter_mile005_tests": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p1:P1/comparison-profile-v1/tests/test_p19.py": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p1:P1/coverage-instance-profile-v1/tests/test_p112.py": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p1:P1/instantiation-profile-v1/tests/test_contracts.py": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p1:P1/instantiation-profile-v1/tests/test_runtime.py": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p1:P1/migration-methods-v1/tests/test_p111.py": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p1:P1/migration-profile-v1/tests/test_p110.py": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p1:P1/migration-profile-v2/tests/test_p1101.py": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p1:P1/semantic-validator-v1/tests/test_resolver.py": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "p1:P1/simulation-profile-v1/tests/test_p18.py": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "lunados_lib_verify": {
+   "exit": 0,
+   "tail": [
+    "PASS lunados.lib: 11 entries, 127/127 checks"
+   ]
+  }
+ },
+ "rerun": {
+  "readiness_checks_passed": true,
+  "repeats": 2,
+  "all_expectations_matched": true,
+  "case_files_hashes_match": true,
+  "changes_against_baseline": {
+   "ARC-03-absence-claim-v8": {
+    "baseline": [
+     null,
+     []
+    ],
+    "now": [
+     "UNRESOLVED",
+     [
+      "P1_COVERAGE_UNDECLARED"
+     ]
+    ]
+   },
+   "ARC-03-ctrl-full-view-v8": {
+    "baseline": null,
+    "now": [
+     "PASS",
+     []
+    ]
+   },
+   "BPMN-02-join-same-instance-v8": {
+    "baseline": [
+     "PASS",
+     []
+    ],
+    "now": [
+     "PASS",
+     []
+    ]
+   },
+   "BPMN-03-join-cross-instance-scoped-v8": {
+    "baseline": [
+     "FAIL",
+     [
+      "P1_REFERENT_MISMATCH",
+      "P1_SCOPE_CONFLICT"
+     ]
+    ],
+    "now": [
+     "FAIL",
+     [
+      "P1_REFERENT_MISMATCH",
+      "P1_SCOPE_CONFLICT"
+     ]
+    ]
+   },
+   "BPMN-03-join-cross-instance-shared-v8": {
+    "baseline": [
+     "PASS",
+     []
+    ],
+    "now": [
+     "FAIL",
+     [
+      "P1_INSTANCE_MISMATCH"
+     ]
+    ]
+   },
+   "DSM-03-empty-known-v8": {
+    "baseline": [
+     null,
+     []
+    ],
+    "now": [
+     "PASS",
+     []
+    ]
+   },
+   "DSM-03-unknown-v8": {
+    "baseline": null,
+    "now": [
+     "UNRESOLVED",
+     [
+      "P1_COVERAGE_UNDECLARED"
+     ]
+    ]
+   }
+  }
+ },
+ "layers": {
+  "frozen_unchanged_since_main": true,
+  "frozen_worktree_unchanged": true,
+  "new_packages": [
+   "P1/coverage-instance-profile-v1",
+   "P2/visual-printer-cells-v1"
+  ],
+  "p3_changed_files": [
+   "P3/adapters/mcp-local/G4_README.md",
+   "P3/adapters/mcp-local/G6_README.md",
+   "P3/adapters/mcp-local/aiaeao_mcp_local/p1_adapter.py",
+   "P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py",
+   "P3/adapters/mcp-local/aiaeao_mcp_local/server.py",
+   "P3/adapters/mcp-local/aiaeao_mcp_local/validation_discovery.py",
+   "P3/adapters/mcp-local/spec/LOCAL_VALIDATION_DISCOVERY.schema.json",
+   "P3/adapters/mcp-local/tests/test_mile005_adapter.py",
+   "P3/adapters/mcp-local/tests/test_validation_discovery.py"
+  ],
+  "sha256sums": {
+   "AIAEAO_Pure_Cube_P0_v9.4/SHA256SUMS.txt": true,
+   "P1/contract-v1/SHA256SUMS.txt": true,
+   "P1/migration-methods-v1/SHA256SUMS.txt": true,
+   "P1/migration-profile-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP02_SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP03_SHA256SUMS.txt": true,
+   "P2/visual-printer-axes-v1/VP09_SHA256SUMS.txt": true,
+   "P2/visual-printer-conformance-v1/VP05_SHA256SUMS.txt": true,
+   "P2/visual-printer-granularity-v1/VP04_SHA256SUMS.txt": true,
+   "P2/visual-printer-migration-v1/VP07_SHA256SUMS.txt": true,
+   "P2/visual-printer-release-v1/VP06_SHA256SUMS.txt": true,
+   "P2/visual-printer-sequence-v1/VP08_SHA256SUMS.txt": true,
+   "P3/public-reference-mcp/SHA256SUMS.txt": true,
+   "P3/remote-mcp-g5/SHA256SUMS.txt": true
+  },
+  "historical_sums": {
+   "P3/charge3-p16/CHARGE3_SOURCE_SHA256SUMS.txt": {
+    "historical_snapshot": true,
+    "stale_at_main_base": [
+     "P3/adapters/mcp-local/aiaeao_mcp_local/p1_adapter.py",
+     "P3/adapters/mcp-local/aiaeao_mcp_local/server.py",
+     "P3/remote-mcp-g5/python-core/core_runtime.py",
+     "P3/remote-mcp-g5/python-core/wrangler.jsonc",
+     "P3/remote-mcp-g5/scripts/assemble_core.py",
+     "P3/remote-mcp-g5/scripts/check_runtime_assets.py"
+    ]
+   }
+  }
+ },
+ "broken_links": 0,
+ "broken_link_list": [],
+ "all_ok": true
+}
