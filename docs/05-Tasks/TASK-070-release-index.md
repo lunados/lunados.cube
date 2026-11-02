@@ -17,3 +17,9 @@ Story: [US-034](../04-US/US-034-current-state-recorded.md) · Mile: MILE-012 · 
 [TASK-069](TASK-069-g5-ledger-limits.md) (Verweis auf die Grenzen-Seite).
 
 Umfang gemäß [MILE-012](../02-Milestones/MILE-012-record-current-state.md). Keine Änderung an Code oder Payloads.
+
+## Ergebnis (2026-11-02)
+
+- [`RELEASE_INDEX.md`](../../RELEASE_INDEX.md) beschreibt den Stand nach MILE-011: P0 v9.4 mit P0-Lock, P1 mit allen Paketen und Kontexten `/1`–`/10`, P2 VP-01–VP-11 mit Profilen, die gelesenen lunados.lib-Einträge, P3 lokal (Versionsangabe `0.3.0-rc1`, seitdem ohne neue Angabe erweitert), G5 `0.9.0-proof` mit Ledger und Grenzen-Seite, Public Reference MCP, Host-Integrationen; Prüfskripte. Der VP-06-Text vom 2026-10-24 steht unverändert unter „History“.
+- Geprüft: alle Links lösen auf; jede genannte Profilversion steht im Code.
+
