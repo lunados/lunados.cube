@@ -54,6 +54,7 @@ python3 P1/coverage-instance-profile-v1/scripts/materialize_k01_k21.py
 python3 P1/coverage-instance-profile-v1/scripts/build_golden.py
 python3 P1/coverage-instance-profile-v1/scripts/run_vectors.py        # 21/21
 python3 P1/coverage-instance-profile-v1/tests/test_p112.py
+python3 P3/remote-mcp-g5/scripts/assemble_core.py && python3 P1/coverage-instance-profile-v1/scripts/parity_g4_g5.py   # 21/21 (MILE-006)
 ```
 
 ## Local results (2026-11-01)

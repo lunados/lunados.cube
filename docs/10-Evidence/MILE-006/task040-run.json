@@ -1,0 +1,63 @@
+{
+ "format": "aiaeao.cube.mile006.task040-run/1",
+ "task": "TASK-040",
+ "date": "2026-11-02",
+ "commits": {
+  "spec_draft": "1c21dce",
+  "decisions": "ec147e5",
+  "oracle_and_pins_before_code": "507f8a6",
+  "implementation": "b2f75f5"
+ },
+ "vectors_o": {
+  "lines": [
+   "PASS O-01 rows ['m:parser', 'm:resolver', 'm:validator', 'm:printer'] feedback ['m:parser|m:validator'] warnings []",
+   "PASS O-02 rows ['m:printer', 'm:validator', 'm:resolver', 'm:parser'] feedback ['m:printer|m:validator', 'm:resolver|m:parser', 'm:validator|m:resolver'] warnings []",
+   "PASS O-03 0.10.0 svg == pin J-02",
+   "PASS O-04 rows ['m:parser', 'm:validator', 'm:resolver', 'm:printer'] feedback ['m:parser|m:validator', 'm:validator|m:resolver'] warnings ['VP10_ORDER_PARTIAL']",
+   "PASS O-05 error VP10_ORDER_INVALID",
+   "PASS O-06 rows ['m:parser', 'm:resolver', 'm:validator', 'm:printer'] feedback ['m:parser|m:validator'] warnings ['VP10_ORDER_NOT_IN_VIEW']",
+   "PASS O-07 rows ['m:parser', 'm:resolver', 'm:validator', 'm:printer'] feedback ['m:parser|m:validator'] warnings []",
+   "PASS O-08 rows ['m:parser', 'm:resolver', 'm:validator', 'm:printer'] feedback ['m:parser|m:validator'] warnings []",
+   "PASS O-09 rows ['m:parser', 'm:validator', 'm:resolver', 'm:printer'] feedback ['m:parser|m:validator', 'm:validator|m:resolver'] warnings ['VP10_ORDER_PARTIAL']",
+   "PASS O-10 G6 svg == CLI O-01, check PASS",
+   "10/10 match",
+   "exit=0"
+  ]
+ },
+ "pins_0100": {
+  "lines": [
+   "16/16 byte-identical",
+   "exit=0"
+  ]
+ },
+ "vectors_j": {
+  "lines": [
+   "14/14 match"
+  ]
+ },
+ "tests": {
+  "vpcells/test_vp101": [
+   "Ran 14 tests in 4.129s",
+   "OK"
+  ],
+  "vpcells/test_vp10": [
+   "Ran 24 tests in 10.062s",
+   "OK"
+  ],
+  "mcp-local/test_mile006_order+test_mile005_adapter": [
+   "Ran 14 tests in 1.718s",
+   "OK"
+  ],
+  "mcp-local/test_g6_plan_views": [
+   "18 tests OK in one verbose run; test_k01_k18 run per vector because of the device time limit: K-01..K-16 and K-18 PASS, K-17 parity sweep 201/201 equal (165 s)"
+  ],
+  "mcp-local/other suites": [
+   "test_bridge, test_g4_surface, test_p0_resources, test_p0_tool_fallback, test_p1_validation, test_validation_discovery OK"
+  ]
+ },
+ "frozen": [
+  "VP09 OK",
+  "VP07 OK"
+ ],
+ "limits": "display only; feedback follows from the caller-declared order, not a finding; no client data"
+}

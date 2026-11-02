@@ -1,0 +1,11 @@
+{
+ "format": "aiaeao.cube.vp10-locale/1",
+ "locale": "de",
+ "profile": "P2-VP-CELLS/0.10.1",
+ "text": {
+  "order.feedback": "Rückkopplung",
+  "order.unordered": "nicht geordnet",
+  "order.legend": "deklarierte Achsenreihenfolge: Zeilen und Spalten folgen der deklarierten Reihenfolge; „Rückkopplung“ = Eintrag über der Diagonale: Die Zeile hängt von einem später deklarierten Element ab; folgt nur aus der deklarierten Reihenfolge, kein Befund über das System",
+  "order.legend.unordered": "„nicht geordnet“ = nicht in der deklarierten Reihenfolge: {names} (folgen am Ende ihrer Gruppe)"
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "cases": {
+  "GC-de": {
+   "report_sha256": "4664335c6be9b25eb04e532fcd5f6764f13224412baafc0ea98407e59aaf677a",
+   "svg_sha256": "8546534112f50a2efa331fc28315b2ecd4742c77a86c9b078da1cba118a69934"
+  },
+  "GC-en": {
+   "report_sha256": "c064c2bb87f5dca715ec4ebf72f002fb9cbb9a15970aa79830b2b3285e98692d",
+   "svg_sha256": "69d949a89c2407b0a57dca7feb04253c2c839706557ffa2e5c444d46dc972a85"
+  },
+  "J-01": {
+   "report_sha256": "713e38b9539422dc3d77033b5af67687c36acfd1086826648ca50ec8b096a25d",
+   "svg_sha256": "82fecfe41c4c6476095806a725183586c6b7078ab3a3d27241e2fccdfa21c4c9"
+  },
+  "J-02": {
+   "report_sha256": "39147769ce444b26d8f61254fc2b050628d236a96fea48337cf3a7220ac46fe4",
+   "svg_sha256": "9768eede2b360fc6827f6e6c7713d7250b964c2d963a894180ae98a9d0a4dfd2"
+  },
+  "J-03": {
+   "report_sha256": "41a77d2f6da7cfd6704bcb8f05e5d96e7de426c702b78813fbc3bc3745e2cf16",
+   "svg_sha256": "2ab82156104370e7ac13caa904e05b32ddd3993265b84f444e10fc7f1746bacc"
+  },
+  "J-04": {
+   "report_sha256": "3e4a7ea583bd08e7300dddb06fba8e3835bbe66f92d9b8123dd9bc23263317df",
+   "svg_sha256": "4be9cccb214ca39718a0efb067316424c6c788f217d855386e73dc809ef7da9a"
+  },
+  "J-05": {
+   "report_sha256": "12b9c4c9359d9cbf650140db83005ebbf14e76288baee79f9dd3248b61c29d30",
+   "svg_sha256": "aa0689b228760485eb08809176703144fb40c6edc7ded361fe88ad0758f6f1df"
+  },
+  "J-06": {
+   "report_sha256": "cbc0732aa434be5929e03d2b72a9301e8d7d1d9ec7fdd632f5ed07f025b88779",
+   "svg_sha256": "9ba951d683ef450efef7e356943d1e0fdf32eb928f1a26635817cb5fe1a88d91"
+  },
+  "J-07": {
+   "report_sha256": "a8ddaced8a32a4547904d1da4cd33d184b578d0def11fe4781cf08cda791fdf8",
+   "svg_sha256": "3605e78be5bbd6e127f3032648977a318193a78cb723a17fb45ceefff0b03951"
+  },
+  "J-08": {
+   "report_sha256": "15c0244763daa4be7e43f18a26f8293094213f3bd6f609e9cb62e9ae85dff017",
+   "svg_sha256": "588c92cc94f178c1b320b50eacc3448eca1200fd661e8d2dd2e258a6404ee578"
+  },
+  "J-09": {
+   "report_sha256": "8c15953de3b14e8685ca274b558b46539c5bbf6ed0e66e79e826812df0e0769f",
+   "svg_sha256": "332baa3401ea283d1fa3e084d98584d7ccbe5dafbc3fe9d41a78dcf100bacb07"
+  },
+  "J-10": {
+   "report_sha256": "063cf0f45c6e951485eb65eee074231a9c33404712cf16e866424d93bcefb253",
+   "svg_sha256": "6595dcf7f3219d7b2be664b393eb0da8ec04343b490e87cbadb0f4bca572b28f"
+  },
+  "J-11": {
+   "report_sha256": "82b6f18036d508159ee3f1a3c72ceed8d1ad66edd6c6538a5cc42102efe9aec4",
+   "svg_sha256": "5a6f7cdb72c23400a56033aba3617f9e24c5cdff6b594039954be39ff96fa577"
+  },
+  "J-12": {
+   "report_sha256": "582ed1e4c5094b08b3f242fc92f832998f5bb766ad5921e345fe34c963da7332",
+   "svg_sha256": "4deda722e93ae76c6b2baa71512caba860d7115ae5e3316271b4d9182656553e"
+  },
+  "J-13": {
+   "error": "VP10_PAIR_INVALID"
+  },
+  "J-14": {
+   "report_sha256": "d4cd3719b017ca1724c517b617ee3da6a5445bbfc4e122acddbb56c8ec037713",
+   "svg_sha256": "8c1d32d651c6f6fd55602fe398bd7b49ce302fedb8635ab0744d1e6324d54a1d"
+  }
+ },
+ "format": "aiaeao.p2.vp10-regression-digests/1",
+ "pinned_before": "any 0.10.1 code (VP101-01)",
+ "profile": "P2-VP-CELLS/0.10.0"
+}

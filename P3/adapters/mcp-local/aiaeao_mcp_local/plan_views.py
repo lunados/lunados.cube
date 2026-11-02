@@ -38,7 +38,7 @@ PRINTERS = ('vpmigration', 'vpsequence', 'vpaxes', 'vpcells')
 # options each view takes (MT-1, §2 P3_PLAN_ARGUMENT_INVALID); `granularity` is common to all
 OPTIONS = {'cube.phases': {'partition', 'locale', 'hide_ledger'}, 'cube.flow': {'partition', 'lens', 'locale', 'hide_ledger'},
            'cube.sequence': {'partition', 'overflow'}, 'cube.axes': {'rows', 'cols', 'hide_empty', 'locale'},
-           'cube.cells': {'rows', 'cols', 'hide_empty', 'locale'}}
+           'cube.cells': {'rows', 'cols', 'hide_empty', 'locale', 'axis_order'}}
 # C-12: display options of VP-07.5 / VP-09.2; the printers accept them only for their 0.7.5 / 0.9.2 sources (D-1)
 DISPLAY_OPTIONS = {'vpmigration': {'profile': c07.P075, 'locale': None, 'hide_ledger': 'bool', 'selections': [c07.METHOD_SETS]},
                    'vpaxes': {'profile': c09.P092, 'locale': None, 'hide_empty': list(c09.HIDE_EMPTY), 'pairs_added': ['Y × Y']}}
@@ -146,7 +146,7 @@ def plan_views(source: Any, view: Any, granularity: Any, **options) -> dict:
         res = _printer(printer, prof, vp08.views, source, view, granularity, options.get('partition', 'trigger'), options.get('overflow', 'summarize'))
     elif printer == 'vpcells':
         res = _printer(printer, prof, vp10.views, source, view, granularity, options.get('rows'), options.get('cols'),
-                       options.get('hide_empty'), options.get('locale'))
+                       options.get('hide_empty'), options.get('locale'), options.get('axis_order'))
     else:
         res = _printer(printer, prof, vp09.views, source, view, granularity, options['rows'], options['cols'],
                        options.get('hide_empty'), options.get('locale'))

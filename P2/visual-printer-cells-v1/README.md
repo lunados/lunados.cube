@@ -1,4 +1,4 @@
-# VP-10 — Cell states from declared coverage (`vpcells`, `P2-VP-CELLS/0.10.0`)
+# VP-10 — Cell states from declared coverage (`vpcells`, `P2-VP-CELLS/0.10.0`, opt-in `0.10.1`)
 
 **Status:** IMPLEMENTED locally 2026-11-02. Decisions D-1…D-9 are resolved, all as proposed; see [VP10_ACCEPTANCE_SPEC.md](VP10_ACCEPTANCE_SPEC.md).
 
@@ -13,6 +13,15 @@ This is gap VR-05 from MILE-003 and PO-6. `vpcells` wraps the unchanged VP-09.2 
 
 The diagonal reads `element` and has no state. Coverage comes from the `coverage_declarations` of a `binding-context/8` (P1.12), for one predicate per view. A declaration with `instance_ref`, or one naming a referent outside this input, is ignored and reported. VP-07, VP-09 and their locale files are unchanged.
 
+## VP-10.1 — declared axis order (`P2-VP-CELLS/0.10.1`)
+
+Opt-in display option `axis_order` (CLI `--axis-order a,b,c`, G6 `cube_plan_views` option `axis_order`), specified in [VP10_1_ACCEPTANCE_SPEC.md](VP10_1_ACCEPTANCE_SPEC.md). Without it the output is `0.10.0`, byte for byte.
+
+- Rows and columns follow the declared order within each kind group; values not listed follow at the end of their group and carry the header line `unordered` / `nicht geordnet` (warning `VP10_ORDER_PARTIAL`).
+- A marked cell of the chosen predicate above the diagonal gets the italic text line `feedback` / `Rückkopplung`: the row depends on an element declared later. This follows from the declared order only; it is not a finding about the system, and no colour or line style changes.
+- A value twice, an empty list or a non-string entry is `VP10_ORDER_INVALID`; a value outside the view is ignored with `VP10_ORDER_NOT_IN_VIEW`.
+- The report and ledger add `axis_order`, `unordered_values`, `order_not_in_view`, `feedback_cells` and `order_locale`. The German texts are in their own pinned file `locales/de-0101.json` (`LOCALE_PINNED_0101`), so `de.json` and its digest stay unchanged.
+
 ## Layout
 
 | Path | Purpose |
@@ -26,6 +35,12 @@ The diagonal reads `element` and has no state. Coverage comes from the `coverage
 | `scripts/run_vectors.py` | J-01…J-14 against the oracle |
 | `tests/test_vp10.py` | 24 tests: oracle, frozen VP-07/VP-09 (SHA256SUMS, pinned 0.9.0/0.9.1 digests), 0.9.2 regression, one per §2 row, states, colour-free audit, locale, golden, CLI |
 | `M05C_COMPARISON.md` | VP-10 against mockup M-05C: same cells and states; differences named |
+| `vpcells/locales/de-0101.json` | VP-10.1 texts in German, pinned (`LOCALE_PINNED_0101`) |
+| `oracles/independent_o01_o10.json` | VP-10.1 expectations, hand-derived before code (`507f8a6`) |
+| `fixtures/regression_0100_digests.json` | SVG and report digests of 16 `0.10.0` outputs (`scripts/pin_0100_digests.py`) |
+| `fixtures/o01_o10_materialized.json` | 10 synthetic vectors on the J-02 context (`scripts/materialize_o01_o10.py`) |
+| `scripts/run_vectors_o.py` | O-01…O-10 against the oracle, O-10 through the G6 API |
+| `tests/test_vp101.py` | 14 tests: oracle, byte identity without order, locale pins, kind groups, invalid orders, text-not-colour mark, ledger, G6, CLI |
 
 ## Run
 
@@ -33,8 +48,12 @@ The diagonal reads `element` and has no state. Coverage comes from the `coverage
 cd P2/visual-printer-cells-v1
 python3 scripts/run_vectors.py          # 14/14
 python3 tests/test_vp10.py              # 24 tests
+python3 scripts/run_vectors_o.py        # 10/10 (VP-10.1)
+python3 scripts/pin_0100_digests.py     # 16/16 byte-identical
+python3 tests/test_vp101.py             # 14 tests
 python3 -m vpcells from-plan --context ctx8.json --plan mp-dsm --predicate references --out in.json
 python3 -m vpcells print-cells --input in.json --hide-empty cols --locale de --out cells/
+python3 -m vpcells print-cells --input in.json --axis-order m:parser,m:resolver,m:validator,m:printer --out ordered/
 ```
 
 ## Local results (2026-11-02)
@@ -44,9 +63,9 @@ python3 -m vpcells print-cells --input in.json --hide-empty cols --locale de --o
 - **Frozen layers:** `VP07_SHA256SUMS` and `VP09_SHA256SUMS` hold, and the pinned 0.9.0 and 0.9.1 outputs are byte-identical. The `vpaxes` suite passes, and so do the P1 suites including P1.12.
 - **Golden:** 4 marked, 3 checked, 2 unknown, 3 element and 4 hidden cells; column `m:printer` is hidden by name.
 - **Renders and reports:** `docs/10-Evidence/MILE-005/task035/`.
+- **VP-10.1 (MILE-006 TASK-040):** O-01…O-10 10/10; the 16 pinned `0.10.0` outputs stay byte-identical; 14 tests; renders in `docs/10-Evidence/MILE-006/task040/`.
 
 ## Not part of VP-10
 
 - Other pairs, and statement sets without a plan (PO-7, G-03).
-- Declared axis order (PO-5).
 - MCP adapter (TASK-036) and G5 delivery.

@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 
 from vpmigration.api import RESULT_FORMAT, SOURCE_FORMAT
-from .common import PROFILE, VP10Error, encode, sha_bytes, need
+from .common import PROFILE, PROFILE_101, VP10Error, encode, sha_bytes, need
 from .source import from_plan
 from .cells import render_cells
 
@@ -20,16 +20,19 @@ def source(context, plan_id, predicate=None, tracks=None, track=None, labels=Non
 
 
 def _render(inp):
-    return render_cells(inp['input'], inp['rows'], inp['cols'], inp['granularity'], inp.get('hide_empty'), inp.get('locale'))
+    return render_cells(inp['input'], inp['rows'], inp['cols'], inp['granularity'], inp.get('hide_empty'), inp.get('locale'),
+                        inp.get('axis_order'))
 
 
-def views(source, view='cube.cells', granularity='standard', rows=None, cols=None, hide_empty=None, locale=None):
-    inp = {'format': PANEL_INPUT, 'profile': PROFILE, 'input': source, 'rows': rows or 'Y:referent', 'cols': cols or 'Y:referent',
-           'granularity': granularity, **{k: v for k, v in (('hide_empty', hide_empty), ('locale', locale)) if v is not None}}
+def views(source, view='cube.cells', granularity='standard', rows=None, cols=None, hide_empty=None, locale=None, axis_order=None):
+    prof = PROFILE if axis_order is None else PROFILE_101          # VP-10.1: only a declared order selects 0.10.1
+    inp = {'format': PANEL_INPUT, 'profile': prof, 'input': source, 'rows': rows or 'Y:referent', 'cols': cols or 'Y:referent',
+           'granularity': granularity,
+           **{k: v for k, v in (('hide_empty', hide_empty), ('locale', locale), ('axis_order', axis_order)) if v is not None}}
     report, svg = _render(inp)
     raw = encode(inp)
     panel = {'name': 'panel-01', 'svg': svg.decode('utf-8'), 'sha256': sha_bytes(svg), 'input': json.loads(raw), 'input_sha256': sha_bytes(raw)}
-    return {'format': RESULT_FORMAT, 'printer': 'vpcells', 'profile': PROFILE, 'view': view, 'panels': [panel],
+    return {'format': RESULT_FORMAT, 'printer': 'vpcells', 'profile': prof, 'view': view, 'panels': [panel],
             'index': {'svg': panel['svg'], 'sha256': panel['sha256'], 'note': 'single view: the index is the panel'}, 'report': report}
 
 
