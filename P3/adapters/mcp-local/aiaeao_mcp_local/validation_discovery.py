@@ -13,6 +13,7 @@ PROFILES = (
     ('P1.10.1/migration-profile-v2', 'migration-profile-v2/cube_p1101/validator.py'),
     ('P1.11/migration-methods-v1', 'migration-methods-v1/cube_p111/validator.py'),
     ('P1.12/coverage-instance-profile-v1', 'coverage-instance-profile-v1/cube_p112/validator.py'),
+    ('P1.13/control-flow-profile-v1', 'control-flow-profile-v1/cube_p113/validator.py'),
 )
 
 def describe_validation_contexts():

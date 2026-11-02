@@ -20,6 +20,7 @@ P110 = REPO / 'P1' / 'migration-profile-v1'
 P1101 = REPO / 'P1' / 'migration-profile-v2'
 P111 = REPO / 'P1' / 'migration-methods-v1'
 P112 = REPO / 'P1' / 'coverage-instance-profile-v1'
+P113 = REPO / 'P1' / 'control-flow-profile-v1'
 if not P1.is_dir():
     raise RuntimeError('P1-VC/1.0.0 reference validator must be installed as sibling P1 tree')
 if str(P1) not in sys.path:
@@ -58,11 +59,24 @@ def _json_bytes(obj: Any) -> bytes:
 
 
 def _validator_for(context: dict | None):
-    """Explicit /2 ... /8 dispatch, no auto-upgrade or hidden version negotiation.
+    """Explicit /2 ... /9 dispatch, no auto-upgrade or hidden version negotiation.
 
-    P1.6, P1.8, P1.9, P1.10, P1.10.1, P1.11 and P1.12 are lazy-loaded so a legacy /1 installation works unchanged.
-    A /2 ... /8 request without its module fails closed as an MCP adapter error.
+    P1.6, P1.8, P1.9, P1.10, P1.10.1, P1.11, P1.12 and P1.13 are lazy-loaded so a legacy /1 installation works unchanged.
+    A /2 ... /9 request without its module fails closed as an MCP adapter error.
     """
+    if context is not None and context.get('format') == 'aiaeao.cube.binding-context/9':
+        if not all(p.is_dir() for p in (P16, P18, P19, P110, P1101, P111, P112, P113)):
+            _error('P1_MCP_P113_UNAVAILABLE', 'P1.13 validator is not installed')
+        for path in (P16, P18, P19, P110, P1101, P111, P112, P113):
+            if str(path) not in sys.path:
+                sys.path.insert(0, str(path))
+        try:
+            from cube_p113.validator import P113Validator
+        except ImportError:
+            _error('P1_MCP_P113_UNAVAILABLE', 'P1.13 validator cannot be loaded')
+        validator = P113Validator()
+        validator.validate_context(context)
+        return validator
     if context is not None and context.get('format') == 'aiaeao.cube.binding-context/8':
         if not all(p.is_dir() for p in (P16, P18, P19, P110, P1101, P111, P112)):
             _error('P1_MCP_P112_UNAVAILABLE', 'P1.12 validator is not installed')
@@ -207,27 +221,32 @@ def validate(input_text: str, input_format: str='acg_text', context: dict | None
               ('aiaeao.cube.binding-context/2', 'aiaeao.cube.binding-context/3',
                'aiaeao.cube.binding-context/4', 'aiaeao.cube.binding-context/5',
                'aiaeao.cube.binding-context/6', 'aiaeao.cube.binding-context/7',
-               'aiaeao.cube.binding-context/8') else {}),
+               'aiaeao.cube.binding-context/8', 'aiaeao.cube.binding-context/9') else {}),
         **({'simulation_profile': 'P1.8/simulation-profile-v1',
             'evaluation_performed_by_cube': False}
            if context is not None and context.get('format') in
               ('aiaeao.cube.binding-context/3', 'aiaeao.cube.binding-context/4',
                'aiaeao.cube.binding-context/5', 'aiaeao.cube.binding-context/6',
-               'aiaeao.cube.binding-context/7', 'aiaeao.cube.binding-context/8') else {}),
+               'aiaeao.cube.binding-context/7', 'aiaeao.cube.binding-context/8',
+               'aiaeao.cube.binding-context/9') else {}),
         **({'comparison_profile': 'P1.9/comparison-profile-v1'}
            if context is not None and context.get('format') in
               ('aiaeao.cube.binding-context/4', 'aiaeao.cube.binding-context/5',
                'aiaeao.cube.binding-context/6', 'aiaeao.cube.binding-context/7',
-               'aiaeao.cube.binding-context/8') else {}),
+               'aiaeao.cube.binding-context/8', 'aiaeao.cube.binding-context/9') else {}),
         **({'migration_profile': 'P1.10/migration-profile-v1'}
            if context is not None and context.get('format')=='aiaeao.cube.binding-context/5' else {}),
         **({'migration_profile': 'P1.10.1/migration-profile-v2'}
            if context is not None and context.get('format')=='aiaeao.cube.binding-context/6' else {}),
         **({'migration_profile': 'P1.11/migration-methods-v1', 'method_execution_by_cube': False}
            if context is not None and context.get('format') in
-              ('aiaeao.cube.binding-context/7', 'aiaeao.cube.binding-context/8') else {}),
+              ('aiaeao.cube.binding-context/7', 'aiaeao.cube.binding-context/8', 'aiaeao.cube.binding-context/9') else {}),
         **({'coverage_profile': 'P1.12/coverage-instance-profile-v1', 'population_evaluation_by_cube': False}
-           if context is not None and context.get('format')=='aiaeao.cube.binding-context/8' else {}),
+           if context is not None and context.get('format') in
+              ('aiaeao.cube.binding-context/8', 'aiaeao.cube.binding-context/9') else {}),
+        **({'control_flow_profile': 'P1.13/control-flow-profile-v1', 'trace_evaluation_by_cube': False,
+            'condition_evaluation_by_cube': False}
+           if context is not None and context.get('format')=='aiaeao.cube.binding-context/9' else {}),
         'report': report,  # EXACT P1-VC/1.0.0 structure; no fields added or removed.
         'transport': 'local_mcp_stdio',
         'core_profile': 'P1-VC/1.0.0',  # underlying frozen P1 report schema for both context versions

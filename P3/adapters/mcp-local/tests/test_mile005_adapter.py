@@ -52,10 +52,10 @@ class P112Adapter(unittest.TestCase):
 
     def test_discovery_lists_v8(self):
         """Q-6: local discovery names binding-context/8 with entry profile P1.12."""
-        row = vd.describe_validation_contexts()['contexts'][-1]
+        row = vd.describe_validation_contexts()['contexts'][7]                     # /8 row (MILE-008 appends /9)
         self.assertEqual((row['context_format'], row['entry_profile']), ('aiaeao.cube.binding-context/8', 'P1.12/coverage-instance-profile-v1'))
         self.assertTrue(row['required_sources_present'])
-        self.assertEqual(surface.discover_surface_local()['domains']['P1']['validation_contexts']['contexts'][-1], row)
+        self.assertEqual(surface.discover_surface_local()['domains']['P1']['validation_contexts']['contexts'][7], row)
 
 
 class VP10PlanViews(unittest.TestCase):
