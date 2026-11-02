@@ -125,3 +125,17 @@ Führender Status: [check-control-flow/tasks.md](../../openspec/changes/archive/
 | [TASK-052 — Adapter, Wiederholung und Abschluss](TASK-052-mile008-adapter-rerun.md) | US-026, US-027 | 0,75–1,25 PT |
 
 Summe: 4–5,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
+
+## MILE-009 — geplant
+
+Führender Status: [show-instance-view/tasks.md](../../openspec/changes/show-instance-view/tasks.md).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-053 — Spezifikation und Detailfragen](TASK-053-vp11-spec.md) | US-028, US-029 | 0,25–0,5 PT |
+| [TASK-054 — Prüffälle, Orakel und Pins](TASK-054-vp11-cases.md) | US-028, US-029 | 0,25–0,5 PT |
+| [TASK-055 — Printer VP-11 `cube.instances`](TASK-055-vp11-printer.md) | US-028, US-029 | 1–1,5 PT |
+| [TASK-056 — G6-Anbindung](TASK-056-vp11-g6.md) | US-028 | 0,25–0,5 PT |
+| [TASK-057 — Sichtprüfung und Abschluss](TASK-057-mile009-close.md) | US-028, US-029 | 0,25 PT |
+
+Summe: 2–3,25 PT; Planungsannahmen, ohne Zeit des Nutzers.
