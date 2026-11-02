@@ -1,0 +1,22 @@
+{
+ "format": "aiaeao.cube.mile007.task045-run/1",
+ "task": "TASK-045",
+ "date": "2026-11-02",
+ "repo": "lunados.lib",
+ "branch": "feature/aggregate-relations",
+ "commits": {
+  "check_cases_cube": "91e1c57",
+  "oracle_schema_cases_before_evaluator": "cee4e36",
+  "evaluator_entry": "a9b6dd6"
+ },
+ "entry": {
+  "entry_id": "project.aggregate-relations",
+  "method_id": "project.aggregate-relations/v1",
+  "status": "candidate-authored",
+  "index_sha256": "a187a9e1291517c6534ad8974a381a97bcb953bcca1f0bf1a230c5532b20e32a"
+ },
+ "cases": "A-01..A-10: evaluator == expected == oracle, result schema valid, no promotion (10/10)",
+ "differential": "scripts/differential_aggregate.py: 150/150 variants evaluator == oracle (every strategy on every case input; reversed, rotated, labels removed, membership removed)",
+ "verify": "scripts/verify.py --cube lunados.cube: PASS, 12 entries, 139/139 checks (cube reference case PASS)",
+ "limits": "same author for oracle and evaluator: implementation-difference control; Structurizr strategies derived from documentation, not executed; synthetic, no client data"
+}
