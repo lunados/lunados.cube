@@ -17,17 +17,22 @@ from vpaxes.common import VP09Error, P092, NS, NOT_EVALUATED, encode, sha_bytes,
 
 PROFILE = 'P2-VP-CELLS/0.10.0'
 PROFILE_101 = 'P2-VP-CELLS/0.10.1'  # VP-10.1: selected by a declared axis_order (Q-2)
+PROFILE_110 = 'P2-VP-CELLS/0.11.0'  # VP-10 0.11.0: statement sets without a plan (MILE-007)
 BASE_PROFILE = P092
 INPUT_FORMAT = 'aiaeao.cube.vp10-cells-input/1'
 REPORT_FORMAT = 'aiaeao.cube.vp10-cells-report/1'
 ERROR_FORMAT = 'aiaeao.cube.vp10-diagnostic/1'
 CTX_FORMATS = tuple(f'aiaeao.cube.binding-context/{n}' for n in (5, 6, 7, 8))
 V8 = 'aiaeao.cube.binding-context/8'
+MATRIX_FORMAT = 'aiaeao.cube.vp110-matrix-input/1'
+SET_FORMAT = 'aiaeao.cube.statement-set/1'
+RECORD_FORMAT = 'aiaeao.cube.projection-record/1'
 STATES = ('marked', 'checked', 'unknown', 'hidden')
 SCOPES = ('pair', 'row', 'column')
 LOCALES = Path(__file__).resolve().parent/'locales'
 LOCALE_PINNED = {'de': '73447ba2a023f9b1d1016d2ae017519ed2e46d84f5c782eb55650dd29fa3b831'}  # LC-1: reproducible from the code
 LOCALE_PINNED_0101 = {'de': '653ad01c2335072659c81680ac14d1a6bb4d8c643677bb5a1ed8a62d609bdbc9'}
+LOCALE_PINNED_0110 = {'de': '6b9c069098612059e05f5ef776d26c43f0d22c3c3ed8375ef7c85ecb5b77eac7'}
 
 
 class VP10Error(VP09Error):
@@ -78,3 +83,17 @@ class OrderTexts(Texts):
             need(self.sha256 == LOCALE_PINNED_0101[code], 'VP10_LOCALE_INVALID', f'locale file {code}-0101.json does not match its pin')
             self.text = json.loads(raw)['text']
 
+
+class MatrixTexts(Texts):
+    """VP-10 0.11.0 texts in their own pinned file; the 0.10.0 and 0.10.1 locale files stay byte-identical."""
+
+    def __init__(self, code=None):
+        self.code = code or 'en'
+        self.text = {}
+        self.sha256 = None
+        if code not in (None, 'en'):
+            need(code in LOCALE_PINNED_0110, 'VP10_LOCALE_INVALID', f'locale must be one of en, {", ".join(sorted(LOCALE_PINNED_0110))}')
+            raw = (LOCALES/f'{code}-0110.json').read_bytes()
+            self.sha256 = hashlib.sha256(raw).hexdigest()
+            need(self.sha256 == LOCALE_PINNED_0110[code], 'VP10_LOCALE_INVALID', f'locale file {code}-0110.json does not match its pin')
+            self.text = json.loads(raw)['text']

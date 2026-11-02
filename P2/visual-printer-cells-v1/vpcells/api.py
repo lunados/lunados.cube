@@ -7,14 +7,21 @@ from __future__ import annotations
 import json
 
 from vpmigration.api import RESULT_FORMAT, SOURCE_FORMAT
-from .common import PROFILE, PROFILE_101, VP10Error, encode, sha_bytes, need
+from .common import PROFILE, PROFILE_101, PROFILE_110, MATRIX_FORMAT, VP10Error, encode, sha_bytes, need
 from .source import from_plan
+from .statements import from_statements
 from .cells import render_cells
 
 PANEL_INPUT = 'aiaeao.cube.vp10-panel-input/1'
 
 
-def source(context, plan_id, predicate=None, tracks=None, track=None, labels=None, steps=None, subjects=None, layers=None):
+def source(context, plan_id, predicate=None, tracks=None, track=None, labels=None, steps=None, subjects=None, layers=None, statements=None,
+           projection=None):
+    if statements is not None or projection is not None:          # 0.11.0: a statement set instead of a plan (PO-7)
+        need(plan_id is None and not any((tracks, track, labels, steps, subjects, layers)), 'VP10_ADAPTER_INPUT',
+             'a statement-set source takes context, statements, predicate and projection only (no plan_id or plan slice)')
+        doc = from_statements(context, statements, predicate, projection)
+        return {'format': SOURCE_FORMAT, 'printer': 'vpcells', 'profile': PROFILE_110, 'source': doc, 'mapping': None}
     doc, mapping = from_plan(context, plan_id, predicate, tracks, track, labels, steps, subjects, layers)
     return {'format': SOURCE_FORMAT, 'printer': 'vpcells', 'profile': PROFILE, 'source': doc, 'mapping': mapping}
 
@@ -26,6 +33,8 @@ def _render(inp):
 
 def views(source, view='cube.cells', granularity='standard', rows=None, cols=None, hide_empty=None, locale=None, axis_order=None):
     prof = PROFILE if axis_order is None else PROFILE_101          # VP-10.1: only a declared order selects 0.10.1
+    if isinstance(source, dict) and source.get('format') == MATRIX_FORMAT:
+        prof = PROFILE_110
     inp = {'format': PANEL_INPUT, 'profile': prof, 'input': source, 'rows': rows or 'Y:referent', 'cols': cols or 'Y:referent',
            'granularity': granularity,
            **{k: v for k, v in (('hide_empty', hide_empty), ('locale', locale), ('axis_order', axis_order)) if v is not None}}

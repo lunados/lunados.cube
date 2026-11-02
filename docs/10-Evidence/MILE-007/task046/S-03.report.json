@@ -1,0 +1,147 @@
+{
+  "aggregation": null,
+  "axis_order": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+  ],
+  "canonical_admission": "NOT_EVALUATED",
+  "cells": {
+    "m:parser|m:parser": {
+      "state": "element"
+    },
+    "m:parser|m:printer": {
+      "state": "unknown"
+    },
+    "m:parser|m:resolver": {
+      "state": "unknown"
+    },
+    "m:parser|m:validator": {
+      "entries": [
+        "s-fb"
+      ],
+      "state": "marked"
+    },
+    "m:printer|m:parser": {
+      "state": "unknown"
+    },
+    "m:printer|m:printer": {
+      "state": "element"
+    },
+    "m:printer|m:resolver": {
+      "state": "unknown"
+    },
+    "m:printer|m:validator": {
+      "entries": [
+        "s-pv"
+      ],
+      "state": "marked"
+    },
+    "m:resolver|m:parser": {
+      "entries": [
+        "s-rp"
+      ],
+      "state": "marked"
+    },
+    "m:resolver|m:printer": {
+      "state": "unknown"
+    },
+    "m:resolver|m:resolver": {
+      "state": "element"
+    },
+    "m:resolver|m:validator": {
+      "state": "unknown"
+    },
+    "m:validator|m:parser": {
+      "state": "unknown"
+    },
+    "m:validator|m:printer": {
+      "state": "unknown"
+    },
+    "m:validator|m:resolver": {
+      "entries": [
+        "s-vr"
+      ],
+      "state": "marked"
+    },
+    "m:validator|m:validator": {
+      "state": "element"
+    }
+  },
+  "col_values": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+  ],
+  "cols_axis": "Y:referent",
+  "content_status": "declared_unverified",
+  "current_authority": "NOT_EVALUATED",
+  "epistemic_warrant": "NOT_EVALUATED",
+  "feedback_cells": [
+    "m:parser|m:validator"
+  ],
+  "format": "aiaeao.cube.vp10-cells-report/1",
+  "granularity": "standard",
+  "hidden_cells": [],
+  "hidden_cols": [],
+  "hidden_rows": [],
+  "hide_empty": null,
+  "home": "Y",
+  "ignored_declarations": [],
+  "input_sha256": "728c1907cbc0f8b7c716cfce17e5169f2a3dd7f1873a21194753de6e56e6aa2e",
+  "invariants_passed": [
+    "NO_ACTIVE_SVG_CONTENT_NO_PATTERN",
+    "EMBEDDED_LEDGER_MATCH",
+    "ONE_STATE_PER_DRAWN_CELL",
+    "STATES_DIFFER_WITHOUT_COLOUR"
+  ],
+  "locale": null,
+  "loss_line": null,
+  "matrix_locale": null,
+  "notices": [
+    "Rows are subjects, columns are objects; there is no transposed reading (D-6).",
+    "\"checked\" means no declared statement within the declared survey scope, not that none exists (CV-5).",
+    "A derived entry follows from its declared sources under the chosen strategy only; nothing is recomputed by the Cube.",
+    "No colour, size or position encodes a state or a quantity."
+  ],
+  "order_locale": null,
+  "order_not_in_view": [],
+  "predicate": "dependsOn",
+  "profile": "P2-VP-CELLS/0.11.0",
+  "reference_version": "v9.4",
+  "render_status": "PASS",
+  "row_values": [
+    "m:parser",
+    "m:resolver",
+    "m:validator",
+    "m:printer"
+  ],
+  "rows_axis": "Y:referent",
+  "semantic_conformance": "NOT_EVALUATED",
+  "set_id": "dsm-modules",
+  "source": "statement_set",
+  "state_counts": {
+    "checked": 0,
+    "element": 4,
+    "hidden": 0,
+    "marked": 4,
+    "unknown": 8
+  },
+  "svg_sha256": "79d0b3503bc562c2325438c43ae25e1575de7578a8ec5995616b33f5c1cc9942",
+  "unordered_values": [],
+  "view": "cube.cells",
+  "warning_summary": [
+    {
+      "code": "VP10_COVERAGE_NONE",
+      "count": 1
+    }
+  ],
+  "warnings": [
+    {
+      "code": "VP10_COVERAGE_NONE",
+      "detail": "no coverage_declarations in the context: every empty cell is unknown (D-9)"
+    }
+  ]
+}

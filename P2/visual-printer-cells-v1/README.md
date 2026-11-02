@@ -1,4 +1,4 @@
-# VP-10 — Cell states from declared coverage (`vpcells`, `P2-VP-CELLS/0.10.0`, opt-in `0.10.1`)
+# VP-10 — Cell states from declared coverage (`vpcells`, `P2-VP-CELLS/0.10.0`, opt-in `0.10.1` and `0.11.0`)
 
 **Status:** IMPLEMENTED locally 2026-11-02. Decisions D-1…D-9 are resolved, all as proposed; see [VP10_ACCEPTANCE_SPEC.md](VP10_ACCEPTANCE_SPEC.md).
 
@@ -22,6 +22,16 @@ Opt-in display option `axis_order` (CLI `--axis-order a,b,c`, G6 `cube_plan_view
 - A value twice, an empty list or a non-string entry is `VP10_ORDER_INVALID`; a value outside the view is ignored with `VP10_ORDER_NOT_IN_VIEW`.
 - The report and ledger add `axis_order`, `unordered_values`, `order_not_in_view`, `feedback_cells` and `order_locale`. The German texts are in their own pinned file `locales/de-0101.json` (`LOCALE_PINNED_0101`), so `de.json` and its digest stay unchanged.
 
+## VP-10 0.11.0 — statement sets without a plan (`P2-VP-CELLS/0.11.0`)
+
+Specified in [VP110_ACCEPTANCE_SPEC.md](VP110_ACCEPTANCE_SPEC.md) (MILE-007, PO-7 and G-03). `from-statements` reads a declared statement set (`aiaeao.cube.statement-set/1`) for a `binding-context/8` instead of a migration plan; an own matrix drawer (Q-3) shows it with the 0.10.x states.
+
+- Axes are the set's `referents`, one home on both axes (Y × Y or Z × Z, Q-2); row = subject, column = object, no transposed reading (D-6).
+- Only resolution is checked: referents and predicates must be in the context, concepts allowed by the predicate contract, endpoints listed in `referents` (SS-1…SS-4). The statements stay `declared_unverified`.
+- With `--projection`, a record (`aiaeao.cube.projection-record/1`: `library_ref`, call, result) of lunados.lib `project.aggregate-relations/v1` is read, never recomputed (Q-10, PR-6). Derived entries read `derived · n sources` / `abgeleitet · n Quellen`; the legend carries the exact loss line (DR-8); the ledger lists every source, label, internal and suppressed source.
+- Coverage applies to plain sets only; with an aggregation it is ignored with `VP10_COVERAGE_NOT_PROJECTED` (Q-9). `axis_order` and `--hide-empty` work as in 0.10.x.
+- German texts are in their own pinned file `locales/de-0110.json` (`LOCALE_PINNED_0110`). 0.10.0 and 0.10.1 outputs stay byte-identical (pins 16/16 and 9/9).
+
 ## Layout
 
 | Path | Purpose |
@@ -41,6 +51,13 @@ Opt-in display option `axis_order` (CLI `--axis-order a,b,c`, G6 `cube_plan_view
 | `fixtures/o01_o10_materialized.json` | 10 synthetic vectors on the J-02 context (`scripts/materialize_o01_o10.py`) |
 | `scripts/run_vectors_o.py` | O-01…O-10 against the oracle, O-10 through the G6 API |
 | `tests/test_vp101.py` | 14 tests: oracle, byte identity without order, locale pins, kind groups, invalid orders, text-not-colour mark, ledger, G6, CLI |
+| `vpcells/statements.py`, `vpcells/matrix.py` | 0.11.0: `from-statements` (resolution, projection record) and the own matrix drawer |
+| `vpcells/locales/de-0110.json` | 0.11.0 texts in German, pinned (`LOCALE_PINNED_0110`) |
+| `oracles/independent_s01_s16.json` | 0.11.0 expectations, hand-derived before code (`91e1c57`); inputs in `docs/09-Research/statement-sets` |
+| `fixtures/regression_0101_digests.json` | SVG and report digests of 9 `0.10.1` outputs (`scripts/pin_0101_digests.py`) |
+| `fixtures/s01_s16_materialized.json` | 16 vectors with projection records from the pinned lunados.lib evaluator (`scripts/materialize_s01_s16.py`) |
+| `scripts/run_vectors_s.py` | S-01…S-16 against the oracle, S-16 through the G6 API |
+| `tests/test_vp110.py` | 17 tests: oracle, pins, locale files, input checks, projection record checks, read-not-recompute, audit, hiding, labels, order, G6, CLI |
 
 ## Run
 
@@ -51,9 +68,13 @@ python3 tests/test_vp10.py              # 24 tests
 python3 scripts/run_vectors_o.py        # 10/10 (VP-10.1)
 python3 scripts/pin_0100_digests.py     # 16/16 byte-identical
 python3 tests/test_vp101.py             # 14 tests
+python3 scripts/run_vectors_s.py        # 16/16 (0.11.0)
+python3 scripts/pin_0101_digests.py     # 9/9 byte-identical
+python3 tests/test_vp110.py             # 17 tests
 python3 -m vpcells from-plan --context ctx8.json --plan mp-dsm --predicate references --out in.json
 python3 -m vpcells print-cells --input in.json --hide-empty cols --locale de --out cells/
 python3 -m vpcells print-cells --input in.json --axis-order m:parser,m:resolver,m:validator,m:printer --out ordered/
+python3 -m vpcells from-statements --context ctx8.json --statements set.json [--projection record.json] [--predicate P] --out in.json
 ```
 
 ## Local results (2026-11-02)
@@ -63,6 +84,7 @@ python3 -m vpcells print-cells --input in.json --axis-order m:parser,m:resolver,
 - **Frozen layers:** `VP07_SHA256SUMS` and `VP09_SHA256SUMS` hold, and the pinned 0.9.0 and 0.9.1 outputs are byte-identical. The `vpaxes` suite passes, and so do the P1 suites including P1.12.
 - **Golden:** 4 marked, 3 checked, 2 unknown, 3 element and 4 hidden cells; column `m:printer` is hidden by name.
 - **Renders and reports:** `docs/10-Evidence/MILE-005/task035/`.
+- **VP-10 0.11.0 (MILE-007 TASK-046):** S-01…S-16 16/16; 0.10.0 16/16 and 0.10.1 9/9 byte-identical; 17 tests; renders in `docs/10-Evidence/MILE-007/task046/`.
 - **VP-10.1 (MILE-006 TASK-040):** O-01…O-10 10/10; the 16 pinned `0.10.0` outputs stay byte-identical; 14 tests; renders in `docs/10-Evidence/MILE-006/task040/`.
 
 ## Not part of VP-10

@@ -9,7 +9,8 @@ from xml.etree import ElementTree as ET
 
 from vpaxes.axes import AxesPrinter, GX0, GX1
 from vpaxes.common import BUDGET, HIDE_EMPTY, MUTED, INK, add, line, rect, text, fmt, no_active_content
-from .common import (PROFILE, PROFILE_101, BASE_PROFILE, REPORT_FORMAT, NS, NOT_EVALUATED, Texts, OrderTexts, need, sha_bytes, sha_json, cjson, wrap_sep)
+from .common import (PROFILE, PROFILE_101, BASE_PROFILE, REPORT_FORMAT, NS, NOT_EVALUATED, MATRIX_FORMAT, Texts, OrderTexts, need, sha_bytes, sha_json, cjson,
+                     wrap_sep)
 from .source import normalize
 
 CHECK_STROKE = '2.6'      # bold border: checked empty (non-colour attribute, CS-6)
@@ -335,6 +336,9 @@ class CellsPrinter:
 
 
 def render_cells(doc, rows='Y:referent', cols='Y:referent', granularity='standard', hide_empty=None, locale=None, axis_order=None):
+    if isinstance(doc, dict) and doc.get('format') == MATRIX_FORMAT:   # 0.11.0: a statement set; rows and cols are its home (Q-2)
+        from .matrix import render_matrix
+        return render_matrix(doc, granularity, hide_empty, locale, axis_order)
     p = CellsPrinter()
     pr = p.project(doc, rows, cols, granularity, hide_empty, locale, axis_order)
     svg, drawn = p.render(pr)

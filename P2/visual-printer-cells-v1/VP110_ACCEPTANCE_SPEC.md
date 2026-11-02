@@ -1,6 +1,6 @@
 # VP-10 0.11.0 — Statement sets and aggregated relations · Acceptance specification
 
-**Status:** SPECIFIED. MILE-007 decisions D-1…D-8 apply; detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). Not implemented.
+**Status:** SPECIFIED. MILE-007 decisions D-1…D-8 apply; detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). IMPLEMENTED locally 2026-11-02 (TASK-046): S-01…S-16 16/16, 0.10.0 16/16 and 0.10.1 9/9 byte-identical.
 **Profile:** `P2-VP-CELLS/0.11.0` in `vpcells`, a new input path next to `from-plan`. `0.10.0`, `0.10.1`, VP-09 and VP-07 stay byte-identical.
 **Requirement:** PO-7 (MILE-003 handover), G-03 (MILE-002 gap ledger); MILE-007 US-024, US-025, TASK-043…047.
 **Basis:**

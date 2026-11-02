@@ -5,8 +5,9 @@ import sys
 from pathlib import Path
 
 from vpaxes.common import load_json, publish_dir, write_new
-from .common import PROFILE, PROFILE_101, BASE_PROFILE, INPUT_FORMAT, LOCALE_PINNED, VP09Error, encode
+from .common import PROFILE, PROFILE_101, PROFILE_110, BASE_PROFILE, INPUT_FORMAT, MATRIX_FORMAT, LOCALE_PINNED, VP09Error, encode
 from .source import from_plan
+from .statements import from_statements
 from .cells import render_cells
 
 
@@ -15,8 +16,10 @@ def capabilities():
             'views': ['cube.cells'], 'pairs': [['Y:referent', 'Y:referent']], 'states': ['marked', 'checked', 'unknown', 'hidden'],
             'coverage_source': 'coverage_declarations of aiaeao.cube.binding-context/8 (P1.12), one predicate per view',
             'inputs': [INPUT_FORMAT], 'locales': ['en']+sorted(LOCALE_PINNED), 'hide_empty': ['rows', 'cols', 'both'],
-            'operations': ['capabilities', 'from-plan', 'check-cells', 'print-cells'],
+            'operations': ['capabilities', 'from-plan', 'from-statements', 'check-cells', 'print-cells'],
             'display_options': {'axis_order': f'optional list of Y display IDs (--axis-order a,b,c); selects {PROFILE_101}, without it {PROFILE}'},
+            'statement_sets': {'profile': PROFILE_110, 'operation': 'from-statements', 'input': MATRIX_FORMAT, 'pairs': [['Y:referent', 'Y:referent'], ['Z:referent', 'Z:referent']],
+                               'aggregation': 'reads a lunados.lib project.aggregate-relations/v1 record; never recomputes'},
             'transport': 'local_cli_only', 'network_api': False, 'mcp_tool': False, 'numeric_encoding': False,
             'projection_semantics': 'declared_unverified_display_only'}
 
@@ -30,6 +33,11 @@ def main(argv=None):
         fp.add_argument(a, required=True)
     for a in ('--tracks', '--track', '--labels', '--steps', '--subjects', '--layers'):
         fp.add_argument(a)
+    fs = s.add_parser('from-statements')
+    for a_ in ('--context', '--statements', '--out'):
+        fs.add_argument(a_, required=True)
+    fs.add_argument('--predicate')
+    fs.add_argument('--projection')
     for name in ('check-cells', 'print-cells'):
         x = s.add_parser(name)
         x.add_argument('--input', required=True)
@@ -55,6 +63,14 @@ def main(argv=None):
             c = doc['coverage']
             out.write(encode({'status': 'PASS', 'operation': 'from-plan', 'profile': PROFILE, 'input_file': str(target), 'predicate': c['predicate'],
                               'declarations': len(c['declarations']), 'ignored': len(c['ignored'])}))
+            return 0
+        if a.command == 'from-statements':
+            doc = from_statements(load_json(a.context, 'VP10_ADAPTER_INPUT'), load_json(a.statements, 'VP10_STATEMENT_SET_INVALID'), a.predicate,
+                                  load_json(a.projection, 'VP10_PROJECTION_INVALID') if a.projection else None)
+            target = Path(a.out)
+            write_new(target, encode(doc))
+            out.write(encode({'status': 'PASS', 'operation': 'from-statements', 'profile': PROFILE_110, 'input_file': str(target),
+                              'predicate': doc['predicate'], 'entries': len(doc['entries']), 'aggregated': doc['aggregation'] is not None}))
             return 0
         order = a.axis_order.split(',') if a.axis_order is not None else None
         report, svg = render_cells(load_json(a.input, 'VP10_SOURCE_INVALID'), a.rows, a.cols, a.granularity, a.hide_empty, a.locale, order)
