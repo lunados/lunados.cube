@@ -1,6 +1,6 @@
 # VP-10.1 — Declared axis order and feedback reading · Acceptance specification
 
-**Status:** DRAFT. MILE-006 decisions D-4 and D-5 apply. Detail questions Q-1…Q-6 are open, each with a proposal (§6). Not implemented.
+**Status:** SPECIFIED. MILE-006 decisions D-4 and D-5 apply; detail questions Q-1…Q-6 resolved 2026-11-02 (all as proposed). Not implemented.
 **Profile:** `P2-VP-CELLS/0.10.1`, follow-up to `0.10.0` in `vpcells`; opt-in (Q-2). `0.10.0`, VP-09 and VP-07 stay byte-identical.
 **Requirement:** PO-5 (MILE-003 handover); MILE-006 US-022, TASK-039/040.
 **Basis:**
@@ -72,18 +72,18 @@ The base is the R-1 DSM plan as `/8` (as in VP-10), with the pair declaration (p
 |---|---|---|
 | O-01 | order parser, resolver, validator, printer | rows and columns in that order; feedback on parser → validator only |
 | O-02 | order printer, validator, resolver, parser (reversed) | feedback on resolver → parser, validator → resolver, printer → validator |
-| O-03 | no `axis_order` | byte-identical to 0.10.0 |
+| O-03 | no `axis_order` (the J-02 input) | byte-identical to the pinned 0.10.0 output |
 | O-04 | partial order parser, validator | resolver and printer follow in previous order, marked unordered; `VP10_ORDER_PARTIAL` |
 | O-05 | duplicate entry | `VP10_ORDER_INVALID` |
 | O-06 | unknown entry `m:lexer` | ignored; `VP10_ORDER_NOT_IN_VIEW` |
 | O-07 | O-01 with `--hide-empty cols` | printer hidden; order of the rest unchanged |
-| O-08 | O-01 plus `d-pp` printer → parser (recovers-via) | no feedback mark on the other-predicate entry |
-| O-09 | O-01, `--locale de` | `Rückkopplung`, `nicht geordnet`, German legend |
+| O-08 | O-01 plus `d-rv` resolver → validator (recovers-via), above the diagonal | no feedback mark on the other-predicate entry (Q-6) |
+| O-09 | O-04, `--locale de` | `Rückkopplung`, `nicht geordnet`, German legend |
 | O-10 | O-01 through G6 `cube_plan_views` + `cube_plan_check` | same SVG as the CLI; check PASS |
 
-## 6. Detail questions (open; proposal in bold)
+## 6. Detail questions (resolved 2026-11-02, all as proposed)
 
-| Question | Options | Proposal | Reason |
+| Question | Options | Resolution | Reason |
 |---|---|---|---|
 | Q-1 Where the order lives | (a) display option of `print-cells` / G6, like `hide_empty` · (b) in the VP-10 input via `from-plan` · (c) new field in the `/8` context | **(a)** | Order is a reading aid, not a statement about the model. (c) would change P1.12, (b) the input format. |
 | Q-2 Profile switch | (a) giving `axis_order` switches to 0.10.1; without it 0.10.0, byte-identical · (b) explicit `--profile` | **(a)** | No extra parameter; the pins prove that nothing changes without the option. |
