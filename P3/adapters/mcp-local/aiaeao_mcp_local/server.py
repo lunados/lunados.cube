@@ -102,27 +102,30 @@ def cube_discover_surface() -> CallToolResult:
 # CP-001 / G6: VP-07, VP-08, VP-09 and VP-10 plan views in memory; the view selects the printer (local stdio only).
 @mcp.tool()
 def cube_plan_source(
-    context: dict[str, Any], plan_id: str | None, printer: Literal['vpmigration','vpaxes','vpcells','vpsequence'],
+    context: dict[str, Any], plan_id: str | None, printer: Literal['vpmigration','vpaxes','vpcells','vpinstances','vpsequence'],
     track_map: dict[str, Any] | None=None, track: str | None=None, labels: dict[str, Any] | None=None,
     layers: dict[str, Any] | None=None, witness_prefixes: dict[str, Any] | None=None,
     edge_styles: list[dict[str, Any]] | None=None, steps: str | None=None, subjects: list[str] | None=None,
     profile: str | None=None, predicate: str | None=None,
     statements: dict[str, Any] | None=None, projection: dict[str, Any] | None=None,
+    records: list[dict[str, Any]] | None=None,
 ) -> CallToolResult:
     """Derive a VP-07 migration source, VP-09 axes input or VP-10 cells input from a binding context, exactly as CLI from-plan.
     vpcells needs predicate (one per view) and reads coverage from binding-context/8.
     vpcells 0.11.0: plan_id null plus statements (aiaeao.cube.statement-set/1), optionally a projection record of
     lunados.lib project.aggregate-relations/v1; the aggregation is read, never recomputed.
+    vpinstances (VP-11): a binding-context/9, plan_id null, statements = the trace, optional records
+    (aiaeao.cube.conformance-record/1 of lunados.lib analyze.trace-conformance/v1); verdicts are read, never recomputed.
     vpsequence is not supported (VP-08 sources are declared directly). No files; declared_unverified.
     """
     return _result(plan_views.plan_source, context, plan_id, printer, tracks=track_map, track=track, labels=labels,
                    layers=layers, witness_prefixes=witness_prefixes, edge_styles=edge_styles, steps=steps,
-                   subjects=subjects, profile=profile, predicate=predicate, statements=statements, projection=projection)
+                   subjects=subjects, profile=profile, predicate=predicate, statements=statements, projection=projection, records=records)
 
 
 @mcp.tool()
 def cube_plan_views(
-    source: dict[str, Any], view: Literal['cube.phases','cube.flow','cube.sequence','cube.axes','cube.cells'],
+    source: dict[str, Any], view: Literal['cube.phases','cube.flow','cube.sequence','cube.axes','cube.cells','cube.instances'],
     granularity: Literal['overview','standard','detail'], partition: str | None=None,
     rows: str | None=None, cols: str | None=None, lens: str | None=None,
     overflow: Literal['summarize','reject'] | None=None, locale: str | None=None,
@@ -135,6 +138,7 @@ def cube_plan_views(
     partition 'method-sets' (VP-07.5); locale and hide_empty for cube.axes, rows/cols Y × Y (VP-09.2).
     cube.cells (VP-10): Y × Y cell states (marked, checked, unknown, hidden) from declared coverage; locale, hide_empty.
     axis_order (cube.cells only, VP-10.1): declared order of the Y display IDs; marks entries above the diagonal as feedback.
+    cube.instances (VP-11): a declared trace per instance, taken paths and join inputs; verdicts from lunados.lib records; locale.
     """
     return _result(plan_views.plan_views, source, view, granularity, partition=partition, rows=rows, cols=cols,
                    lens=lens, overflow=overflow, locale=locale, hide_ledger=hide_ledger or None, hide_empty=hide_empty,

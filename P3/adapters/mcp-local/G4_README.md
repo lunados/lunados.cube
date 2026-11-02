@@ -31,6 +31,10 @@ This is one **self-contained P3 overlay** that supersedes the sequence P3 0.1.1 
 
 `cube_validate` dispatches `aiaeao.cube.binding-context/9` explicitly to P1.13 (`P1/control-flow-profile-v1`). The profile adds a declared control flow (exclusive and parallel gateways, flows, condition order, default) and binds routing and on-flow statements to it; `/9` is projected to `/8` and checked by P1.12 unchanged. The envelope adds `control_flow_profile: P1.13/control-flow-profile-v1`, `trace_evaluation_by_cube: false` and `condition_evaluation_by_cube: false`. The trace check per instance is lunados.lib `analyze.trace-conformance/v1`. Local validation discovery lists `/9` with entry profile P1.13. A missing module fails closed with `P1_MCP_P113_UNAVAILABLE`. The tool list is unchanged; G5 does not stage P1.13 (MILE-008 D-7).
 
+## cube.instances (VP-11, MILE-009)
+
+`cube_plan_source` with `printer: vpinstances`, `plan_id: null`, `statements` (the trace, `aiaeao.cube.statement-set/1` for a `binding-context/9`) and an optional `records` list (`aiaeao.cube.conformance-record/1` of lunados.lib `analyze.trace-conformance/v1`) returns the VP-11 input; `cube_plan_views` with view `cube.instances` draws it (option `locale`; `granularity` is accepted and has no effect); `cube_plan_check` re-renders it. Records are checked against context and trace and read, never recomputed. The output is byte-identical to the CLI `python3 -m vpinstances`. The discovery lists `vpinstances` with `P2-VP-INSTANCES/0.12.0`. Local only; G5 does not stage plan views (MILE-009 D-7).
+
 ## Zero semantic promotion
 
 P0 source integrity is not truth. P1 semantic status is not authority or admission. P2 render success is not P1 status or source evidence. MCP connection success is not a semantic outcome. No automatic ACG → VP-03 conversion, external network access, remote MCP or WebMCP is included.

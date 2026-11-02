@@ -1,0 +1,158 @@
+{
+ "head": "5bd1037",
+ "main_base": "1f1059b",
+ "note": "HEAD vor dem Abschluss-Commit; Statusänderungen dieses Commits liegen im Arbeitsbaum.",
+ "order": {
+  "items": [
+   {
+    "file": "docs/02-Milestones/MILE-009-instance-view.md",
+    "what": "Entscheidungen D-1–D-8 vor der Spezifikation",
+    "expectation": "25133a0",
+    "code": "0b5b114",
+    "before_code": true,
+    "unchanged_since": null
+   },
+   {
+    "file": "P2/visual-printer-instances-v1/oracles/independent_i01_i34.json",
+    "what": "Orakel vor dem Printer-Code",
+    "expectation": "e842081",
+    "code": "ba33c79",
+    "before_code": true,
+    "unchanged_since": true
+   },
+   {
+    "file": "P2/visual-printer-instances-v1/fixtures/i01_i34_materialized.json",
+    "what": "Vektoren vor dem Printer-Code",
+    "expectation": "e842081",
+    "code": "ba33c79",
+    "before_code": true,
+    "unchanged_since": true
+   },
+   {
+    "file": "P2/visual-printer-instances-v1/fixtures/regression_vp10_0110_digests.json",
+    "what": "Pins VP-10 0.11.0 vor der G6-Änderung",
+    "expectation": "e842081",
+    "code": "bf678a9",
+    "before_code": true,
+    "unchanged_since": true
+   }
+  ],
+  "spec_draft_before_decisions_before_vectors": true,
+  "issues": 0
+ },
+ "runs": {
+  "vp11_vectors": {
+   "exit": 0,
+   "tail": [
+    "34/34 match"
+   ]
+  },
+  "vp11_tests": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "vp10_0110_pins": {
+   "exit": 0,
+   "tail": [
+    "15/15 byte-identical"
+   ]
+  },
+  "vp10_s_vectors": {
+   "exit": 0,
+   "tail": [
+    "16/16 match"
+   ]
+  },
+  "vp10_0101_pins": {
+   "exit": 0,
+   "tail": [
+    "9/9 byte-identical"
+   ]
+  },
+  "vp10_0100_pins": {
+   "exit": 0,
+   "tail": [
+    "16/16 byte-identical"
+   ]
+  },
+  "adapter_mile005_009": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "adapter_p1_validation": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "adapter_g6_without_vectors": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  },
+  "adapter_g6_contract": {
+   "exit": 0,
+   "tail": [
+    "OK"
+   ]
+  }
+ },
+ "visual_check": {
+  "answers": "1–5 ja",
+  "recorded": true
+ },
+ "layers": {
+  "frozen_unchanged_since_main": true,
+  "frozen_worktree_unchanged": true,
+  "changed_outside_docs": [
+   "P2/visual-printer-instances-v1/README.md",
+   "P2/visual-printer-instances-v1/VP11_ACCEPTANCE_SPEC.md",
+   "P2/visual-printer-instances-v1/fixtures/i01_i34_materialized.json",
+   "P2/visual-printer-instances-v1/fixtures/regression_vp10_0110_digests.json",
+   "P2/visual-printer-instances-v1/oracles/independent_i01_i34.json",
+   "P2/visual-printer-instances-v1/scripts/materialize_i01_i34.py",
+   "P2/visual-printer-instances-v1/scripts/pin_vp10_0110_digests.py",
+   "P2/visual-printer-instances-v1/scripts/run_vectors.py",
+   "P2/visual-printer-instances-v1/scripts/write_oracle_i01_i34.py",
+   "P2/visual-printer-instances-v1/tests/test_vp11.py",
+   "P2/visual-printer-instances-v1/vpinstances/__init__.py",
+   "P2/visual-printer-instances-v1/vpinstances/__main__.py",
+   "P2/visual-printer-instances-v1/vpinstances/api.py",
+   "P2/visual-printer-instances-v1/vpinstances/common.py",
+   "P2/visual-printer-instances-v1/vpinstances/locales/de.json",
+   "P2/visual-printer-instances-v1/vpinstances/trace.py",
+   "P2/visual-printer-instances-v1/vpinstances/view.py",
+   "P3/adapters/mcp-local/G4_README.md",
+   "P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py",
+   "P3/adapters/mcp-local/aiaeao_mcp_local/server.py",
+   "P3/adapters/mcp-local/tests/test_mile009_instances.py"
+  ],
+  "sha256sums": {
+   "AIAEAO_Pure_Cube_P0_v9.4/SHA256SUMS.txt": true,
+   "P1/contract-v1/SHA256SUMS.txt": true,
+   "P1/migration-methods-v1/SHA256SUMS.txt": true,
+   "P1/migration-profile-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/SHA256SUMS.txt": true,
+   "P1/semantic-validator-v1/baseline/P1_1_Contract_Freeze/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP02_SHA256SUMS.txt": true,
+   "P2/visual-printer-2d-lab/VP03_SHA256SUMS.txt": true,
+   "P2/visual-printer-axes-v1/VP09_SHA256SUMS.txt": true,
+   "P2/visual-printer-conformance-v1/VP05_SHA256SUMS.txt": true,
+   "P2/visual-printer-granularity-v1/VP04_SHA256SUMS.txt": true,
+   "P2/visual-printer-migration-v1/VP07_SHA256SUMS.txt": true,
+   "P2/visual-printer-release-v1/VP06_SHA256SUMS.txt": true,
+   "P2/visual-printer-sequence-v1/VP08_SHA256SUMS.txt": true,
+   "P3/public-reference-mcp/SHA256SUMS.txt": true,
+   "P3/remote-mcp-g5/SHA256SUMS.txt": true
+  }
+ },
+ "broken_links": 0,
+ "broken_link_list": [],
+ "all_ok": true
+}

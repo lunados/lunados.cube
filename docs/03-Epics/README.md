@@ -9,8 +9,9 @@
 | [EPIC-006](EPIC-006-remote-and-readability.md) | Remote nutzbar und lesbar | MILE-006; abgeschlossen |
 | [EPIC-007](EPIC-007-statement-sets.md) | Aussagenmengen darstellen und verdichten | MILE-007; abgeschlossen |
 | [EPIC-008](EPIC-008-control-flow.md) | Kontrollfluss und Spurkonformität | MILE-008; abgeschlossen |
+| [EPIC-009](EPIC-009-instance-view.md) | Instanzsicht | MILE-009; abgeschlossen |
 
-Die IDs bleiben stabil; Reihenfolge folgt der Roadmap. EPIC-001 bis EPIC-008 sind abgeschlossen.
+Die IDs bleiben stabil; Reihenfolge folgt der Roadmap. EPIC-001 bis EPIC-009 sind abgeschlossen.
 
 
 Abgeschlossen: [EPIC-004 — Quellengebundene Vergleichsfälle](EPIC-004-source-bound-comparison-cases.md) für MILE-002-A. Der bestehende EPIC-001 trägt MILE-002-B/C und bleibt Eigentümer der anschließenden Lernanalyse.
