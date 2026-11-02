@@ -10,6 +10,7 @@ from cube_semantic.validator import SemanticValidator as FrozenValidator, join, 
 from cube_parser.parser import parse_result
 from cube_resolver.resolver import Resolver
 from cube_p111.validator import P111Validator
+from cube_p110.migration import imported_contracts
 from cube_p112.coverage import FORMAT8, INSTANCE_CONCEPT, covering, decl_refs, project_v7, rule_refs, validate_context_v8
 
 PROFILE = 'P1.12/coverage-instance-profile-v1'
@@ -50,6 +51,7 @@ class P112Validator:
         refs = {r['ref']: r for r in ctx.get('referents', [])}
         scope = ctx.get('scope_ref')
         preds = {p['predicate_id'] for p in ctx.get('predicate_contracts', []) if p.get('scope') == scope}
+        preds |= {p['predicate_id'] for p in imported_contracts(ctx)}  # P1.10 profile predicates, scoped to scope_ref on import (PP-5)
         bad_instance = set()
         for i, r in enumerate(ctx.get('referents', [])):
             if 'instance_ref' in r:

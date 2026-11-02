@@ -216,6 +216,20 @@ class Coverage(unittest.TestCase):
         d = VEC['K-14']['context']['coverage_declarations'][:1]
         self.assertEqual(covering(VEC['K-14']['context']['population_rules'][0], d), [])
 
+    def test_imported_profile_predicate_resolves(self):
+        """Q-4: a predicate imported through predicate_profile_refs (P1.10) is declared; a declaration on it resolves."""
+        c = json.loads((ROOT.parent/'docs/09-Research/visual-check/renders/R-1.json').read_text())
+        ctx = copy.deepcopy(c['context']); ctx['format'] = 'aiaeao.cube.binding-context/8'
+        ctx['coverage_declarations'] = [{'declaration_id': 'cv-pp', 'scope': 'pair', 'subject': 'm:printer', 'predicate_id': 'references',
+                                         'object': 'm:parser', 'witness_ref': 'synthetic:survey'}]
+        ctx['population_rules'] = [{'rule_id': 'pr-pp', 'kind': 'absence', 'subject': 'm:printer', 'predicate_id': 'references',
+                                    'object': 'm:parser', 'witness_ref': 'synthetic:rule'}]
+        t = 'rel("references",Y:α:Resource["m:resolver"],Y:α:Resource["m:parser"])'
+        r = V.validate_bytes(t.encode(), context=ctx)
+        self.assertEqual((r['overall_status'], codes(r)), ('PASS', []))
+        ctx['coverage_declarations'][0]['predicate_id'] = 'depends-on-nothing'
+        self.assertIn('P1_BINDING_CONTEXT_REQUIRED', codes(V.validate_bytes(t.encode(), context=ctx)))
+
     def test_no_inference_from_statements(self):
         """CV-5: a statement set never creates coverage; K-12 has two statements and its coverage comes only from the declaration."""
         c = k('K-12'); c['context']['coverage_declarations'] = []
