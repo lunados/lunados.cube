@@ -1,11 +1,11 @@
 # Tasks — show-instance-view
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-053 erledigt (Spezifikation VP-11, Q-1–Q-10 nach Vorschlag); TASK-054 offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-053 erledigt (Spezifikation VP-11, Q-1–Q-10 nach Vorschlag); TASK-054 erledigt (Vektoren I-01–I-34, Orakel und Pins vor Code); Charge A abgeschlossen, TASK-055 offen.
 
 ## A — Spezifikation und Prüffälle
 
 - [x] 1. [TASK-053 — Spezifikation und Detailfragen](../../../docs/05-Tasks/TASK-053-vp11-spec.md)
-- [ ] 2. [TASK-054 — Prüffälle, Orakel und Pins](../../../docs/05-Tasks/TASK-054-vp11-cases.md)
+- [x] 2. [TASK-054 — Prüffälle, Orakel und Pins](../../../docs/05-Tasks/TASK-054-vp11-cases.md)
 
 ## B — Printer
 

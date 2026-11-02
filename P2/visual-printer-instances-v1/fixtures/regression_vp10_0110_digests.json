@@ -1,0 +1,61 @@
+{
+ "cases": {
+  "S-01": {
+   "report_sha256": "afeace98ad9521900035dd1cacffe842dd400997df4423a1b281caf1334f50a9",
+   "svg_sha256": "77dacf2b574036db95859a8e3825bc763f5d98844fe5a8658a7d720df0c4e3cf"
+  },
+  "S-02": {
+   "report_sha256": "1c0f039bce3721d7ddea3a7ec075a4b1db576aca80798af87e15855bd2f11b38",
+   "svg_sha256": "d6c1c6d53cf6e8d99b8dabc87ba3b27048e8cbd4d1042df2f82c4f56b92d36ba"
+  },
+  "S-03": {
+   "report_sha256": "66767a2715f22799c07240b1e3ea9cc8f677b36fda461aba0c4f020fac270ac3",
+   "svg_sha256": "79d0b3503bc562c2325438c43ae25e1575de7578a8ec5995616b33f5c1cc9942"
+  },
+  "S-04": {
+   "report_sha256": "37a8556bc20c13da61ffd4869f63f931326c7e95c25f4c6304110f7632e834c8",
+   "svg_sha256": "c67f136cf3fc927ed44a1a2634894ea9e7a7b0b426765882c3a17a7e9010260b"
+  },
+  "S-05": {
+   "report_sha256": "2f2bc1cec78c3245642032822eb6362e89440b1fa6cb74c0290921583d4579d4",
+   "svg_sha256": "d361dd2795e01addc29bc8a88989ef8cb32007ad9a40efa54660b2a2e0a942fe"
+  },
+  "S-06": {
+   "report_sha256": "742b65ebec94b2f55cee321a416f6c3d5562b236a0103f46b0d90d707d337c49",
+   "svg_sha256": "2f81073154661b6cbf1ef66279b6b1a5da95a0613c06408d465d5eb2f9d9da92"
+  },
+  "S-07": {
+   "error": "VP10_STATEMENT_REF_UNKNOWN"
+  },
+  "S-08": {
+   "error": "VP10_STATEMENT_PREDICATE_INVALID"
+  },
+  "S-09": {
+   "error": "VP10_STATEMENT_SET_INVALID"
+  },
+  "S-10": {
+   "error": "VP10_STATEMENT_SET_INVALID"
+  },
+  "S-11": {
+   "error": "VP10_PAIR_INVALID"
+  },
+  "S-12": {
+   "error": "VP10_PROJECTION_INVALID"
+  },
+  "S-13": {
+   "report_sha256": "0f075d96d6fc4687d99429d6a4a1d159729a7736cad7fb87452eb12a71168f4f",
+   "svg_sha256": "5f076dd07594aa59a24dce71f98556b124b968681bc5977a195029debba8c655"
+  },
+  "S-14": {
+   "report_sha256": "60a2765e30f1a599bd5664ff4b330809e70fe4aaa3fd4d86fd66c9c21f8d3b53",
+   "svg_sha256": "e965c7dc199aaff7e91cab1a73992fe60535a3924319631a1b27ef93295c38d0"
+  },
+  "S-15": {
+   "report_sha256": "62d0416833eeb84e8a3be569c752829ffd67e27a6d0a44afd10060270f660050",
+   "svg_sha256": "6f138a201dc9b8953e1fda732eb072d34a72c24d2fca3225f97a9fdd490163fb"
+  }
+ },
+ "format": "aiaeao.p2.vp10-regression-digests/1",
+ "pinned_before": "the VP-11 G6 change (VP11-01, TASK-054)",
+ "profile": "P2-VP-CELLS/0.11.0"
+}

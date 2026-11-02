@@ -1,0 +1,1366 @@
+{
+ "format": "aiaeao.p2.vp11-oracle/1",
+ "profile": "P2-VP-INSTANCES/0.12.0",
+ "written_before": "any VP-11 printer code (TASK-054)",
+ "frame_titles": {
+  "en": "instance <ref>",
+  "de": "Instanz <ref>",
+  "undeclared_en": "instance undeclared",
+  "undeclared_de": "Instanz nicht deklariert"
+ },
+ "model_title": {
+  "en": "process model · no trace",
+  "de": "Prozessmodell · keine Spur"
+ },
+ "cases": [
+  {
+   "id": "I-01",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · not taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "exclusive: checked · one path"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-02",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "exclusive: rule violation · more than one path for one activation · paths bpmn:approve-auto, bpmn:approve-manual"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 1
+  },
+  {
+   "id": "I-03",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · not taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · not taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "exclusive: rule violation · no path"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 1
+  },
+  {
+   "id": "I-04",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · not taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "exclusive: not checkable · coverage missing · undeclared bpmn:i1/tok-route routedTo outgoing bpmn:i1"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-05",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · not taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "condition order: checked · first true condition taken · taken bpmn:f-manual"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-06",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · not taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "condition order: checked · default without true condition · taken bpmn:f-auto"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-07",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · not taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "condition order: rule violation · default although a condition was true · taken bpmn:f-auto · first true bpmn:f-manual"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 1
+  },
+  {
+   "id": "I-08",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · not taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "condition order: not checkable · condition outcomes not recorded"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-09",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · not taken",
+     "bpmn:f-review → bpmn:approve-review · order 2 · taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · not taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "condition order: rule violation · not the first true condition · taken bpmn:f-review · first true bpmn:f-manual"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-review → bpmn:approve-review · order 2",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 1
+  },
+  {
+   "id": "I-10",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:join": [
+     "bpmn:f-stock-done · arrived · bpmn:i1/tok-stock",
+     "bpmn:f-credit-done · arrived · bpmn:i1/tok-credit",
+     "bpmn:f-ship → bpmn:ship · token bpmn:i1/tok-ship"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:join": [
+     "join: checked · all inputs"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-11",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i2"
+   ],
+   "blocks": {
+    "bpmn:i2": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i2|bpmn:join": [
+     "bpmn:f-stock-done · missing",
+     "bpmn:f-credit-done · arrived · bpmn:i2/tok-credit",
+     "bpmn:f-ship → bpmn:ship · token bpmn:i2/tok-ship"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i2|bpmn:join": [
+     "join: rule violation · continued without all inputs · missing bpmn:f-stock-done"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 1
+  },
+  {
+   "id": "I-12",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i2"
+   ],
+   "blocks": {
+    "bpmn:i2": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i2|bpmn:join": [
+     "bpmn:f-stock-done · missing",
+     "bpmn:f-credit-done · arrived · bpmn:i2/tok-credit",
+     "bpmn:f-ship → bpmn:ship · no token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i2|bpmn:join": [
+     "join: checked · waiting · missing bpmn:f-stock-done"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-13",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i2"
+   ],
+   "blocks": {
+    "bpmn:i2": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i2|bpmn:join": [
+     "bpmn:f-stock-done · missing",
+     "bpmn:f-credit-done · arrived · bpmn:i2/tok-credit",
+     "bpmn:f-ship → bpmn:ship · no token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i2|bpmn:join": [
+     "join: not checkable · coverage missing · undeclared bpmn:f-stock-done onFlow incoming bpmn:i2, bpmn:f-credit-done onFlow incoming bpmn:i2, bpmn:f-ship onFlow incoming bpmn:i2"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-14",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1",
+    "bpmn:i2"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:join · parallel join"
+    ],
+    "bpmn:i2": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:join": [
+     "bpmn:f-stock-done · arrived · bpmn:i1/tok-stock",
+     "bpmn:f-credit-done · missing · token of instance bpmn:i2 present · not part (bpmn:i2/tok-credit)",
+     "bpmn:f-ship → bpmn:ship · token bpmn:i1/tok-ship"
+    ],
+    "bpmn:i2|bpmn:join": [
+     "bpmn:f-stock-done · missing · token of instance bpmn:i1 present · not part (bpmn:i1/tok-stock)",
+     "bpmn:f-credit-done · arrived · bpmn:i2/tok-credit",
+     "bpmn:f-ship → bpmn:ship · no token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:join": [
+     "join: rule violation · continued without all inputs · missing bpmn:f-credit-done · foreign bpmn:i2/tok-credit"
+    ],
+    "bpmn:i2|bpmn:join": [
+     "not checked"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 1
+  },
+  {
+   "id": "I-15",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:join": [
+     "bpmn:f-stock-done · arrived · bpmn:i1/tok-stock, bpmn:i1/tok-stock-2",
+     "bpmn:f-credit-done · arrived · bpmn:i1/tok-credit",
+     "bpmn:f-ship → bpmn:ship · token bpmn:i1/tok-ship"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:join": [
+     "join: checked · all inputs · excess bpmn:f-stock-done 1"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-16",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:merge · exclusive merge",
+     "bpmn:split · parallel split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:merge": [
+     "bpmn:f-manual-done · no token",
+     "bpmn:f-auto-done · no token",
+     "bpmn:f-approved → bpmn:split · token bpmn:i1/tok-approved"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "bpmn:f-approved · token bpmn:i1/tok-approved",
+     "bpmn:f-stock → bpmn:check-stock · token bpmn:i1/tok-s",
+     "bpmn:f-credit → bpmn:check-credit · token bpmn:i1/tok-c"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:merge": [
+     "not checked"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "split: checked · all outputs"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-17",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:merge · exclusive merge",
+     "bpmn:split · parallel split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:merge": [
+     "bpmn:f-manual-done · no token",
+     "bpmn:f-auto-done · no token",
+     "bpmn:f-approved → bpmn:split · token bpmn:i1/tok-approved"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "bpmn:f-approved · token bpmn:i1/tok-approved",
+     "bpmn:f-stock → bpmn:check-stock · token bpmn:i1/tok-s",
+     "bpmn:f-credit → bpmn:check-credit · no token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:merge": [
+     "not checked"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "split: rule violation · not all outputs · missing bpmn:f-credit"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 1
+  },
+  {
+   "id": "I-18",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:merge · exclusive merge",
+     "bpmn:split · parallel split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:merge": [
+     "bpmn:f-manual-done · token bpmn:i1/tok-md",
+     "bpmn:f-auto-done · no token",
+     "bpmn:f-approved → bpmn:split · token bpmn:i1/tok-approved"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "bpmn:f-approved · token bpmn:i1/tok-approved",
+     "bpmn:f-stock → bpmn:check-stock · no token",
+     "bpmn:f-credit → bpmn:check-credit · no token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:merge": [
+     "merge: checked · passed through"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "not checked"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-19",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · taken"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "not checked"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-20",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i2"
+   ],
+   "blocks": {
+    "bpmn:i2": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i2|bpmn:join": [
+     "bpmn:f-stock-done · missing",
+     "bpmn:f-credit-done · arrived · bpmn:i2/tok-credit",
+     "bpmn:f-ship → bpmn:ship · no token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i2|bpmn:join": [
+     "not checked"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-21",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1",
+    "bpmn:i2"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:join · parallel join"
+    ],
+    "bpmn:i2": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:join": [
+     "bpmn:f-stock-done · arrived · bpmn:i1/tok-stock",
+     "bpmn:f-credit-done · missing · token of instance bpmn:i2 present · not part (bpmn:i2/tok-credit)",
+     "bpmn:f-ship → bpmn:ship · token bpmn:i1/tok-ship"
+    ],
+    "bpmn:i2|bpmn:join": [
+     "bpmn:f-stock-done · missing · token of instance bpmn:i1 present · not part (bpmn:i1/tok-stock)",
+     "bpmn:f-credit-done · arrived · bpmn:i2/tok-credit",
+     "bpmn:f-ship → bpmn:ship · no token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:join": [
+     "not checked"
+    ],
+    "bpmn:i2|bpmn:join": [
+     "not checked"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-22",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1",
+    "bpmn:i2"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exclusive split",
+     "bpmn:merge · exclusive merge",
+     "bpmn:split · parallel split",
+     "bpmn:join · parallel join"
+    ],
+    "bpmn:i2": [
+     "bpmn:xor · exclusive split",
+     "bpmn:merge · exclusive merge",
+     "bpmn:split · parallel split",
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "activation bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · not taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · taken"
+    ],
+    "bpmn:i1|bpmn:merge": [
+     "bpmn:f-manual-done · no token",
+     "bpmn:f-auto-done · token bpmn:i1/tok-ad",
+     "bpmn:f-approved → bpmn:split · token bpmn:i1/tok-ap"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "bpmn:f-approved · token bpmn:i1/tok-ap",
+     "bpmn:f-stock → bpmn:check-stock · token bpmn:i1/tok-s",
+     "bpmn:f-credit → bpmn:check-credit · token bpmn:i1/tok-c"
+    ],
+    "bpmn:i1|bpmn:join": [
+     "bpmn:f-stock-done · arrived · bpmn:i1/tok-sd",
+     "bpmn:f-credit-done · arrived · bpmn:i1/tok-cd",
+     "bpmn:f-ship → bpmn:ship · token bpmn:i1/tok-ship"
+    ],
+    "bpmn:i2|bpmn:xor": [
+     "activation bpmn:i2/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · order 1 · taken",
+     "bpmn:f-auto → bpmn:approve-auto · default · not taken"
+    ],
+    "bpmn:i2|bpmn:merge": [
+     "bpmn:f-manual-done · token bpmn:i2/tok-md",
+     "bpmn:f-auto-done · no token",
+     "bpmn:f-approved → bpmn:split · token bpmn:i2/tok-ap"
+    ],
+    "bpmn:i2|bpmn:split": [
+     "bpmn:f-approved · token bpmn:i2/tok-ap",
+     "bpmn:f-stock → bpmn:check-stock · token bpmn:i2/tok-s",
+     "bpmn:f-credit → bpmn:check-credit · token bpmn:i2/tok-c"
+    ],
+    "bpmn:i2|bpmn:join": [
+     "bpmn:f-stock-done · missing · token of instance bpmn:i1 present · not part (bpmn:i1/tok-sd)",
+     "bpmn:f-credit-done · arrived · bpmn:i2/tok-cd",
+     "bpmn:f-ship → bpmn:ship · no token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "exclusive: checked · one path",
+     "condition order: checked · default without true condition · taken bpmn:f-auto"
+    ],
+    "bpmn:i1|bpmn:merge": [
+     "merge: checked · passed through"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "split: checked · all outputs"
+    ],
+    "bpmn:i1|bpmn:join": [
+     "join: checked · all inputs · foreign bpmn:i2/tok-cd"
+    ],
+    "bpmn:i2|bpmn:xor": [
+     "not checked"
+    ],
+    "bpmn:i2|bpmn:merge": [
+     "not checked"
+    ],
+    "bpmn:i2|bpmn:split": [
+     "not checked"
+    ],
+    "bpmn:i2|bpmn:join": [
+     "join: checked · waiting · missing bpmn:f-stock-done · foreign bpmn:i1/tok-cd, bpmn:i1/tok-sd"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-23",
+   "status": "error",
+   "code": "VP11_ADAPTER_INPUT"
+  },
+  {
+   "id": "I-24",
+   "status": "error",
+   "code": "VP11_TRACE_INVALID"
+  },
+  {
+   "id": "I-25",
+   "status": "error",
+   "code": "VP11_TRACE_REF_UNKNOWN"
+  },
+  {
+   "id": "I-26",
+   "status": "error",
+   "code": "VP11_TRACE_PREDICATE_INVALID"
+  },
+  {
+   "id": "I-27",
+   "status": "error",
+   "code": "VP11_RECORD_INVALID"
+  },
+  {
+   "id": "I-28",
+   "status": "error",
+   "code": "VP11_RECORD_MISMATCH"
+  },
+  {
+   "id": "I-29",
+   "status": "error",
+   "code": "VP11_RECORD_DUPLICATE"
+  },
+  {
+   "id": "I-30",
+   "status": "error",
+   "code": "VP11_RECORD_INVALID"
+  },
+  {
+   "id": "I-31",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i1",
+    "-"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:join · parallel join"
+    ],
+    "-": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:join": [
+     "bpmn:f-stock-done · arrived · bpmn:i1/tok-stock",
+     "bpmn:f-credit-done · arrived · bpmn:i1/tok-credit",
+     "bpmn:f-ship → bpmn:ship · token bpmn:i1/tok-ship"
+    ],
+    "-|bpmn:join": [
+     "bpmn:f-stock-done · missing",
+     "bpmn:f-credit-done · missing",
+     "bpmn:f-ship → bpmn:ship · token bpmn:tok-loose"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:join": [
+     "not checked"
+    ],
+    "-|bpmn:join": [
+     "not checked"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [
+    "VP11_INSTANCE_UNDECLARED",
+    "VP11_STATEMENT_NOT_DRAWN"
+   ],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-32",
+   "status": "ok",
+   "locale": "en",
+   "frames": [
+    "bpmn:i2"
+   ],
+   "blocks": {
+    "bpmn:i2": [
+     "bpmn:join · parallel join"
+    ]
+   },
+   "rows": {
+    "bpmn:i2|bpmn:join": [
+     "bpmn:f-stock-done · missing",
+     "bpmn:f-credit-done · arrived · bpmn:i2/tok-credit",
+     "bpmn:f-ship → bpmn:ship · no token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i2|bpmn:join": [
+     "not checked"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship",
+    "bpmn:or · inclusive · not drawn"
+   ],
+   "warnings": [
+    "VP11_GATEWAY_NOT_DRAWN"
+   ],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-33",
+   "status": "ok",
+   "locale": "en",
+   "frames": [],
+   "blocks": {},
+   "rows": {},
+   "verdicts": {},
+   "model": [
+    "bpmn:xor · exclusive split",
+    "in bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · order 1",
+    "bpmn:f-auto → bpmn:approve-auto · default",
+    "bpmn:merge · exclusive merge",
+    "in bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · parallel split",
+    "in bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · parallel join",
+    "in bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [
+    "VP11_TRACE_EMPTY"
+   ],
+   "violation_marks": 0
+  },
+  {
+   "id": "I-34",
+   "status": "ok",
+   "locale": "de",
+   "frames": [
+    "bpmn:i1",
+    "bpmn:i2"
+   ],
+   "blocks": {
+    "bpmn:i1": [
+     "bpmn:xor · exklusiver Split",
+     "bpmn:merge · exklusiver Merge",
+     "bpmn:split · paralleler Split",
+     "bpmn:join · paralleler Join"
+    ],
+    "bpmn:i2": [
+     "bpmn:xor · exklusiver Split",
+     "bpmn:merge · exklusiver Merge",
+     "bpmn:split · paralleler Split",
+     "bpmn:join · paralleler Join"
+    ]
+   },
+   "rows": {
+    "bpmn:i1|bpmn:xor": [
+     "Aktivierung bpmn:i1/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · Reihenfolge 1 · nicht genommen",
+     "bpmn:f-auto → bpmn:approve-auto · Default · genommen"
+    ],
+    "bpmn:i1|bpmn:merge": [
+     "bpmn:f-manual-done · kein Token",
+     "bpmn:f-auto-done · Token bpmn:i1/tok-ad",
+     "bpmn:f-approved → bpmn:split · Token bpmn:i1/tok-ap"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "bpmn:f-approved · Token bpmn:i1/tok-ap",
+     "bpmn:f-stock → bpmn:check-stock · Token bpmn:i1/tok-s",
+     "bpmn:f-credit → bpmn:check-credit · Token bpmn:i1/tok-c"
+    ],
+    "bpmn:i1|bpmn:join": [
+     "bpmn:f-stock-done · angekommen · bpmn:i1/tok-sd",
+     "bpmn:f-credit-done · angekommen · bpmn:i1/tok-cd",
+     "bpmn:f-ship → bpmn:ship · Token bpmn:i1/tok-ship"
+    ],
+    "bpmn:i2|bpmn:xor": [
+     "Aktivierung bpmn:i2/tok-route",
+     "bpmn:f-manual → bpmn:approve-manual · Reihenfolge 1 · genommen",
+     "bpmn:f-auto → bpmn:approve-auto · Default · nicht genommen"
+    ],
+    "bpmn:i2|bpmn:merge": [
+     "bpmn:f-manual-done · Token bpmn:i2/tok-md",
+     "bpmn:f-auto-done · kein Token",
+     "bpmn:f-approved → bpmn:split · Token bpmn:i2/tok-ap"
+    ],
+    "bpmn:i2|bpmn:split": [
+     "bpmn:f-approved · Token bpmn:i2/tok-ap",
+     "bpmn:f-stock → bpmn:check-stock · Token bpmn:i2/tok-s",
+     "bpmn:f-credit → bpmn:check-credit · Token bpmn:i2/tok-c"
+    ],
+    "bpmn:i2|bpmn:join": [
+     "bpmn:f-stock-done · fehlt · Token aus Instanz bpmn:i1 vorhanden · nicht Teil (bpmn:i1/tok-sd)",
+     "bpmn:f-credit-done · angekommen · bpmn:i2/tok-cd",
+     "bpmn:f-ship → bpmn:ship · kein Token"
+    ]
+   },
+   "verdicts": {
+    "bpmn:i1|bpmn:xor": [
+     "Exklusivität: geprüft · ein Pfad",
+     "Bedingungsreihenfolge: geprüft · Default ohne wahre Bedingung · genommen bpmn:f-auto"
+    ],
+    "bpmn:i1|bpmn:merge": [
+     "Merge: geprüft · durchgereicht"
+    ],
+    "bpmn:i1|bpmn:split": [
+     "Split: geprüft · alle Ausgänge"
+    ],
+    "bpmn:i1|bpmn:join": [
+     "Join: geprüft · alle Eingänge · fremd bpmn:i2/tok-cd"
+    ],
+    "bpmn:i2|bpmn:xor": [
+     "nicht geprüft"
+    ],
+    "bpmn:i2|bpmn:merge": [
+     "nicht geprüft"
+    ],
+    "bpmn:i2|bpmn:split": [
+     "nicht geprüft"
+    ],
+    "bpmn:i2|bpmn:join": [
+     "Join: geprüft · wartet · fehlt bpmn:f-stock-done · fremd bpmn:i1/tok-cd, bpmn:i1/tok-sd"
+    ]
+   },
+   "model": [
+    "bpmn:xor · exklusiver Split",
+    "ein bpmn:f-checked",
+    "bpmn:f-manual → bpmn:approve-manual · Reihenfolge 1",
+    "bpmn:f-auto → bpmn:approve-auto · Default",
+    "bpmn:merge · exklusiver Merge",
+    "ein bpmn:f-manual-done, bpmn:f-auto-done",
+    "bpmn:f-approved → bpmn:split",
+    "bpmn:split · paralleler Split",
+    "ein bpmn:f-approved",
+    "bpmn:f-stock → bpmn:check-stock",
+    "bpmn:f-credit → bpmn:check-credit",
+    "bpmn:join · paralleler Join",
+    "ein bpmn:f-stock-done, bpmn:f-credit-done",
+    "bpmn:f-ship → bpmn:ship"
+   ],
+   "warnings": [],
+   "violation_marks": 0
+  }
+ ]
+}
