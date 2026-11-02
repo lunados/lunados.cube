@@ -1,6 +1,6 @@
 # US-034 — Aktueller Stand nachvollziehbar
 
-Status: planned · Epic: [EPIC-012](../03-Epics/EPIC-012-record-current-state.md) · Mile: [MILE-012](../02-Milestones/MILE-012-record-current-state.md)
+Status: done · Epic: [EPIC-012](../03-Epics/EPIC-012-record-current-state.md) · Mile: [MILE-012](../02-Milestones/MILE-012-record-current-state.md)
 
 Als Entwickler und Nutzer des Cube möchte ich an einer Stelle sehen, was es heute gibt, was remote zuverlässig funktioniert und wo die Grenzen liegen, damit ich vor einem Umbau den aktuellen Stand testen und mich auf einen festen Punkt beziehen kann.
 
@@ -18,4 +18,4 @@ Als Entwickler und Nutzer des Cube möchte ich an einer Stelle sehen, was es heu
 - [TASK-071 — Live-Ausgangswert R5 und R6](../05-Tasks/TASK-071-live-baseline.md)
 - [TASK-072 — Abschluss, Integration und Tag](../05-Tasks/TASK-072-mile012-close.md)
 
-[Führender Aufgabenstatus](../../openspec/changes/record-current-state/tasks.md).
+[Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-record-current-state/tasks.md).

@@ -169,9 +169,9 @@ Führender Status: [declare-relation-origin/tasks.md](../../openspec/changes/arc
 
 Summe: 3–4,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
 
-## MILE-012 — geplant
+## MILE-012 — abgeschlossen
 
-Führender Status: [record-current-state/tasks.md](../../openspec/changes/record-current-state/tasks.md).
+Führender Status: [record-current-state/tasks.md](../../openspec/changes/archive/2026-11-02-record-current-state/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|

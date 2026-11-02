@@ -1,6 +1,6 @@
 # MILE-012 — Aktuellen Entwicklungsstand festhalten
 
-Status: in_progress · Stand: 2026-11-02 · Voraussetzung: MILE-010 ([Abschluss](../10-Evidence/MILE-010/C-RESULT.md)), MILE-011 ([Abschluss](../10-Evidence/MILE-011/C-RESULT.md))
+Status: done · Stand: 2026-11-02 · Voraussetzung: MILE-010 ([Abschluss](../10-Evidence/MILE-010/C-RESULT.md)), MILE-011 ([Abschluss](../10-Evidence/MILE-011/C-RESULT.md)) · **abgeschlossen** ([Nachweis](../10-Evidence/MILE-012/C-RESULT.md))
 
 ## Ergebnis
 
@@ -27,7 +27,7 @@ Der Stand nach MILE-011 ist nachvollziehbar festgehalten, ohne Code an Gateway, 
 | **D-3** | Anmeldung | Bearer-Token bleibt; OAuth erst nach dem Test des aktuellen Stands |
 | **D-4** | Produktion | CPU-Budget, OAuth, Rate-Limits, Betrieb und Freigabe als ungeplanter Kandidat in der Roadmap |
 
-Offen und in den Tasks zu entscheiden: Rotation des Bearer-Tokens (TASK-071), Name des Tags (TASK-072).
+In den Tasks entschieden: keine Rotation des Bearer-Tokens (TASK-071); vorgeschlagener Tag `cube-2026-11-02` (TASK-072).
 
 ## Tasks und Aufwand
 
@@ -49,4 +49,4 @@ Offen und in den Tasks zu entscheiden: Rotation des Bearer-Tokens (TASK-071), Na
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/record-current-state/proposal.md) · [Aufgabenstatus](../../openspec/changes/record-current-state/tasks.md).
+[OpenSpec-Change](../../openspec/changes/archive/2026-11-02-record-current-state/proposal.md) · [Aufgabenstatus](../../openspec/changes/archive/2026-11-02-record-current-state/tasks.md).

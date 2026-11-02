@@ -1,6 +1,6 @@
 # TASK-069 — G5-Ledger und bekannte Grenzen
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/record-current-state/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-record-current-state/tasks.md).
 
 Story: [US-034](../04-US/US-034-current-state-recorded.md) · Mile: MILE-012 · Aufwand: 0,25 PT
 

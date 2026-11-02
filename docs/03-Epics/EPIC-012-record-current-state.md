@@ -1,6 +1,6 @@
 # EPIC-012 — Entwicklungsstand festhalten
 
-Status: planned · Milestone: [MILE-012](../02-Milestones/MILE-012-record-current-state.md)
+Status: done · Milestone: [MILE-012](../02-Milestones/MILE-012-record-current-state.md)
 
 ## Ergebnis
 

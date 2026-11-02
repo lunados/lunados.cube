@@ -67,6 +67,6 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 - [US-032 — Herkunft einer Beziehung deklarieren und prüfen](US-032-relation-origin-profile.md)
 - [US-033 — Herkunftslinie sehen](US-033-origin-line-view.md)
 
-## MILE-012 — geplant
+## MILE-012 — abgeschlossen
 
 - [US-034 — Aktueller Stand nachvollziehbar](US-034-current-state-recorded.md)

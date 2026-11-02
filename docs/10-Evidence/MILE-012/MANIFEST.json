@@ -1,0 +1,17 @@
+{
+ "date": "2026-11-02",
+ "hash": "sha256 of exact file bytes",
+ "scope": "MILE-012 evidence and the non-docs files changed since 0d15c4b (RELEASE_INDEX.md, G5 ledger, known limits, checksum list, baseline runs); without this file. verification.json is written before this manifest.",
+ "files": {
+  "P3/remote-mcp-g5/G5_ACCEPTANCE.md": "a2c817d820d1f779a083778ac98dde4a0d1c0385ca8289a9769973ef9c9af916",
+  "P3/remote-mcp-g5/KNOWN_LIMITS.md": "b923be411c191a7990dda25d11f79b092d739bf962890ce870035349cf34dd1f",
+  "P3/remote-mcp-g5/SHA256SUMS.txt": "505502574149da52661be33720dd27a590b52584c4bccf8daa45721c6ae1c1a6",
+  "P3/remote-mcp-g5/evidence/G5_M12_BASELINE_R5.json": "0b576dc8585d55e83317ee88acf7d02682ac72d06eec67b9393b1c761e78354b",
+  "P3/remote-mcp-g5/evidence/G5_M12_BASELINE_R6.json": "f0d64b05cbca9c557d7070157fbcc0f297cae12826842cd9835a993f96673159",
+  "RELEASE_INDEX.md": "f3561c87a043c2d8d6e7262402f989a6832e4560634931b737f57a4cf297a967",
+  "docs/10-Evidence/MILE-012/C-RESULT.md": "8d7f19539c9f5de4ad11fb1dd6dba8192dc8d51626b30e3ad3dea9e220f2620b",
+  "docs/10-Evidence/MILE-012/README.md": "961f1c792fd660b1d57f52e22422fe772629b9d141ffb6cf4e722b628bdfe9bf",
+  "docs/10-Evidence/MILE-012/verification.json": "f420c6db9e9a6a6fbefb71ffbe443bc09a045506d8d049f1b8cb810323e11602",
+  "docs/10-Evidence/MILE-012/verify_mile012.py": "6dc6c3a675b741dc056dc44a68be5f9079c49357ba18d3fcbbd8b13a42901c00"
+ }
+}
