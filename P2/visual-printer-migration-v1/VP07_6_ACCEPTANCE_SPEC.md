@@ -1,6 +1,6 @@
 # VP-07.6 — Origin lines and statement sets in `cube.flow` · Acceptance specification
 
-**Status:** SPECIFIED. MILE-011 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). Not implemented.
+**Status:** IMPLEMENTED LOCALLY (TASK-066, 2026-11-02). MILE-011 decisions D-1…D-8 apply; detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). G5 delivery and visual acceptance remain TASK-067/068.
 **Profile:** `P2-VP-MIGRATION/0.7.6`, opt-in follow-up to `0.7.5` in the same package `vpmigration`. `0.7.0…0.7.5` stay byte-identical.
 **Requirement:** VR-01 of the MILE-003 handover (`docs/09-Research/visual-check/HANDOVER.md` §2, rank 1), mockup M-01A; PO-1 (two meanings of "declared"); PO-7 for `cube.flow` (statement sets without a migration plan); MILE-011 D-4, D-5.
 **Basis:** `VP07_ACCEPTANCE_SPEC.md` (ES-1…ES-6 edge styles, PE-1…PE-5 panels, AD-1…AD-9 adapter, MS-1…MS-3 source), `VP07_1…VP07_5_ACCEPTANCE_SPEC.md`; VP-02 `vpviews` (edges as `g[data-edge-id][data-declaration-ref]`); P1.14 (`binding-context/10`, `origin`, `basis`, `statement-set/2`); VP-10 0.11.0 statement sets and projection records (MILE-007, SS-1…SS-4, PR-1…PR-6, Q-10).
@@ -118,3 +118,9 @@ These close gaps in §1–§5 without changing a decision.
 - **OL-C:** A warning code required by the oracle (OL-06 `VP07_ORIGIN_UNRESOLVED`) does not change the status PASS.
 - **OL-D:** Vectors are written in G6 wire form (`cube_plan_source` arguments, then `cube_plan_views` arguments); the CLI form is fixed in TASK-066 and must give the same bytes (VP076-06).
 - **OL-E:** `0.7.5` outputs are pinned in `fixtures/regression_075_digests.json` (16 scenarios: O vectors and the golden plan, phases and flow, en and de), pinned on the unchanged 0.7.5 code; `0.7.0…0.7.4` keep their pins.
+
+## 9. Implementation evidence (TASK-066)
+
+- `scripts/run_vectors_ol.py` compares all 13 materialized OL cases with the independent oracle. `tests/test_vp076.py` checks edge styles and origin text in SVG and report, source IDs, warnings, statement-set failures, G6/CLI bytes, and `cube_plan_check`.
+- The OL-07 materialized context was refreshed after TASK-065 made P1.14 predicate opt-in explicit. The independent oracle and older output pins were not changed.
+- `DIAGNOSTICS_076.json` and `RULE_COVERAGE_076.json` describe only the additive 0.7.6 surface. Earlier diagnostics, coverage, and the historical `VP07_SHA256SUMS.txt` remain frozen; output compatibility is checked by the versioned pin scripts.

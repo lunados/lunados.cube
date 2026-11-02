@@ -2,7 +2,7 @@
 from __future__ import annotations
 import copy
 
-from .common import (PROFILE, PROFILES, P071, P072, P073, V71UP, V72UP, V73UP, UNASSIGNED, KEY, HEX64, LENSES, VP07Error, need, keys, clean,
+from .common import (PROFILE, PROFILES, P071, P072, P073, P076, V71UP, V72UP, V73UP, UNASSIGNED, KEY, HEX64, LENSES, VP07Error, need, keys, clean,
                      check_edge_styles, check_binding)
 from .phases import PhasesPrinter, CELL_071
 
@@ -20,12 +20,43 @@ def validate_source(src):
     v72 = src.get('profile') in V72UP
     v73 = src.get('profile') in V73UP
     keys(src, REQUIRED, OPTIONAL+(('target_step',) if v71 else ())+(('layer_order', 'layer_sequence') if v72 else ())
-         + (('local_methods',) if v73 else ()), 'VP07_SOURCE_INVALID', 'migration source')
+         + (('local_methods',) if v73 else ())+
+         (('origin_lines', 'origin_ledger', 'statement_set_sha256', 'statement_set_id', 'source_kind')
+          if src.get('profile') == P076 else ()),
+         'VP07_SOURCE_INVALID', 'migration source')
     need(src['profile'] in PROFILES and src['reference_version'] == 'v9.4', 'VP07_SOURCE_INVALID', 'wrong profile or reference_version')
     need(src['declaration_status'] == 'declared_unverified', 'VP07_SOURCE_INVALID', 'declaration_status must be declared_unverified')
+    if src['profile'] == P076:
+        need(not (src.get('origin_lines') and 'edge_styles' in src), 'VP07_ORIGIN_STYLE_CONFLICT',
+             'origin_lines and edge_styles cannot be combined')
+        need(src.get('source_kind', 'migration_plan') in ('migration_plan', 'statement_set'),
+             'VP07_SOURCE_INVALID', 'invalid 0.7.6 source_kind')
+        if src.get('source_kind') == 'statement_set':
+            need(src['plan_id'] is None and clean(src.get('statement_set_id'), 100),
+                 'VP07_SOURCE_INVALID', 'statement source needs plan_id null and statement_set_id')
+        need(type(src.get('origin_lines', False)) is bool and isinstance(src.get('origin_ledger', []), list),
+             'VP07_SOURCE_INVALID', 'origin_lines and origin_ledger have invalid shape')
+        if 'statement_set_sha256' in src:
+            need(isinstance(src['statement_set_sha256'], str) and HEX64.fullmatch(src['statement_set_sha256']),
+                 'VP07_SOURCE_INVALID', 'statement_set_sha256 must be a digest')
+        ledger = src.get('origin_ledger')
+        if ledger is not None:
+            need(len(ledger) == len(src['cells']), 'VP07_SOURCE_INVALID', 'origin ledger must cover every cell')
+        for c, e in zip(src['cells'], ledger or []):
+            need(isinstance(e, dict) and set(e) in ({'cell_id', 'declaration_ref', 'predicate_id', 'origin', 'style', 'source_ids'},
+                                                    {'cell_id', 'declaration_ref', 'predicate_id', 'origin', 'style', 'source_ids', 'warning'}) and
+                 e.get('cell_id') == c.get('id') and
+                 e.get('declaration_ref') == c.get('declaration_ref') and
+                 e.get('predicate_id') == c.get('predicate_id') and
+                 e.get('origin') in ('declared', 'derived', 'unknown', 'unbound') and
+                 e.get('style') == {'declared': 'solid', 'derived': 'dashed',
+                                    'unknown': 'dotted', 'unbound': 'dotted'}.get(e.get('origin')) and
+                 isinstance(e.get('source_ids'), list) and all(clean(x, 512) for x in e['source_ids']) and
+                 (e.get('warning') in (None, 'VP07_ORIGIN_UNRESOLVED')),
+                 'VP07_SOURCE_INVALID', 'origin ledger entry is invalid')
     need(isinstance(src['source_context_sha256'], str) and HEX64.fullmatch(src['source_context_sha256']) is not None,
          'VP07_SOURCE_INVALID', 'source_context_sha256 must be 64 lowercase hex')
-    for k in ('context_id', 'plan_id'):
+    for k in ('context_id',) if src.get('source_kind') == 'statement_set' else ('context_id', 'plan_id'):
         need(clean(src[k], 100), 'VP07_SOURCE_INVALID', k+' must be clean text')
     for k, lim in LIMITS.items():
         need(isinstance(src[k], list) and len(src[k]) <= lim, 'VP07_SOURCE_INVALID', f'{k} must be an array of <= {lim} (MS-2)')

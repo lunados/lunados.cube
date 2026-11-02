@@ -6,9 +6,10 @@ checks of `check-panels`. Shared helpers `to_result` / `to_files` are used by VP
 from __future__ import annotations
 import json
 
-from .common import VP07Error, need, encode, sha_bytes
+from .common import VP07Error, need, encode, sha_bytes, P076
 from .adapter import from_plan
 from .panels import print_panels, check_files
+from .origin import from_statements, from_origin_plan
 
 RESULT_FORMAT = 'aiaeao.cube.plan-views/1'
 SOURCE_FORMAT = 'aiaeao.cube.plan-source/1'
@@ -45,14 +46,34 @@ def to_files(result, code='VP07_PANEL_COVERAGE', error=VP07Error):
 
 
 def source(context, plan_id, tracks=None, track=None, labels=None, steps=None, subjects=None, edge_styles=None,
-           witness_prefixes=None, profile=None, layers=None):
-    src, mapping = from_plan(context, plan_id, tracks, track, labels, steps, subjects, edge_styles, witness_prefixes,
-                             profile=profile, layers=layers)
+           witness_prefixes=None, profile=None, layers=None, statements=None, records=None, origin_lines=False):
+    need(type(origin_lines) is bool, 'VP07_ADAPTER_INPUT', 'origin_lines must be a boolean')
+    if statements is not None or records is not None or origin_lines:
+        need(profile == P076, 'VP07_ADAPTER_INPUT', 'statement path and origin_lines require profile '+P076)
+    if origin_lines and edge_styles is not None:
+        raise VP07Error('VP07_ORIGIN_STYLE_CONFLICT', 'origin_lines and edge_styles cannot be combined')
+    if statements is not None:
+        need(plan_id is None and all(x is None for x in (tracks, track, labels, steps, subjects, witness_prefixes, layers)),
+             'VP07_ADAPTER_INPUT', 'statement path takes plan_id null, statements and optional records')
+        src, mapping = from_statements(context, statements, records, origin_lines)
+    elif profile == P076:
+        need(records is None, 'VP07_ADAPTER_INPUT', 'records require statements')
+        src, mapping = from_origin_plan(context, plan_id, tracks=tracks, track=track, labels=labels,
+                                       steps=steps, subjects=subjects, edge_styles=edge_styles,
+                                       witness_prefixes=witness_prefixes, layers=layers, origin_lines=origin_lines)
+    else:
+        src, mapping = from_plan(context, plan_id, tracks, track, labels, steps, subjects, edge_styles, witness_prefixes,
+                                 profile=profile, layers=layers)
     return {'format': SOURCE_FORMAT, 'printer': 'vpmigration', 'profile': src['profile'], 'source': src, 'mapping': mapping}
 
 
 def views(source, view, granularity, partition, lens=None, locale=None, hide_ledger=False):
     """VP-07.5 options are passed only when set, so 0.7.0…0.7.4 calls stay the unchanged call."""
+    if isinstance(source, dict) and source.get('profile') == P076:
+        if source.get('origin_lines') and view != 'cube.flow':
+            raise VP07Error('VP07_ORIGIN_VIEW', 'origin_lines is supported only for cube.flow')
+        if lens is None and view == 'cube.flow':
+            lens = 'cube.lens.semantics'
     opts = {k: v for k, v in (('locale', locale), ('hide_ledger', hide_ledger)) if v}
     report, files = print_panels(source, view, partition, granularity, lens, **opts)
     return to_result('vpmigration', view, report, files)

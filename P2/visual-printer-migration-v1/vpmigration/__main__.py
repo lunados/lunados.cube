@@ -4,10 +4,11 @@ import argparse
 import sys
 from pathlib import Path
 
-from .common import PROFILE, PROFILES, LATEST, VP07Error, encode, load_json, publish_dir, write_new, LEVELS, LENSES, STYLES
+from .common import PROFILE, PROFILES, LATEST, P076, VP07Error, encode, load_json, publish_dir, write_new, LEVELS, LENSES, STYLES
 from .phases import render_plan, BUDGET
 from .styles import render_styled
 from .adapter import from_plan
+from .api import source as api_source
 from .panels import print_panels, check_panels, PARTITIONS, SELECTIONS
 from .locale import PINNED as LOCALES
 
@@ -22,7 +23,7 @@ def capabilities():
             'phases_budgets': {k: dict(zip(('rows', 'steps', 'cells', 'lanes_per_row'), v)) for k, v in BUDGET.items()},
             'edge_styles': list(STYLES), 'partitions': list(PARTITIONS),
             'selections': {'method-sets': '0.7.5 (from-plan --profile): per method the bars named by its bindings; a bar may be in several sets'},
-            'display_options': {'locale': sorted(LOCALES), 'hide_ledger': True, 'profiles': ['P2-VP-MIGRATION/0.7.5'],
+            'display_options': {'locale': sorted(LOCALES), 'hide_ledger': True, 'profiles': ['P2-VP-MIGRATION/0.7.5', P076],
                                 'note': 'display text only; IDs, method IDs, decl: references and report keys are never translated'},
             'operations': ['capabilities', 'check-phases', 'print-phases', 'check-styled', 'print-styled', 'from-plan',
                            'print-panels', 'check-panels'],
@@ -47,7 +48,10 @@ def main(argv=None):
             x.add_argument('--out', required=True)
     fp = s.add_parser('from-plan')
     fp.add_argument('--context', required=True)
-    fp.add_argument('--plan', required=True)
+    fp.add_argument('--plan')
+    fp.add_argument('--statements', help='0.7.6: statement-set/1 or /2 instead of a plan')
+    fp.add_argument('--records', help='0.7.6: optional projection records array')
+    fp.add_argument('--origin-lines', action='store_true', help='0.7.6: origin text and per-edge line style in cube.flow')
     fp.add_argument('--tracks')
     fp.add_argument('--track')
     fp.add_argument('--labels')
@@ -93,9 +97,11 @@ def main(argv=None):
             return 0
         if a.command == 'from-plan':
             opt = lambda f: load_json(f, 'VP07_ADAPTER_INPUT') if f else None  # noqa: E731
-            src, mapping = from_plan(load_json(a.context, 'VP07_ADAPTER_INPUT'), a.plan, opt(a.tracks), a.track, opt(a.labels), a.steps,
-                                     a.subjects.split(',') if a.subjects else None, opt(a.edge_styles), opt(a.witness_prefixes),
-                                     profile=a.profile, layers=opt(a.layers))
+            envelope = api_source(load_json(a.context, 'VP07_ADAPTER_INPUT'), a.plan, opt(a.tracks), a.track,
+                                  opt(a.labels), a.steps, a.subjects.split(',') if a.subjects else None,
+                                  opt(a.edge_styles), opt(a.witness_prefixes), profile=a.profile, layers=opt(a.layers),
+                                  statements=opt(a.statements), records=opt(a.records), origin_lines=a.origin_lines)
+            src, mapping = envelope['source'], envelope['mapping']
             target = Path(a.out)
             mpath = target.with_name(target.stem+'.mapping.json')
             if mpath.exists():
@@ -107,7 +113,9 @@ def main(argv=None):
             return 0
         if a.command == 'print-panels':
             opts = {k: v for k, v in (('locale', a.locale), ('hide_ledger', a.hide_ledger)) if v}  # unset options: 0.7.0…0.7.4 call unchanged
-            report, files = print_panels(load_json(a.source, 'VP07_SOURCE_INVALID'), a.view, a.partition, a.granularity, a.lens, **opts)
+            src = load_json(a.source, 'VP07_SOURCE_INVALID')
+            lens = a.lens or ('cube.lens.semantics' if src.get('profile') == P076 and a.view == 'cube.flow' else None)
+            report, files = print_panels(src, a.view, a.partition, a.granularity, lens, **opts)
             d = publish_dir(files, a.out)
             res = {'status': 'PASS', 'operation': 'print-panels', 'output_dir': str(d), 'panels': report['panel_count'],
                    'coverage': report['coverage']['status'], 'warnings': len(report['warnings'])}

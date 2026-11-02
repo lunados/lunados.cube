@@ -2836,10 +2836,134 @@
        ]
       }
      ],
-     "predicate_contracts": [],
-     "predicate_profile_refs": [
-      "P1.10/migration-predicates-v1"
+     "predicate_contracts": [
+      {
+       "predicate_id": "depends-on",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Y:identity-anchor:actor",
+        "Z:module-body:runtime"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency",
+        "Y:resource-object:resource"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "sends-via",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Y:identity-anchor:actor"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration",
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "syncs-with",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "stores-in",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Y:resource-object:resource"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "references",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Y:resource-object:resource"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency",
+        "Y:resource-object:resource"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "hosted-by",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Z:module-body:runtime",
+        "Y:resource-object:resource"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "recovers-via",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Y:resource-object:resource"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency",
+        "Y:resource-object:resource"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "supersedes",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:provider"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "T"
+       ],
+       "scope": "acme:migration"
+      }
      ],
+     "predicate_profile_refs": [],
      "reference_version": "v9.4",
      "referents": [
       {
@@ -4058,10 +4182,134 @@
        ]
       }
      ],
-     "predicate_contracts": [],
-     "predicate_profile_refs": [
-      "P1.10/migration-predicates-v1"
+     "predicate_contracts": [
+      {
+       "predicate_id": "depends-on",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Y:identity-anchor:actor",
+        "Z:module-body:runtime"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency",
+        "Y:resource-object:resource"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "sends-via",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Y:identity-anchor:actor"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration",
+       "origin_binding": "required"
+      },
+      {
+       "predicate_id": "syncs-with",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "stores-in",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Y:resource-object:resource"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "references",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Y:resource-object:resource"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency",
+        "Y:resource-object:resource"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "hosted-by",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:integration",
+        "Z:module-body:runtime",
+        "Y:resource-object:resource"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "recovers-via",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Y:resource-object:resource"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency",
+        "Y:resource-object:resource"
+       ],
+       "direction": "subject_to_object",
+       "scope": "acme:migration"
+      },
+      {
+       "predicate_id": "supersedes",
+       "revision": "P1.10/migration-predicates-v1",
+       "origin": "external_declaration_unverified",
+       "subject_concept_ids": [
+        "Z:module-body:provider"
+       ],
+       "object_concept_ids": [
+        "Z:module-body:provider",
+        "Z:module-body:third-party-dependency"
+       ],
+       "direction": "subject_to_object",
+       "required_qualifiers": [
+        "T"
+       ],
+       "scope": "acme:migration"
+      }
      ],
+     "predicate_profile_refs": [],
      "reference_version": "v9.4",
      "referents": [
       {

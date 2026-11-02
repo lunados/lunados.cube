@@ -1,6 +1,6 @@
 # Tasks — declare-relation-origin
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-063 und TASK-064 erledigt; Charge A abgeschlossen; TASK-065 lokal implementiert und geprüft; Charge C offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-063 bis TASK-066 lokal erledigt und geprüft; Charge A und B abgeschlossen; Charge C läuft (TASK-067/068 offen).
 
 ## A — Spezifikation und Prüffälle
 
@@ -13,7 +13,7 @@ Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8
 
 ## C — Herkunftslinie und Auslieferung
 
-- [ ] 4. [TASK-066 — Printer VP-07.6 und G6](../../../docs/05-Tasks/TASK-066-vp076-printer.md)
+- [x] 4. [TASK-066 — Printer VP-07.6 und G6](../../../docs/05-Tasks/TASK-066-vp076-printer.md)
 - [ ] 5. [TASK-067 — G5 und Host-Abnahme](../../../docs/05-Tasks/TASK-067-origin-g5.md)
 - [ ] 6. [TASK-068 — Sichtprüfung und Abschluss](../../../docs/05-Tasks/TASK-068-mile011-close.md)
 

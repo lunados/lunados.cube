@@ -5,7 +5,7 @@ a declared context, track map, label map or witness prefix list.
 """
 from __future__ import annotations
 
-from .common import PROFILE, PROFILES, P071, P072, P073, P075, V71UP, V72UP, V73UP, tag_profile, METHOD_PROFILE_REF, check_binding, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
+from .common import PROFILE, PROFILES, P071, P072, P073, P075, P076, V71UP, V72UP, V73UP, tag_profile, METHOD_PROFILE_REF, check_binding, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
 from .source import FORMAT as SOURCE_FORMAT, validate_source
 
 CONTEXT_FORMAT = 'aiaeao.cube.binding-context/5'
@@ -24,6 +24,11 @@ MAPPING = {
     'Z:module-body:runtime': ('module-bodies.runtime', 'form.module-block', 'Runtime'),
     'Y:resource-object:resource': ('resource-objects.resource', 'form.resource-card', 'Resource'),
     'Y:identity-anchor:actor': ('identity-anchors.actor', 'form.identity-chip', 'Actor'),
+}
+MAPPING_076 = {**MAPPING,
+    'Z:boundary:boundary': ('governance-boundary.boundary', 'form.boundary-frame', 'Boundary'),
+    'Z:module-body:tool': ('module-bodies.tool', 'form.module-block', 'Tool'),
+    'Y:resource-object:artifact': ('resource-objects.artifact', 'form.resource-card', 'Artifact'),
 }
 MAX_DECL_REF = 140  # VP-02 edge declaration_ref limit
 
@@ -138,14 +143,18 @@ def _declared_ends(plan, pids):
 
 def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None, subjects=None, edge_styles=None,
               witness_prefixes=None, profile=None, layers=None):
-    is7 = isinstance(context, dict) and context.get('format') == CONTEXT_FORMAT_7
+    context_format = context.get('format') if isinstance(context, dict) else None
+    is7 = context_format == CONTEXT_FORMAT_7 or (profile == P076 and context_format in
+           ('aiaeao.cube.binding-context/8', 'aiaeao.cube.binding-context/9', 'aiaeao.cube.binding-context/10'))
     if profile is None:  # VP-07.2 LS-1: 0.7.2 only when a layer map is given; VP-07.3 D-1: a /7 context selects 0.7.3
         profile = P073 if is7 else P072 if layers is not None else P071
     need(profile in PROFILES, 'VP07_ADAPTER_INPUT', 'profile must be one of '+', '.join(PROFILES))
     need(layers is None or profile in V72UP, 'VP07_ADAPTER_INPUT', 'a layer map needs profile '+P072+' (LS-1)')  # 0.7.3 includes 0.7.2
     v71 = profile in V71UP
     v73 = profile in V73UP  # VP-07.4 D-1: 0.7.4 only via an explicit profile; a /7 context still selects 0.7.3
-    formats = CONTEXT_FORMATS_071+(CONTEXT_FORMAT_7,) if v73 else CONTEXT_FORMATS_071 if v71 else (CONTEXT_FORMAT,)
+    formats = (CONTEXT_FORMATS_071+(CONTEXT_FORMAT_7,)+
+               (('aiaeao.cube.binding-context/8', 'aiaeao.cube.binding-context/9',
+                 'aiaeao.cube.binding-context/10') if profile == P076 else ())) if v73 else CONTEXT_FORMATS_071 if v71 else (CONTEXT_FORMAT,)
     need(isinstance(context, dict) and context.get('format') in formats, 'VP07_ADAPTER_INPUT',
          'context must be '+' or '.join(formats)+' (got '+repr(context.get('format') if isinstance(context, dict) else None)+')')
     ctx_id = context.get('context_id')
@@ -198,7 +207,7 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
     def item(ref, role):
         need(ref in refs, 'VP07_ADAPTER_INPUT', 'dependency names undeclared referent '+repr(ref))
         r = refs[ref]
-        m = MAPPING.get(r.get('concept_id'))
+        m = (MAPPING_076 if profile == P076 else MAPPING).get(r.get('concept_id'))
         need(m is not None, 'VP07_ADAPTER_MAPPING', 'no mapping row for concept '+repr(r.get('concept_id'))+' (referent '+repr(ref)+')')
         if ref in labelmap:
             ident, label = labelmap[ref]['id'], labelmap[ref]['label']
@@ -295,7 +304,7 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
             coll.sort(key=lambda it: pos[it['id']])
     role = {p['phase_id']: p.get('role', '') for p in phases}
     step_list = [{'id': p, 'label': excerpt(f'{p} · {role[p]}', 40)} for p in window]
-    if profile == P075:  # VP-07.5 §1.1: the declared step role travels with the step so the printer can translate it
+    if profile in (P075, P076):  # VP-07.5 §1.1: declared step role travels with the step
         for s in step_list:
             s['role'] = role[s['id']]
     ctx_sha = sha_json(context)
