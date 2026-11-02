@@ -34,3 +34,7 @@ Deklariert ist nur parser, validator; resolver und printer folgen ungeordnet.
 ## Rückmeldung
 
 Im Chat, zum Beispiel: `1 ja, 2 ja, 3 nein – wirkt wie Warnung, 4 ja, 5 ja, 6 ja, 7 nein – Überschrift`. Jedes „nein“ wird in TASK-042 behoben (neue Printer-Revision, 0.10.0 bleibt byte-gleich) oder als offen benannt.
+
+## Ergebnis (2026-11-02)
+
+Nutzer: 1–7 ja. Keine Mängel; die Überschrift „CUBE.AXES · …“ bleibt.
