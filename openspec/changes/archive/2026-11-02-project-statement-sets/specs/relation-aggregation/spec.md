@@ -1,6 +1,6 @@
 # Relation aggregation
 
-Status: planned.
+Status: implemented · 2026-11-02.
 
 ## ADDED Requirements
 

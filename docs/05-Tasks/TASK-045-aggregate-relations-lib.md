@@ -1,6 +1,6 @@
 # TASK-045 — LIB `project.aggregate-relations/v1`
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/project-statement-sets/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-project-statement-sets/tasks.md).
 
 Story: [US-025](../04-US/US-025-relation-aggregation.md) · Mile: MILE-007-B · Aufwand: 0,75–1 PT
 

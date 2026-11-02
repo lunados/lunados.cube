@@ -1,10 +1,10 @@
 # Project statement sets
 
-Status: decided · 2026-11-02 · [MILE-007](../../../docs/02-Milestones/MILE-007-statement-sets.md) · noch nicht umgesetzt
+Status: done · 2026-11-02 · archiviert · [MILE-007](../../../../docs/02-Milestones/MILE-007-statement-sets.md) · [Nachweis](../../../../docs/10-Evidence/MILE-007/C-RESULT.md)
 
 ## Why
 
-Die Plansichten lesen nur P1.10-Migrationspläne; anderes Material muss umgebogen werden (PO-7, [RENDER-RESULTS](../../../docs/09-Research/visual-check/RENDER-RESULTS.md)). Verdichtungen wie in C4-02 verlieren Quellen still; es gibt keine Projektion mit Quellenspur und Verlustbericht (G-03).
+Die Plansichten lesen nur P1.10-Migrationspläne; anderes Material muss umgebogen werden (PO-7, [RENDER-RESULTS](../../../../docs/09-Research/visual-check/RENDER-RESULTS.md)). Verdichtungen wie in C4-02 verlieren Quellen still; es gibt keine Projektion mit Quellenspur und Verlustbericht (G-03).
 
 ## What Changes
 

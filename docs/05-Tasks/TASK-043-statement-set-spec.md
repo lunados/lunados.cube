@@ -1,6 +1,6 @@
 # TASK-043 — Spezifikation und Detailfragen
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/project-statement-sets/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-02-project-statement-sets/tasks.md).
 
 Story: [US-024](../04-US/US-024-statement-set-view.md) · Mile: MILE-007-A · Aufwand: 0,25–0,5 PT
 

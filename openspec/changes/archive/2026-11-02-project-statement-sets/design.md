@@ -1,10 +1,10 @@
 # Design — Aussagenmengen projizieren
 
-Status: decided · Umsetzung offen
+Status: done · 2026-11-02 · umgesetzt (lunados.lib project.aggregate-relations/v1, VP-10 0.11.0, Sichtprüfung)
 
 ## Context
 
-Entscheidungen D-1–D-8 in [MILE-007](../../../docs/02-Milestones/MILE-007-statement-sets.md) (entschieden 2026-11-02).
+Entscheidungen D-1–D-8 in [MILE-007](../../../../docs/02-Milestones/MILE-007-statement-sets.md) (entschieden 2026-11-02).
 
 ## Decisions
 

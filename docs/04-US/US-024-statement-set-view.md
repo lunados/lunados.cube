@@ -1,6 +1,6 @@
 # US-024 — Aussagenmenge ohne Plan darstellen
 
-Status: planned · Epic: [EPIC-007](../03-Epics/EPIC-007-statement-sets.md) · Mile: [MILE-007-A, -C](../02-Milestones/MILE-007-statement-sets.md)
+Status: done · Epic: [EPIC-007](../03-Epics/EPIC-007-statement-sets.md) · Mile: [MILE-007-A, -C](../02-Milestones/MILE-007-statement-sets.md)
 
 Als Modellierer möchte ich eine Menge von Cube-Aussagen direkt als Matrix sehen, damit ich DSM- oder Architekturmaterial nicht in Migrationsvokabular umbiegen muss (PO-7).
 
@@ -18,4 +18,4 @@ Als Modellierer möchte ich eine Menge von Cube-Aussagen direkt als Matrix sehen
 - [TASK-046 — VP-10 0.11.0 und G6](../05-Tasks/TASK-046-vp110-impl.md)
 - [TASK-047 — Sichtprüfung und Abschluss](../05-Tasks/TASK-047-mile007-close.md)
 
-[Requirement-Zuordnung](../../openspec/changes/project-statement-sets/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/project-statement-sets/tasks.md).
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-project-statement-sets/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-project-statement-sets/tasks.md).

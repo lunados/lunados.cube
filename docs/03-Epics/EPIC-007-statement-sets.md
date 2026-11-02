@@ -1,6 +1,6 @@
 # EPIC-007 — Aussagenmengen darstellen und verdichten
 
-Status: planned · Milestone: [MILE-007](../02-Milestones/MILE-007-statement-sets.md) · Voraussetzung: [EPIC-006](EPIC-006-remote-and-readability.md)
+Status: done · Milestone: [MILE-007](../02-Milestones/MILE-007-statement-sets.md) · Voraussetzung: [EPIC-006](EPIC-006-remote-and-readability.md)
 
 ## Ergebnis
 

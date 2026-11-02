@@ -98,9 +98,9 @@ Führender Status: [deliver-remote-and-ordered-cells/tasks.md](../../openspec/ch
 
 Summe: 1,75–2,5 PT; Planungsannahmen, ohne Zeit des Nutzers.
 
-## MILE-007 — geplant
+## MILE-007 — abgeschlossen
 
-Führender Status: [project-statement-sets/tasks.md](../../openspec/changes/project-statement-sets/tasks.md).
+Führender Status: [project-statement-sets/tasks.md](../../openspec/changes/archive/2026-11-02-project-statement-sets/tasks.md).
 
 | Task | Story | Aufwand |
 |---|---|---|

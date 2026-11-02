@@ -1,6 +1,6 @@
 # US-025 — Beziehungen mit Quellenspur verdichten
 
-Status: planned · Epic: [EPIC-007](../03-Epics/EPIC-007-statement-sets.md) · Mile: [MILE-007-B, -C](../02-Milestones/MILE-007-statement-sets.md)
+Status: done · Epic: [EPIC-007](../03-Epics/EPIC-007-statement-sets.md) · Mile: [MILE-007-B, -C](../02-Milestones/MILE-007-statement-sets.md)
 
 Als Leser einer Container-Sicht möchte ich wissen, aus welchen Komponentenbeziehungen eine Container-Beziehung abgeleitet ist und was beim Verdichten verloren ging, damit die Übersicht nachvollziehbar bleibt (G-03, C4-02).
 
@@ -17,4 +17,4 @@ Als Leser einer Container-Sicht möchte ich wissen, aus welchen Komponentenbezie
 - [TASK-045 — LIB `project.aggregate-relations/v1`](../05-Tasks/TASK-045-aggregate-relations-lib.md)
 - [TASK-046 — VP-10 0.11.0 und G6](../05-Tasks/TASK-046-vp110-impl.md)
 
-[Requirement-Zuordnung](../../openspec/changes/project-statement-sets/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/project-statement-sets/tasks.md).
+[Requirement-Zuordnung](../../openspec/changes/archive/2026-11-02-project-statement-sets/TRACEABILITY.md) · [Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-02-project-statement-sets/tasks.md).

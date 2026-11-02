@@ -1,6 +1,6 @@
 # MILE-007 — Abdeckung der Planung
 
-Status: planned; keine Ergebnisse behauptet.
+Status: done · 2026-11-02. Nachweise: [C-RESULT](../../../../docs/10-Evidence/MILE-007/C-RESULT.md), [verification.json](../../../../docs/10-Evidence/MILE-007/verification.json).
 
 | Requirement | Mile | Stories / Tasks | Geplanter Nachweis |
 |---|---|---|---|

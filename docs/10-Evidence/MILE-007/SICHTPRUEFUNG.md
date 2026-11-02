@@ -28,3 +28,7 @@ In der Zelle API × DB stehen eine deklarierte Container-Beziehung (`s-4 · uses
 ## Rückmeldung
 
 Im Chat, zum Beispiel `1–5 ja` oder `1 ja, 2 ja, 3 nein – …`. Jedes „nein“ wird behoben (neue Revision, 0.10.x bleibt byte-gleich) oder als offen benannt.
+
+## Ergebnis (2026-11-02)
+
+Nutzer: 1–5 ja. Keine Mängel. Der vorab benannte Punkt (Konventionszeile nennt nur `uses.derived`, die Zelle enthält auch die durchgereichte `uses`-Aussage) stört nicht und bleibt.

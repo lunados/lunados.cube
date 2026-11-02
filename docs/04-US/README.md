@@ -42,7 +42,7 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 - [US-022 — Matrix in deklarierter Reihenfolge lesen](US-022-declared-order.md)
 - [US-023 — Kurze Sichtprüfung](US-023-readability-test.md)
 
-## MILE-007 — geplant
+## MILE-007 — abgeschlossen
 
 - [US-024 — Aussagenmenge ohne Plan darstellen](US-024-statement-set-view.md)
 - [US-025 — Beziehungen mit Quellenspur verdichten](US-025-relation-aggregation.md)
