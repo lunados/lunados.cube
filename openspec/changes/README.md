@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-Keine.
+- [project-statement-sets](project-statement-sets/proposal.md) — MILE-007 vorgeschlagen; Entscheidungen D-1–D-8 offen, fünf Tasks.
 
 ## Abgeschlossen
 
