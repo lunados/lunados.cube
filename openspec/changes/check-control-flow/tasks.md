@@ -1,6 +1,6 @@
 # Tasks — check-control-flow
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-048–049 erledigt (27 Prüffälle vor der Spezifikation, Baseline 27/27; Spezifikation P1.13, Q-1–Q-10 nach Vorschlag); Charge A abgeschlossen, drei Aufgaben offen.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-048–051 erledigt (27 Prüffälle vor der Spezifikation, Baseline 27/27; Spezifikation P1.13, Q-1–Q-10 nach Vorschlag; Profil und LIB implementiert); Chargen A und B abgeschlossen, TASK-052 offen.
 
 ## A — Prüffälle und Spezifikation
 
@@ -10,10 +10,12 @@ Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8
 ## B — Profil und LIB
 
 - [x] 3. [TASK-050 — Profil P1.13](../../../docs/05-Tasks/TASK-050-p113-profile.md)
-- [ ] 4. [TASK-051 — LIB `analyze.trace-conformance/v1`](../../../docs/05-Tasks/TASK-051-trace-conformance-lib.md)
+- [x] 4. [TASK-051 — LIB `analyze.trace-conformance/v1`](../../../docs/05-Tasks/TASK-051-trace-conformance-lib.md)
 
 ## C — Adapter und Wiederholung
 
 - [ ] 5. [TASK-052 — Adapter, Wiederholung und Abschluss](../../../docs/05-Tasks/TASK-052-mile008-adapter-rerun.md)
 
 [Milestone](../../../docs/02-Milestones/MILE-008-control-flow.md) · [Abdeckung](TRACEABILITY.md).
+
+TASK-051: [Prüfnachweis](../../../docs/10-Evidence/MILE-008/TASK-051-LIB.md), LIB-Commits `ebb3110` (Orakel vor Code), `d823a4a` (Evaluator, INDEX und Differenzprüfung).
