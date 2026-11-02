@@ -62,4 +62,4 @@ D-1 bis D-8 hat der Nutzer wie vorgeschlagen freigegeben („Ja“).
 
 ## Nachverfolgung
 
-[OpenSpec-Change](../../openspec/changes/deliver-remote-plan-views/proposal.md) · [Aufgabenstatus](../../openspec/changes/deliver-remote-plan-views/tasks.md) · [Abdeckung](../../openspec/changes/deliver-remote-plan-views/TRACEABILITY.md). TASK-058: [Spezifikation G5 R5](../../P3/remote-mcp-g5/G5_R5_ACCEPTANCE_SPEC.md), Entwurf mit Detailfragen Q-1–Q-10 offen.
+[OpenSpec-Change](../../openspec/changes/deliver-remote-plan-views/proposal.md) · [Aufgabenstatus](../../openspec/changes/deliver-remote-plan-views/tasks.md) · [Abdeckung](../../openspec/changes/deliver-remote-plan-views/TRACEABILITY.md). TASK-058: [Spezifikation G5 R5](../../P3/remote-mcp-g5/G5_R5_ACCEPTANCE_SPEC.md), Entwurf `7cc8505`, Q-1–Q-10 nach Vorschlag (gleiche Tool-Namen und Fehler wie lokal, kein Zusatzfeld, Gateway-Grenze 2 MiB + 64 KiB, Paketumfang aus Import- und Lesespur, Rechenzeit unter 2 s offline, Kern 0.8.0-proof, Gateway 0.2.0-proof).

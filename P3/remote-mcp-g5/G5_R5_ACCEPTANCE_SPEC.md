@@ -1,6 +1,6 @@
 # G5 R5 — Control flow and plan views remote · Acceptance specification
 
-**Status:** DRAFT. MILE-010 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 open (§7). Not implemented.
+**Status:** SPECIFIED. MILE-010 decisions D-1…D-8 apply (2026-11-02); detail questions Q-1…Q-10 resolved 2026-11-02 (all as proposed). Not implemented.
 **Release:** core `P3-MCP-REMOTE/0.8.0-proof` (from `0.7.0-proof`, MILE-006); still `G5_PROOF_NOT_PRODUCTION_AUTHORIZED`.
 **Requirement:** MILE-010 US-030, US-031, TASK-058…062.
 **Basis:** G5 core and gateway (`python-core/core_runtime.py`, `gateway/src/index.mjs`), `scripts/assemble_core.py`, `scripts/check_runtime_assets.py`, `scripts/verify_g5.py`; local G4/G6 (`P3/adapters/mcp-local`: `p1_adapter.py` with `/9`, `plan_views.py` with VP-07…VP-11); R4 P1.12 expectations and host report (MILE-006).
@@ -72,9 +72,9 @@ Over a limit the result is an error; nothing is truncated or split.
 
 Evidence: `evidence/G5_R5_EXPECTATIONS.json`, `evidence/G5_R5_OFFLINE_PARITY.json`, `evidence/G5_R5_HOST_REPORT.md`.
 
-## 7. Detail questions (proposals, open)
+## 7. Detail questions (resolved 2026-11-02, all as proposed)
 
-| ID | Question | Proposal | Reason |
+| ID | Question | Decision | Reason |
 |---|---|---|---|
 | **Q-1** | Tool names and schemas? | **Same names as local** (`cube_plan_source`, `cube_plan_views`, `cube_plan_check`); gateway schemas mirror the local signatures (all options optional and typed as locally, e.g. `records` list, `axis_order` list) | one vocabulary for host and documentation |
 | **Q-2** | How are plan errors returned? | `{ok: false, diagnostic}` with the **local diagnostic unchanged**, `isError` in MCP, as the local server does | equal error codes (D-5) |

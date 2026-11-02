@@ -1,10 +1,10 @@
 # Tasks — deliver-remote-plan-views
 
-Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-058 in Arbeit.
+Status: in_progress. Führende Ausführungsstatusliste; Entscheidungen D-1–D-8 freigegeben; TASK-058 erledigt (Spezifikation G5 R5, Q-1–Q-10 nach Vorschlag); TASK-059 offen.
 
 ## A — Spezifikation und Erwartungen
 
-- [ ] 1. [TASK-058 — Spezifikation und Detailfragen](../../../docs/05-Tasks/TASK-058-g5-r5-spec.md)
+- [x] 1. [TASK-058 — Spezifikation und Detailfragen](../../../docs/05-Tasks/TASK-058-g5-r5-spec.md)
 - [ ] 2. [TASK-059 — Erwartungen vor Code](../../../docs/05-Tasks/TASK-059-g5-r5-expectations.md)
 
 ## B — Kern und Gateway
