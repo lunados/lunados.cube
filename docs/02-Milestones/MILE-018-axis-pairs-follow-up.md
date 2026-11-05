@@ -25,7 +25,7 @@ Die Epics sind unabhängig und einzeln ziehbar. Reihenfolge-Vorschlag: E18-1, E1
 |---|---|---|---|---|
 | E18-1 VG-Anker Schichtspalte | B13 | Ankerfrage im VG-Register klären, dann neues Profil der Landschaft. **Erledigt** ([TASK-081](../05-Tasks/TASK-081-vp121-layer-anchor.md)): `skeleton-shell.section`, Profil 0.12.1 | 0,25–0,5 | gering |
 | E18-2 X × Z mit X-Endpunkten | B11 | Zellregel in `cube.axes`: wo Grant und Admission an Module greifen | 0,5 | gering (Muster wie X × Y) |
-| E18-3 X × X als Decision Helix | B12 | Kette Perception → Conclusion → Authority → Admission → Action → Result aus deklarierten Slots | 0,75–1 | mittel |
+| E18-3 X × X als Decision Helix | B12 | Kette Perception → Conclusion → Authority → Admission → Action → Result aus deklarierten Slots. **Zurückgestellt** (2026-11-05): Als Slot-Matrix in den Pilotblättern fast leer (nur Admissions gebunden). Sinnvoll erst als Kette der Contract Pairs; vor neuem Code eine Skizze an F05. Entwurf 0.9.4 liegt unveröffentlicht auf `feature/mile018-e3-decision-helix` | 0,75–1 | mittel |
 | E18-4 Interne Kanten | B4 | Kanten innerhalb eines Moduls zählen oder als Unterknoten; Ankerfrage zuerst | 0,5 | mittel |
 | E18-5 `recovers-via` | B7 | Eigene Linienform für Wiederherstellungswege; braucht einen Fall mit Recovery-Pfad | 0,25 | gering, wartet auf einen Fall |
 | E18-6 Druck-Manifest | B8 | Stabile Schnittstelle für Viewer; Cockpit liest das Manifest | 0,5 | gering |
