@@ -1,0 +1,223 @@
+{
+ "format": "aiaeao.cube.vp093-oracle/1",
+ "reference_version": "v9.4",
+ "independence": "Expected results transcribed by hand from VP09_3_ACCEPTANCE_SPEC.md §2a before any 0.9.3 runtime code; never generated from printer output.",
+ "transcribed_at": "2026-11-05",
+ "spec_sha256": "b1163aaa538ed9fd7d1b5fa600410467fbc38e48fda3e73103ba81ab424f1750",
+ "granularity": "detail",
+ "cases": [
+  {
+   "id": "X-01",
+   "rows": "X",
+   "cols": "Y:kind",
+   "expected": "PASS",
+   "cells": {
+    "governance|Actor": [
+     "auth · holder_ref"
+    ],
+    "governance|Principal": [
+     "adm · principal_ref"
+    ],
+    "governance|Resource": [
+     "auth · resource_scope_ref"
+    ],
+    "provenance|Actor": [
+     "act-call · performed_by_ref"
+    ],
+    "provenance|Principal": [
+     "act-call · executed_as_ref"
+    ]
+   }
+  },
+  {
+   "id": "X-02",
+   "rows": "Y:kind",
+   "cols": "X",
+   "expected": "PASS",
+   "cells": {
+    "Actor|governance": [
+     "auth · holder_ref"
+    ],
+    "Principal|governance": [
+     "adm · principal_ref"
+    ],
+    "Resource|governance": [
+     "auth · resource_scope_ref"
+    ],
+    "Actor|provenance": [
+     "act-call · performed_by_ref"
+    ],
+    "Principal|provenance": [
+     "act-call · executed_as_ref"
+    ]
+   }
+  },
+  {
+   "id": "X-03",
+   "rows": "X",
+   "cols": "Y:referent",
+   "expected": "PASS",
+   "cells": {
+    "governance|act:holder": [
+     "auth · holder_ref"
+    ],
+    "governance|pr:person": [
+     "adm · principal_ref"
+    ],
+    "governance|res:store": [
+     "auth · resource_scope_ref"
+    ],
+    "provenance|act:caller": [
+     "act-call · performed_by_ref"
+    ],
+    "provenance|pr:person": [
+     "act-call · executed_as_ref"
+    ]
+   }
+  },
+  {
+   "id": "X-04",
+   "rows": "X",
+   "cols": "Y:kind",
+   "expected": "PASS",
+   "cells": {
+    "governance|Actor": [
+     "auth · holder_ref"
+    ],
+    "governance|Principal": [
+     "adm · principal_ref · absent"
+    ],
+    "governance|Resource": [
+     "auth · resource_scope_ref"
+    ],
+    "provenance|Actor": [
+     "act-call · performed_by_ref"
+    ],
+    "provenance|Principal": [
+     "act-call · executed_as_ref"
+    ]
+   }
+  },
+  {
+   "id": "X-05",
+   "rows": "X",
+   "cols": "Y:kind",
+   "expected": "PASS",
+   "cells": {
+    "governance|Actor": [
+     "auth · holder_ref"
+    ],
+    "governance|Principal": [
+     "adm · principal_ref"
+    ],
+    "governance|Resource": [
+     "auth · resource_scope_ref"
+    ],
+    "provenance|Actor": [
+     "act-call · performed_by_ref"
+    ],
+    "provenance|Principal": [
+     "act-call · executed_as_ref"
+    ]
+   }
+  },
+  {
+   "id": "X-06",
+   "rows": "X",
+   "cols": "Y:kind",
+   "expected": "PASS",
+   "cells": {
+    "governance|Actor": [
+     "auth · holder_ref"
+    ],
+    "governance|Principal": [
+     "adm · principal_ref"
+    ],
+    "governance|Resource": [
+     "auth · resource_scope_ref"
+    ],
+    "provenance|Actor": [
+     "act-call · performed_by_ref"
+    ],
+    "provenance|Principal": [
+     "act-call · executed_as_ref"
+    ]
+   },
+   "report": {
+    "x_ignored": 1
+   }
+  },
+  {
+   "id": "X-07",
+   "rows": "X",
+   "cols": "Y:kind",
+   "expected": "PASS",
+   "cells": {},
+   "warnings": [
+    "VP09_X_NONE"
+   ]
+  },
+  {
+   "id": "X-08",
+   "rows": "X",
+   "cols": "Y:kind",
+   "expected": "VP09_AXIS_INVALID"
+  },
+  {
+   "id": "X-09",
+   "rows": "Y:kind",
+   "cols": "Z:kind",
+   "expected": "PASS",
+   "status_line": "Y × Z · derived · Morphology 01.3"
+  },
+  {
+   "id": "X-10",
+   "rows": "X",
+   "cols": "Y:kind",
+   "expected": "PASS",
+   "cells": {
+    "governance|Actor": [
+     "auth · holder_ref"
+    ],
+    "governance|Principal": [
+     "adm · principal_ref"
+    ],
+    "governance|Resource": [
+     "auth · resource_scope_ref"
+    ],
+    "provenance|Actor": [
+     "act-call · performed_by_ref"
+    ],
+    "provenance|Principal": [
+     "act-call · executed_as_ref"
+    ]
+   },
+   "report": {
+    "x_profiles_missing": [
+     "act-call",
+     "adm",
+     "auth"
+    ]
+   }
+  },
+  {
+   "id": "X-11",
+   "rows": "X",
+   "cols": "Y:kind",
+   "expected": "PASS",
+   "locale": "de",
+   "status_line": "X × Y · kanonisch · Morphologie §3.3"
+  },
+  {
+   "id": "X-12",
+   "rows": "X",
+   "cols": "Y:kind",
+   "expected": "PASS",
+   "x_coverage": {
+    "units_total": 5,
+    "drawn": 5,
+    "status": "COMPLETE"
+   }
+  }
+ ]
+}
