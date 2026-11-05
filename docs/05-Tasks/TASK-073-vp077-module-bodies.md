@@ -9,7 +9,7 @@ Mile: [MILE-013](../02-Milestones/MILE-013-printer-module-bodies.md) · Aufwand:
 ## Ergebnis und Akzeptanz
 
 - 0.7.6-Ausgaben vor dem Code festgehalten (`scripts/pin_076_digests.py`, 10 Szenarien) und danach byte-identisch; 0.7.0–0.7.5 ebenso (Pins 14/16/13/14/16/16).
-- `tests/test_vp077.py` (8 Tests, VP077-01…07) grün; P2 `visual-printer-migration-v1` 123 Tests, P3 `mcp-local` 250 Tests grün.
+- `tests/test_vp077.py` (8 Tests, VP077-01…07) grün; P2 `visual-printer-migration-v1` 123 Tests, P3 `mcp-local` 250 Tests grün, bestätigt in der Adapter-venv auf dem Mac.
 - Abnahmefall F02 aus lunados.explorer: P1.14 PASS für alle Pläne, 42 von 42 Abhängigkeiten gedruckt, `check-panels` PASS ([Nachweis](../10-Evidence/MILE-013/README.md)).
 
 ## Abhängigkeiten und Grenze

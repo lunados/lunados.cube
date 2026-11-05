@@ -12,7 +12,7 @@ Stand: 2026-11-05 · Branch `feature/mile013-vp077-module-bodies` auf `3d424ce`
 | `python3 -m unittest discover -s tests` in `P2/visual-printer-migration-v1` | 123 Tests OK (Python 3.13) |
 | `python3 -m unittest discover -s tests` in `P3/adapters/mcp-local` | 250 Tests OK (Python 3.13) |
 
-Hinweis zur Umgebung: Das Paket `mcp` war in der Prüfumgebung nicht installierbar. `server.py` wurde für die Tests mit einem Import-Stub geladen (nur `MCPServer.tool` als Durchreicher); die geprüften Funktionen sind die echten. Ein Lauf in der Adapter-venv auf dem Mac steht aus.
+Bestätigt in der Adapter-venv auf dem Mac (echtes `mcp`, Python 3.13, 2026-11-05, Nutzer): P2 `visual-printer-migration-v1` 123 Tests OK, P3 `mcp-local` 250 Tests OK. Die ersten Läufe in der Prüfumgebung luden `server.py` mangels `mcp` mit einem Import-Stub.
 
 ## Abnahmefall F02 (lunados.explorer)
 
