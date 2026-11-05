@@ -3,7 +3,7 @@
  "reference_version": "v9.4",
  "independence": "Expected results transcribed by hand from VP12_ACCEPTANCE_SPEC.md §2a before any VP-12 runtime code; never generated from printer output.",
  "transcribed_at": "2026-11-05",
- "spec_sha256": "15a19523743dd21de8d533883966c8e5535402d764acc945c5eb60db87a9c170",
+ "spec_sha256": "2c43d4b2bcaf0f4fc009fb52f1c28737a9eabfa2162ed8e221f1d771f235ca96",
  "granularity": "detail",
  "cases": [
   {
@@ -323,5 +323,6 @@
    ],
    "same_panel_as": "L-01"
   }
- ]
+ ],
+ "amended": "2026-11-05: §1.6 wording aligned with the §2a table (mod.core present in beta via d5); expected values unchanged, spec_sha256 re-pinned; still before any runtime code"
 }
