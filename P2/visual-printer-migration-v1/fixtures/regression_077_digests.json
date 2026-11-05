@@ -1,0 +1,34 @@
+{
+ "digests": {
+  "flow": {
+   "mapping": "1a19aa648ba2b8b056bdc78a18c998847b2c7b05f4970219f256379aae247863",
+   "panels": [
+    "97aba99a64897ea4213d86ea24d69d7e9d3b61e0a96663e477d6da786db9a50f",
+    "cb57c8f677b339a6574956c94587a54b66c85f7ae2f30e17d4349eb0c706dc6b",
+    "1c81ae1e5afd8cb2a4680581e6a4067ee3cc0518a0e7db53b473517b80ae6b2b",
+    "596e4142c5ce349be51a611709a9dd29e6f9f5ebe82fa4753fdb365cefed2c47"
+   ],
+   "report": "48ddda5238c26ab6dbfe1b5a1c7490b9357f2bd1b7f34f7d2221c9a5458ba6b7",
+   "source": "075ac6141ca2c4a7728479a5098cb6e6fba364b5aa83c7a6d4f549ccedf08d72"
+  },
+  "phases": {
+   "mapping": "1a19aa648ba2b8b056bdc78a18c998847b2c7b05f4970219f256379aae247863",
+   "panels": [
+    "760d5f5dd56bef86f0745ad0b641252f20dfcf362073a5be9744e5c6be2b6d2e"
+   ],
+   "report": "9bcf849808b48d2a89cf88fb67eff701398cb667a3f041fd6fdb7da1c18c8859",
+   "source": "6514aa17659535bdf07e40f9a82fc1a94e93b3051f62a6b359c4c109e56b2902"
+  },
+  "statements": {
+   "mapping": "f0b15bdb72016db6f862cb4c79b2217e0adccab11d79be30bfcc716609c578f1",
+   "panels": [
+    "9d44ae87b9121b87e5384bd7c3b1255f2055e683d0db90cbc799ae555494b48a"
+   ],
+   "report": "b2d10bd5cee41d715903be140ff0e9de8c22b28d423abe71230596aead09be05",
+   "source": "c07e9969684a384b31ab6e41e1fdf0b3547f3e7bb7e6a1ba4bc3443ebd056d4a"
+  }
+ },
+ "format": "aiaeao.cube.vp07-regression-digests/1",
+ "pinned_before": "any VP-07.8 runtime code (VP078-01)",
+ "profile": "P2-VP-MIGRATION/0.7.7"
+}

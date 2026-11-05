@@ -5,7 +5,7 @@ a declared context, track map, label map or witness prefix list.
 """
 from __future__ import annotations
 
-from .common import PROFILE, PROFILES, P071, P072, P073, P075, P076, P077, V75UP, V76UP, V71UP, V72UP, V73UP, tag_profile, METHOD_PROFILE_REF, check_binding, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
+from .common import PROFILE, PROFILES, P071, P072, P073, P075, P076, P077, P078, V75UP, V76UP, V71UP, V72UP, V73UP, tag_profile, METHOD_PROFILE_REF, check_binding, UNASSIGNED, LATEST, END_REASONS, KEY, VP07Error, need, keys, clean, sha_json, excerpt, check_edge_styles
 from .source import FORMAT as SOURCE_FORMAT, validate_source
 
 CONTEXT_FORMAT = 'aiaeao.cube.binding-context/5'
@@ -39,7 +39,22 @@ MAPPING_077 = {**MAPPING_076,  # VP-07.7 (MILE-013): closed table, X endpoints s
     'Y:resource-object:evidence': ('resource-objects.evidence', 'form.resource-card', 'Evidence'),
     'Y:resource-object:content': ('resource-objects.content', 'form.resource-card', 'Content'),
 }
-MAPPINGS = {P076: MAPPING_076, P077: MAPPING_077}
+MAPPING_078 = {**MAPPING_077,  # VP-07.8 (MILE-014): X endpoints as contract anchors; source, cache, revision as cards
+    'X:endpoint:perception': ('contract-pairs.perception', 'form.contract-anchor', 'Perception'),
+    'X:endpoint:conclusion': ('contract-pairs.conclusion', 'form.contract-anchor', 'Conclusion'),
+    'X:endpoint:authority': ('contract-pairs.authority', 'form.contract-anchor', 'Authority'),
+    'X:endpoint:admission': ('contract-pairs.admission', 'form.contract-anchor', 'Admission'),
+    'X:endpoint:expectation': ('contract-pairs.expectation', 'form.contract-anchor', 'Expectation'),
+    'X:endpoint:satisfaction': ('contract-pairs.satisfaction', 'form.contract-anchor', 'Satisfaction'),
+    'X:endpoint:delegation': ('contract-pairs.delegation', 'form.contract-anchor', 'Delegation'),
+    'X:endpoint:completion': ('contract-pairs.completion', 'form.contract-anchor', 'Completion'),
+    'X:endpoint:action': ('contract-pairs.action', 'form.contract-anchor', 'Action'),
+    'X:endpoint:result': ('contract-pairs.result', 'form.contract-anchor', 'Result'),
+    'Y:resource-object:source': ('resource-objects.source', 'form.resource-card', 'Source'),
+    'Y:resource-object:cache': ('resource-objects.cache', 'form.resource-card', 'Cache'),
+    'Y:resource-object:revision': ('resource-objects.revision', 'form.resource-card', 'Revision'),
+}
+MAPPINGS = {P076: MAPPING_076, P077: MAPPING_077, P078: MAPPING_078}
 MAX_DECL_REF = 140  # VP-02 edge declaration_ref limit
 
 

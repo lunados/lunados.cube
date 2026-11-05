@@ -190,3 +190,9 @@ Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
 |---|---|---|
 | [TASK-073 — Profil VP-07.7](TASK-073-vp077-module-bodies.md) | – | 0,5 PT |
 | [TASK-074 — G5 R8: Core 0.9.1-proof und CPU-Budget](TASK-074-g5-r8.md) | – | 0,25–0,5 PT |
+
+## MILE-014 — lokal umgesetzt
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-075 — Profil VP-07.8](TASK-075-vp078-x-endpoints.md) | – | 0,25–0,5 PT |
