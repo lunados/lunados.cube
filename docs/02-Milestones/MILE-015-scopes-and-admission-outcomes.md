@@ -1,6 +1,6 @@
 # MILE-015 — Scope-Ketten und Ausgänge der Admission (P1)
 
-Status: umgesetzt (lokal, G4) – [Nachweis](../10-Evidence/MILE-015/README.md) · Stand: 2026-11-05 · Voraussetzung: MILE-014 · Folge-Mile: [MILE-016](MILE-016-axis-pair-views.md)
+Status: umgesetzt (lokal G4, G5 R9 live 51/51) – [Nachweis](../10-Evidence/MILE-015/README.md) · Stand: 2026-11-05 · Voraussetzung: MILE-014 · Folge-Mile: [MILE-016](MILE-016-axis-pair-views.md)
 
 ## Anlass
 
