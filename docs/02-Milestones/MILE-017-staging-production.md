@@ -1,6 +1,6 @@
 # MILE-017 — Staging und Production für G5 (Beta-Betrieb)
 
-Status: **vorgemerkt** (Folge-Mile, Beginn nach MILE-016) · Stand: 2026-11-05 · Grundlage: Konzept „AIAEAO — Staging & Production Concept v1.0“ (Nutzer, Status *Proposed*, unten im Wortlaut) · Voraussetzung: MILE-015 (G5 R9), MILE-016 abgeschlossen
+Status: **ruht** (Nutzer, 2026-11-05: zuerst MILE-018; Beginn, sobald eine externe Beta konkret wird) · Stand: 2026-11-05 · Grundlage: Konzept „AIAEAO — Staging & Production Concept v1.0“ (Nutzer, Status *Proposed*, unten im Wortlaut) · Voraussetzung: MILE-015 (G5 R9), MILE-016 abgeschlossen
 
 ## Anlass
 
@@ -26,6 +26,20 @@ G5 ist heute ein einziger Remote-Stand für Entwicklung und Abnahme. Vor einer e
 | S5 | OAuth für MCP-Clients (Claude-Connector, Codex): Discovery mit `401` und `resource_metadata`, DCR oder CIMD, Redirect `https://claude.ai/api/mcp/auth_callback` und Loopback für Claude Code | OAuth mit Codex und Claude getestet |
 | S6 | Produktvarianten Public / Pro / Premium als Berechtigungen, unabhängig von der Umgebung; in der geschlossenen Beta nur zentrale Allowlist | Allowlist wirkt; keine Lizenzverwaltung nötig |
 | S7 | Public Reference bleibt eigenständig | Public Reference unabhängig erreichbar |
+
+## Epics und Aufwand (Schätzung, 2026-11-05)
+
+| Epic | Inhalt | Aufwand (PT) | Unsicherheit |
+|---|---|---|---|
+| E17-1 Entscheidungen | Die offenen Fragen klären, vor allem Access und OAuth für MCP-Clients; kleiner Probeaufbau mit Claude und Codex gegen einen Test-Worker | 0,5–1 | hoch, bestimmt alles Weitere |
+| E17-2 Zwei Umgebungen | Wrangler-Environments für Gateway und Core (je ein Paar mit eigener Service Binding); Skripte umgebungsfähig; heutiger Endpunkt bleibt Staging | 0,5 | gering |
+| E17-3 Release und Rollback | Production nur aus Git-Tags, Runbook, Rollback auf den vorherigen Worker-Stand, R-Serie gegen Production | 0,5 | gering |
+| E17-4 Secrets und Isolation | Getrennte Secrets, Logs, Zugangskonfiguration; später KV/D1/R2 | 0,25 | gering |
+| E17-5 Zugang Production | Cloudflare Access, E-Mail-Allowlist, One-Time PIN, serverseitige Prüfung, Widerruf | 0,5–1 | mittel |
+| E17-6 OAuth für MCP-Clients | OAuth im Gateway (Discovery, Registrierung, Token), Tests mit Claude und Codex | 1–2 | hoch |
+| E17-7 Produktvarianten | Public/Pro/Premium als Berechtigungen; Beta über zentrale Allowlist | 0,25–0,5 | mittel |
+| E17-8 Abnahme | Die zehn Kriterien aus §7 des Konzepts, Nachweis, Live-Lauf | 0,5 | gering |
+| **Summe** | | **4–6,25** | ohne E17-6 (Production zunächst mit Access und Token) etwa 2,5–3,5 |
 
 ## Offene Fragen (für die Spezifikation)
 
