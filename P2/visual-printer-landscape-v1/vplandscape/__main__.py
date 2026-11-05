@@ -4,7 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from .common import (PROFILE, SOURCE_PROFILE, VIEW, INPUT_FORMAT, MAX_COLUMNS, MAX_BANDS, BUDGET, LOCALES, PLACEMENT_DEFAULT, LEVELS,
+from .common import (PROFILE, PROFILES, SOURCE_PROFILE, VIEW, INPUT_FORMAT, MAX_COLUMNS, MAX_BANDS, BUDGET, LOCALES, PLACEMENT_DEFAULT, LEVELS,
                      VP12Error, VP07Error, encode, load_json, publish_dir, write_new)
 from .source import from_plan
 from .landscape import render_landscape
@@ -12,7 +12,7 @@ from .panels import print_panels, check_panels
 
 
 def capabilities():
-    return {'format': 'aiaeao.cube.vp12-capabilities/1', 'profile': PROFILE, 'reference_version': 'v9.4', 'views': [VIEW],
+    return {'format': 'aiaeao.cube.vp12-capabilities/1', 'profile': PROFILE, 'profiles': list(PROFILES), 'reference_version': 'v9.4', 'views': [VIEW],
             'source_profile': SOURCE_PROFILE, 'inputs': ['aiaeao.cube.binding-context/10 (via VP-07.8 from-plan)', INPUT_FORMAT],
             'layer_map': 'aiaeao.cube.vp07-layer-map/1 (VP-07.2, optional)', 'max_columns': MAX_COLUMNS, 'max_bands': MAX_BANDS,
             'budgets': dict(BUDGET), 'granularities': list(LEVELS), 'locales': list(LOCALES), 'placement_default': list(PLACEMENT_DEFAULT),
@@ -33,6 +33,7 @@ def main(argv=None):
     fp.add_argument('--placement', help='comma-separated placement predicates (default runs-on,hosted-by; empty for none)')
     fp.add_argument('--locale', choices=LOCALES, default='en')
     fp.add_argument('--granularity', choices=LEVELS, default='detail')
+    fp.add_argument('--profile', default=PROFILE, help='0.12.0 (default) or 0.12.1 (VP-12.1: VG anchor of the layer column)')
     for name in ('check-landscape', 'print-panels'):
         x = s.add_parser(name)
         x.add_argument('--input', required=True)
@@ -49,9 +50,9 @@ def main(argv=None):
             opt = lambda f: load_json(f, 'VP07_ADAPTER_INPUT') if f else None  # noqa: E731
             doc, info = from_plan(load_json(a.context, 'VP07_ADAPTER_INPUT'), a.plan, opt(a.layers), opt(a.labels),
                                   a.steps.split(',') if a.steps else None,
-                                  None if a.placement is None else [x for x in a.placement.split(',') if x], a.locale, a.granularity)
+                                  None if a.placement is None else [x for x in a.placement.split(',') if x], a.locale, a.granularity, a.profile)
             write_new(Path(a.out), encode(doc))
-            out.write(encode({'status': 'PASS', 'operation': 'from-plan', 'profile': PROFILE, 'input_file': a.out,
+            out.write(encode({'status': 'PASS', 'operation': 'from-plan', 'profile': doc['profile'], 'input_file': a.out,
                               'cells': len(doc['source']['cells']), 'steps': doc['steps']}))
             return 0
         if a.command == 'check-landscape':

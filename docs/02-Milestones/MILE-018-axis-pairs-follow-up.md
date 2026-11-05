@@ -1,6 +1,6 @@
 # MILE-018 — Achsenpaare: Folgearbeiten (P2)
 
-Status: **vorgemerkt** · Stand: 2026-11-05 · Voraussetzung: [MILE-016](MILE-016-axis-pair-views.md) umgesetzt (X × Y, `cube.landscape`, Status der Kreuzung; G5 R10)
+Status: **in Arbeit** (Nutzer, 2026-11-05: vor MILE-017) · Stand: 2026-11-05 · Voraussetzung: [MILE-016](MILE-016-axis-pair-views.md) umgesetzt (X × Y, `cube.landscape`, Status der Kreuzung; G5 R10)
 
 ## Anlass
 
@@ -16,6 +16,21 @@ MILE-016 hat die zwei wichtigsten Kreuzungen geliefert. Was dort als „später�
 | B4 | Kanten zwischen zwei Schritten im selben Modul fallen im Export weg (Projektionsverlust, „intern“). | Zählung oder Unterknoten am Modul; Ankerfrage zuerst (Schritte haben keinen VG-Anker). | später |
 | B7 | Wiederherstellungswege (*recovers-via*) haben keine eigene Linienform. | Prädikat `recovers-via` als lokaler Vertrag mit eigener Linienform. | später, mit einem Fall mit Recovery-Pfad |
 | B8 | Mehrere SVGs werden einzeln geschrieben; das Explorer-Cockpit liest die Ordner selbst. | Druck-Manifest (Plan, Sicht, Panels, Digests, Abdeckung) als stabile Schnittstelle für Viewer. | später; Cockpit liest dann das Manifest |
+
+## Epics und Aufwand (Schätzung, 2026-11-05)
+
+Die Epics sind unabhängig und einzeln ziehbar. Reihenfolge-Vorschlag: E18-1, E18-3, dann nach Bedarf.
+
+| Epic | Backlog | Inhalt | Aufwand (PT) | Unsicherheit |
+|---|---|---|---|---|
+| E18-1 VG-Anker Schichtspalte | B13 | Ankerfrage im VG-Register klären, dann neues Profil der Landschaft. **Erledigt** ([TASK-081](../05-Tasks/TASK-081-vp121-layer-anchor.md)): `skeleton-shell.section`, Profil 0.12.1 | 0,25–0,5 | gering |
+| E18-2 X × Z mit X-Endpunkten | B11 | Zellregel in `cube.axes`: wo Grant und Admission an Module greifen | 0,5 | gering (Muster wie X × Y) |
+| E18-3 X × X als Decision Helix | B12 | Kette Perception → Conclusion → Authority → Admission → Action → Result aus deklarierten Slots. **Zurückgestellt** (2026-11-05): Als Slot-Matrix in den Pilotblättern fast leer (nur Admissions gebunden). Sinnvoll erst als Kette der Contract Pairs; vor neuem Code eine Skizze an F05. Entwurf 0.9.4 liegt unveröffentlicht auf `feature/mile018-e3-decision-helix` | 0,75–1 | mittel |
+| E18-4 Interne Kanten | B4 | Kanten innerhalb eines Moduls zählen oder als Unterknoten; Ankerfrage zuerst | 0,5 | mittel |
+| E18-5 `recovers-via` | B7 | Eigene Linienform für Wiederherstellungswege; braucht einen Fall mit Recovery-Pfad | 0,25 | gering, wartet auf einen Fall |
+| E18-6 Druck-Manifest | B8 | Stabile Schnittstelle für Viewer; Cockpit liest das Manifest | 0,5 | gering |
+| E18-7 Auslieferung G5 (R11) | – | Neue Profile nach G6/G5, Erwartungen vorab, Live-Lauf | 0,25–0,5 | gering |
+| **Summe** | | | **3–3,75** | |
 
 ## Rahmenbedingungen
 

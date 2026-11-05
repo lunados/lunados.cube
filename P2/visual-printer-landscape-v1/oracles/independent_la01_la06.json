@@ -1,0 +1,69 @@
+{
+ "format": "aiaeao.cube.vp121-oracle/1",
+ "independence": "Transcribed by hand from VP12_1_ACCEPTANCE_SPEC.md §3 before any 0.12.1 runtime code.",
+ "transcribed_at": "2026-11-05",
+ "spec_sha256": "27b13d12322fdc0a8a937be0e91c0f1d14119c0b85fe8ec3df30b27529085f18",
+ "regression_digests_sha256": "af7d2fb70f797894d7411976a9860a2c19c899ba86e57e2a1711655fe286d888",
+ "anchor": "skeleton-shell.section",
+ "glyph": "◲",
+ "cases": [
+  {
+   "id": "LA-01",
+   "base": "L-01",
+   "profile": "P2-VP-LANDSCAPE/0.12.1",
+   "headers": [
+    "actor",
+    "module",
+    "data",
+    "platform"
+   ],
+   "column_anchor": "skeleton-shell.section",
+   "invariant": "COLUMN_ANCHOR_EACH_COLUMN"
+  },
+  {
+   "id": "LA-02",
+   "base": "L-03",
+   "profile": "P2-VP-LANDSCAPE/0.12.1",
+   "headers": [
+    "actor",
+    "module",
+    "data",
+    "platform",
+    "unassigned"
+   ]
+  },
+  {
+   "id": "LA-03",
+   "base": "L-02",
+   "profile": "P2-VP-LANDSCAPE/0.12.1",
+   "headers": [
+    "module-bodies",
+    "identity-anchors",
+    "resource-objects"
+   ]
+  },
+  {
+   "id": "LA-04",
+   "base": "L-01",
+   "profile": "P2-VP-LANDSCAPE/0.12.1",
+   "same_as_0120": [
+    "units",
+    "bands",
+    "x_outside"
+   ]
+  },
+  {
+   "id": "LA-05",
+   "base": "all",
+   "profile": "P2-VP-LANDSCAPE/0.12.0",
+   "byte_identical_to": "fixtures/regression_0120_digests.json",
+   "no_header_groups": true
+  },
+  {
+   "id": "LA-06",
+   "base": "L-01",
+   "profile": "P2-VP-LANDSCAPE/0.12.9",
+   "expected": "VP12_INPUT"
+  }
+ ]
+}

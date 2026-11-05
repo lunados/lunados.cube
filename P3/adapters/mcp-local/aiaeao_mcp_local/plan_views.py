@@ -55,7 +55,7 @@ SOURCE_OPTIONS = {'vpmigration': {'tracks', 'track', 'labels', 'steps', 'subject
                   'vpaxes': {'tracks', 'track', 'labels', 'steps', 'subjects', 'layers', 'profile'},
                   'vpcells': {'predicate', 'tracks', 'track', 'labels', 'steps', 'subjects', 'layers', 'statements', 'projection'},
                   'vpinstances': {'statements', 'records'},
-                  'vplandscape': {'layers', 'labels', 'steps', 'placement_predicates'}}
+                  'vplandscape': {'layers', 'labels', 'steps', 'placement_predicates', 'profile'}}
 HINT = 'choose a partition, the granularity overview or standard, or a step/subject/track slice (from-plan); nothing was truncated'
 ERRORS = (c07.VP07Error, c08.VP08Error, c09.VP09Error, c12.VP12Error)
 NOT_EVALUATED = {'epistemic_warrant': 'NOT_EVALUATED', 'current_authority': 'NOT_EVALUATED', 'canonical_admission': 'NOT_EVALUATED'}
@@ -133,8 +133,9 @@ def plan_source(context: Any, plan_id: Any, printer: Any, **options) -> dict:
         steps = options.get('steps')
         if steps is not None and not (isinstance(steps, str) and steps):
             _fail('P3_PLAN_ARGUMENT_INVALID', 'vplandscape steps must be comma-separated declared step IDs', 'input', printer=printer)
-        return _limit(_printer(printer, c12.PROFILE, vp12.source, context, plan_id, options.get('layers'), options.get('labels'),
-                               steps.split(',') if steps else None, options.get('placement_predicates')), printer)
+        return _limit(_printer(printer, options.get('profile') or c12.PROFILE, vp12.source, context, plan_id, options.get('layers'),
+                               options.get('labels'), steps.split(',') if steps else None, options.get('placement_predicates'),
+                               profile=options.get('profile')), printer)
     if printer == 'vpcells':                             # VP-10: one predicate per view (D-3); binding-context/8 coverage
         prof = c10.PROFILE_110 if ('statements' in options or 'projection' in options) else c10.PROFILE
         return _limit(_printer(printer, prof, vp10.source, context, plan_id, **options), printer)
@@ -218,10 +219,11 @@ def capabilities() -> dict:
                                      'source_options': 'plan_id null, statements (the trace, aiaeao.cube.statement-set/1), optional records '
                                                        '(aiaeao.cube.conformance-record/1 of lunados.lib analyze.trace-conformance/v1); read, never recomputed',
                                      'view_options': 'locale (en, de); granularity accepted, no effect'},
-                     'vplandscape': {'profiles': [c12.PROFILE], 'view': c12.VIEW, 'source_profile': c12.SOURCE_PROFILE,
+                     'vplandscape': {'profiles': list(c12.PROFILES), 'default_profile': c12.PROFILE, 'view': c12.VIEW, 'source_profile': c12.SOURCE_PROFILE,
                                      'context': 'aiaeao.cube.binding-context/10 (VP-07.8 source path, origin lines on)',
                                      'source_options': 'layers (aiaeao.cube.vp07-layer-map/1), labels, steps (comma-separated, default first and '
-                                                       'last; at most 4), placement_predicates (default runs-on, hosted-by)',
+                                                       'last; at most 4), placement_predicates (default runs-on, hosted-by), profile '
+                                                       '(0.12.1: VG anchor skeleton-shell.section on each layer column)',
                                      'view_options': 'granularity (nodes per column and band 12/8/5), locale (en, de)',
                                      'budget': {'max_columns': c12.MAX_COLUMNS, 'max_bands': c12.MAX_BANDS, 'nodes': dict(c12.BUDGET)}}},
         'display_options': _display_options(),
