@@ -10,6 +10,7 @@ from .source import validate_input
 
 W, M = 1200, 42
 NODE_H, NODE_GAP, BAND_HEAD, BAND_PAD = 46, 24, 34, 24
+COL_W, EMPTY_W, COL_GAP = 250, 90, 64
 _PRINTER = None
 
 
@@ -111,23 +112,56 @@ def _arrow(g, x1, y1, x2, y2, color):
     add(g, 'polygon', points=' '.join(f'{fmt(x)},{fmt(y)}' for x, y in pts), fill=color)
 
 
+def _frame(width, height, title, subtitle):
+    """The vp2d frame (title, subtitle, display-only footer) at a given width; vp2d's _root is fixed to 1200."""
+    root = ET.Element(f'{{{NS}}}svg', dict(version='1.1', width=str(width), height=str(height), viewBox=f'0 0 {width} {height}', role='img',
+                                            **{'aria-labelledby': 'svg-title svg-desc', 'data-printer-profile': PROFILE, 'data-view-id': VIEW}))
+    t = add(root, 'title', id='svg-title'); t.text = title
+    d = add(root, 'desc', id='svg-desc')
+    d.text = ('Display-only AIAEAO v9.4 projection. Geometry and colors cannot imply verification, permission, admission, '
+              'successful execution or semantic validation.')
+    rect(root, 0, 0, width, height, stroke='#FFFFFF', fill='#FFFFFF', radius=0)
+    rect(root, 0, 0, width, 9, stroke='#111827', fill='#111827', radius=0)
+    text(root, M, 48, title, 27, '#111827', 'bold')
+    text(root, M, 75, subtitle, 14, MUTED)
+    line(root, M, 93, width-M, 93, color='#E2E8F0')
+    line(root, M, height-49, width-M, height-49, color='#E2E8F0')
+    text(root, M, height-25, 'DISPLAY-ONLY · not an ACG validation, warrant or authority decision', 13, MUTED)
+    text(root, width-M, height-25, VIEW, 12, '#64748B', anchor='end')
+    return root
+
+
+def _geometry(pr):
+    """Column x, column width and node width; columns empty in every band stay narrow (presentation only)."""
+    cols = pr['columns']
+    used = [any(b['columns'][c] for b in pr['bands']) for c in cols]
+    n, e = sum(used), len(cols)-sum(used)
+    full = max(COL_W, (W-2*M-EMPTY_W*e)/max(n, 1))
+    widths = [full if u else EMPTY_W for u in used]
+    xs, x = [], M
+    for w in widths:
+        xs.append(x); x += w
+    nws = [w-COL_GAP if u else 0 for w, u in zip(widths, used)]
+    return xs, widths, nws, max(W, int(x+M))
+
+
 def render(pr):
     T, P = pr['T'], _printer()
     cols = pr['columns']
-    cw = (W-2*M)/max(len(cols), 1)
-    nw = max(min(cw-90, 230), 120)
+    xs, cws, nws, width = _geometry(pr)
+    left = [xs[k]+(cws[k]-nws[k])/2 for k in range(len(cols))]
+    right = [left[k]+nws[k] for k in range(len(cols))]
+    gapx = lambda k: (right[k]+left[k+1])/2  # noqa: E731  middle between column k and k+1
     heights = [BAND_HEAD+BAND_PAD+max(1, max((len(b['columns'][c]) for c in cols), default=0))*(NODE_H+NODE_GAP) for b in pr['bands']]
     top = 190
     height = top+sum(heights)+16*len(heights)+110
     doc = pr['doc']
     title = excerpt(f"{doc['source']['plan_id']} · landscape · {' / '.join(b['step'] for b in pr['bands'])}", 78)
-    root = P._root({'title': title, 'subtitle': excerpt(pr['status']+' · '+PROFILE, 110), 'view_id': VIEW}, height)
-    root.set('data-printer-profile', PROFILE)
+    root = _frame(width, height, title, excerpt(pr['status']+' · '+PROFILE, 110))
     root.set('data-vp12-crossing-status', STATUS[0])
     text(root, M, 120, T['header'], 12, MUTED)
-    leg = [('solid', T['legend.solid']), ('dashed', T['legend.dashed']), ('dotted', T['legend.dotted'])]
     x = M
-    for style, label in leg:
+    for style, label in (('solid', T['legend.solid']), ('dashed', T['legend.dashed']), ('dotted', T['legend.dotted'])):
         el = line(root, x, 144, x+28, 144, color=STROKE)
         if style in DASH:
             el.set('stroke-dasharray', DASH[style])
@@ -136,21 +170,21 @@ def render(pr):
     el = line(root, x, 144, x+28, 144, color=STROKE); el.set('stroke-width', '3.2')
     text(root, x+34, 148, T['legend.placement'], 11, MUTED)
     for k, c in enumerate(cols):
-        text(root, M+k*cw+cw/2, 182, excerpt(pr['labels'][c], 30), 13, INK, 'bold', anchor='middle')
+        text(root, xs[k]+cws[k]/2, 182, excerpt(pr['labels'][c], max(6, int(cws[k]/8))), 13, INK, 'bold', anchor='middle')
     y0 = top
     for b, h in zip(pr['bands'], heights):
         g = add(root, 'g', **{'data-vp12-band': b['step']})
-        rect(g, M, y0, W-2*M, h, stroke='#E2E8F0', fill='#FFFFFF', radius=6)
+        rect(g, M, y0, width-2*M, h, stroke='#E2E8F0', fill='#FFFFFF', radius=6)
         text(g, M+12, y0+22, T['step'].format(step=b['step']), 13, INK, 'bold')
         mk = {(m['node'], m['marker']): m for m in b['markers']}
         pos = {}
         for k, c in enumerate(cols):
-            ns = b['columns'][c]
+            ns, nw = b['columns'][c], nws[k]
             if not ns:
-                text(g, M+k*cw+cw/2, y0+BAND_HEAD+BAND_PAD+NODE_H/2, T['empty'], 11, '#94A3B8', anchor='middle')
+                text(g, xs[k]+cws[k]/2, y0+BAND_HEAD+BAND_PAD+NODE_H/2, T['empty'], 11, '#94A3B8', anchor='middle')
             for r, i in enumerate(ns):
                 it = pr['items'][i]
-                nx, ny = M+k*cw+(cw-nw)/2, y0+BAND_HEAD+BAND_PAD/2+NODE_GAP/2+r*(NODE_H+NODE_GAP)
+                nx, ny = left[k], y0+BAND_HEAD+BAND_PAD/2+NODE_GAP/2+r*(NODE_H+NODE_GAP)
                 pos[i] = (k, nx, ny)
                 retired = (i, 'retired') in mk
                 ng = add(g, 'g', **{'data-vp12-node': i, 'data-anchor-id': it['anchor_id'], 'data-semantic-ref': it['semantic_ref'],
@@ -158,16 +192,16 @@ def render(pr):
                 tt = add(ng, 'title'); tt.text = it['label']+' — '+it['anchor_id']
                 rr = rect(ng, nx, ny, nw, NODE_H, stroke=STROKE, fill='#F8FAFC' if not retired else '#FFFFFF', radius=8, dashed=retired)
                 text(ng, nx+20, ny+30, P.by_id[it['anchor_id']]['unicode'], 20, INK, anchor='middle', glyph=True)
-                text(ng, nx+40, ny+20, excerpt(it['label'], int((nw-50)/8)), 13, INK, 'bold')
+                text(ng, nx+40, ny+20, excerpt(it['label'], int((nw-48)/7.4)), 13, INK, 'bold')
                 sub = it['anchor_id'].split('.', 1)[1]
                 if (i, 'introduced') in mk:
                     ng.set('data-vp12-marker', 'introduced'); sub = '+ '+T['introduced']
                 if retired:
                     ng.set('data-vp12-marker', 'retired'); sub = '− '+T['retired'].format(step=mk[(i, 'retired')]['retired_at'])
                     rr.set('stroke-dasharray', DASH['dashed'])
-                text(ng, nx+40, ny+37, excerpt(sub, int((nw-50)/6.5)), 10, MUTED)
+                text(ng, nx+40, ny+37, excerpt(sub, int((nw-48)/5.6)), 10, MUTED)
         same, lanes = {}, {}
-        for e in b['edges']:
+        for j, e in enumerate(b['edges']):
             (ka, xa, ya), (kb, xb, yb) = pos[e['subject']], pos[e['object']]
             eg = add(g, 'g', **{'data-edge-id': e['cell'], 'data-declaration-ref': e['declaration_ref'], 'data-vp12-origin': e['origin'],
                                 'data-vp12-edge-style': e['style'], 'data-vp12-placement': 'true' if e['placement'] else 'false'})
@@ -175,22 +209,23 @@ def render(pr):
             tt.text = f"{e['cell']} · {e['subject']} {e['predicate']} {e['object']} · {e['origin']}" + \
                 (' from '+', '.join(e['source_ids']) if e['source_ids'] else '')
             ca, cb = ya+NODE_H/2, yb+NODE_H/2
-            gap = lambda k, side: M+k*cw+(cw-nw)/2+(nw+(cw-nw)/2 if side > 0 else -(cw-nw)/2)  # noqa: E731  middle of the gap
-            if ka == kb:                                           # same column: bracket in the right-hand gap
+            jit = (j % 5-2)*4                                      # separate parallel segments (presentation only)
+            if ka == kb:                                           # same column: bracket in the left-hand gap
                 n = same[ka] = same.get(ka, 0)+1
-                xr = xa+nw+10+8*n
-                pts = [(xa+nw, ca), (xr, ca), (xr, cb), (xa+nw+4, cb)]
-                lx, ly, anchor = xr+4, (ca+cb)/2, 'start'
+                xl = left[ka]-8-5*n
+                pts = [(left[ka], ca), (xl, ca), (xl, cb), (left[ka]-4, cb)]
+                lx, ly, anchor = left[ka]-3, ca-4, 'end'
             elif abs(ka-kb) == 1:                                  # adjacent columns: straight through the gap
-                x1, x2 = (xa+nw, xb) if ka < kb else (xa, xb+nw)
+                x1, x2 = (right[ka], left[kb]) if ka < kb else (left[ka], right[kb])
                 pts = [(x1, ca), (x2, cb)]
                 lx, ly, anchor = (x1+x2)/2, (ca+cb)/2-5, 'middle'
             else:                                                  # farther columns: via gaps and the lane above the target row
                 d = 1 if kb > ka else -1
-                x1, x2 = (xa+nw, xb) if d > 0 else (xa, xb+nw)
+                x1, x2 = (right[ka], left[kb]) if d > 0 else (left[ka], right[kb])
+                g1, g2 = (gapx(ka), gapx(kb-1)) if d > 0 else (gapx(ka-1), gapx(kb))
+                g1, g2 = g1+jit, g2-jit
                 n = lanes[(kb, yb)] = lanes.get((kb, yb), 0)+1
                 lane = yb-NODE_GAP/2-3*(n-1)
-                g1, g2 = gap(ka, d), gap(kb, -d)
                 pts = [(x1, ca), (g1, ca), (g1, lane), (g2, lane), (g2, cb), (x2, cb)]
                 lx, ly, anchor = (g1+g2)/2, lane-3, 'middle'
             segs = list(zip(pts, pts[1:]))

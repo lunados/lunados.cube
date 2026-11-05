@@ -9,4 +9,6 @@ Spezifikation: [VP12_ACCEPTANCE_SPEC.md](../../P2/visual-printer-landscape-v1/VP
 - Spezifikation SPECIFIED, D-1…D-8 wie vorgeschlagen bestätigt; Ebenen über die VP-07.2-Layer-Map (keine zweite Form).
 - Oracle `oracles/independent_l01_l14.json` vor dem Code committet (Commit 0514d14, §1.6 in 568873f präzisiert, Erwartungen unverändert).
 - Paket `vplandscape` (CLI, `api`, Locales de/en), `tests/test_vp12.py` 18 Tests grün; keine Datei anderer P2-Pakete geändert (VP12-02).
-- Offen: Explorer F02/F05 (VP12-03), G6 `cube_plan_views` + G5 R10 (VP12-04), VG-Anker für die Schichtspalte.
+- VP12-03: lunados.explorer druckt die Landschaft für alle 11 Blätter (Plan `<id>-full`, Spalten aus `mappings/landscape-layers.json` nach deklariertem Konzept, Schritte current/beta), `check-panels` PASS; F02 und F05 abgenommen; Cockpit-Sicht „Landschaft“.
+- Geometrie: leere Spalten schmal, Breite wächst ab 5 belegten Spalten über 1200 px; Brücken in derselben Spalte links, parallele Wege versetzt (nur Darstellung, Oracle unverändert).
+- Offen: G6 `cube_plan_views` + G5 R10 (VP12-04), VG-Anker für die Schichtspalte.
