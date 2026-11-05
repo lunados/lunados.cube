@@ -15,7 +15,7 @@ if str(ADAPTER) not in sys.path:
     sys.path.insert(0, str(ADAPTER))
 from aiaeao_mcp_local import bridge, p0_resources, p0_tool, p1_adapter, surface
 
-VERSION = 'P3-MCP-REMOTE/0.9.2-proof'  # R9 (MILE-015): P1.15 binding-context/11, VP-07.8 X endpoints
+VERSION = 'P3-MCP-REMOTE/0.9.3-proof'  # R10 (MILE-016): VP-12 cube.landscape, VP-09.3 locale; R9: P1.15 /11, VP-07.8
 PLAN_OPERATIONS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
 
 
@@ -259,7 +259,7 @@ def dispatch(operation, arguments=None):
                 labels=a.get('labels'), layers=a.get('layers'), witness_prefixes=a.get('witness_prefixes'), edge_styles=a.get('edge_styles'),
                 steps=a.get('steps'), subjects=a.get('subjects'), profile=a.get('profile'), predicate=a.get('predicate'),
                 statements=a.get('statements'), projection=a.get('projection'), records=a.get('records'),
-                origin_lines=a.get('origin_lines'))
+                origin_lines=a.get('origin_lines'), placement_predicates=a.get('placement_predicates'))
         elif operation == 'cube_plan_views':
             a = arguments
             result = _plan_views().plan_views(a['source'], a['view'], a['granularity'], partition=a.get('partition'), rows=a.get('rows'),

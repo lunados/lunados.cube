@@ -1,4 +1,4 @@
-"""CP-001 / G6: VP-07, VP-08, VP-09, VP-10 and VP-11 plan views as in-memory MCP operations (local stdio only).
+"""CP-001 / G6: VP-07, VP-08, VP-09, VP-10, VP-11 and VP-12 plan views as in-memory MCP operations (local stdio only).
 
 The view decides the printer. Printers run unchanged through their `api` modules; this layer only
 validates arguments, dispatches, enforces the transport limits and turns printer errors into tool
@@ -13,7 +13,7 @@ from typing import Any
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[4]
 _PKGS = ('visual-printer-migration-v1', 'visual-printer-sequence-v1', 'visual-printer-axes-v1', 'visual-printer-cells-v1',
-         'visual-printer-instances-v1')
+         'visual-printer-instances-v1', 'visual-printer-landscape-v1')
 for _d in _PKGS:
     if not (ROOT/'P2'/_d).is_dir():
         raise RuntimeError('P2 plan printer required as sibling tree: '+_d)
@@ -29,6 +29,8 @@ from vpcells import api as vp10, common as c10  # noqa: E402
 from vpcells.common import INPUT_FORMAT as VP10_INPUT, MATRIX_FORMAT as VP110_INPUT  # noqa: E402
 from vpinstances import api as vp11, common as c11  # noqa: E402
 from vpinstances.common import INPUT_FORMAT as VP11_INPUT  # noqa: E402
+from vplandscape import api as vp12, common as c12  # noqa: E402
+from vplandscape.common import INPUT_FORMAT as VP12_INPUT  # noqa: E402
 
 DIAG_FORMAT = 'aiaeao.cube.mcp-plan-diagnostic/1'
 MAX_REQUEST_BYTES = 2*1024*1024
@@ -36,25 +38,26 @@ MAX_SVG_BYTES = 512*1024
 MAX_RESPONSE_BYTES = 2*1024*1024
 TOOLS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
 VIEWS = {'cube.phases': 'vpmigration', 'cube.flow': 'vpmigration', 'cube.sequence': 'vpsequence', 'cube.axes': 'vpaxes',
-         'cube.cells': 'vpcells', 'cube.instances': 'vpinstances'}
-PRINTERS = ('vpmigration', 'vpsequence', 'vpaxes', 'vpcells', 'vpinstances')
+         'cube.cells': 'vpcells', 'cube.instances': 'vpinstances', 'cube.landscape': 'vplandscape'}
+PRINTERS = ('vpmigration', 'vpsequence', 'vpaxes', 'vpcells', 'vpinstances', 'vplandscape')
 # options each view takes (MT-1, §2 P3_PLAN_ARGUMENT_INVALID); `granularity` is common to all
 OPTIONS = {'cube.phases': {'partition', 'locale', 'hide_ledger'}, 'cube.flow': {'partition', 'lens', 'locale', 'hide_ledger'},
            'cube.sequence': {'partition', 'overflow'}, 'cube.axes': {'rows', 'cols', 'hide_empty', 'locale'},
-           'cube.cells': {'rows', 'cols', 'hide_empty', 'locale', 'axis_order'}, 'cube.instances': {'locale'}}
+           'cube.cells': {'rows', 'cols', 'hide_empty', 'locale', 'axis_order'}, 'cube.instances': {'locale'}, 'cube.landscape': {'locale'}}
 # C-12: display options of VP-07.5 / VP-09.2; the printers accept them only for their 0.7.5 / 0.9.2 sources (D-1)
 DISPLAY_OPTIONS = {'vpmigration': {'profile': c07.P075, 'locale': None, 'hide_ledger': 'bool', 'selections': [c07.METHOD_SETS]},
                    'vpaxes': {'profile': c09.P093, 'locale': None, 'hide_empty': list(c09.HIDE_EMPTY), 'pairs_added': ['Y × Y', 'X × Y'],
                               'crossing_status': True}}
 REQUIRED = {'cube.phases': {'partition'}, 'cube.flow': {'partition', 'lens'}, 'cube.sequence': set(), 'cube.axes': {'rows', 'cols'},
-            'cube.cells': set(), 'cube.instances': set()}
+            'cube.cells': set(), 'cube.instances': set(), 'cube.landscape': set()}
 SOURCE_OPTIONS = {'vpmigration': {'tracks', 'track', 'labels', 'steps', 'subjects', 'edge_styles', 'witness_prefixes', 'profile', 'layers',
                                    'statements', 'records', 'origin_lines'},
                   'vpaxes': {'tracks', 'track', 'labels', 'steps', 'subjects', 'layers', 'profile'},
                   'vpcells': {'predicate', 'tracks', 'track', 'labels', 'steps', 'subjects', 'layers', 'statements', 'projection'},
-                  'vpinstances': {'statements', 'records'}}
+                  'vpinstances': {'statements', 'records'},
+                  'vplandscape': {'layers', 'labels', 'steps', 'placement_predicates'}}
 HINT = 'choose a partition, the granularity overview or standard, or a step/subject/track slice (from-plan); nothing was truncated'
-ERRORS = (c07.VP07Error, c08.VP08Error, c09.VP09Error)
+ERRORS = (c07.VP07Error, c08.VP08Error, c09.VP09Error, c12.VP12Error)
 NOT_EVALUATED = {'epistemic_warrant': 'NOT_EVALUATED', 'current_authority': 'NOT_EVALUATED', 'canonical_admission': 'NOT_EVALUATED'}
 
 
@@ -118,7 +121,7 @@ def plan_source(context: Any, plan_id: Any, printer: Any, **options) -> dict:
         _fail('P3_PLAN_SOURCE_UNSUPPORTED', 'VP-08 sequence sources are declared directly; there is no from-plan for VP-08 '
               '(G6 D-7). Pass the sequence source to cube_plan_views with view cube.sequence.', 'input', printer=printer)
     if printer not in SOURCE_OPTIONS:
-        _fail('P3_PLAN_ARGUMENT_INVALID', 'printer must be vpmigration, vpaxes, vpcells, vpinstances or vpsequence', 'input')
+        _fail('P3_PLAN_ARGUMENT_INVALID', 'printer must be vpmigration, vpaxes, vpcells, vpinstances, vplandscape or vpsequence', 'input')
     extra = set(options)-SOURCE_OPTIONS[printer]
     if extra:
         _fail('P3_PLAN_ARGUMENT_INVALID', f'{printer} from-plan takes no option '+', '.join(sorted(extra)), 'input', printer=printer)
@@ -126,6 +129,12 @@ def plan_source(context: Any, plan_id: Any, printer: Any, **options) -> dict:
         if plan_id is not None or 'statements' not in options:
             _fail('P3_PLAN_ARGUMENT_INVALID', 'vpinstances takes plan_id null, statements (the trace) and optional records', 'input', printer=printer)
         return _limit(_printer(printer, c11.PROFILE, vp11.source, context, options['statements'], options.get('records')), printer)
+    if printer == 'vplandscape':                         # VP-12: steps as 'a,b' (the tool's string type), default first and last
+        steps = options.get('steps')
+        if steps is not None and not (isinstance(steps, str) and steps):
+            _fail('P3_PLAN_ARGUMENT_INVALID', 'vplandscape steps must be comma-separated declared step IDs', 'input', printer=printer)
+        return _limit(_printer(printer, c12.PROFILE, vp12.source, context, plan_id, options.get('layers'), options.get('labels'),
+                               steps.split(',') if steps else None, options.get('placement_predicates')), printer)
     if printer == 'vpcells':                             # VP-10: one predicate per view (D-3); binding-context/8 coverage
         prof = c10.PROFILE_110 if ('statements' in options or 'projection' in options) else c10.PROFILE
         return _limit(_printer(printer, prof, vp10.source, context, plan_id, **options), printer)
@@ -142,7 +151,7 @@ def plan_views(source: Any, view: Any, granularity: Any, **options) -> dict:
     printer = VIEWS[view]
     fmt = source.get('format') if isinstance(source, dict) else None
     owner = {VP07_SOURCE: ('vpmigration', 'vpaxes'), VP08_SOURCE: ('vpsequence',), VP09_INPUT: ('vpaxes',), VP10_INPUT: ('vpcells',),
-             VP110_INPUT: ('vpcells',), VP11_INPUT: ('vpinstances',)}.get(fmt)
+             VP110_INPUT: ('vpcells',), VP11_INPUT: ('vpinstances',), VP12_INPUT: ('vplandscape',)}.get(fmt)
     if owner is not None and printer not in owner:      # a source of another printer; anything else the printer judges (MP-2)
         _fail('P3_PLAN_ARGUMENT_INVALID', f'view {view} needs a {printer} source; got a {owner[0]} source ({fmt})', 'input', printer=printer)
     extra, missing = set(options)-OPTIONS[view], REQUIRED[view]-set(options)
@@ -158,6 +167,8 @@ def plan_views(source: Any, view: Any, granularity: Any, **options) -> dict:
                        options.get('locale'), options.get('hide_ledger', False))
     elif printer == 'vpsequence':
         res = _printer(printer, prof, vp08.views, source, view, granularity, options.get('partition', 'trigger'), options.get('overflow', 'summarize'))
+    elif printer == 'vplandscape':                       # VP-12: granularity and locale are display options of the input
+        res = _printer(printer, prof, vp12.views, source, granularity, options.get('locale'))
     elif printer == 'vpinstances':                       # one layout: granularity is accepted and has no effect
         res = _printer(printer, prof, vp11.views, source, view, options.get('locale'))
     elif printer == 'vpcells':
@@ -174,8 +185,8 @@ def plan_check(result: Any) -> dict:
     _bound({'result': result})
     printer = result.get('printer') if isinstance(result, dict) else None
     if printer not in PRINTERS:
-        _fail('P3_PLAN_ARGUMENT_INVALID', 'result must be a cube_plan_views result (printer vpmigration, vpsequence, vpaxes, vpcells or vpinstances)', 'input')
-    api = {'vpmigration': vp07, 'vpsequence': vp08, 'vpaxes': vp09, 'vpcells': vp10, 'vpinstances': vp11}[printer]
+        _fail('P3_PLAN_ARGUMENT_INVALID', 'result must be a cube_plan_views result (printer vpmigration, vpsequence, vpaxes, vpcells, vpinstances or vplandscape)', 'input')
+    api = {'vpmigration': vp07, 'vpsequence': vp08, 'vpaxes': vp09, 'vpcells': vp10, 'vpinstances': vp11, 'vplandscape': vp12}[printer]
     return {**_printer(printer, result.get('profile'), api.check, result), 'printer': printer}
 
 
@@ -206,7 +217,13 @@ def capabilities() -> dict:
                      'vpinstances': {'profiles': [c11.PROFILE], 'view': c11.VIEW, 'context': 'aiaeao.cube.binding-context/9 (P1.13 control_flow)',
                                      'source_options': 'plan_id null, statements (the trace, aiaeao.cube.statement-set/1), optional records '
                                                        '(aiaeao.cube.conformance-record/1 of lunados.lib analyze.trace-conformance/v1); read, never recomputed',
-                                     'view_options': 'locale (en, de); granularity accepted, no effect'}},
+                                     'view_options': 'locale (en, de); granularity accepted, no effect'},
+                     'vplandscape': {'profiles': [c12.PROFILE], 'view': c12.VIEW, 'source_profile': c12.SOURCE_PROFILE,
+                                     'context': 'aiaeao.cube.binding-context/10 (VP-07.8 source path, origin lines on)',
+                                     'source_options': 'layers (aiaeao.cube.vp07-layer-map/1), labels, steps (comma-separated, default first and '
+                                                       'last; at most 4), placement_predicates (default runs-on, hosted-by)',
+                                     'view_options': 'granularity (nodes per column and band 12/8/5), locale (en, de)',
+                                     'budget': {'max_columns': c12.MAX_COLUMNS, 'max_bands': c12.MAX_BANDS, 'nodes': dict(c12.BUDGET)}}},
         'display_options': _display_options(),
         'limits': {'max_request_bytes': MAX_REQUEST_BYTES, 'max_svg_bytes': MAX_SVG_BYTES, 'max_response_bytes': MAX_RESPONSE_BYTES,
                    'over_limit': 'FAIL with P3_PLAN_SVG_TOO_LARGE / P3_PLAN_RESPONSE_TOO_LARGE; never truncated'},

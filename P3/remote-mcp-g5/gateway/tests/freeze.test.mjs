@@ -26,9 +26,14 @@ test('G5 R5 registers ten tools and leaves room above the 2 MiB plan limit',()=>
   assert.deepEqual(names,['cube_get_capabilities','cube_prepare_print','cube_check_print','cube_render_svg','cube_read_reference',
     'cube_validate','cube_discover_surface','cube_plan_source','cube_plan_views','cube_plan_check']);
   assert.match(src,/MAX_RESPONSE_BYTES = 2 \* 1024 \* 1024 \+ 64 \* 1024/);
-  assert.match(src,/version:'0\.2\.0-proof'/);
+  assert.match(src,/version:'0\.3\.0-proof'/);
 });
 test('G5 R6 exposes the opt-in origin_lines wire option without adding a tool',()=>{
   assert.match(src,/origin_lines:z\.boolean\(\)\.nullable\(\)\.optional\(\)/);
   assert.match(src,/vpmigration 0\.7\.6: binding-context\/10/);
+});
+test('G5 R10 adds the VP-12 landscape printer and view without adding a tool',()=>{
+  assert.match(src,/'vpinstances','vplandscape','vpsequence'\]/);
+  assert.match(src,/'cube\.instances','cube\.landscape'\]/);
+  assert.match(src,/placement_predicates:z\.array\(z\.string\(\)\)\.nullable\(\)\.optional\(\)/);
 });

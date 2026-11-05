@@ -22,8 +22,8 @@ if not rules or any(x.get('type')!='Text' for x in rules):
 patterns=[s for rule in rules for s in rule.get('globs',[])]
 manifest=json.loads(MANIFEST.read_text('utf-8'))
 assets={x['path']:x['sha256'] for x in manifest['files'] if Path(x['path']).suffix != '.py'}
-if len(assets)!=50:
-    sys.exit(f'FAIL: expected 40 frozen plus 1 P1.6, 1 P1.10, 1 P1.11, 1 P1.15 and 6 R5 plan-printer locale assets, found {len(assets)}')
+if len(assets)!=53:
+    sys.exit(f'FAIL: expected 40 frozen plus 1 P1.6, 1 P1.10, 1 P1.11, 1 P1.15 and 9 plan-printer locale assets (R5 6, R10 3), found {len(assets)}')
 matched={p.relative_to(RT).as_posix() for pattern in patterns for p in RT.glob(pattern) if p.is_file()}
 missing=sorted(set(assets)-matched)
 if missing:sys.exit('FAIL: missing Wrangler Text coverage: '+', '.join(missing))
@@ -41,9 +41,10 @@ counts=Counter('P0' if x.startswith('P3/adapters/mcp-local/p0_snapshot/') else
                'P111' if x == 'P1/migration-methods-v1/cube_p111/profiles/migration-methods-v1.json' else
                'P2' if x.startswith('P2/visual-printer-2d-lab/reference/') else
                'P2LOC' if x.split('/')[-2] == 'locales' and x.startswith(('P2/visual-printer-migration-v1/', 'P2/visual-printer-cells-v1/',
-                                                                          'P2/visual-printer-instances-v1/')) else 'OTHER'
+                                                                          'P2/visual-printer-instances-v1/', 'P2/visual-printer-axes-v1/',
+                                                                          'P2/visual-printer-landscape-v1/')) else 'OTHER'
                for x in assets)
-if counts!={'P0':14,'P1':20,'P2':6,'P16':1,'P110':1,'P111':1,'P115':1,'P2LOC':6}:
+if counts!={'P0':14,'P1':20,'P2':6,'P16':1,'P110':1,'P111':1,'P115':1,'P2LOC':9}:
     sys.exit(f'FAIL: unexpected asset family counts {dict(counts)}')
 # Explicitly check the exact resources loaded by P1 Resolver and VP-06 Printer.
 critical=[
@@ -66,9 +67,13 @@ critical=[
 'P2/visual-printer-cells-v1/vpcells/locales/de-0101.json',
 'P2/visual-printer-cells-v1/vpcells/locales/de-0110.json',
 'P2/visual-printer-instances-v1/vpinstances/locales/de.json',
+# R10 (MILE-016): VP-09.3 pinned de locale, VP-12 locales
+'P2/visual-printer-axes-v1/vpaxes/locales/de-0093.json',
+'P2/visual-printer-landscape-v1/vplandscape/locales/de.json',
+'P2/visual-printer-landscape-v1/vplandscape/locales/en.json',
 ]
 if any(f not in assets or f not in matched for f in critical):
     sys.exit('FAIL: critical frozen P1/P2 resource is not included in Wrangler Text rules')
-print('PASS G5 offline packaging coverage: 40 frozen + 1 P1.6 + 1 P1.10 + 1 P1.11 + 1 P1.15 + 6 R5 locale assets (P0=14, P1=20, P2=6, P16=1, P110=1, P111=1, P115=1, P2LOC=6); SHA-256 verified')
+print('PASS G5 offline packaging coverage: 40 frozen + 1 P1.6 + 1 P1.10 + 1 P1.11 + 1 P1.15 + 9 plan-printer locale assets (P0=14, P1=20, P2=6, P16=1, P110=1, P111=1, P115=1, P2LOC=9); SHA-256 verified')
 print('PASS G5 private Worker and module rules match the assembled runtime config')
 print('NOT PROVEN: Cloudflare Pyodide read/validation/render until re-deployment and remote smoke')

@@ -142,7 +142,7 @@ class G5R5PlanAndControlFlowTests(unittest.TestCase):
         self.assertEqual(r['result']['report']['overall_status'],'FAIL')
         self.assertIn('P1_FLOW_UNDECLARED',{d['code'] for d in r['result']['report']['diagnostics']})
         s=self.dispatch('cube_discover_surface')['result']
-        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.2-proof')
+        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.3-proof')
         self.assertEqual(s['p113_control_flow']['binding_context_formats'],['aiaeao.cube.binding-context/9'])
         self.assertIs(s['domains']['P2']['plan_views']['remote_available'],True)
         self.assertEqual(s['mcp']['tools'][-3:],['cube_plan_source','cube_plan_views','cube_plan_check'])
@@ -163,7 +163,7 @@ class G5R6RelationOriginTests(unittest.TestCase):
 
     def test_discovery(self):
         s=self.dispatch('cube_discover_surface')['result']
-        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.2-proof')
+        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.3-proof')
         self.assertEqual(s['p114_relation_origin']['binding_context_formats'],['aiaeao.cube.binding-context/10'])
         self.assertFalse(s['p114_relation_origin']['origin_computed_by_cube'])
         self.assertIn('P2-VP-MIGRATION/0.7.6',s['domains']['P2']['plan_views']['printers']['vpmigration']['profiles'])
@@ -202,5 +202,20 @@ class G5R6RelationOriginTests(unittest.TestCase):
             self.assertTrue(r['ok'],ident)
             self.assertEqual(r['result']['report']['overall_status'],c['expected_overall'],ident)
             self.assertTrue(set(c['required_codes']) <= {d['code'] for d in r['result']['report']['diagnostics']},ident)
+
+    def test_r10_landscape_parity(self):
+        land={c['id']:c for c in json.loads((self.repo/'P2/visual-printer-landscape-v1/fixtures/l01_l14_materialized.json').read_text('utf-8'))['cases']}
+        c=land['L-01']
+        src=self.dispatch('cube_plan_source',{'context':c['context'],'plan_id':'pm-ls','printer':'vplandscape','layers':c['layers'],'steps':'current,mvp,beta'})
+        self.assertTrue(src['ok'])
+        from aiaeao_mcp_local import plan_views as pv
+        local=pv.plan_views(pv.plan_source(c['context'],'pm-ls','vplandscape',layers=c['layers'],steps='current,mvp,beta')['source'],'cube.landscape','detail',locale='de')
+        views=self.dispatch('cube_plan_views',{'source':src['result']['source'],'view':'cube.landscape','granularity':'detail','locale':'de'})
+        self.assertEqual(pv.canonical(views['result']),pv.canonical(local))
+        self.assertEqual(self.dispatch('cube_plan_check',{'result':views['result']})['result']['status'],'PASS')
+        bad=self.dispatch('cube_plan_source',{'context':c['context'],'plan_id':'pm-ls','printer':'vplandscape','steps':'current,gamma'})
+        self.assertEqual(bad['diagnostic']['code'],'VP12_STEP_UNKNOWN')
+        s=self.dispatch('cube_discover_surface')['result']['domains']['P2']['plan_views']
+        self.assertEqual(s['views']['cube.landscape'],'vplandscape')
 
 if __name__=='__main__':unittest.main()
