@@ -8,7 +8,7 @@ import copy
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, P071, P072, P073, P074, P075, P076, V73UP, V74UP, METHOD_SETS, tag_profile, NONE_GROUP, METHOD_CATALOG, method_short, method_sorted, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
+from .common import (PROFILE, P071, P072, P073, P074, P075, P076, V75UP, V76UP, V73UP, V74UP, METHOD_SETS, tag_profile, NONE_GROUP, METHOD_CATALOG, method_short, method_sorted, V71UP, UNASSIGNED, LEVELS, LENSES, NOT_EVALUATED, Printer, add, line, rect, text, excerpt, source_digest, sha_bytes,
                      sha_json, encode, load_json, fs_isdir, fs_names, fs_bytes, fs_json, VP07Error, need, publish_dir, no_active_content, MUTED, NS)
 from .phases import PhasesPrinter, BUDGET, lanes_for, step_label
 from .locale import load as load_locale, hide_flow_ledger
@@ -172,7 +172,7 @@ def render_input(inp):
         p = PhasesPrinter()
         svg, pr = p.render(inp['plan'], 'reject', inp.get('locale'), inp.get('hide_ledger', False))
         return p.report(inp['plan'], svg, pr), svg
-    if inp.get('profile') == P076:
+    if inp.get('profile') in V76UP:
         if inp.get('locale') is not None or inp.get('hide_ledger'):
             inner, base = _flow_display(inp)
         else:
@@ -180,7 +180,7 @@ def render_input(inp):
         svg, ledger = post_flow(base, inp.get('origin_ledger', []), inp.get('locale') or 'en', inp.get('origin_lines', False))
         warnings = list(inner.get('warnings', [])) + [
             {'code': e['warning'], 'cell_id': e['cell_id']} for e in ledger if e.get('warning') and inp.get('origin_lines')]
-        return {'format': 'aiaeao.cube.vp07-origin-print-result/1', 'profile': P076,
+        return {'format': 'aiaeao.cube.vp07-origin-print-result/1', 'profile': inp['profile'],
                 'base_svg_sha256': sha_bytes(base), 'svg_sha256': sha_bytes(svg),
                 'origin_ledger': ledger if inp.get('origin_lines') else [],
                 'inner_result': inner, 'warnings': warnings, **NOT_EVALUATED}, svg
@@ -420,7 +420,7 @@ def _outer_groups(d, outer, steps, granularity, tracks):
 
 def display_options(src, partition, locale, hide_ledger):
     """VP-07.5 D-1: locale, hidden ledger and method sets only for 0.7.5 sources; `en` is the identity (LC-1)."""
-    v75 = isinstance(src, dict) and src.get('profile') in (P075, P076)
+    v75 = isinstance(src, dict) and src.get('profile') in V75UP
     need(not hide_ledger or v75, 'VP07_PANEL_PARTITION', 'hide_ledger needs a '+P075+' source (VP-07.5 D-1)', 'partition')
     need(partition != METHOD_SETS or v75, 'VP07_PANEL_PARTITION', 'method sets need a '+P075+' source (VP-07.5 D-1)', 'partition')
     need(locale is None or v75, 'VP07_LOCALE_INVALID', 'locale needs a '+P075+' source (VP-07.5 D-1)')
@@ -474,7 +474,7 @@ def _title(src, L, i, n):
 def build_panels(src, view, partition, granularity, lens=None, locale=None, hide_ledger=False):
     L, disp = display_options(src, partition, locale, hide_ledger)
     v = validate_source(src)
-    if src['profile'] == P076:
+    if src['profile'] in V76UP:
         need(partition in ('subject', 'object'), 'VP07_PANEL_PARTITION',
              '0.7.6 flow supports subject or object partition', 'partition')
         need(not src.get('origin_lines') or view == 'cube.flow', 'VP07_ORIGIN_VIEW',
@@ -562,7 +562,7 @@ def build_panels(src, view, partition, granularity, lens=None, locale=None, hide
             inp.update(_flow_method_fields(src, cs, s['id']))
             inputs.append(inp)
     need(inputs, 'VP07_PANEL_PARTITION', 'source yields no panel', 'partition')
-    if src['profile'] == P076 and view == 'cube.flow':
+    if src['profile'] in V76UP and view == 'cube.flow':
         ledger = {e['declaration_ref']: e for e in src['origin_ledger']}
         for inp in inputs:
             refs = [e['declaration_ref'] for e in inp['job']['source_bundle']['view_plan']['edges']]
@@ -820,7 +820,7 @@ def print_panels(src, view, partition, granularity, lens=None, locale=None, hide
         owned = [(t['id'], b) for t in src['transitions'] for b in t.get('methods', [])]+[(c['id'], c['method']) for c in src['cells'] if 'method' in c]
         warnings += [{'code': 'VP07_METHOD_ARGUMENT_HIDDEN', 'owner': o, 'method_id': b['method_id'], 'role': r, 'ref': b['arguments'][r],
                       'declaration_ref': b['declaration_ref']} for o, b in owned for r in b.get('hidden_roles', [])]
-    v75 = src['profile'] in (P075, P076)
+    v75 = src['profile'] in V75UP
     if v75:  # VP-07.5 §2: a predicate without a display name in the locale shows its ID
         warnings += [{'code': 'VP07_LOCALE_FALLBACK', 'predicate_id': x, 'locale': L.code}
                      for x in L.missing_predicates(c['predicate_id'] for c in src['cells'])]
@@ -850,7 +850,7 @@ def print_panels(src, view, partition, granularity, lens=None, locale=None, hide
               **({'method_sets': sets, 'memberships': mem} if sets is not None else {}),
               **({'warning_summary': warning_summary(warnings)} if v75 else {}),
               **({'origin_ledger': [display_entry(e, L.code) for e in src['origin_ledger']]}
-                 if prof == P076 and src.get('origin_lines') else {}),
+                 if prof in V76UP and src.get('origin_lines') else {}),
               'files': {k: sha_bytes(b) for k, b in sorted(files.items())},
               'source_status': 'declared_unverified', **NOT_EVALUATED,
               'notices': ['Panels repeat rows for context; every repetition is listed.',
@@ -888,7 +888,7 @@ def _check(d):
     except VP07Error as e:
         raise VP07Error('VP07_PANEL_COVERAGE', 'embedded source invalid: '+str(e), 'coverage') from e
     entries = rep['panel_ledger']
-    if src['profile'] == P076:
+    if src['profile'] in V76UP:
         locale = rep.get('locale', {}).get('code', 'en')
         wanted = [display_entry(x, locale) for x in src['origin_ledger']] if src.get('origin_lines') else None
         need(rep.get('origin_ledger') == wanted, 'VP07_PANEL_COVERAGE',
@@ -897,7 +897,7 @@ def _check(d):
          'VP07_PANEL_COVERAGE', 'panel count mismatch', 'coverage')
     for e in entries:
         inp = fs_json(d, e['panel']+'.input.json', 'VP07_PANEL_COVERAGE')
-        if src['profile'] == P076 and inp['view'] == 'cube.flow':
+        if src['profile'] in V76UP and inp['view'] == 'cube.flow':
             byref = {x['declaration_ref']: x for x in src['origin_ledger']}
             refs = [x['declaration_ref'] for x in inp['job']['source_bundle']['view_plan']['edges']]
             need(all(r in byref for r in refs), 'VP07_PANEL_COVERAGE',

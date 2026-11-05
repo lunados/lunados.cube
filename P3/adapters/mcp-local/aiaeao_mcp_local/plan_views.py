@@ -145,7 +145,7 @@ def plan_views(source: Any, view: Any, granularity: Any, **options) -> dict:
     if owner is not None and printer not in owner:      # a source of another printer; anything else the printer judges (MP-2)
         _fail('P3_PLAN_ARGUMENT_INVALID', f'view {view} needs a {printer} source; got a {owner[0]} source ({fmt})', 'input', printer=printer)
     extra, missing = set(options)-OPTIONS[view], REQUIRED[view]-set(options)
-    if view == 'cube.flow' and source.get('profile') == c07.P076:
+    if view == 'cube.flow' and source.get('profile') in c07.V76UP:
         missing.discard('lens')  # VP-07.6 uses the declared semantics lens by default.
     if extra or missing:
         _fail('P3_PLAN_ARGUMENT_INVALID', f'view {view} takes '+(', '.join(sorted(OPTIONS[view] | {'granularity'})))
@@ -193,7 +193,7 @@ def capabilities() -> dict:
         'tools': list(TOOLS),
         'views': dict(VIEWS),
         'printers': {'vpmigration': {'profiles': list(c07.PROFILES), 'default_profile': 'context-dependent (as CLI from-plan)',
-                                    'origin_lines': '0.7.6 only; statement-set/1 or /2 and optional projection records; cube.flow only'},
+                                    'origin_lines': '0.7.6 and 0.7.7; statement-set/1 or /2 and optional projection records; cube.flow only'},
                      'vpsequence': {'profiles': [c08.PROFILE], 'source': 'declared directly; cube_plan_source unsupported'},
                      'vpaxes': {'profiles': list(c09.PROFILES), 'default_profile': c09.PROFILE},
                      'vpcells': {'profiles': [c10.PROFILE], 'base_profile': c10.BASE_PROFILE,

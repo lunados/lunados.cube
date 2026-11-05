@@ -4,7 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from .common import PROFILE, PROFILES, LATEST, P076, VP07Error, encode, load_json, publish_dir, write_new, LEVELS, LENSES, STYLES
+from .common import PROFILE, PROFILES, LATEST, P076, V75UP, V76UP, VP07Error, encode, load_json, publish_dir, write_new, LEVELS, LENSES, STYLES
 from .phases import render_plan, BUDGET
 from .styles import render_styled
 from .adapter import from_plan
@@ -23,7 +23,7 @@ def capabilities():
             'phases_budgets': {k: dict(zip(('rows', 'steps', 'cells', 'lanes_per_row'), v)) for k, v in BUDGET.items()},
             'edge_styles': list(STYLES), 'partitions': list(PARTITIONS),
             'selections': {'method-sets': '0.7.5 (from-plan --profile): per method the bars named by its bindings; a bar may be in several sets'},
-            'display_options': {'locale': sorted(LOCALES), 'hide_ledger': True, 'profiles': ['P2-VP-MIGRATION/0.7.5', P076],
+            'display_options': {'locale': sorted(LOCALES), 'hide_ledger': True, 'profiles': list(V75UP),
                                 'note': 'display text only; IDs, method IDs, decl: references and report keys are never translated'},
             'operations': ['capabilities', 'check-phases', 'print-phases', 'check-styled', 'print-styled', 'from-plan',
                            'print-panels', 'check-panels'],
@@ -114,7 +114,7 @@ def main(argv=None):
         if a.command == 'print-panels':
             opts = {k: v for k, v in (('locale', a.locale), ('hide_ledger', a.hide_ledger)) if v}  # unset options: 0.7.0…0.7.4 call unchanged
             src = load_json(a.source, 'VP07_SOURCE_INVALID')
-            lens = a.lens or ('cube.lens.semantics' if src.get('profile') == P076 and a.view == 'cube.flow' else None)
+            lens = a.lens or ('cube.lens.semantics' if src.get('profile') in V76UP and a.view == 'cube.flow' else None)
             report, files = print_panels(src, a.view, a.partition, a.granularity, lens, **opts)
             d = publish_dir(files, a.out)
             res = {'status': 'PASS', 'operation': 'print-panels', 'output_dir': str(d), 'panels': report['panel_count'],

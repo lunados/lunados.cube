@@ -6,7 +6,7 @@ checks of `check-panels`. Shared helpers `to_result` / `to_files` are used by VP
 from __future__ import annotations
 import json
 
-from .common import VP07Error, need, encode, sha_bytes, P076
+from .common import VP07Error, need, encode, sha_bytes, P076, V76UP
 from .adapter import from_plan
 from .panels import print_panels, check_files
 from .origin import from_statements, from_origin_plan
@@ -49,18 +49,19 @@ def source(context, plan_id, tracks=None, track=None, labels=None, steps=None, s
            witness_prefixes=None, profile=None, layers=None, statements=None, records=None, origin_lines=False):
     need(type(origin_lines) is bool, 'VP07_ADAPTER_INPUT', 'origin_lines must be a boolean')
     if statements is not None or records is not None or origin_lines:
-        need(profile == P076, 'VP07_ADAPTER_INPUT', 'statement path and origin_lines require profile '+P076)
+        need(profile in V76UP, 'VP07_ADAPTER_INPUT', 'statement path and origin_lines require profile '+' or '.join(V76UP))
     if origin_lines and edge_styles is not None:
         raise VP07Error('VP07_ORIGIN_STYLE_CONFLICT', 'origin_lines and edge_styles cannot be combined')
     if statements is not None:
         need(plan_id is None and all(x is None for x in (tracks, track, labels, steps, subjects, witness_prefixes, layers)),
              'VP07_ADAPTER_INPUT', 'statement path takes plan_id null, statements and optional records')
-        src, mapping = from_statements(context, statements, records, origin_lines)
-    elif profile == P076:
+        src, mapping = from_statements(context, statements, records, origin_lines, profile=profile)
+    elif profile in V76UP:
         need(records is None, 'VP07_ADAPTER_INPUT', 'records require statements')
         src, mapping = from_origin_plan(context, plan_id, tracks=tracks, track=track, labels=labels,
                                        steps=steps, subjects=subjects, edge_styles=edge_styles,
-                                       witness_prefixes=witness_prefixes, layers=layers, origin_lines=origin_lines)
+                                       witness_prefixes=witness_prefixes, layers=layers, origin_lines=origin_lines,
+                                       profile=profile)
     else:
         src, mapping = from_plan(context, plan_id, tracks, track, labels, steps, subjects, edge_styles, witness_prefixes,
                                  profile=profile, layers=layers)
@@ -69,7 +70,7 @@ def source(context, plan_id, tracks=None, track=None, labels=None, steps=None, s
 
 def views(source, view, granularity, partition, lens=None, locale=None, hide_ledger=False):
     """VP-07.5 options are passed only when set, so 0.7.0…0.7.4 calls stay the unchanged call."""
-    if isinstance(source, dict) and source.get('profile') == P076:
+    if isinstance(source, dict) and source.get('profile') in V76UP:
         if source.get('origin_lines') and view != 'cube.flow':
             raise VP07Error('VP07_ORIGIN_VIEW', 'origin_lines is supported only for cube.flow')
         if lens is None and view == 'cube.flow':

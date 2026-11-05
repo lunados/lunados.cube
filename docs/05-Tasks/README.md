@@ -181,3 +181,11 @@ Führender Status: [record-current-state/tasks.md](../../openspec/changes/archiv
 | [TASK-072 — Abschluss, Integration und Tag](TASK-072-mile012-close.md) | US-034 | 0,25 PT |
 
 Summe: etwa 1 PT; ohne Zeit des Nutzers.
+
+## MILE-013 — lokal umgesetzt
+
+Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-073 — Profil VP-07.7](TASK-073-vp077-module-bodies.md) | – | 0,5 PT |

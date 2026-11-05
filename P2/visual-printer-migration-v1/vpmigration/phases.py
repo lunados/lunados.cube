@@ -7,7 +7,7 @@ from __future__ import annotations
 import copy
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, PROFILES, P071, P072, P073, P075, P076, V71UP, V72UP, V73UP, method_short, method_sorted, check_binding, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
+from .common import (PROFILE, PROFILES, P071, P072, P073, P075, P076, V75UP, V71UP, V72UP, V73UP, method_short, method_sorted, check_binding, CODE, END_REASONS, DECLARED_ENDS, KEY, LEVELS, STYLES, DASH, STROKE, INK, MUTED, NOT_EVALUATED, Printer, VP01Error, NS,
                      add, line, rect, text, wrap_label, excerpt, source_digest, cjson, sha_bytes, VP07Error, need, keys,
                      clean, check_edge_styles, no_active_content, fmt)
 
@@ -116,7 +116,7 @@ class PhasesPrinter:
         need(isinstance(steps, list) and len(steps) >= 2, 'VP07_PHASES_STEPS', 'cube.phases needs at least two declared steps')
         index = {}
         for s in steps:
-            keys(s, ('id', 'label'), ('role',) if plan.get('printer_profile') in (P075, P076) else (), 'VP07_PHASES_PLAN', 'step')
+            keys(s, ('id', 'label'), ('role',) if plan.get('printer_profile') in V75UP else (), 'VP07_PHASES_PLAN', 'step')
             if 'role' in s:
                 need(clean(s['role'], 24), 'VP07_PHASES_PLAN', 'step role must be clean text <= 24')
             need(isinstance(s['id'], str) and KEY.fullmatch(s['id']) is not None, 'VP07_PHASES_PLAN', 'step id must be a stable ID')
