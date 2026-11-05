@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT / 'P3/adapters/mcp-local'))
 sys.dont_write_bytecode = True
 from aiaeao_mcp_local import plan_views as g6  # noqa: E402
 from vpmigration.adapter import MAPPING_076, MAPPING_077  # noqa: E402
-from vpmigration.common import P076, P077, LATEST  # noqa: E402
+from vpmigration.common import P076, P077, LATEST, PROFILES  # noqa: E402
 
 NEW = {  # VP077-02: the fixed table, written down before the code (spec §2)
     'Z:module-body:core': ('module-bodies.core', 'form.module-block'),
@@ -63,7 +63,7 @@ class VP077(unittest.TestCase):
     def test_table_is_076_plus_the_fixed_rows(self):
         self.assertEqual({k: v[:2] for k, v in MAPPING_077.items() if k not in MAPPING_076}, NEW)
         self.assertEqual({k: MAPPING_077[k] for k in MAPPING_076}, MAPPING_076)
-        self.assertEqual(LATEST, P077)
+        self.assertGreaterEqual(PROFILES.index(LATEST), PROFILES.index(P077))  # later profiles append
         self.assertIn(P077, g6.capabilities()['printers']['vpmigration']['profiles'])
 
     def test_new_rows_print_under_077(self):
