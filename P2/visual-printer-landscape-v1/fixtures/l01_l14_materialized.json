@@ -1,0 +1,4500 @@
+{
+ "format": "aiaeao.cube.vp12-vectors/1",
+ "oracle_sha256": "dcd831961a2b969048f96d045267af459088b045af62c472cf0251d6395dfbdf",
+ "cases": [
+  {
+   "id": "L-01",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-02",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": null,
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-03",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": []
+    }
+   },
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-04",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": [
+    "current",
+    "mvp",
+    "beta"
+   ],
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-05",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": [
+    "current",
+    "gamma"
+   ],
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-06",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform",
+     "edge",
+     "cloud",
+     "vendor"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-07",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-08",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-09",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-10",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-11",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-12",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": null,
+   "placement_predicates": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "L-13",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": null,
+   "placement_predicates": [],
+   "granularity": "detail"
+  },
+  {
+   "id": "L-14",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp12-ls",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:ls",
+    "referents": [
+     {
+      "ref": "act:op",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "acc:admin",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.conn",
+      "concept_id": "Z:module-body:connector",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-old",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:mail-new",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "res:dns",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:ls"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "invoked-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:connector"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "hosted-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "gated-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": [],
+      "origin_binding": "required"
+     },
+     {
+      "predicate_id": "configured-by",
+      "revision": "ls:pred/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "origin_bases": [
+     {
+      "basis_id": "b-d3",
+      "kind": "statements",
+      "statement_ids": [
+       "d2"
+      ]
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-ls",
+      "revision": "ls/1",
+      "scope": "ctx:ls",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "mvp",
+        "role": "intermediate"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [
+       {
+        "transition_id": "t-mvp",
+        "at_phase": "mvp",
+        "retires": [
+         "res:mail-old"
+        ],
+        "introduces": [
+         "res:mail-new"
+        ]
+       }
+      ],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "act:op",
+        "predicate_id": "invoked-by",
+        "object": "mod.conn",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "mvp",
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-old",
+        "kind": "other",
+        "holds_in": [
+         "current"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "mod.conn",
+        "predicate_id": "reads",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "derived",
+        "basis": "b-d3"
+       },
+       {
+        "dependency_id": "d4",
+        "subject": "res:mail-new",
+        "predicate_id": "hosted-by",
+        "object": "res:dns",
+        "kind": "other",
+        "holds_in": [
+         "mvp",
+         "beta"
+        ],
+        "origin": "unknown"
+       },
+       {
+        "dependency_id": "d5",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ],
+        "origin": "declared"
+       },
+       {
+        "dependency_id": "d6",
+        "subject": "acc:admin",
+        "predicate_id": "configured-by",
+        "object": "res:mail-new",
+        "kind": "other",
+        "holds_in": [
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-ls",
+   "layers": {
+    "format": "aiaeao.cube.vp07-layer-map/1",
+    "layer_order": [
+     "actor",
+     "module",
+     "data",
+     "platform"
+    ],
+    "layers": {
+     "actor": [
+      "act:op",
+      "acc:admin"
+     ],
+     "module": [
+      "mod.conn",
+      "mod.core"
+     ],
+     "data": [
+      "res:mail-old",
+      "res:mail-new"
+     ],
+     "platform": [
+      "res:dns"
+     ]
+    }
+   },
+   "steps": [
+    "beta",
+    "current"
+   ],
+   "placement_predicates": null,
+   "granularity": "detail"
+  }
+ ]
+}

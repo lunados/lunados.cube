@@ -1,0 +1,16 @@
+{
+ "format": "aiaeao.cube.vp093-locale/1",
+ "locale": "de",
+ "text": {
+  "status.canonical": "kanonisch",
+  "status.illustrative": "illustrativ",
+  "status.derived": "abgeleitet",
+  "status.unlisted": "nicht gelistet",
+  "status.source": "Morphologie",
+  "absent": "fehlt",
+  "rule.X|Y": "Zelle listet je X-Endpunkt der Dimension seine deklarierten P1.6-Slots, die die Identität oder Ressource nennen (Endpunkt · Slot); ein Pflicht-Slot, den die Instanz offen lässt, ist als fehlt markiert",
+  "note.x_none": "Kein X-Endpunkt im Planausschnitt: X × Y ist leer (VP09_X_NONE), keine Aussage über den Plan.",
+  "note.x_ignored": "{n} X-Endpunkt(e) im Kontext liegen außerhalb des Planausschnitts und werden nicht gezeigt.",
+  "note.x_unplaced": "{n} fehlende(r) Slot(s) ohne Referent: in Y:referent-Spalten nicht platzierbar; im Ledger gelistet."
+ }
+}
