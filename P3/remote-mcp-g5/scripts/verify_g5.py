@@ -35,8 +35,10 @@ def main():
     assert len(json.loads((HERE/'evidence/G5_R8_EXPECTATIONS.json').read_text())['calls'])==32  # MILE-013 fixed before deployment
     r9=json.loads((HERE/'evidence/G5_R9_EXPECTATIONS.json').read_text())
     assert len(r9['calls'])==50 and r9['release']=='P3-MCP-REMOTE/0.9.2-proof'  # MILE-015 fixed before deployment
-    assert dispatch('cube_discover_surface')['result']['release']['version']=='P3-MCP-REMOTE/0.9.2-proof'
-    print('PASS G5 OFFLINE: 14 P0 registry entries, P1 semantic failures, exact P2 SVG/report parity, denylist input; R9 core 0.9.2-proof')
+    r10=json.loads((HERE/'evidence/G5_R10_EXPECTATIONS.json').read_text())
+    assert len(r10['calls'])==57 and r10['release']=='P3-MCP-REMOTE/0.9.3-proof'  # MILE-016 fixed before deployment
+    assert dispatch('cube_discover_surface')['result']['release']['version']=='P3-MCP-REMOTE/0.9.3-proof'
+    print('PASS G5 OFFLINE: 14 P0 registry entries, P1 semantic failures, exact P2 SVG/report parity, denylist input; R10 core 0.9.3-proof')
     subprocess.run([sys.executable,str(HERE/'scripts/check_runtime_assets.py')],check=True)
     suite=unittest.defaultTestLoader.discover(str(HERE/'tests'),pattern='test_*.py')
     result=unittest.TextTestRunner(verbosity=1).run(suite)

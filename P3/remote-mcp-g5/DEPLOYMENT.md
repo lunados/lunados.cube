@@ -142,3 +142,6 @@ python3 P3/remote-mcp-g5/scripts/r6_remote_acceptance.py --evidence P3/remote-mc
 
 Reconnect the G5 host connector so it refreshes the `cube_plan_source` schema. The agent then checks the nine preselected host calls from `scripts/r6_calls.py` and records their digests and codes. If `G5_CORE_UNAVAILABLE` appears, record the failing call and Worker CPU event; do not substitute a local result for a remote acceptance. The live script stores no token or response bodies.
 
+## 11. R10 — landscape view and VP-09.3 locale (MILE-016 TASK-080)
+
+Core `P3-MCP-REMOTE/0.9.3-proof` stages VP-12 (`vplandscape`) and the locale folders of `vpaxes` and `vplandscape`. Gateway `0.3.0-proof` keeps ten tools; its schemas gain the printer `vplandscape`, the option `placement_predicates` and the view `cube.landscape`. **Redeploy both Workers, private core first.** The bearer secret and public routes remain as in §9. Steps and the expected live result (58/58) are in [G5_R10_ACCEPTANCE.md](G5_R10_ACCEPTANCE.md).

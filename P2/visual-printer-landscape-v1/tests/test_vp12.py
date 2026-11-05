@@ -164,6 +164,15 @@ class Panels(unittest.TestCase):
         self.assertEqual(res['printer'], 'vplandscape')
         self.assertEqual(api.check(res)['status'], 'PASS')
 
+    def test_api_view_options(self):
+        src = api.source(CASES['L-01']['context'], 'pm-ls', CASES['L-01']['layers'])['source']
+        de = api.views(src, granularity='detail', locale='de')
+        self.assertIn('Y × Z über T · abgeleitet · Morphologie 01.3', de['panels'][0]['svg'])
+        self.assertEqual(api.check(de)['status'], 'PASS')
+        self.assertEqual(src['locale'], 'en')                      # the caller's source stays unchanged
+        with self.assertRaises(VP12Error):
+            api.views(src, granularity='huge')
+
     def test_cli(self):
         with tempfile.TemporaryDirectory() as t:
             t = Path(t)

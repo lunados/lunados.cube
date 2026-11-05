@@ -42,7 +42,7 @@ async function callTool(env,name,args){
 }
 
 function createServer(env) {
-  const server = new McpServer({name:'aiaeao-cube-mcp-remote-g5',version:'0.2.0-proof'},
+  const server = new McpServer({name:'aiaeao-cube-mcp-remote-g5',version:'0.3.0-proof'},
      {instructions:'Use cube_discover_surface for P0/P1/P2; all P1 and P2 outcomes are independent. ' +
       'P0 resources are documentary only. No truth, Authority or Admission is inferred.'});
   const add = (name,desc,schema) => server.registerTool(name,
@@ -63,15 +63,15 @@ function createServer(env) {
   add('cube_discover_surface','Describe whole P0/P1/P2 capability surface and trust boundaries.',z.object({}));
   // R5 (MILE-010): the G6 plan tools, schemas as the local tool signatures (Q-1); results byte-identical to local (D-4).
   const rec=z.record(z.string(),z.unknown()), str=z.string().nullable().optional();
-  add('cube_plan_source','Derive a plan-view source from a binding context, exactly as the local tool (vpmigration, vpaxes, vpcells, vpinstances; vpsequence is declared directly). vpmigration 0.7.6: binding-context/10, origin_lines and optional statement-set/1 or /2 with projection records. vpinstances: binding-context/9, plan_id null, statements = trace, optional records of lunados.lib analyze.trace-conformance/v1. Display only; declared_unverified.',z.object({
-    context:rec,plan_id:z.string().nullable(),printer:z.enum(['vpmigration','vpaxes','vpcells','vpinstances','vpsequence']),
+  add('cube_plan_source','Derive a plan-view source from a binding context, exactly as the local tool (vpmigration, vpaxes, vpcells, vpinstances, vplandscape; vpsequence is declared directly). vpmigration 0.7.6: binding-context/10, origin_lines and optional statement-set/1 or /2 with projection records. vpinstances: binding-context/9, plan_id null, statements = trace, optional records of lunados.lib analyze.trace-conformance/v1. vplandscape (VP-12): binding-context/10, optional layers (VP-07.2 layer map), steps \'a,b\', placement_predicates. Display only; declared_unverified.',z.object({
+    context:rec,plan_id:z.string().nullable(),printer:z.enum(['vpmigration','vpaxes','vpcells','vpinstances','vplandscape','vpsequence']),
     track_map:rec.nullable().optional(),track:str,labels:rec.nullable().optional(),layers:rec.nullable().optional(),
     witness_prefixes:rec.nullable().optional(),edge_styles:z.array(rec).nullable().optional(),steps:str,
     subjects:z.array(z.string()).nullable().optional(),profile:str,predicate:str,
     statements:rec.nullable().optional(),projection:rec.nullable().optional(),records:z.array(rec).nullable().optional(),
-    origin_lines:z.boolean().nullable().optional()}));
-  add('cube_plan_views','Print plan panels in memory (cube.phases, cube.flow, cube.sequence, cube.axes, cube.cells, cube.instances); SVGs, inputs, index and report as the local tool. 512 KiB per SVG, 2 MiB per response; over a limit isError, never truncated.',z.object({
-    source:rec,view:z.enum(['cube.phases','cube.flow','cube.sequence','cube.axes','cube.cells','cube.instances']),
+    origin_lines:z.boolean().nullable().optional(),placement_predicates:z.array(z.string()).nullable().optional()}));
+  add('cube_plan_views','Print plan panels in memory (cube.phases, cube.flow, cube.sequence, cube.axes, cube.cells, cube.instances, cube.landscape); SVGs, inputs, index and report as the local tool. 512 KiB per SVG, 2 MiB per response; over a limit isError, never truncated.',z.object({
+    source:rec,view:z.enum(['cube.phases','cube.flow','cube.sequence','cube.axes','cube.cells','cube.instances','cube.landscape']),
     granularity:z.enum(['overview','standard','detail']),partition:str,rows:str,cols:str,lens:str,
     overflow:z.enum(['summarize','reject']).nullable().optional(),locale:str,hide_ledger:z.boolean().nullable().optional(),
     hide_empty:z.enum(['rows','cols','both']).nullable().optional(),axis_order:z.array(z.string()).nullable().optional()}));
@@ -91,7 +91,7 @@ export default {
   async fetch(request,env,ctx) {
     const url=new URL(request.url);
     if (url.pathname === '/health' && request.method === 'GET')
-      return new Response(JSON.stringify({status:'G5_REMOTE_PROOF_CANDIDATE',version:'0.2.0-proof',authenticated:false}),
+      return new Response(JSON.stringify({status:'G5_REMOTE_PROOF_CANDIDATE',version:'0.3.0-proof',authenticated:false}),
         {headers:{'content-type':'application/json','cache-control':'no-store'}});
     if (url.pathname !== '/mcp') return unavailable(404,'Not Found');
     if (request.method !== 'POST') return unavailable(405,'MCP requires POST');

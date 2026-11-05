@@ -102,13 +102,14 @@ def cube_discover_surface() -> CallToolResult:
 # CP-001 / G6: VP-07, VP-08, VP-09 and VP-10 plan views in memory; the view selects the printer (local stdio only).
 @mcp.tool()
 def cube_plan_source(
-    context: dict[str, Any], plan_id: str | None, printer: Literal['vpmigration','vpaxes','vpcells','vpinstances','vpsequence'],
+    context: dict[str, Any], plan_id: str | None, printer: Literal['vpmigration','vpaxes','vpcells','vpinstances','vplandscape','vpsequence'],
     track_map: dict[str, Any] | None=None, track: str | None=None, labels: dict[str, Any] | None=None,
     layers: dict[str, Any] | None=None, witness_prefixes: dict[str, Any] | None=None,
     edge_styles: list[dict[str, Any]] | None=None, steps: str | None=None, subjects: list[str] | None=None,
     profile: str | None=None, predicate: str | None=None,
     statements: dict[str, Any] | None=None, projection: dict[str, Any] | None=None,
     records: list[dict[str, Any]] | None=None, origin_lines: bool | None=None,
+    placement_predicates: list[str] | None=None,
 ) -> CallToolResult:
     """Derive a VP-07 migration source, VP-09 axes input or VP-10 cells input from a binding context, exactly as CLI from-plan.
     vpcells needs predicate (one per view) and reads coverage from binding-context/8.
@@ -117,17 +118,19 @@ def cube_plan_source(
     vpinstances (VP-11): a binding-context/9, plan_id null, statements = the trace, optional records
     (aiaeao.cube.conformance-record/1 of lunados.lib analyze.trace-conformance/v1); verdicts are read, never recomputed.
     vpmigration 0.7.6: origin_lines with a /10 plan or statement-set/1 or /2, optional projection records; cube.flow only.
+    vplandscape (VP-12): a /10 plan, optional layers (VP-07.2 layer map), steps 'a,b' (default first and last),
+    placement_predicates (default runs-on, hosted-by).
     vpsequence is not supported (VP-08 sources are declared directly). No files; declared_unverified.
     """
     return _result(plan_views.plan_source, context, plan_id, printer, tracks=track_map, track=track, labels=labels,
                    layers=layers, witness_prefixes=witness_prefixes, edge_styles=edge_styles, steps=steps,
                    subjects=subjects, profile=profile, predicate=predicate, statements=statements, projection=projection,
-                   records=records, origin_lines=origin_lines)
+                   records=records, origin_lines=origin_lines, placement_predicates=placement_predicates)
 
 
 @mcp.tool()
 def cube_plan_views(
-    source: dict[str, Any], view: Literal['cube.phases','cube.flow','cube.sequence','cube.axes','cube.cells','cube.instances'],
+    source: dict[str, Any], view: Literal['cube.phases','cube.flow','cube.sequence','cube.axes','cube.cells','cube.instances','cube.landscape'],
     granularity: Literal['overview','standard','detail'], partition: str | None=None,
     rows: str | None=None, cols: str | None=None, lens: str | None=None,
     overflow: Literal['summarize','reject'] | None=None, locale: str | None=None,
@@ -141,6 +144,7 @@ def cube_plan_views(
     cube.cells (VP-10): Y × Y cell states (marked, checked, unknown, hidden) from declared coverage; locale, hide_empty.
     axis_order (cube.cells only, VP-10.1): declared order of the Y display IDs; marks entries above the diagonal as feedback.
     cube.instances (VP-11): a declared trace per instance, taken paths and join inputs; verdicts from lunados.lib records; locale.
+    cube.landscape (VP-12): Y and Z referents in layer columns, one band per declared step, dependencies as edges; locale.
     """
     return _result(plan_views.plan_views, source, view, granularity, partition=partition, rows=rows, cols=cols,
                    lens=lens, overflow=overflow, locale=locale, hide_ledger=hide_ledger or None, hide_empty=hide_empty,
