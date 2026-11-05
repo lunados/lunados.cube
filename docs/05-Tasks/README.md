@@ -212,7 +212,7 @@ Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
 | [TASK-079 — VP-12: Landschaftssicht](TASK-079-vp12-landscape.md) | – | 1–1,5 PT |
 | [TASK-080 — G6 und G5 R10: Landschaft und VP-09.3-Locale remote](TASK-080-g5-r10.md) | – | 0,5 PT |
 
-## MILE-018 — in Arbeit
+## MILE-018 — abgeschlossen
 
 | Task | Story | Aufwand |
 |---|---|---|

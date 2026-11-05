@@ -1,6 +1,6 @@
 # MILE-018 — Achsenpaare: Folgearbeiten (P2)
 
-Status: **in Arbeit** (Nutzer, 2026-11-05: vor MILE-017) · Stand: 2026-11-05 · Voraussetzung: [MILE-016](MILE-016-axis-pair-views.md) umgesetzt (X × Y, `cube.landscape`, Status der Kreuzung; G5 R10)
+Status: **abgeschlossen** (Nutzer, 2026-11-05: nach E18-1 geschlossen; übrige Epics im Backlog) · Stand: 2026-11-05 · Voraussetzung: [MILE-016](MILE-016-axis-pair-views.md) umgesetzt (X × Y, `cube.landscape`, Status der Kreuzung; G5 R10)
 
 ## Anlass
 
@@ -31,6 +31,18 @@ Die Epics sind unabhängig und einzeln ziehbar. Reihenfolge-Vorschlag: E18-1, E1
 | E18-6 Druck-Manifest | B8 | Stabile Schnittstelle für Viewer; Cockpit liest das Manifest | 0,5 | gering |
 | E18-7 Auslieferung G5 (R11) | – | Neue Profile nach G6/G5, Erwartungen vorab, Live-Lauf | 0,25–0,5 | gering |
 | **Summe** | | | **3–3,75** | |
+
+## Abschluss (2026-11-05)
+
+Umgesetzt: **E18-1** (B13), VP-12.1 `skeleton-shell.section` an der Schichtspalte ([TASK-081](../05-Tasks/TASK-081-vp121-layer-anchor.md)); lokal und G6, im Explorer auf allen 11 Blättern gedruckt. Die G5-Auslieferung (E18-7) entfällt bis zum nächsten R-Lauf: Der live Core bleibt R10 `0.9.3-proof` mit `P2-VP-LANDSCAPE/0.12.0`.
+
+Nicht umgesetzt, weil der Nutzen heute fehlt (Backlog, ohne Termin):
+
+- **E18-3 / B12 X × X:** als Slot-Matrix in den Pilotblättern fast leer (nur Admissions gebunden). Sinnvoll erst als Kette der Contract Pairs; vor Code eine Skizze an F05. Entwurf 0.9.4 unveröffentlicht auf `feature/mile018-e3-decision-helix`.
+- **E18-2 / B11 X × Z:** dieselbe Datenlage wie X × X (4 von 11 Blättern mit X-Instanzen); vor Code eine Skizze.
+- **E18-4 / B4 interne Kanten:** Ankerfrage zuerst.
+- **E18-5 / B7 `recovers-via`:** Ein Fall ist da (F04a: PageSpeed-API, Fallback lokales Lighthouse, S4/S5), im Blatt aber noch nicht mit dem Prädikat deklariert. Erst das Blatt, eine eigene Linienform nur bei Bedarf.
+- **E18-6 / B8 Druck-Manifest:** erst mit einem zweiten Viewer.
 
 ## Rahmenbedingungen
 
