@@ -1,6 +1,6 @@
 # MILE-016 — Sichten nach Achsenpaaren: X × Y und Landschaft (P2)
 
-Status: B9, B6, B10 umgesetzt und im Explorer abgenommen (X × Y, Landschaft, Cockpit); offen: G6/G5 R10 für `cube.landscape`, VG-Anker der Schichtspalte, Backlog B11/B12/B4/B7/B8 · Stand: 2026-11-05 · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
+Status: **umgesetzt** (2026-11-05): B9, B6, B10 im Printer, im Explorer abgenommen (X × Y, Landschaft, Cockpit), G6 und G5 R10 live 58/58. VG-Anker der Schichtspalte und Backlog B11, B12, B4, B7, B8 nach [MILE-018](MILE-018-axis-pairs-follow-up.md) verschoben · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
 
 ## Anlass
 
@@ -37,7 +37,7 @@ Es fehlen zwei Dinge:
 |---|---|---|
 | **D-1** | Landschaft im Printer oder nur im Explorer | Im Printer (geprüft, mit VG-Anker) |
 | **D-2** | Viewer | Zunächst statisches Cockpit im Explorer (`cases/cockpit.html`); Veröffentlichung als Seite später |
-| **D-3** | TOML-Builder | Format im Explorer, Adapter für weitere Formate im Connector; nicht Teil dieser Mile |
+| **D-3** | TOML-Builder | Format im Explorer, Adapter für weitere Formate im Connector; nicht Teil dieser Mile. **Präzisiert 2026-11-05:** keine Explorer-Sache und keine Übersetzung, sondern eine Referenz in lunados.connector, mit der eine AI AIAEAO-TOML (Relay-Launcher, Pipelines, Runnables, Runbooks) eindeutig formuliert (Connector MILE-004) |
 | **D-4** | Sichten nach Achsenkombinationen | Ja, über die bestehende Familie `cube.axes` |
 | **D-5** | Abgeleitete Kreuzungen | Erlaubt, Status sichtbar im Panel (B10) |
 | **D-6** | Umfang | Zuerst X × Y (B9) und Landschaft (B6) mit Status (B10); Sichtfamilie allgemein spezifiziert, übrige Paare als eigene Tasks |
