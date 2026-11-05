@@ -1,6 +1,6 @@
 # MILE-016 — Sichten nach Achsenpaaren: X × Y und Landschaft (P2)
 
-Status: **umgesetzt** (2026-11-05): B9, B6, B10 im Printer, im Explorer abgenommen (X × Y, Landschaft, Cockpit), G6 und G5 R10 live 58/58. VG-Anker der Schichtspalte und Backlog B11, B12, B4, B7, B8 nach [MILE-018](MILE-018-axis-pairs-follow-up.md) verschoben · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
+Status: **abgeschlossen** (2026-11-05, vom Nutzer abgenommen; [Nachweis](../10-Evidence/MILE-016/README.md)): B9, B6, B10 im Printer, im Explorer abgenommen (X × Y, Landschaft, Cockpit), G6 und G5 R10 live 58/58. VG-Anker der Schichtspalte und Backlog B11, B12, B4, B7, B8 nach [MILE-018](MILE-018-axis-pairs-follow-up.md) verschoben · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
 
 ## Anlass
 
