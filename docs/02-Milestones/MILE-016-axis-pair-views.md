@@ -1,6 +1,6 @@
 # MILE-016 — Sichten nach Achsenpaaren: X × Y und Landschaft (P2)
 
-Status: B9, B6, B10 umgesetzt und im Explorer abgenommen (X × Y, Landschaft, Cockpit); offen: G6/G5 R10 für `cube.landscape`, VG-Anker der Schichtspalte, Backlog B11/B12/B4/B7/B8 · Stand: 2026-11-05 · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
+Status: B9, B6, B10 umgesetzt und im Explorer abgenommen (X × Y, Landschaft, Cockpit); G6 und G5 R10 live 58/58; offen: VG-Anker der Schichtspalte, Backlog B11/B12/B4/B7/B8 · Stand: 2026-11-05 · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
 
 ## Anlass
 

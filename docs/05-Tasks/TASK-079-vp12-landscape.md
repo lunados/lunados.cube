@@ -11,5 +11,5 @@ Spezifikation: [VP12_ACCEPTANCE_SPEC.md](../../P2/visual-printer-landscape-v1/VP
 - Paket `vplandscape` (CLI, `api`, Locales de/en), `tests/test_vp12.py` 18 Tests grün; keine Datei anderer P2-Pakete geändert (VP12-02).
 - VP12-03: lunados.explorer druckt die Landschaft für alle 11 Blätter (Plan `<id>-full`, Spalten aus `mappings/landscape-layers.json` nach deklariertem Konzept, Schritte current/beta), `check-panels` PASS; F02 und F05 abgenommen; Cockpit-Sicht „Landschaft“.
 - Geometrie: leere Spalten schmal, Breite wächst ab 5 belegten Spalten über 1200 px; Brücken in derselben Spalte links, parallele Wege versetzt (nur Darstellung, Oracle unverändert).
-- VP12-04: G6 lokal erledigt, G5 R10 offline fertig ([TASK-080](TASK-080-g5-r10.md)); Bereitstellung offen.
+- VP12-04: G6 lokal und G5 R10 live erledigt (58/58, [TASK-080](TASK-080-g5-r10.md)).
 - Offen: VG-Anker für die Schichtspalte.

@@ -1,11 +1,11 @@
 # G5 — known limits of the current remote state
 
-**As of:** 2026-11-05 (MILE-015, R9). **Deployed:** private core `P3-MCP-REMOTE/0.9.2-proof` (Cloudflare version `f4458919-1b94-462e-8dc9-2cb95c51ff86`) on Workers Paid with `limits.cpu_ms` 30 000, gateway `0.2.0-proof`. **Status:** remote proof, `G5_PROOF_NOT_PRODUCTION_AUTHORIZED`; the remaining limits are accepted, not fixed (MILE-012 D-2, D-3).
+**As of:** 2026-11-05 (MILE-016, R10). **Deployed:** private core `P3-MCP-REMOTE/0.9.3-proof` on Workers Paid with `limits.cpu_ms` 30 000, gateway `0.3.0-proof` (Cloudflare version `296e448c-76d6-487e-8f74-527ce87d1722`). **Status:** remote proof, `G5_PROOF_NOT_PRODUCTION_AUTHORIZED`; the remaining limits are accepted, not fixed (MILE-012 D-2, D-3).
 
 ## What works remotely
 
-- All ten tools and fourteen P0 resources; P0 reads, P1 validation `/1…/11` (P1.6…P1.15), P2 legacy printing and the plan tools with VP-07…VP-11 (migration printer up to 0.7.8).
-- Every result that arrives is byte-identical to the local G4/G6 result for the same input: offline 88/88 (R5) and 26/26 (R6), live every completed call; R8 live 33/33 including VP-07.7; R9 live 51/51 including P1.15 and VP-07.8 ([ledger](G5_ACCEPTANCE.md)).
+- All ten tools and fourteen P0 resources; P0 reads, P1 validation `/1…/11` (P1.6…P1.15), P2 legacy printing and the plan tools with VP-07…VP-12 (migration printer up to 0.7.8, axes up to 0.9.3, landscape 0.12.0).
+- Every result that arrives is byte-identical to the local G4/G6 result for the same input: offline 88/88 (R5) and 26/26 (R6), live every completed call; R8 live 33/33 including VP-07.7; R9 live 51/51 including P1.15 and VP-07.8; R10 live 58/58 including VP-12 and the VP-09.3 de locale ([ledger](G5_ACCEPTANCE.md)).
 - A failure never changes or truncates a result: a call above a limit ends with an error (`isError`), never with a different payload.
 
 ## Limits
@@ -38,6 +38,10 @@ One run of `scripts/r8_remote_acceptance.py` against core `0.9.1-proof` and gate
 ## R9 (MILE-015, 2026-11-05)
 
 One run of `scripts/r9_remote_acceptance.py` against core `0.9.2-proof` and gateway `0.2.0-proof` after the general remote smoke test: [51/51](evidence/G5_R9_LIVE_SCRIPT.json), tools and health as expected. Longest calls: P-OL-07 1.08 s, P-K07-flow 1.06 s, P78-01 0.22 s (wall time per step, client side).
+
+## R10 (MILE-016, 2026-11-05)
+
+One run of `scripts/r10_remote_acceptance.py` against core `0.9.3-proof` and gateway `0.3.0-proof` after the general remote smoke test: [58/58](evidence/G5_R10_LIVE_SCRIPT.json), tools and health as expected. Longest calls: P-OL-07 1.69 s, P-K07-flow 1.33 s; the new landscape and X × Y calls at most 0.22 s (wall time per step, client side).
 
 ## Way out for heavy tasks
 
