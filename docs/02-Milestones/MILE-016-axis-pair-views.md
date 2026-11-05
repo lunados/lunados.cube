@@ -37,7 +37,7 @@ Es fehlen zwei Dinge:
 |---|---|---|
 | **D-1** | Landschaft im Printer oder nur im Explorer | Im Printer (geprüft, mit VG-Anker) |
 | **D-2** | Viewer | Zunächst statisches Cockpit im Explorer (`cases/cockpit.html`); Veröffentlichung als Seite später |
-| **D-3** | TOML-Builder | Format im Explorer, Adapter für weitere Formate im Connector; nicht Teil dieser Mile |
+| **D-3** | TOML-Builder | Format im Explorer, Adapter für weitere Formate im Connector; nicht Teil dieser Mile. **Präzisiert 2026-11-05:** keine Explorer-Sache und keine Übersetzung, sondern eine Referenz in lunados.connector, mit der eine AI AIAEAO-TOML (Relay-Launcher, Pipelines, Runnables, Runbooks) eindeutig formuliert (Connector MILE-004) |
 | **D-4** | Sichten nach Achsenkombinationen | Ja, über die bestehende Familie `cube.axes` |
 | **D-5** | Abgeleitete Kreuzungen | Erlaubt, Status sichtbar im Panel (B10) |
 | **D-6** | Umfang | Zuerst X × Y (B9) und Landschaft (B6) mit Status (B10); Sichtfamilie allgemein spezifiziert, übrige Paare als eigene Tasks |
