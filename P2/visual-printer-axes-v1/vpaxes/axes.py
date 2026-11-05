@@ -6,6 +6,7 @@ a blank cell asserts nothing; membership uses declared fields only (no transitiv
 from __future__ import annotations
 from xml.etree import ElementTree as ET
 
+from .common import (P093, V92UP, PAIRS_093, RULES_093, STATUS, LOCALE_0093)
 from .common import (PROFILE, P091, P092, V91UP, PAIRS_092, RULES_092, RULE_KEYS, ROLE_ORDER, HIDE_EMPTY, wrap_sep, tag_profile, via07,
                      PAIRS_091, RULES_091, AXES, RESERVED, PAIRS, BUDGET, X_DIMS, LENS_OF, KIND_ORDER, RULES, LEVELS, NOT_EVALUATED, NS,
                      STROKE, INK, MUTED, Printer, add, line, rect, text, excerpt, cjson, fmt, sha_bytes, sha_json, no_active_content,
@@ -20,7 +21,7 @@ def letter(axis):
     return axis.split(':')[0]
 
 
-def check_pair(rows, cols, v91=False, v92=False):
+def check_pair(rows, cols, v91=False, v92=False, v93=False):
     for a in (rows, cols):
         need(isinstance(a, str), 'VP09_AXIS_INVALID', 'axis must be a string')
         need(letter(a) not in RESERVED, 'VP09_AXIS_INVALID', f'axis {a} is reserved until a declared source exists (D-6)')
@@ -29,13 +30,30 @@ def check_pair(rows, cols, v91=False, v92=False):
     twice = ('X', 'Y') if v92 else ('X',)  # VP-09.2 (c): Y × Y is a pair from 0.9.2 on
     need(not (letter(rows) == letter(cols) and letter(rows) not in twice), 'VP09_AXIS_INVALID',
          'the same axis twice (only X × X'+(' and Y × Y' if v92 else '')+' is a pair, D-2)')
-    need(pair in (PAIRS_092 if v92 else PAIRS_091 if v91 else PAIRS), 'VP09_AXIS_INVALID', f'pair {rows} × {cols} is not in the declared pair list (D-2)')
+    need(pair in (PAIRS_093 if v93 else PAIRS_092 if v92 else PAIRS_091 if v91 else PAIRS), 'VP09_AXIS_INVALID', f'pair {rows} × {cols} is not in the declared pair list (D-2)')
     return frozenset(pair)
 
 
 def _locale(code):
     from vpmigration.locale import load
     return via07(load, code, 'VP09_LOCALE_INVALID')
+
+
+_X93 = {}
+
+
+def _locale93(code):
+    """VP-09.3 D-6: own pinned locale file for the 0.9.3 texts; `en` (or no locale) returns the defaults."""
+    import hashlib
+    import json
+    from pathlib import Path
+    if code in (None, 'en'):
+        return {}
+    if code not in _X93:
+        raw = (Path(__file__).resolve().parent/'locales'/f'{code}-0093.json').read_bytes()
+        need(hashlib.sha256(raw).hexdigest() == LOCALE_0093.get(code), 'VP09_LOCALE_INVALID', f'locale file {code}-0093.json does not match its pin')
+        _X93[code] = json.loads(raw)['text']
+    return _X93[code]
 
 
 def arg_text(b, dropped=()):
@@ -58,7 +76,16 @@ class Model:
         self.src, self.bindings, self.items, self.v = normalize(doc)
         self.profile = profile_of(doc)
         self.v91 = self.profile in V91UP
-        self.v92 = self.profile == P092
+        self.v92 = self.profile in V92UP
+        self.v93 = self.profile == P093
+        self.x = doc['x_instances'] if self.v93 else []
+        self.xreport = doc['x_report'] if self.v93 else {}
+        self.xitems = {}                                     # VP-09.3: Y referents named only by an X slot (outside the slice)
+        for x in self.x:
+            for sl in x['slots']:
+                if 'target' in sl and sl['target'] not in self.items:
+                    self.xitems.setdefault(sl['target'], {'id': sl['target'], 'label': sl['target'], 'home': 'Y',
+                                                          'kind': sl['target_kind'], 'anchor_id': sl['target_anchor']})
         self.roles = doc['step_roles'] if self.v92 else {}
         self.L = _locale(None)
         self.local = doc['local_methods'] if self.v91 else []
@@ -73,14 +100,15 @@ class Model:
         self.pos = {i: k for k, i in enumerate(seq)} if seq else {i: k for k, i in enumerate(self.items)}
 
     # -- values (AX-3) -----------------------------------------------------
-    def values(self, axis):
+    def values(self, axis, pair=None):
         a = letter(axis)
+        xy = pair == frozenset({'X', 'Y'})
         if a == 'T':
             if self.v92 and not self.L.identity:             # VP-09.2 (a): declared role in the display locale; IDs unchanged
                 return [(s['id'], excerpt(f"{s['id']} · {self.L.role(self.roles.get(s['id'], ''))}", 40), None) for s in self.steps]
             return [(s['id'], s['label'], None) for s in self.steps]
         if a == 'X':
-            need(self.facets, 'VP09_AXIS_EMPTY', 'X needs declared facet bindings; the source declares none (AX-4)')
+            need(self.facets or xy, 'VP09_AXIS_EMPTY', 'X needs declared facet bindings; the source declares none (AX-4)')
             return [(d, f'{g} {n}', None) for d, g, n in X_DIMS]
         if a == 'F':
             ms = method_order(self.bindings)
@@ -88,7 +116,7 @@ class Model:
                 return [(m, m, None) for m in ms]
             need(ms, 'VP09_AXIS_EMPTY', 'F needs declared method bindings (P1.11 via vpaxes from-plan); the input declares none (AQ-3)')
             return [(m, m, None) for m in ms]
-        its = [i for i in self.items.values() if i['home'] == a]
+        its = [i for i in self.items.values() if i['home'] == a]+(list(self.xitems.values()) if xy and a == 'Y' else [])
         need(its, 'VP09_AXIS_EMPTY', f'no referent of home {a} in the source')
         order = KIND_ORDER[a]
         kinds = sorted(dict.fromkeys(i['kind'] for i in its), key=lambda k: (order.index(k) if k in order else len(order), 0))
@@ -96,12 +124,12 @@ class Model:
             return [(k, kind_label(k), k) for k in kinds]
         out = []
         for k in kinds:
-            for i in sorted((i for i in its if i['kind'] == k), key=lambda i: self.pos[i['id']]):
+            for i in sorted((i for i in its if i['kind'] == k), key=lambda i: self.pos.get(i['id'], len(self.pos))):
                 out.append((i['id'], i['label'], k))
         return out
 
     def proj(self, axis, item_id):
-        it = self.items.get(item_id)
+        it = self.items.get(item_id) or self.xitems.get(item_id)
         if it is None or it['home'] != letter(axis):
             return None
         return it['kind'] if axis.endswith(':kind') else item_id
@@ -109,7 +137,7 @@ class Model:
     # -- membership (CM) ---------------------------------------------------
     def entries(self, rows, cols):
         """{(row value, col value): [entries]} in declared order; canonical pair then oriented."""
-        pair = check_pair(rows, cols, self.v91, self.v92)
+        pair = check_pair(rows, cols, self.v91, self.v92, self.v93)
         out = {}
 
         def emit(a_val, b_val, entry, swap):
@@ -170,6 +198,16 @@ class Model:
                     c = self.cellmap[f['target_id']]
                     for it in dict.fromkeys((c['row'], c['object'])):
                         emit(d, self.proj(az, it), f"{c['id']}: {f['note']}", swap)
+        elif pair == {'X', 'Y'}:                             # VP-09.3 CM-X: declared P1.6 slots of the X endpoints
+            ay = cols if la == 'X' else rows
+            swap = la != 'X'
+            for x in self.x:
+                for sl in x['slots']:
+                    if sl.get('absent'):
+                        if ay.endswith(':kind'):
+                            emit(x['dimension'], sl['kinds'][0], f"{x['id']} · {sl['slot']} · absent", swap)
+                    else:
+                        emit(x['dimension'], self.proj(ay, sl['target']), f"{x['id']} · {sl['slot']}", swap)
         elif pair == {'F', 'Z'} or pair == {'F', 'Y'}:
             az = cols if la == 'F' else rows
             swap = la != 'F'
@@ -190,6 +228,21 @@ class Model:
         if b['owner_kind'] == 'transition':
             return next(t['at'] for t in self.src['transitions'] if t['id'] == b['owner'])
         return b['step'] if self.v91 else self.cellmap[b['owner']]['steps'][-1]   # D-3 in 0.9.1; 0.9.0: last own step
+
+    def x_units(self, rows, cols):
+        """VP-09.3 XL: every Y-typed slot and every absent required Y slot exactly once: drawn or not placeable."""
+        ay = cols if letter(rows) == 'X' else rows
+        out = []
+        for x in self.x:
+            for n, sl in enumerate(x['slots']):
+                u = {'unit': f"{x['id']}#{n}", 'endpoint': x['id'], 'slot': sl['slot'], 'dimension': x['dimension']}
+                if sl.get('absent'):
+                    u['absent'] = True
+                    u.update({'state': 'drawn', 'value': sl['kinds'][0]} if ay.endswith(':kind') else {'state': 'not_placeable'})
+                else:
+                    u.update({'state': 'drawn', 'value': self.proj(ay, sl['target']), 'target': sl['target']})
+                out.append(u)
+        return out
 
     # -- binding ledger (VP-09.1 FL) -----------------------------------------
     def binding_units(self, rows, cols):
@@ -236,15 +289,15 @@ class AxesPrinter:
                 hide_empty=None, locale=None):
         need(granularity in LEVELS, 'VP09_AXES_BUDGET', 'granularity must be overview|standard|detail', 'granularity')
         prof = profile_of(doc)
-        v91, v92 = prof in V91UP, prof == P092
+        v91, v92, v93 = prof in V91UP, prof in V92UP, prof == P093
         need(hide_empty is None or v92, 'VP09_SOURCE_INVALID', 'hide_empty needs a '+P092+' input (VP-09.2 D-1)')
         need(locale is None or v92, 'VP09_LOCALE_INVALID', 'locale needs a '+P092+' input (VP-09.2 D-1)')
         need(hide_empty in (None,)+HIDE_EMPTY, 'VP09_AXIS_INVALID', 'hide_empty must be rows|cols|both')
         L = _locale(locale)
-        check_pair(rows, cols, v91, v92)
+        pair0 = check_pair(rows, cols, v91, v92, v93)
         m = Model(doc)
         m.L = L
-        rv, cv = m.values(rows), m.values(cols)
+        rv, cv = m.values(rows, pair0), m.values(cols, pair0)
         pair, cells = m.entries(rows, cols)
         hidden = None
         if hide_empty:                                       # HE-1 (D-4): after projection, before the budget check
@@ -271,6 +324,11 @@ class AxesPrinter:
         if v92:
             pr['L'], pr['hidden'] = L, hidden
             pr['all_empty'] = bool(hidden) and (not rv or not cv)
+        if v93:
+            pr['v93'], pr['X'] = True, _locale93(locale)
+            pr['status'] = STATUS[pair]
+            if pair == {'X', 'Y'}:
+                pr['x_units'] = m.x_units(rows, cols)
         if v91:
             pr['profile'], pr['full'] = prof, full
             pr['fpair'] = 'F' in pair
@@ -299,7 +357,7 @@ class AxesPrinter:
     def render(self, pr):
         m = pr['model']
         rv, cv, cells, k = pr['rv'], pr['cv'], pr['cells'], pr['k']
-        v92 = pr.get('profile') == P092
+        v92 = pr.get('profile') in V92UP
         L = pr['L'] if v92 else None
         T_ = (lambda key, default, **kw: L.t(key, default, **kw)) if v92 else (lambda key, default, **kw: default.format(**kw) if kw else default)
         wrap = (lambda st, w: wrap_sep(st, w)[0]) if v92 else wrap_words
@@ -316,15 +374,17 @@ class AxesPrinter:
             layout.append(('row', (val, label, kind), y)); y += rh
         grid_bottom = y
         v91 = pr.get('profile') in V91UP
-        rule = (RULES_092 if v92 else RULES_091 if v91 else RULES)[pr['pair']]
+        rule = (RULES_093 if pr.get('v93') else RULES_092 if v92 else RULES_091 if v91 else RULES)[pr['pair']]
         if v92:
             rule = L.t('rule.'+RULE_KEYS[pr['pair']], rule)
+        if pr.get('v93'):
+            rule = pr['X'].get('rule.'+RULE_KEYS[pr['pair']], rule)
         legend_lines = wrap(T_('axes.legend.membership', 'Membership: {rule}', rule=rule), 120)
         if v91:
             legend_lines += self._notes091(pr, T_, wrap)
         height = int(grid_bottom+50+(len(legend_lines)+4)*20+60)
         pair_txt = f"{pr['rows']} × {pr['cols']}"
-        printer = 'VP-09.2' if v92 else 'VP-09.1' if v91 else 'VP-09'
+        printer = 'VP-09.3' if pr.get('v93') else 'VP-09.2' if v92 else 'VP-09.1' if v91 else 'VP-09'
         root = self.base._root({'view_id': 'cube.axes', 'title': excerpt(m.src['title']+' · '+pair_txt, 78),
                                 'subtitle': excerpt(T_('axes.subtitle', 'v9.4 · {printer} · declared axes {pair} · {granularity} · categorical, no distances',
                                                        printer=printer, pair=pair_txt, granularity=pr['granularity']), 105)},
@@ -333,6 +393,9 @@ class AxesPrinter:
         root.set('data-cube-view', 'cube.axes')
         root.set('data-vp09-pair', pair_txt)
         text(root, 60, 125, T_('axes.header', 'CUBE.AXES · DECLARED STATEMENTS PER CELL · categorical matrix, no ranking, no distance'), 13, MUTED, 'bold')
+        if pr.get('v93'):                                    # VP-09.3 B10: status of the crossing, text only
+            root.set('data-vp09-crossing-status', pr['status'][0])
+            text(root, 60, 143, status_line(pr), 11.5, MUTED)
         if v92 and pr['hidden']:
             root.set('data-vp09-hide-empty', pr['hidden']['hide_empty'])
         # column headers (AD-2)
@@ -402,6 +465,9 @@ class AxesPrinter:
     def _show(pr):
         """VP-09.2 (a): display text of an entry; a trailing P1.10 predicate ID shows its locale name (ledger keeps the ID)."""
         L = pr['L']
+        if pr.get('v93') and pr['pair'] == {'X', 'Y'} and pr['X']:
+            absent = pr['X'].get('absent', 'absent')
+            return lambda e: e[:-len(' · absent')]+' · '+absent if e.endswith(' · absent') else e
         if L.identity or pr['pair'] not in ({'Y'}, {'Y', 'Z'}):
             return lambda e: e
 
@@ -426,6 +492,16 @@ class AxesPrinter:
                               n=n, home=home))
             if out_:
                 out.append(T_('axes.note.out_of_slice', '{n} binding unit(s) lie outside the plan slice of this input; listed in the ledger.', n=len(out_)))
+        if pr.get('v93') and pr['pair'] == {'X', 'Y'}:
+            X = pr['X']
+            m = pr['model']
+            if not m.x:
+                out.append(X.get('note.x_none', 'No X endpoint in the plan slice: X × Y is empty (VP09_X_NONE), not a statement about the plan.'))
+            if m.xreport.get('x_ignored'):
+                out.append(X.get('note.x_ignored', '{n} X endpoint(s) in the context lie outside the plan slice and are not shown.').format(n=m.xreport['x_ignored']))
+            nu = sum(u['state'] == 'not_placeable' for u in pr['x_units'])
+            if nu:
+                out.append(X.get('note.x_unplaced', '{n} absent slot(s) without a referent: not placeable in Y:referent columns; listed in the ledger.').format(n=nu))
         h = pr.get('hidden')
         if h:
             out.append(T_('axes.note.hidden', '{rows} empty row(s) and {cols} empty column(s) hidden; the report counts them.',
@@ -441,7 +517,13 @@ class AxesPrinter:
         led = {'profile': pr.get('profile', PROFILE), 'rows_axis': pr['rows'], 'cols_axis': pr['cols'], 'granularity': pr['granularity'],
                'row_values': [v for v, _, _ in pr['rv']], 'col_values': [v for v, _, _ in pr['cv']], 'cells': cells,
                'status': 'declared_unverified', 'nonimplications': ['truth', 'distance', 'rank', 'score', 'causality', 'time']}
-        if pr.get('profile') == P092:                       # VP-09.2: hidden values and the display locale are recorded
+        if pr.get('v93'):                                   # VP-09.3: crossing status (B10) and the X × Y unit ledger (XL)
+            led['crossing_status'] = {'status': pr['status'][0], 'source': pr['status'][1]}
+            if 'x_units' in pr:
+                led['x_units'] = pr['x_units']
+                led['x_coverage'] = x_coverage(pr['x_units'], pr['cells'])
+                led.update(pr['model'].xreport)
+        if pr.get('profile') in V92UP:                      # VP-09.2: hidden values and the display locale are recorded
             if pr['hidden']:
                 led.update(pr['hidden'])
             if not pr['L'].identity:
@@ -478,7 +560,13 @@ class AxesPrinter:
                 warnings += binding_warnings(pr['units_b'])
                 verify(led['binding_coverage']['status'] == 'COMPLETE', 'BINDING_LEDGER_COMPLETE')
             extra = {k: led[k] for k in ('binding_units', 'binding_ledger', 'binding_coverage') if k in led}
-        if pr.get('profile') == P092:
+        if pr.get('v93'):
+            if 'x_units' in pr:
+                if not pr['model'].x:
+                    warnings.append({'code': 'VP09_X_NONE', 'detail': 'no X endpoint in the plan slice'})
+                verify(led['x_coverage']['status'] == 'COMPLETE', 'X_LEDGER_COMPLETE')
+            extra.update({k: led[k] for k in ('crossing_status', 'x_units', 'x_coverage', 'x_ignored', 'x_profiles_missing') if k in led})
+        if pr.get('profile') in V92UP:
             if pr['all_empty']:
                 warnings.append({'code': 'VP09_ALL_EMPTY', 'hidden_rows': len(pr['hidden']['hidden_rows']), 'hidden_cols': len(pr['hidden']['hidden_cols'])})
             extra.update({k: led[k] for k in ('hide_empty', 'row_values_all', 'col_values_all', 'hidden_rows', 'hidden_cols', 'hidden_counts', 'locale')
@@ -493,6 +581,22 @@ class AxesPrinter:
                 'notices': ['Cells list declared statements only; a blank cell asserts nothing.',
                             'No size, position or shade encodes a quantity; nothing is ranked.',
                             'Step columns are a declared step order, not a time scale.']}
+
+
+def status_line(pr):
+    X = pr['X']
+    st, src = pr['status']
+    pair = pr['pair']
+    a, b = (sorted(pair) if len(pair) == 2 else [next(iter(pair))]*2)
+    return f"{a} × {b} · {X.get('status.'+st, st)} · {src.replace('Morphology', X.get('status.source', 'Morphology'))}"
+
+
+def x_coverage(units, cells):
+    """XL: unique units, each with one state; every drawn unit sits in a drawn cell (either orientation)."""
+    n = {s: sum(u['state'] == s for u in units) for s in ('drawn', 'not_placeable')}
+    placed = all((u['dimension'], u['value']) in cells or (u['value'], u['dimension']) in cells for u in units if u['state'] == 'drawn')
+    ok = len({u['unit'] for u in units}) == len(units) == sum(n.values()) and placed
+    return {'units_total': len(units), **n, 'status': 'COMPLETE' if ok else 'INCOMPLETE'}
 
 
 def warning_summary(warnings):

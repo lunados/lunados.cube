@@ -44,7 +44,8 @@ OPTIONS = {'cube.phases': {'partition', 'locale', 'hide_ledger'}, 'cube.flow': {
            'cube.cells': {'rows', 'cols', 'hide_empty', 'locale', 'axis_order'}, 'cube.instances': {'locale'}}
 # C-12: display options of VP-07.5 / VP-09.2; the printers accept them only for their 0.7.5 / 0.9.2 sources (D-1)
 DISPLAY_OPTIONS = {'vpmigration': {'profile': c07.P075, 'locale': None, 'hide_ledger': 'bool', 'selections': [c07.METHOD_SETS]},
-                   'vpaxes': {'profile': c09.P092, 'locale': None, 'hide_empty': list(c09.HIDE_EMPTY), 'pairs_added': ['Y × Y']}}
+                   'vpaxes': {'profile': c09.P093, 'locale': None, 'hide_empty': list(c09.HIDE_EMPTY), 'pairs_added': ['Y × Y', 'X × Y'],
+                              'crossing_status': True}}
 REQUIRED = {'cube.phases': {'partition'}, 'cube.flow': {'partition', 'lens'}, 'cube.sequence': set(), 'cube.axes': {'rows', 'cols'},
             'cube.cells': set(), 'cube.instances': set()}
 SOURCE_OPTIONS = {'vpmigration': {'tracks', 'track', 'labels', 'steps', 'subjects', 'edge_styles', 'witness_prefixes', 'profile', 'layers',

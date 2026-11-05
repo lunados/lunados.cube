@@ -4,6 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
+from .common import P093, V92UP, PAIRS_093
 from .common import PROFILE, P091, P092, V91UP, PAIRS_092, HIDE_EMPTY, PROFILES, PAIRS_091, AXES, RESERVED, PAIRS, BUDGET, LEVELS, VP09Error, encode, load_json, publish_dir, write_new
 from .source import from_plan
 from .axes import render_axes
@@ -11,7 +12,7 @@ from .panels import print_panels, check_panels
 
 
 def capabilities(profile=PROFILE):
-    v91, v92 = profile in V91UP, profile == P092
+    v91, v92 = profile in V91UP, profile in V92UP
     extra = {'profiles': list(PROFILES), 'method_catalog': 'P1.11/migration-methods-v1 (IDs pinned; local method contracts allowed)',
              'binding_ledger': True} if v91 else {}
     if v92:
@@ -21,7 +22,7 @@ def capabilities(profile=PROFILE):
                      f_t_arguments=True, wrap='separators (D-5)')
     return {'format': 'aiaeao.cube.vp09-capabilities/1', 'profile': profile, 'reference_version': 'v9.4', 'views': ['cube.axes'], **extra,
             'axes': list(AXES), 'reserved_axes': list(RESERVED),
-            'pairs': [sorted(p) if len(p) > 1 else [min(p), min(p)] for p in (PAIRS_092 if v92 else PAIRS_091 if v91 else PAIRS)],
+            'pairs': [sorted(p) if len(p) > 1 else [min(p), min(p)] for p in (PAIRS_093 if profile == P093 else PAIRS_092 if v92 else PAIRS_091 if v91 else PAIRS)],
             'granularities': list(LEVELS), 'budgets': {k: dict(zip(('rows', 'cols', 'entries_per_cell'), v)) for k, v in BUDGET.items()},
             'operations': ['capabilities', 'from-plan', 'check-axes', 'print-axes', 'print-panels', 'check-panels'],
             'inputs': ['aiaeao.cube.vp07-migration-source/1 (0.7.1, 0.7.2)', 'aiaeao.cube.vp09-axes-input/1'],
@@ -65,7 +66,8 @@ def main(argv=None):
             write_new(target, encode(doc))
             out.write(encode({'status': 'PASS', 'operation': 'from-plan', 'input_file': str(target), 'cells': len(doc['source']['cells']),
                               'method_bindings': len(doc['method_bindings']), **({'profile': P091, 'dropped_arguments':
-                              len(doc['dropped_arguments'])} if a.profile in V91UP else {}), **({'profile': a.profile} if a.profile == P092 else {})}))
+                              len(doc['dropped_arguments'])} if a.profile in V91UP else {}), **({'profile': a.profile} if a.profile in V92UP else {}),
+                              **({'x_instances': len(doc['x_instances'])} if a.profile == P093 else {})}))
             return 0
         if a.command in ('check-axes', 'print-axes'):
             report, svg = render_axes(load_json(a.input, 'VP09_SOURCE_INVALID'), a.rows, a.cols, a.granularity, a.hide_empty, a.locale)

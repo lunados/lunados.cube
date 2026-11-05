@@ -124,3 +124,11 @@ C-12: `views(…, hide_empty=None, locale=None)`.
 
 M × T and O × X (no declared source yet); transitive Y × Y; argument text in F × Z / F × Y; interactive pivoting;
 remote (G5) plan tools. Methods in VP-07 views are VP-07.3.
+
+## VP-09.3 — X × Y and the status of a crossing (`0.9.3`, opt-in)
+
+MILE-016 B9/B10, specified in [VP09_3_ACCEPTANCE_SPEC.md](VP09_3_ACCEPTANCE_SPEC.md). `from-plan --profile P2-VP-AXES/0.9.3` reads `binding-context/7…/10`, takes the source from VP-07.8 (which maps X endpoints) and adds `x_instances`: the X endpoints of the slice and those reached through their P1.6 slots, with their Y-typed slots and the required Y slots their instance leaves absent.
+
+- New pair **X × Y**: rows X dimensions (by pair scope), columns Y kinds or referents; entries `endpoint · slot`, absent required slots `endpoint · slot · absent` (German `fehlt`). Ledger `x_units` with coverage; `VP09_X_NONE` when no X endpoint is in the slice.
+- Every 0.9.3 panel names its crossing, status and source (`X × Y · canonical · Morphology §3.3`; derived crossings as `derived · Morphology 01.3`), text only.
+- German texts of 0.9.3 in the own pinned file `vpaxes/locales/de-0093.json`; older locale files unchanged. 0.9.0…0.9.2 byte-identical.

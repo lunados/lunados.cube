@@ -4,6 +4,7 @@ import copy
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+from .common import (P093, V92UP)
 from .common import (PROFILE, P091, P092, V91UP, tag_profile, via07, BUDGET, NOT_EVALUATED, MUTED, Printer, add, line, text, excerpt, sha_bytes, sha_json, encode, load_json, fs_isdir, fs_names, fs_bytes, fs_json,
                      need, no_active_content, VP09Error)
 from .axes import AxesPrinter, binding_coverage, binding_warnings, warning_summary, _locale
@@ -66,7 +67,10 @@ def print_panels(doc, rows, cols, granularity='standard', hide_empty=None, local
         need(bcov['status'] == 'COMPLETE', 'VP09_PANEL_COVERAGE', 'panels do not account for every binding unit (FL-3)', 'coverage')
         warnings += binding_warnings(full['units_b'])
         extra = {'binding_ledger': full['units_b'], 'binding_coverage': bcov}
-    if prof == P092:
+    if prof == P093:                                     # VP-09.3: crossing status and the X × Y unit ledger of the whole input
+        led = AxesPrinter.ledger(full)
+        extra.update({k: led[k] for k in ('crossing_status', 'x_units', 'x_coverage', 'x_ignored', 'x_profiles_missing') if k in led})
+    if prof in V92UP:
         h = full['hidden']
         if full['all_empty']:
             warnings.append({'code': 'VP09_ALL_EMPTY', 'hidden_rows': len(h['hidden_rows']), 'hidden_cols': len(h['hidden_cols'])})
@@ -75,7 +79,7 @@ def print_panels(doc, rows, cols, granularity='standard', hide_empty=None, local
         if not full['L'].identity:
             extra['locale'] = full['L'].record()
     files['index.svg'] = _index(full, entries, cov, prof)
-    if prof == P092:
+    if prof in V92UP:
         extra['warning_summary'] = warning_summary(warnings)
     report = {'format': REPORT_FORMAT, 'profile': prof, **extra, 'reference_version': 'v9.4', 'status': 'PASS', 'view': 'cube.axes',
               'rows_axis': rows, 'cols_axis': cols, 'granularity': granularity, 'input_sha256': sha_json(doc), 'input': doc,

@@ -1,0 +1,4992 @@
+{
+ "format": "aiaeao.cube.vp093-vectors/1",
+ "oracle_sha256": "0ed990db6e95c23b7f8e357e27090123ae9446cb2eb4f15cab6f42f7448cdc0d",
+ "cases": [
+  {
+   "id": "X-01",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:kind",
+   "locale": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "X-02",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "Y:kind",
+   "cols": "X",
+   "locale": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "X-03",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:referent",
+   "locale": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "X-04",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:kind",
+   "locale": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "X-05",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:kind",
+   "locale": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "X-06",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     },
+     {
+      "ref": "adm-other",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "refused",
+       "refusal_ref": "ref:no"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:kind",
+   "locale": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "X-07",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:kind",
+   "locale": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "X-08",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:kind",
+   "locale": null,
+   "granularity": "detail",
+   "input_profile": "P2-VP-AXES/0.9.2"
+  },
+  {
+   "id": "X-09",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "Y:kind",
+   "cols": "Z:kind",
+   "locale": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "X-10",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:kind",
+   "locale": null,
+   "granularity": "detail"
+  },
+  {
+   "id": "X-11",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:kind",
+   "locale": "de",
+   "granularity": "detail"
+  },
+  {
+   "id": "X-12",
+   "context": {
+    "format": "aiaeao.cube.binding-context/10",
+    "reference_version": "v9.4",
+    "context_id": "vp093-xy",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:xy",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:xy"
+     },
+     {
+      "ref": "x:policy",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy"
+     },
+     {
+      "ref": "x:event",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event",
+      "instantiation_profile_ref": "xy:action",
+      "slots": {
+       "pair_scope_ref": "x:event",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:authority",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy",
+      "instantiation_profile_ref": "xy:admission",
+      "slots": {
+       "pair_scope_ref": "x:policy",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "reads",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     },
+     {
+      "predicate_id": "invoked-by",
+      "revision": "xy:pred/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Y:identity-anchor:actor"
+      ],
+      "object_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "predicate_profile_refs": [],
+    "method_profile_refs": [
+     "P1.11/migration-methods-v1"
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "xy:action",
+      "concept_id": "X:endpoint:action",
+      "revision": "xy/1",
+      "scope": "x:event",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:authority",
+      "concept_id": "X:endpoint:authority",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "xy:admission",
+      "concept_id": "X:endpoint:admission",
+      "revision": "xy/1",
+      "scope": "x:policy",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     }
+    ],
+    "migration_plans": [
+     {
+      "plan_id": "pm-xy",
+      "revision": "xy/1",
+      "scope": "ctx:xy",
+      "origin": "illustrative_fixture",
+      "phases": [
+       {
+        "phase_id": "current",
+        "role": "current"
+       },
+       {
+        "phase_id": "beta",
+        "role": "target"
+       }
+      ],
+      "transitions": [],
+      "dependencies": [
+       {
+        "dependency_id": "d1",
+        "subject": "mod.core",
+        "predicate_id": "gated-by",
+        "object": "adm",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d2",
+        "subject": "mod.core",
+        "predicate_id": "reads",
+        "object": "res:store",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       },
+       {
+        "dependency_id": "d3",
+        "subject": "act:caller",
+        "predicate_id": "invoked-by",
+        "object": "mod.core",
+        "kind": "other",
+        "holds_in": [
+         "current",
+         "beta"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "plan_id": "pm-xy",
+   "profile": "P2-VP-AXES/0.9.3",
+   "rows": "X",
+   "cols": "Y:kind",
+   "locale": null,
+   "granularity": "detail"
+  }
+ ]
+}
