@@ -196,4 +196,9 @@ Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
 | Task | Story | Aufwand |
 |---|---|---|
 | [TASK-075 — Profil VP-07.8](TASK-075-vp078-x-endpoints.md) | – | 0,25–0,5 PT |
-| [TASK-076 — P1.15: Scope-Ketten, Referenz v2 und Ausgänge der Admission](TASK-076-p115-scope-nesting.md) | MILE-015 | erledigt (lokal) |
+
+## MILE-015 — lokal umgesetzt
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-076 — P1.15: Scope-Ketten, Referenz v2 und Ausgänge der Admission](TASK-076-p115-scope-nesting.md) | – | 1,25–1,75 PT |
