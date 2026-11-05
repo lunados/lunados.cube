@@ -1,6 +1,6 @@
 # MILE-015 — Scope-Ketten und Ausgänge der Admission (P1)
 
-Status: geplant (Entwurf, neu ausgerichtet) · Stand: 2026-11-05 · Voraussetzung: MILE-014 · Folge-Mile: [MILE-016](MILE-016-axis-pair-views.md)
+Status: umgesetzt (lokal, G4) – [Nachweis](../10-Evidence/MILE-015/README.md) · Stand: 2026-11-05 · Voraussetzung: MILE-014 · Folge-Mile: [MILE-016](MILE-016-axis-pair-views.md)
 
 ## Anlass
 
@@ -40,10 +40,12 @@ lunados.explorer bindet seit E8 X-Referenten nach P1.6 (Abschnitt `x_bindings` i
 | B2 — P1.6-Referenz v2 (Ressourcenbereich) | 0,25 PT |
 | B3 — Verbindungsregel Gateway ↔ Admissions | 0,25–0,5 PT |
 
-## Offene Fragen (für die Spezifikation)
+Umgesetzt in einer Task: [TASK-076](../05-Tasks/TASK-076-p115-scope-nesting.md) (`P1/scope-nesting-profile-v1/`).
 
-- B1: Dürfen in einer Kette verschiedene Scope-Arten stehen (Policy ⊃ Event für die Anfrage einer Admission), oder nur gleiche?
-- B3: Worauf zeigt die Plan-Abhängigkeit `gated-by` – auf das Gateway oder auf beide Ausgänge?
+## Detailfragen (in der Spezifikation entschieden)
+
+- B1: Verschiedene Scope-Arten in einer Kette sind erlaubt; geprüft wird nur die Struktur (Q-2). Ein Scope hat genau einen äußeren (Q-1).
+- B3: Die Plan-Abhängigkeit `gated-by` zeigt auf den zugelassenen Ausgang; das Gateway nennt die übrigen (Q-4).
 
 ## Nicht Teil von MILE-015
 
