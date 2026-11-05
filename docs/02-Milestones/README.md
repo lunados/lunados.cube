@@ -1,6 +1,6 @@
 # Milestones
 
-MILE-001 bis MILE-012 sind abgeschlossen, MILE-013 ist lokal umgesetzt, MILE-002 und MILE-003 am 2026-11-01 abgenommen. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
+MILE-001 bis MILE-012 sind abgeschlossen, MILE-013 ist lokal umgesetzt (G5 R8 vorbereitet), MILE-002 und MILE-003 am 2026-11-01 abgenommen. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
 
 | ID | Ergebnis / Abschlusskriterium | Abhängigkeit |
 |---|---|---|

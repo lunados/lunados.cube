@@ -142,7 +142,7 @@ class G5R5PlanAndControlFlowTests(unittest.TestCase):
         self.assertEqual(r['result']['report']['overall_status'],'FAIL')
         self.assertIn('P1_FLOW_UNDECLARED',{d['code'] for d in r['result']['report']['diagnostics']})
         s=self.dispatch('cube_discover_surface')['result']
-        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.0-proof')
+        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.1-proof')
         self.assertEqual(s['p113_control_flow']['binding_context_formats'],['aiaeao.cube.binding-context/9'])
         self.assertIs(s['domains']['P2']['plan_views']['remote_available'],True)
         self.assertEqual(s['mcp']['tools'][-3:],['cube_plan_source','cube_plan_views','cube_plan_check'])
@@ -163,7 +163,7 @@ class G5R6RelationOriginTests(unittest.TestCase):
 
     def test_discovery(self):
         s=self.dispatch('cube_discover_surface')['result']
-        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.0-proof')
+        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.1-proof')
         self.assertEqual(s['p114_relation_origin']['binding_context_formats'],['aiaeao.cube.binding-context/10'])
         self.assertFalse(s['p114_relation_origin']['origin_computed_by_cube'])
         self.assertIn('P2-VP-MIGRATION/0.7.6',s['domains']['P2']['plan_views']['printers']['vpmigration']['profiles'])
