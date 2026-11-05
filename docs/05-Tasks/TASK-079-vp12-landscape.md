@@ -1,6 +1,6 @@
 # TASK-079 — VP-12: Landschaftssicht `cube.landscape`
 
-Mile: [MILE-016](../02-Milestones/MILE-016-axis-pair-views.md) (B6, B10) · Aufwand: 1–1,5 PT · Status: Laufzeit fertig, 2026-11-05 (G6/G5 und Explorer-Abnahme offen)
+Mile: [MILE-016](../02-Milestones/MILE-016-axis-pair-views.md) (B6, B10) · Aufwand: 1–1,5 PT · Status: erledigt, 2026-11-05
 
 Spezifikation: [VP12_ACCEPTANCE_SPEC.md](../../P2/visual-printer-landscape-v1/VP12_ACCEPTANCE_SPEC.md). Reihenfolge: Entscheidungen D-1…D-8, Vektoren L-01…L-14 und Oracle vor dem Code, Regression VP-07…VP-11, dann Laufzeit, G6, Explorer-Abnahme und Cockpit.
 
@@ -12,4 +12,4 @@ Spezifikation: [VP12_ACCEPTANCE_SPEC.md](../../P2/visual-printer-landscape-v1/VP
 - VP12-03: lunados.explorer druckt die Landschaft für alle 11 Blätter (Plan `<id>-full`, Spalten aus `mappings/landscape-layers.json` nach deklariertem Konzept, Schritte current/beta), `check-panels` PASS; F02 und F05 abgenommen; Cockpit-Sicht „Landschaft“.
 - Geometrie: leere Spalten schmal, Breite wächst ab 5 belegten Spalten über 1200 px; Brücken in derselben Spalte links, parallele Wege versetzt (nur Darstellung, Oracle unverändert).
 - VP12-04: G6 lokal und G5 R10 live erledigt (58/58, [TASK-080](TASK-080-g5-r10.md)).
-- Offen: VG-Anker für die Schichtspalte.
+- VG-Anker für die Schichtspalte: nach [MILE-018](../02-Milestones/MILE-018-axis-pairs-follow-up.md) (B13) verschoben.

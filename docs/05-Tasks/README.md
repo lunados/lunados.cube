@@ -204,7 +204,7 @@ Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
 | [TASK-076 — P1.15: Scope-Ketten, Referenz v2 und Ausgänge der Admission](TASK-076-p115-scope-nesting.md) | – | 1,25–1,75 PT |
 | [TASK-077 — G5 R9: Core 0.9.2-proof mit P1.15 und VP-07.8](TASK-077-g5-r9.md) | – | 0,25–0,5 PT |
 
-## MILE-016 — in Arbeit
+## MILE-016 — umgesetzt
 
 | Task | Story | Aufwand |
 |---|---|---|
