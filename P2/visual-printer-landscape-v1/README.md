@@ -1,4 +1,4 @@
-# VP-12 — Landscape view (`P2-VP-LANDSCAPE/0.12.0`, `cube.landscape`)
+# VP-12 — Landscape view (`P2-VP-LANDSCAPE/0.12.0`, `0.12.1`, `cube.landscape`)
 
 MILE-016 B6 and B10. One page per plan: the Y and Z referents in declared layer columns, one band per declared step,
 the dependencies holding at that step as edges with their predicate. Nothing new is asserted; the view arranges
@@ -30,3 +30,11 @@ python3 -m unittest tests.test_vp12
 Codes: `VP12_INPUT`, `VP12_STEP_UNKNOWN`, `VP12_BUDGET_EXCEEDED`, `VP12_PANEL_COVERAGE`, `VP12_AUDIT`; warning
 `VP12_LAYER_PARTIAL`. In-memory API `vplandscape.api` (`source`, `views`, `check`) has the `plan-views/1` shape; the
 G6 registration (`cube_plan_views`) and the G5 delivery follow as their own step.
+
+## VP-12.1 — VG anchor of the layer column (`0.12.1`, opt-in)
+
+MILE-018 E18-1 (B13). `from-plan --profile P2-VP-LANDSCAPE/0.12.1` (G6: source option `profile`): every column header is a group
+`data-vp12-column-header` with `data-anchor-id="skeleton-shell.section"` (◲, UI marker) and the glyph before the label; the ledger
+and report carry `column_anchor`, the audit checks one anchored header per column (`COLUMN_ANCHOR_EACH_COLUMN`). Decision D-1 (user):
+a UI anchor, because the column is a declared presentation grouping; `resource-zones.*` would claim a Cube zone. 0.12.0 stays the
+default and byte-identical (24 pinned digests). See `VP12_1_ACCEPTANCE_SPEC.md`; tests `tests.test_vp121`.

@@ -43,7 +43,7 @@ P1.7 is reserved (Principal → Authority). Each context version is a strict sup
 | [`P2/visual-printer-axes-v1`](P2/visual-printer-axes-v1) | VP-09 `P2-VP-AXES/0.9.0`…`0.9.3` | `cube.axes` (0.9.3: X × Y, crossing status) |
 | [`P2/visual-printer-cells-v1`](P2/visual-printer-cells-v1) | VP-10 `P2-VP-CELLS/0.10.0`, `0.10.1`, `0.11.0` | `cube.cells` (0.11.0: statement sets) |
 | [`P2/visual-printer-instances-v1`](P2/visual-printer-instances-v1) | VP-11 `P2-VP-INSTANCES/0.12.0` | `cube.instances` |
-| [`P2/visual-printer-landscape-v1`](P2/visual-printer-landscape-v1) | VP-12 `P2-VP-LANDSCAPE/0.12.0` | `cube.landscape` |
+| [`P2/visual-printer-landscape-v1`](P2/visual-printer-landscape-v1) | VP-12 `P2-VP-LANDSCAPE/0.12.0`, `0.12.1` | `cube.landscape` (0.12.1: VG anchor of the layer column) |
 
 Older printer profiles stay byte-identical; each newer profile is opt-in and pinned against its predecessors.
 

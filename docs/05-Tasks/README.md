@@ -211,3 +211,9 @@ Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
 | [TASK-078 — VP-09.3: X × Y, Status der Kreuzung](TASK-078-vp093-x-y.md) | – | 0,5–0,75 PT |
 | [TASK-079 — VP-12: Landschaftssicht](TASK-079-vp12-landscape.md) | – | 1–1,5 PT |
 | [TASK-080 — G6 und G5 R10: Landschaft und VP-09.3-Locale remote](TASK-080-g5-r10.md) | – | 0,5 PT |
+
+## MILE-018 — in Arbeit
+
+| Task | Story | Aufwand |
+|---|---|---|
+| [TASK-081 — VP-12.1: VG-Anker der Schichtspalte](TASK-081-vp121-layer-anchor.md) | – | 0,25–0,5 PT |

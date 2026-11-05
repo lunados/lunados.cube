@@ -15,7 +15,10 @@ from vpmigration.common import (Printer, NS, add, line, rect, text, excerpt, cjs
                                 sha_bytes, sha_json, KEY, LEVELS, NOT_EVALUATED, STROKE, INK, MUTED, DASH, UNASSIGNED, P078,
                                 VP07Error, clean, publish_dir, write_new, fs_isdir, fs_names, fs_bytes, fs_json, load_json)
 
-PROFILE = 'P2-VP-LANDSCAPE/0.12.0'
+PROFILE = 'P2-VP-LANDSCAPE/0.12.0'  # default; byte-identical since VP-12.1
+P0121 = 'P2-VP-LANDSCAPE/0.12.1'  # VP-12.1 (MILE-018 E18-1): VG anchor of the layer column, opt-in
+PROFILES = (PROFILE, P0121)
+COLUMN_ANCHOR = 'skeleton-shell.section'  # VP-12.1 D-1: UI anchor, no Cube statement
 SOURCE_PROFILE = P078
 INPUT_FORMAT = 'aiaeao.cube.vp12-landscape-input/1'
 PANEL_INPUT = 'aiaeao.cube.vp12-panel-input/1'

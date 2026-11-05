@@ -23,7 +23,7 @@ Die Epics sind unabhängig und einzeln ziehbar. Reihenfolge-Vorschlag: E18-1, E1
 
 | Epic | Backlog | Inhalt | Aufwand (PT) | Unsicherheit |
 |---|---|---|---|---|
-| E18-1 VG-Anker Schichtspalte | B13 | Ankerfrage im VG-Register klären, dann neues Profil der Landschaft | 0,25–0,5 | gering |
+| E18-1 VG-Anker Schichtspalte | B13 | Ankerfrage im VG-Register klären, dann neues Profil der Landschaft. **Erledigt** ([TASK-081](../05-Tasks/TASK-081-vp121-layer-anchor.md)): `skeleton-shell.section`, Profil 0.12.1 | 0,25–0,5 | gering |
 | E18-2 X × Z mit X-Endpunkten | B11 | Zellregel in `cube.axes`: wo Grant und Admission an Module greifen | 0,5 | gering (Muster wie X × Y) |
 | E18-3 X × X als Decision Helix | B12 | Kette Perception → Conclusion → Authority → Admission → Action → Result aus deklarierten Slots | 0,75–1 | mittel |
 | E18-4 Interne Kanten | B4 | Kanten innerhalb eines Moduls zählen oder als Unterknoten; Ankerfrage zuerst | 0,5 | mittel |

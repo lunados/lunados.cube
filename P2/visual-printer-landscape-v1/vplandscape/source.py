@@ -2,17 +2,18 @@
 from __future__ import annotations
 import copy
 
-from .common import (PROFILE, SOURCE_PROFILE, INPUT_FORMAT, LEVELS, LOCALES, PLACEMENT_DEFAULT, clean, need, sha_json)
+from .common import (PROFILE, PROFILES, SOURCE_PROFILE, INPUT_FORMAT, LEVELS, LOCALES, PLACEMENT_DEFAULT, clean, need, sha_json)
 
 KEYS = ('format', 'profile', 'source', 'concepts', 'steps', 'placement_predicates', 'locale', 'granularity')
 
 
-def from_plan(context, plan_id, layers=None, labels=None, steps=None, placement_predicates=None, locale='en', granularity='detail'):
+def from_plan(context, plan_id, layers=None, labels=None, steps=None, placement_predicates=None, locale='en', granularity='detail',
+              profile=None):
     from vpmigration.api import source as vp07_source
     doc = vp07_source(context, plan_id, labels=labels, profile=SOURCE_PROFILE, layers=layers, origin_lines=True)
     src, mapping = doc['source'], doc['mapping']
     pids = [s['id'] for s in src['steps']]
-    out = {'format': INPUT_FORMAT, 'profile': PROFILE, 'source': src,
+    out = {'format': INPUT_FORMAT, 'profile': PROFILE if profile is None else profile, 'source': src,
            'concepts': {r['id']: r['concept_id'] for r in mapping['referents']},
            'steps': list(steps) if steps is not None else [pids[0], pids[-1]] if len(pids) > 1 else pids[:1],
            'placement_predicates': list(PLACEMENT_DEFAULT if placement_predicates is None else placement_predicates),
@@ -26,7 +27,7 @@ def validate_input(doc):
     from vpmigration.source import validate_source
     need(isinstance(doc, dict) and doc.get('format') == INPUT_FORMAT, 'VP12_INPUT', 'input is not an '+INPUT_FORMAT+' document')
     need(set(doc) == set(KEYS), 'VP12_INPUT', 'landscape input fields must be exactly '+', '.join(KEYS))
-    need(doc['profile'] == PROFILE, 'VP12_INPUT', 'profile must be '+PROFILE)
+    need(doc['profile'] in PROFILES, 'VP12_INPUT', 'profile must be one of '+', '.join(PROFILES))
     src = doc['source']
     need(isinstance(src, dict) and src.get('profile') == SOURCE_PROFILE and src.get('origin_lines') is True
          and src.get('source_kind') == 'migration_plan', 'VP12_INPUT',

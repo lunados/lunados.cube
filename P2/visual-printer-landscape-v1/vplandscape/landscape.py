@@ -3,7 +3,7 @@ from __future__ import annotations
 import math
 from xml.etree import ElementTree as ET
 
-from .common import (PROFILE, VIEW, X_FAMILY, FAMILIES, MAX_COLUMNS, MAX_BANDS, BUDGET, STATUS, ORIGIN_STYLE, UNASSIGNED,
+from .common import (PROFILE, P0121, COLUMN_ANCHOR, VIEW, X_FAMILY, FAMILIES, MAX_COLUMNS, MAX_BANDS, BUDGET, STATUS, ORIGIN_STYLE, UNASSIGNED,
                      NS, Printer, add, line, rect, text, excerpt, cjson, fmt, no_active_content, sha_bytes, sha_json,
                      STROKE, INK, MUTED, DASH, NOT_EVALUATED, need, locale_text)
 from .source import validate_input
@@ -101,7 +101,7 @@ def ledger(pr):
     units += [f"{b['step']}|edge|{e['cell']}" for b in pr['bands'] for e in b['edges']]
     return {'view': VIEW, 'columns': pr['columns'], 'column_labels': pr['labels'], 'bands': bands, 'units': units,
             'x_outside': pr['x_outside'], 'crossing_status': {'status': STATUS[0], 'source': STATUS[1], 'text': pr['status']},
-            'layer_map': pr['layered']}
+            'layer_map': pr['layered'], **({'column_anchor': COLUMN_ANCHOR} if pr['doc']['profile'] == P0121 else {})}
 
 
 # -- drawing ------------------------------------------------------------------------------------------------------------
@@ -112,10 +112,10 @@ def _arrow(g, x1, y1, x2, y2, color):
     add(g, 'polygon', points=' '.join(f'{fmt(x)},{fmt(y)}' for x, y in pts), fill=color)
 
 
-def _frame(width, height, title, subtitle):
+def _frame(width, height, title, subtitle, profile=PROFILE):
     """The vp2d frame (title, subtitle, display-only footer) at a given width; vp2d's _root is fixed to 1200."""
     root = ET.Element(f'{{{NS}}}svg', dict(version='1.1', width=str(width), height=str(height), viewBox=f'0 0 {width} {height}', role='img',
-                                            **{'aria-labelledby': 'svg-title svg-desc', 'data-printer-profile': PROFILE, 'data-view-id': VIEW}))
+                                            **{'aria-labelledby': 'svg-title svg-desc', 'data-printer-profile': profile, 'data-view-id': VIEW}))
     t = add(root, 'title', id='svg-title'); t.text = title
     d = add(root, 'desc', id='svg-desc')
     d.text = ('Display-only AIAEAO v9.4 projection. Geometry and colors cannot imply verification, permission, admission, '
@@ -157,7 +157,8 @@ def render(pr):
     height = top+sum(heights)+16*len(heights)+110
     doc = pr['doc']
     title = excerpt(f"{doc['source']['plan_id']} · landscape · {' / '.join(b['step'] for b in pr['bands'])}", 78)
-    root = _frame(width, height, title, excerpt(pr['status']+' · '+PROFILE, 110))
+    prof = doc['profile']
+    root = _frame(width, height, title, excerpt(pr['status']+' · '+prof, 110), prof)
     root.set('data-vp12-crossing-status', STATUS[0])
     text(root, M, 120, T['header'], 12, MUTED)
     x = M
@@ -170,6 +171,13 @@ def render(pr):
     el = line(root, x, 144, x+28, 144, color=STROKE); el.set('stroke-width', '3.2')
     text(root, x+34, 148, T['legend.placement'], 11, MUTED)
     for k, c in enumerate(cols):
+        if prof == P0121:                                  # VP-12.1 D-1: every column header carries the UI anchor
+            hg = add(root, 'g', **{'data-vp12-column-header': c, 'data-anchor-id': COLUMN_ANCHOR})
+            tt = add(hg, 'title'); tt.text = pr['labels'][c]+' — '+COLUMN_ANCHOR
+            label = excerpt(pr['labels'][c], max(6, int(cws[k]/8))-2)
+            text(hg, xs[k]+cws[k]/2-4*len(label)-10, 183, P.by_id[COLUMN_ANCHOR]['unicode'], 14, MUTED, anchor='middle', glyph=True)
+            text(hg, xs[k]+cws[k]/2, 182, label, 13, INK, 'bold', anchor='middle')
+            continue
         text(root, xs[k]+cws[k]/2, 182, excerpt(pr['labels'][c], max(6, int(cws[k]/8))), 13, INK, 'bold', anchor='middle')
     y0 = top
     for b, h in zip(pr['bands'], heights):
@@ -266,7 +274,11 @@ def report(pr, svg):
     verify(sorted(drawn) == sorted(led['units']) and len(set(drawn)) == len(drawn), 'EACH_UNIT_DRAWN_ONCE')
     xs = {u.split('|')[2] for u in led['units'] if '|node|' in u}
     verify(not any(pr['items'][i]['anchor_id'].startswith(X_FAMILY+'.') for i in xs), 'NO_X_NODE')
-    return {'format': 'aiaeao.cube.vp12-landscape-report/1', 'profile': PROFILE, 'reference_version': 'v9.4', 'render_status': 'PASS',
+    if pr['doc']['profile'] == P0121:
+        heads = [g for g in root.iter(f'{{{NS}}}g') if g.get('data-vp12-column-header')]
+        verify([g.get('data-vp12-column-header') for g in heads] == pr['columns'] and
+               all(g.get('data-anchor-id') == COLUMN_ANCHOR for g in heads), 'COLUMN_ANCHOR_EACH_COLUMN')
+    return {'format': 'aiaeao.cube.vp12-landscape-report/1', 'profile': pr['doc']['profile'], 'reference_version': 'v9.4', 'render_status': 'PASS',
             'view': VIEW, 'plan_id': pr['src']['plan_id'], 'locale': pr['doc']['locale'], 'granularity': pr['doc']['granularity'],
             'source_sha256': sha_json(pr['src']), 'svg_sha256': sha_bytes(svg), **led,
             'counts': {'columns': len(pr['columns']), 'bands': len(pr['bands']), 'units': len(led['units'])},

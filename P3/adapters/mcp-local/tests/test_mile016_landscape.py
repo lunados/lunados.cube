@@ -53,8 +53,14 @@ class Landscape(unittest.TestCase):
     def test_capabilities(self):
         cap = pv.capabilities()
         self.assertEqual(cap['views']['cube.landscape'], 'vplandscape')
-        self.assertEqual(cap['printers']['vplandscape']['profiles'], ['P2-VP-LANDSCAPE/0.12.0'])
+        self.assertEqual(cap['printers']['vplandscape']['profiles'], ['P2-VP-LANDSCAPE/0.12.0', 'P2-VP-LANDSCAPE/0.12.1'])
         self.assertEqual(cap['printers']['vplandscape']['budget']['max_columns'], 6)
+
+    def test_profile_0121(self):
+        src = pv.plan_source(self.c['context'], 'pm-ls', 'vplandscape', layers=self.c['layers'], profile='P2-VP-LANDSCAPE/0.12.1')
+        res = pv.plan_views(src['source'], 'cube.landscape', 'detail')
+        self.assertIn('data-anchor-id="skeleton-shell.section"', res['panels'][0]['svg'])
+        self.assertEqual(pv.plan_check(res)['status'], 'PASS')
 
 
 if __name__ == '__main__':
