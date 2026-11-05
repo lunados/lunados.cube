@@ -15,7 +15,7 @@ if str(ADAPTER) not in sys.path:
     sys.path.insert(0, str(ADAPTER))
 from aiaeao_mcp_local import bridge, p0_resources, p0_tool, p1_adapter, surface
 
-VERSION = 'P3-MCP-REMOTE/0.9.1-proof'  # R8 (MILE-013): VP-07.7 module bodies; Workers Paid CPU limit
+VERSION = 'P3-MCP-REMOTE/0.9.2-proof'  # R9 (MILE-015): P1.15 binding-context/11, VP-07.8 X endpoints
 PLAN_OPERATIONS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
 
 
@@ -185,6 +185,20 @@ def _remote_surface():
         'origin_values': ['declared', 'derived', 'unknown'],
         'origin_computed_by_cube': False,
         'derivation_computed_by_cube': False,
+        'evaluation_performed_by_cube': False,
+        'epistemic_warrant': 'NOT_EVALUATED',
+        'current_authority': 'NOT_EVALUATED',
+        'canonical_admission': 'NOT_EVALUATED',
+    }
+    result['p115_scope_nesting'] = {
+        'profile': 'P1.15/scope-nesting-profile-v1',
+        'binding_context_formats': ['aiaeao.cube.binding-context/11'],
+        'activation': 'explicit_context_format_11_only',
+        'scope': 'declared_x_scope_chains_reference_v2_and_admission_outcomes',
+        'additional_diagnostics': ['P1_SCOPE_NESTING_INVALID', 'P1_ADMISSION_OUTCOME_CONFLICT'],
+        'instantiation_reference': 'P1.6 reference v2 (Authority resource_scope_ref + Revision, Artifact) for /11 only',
+        'policy_narrowing_checked_by_cube': False,
+        'outcome_decided_by_cube': False,
         'evaluation_performed_by_cube': False,
         'epistemic_warrant': 'NOT_EVALUATED',
         'current_authority': 'NOT_EVALUATED',

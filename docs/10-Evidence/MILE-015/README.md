@@ -1,6 +1,6 @@
 # MILE-015 — Nachweis
 
-Stand: 2026-11-05 · Branch `feature/mile015-016-backlog` · lokal (G4); G5 nicht ausgeliefert
+Stand: 2026-11-05 · lokal (G4) und G5 (R9, `0.9.2-proof`, live 51/51)
 
 ## Reihenfolge
 
@@ -36,4 +36,4 @@ Panelzahlen und Planstatus unverändert gegenüber MILE-014. Gegenproben am F05-
 ## Offen
 
 - Bestätigung im venv des Nutzers (P1.15, P3).
-- G5-Auslieferung als eigener Schritt.
+- ~~G5-Auslieferung als eigener Schritt.~~ Erledigt mit [TASK-077](../../05-Tasks/TASK-077-g5-r9.md): Core `0.9.2-proof`, R9 live 51/51.

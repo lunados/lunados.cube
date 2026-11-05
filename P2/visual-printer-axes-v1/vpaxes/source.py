@@ -8,13 +8,17 @@ import copy
 
 from vpmigration.source import validate_source as _validate_vp07
 from vpmigration.adapter import from_plan as _from_plan
-from .common import tag_profile, PROFILE, P090, P091, P092, V91UP, INPUT_FORMAT, P071, P072, SEMREF, CATALOG_ORDER, METHOD_PROFILE_REF, need, via07
+from vpmigration.common import P078
+from .common import tag_profile, PROFILE, P090, P091, P092, P093, V91UP, V92UP, INPUT_FORMAT, P071, P072, SEMREF, CATALOG_ORDER, METHOD_PROFILE_REF, DIM_OF, need, via07
 
 CTX_FORMATS = ('aiaeao.cube.binding-context/5', 'aiaeao.cube.binding-context/6', 'aiaeao.cube.binding-context/7')
+CTX_FORMATS_093 = ('aiaeao.cube.binding-context/7', 'aiaeao.cube.binding-context/8', 'aiaeao.cube.binding-context/9',
+                   'aiaeao.cube.binding-context/10')  # VP-09.3: the source comes from VP-07.8, which maps X endpoints
 
 
 KEYS_091 = {'format', 'profile', 'source', 'method_bindings', 'local_methods', 'dropped_arguments'}
 KEYS_092 = KEYS_091 | {'step_roles'}  # VP-09.2: declared step roles travel with the input so the printer can translate them
+KEYS_093 = KEYS_092 | {'x_instances', 'x_report'}  # VP-09.3: declared P1.6 instances of the X endpoints in and around the slice
 BKEYS_091 = {'owner_kind', 'owner', 'method_id', 'arguments', 'declaration_ref'}
 STEP_RULES = ('successor_first', 'own_last')
 
@@ -78,17 +82,19 @@ def check_method(mid, local, where):
 
 
 def _normalize_091(doc):
-    keys = KEYS_092 if doc['profile'] == P092 else KEYS_091
+    keys = KEYS_093 if doc['profile'] == P093 else KEYS_092 if doc['profile'] == P092 else KEYS_091
     need(set(doc) == keys, 'VP09_SOURCE_INVALID', f"axes input {doc['profile'].rsplit('/', 1)[1]} needs exactly "+', '.join(sorted(keys)))
-    if doc['profile'] == P092:
+    if doc['profile'] == P093:
+        _check_x(doc)
+    if doc['profile'] in V92UP:
         sr = doc['step_roles']
         need(isinstance(sr, dict) and isinstance(doc['source'], dict) and isinstance(doc['source'].get('steps'), list)
              and set(sr) == {x.get('id') for x in doc['source']['steps'] if isinstance(x, dict)}
              and all(isinstance(r, str) and len(r) <= 24 for r in sr.values()), 'VP09_SOURCE_INVALID',
              'step_roles must map every source step to its declared role (VP-09.2)')
     src, bindings, local, dropped = doc['source'], doc['method_bindings'], doc['local_methods'], doc['dropped_arguments']
-    need(isinstance(src, dict) and src.get('profile') in (P071, P072), 'VP09_SOURCE_INVALID',
-         'VP-09 reads VP-07 migration sources 0.7.1 or 0.7.2 (AQ-1)')
+    need(isinstance(src, dict) and src.get('profile') in ((P078,) if doc['profile'] == P093 else (P071, P072)), 'VP09_SOURCE_INVALID',
+         'VP-09.3 reads VP-07 migration sources 0.7.8' if doc['profile'] == P093 else 'VP-09 reads VP-07 migration sources 0.7.1 or 0.7.2 (AQ-1)')
     v = via07(_validate_vp07, src, code='VP09_SOURCE_INVALID')
     items = _items(src)
     need(isinstance(local, list) and all(isinstance(m, str) and m for m in local) and len(set(local)) == len(local),
@@ -120,7 +126,7 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
 
     profile None or 0.9.0 keeps the 0.9.0 transcription byte for byte; 0.9.1 adds paths, slice accounting and steps (VP-09.1).
     """
-    need(profile in (None, P090, P091, P092), 'VP09_ADAPTER_INPUT', f'profile must be {P090}, {P091} or {P092}')
+    need(profile in (None, P090, P091, P092, P093), 'VP09_ADAPTER_INPUT', f'profile must be {P090}, {P091}, {P092} or {P093}')
     if profile in V91UP:
         return _from_plan_091(context, plan_id, tracks, track, labels, steps, subjects, layers, profile)
     need(isinstance(context, dict) and context.get('format') in CTX_FORMATS, 'VP09_ADAPTER_INPUT',
@@ -158,16 +164,18 @@ def from_plan(context, plan_id, tracks=None, track=None, labels=None, steps=None
 
 
 def _from_plan_091(context, plan_id, tracks, track, labels, steps, subjects, layers, profile=P091):
-    need(isinstance(context, dict) and context.get('format') in CTX_FORMATS, 'VP09_ADAPTER_INPUT',
-         'context must be binding-context /5, /6 or /7')
+    v93 = profile == P093
+    need(isinstance(context, dict) and context.get('format') in (CTX_FORMATS_093 if v93 else CTX_FORMATS), 'VP09_ADAPTER_INPUT',
+         'context must be binding-context /7…/10' if v93 else 'context must be binding-context /5, /6 or /7')
     ctx_id = context.get('context_id')
     view = copy.deepcopy(context)
     local = [m['method_id'] for m in view.get('method_contracts') or [] if isinstance(m, dict) and isinstance(m.get('method_id'), str)]
     raw, plan = [], None
-    if view['format'].endswith('/7'):
-        refs = view.pop('method_profile_refs', None)
+    if view['format'] in CTX_FORMATS_093 if v93 else view['format'].endswith('/7'):
+        refs = view.get('method_profile_refs') if v93 else view.pop('method_profile_refs', None)
         need(refs == [METHOD_PROFILE_REF], 'VP09_ADAPTER_INPUT', f'method_profile_refs must be [{METHOD_PROFILE_REF!r}] (VP-09.1 §2)')
-        view['format'] = 'aiaeao.cube.binding-context/6'
+        if not v93:
+            view['format'] = 'aiaeao.cube.binding-context/6'
         for i, mp in enumerate(view.get('migration_plans', [])):
             mine = mp.get('plan_id') == plan_id
             plan = copy.deepcopy(mp) if mine else plan
@@ -183,7 +191,8 @@ def _from_plan_091(context, plan_id, tracks, track, labels, steps, subjects, lay
     for kind, owner, b, ptr in raw:
         need(isinstance(b, dict) and isinstance(b.get('arguments'), dict), 'VP09_ADAPTER_INPUT', f'binding at {ptr} is not a P1.11 binding')
         check_method(b.get('method_id'), local, f'decl:{ctx_id}#{ptr}')
-    src, mapping = via07(_from_plan, view, plan_id, tracks, track, labels, steps, subjects, layers=layers, code='VP09_ADAPTER_INPUT')
+    src, mapping = via07(_from_plan, view, plan_id, tracks, track, labels, steps, subjects, layers=layers, code='VP09_ADAPTER_INPUT',
+                         **({'profile': P078} if v93 else {}))
     ids = {r['ref']: r['id'] for r in mapping['referents']}
     cells = {c['id'] for c in src['cells']}
     trs = {t['id'] for t in src['transitions']}
@@ -214,11 +223,75 @@ def _from_plan_091(context, plan_id, tracks, track, labels, steps, subjects, lay
         bindings.append(x)
     doc = {'format': INPUT_FORMAT, 'profile': profile, 'source': src, 'local_methods': local, 'method_bindings': bindings,
            'dropped_arguments': dropped}
-    if profile == P092:  # VP-09.2: declared roles of the shown steps (from the plan's phases)
+    if profile in V92UP:  # VP-09.2: declared roles of the shown steps (from the plan's phases)
         mp = plan or next((x for x in context.get('migration_plans', []) if isinstance(x, dict) and x.get('plan_id') == plan_id), {})
         role = {ph.get('phase_id'): ph.get('role', '') for ph in mp.get('phases', []) if isinstance(ph, dict)}
         doc['step_roles'] = {s['id']: role.get(s['id'], '') for s in src['steps']}
+    if v93:
+        doc['x_instances'], doc['x_report'] = x_instances(context, ids)
     return doc, mapping
+
+
+def _kind(concept):
+    return ''.join(p.capitalize() for p in concept.split(':')[2].split('-'))
+
+
+def x_instances(context, ids):
+    """VP-09.3 §1: the X endpoints a dependency of the slice names, and those reached from them through slots; per endpoint
+    its slots naming a Y referent and its required Y-typed slots that the instance leaves absent (descriptor of its profile)."""
+    refs = {r['ref']: r for r in context.get('referents', []) if isinstance(r, dict) and isinstance(r.get('ref'), str)}
+    is_x = lambda ref: refs.get(ref, {}).get('concept_id', '').startswith('X:endpoint:')  # noqa: E731
+    todo = [ref for ref in ids if is_x(ref)]
+    seen = []
+    while todo:
+        ref = todo.pop(0)
+        if ref in seen:
+            continue
+        seen.append(ref)
+        for v in (refs[ref].get('slots') or {}).values():
+            for t in (v if isinstance(v, list) else [v]):
+                if isinstance(t, str) and is_x(t) and t not in seen:
+                    todo.append(t)
+    profiles = {p.get('profile_ref'): p for p in context.get('instantiation_profiles', []) if isinstance(p, dict)}
+    out, missing = [], []
+    for ref in seen:
+        r = refs[ref]
+        c = r['concept_id']
+        slots = r.get('slots') or {}
+        prof = profiles.get(r.get('instantiation_profile_ref')) or next(
+            (p for p in profiles.values() if p.get('concept_id') == c and p.get('scope') == r.get('scope_ref')), None)
+        rows = []
+        for name in sorted(slots):
+            if name == 'pair_scope_ref':
+                continue
+            for t in (slots[name] if isinstance(slots[name], list) else [slots[name]]):
+                tc = refs.get(t, {}).get('concept_id', '') if isinstance(t, str) else ''
+                if tc.startswith('Y:'):
+                    rows.append({'slot': name, 'target': ids.get(t, t), 'target_ref': t, 'target_kind': _kind(tc),
+                                 'target_anchor': tc.split(':')[1]+'s.'+tc.split(':')[2]})
+        if prof is None:
+            missing.append(ids.get(ref, ref))
+        else:
+            for d in prof.get('slots', []):
+                ys = [x for x in d.get('concept_ids', []) if x.startswith('Y:')]
+                if d.get('required') and d.get('kind') == 'ref' and ys and d.get('name') not in slots:
+                    rows.append({'slot': d['name'], 'absent': True, 'kinds': [_kind(x) for x in ys]})
+        out.append({'id': ids.get(ref, ref), 'ref': ref, 'concept_id': c, 'dimension': DIM_OF[c.split(':')[2]], 'slots': rows})
+    ignored = sum(1 for ref in refs if is_x(ref) and ref not in seen)
+    return out, {'x_ignored': ignored, 'x_profiles_missing': sorted(missing)}
+
+
+def _check_x(doc):
+    xs, rep_ = doc['x_instances'], doc['x_report']
+    need(isinstance(xs, list) and isinstance(rep_, dict) and set(rep_) == {'x_ignored', 'x_profiles_missing'}, 'VP09_SOURCE_INVALID',
+         'x_instances must be an array and x_report carry x_ignored and x_profiles_missing (VP-09.3)')
+    for x in xs:
+        need(isinstance(x, dict) and set(x) == {'id', 'ref', 'concept_id', 'dimension', 'slots'} and x['dimension'] in DIM_OF.values()
+             and isinstance(x['slots'], list), 'VP09_SOURCE_INVALID', 'x_instances entry shape (VP-09.3)')
+        for sl in x['slots']:
+            need(isinstance(sl, dict) and isinstance(sl.get('slot'), str) and
+                 (set(sl) == {'slot', 'absent', 'kinds'} and sl['absent'] is True and sl['kinds'] or
+                  set(sl) == {'slot', 'target', 'target_ref', 'target_kind', 'target_anchor'}), 'VP09_SOURCE_INVALID', 'x_instances slot shape (VP-09.3)')
 
 
 def method_order(bindings):

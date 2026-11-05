@@ -1,6 +1,6 @@
 # MILE-015 — Scope-Ketten und Ausgänge der Admission (P1)
 
-Status: umgesetzt (lokal, G4) – [Nachweis](../10-Evidence/MILE-015/README.md) · Stand: 2026-11-05 · Voraussetzung: MILE-014 · Folge-Mile: [MILE-016](MILE-016-axis-pair-views.md)
+Status: umgesetzt (lokal G4, G5 R9 live 51/51) – [Nachweis](../10-Evidence/MILE-015/README.md) · Stand: 2026-11-05 · Voraussetzung: MILE-014 · Folge-Mile: [MILE-016](MILE-016-axis-pair-views.md)
 
 ## Anlass
 
@@ -40,7 +40,7 @@ lunados.explorer bindet seit E8 X-Referenten nach P1.6 (Abschnitt `x_bindings` i
 | B2 — P1.6-Referenz v2 (Ressourcenbereich) | 0,25 PT |
 | B3 — Verbindungsregel Gateway ↔ Admissions | 0,25–0,5 PT |
 
-Umgesetzt in einer Task: [TASK-076](../05-Tasks/TASK-076-p115-scope-nesting.md) (`P1/scope-nesting-profile-v1/`).
+Umgesetzt in einer Task: [TASK-076](../05-Tasks/TASK-076-p115-scope-nesting.md) (`P1/scope-nesting-profile-v1/`). G5: [TASK-077](../05-Tasks/TASK-077-g5-r9.md) (Core `0.9.2-proof`, mit VP-07.8 aus MILE-014).
 
 ## Detailfragen (in der Spezifikation entschieden)
 

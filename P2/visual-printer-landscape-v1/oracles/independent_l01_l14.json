@@ -1,0 +1,328 @@
+{
+ "format": "aiaeao.cube.vp12-oracle/1",
+ "reference_version": "v9.4",
+ "independence": "Expected results transcribed by hand from VP12_ACCEPTANCE_SPEC.md §2a before any VP-12 runtime code; never generated from printer output.",
+ "transcribed_at": "2026-11-05",
+ "spec_sha256": "2c43d4b2bcaf0f4fc009fb52f1c28737a9eabfa2162ed8e221f1d771f235ca96",
+ "granularity": "detail",
+ "cases": [
+  {
+   "id": "L-01",
+   "layers": "declared",
+   "steps": null,
+   "expected": "PASS",
+   "columns": [
+    "actor",
+    "module",
+    "data",
+    "platform"
+   ],
+   "bands": [
+    {
+     "step": "current",
+     "columns": {
+      "actor": [
+       "act:op"
+      ],
+      "module": [
+       "mod.conn"
+      ],
+      "data": [
+       "res:mail-old"
+      ],
+      "platform": []
+     },
+     "edges": [
+      "d1",
+      "d2"
+     ]
+    },
+    {
+     "step": "beta",
+     "columns": {
+      "actor": [
+       "act:op",
+       "acc:admin"
+      ],
+      "module": [
+       "mod.conn",
+       "mod.core"
+      ],
+      "data": [
+       "res:mail-new"
+      ],
+      "platform": [
+       "res:dns"
+      ]
+     },
+     "edges": [
+      "d1",
+      "d3",
+      "d4",
+      "d6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L-02",
+   "layers": null,
+   "steps": null,
+   "expected": "PASS",
+   "columns": [
+    "module-bodies",
+    "identity-anchors",
+    "resource-objects"
+   ],
+   "column_order": {
+    "module-bodies": [
+     "mod.conn",
+     "mod.core"
+    ],
+    "identity-anchors": [
+     "act:op",
+     "acc:admin"
+    ],
+    "resource-objects": [
+     "res:mail-old",
+     "res:mail-new",
+     "res:dns"
+    ]
+   }
+  },
+  {
+   "id": "L-03",
+   "layers": "without res:dns",
+   "steps": null,
+   "expected": "PASS",
+   "columns": [
+    "actor",
+    "module",
+    "data",
+    "platform",
+    "unassigned"
+   ],
+   "band_beta_unassigned": [
+    "res:dns"
+   ],
+   "warnings": [
+    {
+     "code": "VP12_LAYER_PARTIAL",
+     "nodes": [
+      "res:dns"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L-04",
+   "layers": "declared",
+   "steps": [
+    "current",
+    "mvp",
+    "beta"
+   ],
+   "expected": "PASS",
+   "band_mvp": {
+    "nodes": [
+     "act:op",
+     "mod.conn",
+     "res:mail-new",
+     "res:dns"
+    ],
+    "edges": [
+     "d1",
+     "d3",
+     "d4"
+    ]
+   },
+   "markers": {
+    "current": [
+     {
+      "node": "res:mail-old",
+      "marker": "retired",
+      "retired_at": "mvp",
+      "declared_by": [
+       "T1"
+      ]
+     }
+    ],
+    "mvp": [
+     {
+      "node": "res:mail-new",
+      "marker": "introduced",
+      "declared_by": [
+       "T1"
+      ]
+     },
+     {
+      "node": "res:dns",
+      "marker": "introduced",
+      "declared_by": []
+     }
+    ],
+    "beta": [
+     {
+      "node": "acc:admin",
+      "marker": "introduced",
+      "declared_by": []
+     },
+     {
+      "node": "mod.core",
+      "marker": "introduced",
+      "declared_by": []
+     }
+    ]
+   }
+  },
+  {
+   "id": "L-05",
+   "layers": "declared",
+   "steps": [
+    "current",
+    "gamma"
+   ],
+   "expected": "VP12_STEP_UNKNOWN"
+  },
+  {
+   "id": "L-06",
+   "layers": "seven layers",
+   "steps": null,
+   "expected": "VP12_BUDGET_EXCEEDED"
+  },
+  {
+   "id": "L-07",
+   "layers": "declared",
+   "steps": null,
+   "expected": "PASS",
+   "placement": {
+    "d1": false,
+    "d2": false,
+    "d3": false,
+    "d4": true,
+    "d6": false
+   }
+  },
+  {
+   "id": "L-08",
+   "layers": "declared",
+   "steps": null,
+   "expected": "PASS",
+   "styles": {
+    "d1": "solid",
+    "d2": "solid",
+    "d3": "dashed",
+    "d4": "dotted",
+    "d6": "dotted"
+   },
+   "origins": {
+    "d1": "declared",
+    "d2": "declared",
+    "d3": "derived",
+    "d4": "unknown",
+    "d6": "unbound"
+   }
+  },
+  {
+   "id": "L-09",
+   "layers": "declared",
+   "steps": null,
+   "expected": "PASS",
+   "markers": {
+    "current": [
+     {
+      "node": "res:mail-old",
+      "marker": "retired",
+      "retired_at": "beta",
+      "declared_by": [
+       "T1"
+      ]
+     }
+    ],
+    "beta": [
+     {
+      "node": "acc:admin",
+      "marker": "introduced",
+      "declared_by": []
+     },
+     {
+      "node": "mod.core",
+      "marker": "introduced",
+      "declared_by": []
+     },
+     {
+      "node": "res:mail-new",
+      "marker": "introduced",
+      "declared_by": [
+       "T1"
+      ]
+     },
+     {
+      "node": "res:dns",
+      "marker": "introduced",
+      "declared_by": []
+     }
+    ]
+   }
+  },
+  {
+   "id": "L-10",
+   "layers": "declared",
+   "steps": null,
+   "expected": "PASS",
+   "absent_nodes": [
+    "adm"
+   ],
+   "x_outside": [
+    {
+     "cell": "d5",
+     "steps": [
+      "beta"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L-11",
+   "layers": "declared",
+   "steps": null,
+   "expected": "PASS",
+   "status": {
+    "en": "Y × Z over T · derived · Morphology 01.3",
+    "de": "Y × Z über T · abgeleitet · Morphologie 01.3"
+   }
+  },
+  {
+   "id": "L-12",
+   "layers": "declared",
+   "steps": null,
+   "expected": "PASS",
+   "deterministic": true,
+   "ledger_matches_report": true,
+   "each_once": true
+  },
+  {
+   "id": "L-13",
+   "layers": "declared",
+   "steps": null,
+   "placement_predicates": [],
+   "expected": "PASS",
+   "placement_true": []
+  },
+  {
+   "id": "L-14",
+   "layers": "declared",
+   "steps": [
+    "beta",
+    "current"
+   ],
+   "expected": "PASS",
+   "band_order": [
+    "current",
+    "beta"
+   ],
+   "same_panel_as": "L-01"
+  }
+ ],
+ "amended": "2026-11-05: §1.6 wording aligned with the §2a table (mod.core present in beta via d5); expected values unchanged, spec_sha256 re-pinned; still before any runtime code"
+}

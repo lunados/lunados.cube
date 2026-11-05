@@ -1,0 +1,9 @@
+{"format": "aiaeao.cube.vp12-locale/1", "locale": "en", "text": {
+ "header": "CUBE.LANDSCAPE · DECLARED DEPENDENCIES PER STEP · no inferred placement or chronology",
+ "status": "Y × Z over T · {status} · {source}", "status.derived": "derived", "status.source": "Morphology",
+ "introduced": "introduced", "retired": "retired at {step}", "step": "step {step}", "empty": "no node",
+ "unassigned": "not assigned", "outside": "{n} dependency(ies) with an X endpoint not drawn (X × Y, cube.flow)",
+ "legend.solid": "solid · declared", "legend.dashed": "dashed · derived", "legend.dotted": "dotted · unknown / not bound",
+ "legend.placement": "heavy · placement predicate",
+ "family.module-bodies": "Module bodies", "family.governance-boundary": "Boundaries",
+ "family.identity-anchors": "Identity anchors", "family.resource-objects": "Resources"}}

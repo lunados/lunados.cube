@@ -17,8 +17,10 @@ from vpmigration.common import (Printer, NS, add, line, rect, text, excerpt, cjs
 
 PROFILE = 'P2-VP-AXES/0.9.0'  # base profile: default of from-plan and of every 0.9.0 code path (VP-09.1 D-1)
 P090, P091, P092 = PROFILE, 'P2-VP-AXES/0.9.1', 'P2-VP-AXES/0.9.2'
-PROFILES = (P090, P091, P092)
-V91UP = (P091, P092)  # profiles with the VP-09.1 F axes and binding ledger (0.9.2 includes 0.9.1, VP-09.2 §1)
+P093 = 'P2-VP-AXES/0.9.3'  # VP-09.3 (MILE-016): X × Y from declared P1.6 instances, crossing status line
+PROFILES = (P090, P091, P092, P093)
+V91UP = (P091, P092, P093)  # profiles with the VP-09.1 F axes and binding ledger (0.9.2 includes 0.9.1, VP-09.2 §1)
+V92UP = (P092, P093)  # profiles with the VP-09.2 additions (0.9.3 includes 0.9.2, VP-09.3 §1)
 ERROR_FORMAT = 'aiaeao.cube.vp09-diagnostic/1'
 INPUT_FORMAT = 'aiaeao.cube.vp09-axes-input/1'
 AXES = ('X', 'Y:kind', 'Y:referent', 'Z:kind', 'Z:referent', 'T', 'F')
@@ -61,9 +63,24 @@ RULES_092 = dict(RULES_091)
 RULES_092[frozenset({'F', 'T'})] = RULES_091[frozenset({'F', 'T'})]+', with arguments'
 RULES_092[frozenset({'Y'})] = ('cell lists declared dependencies from the row identity or resource (subject) to the column identity or '
                                'resource (object), with predicate')
+# VP-09.3 (0.9.3): X × Y joins the pair list (B9); every 0.9.3 panel names the status of its crossing (B10, D-3)
+PAIRS_093 = PAIRS_092+({'X', 'Y'},)
+RULES_093 = dict(RULES_092)
+RULES_093[frozenset({'X', 'Y'})] = ('cell lists, per X endpoint of the dimension, its declared P1.6 slots naming the identity or resource '
+                                    '(endpoint · slot); a required slot the instance leaves absent is marked absent')
+STATUS = {frozenset({'X', 'Y'}): ('canonical', 'Morphology §3.3'), frozenset({'X'}): ('illustrative', 'Morphology Annex D.3'),
+          frozenset({'X', 'Z'}): ('derived', 'Morphology 01.3'), frozenset({'Y', 'Z'}): ('derived', 'Morphology 01.3'),
+          frozenset({'Y', 'T'}): ('derived', 'Morphology 01.3'), frozenset({'Z', 'T'}): ('derived', 'Morphology 01.3'),
+          frozenset({'Y'}): ('unlisted', 'Morphology 01.3'), frozenset({'F', 'Z'}): ('illustrative', 'Morphology §3.9'),
+          frozenset({'F', 'Y'}): ('illustrative', 'Morphology §3.9'), frozenset({'F', 'T'}): ('illustrative', 'Morphology §3.9')}
+# dimension of an X endpoint by its pair scope (Morphology §6.2)
+DIM_OF = {'perception': 'epistemology', 'conclusion': 'epistemology', 'authority': 'governance', 'admission': 'governance',
+          'expectation': 'semantics', 'satisfaction': 'semantics', 'delegation': 'execution', 'completion': 'execution',
+          'action': 'provenance', 'result': 'provenance'}
+LOCALE_0093 = {'de': '439c5efa69d3d685ce9e41e2e9f8da34de90f5a4bedb48b0a9d7d4316a5700b4'}  # pinned like VP-10.1: the older locale files and their digests stay unchanged
 RULE_KEYS = {frozenset({'Z', 'T'}): 'Z|T', frozenset({'Y', 'T'}): 'Y|T', frozenset({'Y', 'Z'}): 'Y|Z', frozenset({'X'}): 'X',
              frozenset({'X', 'Z'}): 'X|Z', frozenset({'F', 'Z'}): 'F|Z', frozenset({'F', 'Y'}): 'F|Y', frozenset({'F', 'T'}): 'F|T',
-             frozenset({'Y'}): 'Y'}  # keys of the VP-07.5 locale files (D-6)
+             frozenset({'Y'}): 'Y', frozenset({'X', 'Y'}): 'X|Y'}  # keys of the VP-07.5 locale files (D-6)
 # FA-1: catalog role order of the pinned P1.11 catalog (verified against its file in the tests)
 ROLE_ORDER = {'migrate.import/v1': ('source', 'target'), 'migrate.rebuild/v1': ('target',), 'migrate.retire/v1': ('retired',),
               'migrate.rewrite/v1': ('dependant', 'new_object'), 'migrate.reconfigure/v1': ('target',)}

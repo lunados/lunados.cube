@@ -1,6 +1,6 @@
 # MILE-016 — Sichten nach Achsenpaaren: X × Y und Landschaft (P2)
 
-Status: geplant (Entwurf, neu ausgerichtet) · Stand: 2026-11-05 · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
+Status: VP-09.3 umgesetzt, VP-12 Laufzeit umgesetzt (G6/G5 und Explorer-Abnahme offen) · Stand: 2026-11-05 · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
 
 ## Anlass
 
@@ -46,8 +46,8 @@ Es fehlen zwei Dinge:
 
 | Task | Aufwand |
 |---|---|
-| B9 — X × Y in `cube.axes` | 0,5–0,75 PT |
-| B6 — `cube.landscape` | 1–1,5 PT |
+| B9 — X × Y in `cube.axes` ([TASK-078](../05-Tasks/TASK-078-vp093-x-y.md), VP-09.3) | 0,5–0,75 PT |
+| B6 — `cube.landscape` ([TASK-079](../05-Tasks/TASK-079-vp12-landscape.md), VP-12) | 1–1,5 PT |
 | B10 — Status der Kreuzung | 0,25 PT |
 | später: B11, B12, B4, B7, B8 | je 0,25–0,5 PT |
 
