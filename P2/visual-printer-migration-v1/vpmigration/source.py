@@ -2,7 +2,7 @@
 from __future__ import annotations
 import copy
 
-from .common import (PROFILE, PROFILES, P071, P072, P073, P076, V71UP, V72UP, V73UP, UNASSIGNED, KEY, HEX64, LENSES, VP07Error, need, keys, clean,
+from .common import (PROFILE, PROFILES, P071, P072, P073, P076, V76UP, V71UP, V72UP, V73UP, UNASSIGNED, KEY, HEX64, LENSES, VP07Error, need, keys, clean,
                      check_edge_styles, check_binding)
 from .phases import PhasesPrinter, CELL_071
 
@@ -22,11 +22,11 @@ def validate_source(src):
     keys(src, REQUIRED, OPTIONAL+(('target_step',) if v71 else ())+(('layer_order', 'layer_sequence') if v72 else ())
          + (('local_methods',) if v73 else ())+
          (('origin_lines', 'origin_ledger', 'statement_set_sha256', 'statement_set_id', 'source_kind')
-          if src.get('profile') == P076 else ()),
+          if src.get('profile') in V76UP else ()),
          'VP07_SOURCE_INVALID', 'migration source')
     need(src['profile'] in PROFILES and src['reference_version'] == 'v9.4', 'VP07_SOURCE_INVALID', 'wrong profile or reference_version')
     need(src['declaration_status'] == 'declared_unverified', 'VP07_SOURCE_INVALID', 'declaration_status must be declared_unverified')
-    if src['profile'] == P076:
+    if src['profile'] in V76UP:
         need(not (src.get('origin_lines') and 'edge_styles' in src), 'VP07_ORIGIN_STYLE_CONFLICT',
              'origin_lines and edge_styles cannot be combined')
         need(src.get('source_kind', 'migration_plan') in ('migration_plan', 'statement_set'),

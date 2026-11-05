@@ -29,16 +29,19 @@ P073 = 'P2-VP-MIGRATION/0.7.3'
 P074 = 'P2-VP-MIGRATION/0.7.4'
 P075 = 'P2-VP-MIGRATION/0.7.5'
 P076 = 'P2-VP-MIGRATION/0.7.6'
-PROFILES = (P070, P071, P072, P073, P074, P075, P076)
-V71UP = (P071, P072, P073, P074, P075, P076)  # profiles with the VP-07.1 features
-V72UP = (P072, P073, P074, P075, P076)  # profiles with the VP-07.2 layer features
-V73UP = (P073, P074, P075, P076)  # profiles with VP-07.3 method fields
-V74UP = (P074, P075, P076)  # profiles with the VP-07.4 flow methods line
+P077 = 'P2-VP-MIGRATION/0.7.7'  # VP-07.7: 0.7.6 plus the module-body, grant, evidence and content rows (MILE-013)
+PROFILES = (P070, P071, P072, P073, P074, P075, P076, P077)
+V71UP = (P071, P072, P073, P074, P075, P076, P077)  # profiles with the VP-07.1 features
+V72UP = (P072, P073, P074, P075, P076, P077)  # profiles with the VP-07.2 layer features
+V73UP = (P073, P074, P075, P076, P077)  # profiles with VP-07.3 method fields
+V74UP = (P074, P075, P076, P077)  # profiles with the VP-07.4 flow methods line
+V75UP = (P075, P076, P077)  # profiles with the VP-07.5 display options
+V76UP = (P076, P077)  # profiles with the VP-07.6 origin lines and statement path
 METHOD_SETS = 'method-sets'  # VP-07.5 (e): selection mode of print-panels (a bar may be in several sets)
 NONE_GROUP = 'none'  # VP-07.4 D-3: reserved partition group of bars without a declared method
 UNASSIGNED = 'unassigned'  # VP-07.2 D-4 reserved layer name
 PROFILE = P070  # base profile of the unchanged 0.7.0 code path and diagnostics (VP-07.1 PD-1)
-LATEST = P076
+LATEST = P077
 # VP-07.3 D-6: P1.11 catalog method IDs in catalog order (pinned profile P1.11/migration-methods-v1); shared with VP-09
 METHOD_PROFILE_REF = 'P1.11/migration-methods-v1'
 METHOD_CATALOG = ('migrate.import/v1', 'migrate.rebuild/v1', 'migrate.retire/v1', 'migrate.rewrite/v1', 'migrate.reconfigure/v1')
@@ -88,7 +91,7 @@ def tag_profile(fn, profile_of):
             return fn(*a, **k)
         except VP07Error as e:
             p = profile_of(*a, **k)
-            if p in (P075, P076) and not getattr(e, 'input_profile', None):
+            if p in V75UP and not getattr(e, 'input_profile', None):
                 e.input_profile = p
             raise
     return wrapped

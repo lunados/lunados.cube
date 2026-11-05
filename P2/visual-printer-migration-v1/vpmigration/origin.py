@@ -5,7 +5,7 @@ import copy
 from xml.etree import ElementTree as ET
 
 from .adapter import from_plan
-from .common import (P076, METHOD_PROFILE_REF, HEX64, KEY, NS, STROKE, MUTED,
+from .common import (P076, V76UP, METHOD_PROFILE_REF, HEX64, KEY, NS, STROKE, MUTED,
                      VP07Error, need, clean, sha_bytes, sha_json, style_line,
                      add, rect, line, text, no_active_content)
 
@@ -125,7 +125,8 @@ def _ledger(st, ref, bases, records, direct=False, bound=True):
             'source_ids': ids, **({'warning': warning} if warning else {})}
 
 
-def from_statements(context, statements, records=None, origin_lines=False):
+def from_statements(context, statements, records=None, origin_lines=False, profile=P076):
+    need(profile in V76UP, 'VP07_ADAPTER_INPUT', 'statement path requires profile '+' or '.join(V76UP))
     refs = _set_check(context, statements)
     need(records is None or isinstance(records, list), 'VP07_ORIGIN_RECORD_INVALID', 'records must be an array')
     records = records or []
@@ -153,7 +154,7 @@ def from_statements(context, statements, records=None, origin_lines=False):
     shown = list(dict.fromkeys(x for st, _ in selected for x in (st['subject'], st['object'])))
     labels = {'format': 'aiaeao.cube.vp07-label-map/1', 'labels':
               {ref: {'id': 'n'+str(i+1), 'label': ref[:60]} for i, ref in enumerate(shown)}}
-    src, mapping = from_plan(synthetic, statements['set_id'], labels=labels, profile=P076)
+    src, mapping = from_plan(synthetic, statements['set_id'], labels=labels, profile=profile)
     src['title'] = statements['set_id']
     src['source_kind'] = 'statement_set'
     src['plan_id'] = None
@@ -184,7 +185,9 @@ def from_statements(context, statements, records=None, origin_lines=False):
 
 def from_origin_plan(context, plan_id, **options):
     origin_lines = bool(options.pop('origin_lines', False))
-    src, mapping = from_plan(context, plan_id, profile=P076, **options)
+    profile = options.pop('profile', None) or P076
+    need(profile in V76UP, 'VP07_ADAPTER_INPUT', 'origin plan path requires profile '+' or '.join(V76UP))
+    src, mapping = from_plan(context, plan_id, profile=profile, **options)
     bases = {b['basis_id']: b for b in context.get('origin_bases', [])}
     opted = {p['predicate_id'] for p in context.get('predicate_contracts', [])
              if p.get('origin_binding') == 'required' and p.get('scope') == context.get('scope_ref')}
