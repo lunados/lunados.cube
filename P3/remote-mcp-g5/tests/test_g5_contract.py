@@ -142,7 +142,7 @@ class G5R5PlanAndControlFlowTests(unittest.TestCase):
         self.assertEqual(r['result']['report']['overall_status'],'FAIL')
         self.assertIn('P1_FLOW_UNDECLARED',{d['code'] for d in r['result']['report']['diagnostics']})
         s=self.dispatch('cube_discover_surface')['result']
-        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.1-proof')
+        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.2-proof')
         self.assertEqual(s['p113_control_flow']['binding_context_formats'],['aiaeao.cube.binding-context/9'])
         self.assertIs(s['domains']['P2']['plan_views']['remote_available'],True)
         self.assertEqual(s['mcp']['tools'][-3:],['cube_plan_source','cube_plan_views','cube_plan_check'])
@@ -163,7 +163,7 @@ class G5R6RelationOriginTests(unittest.TestCase):
 
     def test_discovery(self):
         s=self.dispatch('cube_discover_surface')['result']
-        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.1-proof')
+        self.assertEqual(s['release']['version'],'P3-MCP-REMOTE/0.9.2-proof')
         self.assertEqual(s['p114_relation_origin']['binding_context_formats'],['aiaeao.cube.binding-context/10'])
         self.assertFalse(s['p114_relation_origin']['origin_computed_by_cube'])
         self.assertIn('P2-VP-MIGRATION/0.7.6',s['domains']['P2']['plan_views']['printers']['vpmigration']['profiles'])
@@ -190,5 +190,17 @@ class G5R6RelationOriginTests(unittest.TestCase):
         bad=self.dispatch('cube_plan_source',self.ol['OL-08']['plan_source'])
         self.assertFalse(bad['ok'])
         self.assertEqual(bad['diagnostic']['code'],'VP07_ORIGIN_STYLE_CONFLICT')
+
+    def test_p115_scope_nesting(self):
+        s=self.dispatch('cube_discover_surface')['result']['p115_scope_nesting']
+        self.assertEqual(s['binding_context_formats'],['aiaeao.cube.binding-context/11'])
+        self.assertFalse(s['policy_narrowing_checked_by_cube'])
+        sn={c['id']:c for c in json.loads((self.repo/'P1/scope-nesting-profile-v1/fixtures/sn01_sn14_materialized.json').read_text('utf-8'))['cases']}
+        for ident in ('SN-01','SN-02','SN-09','SN-11'):
+            c=sn[ident]
+            r=self.dispatch('cube_validate',{'input_text':c['input_text'],'input_format':c['input_format'],'context':c['context']})
+            self.assertTrue(r['ok'],ident)
+            self.assertEqual(r['result']['report']['overall_status'],c['expected_overall'],ident)
+            self.assertTrue(set(c['required_codes']) <= {d['code'] for d in r['result']['report']['diagnostics']},ident)
 
 if __name__=='__main__':unittest.main()

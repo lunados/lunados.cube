@@ -27,6 +27,7 @@ FILES={
  'P1/coverage-instance-profile-v1/cube_p112':'*',
  'P1/control-flow-profile-v1/cube_p113':'*',
  'P1/relation-origin-profile-v1/cube_p114':'*',
+ 'P1/scope-nesting-profile-v1/cube_p115':'*',
  'P2/visual-printer-release-v1/vpprint':'*',
  'P2/visual-printer-conformance-v1/vpconformance':'*',
  'P2/visual-printer-granularity-v1/vpgranularity':'*',
@@ -59,8 +60,9 @@ def main():
             dest=OUT/rel;dest.parent.mkdir(parents=True,exist_ok=True)
             shutil.copyfile(f,dest)
             manifest.append({'path':str(rel),'sha256':hashlib.sha256(dest.read_bytes()).hexdigest()})
-    # P1.6 reads exactly one immutable SHA-pinned JSON vocabulary at runtime.
-    for rel in ('P1/instantiation-profile-v1/instantiation_reference_v1.json',):
+    # P1.6 reads exactly one immutable SHA-pinned JSON vocabulary at runtime; P1.15 (R9) its pinned reference v2.
+    for rel in ('P1/instantiation-profile-v1/instantiation_reference_v1.json',
+                'P1/scope-nesting-profile-v1/instantiation_reference_v2.json'):
         src=REPO/rel
         if not src.is_file():raise SystemExit('Missing P1.6 vocabulary: '+rel)
         dest=OUT/rel;dest.parent.mkdir(parents=True,exist_ok=True)
@@ -143,6 +145,14 @@ def main():
     surf=dispatch('cube_discover_surface')['result']
     assert surf['p113_control_flow']['binding_context_formats']==['aiaeao.cube.binding-context/9'],surf['p113_control_flow']
     assert surf['domains']['P2']['plan_views']['remote_available'] is True and len(surf['domains']['P2']['plan_views']['views'])==6
+    # R9 (MILE-015): binding-context/11 through P1.15, all SN vectors against their committed oracle
+    for c in json.loads((REPO/'P1/scope-nesting-profile-v1/fixtures/sn01_sn14_materialized.json').read_text('utf-8'))['cases']:
+        r=dispatch('cube_validate',{'input_text':c['input_text'],'input_format':c['input_format'],'context':c['context']})
+        assert r['ok'] and r['result']['report']['overall_status']==c['expected_overall'],(c['id'],r)
+        codes={d['code'] for d in r['result']['report']['diagnostics']}
+        assert set(c['required_codes'])<=codes and not set(c['forbidden_codes'])&codes,(c['id'],codes)
+        assert r['result']['scope_nesting_profile']=='P1.15/scope-nesting-profile-v1' and r['result']['policy_narrowing_checked_by_cube'] is False,r
+    assert dispatch('cube_discover_surface')['result']['p115_scope_nesting']['binding_context_formats']==['aiaeao.cube.binding-context/11']
     sys.path.insert(0,str(HERE/'scripts'))
     import r5_calls
     one={'P-K01-phases','P-K07-flow','P-K08-sequence','P-K09-axes','P-S-04','P-I-22'}
@@ -151,7 +161,7 @@ def main():
         assert len(steps)==len(call['steps']) and not any(e for e,_ in steps) and steps[-1][1]['status']=='PASS',(call['id'],steps[-1])
     (OUT/'G5_SOURCE_MANIFEST.json').write_text(json.dumps({'format':'aiaeao.cube.g5-assembly/1',
          'files':manifest,'p0_snapshot_lock':report['lock_sha256']},sort_keys=True,indent=2)+'\n','utf-8')
-    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9 + P1.10 + P1.10.1 + P1.11 + P1.12 + P1.13 + R6: P1.14, plan printers VP-07…VP-11); pinned P0 %s' % (len(manifest),report['lock_sha256']))
+    print('PASS G5 assembly: %d staged source files (frozen P0/P1.1-P1.5/P2 + P1.6 + P1.8 + P1.9 + P1.10 + P1.10.1 + P1.11 + P1.12 + P1.13 + R6: P1.14, plan printers VP-07…VP-11 + R9: P1.15); pinned P0 %s' % (len(manifest),report['lock_sha256']))
     print('Deployable candidate assembled at: '+str(OUT))
 
 if __name__=='__main__': main()
