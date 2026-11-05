@@ -182,10 +182,11 @@ Führender Status: [record-current-state/tasks.md](../../openspec/changes/archiv
 
 Summe: etwa 1 PT; ohne Zeit des Nutzers.
 
-## MILE-013 — lokal umgesetzt
+## MILE-013 — umgesetzt
 
 Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
 
 | Task | Story | Aufwand |
 |---|---|---|
 | [TASK-073 — Profil VP-07.7](TASK-073-vp077-module-bodies.md) | – | 0,5 PT |
+| [TASK-074 — G5 R8: Core 0.9.1-proof und CPU-Budget](TASK-074-g5-r8.md) | – | 0,25–0,5 PT |

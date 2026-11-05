@@ -15,7 +15,7 @@ if str(ADAPTER) not in sys.path:
     sys.path.insert(0, str(ADAPTER))
 from aiaeao_mcp_local import bridge, p0_resources, p0_tool, p1_adapter, surface
 
-VERSION = 'P3-MCP-REMOTE/0.9.0-proof'  # R6 (MILE-011): binding-context/10 and origin lines in G6
+VERSION = 'P3-MCP-REMOTE/0.9.1-proof'  # R8 (MILE-013): VP-07.7 module bodies; Workers Paid CPU limit
 PLAN_OPERATIONS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
 
 

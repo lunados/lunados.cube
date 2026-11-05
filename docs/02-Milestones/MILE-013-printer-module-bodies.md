@@ -1,6 +1,6 @@
 # MILE-013 — Modulkörper im Migrations-Printer
 
-Status: umgesetzt (lokal, G4/G6) · Stand: 2026-11-05 · Voraussetzung: MILE-011 ([Abschluss](../10-Evidence/MILE-011/C-RESULT.md)), MILE-012
+Status: umgesetzt – lokal in `main`, G5 bereitgestellt und live geprüft (R8 33/33) · Stand: 2026-11-05 · Voraussetzung: MILE-011 ([Abschluss](../10-Evidence/MILE-011/C-RESULT.md)), MILE-012
 
 ## Ergebnis
 
@@ -15,7 +15,7 @@ Pilot F02 in lunados.explorer (2026-11-05): Ein Funktionsablauf einer echten Mig
 - Neues Profil statt Änderung: `0.7.0…0.7.6` bleiben byte-identisch; die 0.7.6-Ausgaben werden vor dem Code festgehalten.
 - Keine Änderung an P0, P1, an den VP-04-Budgets und an den Diagnosecodes.
 - X-Endpunkte (Admission, Result) sind nicht Teil dieser Mile; ihre Darstellung als Knoten ist eine eigene Frage.
-- G5 wird nicht ausgeliefert (Bereitstellung durch den Nutzer, getrennt).
+- G5 nach D-4: Core `0.9.1-proof` mit VP-07.7 und CPU-Grenze von Workers Paid; Bereitstellung durch den Nutzer.
 
 ## Entscheidungen (2026-11-05, Nutzer)
 
@@ -23,16 +23,18 @@ Pilot F02 in lunados.explorer (2026-11-05): Ein Funktionsablauf einer echten Mig
 |---|---|---|
 | **D-1** | Vorgehen | Eine Task ohne Epic, Story oder OpenSpec-Change; als Mile aufgehängt, damit es nachvollziehbar bleibt |
 | **D-2** | Umfang | Core, Connector, Toolbox, Adapter, Grant, Evidence, Content; X-Endpunkte ausgeklammert |
-| **D-3** | G5 | Nicht in dieser Mile |
+| **D-3** | G5 | Nicht in dieser Mile (abgelöst durch D-4) |
+| **D-4** | G5 nach Upgrade auf Workers Paid (2026-11-05) | Doch in MILE-013: Core neu bauen, `limits.cpu_ms` setzen, R8-Live-Lauf inklusive der bisher abgebrochenen schweren Aufrufe |
 
 ## Tasks und Aufwand
 
 | Task | Aufwand |
 |---|---|
 | [TASK-073 — Profil VP-07.7](../05-Tasks/TASK-073-vp077-module-bodies.md) | 0,5 PT |
+| [TASK-074 — G5 R8: Core 0.9.1-proof und CPU-Budget](../05-Tasks/TASK-074-g5-r8.md) | 0,25–0,5 PT |
 
 ## Nicht Teil von MILE-013
 
 - X-Endpunkte als Knoten in `cube.flow` oder `cube.phases`.
 - Größere Panel-Budgets oder ein Teilen eines Subjekts über mehrere Flow-Panels.
-- G5-Auslieferung und Host-Abnahme.
+- Gateway-Änderungen, OAuth, Rate-Limits und übriger Produktionsbetrieb (R7).

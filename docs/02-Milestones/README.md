@@ -1,6 +1,6 @@
 # Milestones
 
-MILE-001 bis MILE-012 sind abgeschlossen, MILE-013 ist lokal umgesetzt, MILE-002 und MILE-003 am 2026-11-01 abgenommen. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
+MILE-001 bis MILE-012 sind abgeschlossen, MILE-013 ist umgesetzt (lokal und G5, R8 33/33), MILE-002 und MILE-003 am 2026-11-01 abgenommen. Der abgeschlossene Vorbereitungsschritt ist kein Abschluss des fachlichen Fünfervergleichs.
 
 | ID | Ergebnis / Abschlusskriterium | Abhängigkeit |
 |---|---|---|
@@ -16,6 +16,6 @@ MILE-001 bis MILE-012 sind abgeschlossen, MILE-013 ist lokal umgesetzt, MILE-002
 | [MILE-010 — Kontrollfluss und Plansichten remote](MILE-010-remote-plan-views.md) | Drei Chargen: Spezifikation und Erwartungen, G5-Kern und Gateway, Bereitstellung und Host-Abnahme; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-010/C-RESULT.md)) | MILE-008, MILE-009 |
 | [MILE-011 — Herkunft von Beziehungen](MILE-011-relation-origin.md) | Drei Chargen: Spezifikation und Prüffälle, Profil P1.14, Herkunftslinie in `cube.flow` mit Auslieferung (G4, G6, G5) und Sichtprüfung; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-011/C-RESULT.md)) | MILE-007, MILE-010 |
 | [MILE-012 — Aktuellen Entwicklungsstand festhalten](MILE-012-record-current-state.md) | G5-Ledger und bekannte Grenzen, Gesamtüberblick, Live-Ausgangswert R5 und R6, Integration in `main` und Tag; keine Codeänderung; **abgeschlossen** ([Nachweis](../10-Evidence/MILE-012/C-RESULT.md)) | MILE-010, MILE-011 |
-| [MILE-013 — Modulkörper im Migrations-Printer](MILE-013-printer-module-bodies.md) | Profil `P2-VP-MIGRATION/0.7.7`: Core, Connector, Toolbox, Adapter, Grant, Evidence und Content druckbar; 0.7.0–0.7.6 byte-identisch; **lokal umgesetzt** ([Nachweis](../10-Evidence/MILE-013/README.md)) | MILE-011 |
+| [MILE-013 — Modulkörper im Migrations-Printer](MILE-013-printer-module-bodies.md) | Profil `P2-VP-MIGRATION/0.7.7`: Core, Connector, Toolbox, Adapter, Grant, Evidence und Content druckbar; 0.7.0–0.7.6 byte-identisch; G5 auf Workers Paid, R8 33/33; **umgesetzt** ([Nachweis](../10-Evidence/MILE-013/README.md)) | MILE-011 |
 
 [Roadmap](../01-roadmap/ROADMAP.md) · [Vorlage](../99-templates/WORK-ITEM.md)
