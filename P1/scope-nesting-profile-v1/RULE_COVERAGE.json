@@ -1,0 +1,16 @@
+{
+  "format": "aiaeao.cube.p1.15.rule-coverage/1",
+  "reference_version": "v9.4",
+  "authority": "Non-authoritative P1 validator vocabulary; descriptive only",
+  "rules": [
+    {"id": "P115-SN-1", "coverage": "enforced", "source": "P1.15 SN-1", "vectors": [], "tests": ["test_config_errors"], "implementation": "Malformed scope_nesting is a configuration error"},
+    {"id": "P115-SN-2", "coverage": "enforced", "source": "P1.15 SN-2", "vectors": ["SN-04", "SN-06"], "implementation": "Ends must be declared X scopes or the context scope"},
+    {"id": "P115-SN-3", "coverage": "enforced", "source": "P1.15 SN-3", "vectors": ["SN-03", "SN-05"], "implementation": "Chains reach the context scope without a cycle"},
+    {"id": "P115-SN-4", "coverage": "enforced", "source": "P1.15 SN-4", "vectors": ["SN-01", "SN-02", "SN-07", "SN-08"], "implementation": "Nested X endpoints are checked by P1.6 in their pair scope; the scope conflict is superseded"},
+    {"id": "P115-SN-5", "coverage": "enforced", "source": "P1.15 SN-5", "vectors": ["SN-14"], "implementation": "Nesting never rescues Y or Z referents"},
+    {"id": "P115-SN-6", "coverage": "enforced", "source": "P1.15 SN-6", "vectors": ["SN-09"], "tests": ["test_reference_v2", "test_config_errors"], "implementation": "Reference v2 for /11; profiles must not widen v2"},
+    {"id": "P115-AO-1", "coverage": "enforced", "source": "P1.15 AO-1", "vectors": ["SN-10", "SN-11", "SN-12"], "implementation": "One request, at most one admitted outcome"},
+    {"id": "P115-AO-2", "coverage": "enforced", "source": "P1.15 AO-2", "vectors": ["SN-13"], "implementation": "Every outcome is instance-checked"},
+    {"id": "P115-AO-3", "coverage": "enforced", "source": "P1.15 AO-3", "vectors": [], "tests": ["test_parallel_gateway_untouched"], "implementation": "Parallel gateways are not affected"}
+  ]
+}

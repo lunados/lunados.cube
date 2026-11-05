@@ -1,0 +1,5660 @@
+{
+ "format": "aiaeao.cube.p1.15-vectors/1",
+ "reference_version": "v9.4",
+ "oracle_sha256": "9c978ba1b6f2d3a1ec03fbc82ed620370b2fa4d6a393019ac307fc0f3471fd71",
+ "cases": [
+  {
+   "id": "SN-01",
+   "case": "base without scope_nesting",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_CONFLICT"
+   ],
+   "forbidden_codes": [
+    "P1_SCOPE_NESTING_INVALID"
+   ]
+  },
+  {
+   "id": "SN-02",
+   "case": "x:policy/project inside ctx:sheet",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "ctx:sheet"
+     }
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_SCOPE_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-03",
+   "case": "x:policy/project inside x:policy/org inside ctx:sheet",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "x:policy/org"
+     },
+     {
+      "inner": "x:policy/org",
+      "outer": "ctx:sheet"
+     }
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_SCOPE_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-04",
+   "case": "chain ends in undeclared x:elsewhere",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "x:elsewhere"
+     }
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_NESTING_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-05",
+   "case": "cycle org inside project inside org",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "x:policy/org"
+     },
+     {
+      "inner": "x:policy/org",
+      "outer": "x:policy/project"
+     }
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_NESTING_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-06",
+   "case": "inner names the Z referent mod.core",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "mod.core",
+      "outer": "ctx:sheet"
+     }
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_NESTING_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-07",
+   "case": "SN-02 without principal_ref",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "ctx:sheet"
+     }
+    ]
+   },
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_INSTANTIATION_SLOT_MISSING"
+   ],
+   "forbidden_codes": [
+    "P1_SCOPE_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-08",
+   "case": "SN-02 admitted without authority_ref",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "ctx:sheet"
+     }
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_INSTANTIATION_CONDITION"
+   ],
+   "forbidden_codes": [
+    "P1_SCOPE_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-09",
+   "case": "SN-02 Authority resource_scope_ref on a Revision (reference v2)",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "rev:v1"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "ctx:sheet"
+     }
+    ]
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_INSTANTIATION_SLOT_TYPE"
+   ]
+  },
+  {
+   "id": "SN-10",
+   "case": "SN-02 plus refused outcome on one exclusive gateway",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     },
+     {
+      "ref": "adm-no",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "refused",
+       "refusal_ref": "ref:no"
+      }
+     },
+     {
+      "ref": "g:decide",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:in",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:yes",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:no",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "ctx:sheet"
+     }
+    ],
+    "control_flow": {
+     "gateways": [
+      {
+       "gateway": "g:decide",
+       "type": "exclusive",
+       "incoming": [
+        "f:in"
+       ],
+       "outgoing": [
+        {
+         "flow": "f:yes",
+         "target": "adm",
+         "order": 1
+        },
+        {
+         "flow": "f:no",
+         "target": "adm-no",
+         "default": true
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_ADMISSION_OUTCOME_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-11",
+   "case": "SN-10 with different request_ref",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     },
+     {
+      "ref": "adm-no",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-other",
+       "principal_ref": "pr:person",
+       "decision": "refused",
+       "refusal_ref": "ref:no"
+      }
+     },
+     {
+      "ref": "g:decide",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:in",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:yes",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:no",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act-other",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "ctx:sheet"
+     }
+    ],
+    "control_flow": {
+     "gateways": [
+      {
+       "gateway": "g:decide",
+       "type": "exclusive",
+       "incoming": [
+        "f:in"
+       ],
+       "outgoing": [
+        {
+         "flow": "f:yes",
+         "target": "adm",
+         "order": 1
+        },
+        {
+         "flow": "f:no",
+         "target": "adm-no",
+         "default": true
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_ADMISSION_OUTCOME_CONFLICT"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-12",
+   "case": "SN-10 with both outcomes admitted",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     },
+     {
+      "ref": "adm-no",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     },
+     {
+      "ref": "g:decide",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:in",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:yes",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:no",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "ctx:sheet"
+     }
+    ],
+    "control_flow": {
+     "gateways": [
+      {
+       "gateway": "g:decide",
+       "type": "exclusive",
+       "incoming": [
+        "f:in"
+       ],
+       "outgoing": [
+        {
+         "flow": "f:yes",
+         "target": "adm",
+         "order": 1
+        },
+        {
+         "flow": "f:no",
+         "target": "adm-no",
+         "default": true
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_ADMISSION_OUTCOME_CONFLICT"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-13",
+   "case": "SN-10 refused outcome without refusal_ref",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],X:α:Admission[\"adm\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     },
+     {
+      "ref": "adm-no",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "refused"
+      }
+     },
+     {
+      "ref": "g:decide",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:in",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:yes",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "f:no",
+      "concept_id": "Y:identified-object:work-item",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "ctx:sheet"
+     }
+    ],
+    "control_flow": {
+     "gateways": [
+      {
+       "gateway": "g:decide",
+       "type": "exclusive",
+       "incoming": [
+        "f:in"
+       ],
+       "outgoing": [
+        {
+         "flow": "f:yes",
+         "target": "adm",
+         "order": 1
+        },
+        {
+         "flow": "f:no",
+         "target": "adm-no",
+         "default": true
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_INSTANTIATION_CONDITION"
+   ],
+   "forbidden_codes": [
+    "P1_ADMISSION_OUTCOME_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-14",
+   "case": "SN-02 Y resource with foreign scope as object",
+   "input_text": "rel(\"gated-by\",Z:α:Core[\"mod.core\"],Y:α:Resource[\"res:foreign\"])",
+   "input_format": "acg_text",
+   "context": {
+    "format": "aiaeao.cube.binding-context/11",
+    "reference_version": "v9.4",
+    "context_id": "p115-sn",
+    "source_kind": "illustrative_fixture",
+    "scope_ref": "ctx:sheet",
+    "referents": [
+     {
+      "ref": "mod.core",
+      "concept_id": "Z:module-body:core",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:holder",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "act:caller",
+      "concept_id": "Y:identity-anchor:actor",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "pr:person",
+      "concept_id": "Y:identity-anchor:principal",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "gr:key",
+      "concept_id": "Z:boundary:grant",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "ref:no",
+      "concept_id": "Z:boundary:refusal",
+      "home": "Z",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:store",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "rev:v1",
+      "concept_id": "Y:resource-object:revision",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "ctx:sheet"
+     },
+     {
+      "ref": "res:foreign",
+      "concept_id": "Y:resource-object:resource",
+      "home": "Y",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:policy/org",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/org"
+     },
+     {
+      "ref": "x:policy/project",
+      "concept_id": "X:scope:policy",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project"
+     },
+     {
+      "ref": "x:event/call",
+      "concept_id": "X:scope:event",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call"
+     },
+     {
+      "ref": "act-call",
+      "concept_id": "X:endpoint:action",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:event/call",
+      "instantiation_profile_ref": "sn:action@x:event/call",
+      "slots": {
+       "pair_scope_ref": "x:event/call",
+       "performed_by_ref": "act:caller",
+       "executed_as_ref": "pr:person"
+      }
+     },
+     {
+      "ref": "auth",
+      "concept_id": "X:endpoint:authority",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:authority@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "holder_ref": "act:holder",
+       "source_ref": "gr:key",
+       "action_kind": "resolve",
+       "resource_scope_ref": "res:store"
+      }
+     },
+     {
+      "ref": "adm",
+      "concept_id": "X:endpoint:admission",
+      "home": "X",
+      "layers": [
+       "α"
+      ],
+      "provenance_status": "declared_unverified",
+      "scope_ref": "x:policy/project",
+      "instantiation_profile_ref": "sn:admission@x:policy/project",
+      "slots": {
+       "pair_scope_ref": "x:policy/project",
+       "request_ref": "act-call",
+       "principal_ref": "pr:person",
+       "decision": "admitted",
+       "authority_ref": "auth"
+      }
+     }
+    ],
+    "predicate_contracts": [
+     {
+      "predicate_id": "gated-by",
+      "revision": "sn:pred/1",
+      "scope": "ctx:sheet",
+      "origin": "illustrative_fixture",
+      "subject_concept_ids": [
+       "Z:module-body:core"
+      ],
+      "object_concept_ids": [
+       "X:endpoint:admission",
+       "Y:resource-object:resource"
+      ],
+      "direction": "subject_to_object",
+      "required_qualifiers": [],
+      "additional_constraints": []
+     }
+    ],
+    "instantiation_profiles": [
+     {
+      "profile_ref": "sn:admission@x:policy/project",
+      "concept_id": "X:endpoint:admission",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "request_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:action"
+        ]
+       },
+       {
+        "name": "principal_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       },
+       {
+        "name": "decision",
+        "kind": "enum",
+        "required": true,
+        "values": [
+         "admitted",
+         "refused"
+        ]
+       },
+       {
+        "name": "authority_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       },
+       {
+        "name": "refusal_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:refusal"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:authority@x:policy/project",
+      "concept_id": "X:endpoint:authority",
+      "revision": "sn/1",
+      "scope": "x:policy/project",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:policy"
+        ]
+       },
+       {
+        "name": "holder_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "source_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Z:boundary:grant"
+        ]
+       },
+       {
+        "name": "action_kind",
+        "kind": "string",
+        "required": true
+       },
+       {
+        "name": "resource_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:resource-object:resource",
+         "Z:boundary:project-boundary",
+         "Z:boundary:thread-boundary",
+         "Y:resource-object:revision",
+         "Y:resource-object:artifact"
+        ]
+       },
+       {
+        "name": "delegated_from_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:endpoint:authority"
+        ]
+       }
+      ]
+     },
+     {
+      "profile_ref": "sn:action@x:event/call",
+      "concept_id": "X:endpoint:action",
+      "revision": "sn/1",
+      "scope": "x:event/call",
+      "origin": "illustrative_fixture",
+      "slots": [
+       {
+        "name": "pair_scope_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "X:scope:event"
+        ]
+       },
+       {
+        "name": "performed_by_ref",
+        "kind": "ref",
+        "required": true,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:actor"
+        ]
+       },
+       {
+        "name": "executed_as_ref",
+        "kind": "ref",
+        "required": false,
+        "cardinality": "one",
+        "concept_ids": [
+         "Y:identity-anchor:principal"
+        ]
+       }
+      ]
+     }
+    ],
+    "scope_nesting": [
+     {
+      "inner": "x:policy/project",
+      "outer": "ctx:sheet"
+     }
+    ]
+   },
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_CONFLICT"
+   ],
+   "forbidden_codes": []
+  }
+ ]
+}

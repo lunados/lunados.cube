@@ -15,6 +15,7 @@ PROFILES = (
     ('P1.12/coverage-instance-profile-v1', 'coverage-instance-profile-v1/cube_p112/validator.py'),
     ('P1.13/control-flow-profile-v1', 'control-flow-profile-v1/cube_p113/validator.py'),
     ('P1.14/relation-origin-profile-v1', 'relation-origin-profile-v1/cube_p114/validator.py'),
+    ('P1.15/scope-nesting-profile-v1', 'scope-nesting-profile-v1/cube_p115/validator.py'),
 )
 
 def describe_validation_contexts():
@@ -30,6 +31,7 @@ def describe_validation_contexts():
             'runtime_load_verified': False,
             **({'diagnostic_codes': ['P1_ORIGIN_UNDECLARED', 'P1_ORIGIN_BASIS_MISSING',
                                       'P1_ORIGIN_INVALID']} if index == 10 else {}),
+            **({'diagnostic_codes': ['P1_SCOPE_NESTING_INVALID', 'P1_ADMISSION_OUTCOME_CONFLICT']} if index == 11 else {}),
         })
     return {
         'format': 'aiaeao.cube.local-validation-discovery/1',

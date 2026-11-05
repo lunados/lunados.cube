@@ -26,7 +26,7 @@
     "contexts": {
       "type": "array",
       "minItems": 9,
-      "maxItems": 10,
+      "maxItems": 11,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -41,7 +41,7 @@
         "properties": {
           "context_format": {
             "type": "string",
-            "pattern": "^aiaeao\\.cube\\.binding-context/(?:[1-9]|10)$"
+            "pattern": "^aiaeao\\.cube\\.binding-context/(?:[1-9]|1[01])$"
           },
           "entry_profile": {
             "type": "string"
