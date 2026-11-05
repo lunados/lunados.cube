@@ -1,6 +1,6 @@
 # G5 R8 · MILE-013 TASK-074
 
-Status: **vorbereitet und offline geprüft; Bereitstellung und Live-Lauf durch den Nutzer ausstehend**.
+Status: **bereitgestellt und live geprüft (33/33)**.
 
 Der private Core `P3-MCP-REMOTE/0.9.1-proof` enthält den Printer VP-07.7 (Profil `P2-VP-MIGRATION/0.7.7`: Core, Connector, Toolbox, Adapter, Grant, Evidence, Content). Seit 2026-11-05 läuft das Konto auf Workers Paid; `python-core/wrangler.jsonc` setzt `limits.cpu_ms` ausdrücklich auf 30 000 ms (Standard von Workers Paid, deckelt zugleich die Kosten je Aufruf). Das Gateway bleibt `0.2.0-proof` mit zehn Tools; es wird nicht neu bereitgestellt.
 
@@ -31,6 +31,9 @@ P3/adapters/mcp-local/.venv/bin/python P3/remote-mcp-g5/scripts/r8_remote_accept
 
 `AIAEAO_G5_URL` und `AIAEAO_G5_TOKEN` wie bisher aus einer sicheren lokalen Quelle. Das Live-Skript schreibt `evidence/G5_R8_LIVE_SCRIPT.json` (nur Digests und Codes). Erwartet: 33/33.
 
-## Ergebnis
+## Ergebnis (2026-11-05)
 
-Ausstehend.
+- Der Nutzer stellte den privaten Core `0.9.1-proof` bereit (Cloudflare-Version `999dc4af-37bf-41f2-9da6-296d8bb8797b`, Upload 8 887 KiB, gzip 2 043 KiB, Worker-Startzeit 690 ms; `limits.cpu_ms` wurde angenommen). Das Gateway blieb `0.2.0-proof`.
+- Allgemeiner Remote-Smoke-Test: `PASS G5 ACTUAL REMOTE MCP: auth, Origin, 10 tools, 14 resources, P0, P1, VP06 byte parity`.
+- R8-Live-Skript: **33/33**, Tools und Health wie erwartet ([Nachweis](evidence/G5_R8_LIVE_SCRIPT.json)). Die bisher abgebrochenen Aufrufe liefen vollständig: P-OL-07 (1,07 s), P-K07-flow (1,03 s), P-K08-sequence (0,15 s); alle Payload- und SVG-Digests gleich den lokalen Erwartungen.
+- Grenzen nachgeführt in [KNOWN_LIMITS.md](KNOWN_LIMITS.md): ein einzelner vollständiger Lauf, keine Wiederholung und kein Monitoring.

@@ -28,3 +28,7 @@ Funktionsblatt `cases/case-02/F02-relay-metriken.flow.json`, exportiert mit `scr
 Der Explorer packt die Kanten in fünf Druckpläne, weil der Relay in einer Phase an bis zu sieben Objekten hängt und ein Flow-Panel im Budget `detail` höchstens vier Knoten zeigt (VP-04, unverändert).
 
 Sichtprüfung: Core (K), Connector (C) und Toolbox (B) erscheinen mit ihren Typbuchstaben als Modulblöcke; Relay und Connector teilen im Explorer bewusst die Rolle Connector.
+
+## G5 (R8, TASK-074)
+
+Core `P3-MCP-REMOTE/0.9.1-proof` auf Workers Paid (`limits.cpu_ms` 30 000), Cloudflare-Version `999dc4af-37bf-41f2-9da6-296d8bb8797b`; Gateway `0.2.0-proof` unverändert. Remote-Smoke PASS; R8-Live-Skript 33/33 ([Nachweis](../../../P3/remote-mcp-g5/evidence/G5_R8_LIVE_SCRIPT.json), [R8](../../../P3/remote-mcp-g5/G5_R8_ACCEPTANCE.md)). Die bisher am CPU-Budget gescheiterten Aufrufe P-OL-07, P-K07-flow und P-K08-sequence liefen vollständig.

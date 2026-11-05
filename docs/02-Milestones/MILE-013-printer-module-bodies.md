@@ -1,6 +1,6 @@
 # MILE-013 — Modulkörper im Migrations-Printer
 
-Status: lokal umgesetzt und in `main`; G5 (R8) vorbereitet, Bereitstellung ausstehend · Stand: 2026-11-05 · Voraussetzung: MILE-011 ([Abschluss](../10-Evidence/MILE-011/C-RESULT.md)), MILE-012
+Status: umgesetzt – lokal in `main`, G5 bereitgestellt und live geprüft (R8 33/33) · Stand: 2026-11-05 · Voraussetzung: MILE-011 ([Abschluss](../10-Evidence/MILE-011/C-RESULT.md)), MILE-012
 
 ## Ergebnis
 

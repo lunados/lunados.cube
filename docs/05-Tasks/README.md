@@ -182,7 +182,7 @@ Führender Status: [record-current-state/tasks.md](../../openspec/changes/archiv
 
 Summe: etwa 1 PT; ohne Zeit des Nutzers.
 
-## MILE-013 — lokal umgesetzt
+## MILE-013 — umgesetzt
 
 Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
 
