@@ -1,0 +1,143 @@
+{
+ "format": "aiaeao.cube.p1.15-oracle/1",
+ "reference_version": "v9.4",
+ "independence": "Expected results transcribed by hand from P1_15_ACCEPTANCE_SPEC.md §5 before any P1.15 runtime code; never generated from validator output.",
+ "transcribed_at": "2026-11-05",
+ "spec_sha256": "b526df8f9b540bc41904ab48e30297679249eb40a69906cd0b06c852e2eb0501",
+ "cases": [
+  {
+   "id": "SN-01",
+   "case": "base without scope_nesting",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_CONFLICT"
+   ],
+   "forbidden_codes": [
+    "P1_SCOPE_NESTING_INVALID"
+   ]
+  },
+  {
+   "id": "SN-02",
+   "case": "x:policy/project inside ctx:sheet",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_SCOPE_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-03",
+   "case": "x:policy/project inside x:policy/org inside ctx:sheet",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_SCOPE_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-04",
+   "case": "chain ends in undeclared x:elsewhere",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_NESTING_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-05",
+   "case": "cycle org inside project inside org",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_NESTING_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-06",
+   "case": "inner names the Z referent mod.core",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_NESTING_INVALID"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-07",
+   "case": "SN-02 without principal_ref",
+   "expected_overall": "UNRESOLVED",
+   "required_codes": [
+    "P1_INSTANTIATION_SLOT_MISSING"
+   ],
+   "forbidden_codes": [
+    "P1_SCOPE_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-08",
+   "case": "SN-02 admitted without authority_ref",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_INSTANTIATION_CONDITION"
+   ],
+   "forbidden_codes": [
+    "P1_SCOPE_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-09",
+   "case": "SN-02 Authority resource_scope_ref on a Revision (reference v2)",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_INSTANTIATION_SLOT_TYPE"
+   ]
+  },
+  {
+   "id": "SN-10",
+   "case": "SN-02 plus refused outcome on one exclusive gateway",
+   "expected_overall": "PASS",
+   "required_codes": [],
+   "forbidden_codes": [
+    "P1_ADMISSION_OUTCOME_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-11",
+   "case": "SN-10 with different request_ref",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_ADMISSION_OUTCOME_CONFLICT"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-12",
+   "case": "SN-10 with both outcomes admitted",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_ADMISSION_OUTCOME_CONFLICT"
+   ],
+   "forbidden_codes": []
+  },
+  {
+   "id": "SN-13",
+   "case": "SN-10 refused outcome without refusal_ref",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_INSTANTIATION_CONDITION"
+   ],
+   "forbidden_codes": [
+    "P1_ADMISSION_OUTCOME_CONFLICT"
+   ]
+  },
+  {
+   "id": "SN-14",
+   "case": "SN-02 Y resource with foreign scope as object",
+   "expected_overall": "FAIL",
+   "required_codes": [
+    "P1_SCOPE_CONFLICT"
+   ],
+   "forbidden_codes": []
+  }
+ ]
+}
