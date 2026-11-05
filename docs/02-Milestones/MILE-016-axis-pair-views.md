@@ -1,6 +1,6 @@
 # MILE-016 — Sichten nach Achsenpaaren: X × Y und Landschaft (P2)
 
-Status: in Spezifikation (VP-09.3 und VP-12 als Entwurf) · Stand: 2026-11-05 · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
+Status: VP-09.3 umgesetzt, VP-12 Laufzeit umgesetzt (G6/G5 und Explorer-Abnahme offen) · Stand: 2026-11-05 · Voraussetzung: MILE-014; X × Y nach [MILE-015](MILE-015-scopes-and-admission-outcomes.md) B3
 
 ## Anlass
 

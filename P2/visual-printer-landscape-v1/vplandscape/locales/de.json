@@ -1,0 +1,9 @@
+{"format": "aiaeao.cube.vp12-locale/1", "locale": "de", "text": {
+ "header": "CUBE.LANDSCAPE · DEKLARIERTE ABHÄNGIGKEITEN JE SCHRITT · keine erschlossene Platzierung oder Chronologie",
+ "status": "Y × Z über T · {status} · {source}", "status.derived": "abgeleitet", "status.source": "Morphologie",
+ "introduced": "eingeführt", "retired": "abgelöst ab {step}", "step": "Schritt {step}", "empty": "kein Knoten",
+ "unassigned": "nicht zugeordnet", "outside": "{n} Abhängigkeit(en) mit X-Endpunkt nicht gezeichnet (X × Y, cube.flow)",
+ "legend.solid": "durchgezogen · deklariert", "legend.dashed": "gestrichelt · abgeleitet", "legend.dotted": "gepunktet · unbekannt / ungebunden",
+ "legend.placement": "kräftig · Platzierungsprädikat",
+ "family.module-bodies": "Modulkörper", "family.governance-boundary": "Grenzen",
+ "family.identity-anchors": "Identitätsanker", "family.resource-objects": "Ressourcen"}}
