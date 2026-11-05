@@ -26,7 +26,7 @@ class ValidationDiscoveryTests(unittest.TestCase):
 
     def test_inventory_never_runs_validator(self):
         with patch.object(p1_adapter, '_validator_for', side_effect=AssertionError('not discovery')):
-            self.assertEqual(len(vd.describe_validation_contexts()['contexts']), 10)
+            self.assertEqual(len(vd.describe_validation_contexts()['contexts']), 11)
 
     def test_local_only_extension_does_not_mutate_g4(self):
         before = surface.discover_surface()
@@ -35,7 +35,7 @@ class ValidationDiscoveryTests(unittest.TestCase):
         self.assertNotIn('validation_contexts', surface.discover_surface()['domains']['P1'])
         self.assertEqual(before, surface.discover_surface())
         card['domains']['P1']['validation_contexts']['contexts'].clear()
-        self.assertEqual(len(surface.discover_surface_local()['domains']['P1']['validation_contexts']['contexts']), 10)
+        self.assertEqual(len(surface.discover_surface_local()['domains']['P1']['validation_contexts']['contexts']), 11)
 
     def test_extension_schema(self):
         import jsonschema

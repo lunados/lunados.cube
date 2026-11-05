@@ -1,0 +1,10 @@
+{
+  "format": "aiaeao.cube.p1.15.diagnostic-extension/1",
+  "reference_version": "v9.4",
+  "validation_profile": "P1-VC/1.0.0",
+  "disposition": "Additive P1.15 only. P0 and P1.1…P1.14 stay frozen. P1_SCOPE_CONFLICT, P1_REFERENT_MISMATCH, P1_BINDING_CONTEXT_REQUIRED and the P1.6 instantiation codes are reused; P1.6 results for X endpoints in /11 are recomputed with reference v2.",
+  "codes": [
+    {"code": "P1_SCOPE_NESTING_INVALID", "stage": "scope_consistency", "default_status": "FAIL", "reference_rule": "P1.15 SN-2, SN-3: declared scope chain must end in the context scope"},
+    {"code": "P1_ADMISSION_OUTCOME_CONFLICT", "stage": "referent_binding", "default_status": "FAIL", "reference_rule": "P1.15 AO-1: outcomes of one request share request_ref, at most one admitted"}
+  ]
+}
