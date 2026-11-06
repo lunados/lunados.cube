@@ -2,7 +2,7 @@
 
 ## Aktiv
 
-- keine
+- [beta-token-access](beta-token-access/proposal.md) — MILE-019 in Arbeit: TASK-082/083 lokal abgeschlossen; bestehender G5-Endpunkt mit Entwickler-Token und bis zu zwölf einzeln widerrufbaren Beta-Tokens; PIN, Access und OAuth außerhalb des Umfangs.
 
 ## Abgeschlossen
 

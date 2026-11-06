@@ -1,0 +1,118 @@
+{
+  "format": "aiaeao.cube.g5-beta-token-contract/1",
+  "status": "fixed-before-gateway-change",
+  "credential_labels": "Symbolic labels only. TASK-083 tests derive distinct synthetic values of at least 32 characters; SHORT derives an 8-character value. No real token is stored here.",
+  "decisions": {
+    "pass": "Authentication passes to the existing MCP handler; HTTP status then depends on the MCP request body.",
+    "401": "Authentication rejects before the MCP handler or Core.",
+    "403": "A valid token is followed by an unapproved Origin and is rejected before the MCP handler.",
+    "503": "The required developer secret is missing or too short."
+  },
+  "cases": [
+    {
+      "id": "BETA-00-existing-only",
+      "developer": "DEV",
+      "beta_slots": {},
+      "checks": [
+        {"credential": "DEV", "expected": "pass"},
+        {"credential": "B01", "expected": "401"},
+        {"credential": null, "expected": "401"}
+      ]
+    },
+    {
+      "id": "BETA-01-one-beta",
+      "developer": "DEV",
+      "beta_slots": {"01": "B01"},
+      "checks": [
+        {"credential": "DEV", "expected": "pass"},
+        {"credential": "B01", "expected": "pass"},
+        {"credential": "B02", "expected": "401"}
+      ]
+    },
+    {
+      "id": "BETA-02-twelve-beta",
+      "developer": "DEV",
+      "beta_slots": {
+        "01": "B01", "02": "B02", "03": "B03", "04": "B04",
+        "05": "B05", "06": "B06", "07": "B07", "08": "B08",
+        "09": "B09", "10": "B10", "11": "B11", "12": "B12"
+      },
+      "checks": [
+        {"credential": "DEV", "expected": "pass"},
+        {"credential": "B01", "expected": "pass"},
+        {"credential": "B02", "expected": "pass"},
+        {"credential": "B03", "expected": "pass"},
+        {"credential": "B04", "expected": "pass"},
+        {"credential": "B05", "expected": "pass"},
+        {"credential": "B06", "expected": "pass"},
+        {"credential": "B07", "expected": "pass"},
+        {"credential": "B08", "expected": "pass"},
+        {"credential": "B09", "expected": "pass"},
+        {"credential": "B10", "expected": "pass"},
+        {"credential": "B11", "expected": "pass"},
+        {"credential": "B12", "expected": "pass"},
+        {"credential": "B13", "expected": "401"}
+      ]
+    },
+    {
+      "id": "BETA-03-short-beta",
+      "developer": "DEV",
+      "beta_slots": {"01": "SHORT"},
+      "checks": [
+        {"credential": "DEV", "expected": "pass"},
+        {"credential": "SHORT", "expected": "401"}
+      ]
+    },
+    {
+      "id": "BETA-04-duplicate-beta",
+      "developer": "DEV",
+      "beta_slots": {"01": "B01", "02": "B01", "03": "B03"},
+      "checks": [
+        {"credential": "DEV", "expected": "pass"},
+        {"credential": "B01", "expected": "401"},
+        {"credential": "B03", "expected": "pass"}
+      ]
+    },
+    {
+      "id": "BETA-05-revoked-beta",
+      "developer": "DEV",
+      "beta_slots": {"02": "B02"},
+      "prior_beta_slots": {"01": "B01", "02": "B02"},
+      "checks": [
+        {"credential": "DEV", "expected": "pass"},
+        {"credential": "B01", "expected": "401"},
+        {"credential": "B02", "expected": "pass"}
+      ]
+    },
+    {
+      "id": "BETA-06-replaced-beta",
+      "developer": "DEV",
+      "beta_slots": {"01": "B01_NEW", "02": "B02"},
+      "prior_beta_slots": {"01": "B01", "02": "B02"},
+      "checks": [
+        {"credential": "DEV", "expected": "pass"},
+        {"credential": "B01", "expected": "401"},
+        {"credential": "B01_NEW", "expected": "pass"},
+        {"credential": "B02", "expected": "pass"}
+      ]
+    },
+    {
+      "id": "BETA-07-precedence",
+      "developer": "DEV",
+      "beta_slots": {"01": "B01"},
+      "checks": [
+        {"credential": "B01", "origin": "https://bad.invalid", "expected": "403"},
+        {"credential": "B13", "origin": "https://bad.invalid", "expected": "401"}
+      ]
+    },
+    {
+      "id": "BETA-08-no-developer-secret",
+      "developer": null,
+      "beta_slots": {"01": "B01"},
+      "checks": [
+        {"credential": "B01", "expected": "503"},
+        {"credential": "DEV", "expected": "503"}
+      ]
+    }
+  ]
+}

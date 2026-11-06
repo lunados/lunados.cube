@@ -28,3 +28,33 @@ export function equalSecret(value, expected) {
   return result === 0;
 }
 
+// Optional beta credentials are separate Worker Secrets. Empty slots have no effect.
+export const BETA_TOKEN_KEYS = Object.freeze(Array.from(
+  {length: 12}, (_, index) => `MCP_BETA_TOKEN_${String(index + 1).padStart(2, '0')}`));
+
+export function bearerDecision(authorization, env) {
+  const developer = env?.MCP_BEARER_TOKEN;
+  if (typeof developer !== 'string' || developer.length < 32) return '503';
+
+  const supplied = typeof authorization === 'string' ? authorization : '';
+  let accepted = equalSecret(supplied, `Bearer ${developer}`);
+  const beta = BETA_TOKEN_KEYS.map(key => env[key]);
+  for (let index = 0; index < beta.length; index++) {
+    const value = beta[index];
+    if (typeof value !== 'string' || value.length < 32) continue;
+    // A duplicated beta credential cannot be revoked one slot at a time.
+    const duplicated = beta.some((other, otherIndex) =>
+      otherIndex !== index && typeof other === 'string' && equalSecret(value, other));
+    const matches = equalSecret(supplied, `Bearer ${value}`);
+    accepted = (matches && !duplicated) || accepted;
+  }
+  return accepted ? 'pass' : '401';
+}
+
+export function requestAccessDecision(authorization, origin, env) {
+  const bearer = bearerDecision(authorization, env);
+  if (bearer !== 'pass') return bearer;
+  if (origin && (!env.MCP_ALLOWED_ORIGIN || origin !== env.MCP_ALLOWED_ORIGIN)) return '403';
+  return 'pass';
+}
+

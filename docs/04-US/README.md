@@ -70,3 +70,11 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 ## MILE-012 — abgeschlossen
 
 - [US-034 — Aktueller Stand nachvollziehbar](US-034-current-state-recorded.md)
+
+## MILE-019 — in Arbeit
+
+- [US-035 — Entwicklerzugang erhalten](US-035-developer-access.md)
+- [US-036 — Beta-Zugang nutzen](US-036-beta-access.md)
+- [US-037 — Beta-Zugang einzeln entziehen](US-037-beta-revocation.md)
+
+[Führender Aufgabenstatus](../../openspec/changes/beta-token-access/tasks.md).

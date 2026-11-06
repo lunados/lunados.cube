@@ -6,7 +6,7 @@
 import { McpServer, createMcpHandler } from '@modelcontextprotocol/server';
 import { z } from 'zod';
 import registry from './p0-registry.json';
-import { withinLimit, equalSecret } from './security.mjs';
+import { withinLimit, requestAccessDecision } from './security.mjs';
 
 const MAX_REQUEST_BYTES = 2 * 1024 * 1024 + 4096;
 // R5 (MILE-010, Q-4): room for the wire envelope above the local 2 MiB plan limit, so P3_PLAN_RESPONSE_TOO_LARGE arrives as locally
@@ -42,7 +42,7 @@ async function callTool(env,name,args){
 }
 
 function createServer(env) {
-  const server = new McpServer({name:'aiaeao-cube-mcp-remote-g5',version:'0.3.0-proof'},
+  const server = new McpServer({name:'aiaeao-cube-mcp-remote-g5',version:'0.4.0-proof'},
      {instructions:'Use cube_discover_surface for P0/P1/P2; all P1 and P2 outcomes are independent. ' +
       'P0 resources are documentary only. No truth, Authority or Admission is inferred.'});
   const add = (name,desc,schema) => server.registerTool(name,
@@ -91,17 +91,16 @@ export default {
   async fetch(request,env,ctx) {
     const url=new URL(request.url);
     if (url.pathname === '/health' && request.method === 'GET')
-      return new Response(JSON.stringify({status:'G5_REMOTE_PROOF_CANDIDATE',version:'0.3.0-proof',authenticated:false}),
+      return new Response(JSON.stringify({status:'G5_REMOTE_PROOF_CANDIDATE',version:'0.4.0-proof',authenticated:false}),
         {headers:{'content-type':'application/json','cache-control':'no-store'}});
     if (url.pathname !== '/mcp') return unavailable(404,'Not Found');
     if (request.method !== 'POST') return unavailable(405,'MCP requires POST');
-    if (!env.MCP_BEARER_TOKEN || env.MCP_BEARER_TOKEN.length < 32) return unavailable(503,'Authentication not configured');
     const auth=request.headers.get('authorization') ?? '';
-    if (!equalSecret(auth,`Bearer ${env.MCP_BEARER_TOKEN}`)) return unavailable(401,'Unauthorized');
     const origin=request.headers.get('origin');
-    // Native MCP clients normally send no Origin; browser origins need an exact match.
-    if (origin && (!env.MCP_ALLOWED_ORIGIN || origin !== env.MCP_ALLOWED_ORIGIN))
-      return unavailable(403,'Unapproved origin');
+    const access=requestAccessDecision(auth,origin,env);
+    if (access === '503') return unavailable(503,'Authentication not configured');
+    if (access === '403') return unavailable(403,'Unapproved origin');
+    if (access !== 'pass') return unavailable(401,'Unauthorized');
     const bytes=await withinLimit(request,MAX_REQUEST_BYTES);
     if (bytes === null) return unavailable(413,'MCP request too large');
     const fHeaders=new Headers(request.headers);fHeaders.delete('content-length');

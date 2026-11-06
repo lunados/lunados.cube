@@ -1,5 +1,7 @@
 # Use Case D – API-Token-Gate und Vertrauensgrenze
 
+**Stand dieser Anleitung:** ursprünglicher G5-Proof. Der Einzel-Token-Zugang galt auch beim R10-Stand; Werkzeugzahlen in den Beispielen unten stammen noch aus dem frühen Proof. Seit 2026-11-06 ist der [MILE-019-Gateway](../../../docs/02-Milestones/MILE-019-beta-token-access.md) mit bis zu zwölf optionalen Beta-Tokens live. Für den aktuellen Token-Betrieb gilt die [Beta-Token-Anleitung](06_BETA_TOKEN_OPERATIONS.md). Die folgenden Aussagen zu einem einzelnen Token und seiner Rotation sind historisch.
+
 **Wichtig:** G5 implementiert ein **Bearer-Proof-Gate für den MCP-Endpunkt**, **keinen** API-Key-Service für beliebige Nutzer, **kein** OAuth und **kein** mandantenfähiges Autorisierungssystem.
 
 ## Ablauf im tatsächlichen Code
@@ -88,7 +90,7 @@ curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$URL" -H 'Authorization: Bear
 
 ## Schlüsselwechsel / Revocation
 
-1. Vorab Clients und Zugriffsunterbrechung planen; G5 hat **nur einen akzeptierten Token gleichzeitig**, keine nahtlose Dual-Key-Rotation.
+1. Vorab Clients und Zugriffsunterbrechung planen; der ursprüngliche G5-Proof hatte **nur einen akzeptierten Token gleichzeitig**, keine nahtlose Dual-Key-Rotation.
 2. Neuen starken Token außerhalb von Chat/Repo erzeugen und sicher speichern; Cloudflare Worker Secret `MCP_BEARER_TOKEN` aktualisieren (`wrangler secret put` oder Dashboard). **Cloudflare deployt damit eine neue Version**.
 3. Alle angebundenen Clients auf den neuen Header ändern; alten Token lokal/bei Hosts entfernen.
 4. 401/403/Positive-Remote-Smoke erneut verifizieren; R3-Evidence aktualisieren.

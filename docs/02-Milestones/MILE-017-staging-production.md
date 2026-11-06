@@ -1,6 +1,8 @@
 # MILE-017 — Staging und Production für G5 (Beta-Betrieb)
 
-Status: **ruht** (Nutzer, 2026-11-05: zuerst MILE-018; Beginn, sobald eine externe Beta konkret wird) · Stand: 2026-11-05 · Grundlage: Konzept „AIAEAO — Staging & Production Concept v1.0“ (Nutzer, Status *Proposed*, unten im Wortlaut) · Voraussetzung: MILE-015 (G5 R9), MILE-016 abgeschlossen
+Status: **eingefroren** (Nutzer, 2026-11-06) · Stand: 2026-11-06 · Grundlage: Konzept „AIAEAO — Staging & Production Concept v1.0“ (Nutzer, Status *Proposed*, unten im Wortlaut) · Voraussetzung: MILE-015 (G5 R9), MILE-016 abgeschlossen
+
+**Entscheidung vom 2026-11-06:** Dieser Entwurf bleibt als späterer Vorschlag erhalten und wird vorerst nicht umgesetzt. Die Trennung in Staging und Production war vor allem als Schutz gegen einen eigenen Zugriffsverlust während der Entwicklung gedacht. Für die geschlossene Beta soll zunächst der bestehende G5-Endpunkt mit getrenntem Entwickler- und Beta-Zugang weiterlaufen. Die aktuelle Planung dafür steht in [MILE-019](MILE-019-beta-token-access.md). Cloudflare One-Time PIN, Access und OAuth sind nicht Teil von MILE-019; eine spätere Umsetzung erfordert eine eigene Entscheidung. Die folgenden Backlog- und Abnahmepunkte sind der **eingefrorene ursprüngliche Vorschlag**, keine aktive Zusage für MILE-019.
 
 ## Anlass
 

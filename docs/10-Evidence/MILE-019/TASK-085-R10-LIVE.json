@@ -1,0 +1,560 @@
+{
+ "format": "aiaeao.cube.g5-r10-live-script/1",
+ "date": "2026-11-06T14:57:17.319670+00:00",
+ "release": "P3-MCP-REMOTE/0.9.3-proof",
+ "gateway_tools_as_expected": true,
+ "gateway_health_version_as_expected": true,
+ "gateway_version_expected": "0.4.0-proof",
+ "gateway_version_observed": "0.4.0-proof",
+ "calls": 58,
+ "matched": 58,
+ "mismatched": [],
+ "wall_s_top5": [
+  {
+   "id": "P-OL-07",
+   "wall_s": 1.533
+  },
+  {
+   "id": "P-K07-flow",
+   "wall_s": 1.215
+  },
+  {
+   "id": "D-01",
+   "wall_s": 1.194
+  },
+  {
+   "id": "V-HO-01",
+   "wall_s": 0.298
+  },
+  {
+   "id": "P78-01",
+   "wall_s": 0.237
+  }
+ ],
+ "rows": [
+  {
+   "id": "D-01",
+   "match": true,
+   "checks": {
+    "release.version": true,
+    "p114_relation_origin.profile": true,
+    "p114_relation_origin.binding_context_formats": true,
+    "p115_scope_nesting.profile": true,
+    "p115_scope_nesting.binding_context_formats": true,
+    "domains.P2.plan_views.printers.vpmigration.profiles": true,
+    "domains.P2.plan_views.remote_available": true,
+    "domains.P2.plan_views.printers.vplandscape.view": true,
+    "domains.P2.plan_views.printers.vplandscape.profiles": true,
+    "domains.P2.plan_views.printers.vpaxes.profiles": true
+   },
+   "wall_s": [
+    1.194
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-HO-01",
+   "match": true,
+   "wall_s": [
+    0.298
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-02",
+   "match": true,
+   "wall_s": [
+    0.107
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-03",
+   "match": true,
+   "wall_s": [
+    0.093
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-04",
+   "match": true,
+   "wall_s": [
+    0.079
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-05",
+   "match": true,
+   "wall_s": [
+    0.068
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-06",
+   "match": true,
+   "wall_s": [
+    0.091
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-07",
+   "match": true,
+   "wall_s": [
+    0.091
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-08",
+   "match": true,
+   "wall_s": [
+    0.081
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-09",
+   "match": true,
+   "wall_s": [
+    0.097
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-10",
+   "match": true,
+   "wall_s": [
+    0.086
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-11",
+   "match": true,
+   "wall_s": [
+    0.077
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-HO-12",
+   "match": true,
+   "wall_s": [
+    0.104
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-01",
+   "match": true,
+   "wall_s": [
+    0.047,
+    0.144,
+    0.146
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-02",
+   "match": true,
+   "wall_s": [
+    0.043,
+    0.085,
+    0.085
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-03a",
+   "match": true,
+   "wall_s": [
+    0.045,
+    0.072,
+    0.096
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-03b",
+   "match": true,
+   "wall_s": [
+    0.038,
+    0.082,
+    0.094
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-04",
+   "match": true,
+   "wall_s": [
+    0.043,
+    0.138,
+    0.163
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-05",
+   "match": true,
+   "wall_s": [
+    0.039,
+    0.148,
+    0.161
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-06",
+   "match": true,
+   "wall_s": [
+    0.04,
+    0.09,
+    0.092
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-07",
+   "match": true,
+   "wall_s": [
+    0.071,
+    1.504,
+    1.533
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-OL-08",
+   "match": true,
+   "wall_s": [
+    0.037
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-09",
+   "match": true,
+   "wall_s": [
+    0.076,
+    0.067
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-10",
+   "match": true,
+   "wall_s": [
+    0.049
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-11",
+   "match": true,
+   "wall_s": [
+    0.038,
+    0.085,
+    0.076
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-OL-12",
+   "match": true,
+   "wall_s": [
+    0.042,
+    0.085,
+    0.081
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P-K07-flow",
+   "match": true,
+   "wall_s": [
+    0.055,
+    1.093,
+    1.215
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P-K08-sequence",
+   "match": true,
+   "wall_s": [
+    0.215,
+    0.192
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P77-01",
+   "match": true,
+   "wall_s": [
+    0.047,
+    0.205,
+    0.193
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P77-02",
+   "match": true,
+   "wall_s": [
+    0.04,
+    0.062,
+    0.075
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P77-03",
+   "match": true,
+   "wall_s": [
+    0.039,
+    0.085,
+    0.074
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P77-04",
+   "match": true,
+   "wall_s": [
+    0.032
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P77-05",
+   "match": true,
+   "wall_s": [
+    0.032
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-01",
+   "match": true,
+   "wall_s": [
+    0.096
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-02",
+   "match": true,
+   "wall_s": [
+    0.077
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-SN-03",
+   "match": true,
+   "wall_s": [
+    0.084
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-04",
+   "match": true,
+   "wall_s": [
+    0.08
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-05",
+   "match": true,
+   "wall_s": [
+    0.074
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-06",
+   "match": true,
+   "wall_s": [
+    0.08
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-07",
+   "match": true,
+   "wall_s": [
+    0.076
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-08",
+   "match": true,
+   "wall_s": [
+    0.088
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-SN-09",
+   "match": true,
+   "wall_s": [
+    0.08
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-10",
+   "match": true,
+   "wall_s": [
+    0.106
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-SN-11",
+   "match": true,
+   "wall_s": [
+    0.082
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "V-SN-12",
+   "match": true,
+   "wall_s": [
+    0.084
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-13",
+   "match": true,
+   "wall_s": [
+    0.095
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "V-SN-14",
+   "match": true,
+   "wall_s": [
+    0.076
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P78-01",
+   "match": true,
+   "wall_s": [
+    0.04,
+    0.205,
+    0.237
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P78-02",
+   "match": true,
+   "wall_s": [
+    0.04,
+    0.064,
+    0.076
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "P78-03",
+   "match": true,
+   "wall_s": [
+    0.042,
+    0.2,
+    0.224
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "P78-04",
+   "match": true,
+   "wall_s": [
+    0.033
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "L10-01",
+   "match": true,
+   "wall_s": [
+    0.063,
+    0.068,
+    0.081
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "L10-02",
+   "match": true,
+   "wall_s": [
+    0.046,
+    0.065,
+    0.126
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "L10-03",
+   "match": true,
+   "wall_s": [
+    0.051,
+    0.075,
+    0.068
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "L10-04",
+   "match": true,
+   "wall_s": [
+    0.045
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "L10-05",
+   "match": true,
+   "wall_s": [
+    0.046,
+    0.057
+   ],
+   "host_subset": false
+  },
+  {
+   "id": "X10-01",
+   "match": true,
+   "wall_s": [
+    0.038,
+    0.078,
+    0.093
+   ],
+   "host_subset": true
+  },
+  {
+   "id": "X10-02",
+   "match": true,
+   "wall_s": [
+    0.04,
+    0.066,
+    0.082
+   ],
+   "host_subset": false
+  }
+ ],
+ "status": "PASS"
+}

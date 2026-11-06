@@ -65,7 +65,7 @@ async def main(args):
             names = [tool.name for tool in (await client.list_tools()).tools]
             tools_ok = names == expected['discovery']['gateway_tools']
             health = (await http.get(url.rsplit('/mcp', 1)[0]+'/health')).json()
-            health_ok = health.get('version') == expected['discovery']['gateway_version']
+            health_ok = health.get('version') == args.gateway_version
             for call in r10_calls.calls():
                 previous, steps, walls = None, [], []
                 for st in call['steps']:
@@ -108,6 +108,8 @@ async def main(args):
               'date': datetime.datetime.now(datetime.timezone.utc).isoformat(),
               'release': expected['release'], 'gateway_tools_as_expected': tools_ok,
               'gateway_health_version_as_expected': health_ok,
+              'gateway_version_expected': args.gateway_version,
+              'gateway_version_observed': health.get('version'),
               'calls': len(rows), 'matched': sum(r['match'] for r in rows),
               'mismatched': mismatched,
               'wall_s_top5': sorted(({'id': r['id'], 'wall_s': max(r['wall_s'])} for r in rows),
@@ -124,4 +126,6 @@ async def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--evidence', default=str(HERE/'evidence/G5_R10_LIVE_SCRIPT.json'))
+    parser.add_argument('--gateway-version', default='0.3.0-proof',
+                        help='Expected live Gateway version; R10 historical default is 0.3.0-proof')
     raise SystemExit(asyncio.run(main(parser.parse_args())))

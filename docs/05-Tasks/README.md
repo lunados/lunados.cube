@@ -217,3 +217,14 @@ Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
 | Task | Story | Aufwand |
 |---|---|---|
 | [TASK-081 — VP-12.1: VG-Anker der Schichtspalte](TASK-081-vp121-layer-anchor.md) | – | 0,25–0,5 PT |
+
+## MILE-019 — in Arbeit
+
+Führender Ausführungsstatus: [beta-token-access/tasks.md](../../openspec/changes/beta-token-access/tasks.md).
+
+| Task | Story | Voraussetzung | Aufwand (Schätzung) |
+|---|---|---|---|
+| [TASK-082 — Zugangsvertrag und Ausgangsstand](TASK-082-beta-auth-contract.md) | US-035–037 | Bestehender G5-Stand | 0,25–0,5 PT |
+| [TASK-083 — Gateway für parallele Tokens](TASK-083-beta-token-gateway.md) | US-035–037 | TASK-082 | 0,5–0,75 PT |
+| [TASK-084 — Token-Einrichtung und Widerruf](TASK-084-beta-token-operations.md) | US-036–037 | TASK-083 vor Live-Einrichtung | 0,25–0,5 PT |
+| [TASK-085 — Live- und Host-Abnahme](TASK-085-beta-token-acceptance.md) | US-035–037 | TASK-082–084 | 0,5–0,75 PT plus Host-Einrichtung |

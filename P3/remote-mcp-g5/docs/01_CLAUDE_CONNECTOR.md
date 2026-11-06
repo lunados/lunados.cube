@@ -1,5 +1,17 @@
 # Use Case A – Claude / Claude Desktop / Claude.ai (Remote MCP)
 
+## MILE-019: Beta-Host-Prüfung (2026-11-06)
+
+Der Gateway `0.4.0-proof` ist live; der Beta-Zugang wurde mit einem SDK geprüft. Die Claude-Host-Prüfung führt der Nutzer anschließend selbst aus und ist noch nicht als Host-Erfolg nachgewiesen. Den bestehenden Proof-Connector nicht ungeprüft überschreiben: Claude dokumentiert derzeit, dass ein Custom Connector zum Bearbeiten entfernt und neu hinzugefügt werden muss. Für die Beta einen eigenen Connector **AIAEAO Cube G5 Beta** anlegen, URL `https://aiaeao-cube-g5-gateway.jo-885.workers.dev/mcp`, Authentication **No sign in**, Request header **Authorization** mit `Bearer ` und dem Wert von Keychain-Platz 02.
+
+Den vollständigen Header ohne Ausgabe im Terminal in die Zwischenablage übernehmen:
+
+```sh
+printf 'Bearer %s' "$(security find-generic-password -s 'aiaeao-g5-beta-token-02' -w)" | pbcopy
+```
+
+Den Wert in Claudes Header-Feld einfügen, danach `printf '' | pbcopy`. Den neuen Connector in einer Unterhaltung aktivieren und genau `cube_discover_surface` aufrufen. Erwartet: `release.version: P3-MCP-REMOTE/0.9.3-proof` und `deployment.remote_mcp_available: true`. Nur Ergebnis und Fehlertext ohne Token in den Nachweis übernehmen. [Aktuelle Claude-Anleitung](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp).
+
 **Status:** Remote-Connector wurde am 2026-10-24 durch Nutzer und Claude unabhängig geprüft. Nachweis: sieben Tools verfügbar; 27 echte Claude-MCP-Calls im Host-Abnahmebericht; formale MIME-Nachprüfung noch separat zu protokollieren.
 
 ## Voraussetzungen
