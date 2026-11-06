@@ -1,0 +1,13 @@
+{
+  "format": "aiaeao.module-capabilities.pin-manifest/1",
+  "descriptors": [
+    {
+      "path": "descriptor.json",
+      "ref": "example-only:module-capabilities/1",
+      "sha256": "f36b98b8a352cb9bb347d16f89f4d96e010ad34688cee71089dc9251b647675f",
+      "sources": [
+        {"id": "example-source", "path": "source.txt"}
+      ]
+    }
+  ]
+}

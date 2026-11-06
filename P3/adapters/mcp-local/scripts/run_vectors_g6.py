@@ -115,7 +115,7 @@ def run(cid):
             return 'PASS', {'tools': card['mcp']['tools'], 'release': card['release']['version'],
                             'plan_views_section': card['domains']['P2'].get('plan_views', {}).get('tools') == list(PV.TOOLS),
                             'legacy_card_unchanged': PIN.sha(encode(bridge.get_capabilities())) == want['legacy:cube_get_capabilities'],
-                            'g4_base_surface_unchanged': PIN.sha(encode(surface.discover_surface())) == want['g4:discover_surface']}
+                            'g4_base_surface_unchanged': PIN.sha(encode({k:v for k,v in surface.discover_surface().items() if k != 'neighbors'})) == want['g4:discover_surface']}
         raise AssertionError('unknown kind '+k)
     except PV.PlanFailure as e:
         return 'ERROR', e.diagnostic

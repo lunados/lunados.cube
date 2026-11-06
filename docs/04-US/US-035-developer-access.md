@@ -1,6 +1,6 @@
 # US-035 — Entwicklerzugang erhalten
 
-Status: planned · Epic: [EPIC-013](../03-Epics/EPIC-013-beta-token-access.md) · Mile: [MILE-019](../02-Milestones/MILE-019-beta-token-access.md)
+Status: done · Epic: [EPIC-013](../03-Epics/EPIC-013-beta-token-access.md) · Mile: [MILE-019](../02-Milestones/MILE-019-beta-token-access.md)
 
 Als Entwickler möchte ich meinen bisherigen G5-Endpunkt und Token während und nach der Einführung von Beta-Tokens weiterverwenden, damit ich mich bei der Arbeit nicht selbst ausschließe.
 
@@ -11,7 +11,7 @@ Als Entwickler möchte ich meinen bisherigen G5-Endpunkt und Token während und 
 - Der bestehende Entwickler-Token funktioniert vor und nach Einrichtung der Beta-Tokens; ein fehlerhafter oder entfernter Beta-Platz sperrt ihn nicht.
 - Fehlende oder falsche Bearer-Tokens werden vor jeder MCP-Operation abgewiesen.
 
-Szenarien: [G5-Beta-Token-Gate](../../openspec/changes/beta-token-access/specs/g5-beta-token-gate/spec.md), Anforderungen „Entwicklerzugang“ und „Authentifizierung vor MCP“.
+Szenarien: [G5-Beta-Token-Gate](../../openspec/changes/archive/2026-11-06-beta-token-access/specs/g5-beta-token-gate/spec.md), Anforderungen „Entwicklerzugang“ und „Authentifizierung vor MCP“.
 
 ## Aufgaben
 
@@ -19,4 +19,4 @@ Szenarien: [G5-Beta-Token-Gate](../../openspec/changes/beta-token-access/specs/g
 - [TASK-083 — Gateway für parallele Tokens](../05-Tasks/TASK-083-beta-token-gateway.md)
 - [TASK-085 — Live- und Host-Abnahme](../05-Tasks/TASK-085-beta-token-acceptance.md)
 
-[Führender Aufgabenstatus](../../openspec/changes/beta-token-access/tasks.md).
+[Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-06-beta-token-access/tasks.md).

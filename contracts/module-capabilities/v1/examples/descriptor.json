@@ -1,0 +1,29 @@
+{
+  "format": "aiaeao.module-capabilities/1",
+  "module": {
+    "id": "example.module",
+    "version": "example-r1",
+    "owner": "format-example"
+  },
+  "sources": [
+    {
+      "id": "example-source",
+      "artifact": "format-example:source.txt",
+      "version": "example-r1",
+      "owner": "format-example",
+      "sha256": "92cb703461cdfdba2af2db325666578481fe63cb951fcc222c4d2e89f148eb6e"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "example.inspect",
+      "version": "example-r1",
+      "status": "candidate",
+      "source_ids": ["example-source"],
+      "inputs": [{"role": "request", "description": "Illustrative declared input"}],
+      "outputs": [{"role": "report", "description": "Illustrative declared output"}],
+      "exclusions": ["No runnable implementation or host claim"]
+    }
+  ],
+  "exclusions": ["No authority, admission, execution, or host availability"]
+}

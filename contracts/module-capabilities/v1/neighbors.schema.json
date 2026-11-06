@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiaeao.local/contracts/module-capabilities/v1/neighbors.schema.json",
+  "title": "Pinned documentary neighbors block",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "items"],
+  "properties": {
+    "format": {"const": "aiaeao.module-capabilities.neighbors/1"},
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["module_id", "module_version", "descriptor_format", "descriptor_ref", "descriptor_sha256"],
+        "properties": {
+          "module_id": {"type": "string", "pattern": "^[a-z][a-z0-9._/-]*$"},
+          "module_version": {"type": "string", "minLength": 1},
+          "descriptor_format": {"const": "aiaeao.module-capabilities/1"},
+          "descriptor_ref": {"type": "string", "minLength": 1},
+          "descriptor_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # EPIC-013 — Paralleler Beta-Zugang zu G5
 
-Status: in_progress · Milestone: [MILE-019](../02-Milestones/MILE-019-beta-token-access.md) · Change: [beta-token-access](../../openspec/changes/beta-token-access/proposal.md)
+Status: done · Milestone: [MILE-019](../02-Milestones/MILE-019-beta-token-access.md) · Change: [beta-token-access](../../openspec/changes/archive/2026-11-06-beta-token-access/proposal.md)
 
 ## Ergebnis
 
@@ -18,6 +18,6 @@ Nur das Authentifizierungstor des bestehenden Gateways und der sichere Umgang mi
 
 ## Akzeptanz
 
-Alle Kriterien aus [MILE-019](../02-Milestones/MILE-019-beta-token-access.md) und die Szenarien der [Verhaltensspezifikation](../../openspec/changes/beta-token-access/specs/g5-beta-token-gate/spec.md) sind nachgewiesen. Ein bestandener lokaler Test allein belegt keine Live-Verbindung; fehlende Cloudflare- oder Host-Prüfungen bleiben offen.
+Alle Kriterien aus [MILE-019](../02-Milestones/MILE-019-beta-token-access.md) und die Szenarien der [Verhaltensspezifikation](../../openspec/changes/archive/2026-11-06-beta-token-access/specs/g5-beta-token-gate/spec.md) sind nachgewiesen. Die Live- und Host-Ergebnisse stehen im [TASK-085-Nachweis](../10-Evidence/MILE-019/TASK-085-RESULT.md); der Nutzer hat die Mile am 2026-11-06 [abgeschlossen](../10-Evidence/MILE-019/CLOSURE.md).
 
-Führender Ausführungsstatus: [tasks.md](../../openspec/changes/beta-token-access/tasks.md).
+Führender Ausführungsstatus: [tasks.md](../../openspec/changes/archive/2026-11-06-beta-token-access/tasks.md).

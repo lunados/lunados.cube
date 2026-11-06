@@ -1,0 +1,234 @@
+{
+  "capabilities": [
+    {
+      "exclusions": [
+        "No network retrieval, source truth, authority or mutable reference from local P0 reading"
+      ],
+      "id": "p0.read-reference/v1",
+      "implementation_evidence": [
+        "p0-resources",
+        "p0-tool",
+        "p3-server"
+      ],
+      "inputs": [
+        {
+          "description": "Pinned P0 v9.4 reference URI and bounded byte range",
+          "role": "reference-uri"
+        }
+      ],
+      "outputs": [
+        {
+          "description": "Source-qualified read-only reference bytes or explicit read error",
+          "role": "reference-bytes"
+        }
+      ],
+      "source_ids": [
+        "p0-manifest",
+        "p0-resources",
+        "p0-tool",
+        "p3-server"
+      ],
+      "status": "implemented",
+      "version": "v9.4"
+    },
+    {
+      "exclusions": [
+        "No claim of external truth, admission, permission, canonical change or automatic P2 print"
+      ],
+      "id": "p1.validate-structure/v1",
+      "implementation_evidence": [
+        "p1-adapter",
+        "p3-server"
+      ],
+      "inputs": [
+        {
+          "description": "ACG text or JSON AST with explicit binding context and qualification profile",
+          "role": "structured-input"
+        }
+      ],
+      "outputs": [
+        {
+          "description": "Descriptive PASS, FAIL or UNRESOLVED result with diagnostics",
+          "role": "validation-report"
+        }
+      ],
+      "source_ids": [
+        "p1-adapter",
+        "p3-server",
+        "p3-surface"
+      ],
+      "status": "implemented",
+      "version": "P1-VC/1.0.0"
+    },
+    {
+      "exclusions": [
+        "No automatic P1 invocation, ACG-to-VP03 mapping, source truth or effect authority"
+      ],
+      "id": "p2.project-view/v1",
+      "implementation_evidence": [
+        "p2-bridge",
+        "p2-plan",
+        "p3-server"
+      ],
+      "inputs": [
+        {
+          "description": "Declared print or plan-view input and selected lens/profile",
+          "role": "declared-job"
+        }
+      ],
+      "outputs": [
+        {
+          "description": "SVG or plan-view projection with diagnostics and explicit loss where supported",
+          "role": "projection"
+        }
+      ],
+      "source_ids": [
+        "p2-bridge",
+        "p2-plan",
+        "p3-server",
+        "p3-surface"
+      ],
+      "status": "implemented",
+      "version": "P2 local"
+    },
+    {
+      "exclusions": [
+        "No automatic neighbor call, cross-domain status, admission or authority"
+      ],
+      "id": "p3.mcp-local/v1",
+      "implementation_evidence": [
+        "p3-surface",
+        "p3-server"
+      ],
+      "inputs": [
+        {
+          "description": "Local G4/G6 MCP request",
+          "role": "mcp-request"
+        }
+      ],
+      "outputs": [
+        {
+          "description": "Local discovery and independently callable P0/P1/P2 responses",
+          "role": "mcp-response"
+        }
+      ],
+      "source_ids": [
+        "p3-surface",
+        "p3-server"
+      ],
+      "status": "implemented",
+      "version": "P3-MCP-LOCAL/0.3.0-rc1"
+    },
+    {
+      "exclusions": [
+        "Source presence is not current remote deployment or host availability",
+        "No automatic neighbor call, cross-domain status, admission or authority"
+      ],
+      "id": "p3.mcp-g5/v1",
+      "implementation_evidence": [
+        "p3-gateway",
+        "p3-core"
+      ],
+      "inputs": [
+        {
+          "description": "G5 gateway request under separate transport/security boundary",
+          "role": "remote-request"
+        }
+      ],
+      "outputs": [
+        {
+          "description": "G5 remote MCP response from the pinned source slice",
+          "role": "remote-response"
+        }
+      ],
+      "source_ids": [
+        "p3-gateway",
+        "p3-core"
+      ],
+      "status": "implemented",
+      "version": "P3-MCP-REMOTE/0.9.3-proof"
+    }
+  ],
+  "exclusions": [
+    "P0 reference, P1 validation, P2 projection and P3 access are independent surfaces",
+    "No source truth, permission, admission, canonical write, automatic composition or host execution follows from this descriptor"
+  ],
+  "format": "aiaeao.module-capabilities/1",
+  "module": {
+    "id": "lunados.cube",
+    "owner": "lunados.cube",
+    "version": "module-capabilities/1+2026-11-06"
+  },
+  "sources": [
+    {
+      "artifact": "lunados.cube:AIAEAO_Pure_Cube_P0_v9.4/manifest.json",
+      "id": "p0-manifest",
+      "owner": "Morphology reference owner",
+      "sha256": "32aa4c0305e49257240c4610beafe48f4b68da2e512f89a6e511ca4e8ba3733a",
+      "version": "v9.4"
+    },
+    {
+      "artifact": "lunados.cube:P3/adapters/mcp-local/aiaeao_mcp_local/p0_resources.py",
+      "id": "p0-resources",
+      "owner": "lunados.cube",
+      "sha256": "547d6fc3ac6dc6a7fa8d95b3228bce5bf99a6e79249e697b514bef27646feb7d",
+      "version": "G4/G6 local"
+    },
+    {
+      "artifact": "lunados.cube:P3/adapters/mcp-local/aiaeao_mcp_local/p0_tool.py",
+      "id": "p0-tool",
+      "owner": "lunados.cube",
+      "sha256": "addc5f3ce5071124cc74281c1a2d6420e5e6400cdfea9b90576d2e85928cd371",
+      "version": "G4/G6 local"
+    },
+    {
+      "artifact": "lunados.cube:P3/adapters/mcp-local/aiaeao_mcp_local/p1_adapter.py",
+      "id": "p1-adapter",
+      "owner": "lunados.cube",
+      "sha256": "3525d77f047118492bdd2b5296e4e4858afbe720cd1e01f546f52d03e1bc9bfe",
+      "version": "P1 local"
+    },
+    {
+      "artifact": "lunados.cube:P3/adapters/mcp-local/aiaeao_mcp_local/bridge.py",
+      "id": "p2-bridge",
+      "owner": "lunados.cube",
+      "sha256": "a6a0604101b29fa3cf500156b1fe29bf6cc9758c3635b37cc989469c7d27e5c9",
+      "version": "P2 local"
+    },
+    {
+      "artifact": "lunados.cube:P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py",
+      "id": "p2-plan",
+      "owner": "lunados.cube",
+      "sha256": "9e68ec73af9482d7ff6c7dae93a797e10b5aa9329674a9ca17284a305c910ebb",
+      "version": "P2 local"
+    },
+    {
+      "artifact": "lunados.cube:P3/adapters/mcp-local/aiaeao_mcp_local/surface.py",
+      "id": "p3-surface",
+      "owner": "lunados.cube",
+      "sha256": "a844765e4699496494375727789e60d4960b8b0241df2f40d747f91ce9067fe1",
+      "version": "P3-MCP-LOCAL/0.3.0-rc1"
+    },
+    {
+      "artifact": "lunados.cube:P3/adapters/mcp-local/aiaeao_mcp_local/server.py",
+      "id": "p3-server",
+      "owner": "lunados.cube",
+      "sha256": "08ce1312836a0c91d4247fbe513a0d4b31ad630d3a8ef75df686bca37f09d87c",
+      "version": "P3-MCP-LOCAL/0.3.0-rc1"
+    },
+    {
+      "artifact": "lunados.cube:P3/remote-mcp-g5/gateway/src/index.mjs",
+      "id": "p3-gateway",
+      "owner": "lunados.cube",
+      "sha256": "fac6efec7569261a0bd9a862f6131b20bf02b001fcd25feae9cdc278eb85ba66",
+      "version": "P3-MCP-REMOTE"
+    },
+    {
+      "artifact": "lunados.cube:P3/remote-mcp-g5/python-core/core_runtime.py",
+      "id": "p3-core",
+      "owner": "lunados.cube",
+      "sha256": "ccf148d4c9d385de71b373b8d52983cf573da74b85335dcb51153677b0762642",
+      "version": "P3-MCP-REMOTE/0.9.3-proof"
+    }
+  ]
+}

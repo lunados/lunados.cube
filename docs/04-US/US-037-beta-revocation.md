@@ -1,6 +1,6 @@
 # US-037 — Beta-Zugang einzeln entziehen
 
-Status: planned · Epic: [EPIC-013](../03-Epics/EPIC-013-beta-token-access.md) · Mile: [MILE-019](../02-Milestones/MILE-019-beta-token-access.md)
+Status: done · Epic: [EPIC-013](../03-Epics/EPIC-013-beta-token-access.md) · Mile: [MILE-019](../02-Milestones/MILE-019-beta-token-access.md)
 
 Als Betreiber möchte ich einen Beta-Token einzeln entfernen oder ersetzen, damit ein ausgeschiedener Teilnehmer den alten Schlüssel nicht weiter nutzen kann und alle anderen Zugänge gültig bleiben.
 
@@ -11,7 +11,7 @@ Als Betreiber möchte ich einen Beta-Token einzeln entfernen oder ersetzen, dami
 - Vor der Ausgabe werden Beta-Tokens auf ausreichende Stärke und Unterschiedlichkeit geprüft. Ein ungültig konfigurierter Platz gewährt keinen Zugang.
 - Nachweise verwenden nur Platz-IDs und Ergebnisse, keine Token-Werte und keine Empfängerlisten.
 
-Szenarien: [G5-Beta-Token-Gate](../../openspec/changes/beta-token-access/specs/g5-beta-token-gate/spec.md), Anforderung „Einzelner Widerruf“.
+Szenarien: [G5-Beta-Token-Gate](../../openspec/changes/archive/2026-11-06-beta-token-access/specs/g5-beta-token-gate/spec.md), Anforderung „Einzelner Widerruf“.
 
 ## Aufgaben
 
@@ -20,4 +20,4 @@ Szenarien: [G5-Beta-Token-Gate](../../openspec/changes/beta-token-access/specs/g
 - [TASK-084 — Token-Einrichtung und Widerruf](../05-Tasks/TASK-084-beta-token-operations.md)
 - [TASK-085 — Live- und Host-Abnahme](../05-Tasks/TASK-085-beta-token-acceptance.md)
 
-[Führender Aufgabenstatus](../../openspec/changes/beta-token-access/tasks.md).
+[Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-06-beta-token-access/tasks.md).

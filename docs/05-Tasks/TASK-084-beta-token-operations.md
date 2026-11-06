@@ -1,6 +1,6 @@
 # TASK-084 — Token-Einrichtung und Widerruf
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/beta-token-access/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-06-beta-token-access/tasks.md).
 
 Stories: [US-036](../04-US/US-036-beta-access.md), [US-037](../04-US/US-037-beta-revocation.md) · Mile: [MILE-019](../02-Milestones/MILE-019-beta-token-access.md) · Aufwand: geschätzt 0,25–0,5 PT
 

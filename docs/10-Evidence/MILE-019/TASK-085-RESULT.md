@@ -31,4 +31,4 @@ Die `400`-Antworten sind bewusst **keine** MCP-Erfolgsnachweise; sie zeigen nur 
 
 Beide Host-Verbindungen (Codex CLI, Claude) sind mit je einem Beta-Token und einem read-only Aufruf beobachtet. Nebenbefund ohne Bezug zum Token: Die G5-Discovery meldet für `vplandscape` nur `P2-VP-LANDSCAPE/0.12.0`; das lokal vorhandene `0.12.1` aus MILE-018 ist remote noch nicht bereitgestellt. Token-Werte, Header und Empfängerzuordnungen sind in keinem Nachweis enthalten. Der Gateway bleibt ein G5-Proof mit den Grenzen aus [KNOWN_LIMITS.md](../../../P3/remote-mcp-g5/KNOWN_LIMITS.md), keine allgemeine Produktionsfreigabe.
 
-Der bereitgestellte Quellstand und die MILE-019-Dokumente liegen derzeit als lokale, noch nicht committete Arbeitskopie vor.
+Der bereitgestellte Quellstand wurde mit `b0c39e2` festgehalten. Die spätere formale Abschlussentscheidung steht im [MILE-019-Abschlussnachweis](CLOSURE.md).

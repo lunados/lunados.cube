@@ -8,7 +8,7 @@ Eine Bibliothek wiederverwendbarer Vorgehen: was getan werden soll, in welcher R
 
 Name **Playbook** statt Runbook: „Runbook“ ist im Relay-Repo belegt (`human-epic-runbook/v1` und `/v2`, `RUNBOOK_EPIC.md`). Runbooks werden ein Eintragstyp der Library.
 
-Zusammenspiel: Playbook (was) → Workflow Builder (wie, als Pipeline mit Modulzuordnung) → Cube (Form) → Relay (Zulassung, Ausführung).
+Zusammenspiel im Zielbild: Playbook (was) → Workflow Builder (wie, als Pipeline mit Modulzuordnung) → Cube (Form) → Relay (Zulassung, Ausführung). Für die eigenständige Abnahme dieser Mile genügt zunächst eine feste Beispiel-Pipeline; ihre Erzeugung durch den Workflow Builder gehört zu MILE-022.
 
 ## Abgrenzung
 
@@ -19,6 +19,7 @@ Zusammenspiel: Playbook (was) → Workflow Builder (wie, als Pipeline mit Modulz
 
 1. **Eigenes Repository** (D-1, Arbeitsname `lunados.playbooks`) und **Eintragsformat** (D-2): je Playbook Zweck, Auslöser, Schritte, beteiligte Module (über MILE-020-Deskriptoren), Verweis auf die erzeugbare TOML-Dateiart, Prüfung des Ergebnisses.
 2. **Erste Einträge:** „Migration erfassen“ (Explorer-Methode, Verweis auf gepinnten Explorer-Stand), „Starter Kit Hello World“, „Starter Kit News Reporter“.
+   Das einfache durchgehende Beispiel heißt **News Writer** und nutzt das vorhandene News-Reporter-Starter-Kit im Fixture-Modus als gepinnte Quelle. Der Name des bestehenden Kits und sein Vertrag bleiben dabei erhalten. Die Beispiel-Pipeline und ihre P1.13-Abbildung werden in der Library fest dokumentiert; daraus entsteht keine allgemeine Übersetzungsregel für den Workflow Builder.
 3. **Starter-Kit-Vorlagen:** zunächst per Hash auf `starter_kit.py` und die Vorlagen im Relay-Repo verweisen; eine Verlagerung der Vorlagendateien erst nach Entscheidung (D-3).
 4. **Runbooks** als Eintragstyp mit Verweis auf `human-epic-runbook/v1` bzw. `/v2`.
 5. Jedes Playbook nennt die TOML-Dateiart, die der Workflow Builder daraus erzeugt.
@@ -35,7 +36,7 @@ Zusammenspiel: Playbook (was) → Workflow Builder (wie, als Pipeline mit Modulz
 
 - [ ] Repository angelegt; Eintragsformat entschieden, mit Schema und Prüfskript.
 - [ ] Drei erste Playbooks liegen vor und verweisen gepinnt auf ihre Quellen.
-- [ ] Mindestens ein Playbook führt über den Workflow Builder zu einer Pipeline, die Cube-Prüfung und Relay-Preflight besteht (sobald MILE-022 so weit ist).
+- [ ] Das News-Writer-Beispiel enthält eine kleine, feste Pipeline auf Basis der News-Reporter-Fixture mit dokumentierter P1.13-Abbildung. Playbook, Quelle und Pipeline sind gepinnt; die Pipeline besteht die Cube-Formprüfung und den Relay-Preflight. Der Prüfbericht trennt diese Ergebnisse von einer späteren Erzeugung durch den Workflow Builder (MILE-022).
 - [ ] Keine Projektdaten aus Explorer-Cases in der Library.
 
 ## Nicht in MILE-023

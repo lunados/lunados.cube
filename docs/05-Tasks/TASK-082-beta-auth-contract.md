@@ -1,6 +1,6 @@
 # TASK-082 — Zugangsvertrag und Ausgangsstand
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/beta-token-access/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-06-beta-token-access/tasks.md).
 
 Stories: [US-035](../04-US/US-035-developer-access.md), [US-036](../04-US/US-036-beta-access.md), [US-037](../04-US/US-037-beta-revocation.md) · Mile: [MILE-019](../02-Milestones/MILE-019-beta-token-access.md) · Aufwand: geschätzt 0,25–0,5 PT
 
@@ -10,7 +10,7 @@ Den aktuellen Gateway/Core-Endpunkt und den vorhandenen Entwicklerzugang ohne Se
 
 ## Abnahme und Nachweis
 
-Vor Implementierung liegen reproduzierbare Testfälle und eine kurze Ausgangsnotiz vor. Kein Token-Wert oder Klartext-Secret erscheint in ihnen. Die Szenarien der [Spezifikation](../../openspec/changes/beta-token-access/specs/g5-beta-token-gate/spec.md) sind auf diese Fälle abgebildet.
+Vor Implementierung liegen reproduzierbare Testfälle und eine kurze Ausgangsnotiz vor. Kein Token-Wert oder Klartext-Secret erscheint in ihnen. Die Szenarien der [Spezifikation](../../openspec/changes/archive/2026-11-06-beta-token-access/specs/g5-beta-token-gate/spec.md) sind auf diese Fälle abgebildet.
 
 ## Abhängigkeiten und Grenze
 

@@ -218,9 +218,9 @@ Status in der Task selbst (kein OpenSpec-Change, Entscheidung D-1).
 |---|---|---|
 | [TASK-081 — VP-12.1: VG-Anker der Schichtspalte](TASK-081-vp121-layer-anchor.md) | – | 0,25–0,5 PT |
 
-## MILE-019 — in Arbeit
+## MILE-019 — abgeschlossen
 
-Führender Ausführungsstatus: [beta-token-access/tasks.md](../../openspec/changes/beta-token-access/tasks.md).
+Führender Ausführungsstatus: [beta-token-access/tasks.md](../../openspec/changes/archive/2026-11-06-beta-token-access/tasks.md).
 
 | Task | Story | Voraussetzung | Aufwand (Schätzung) |
 |---|---|---|---|
@@ -228,3 +228,21 @@ Führender Ausführungsstatus: [beta-token-access/tasks.md](../../openspec/chang
 | [TASK-083 — Gateway für parallele Tokens](TASK-083-beta-token-gateway.md) | US-035–037 | TASK-082 | 0,5–0,75 PT |
 | [TASK-084 — Token-Einrichtung und Widerruf](TASK-084-beta-token-operations.md) | US-036–037 | TASK-083 vor Live-Einrichtung | 0,25–0,5 PT |
 | [TASK-085 — Live- und Host-Abnahme](TASK-085-beta-token-acceptance.md) | US-035–037 | TASK-082–084 | 0,5–0,75 PT plus Host-Einrichtung |
+
+## MILE-020 — abgeschlossen
+
+Führender Status: [declare-module-capabilities/tasks.md](../../openspec/changes/archive/2026-11-06-declare-module-capabilities/tasks.md).
+
+| Task | Story | Voraussetzung | Aufwand |
+|---|---|---|---|
+| [TASK-086 — Quellen, Modulabdeckung und D-1 vorbereiten](TASK-086-descriptor-baseline.md) | US-038 | keine; vorhandene Quellen lesend prüfen | 0,25–0,5 PT |
+| [TASK-087 — Deskriptorformat und Offline-Prüfung](TASK-087-capability-schema.md) | US-038 | TASK-086 und entschiedene D-1 | 0,5–0,75 PT |
+| [TASK-088 — Lib-Deskriptor und 13 Cube-Zuordnungen](TASK-088-lib-descriptor.md) | US-039 | TASK-087; D-2 vor finaler Zuordnung | 0,25–0,5 PT |
+| [TASK-089 — Toolbox-Bestand und Translator beschreiben](TASK-089-toolbox-translator-descriptors.md) | US-039 | TASK-087; Benennung vor Abschluss durch TASK-092 | 0,25–0,5 PT |
+| [TASK-090 — Cube und Relay-Rollen quellengebunden beschreiben](TASK-090-cube-relay-descriptors.md) | US-039 | TASK-087; Abdeckungsmatrix aus TASK-086; D-4 vor endgültiger Connector-Benennung | 0,5–0,75 PT |
+| [TASK-091 — D-3 als Host-Pfad-ADR festhalten](TASK-091-lib-host-path-adr.md) | US-040 | TASK-086; unabhängig von D-1/D-2/D-4 | 0,125–0,25 PT |
+| [TASK-092 — Connector-Bezeichnungen entscheiden und konsistent verwenden](TASK-092-connector-names.md) | US-040 | TASK-086; entschiedene D-4 vor Änderungen an Namen | 0,125–0,25 PT |
+| [TASK-093 — Gepinnte neighbors additiv in G4 und G5 aufnehmen](TASK-093-neighbors-discovery.md) | US-041 | TASK-087–090, TASK-092; TASK-091 für vollständige Grenzdokumentation | 0,25–0,5 PT |
+| [TASK-094 — Mile-Abnahme und Übergabe an Verbraucher](TASK-094-descriptor-acceptance.md) | US-041 | TASK-086–093; D-1/D-2/D-4 entschieden | 0,25–0,5 PT |
+
+Summe: 2,5–4,5 PT (Planung); ohne Entscheidungswartezeit und gesonderte Bereitstellung. [TASK-094](../10-Evidence/MILE-020/TASK-094-RESULT.md) belegt die sechs Kriterien und live G5; [CLOSURE](../10-Evidence/MILE-020/CLOSURE.md) hält den formalen Abschluss und die getrennte Relay-Integration fest.

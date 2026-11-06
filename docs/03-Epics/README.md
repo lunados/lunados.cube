@@ -13,9 +13,13 @@
 | [EPIC-010](EPIC-010-remote-plan-views.md) | Kontrollfluss und Plansichten remote | MILE-010; abgeschlossen |
 | [EPIC-011](EPIC-011-relation-origin.md) | Herkunft von Beziehungen | MILE-011; abgeschlossen |
 | [EPIC-012](EPIC-012-record-current-state.md) | Entwicklungsstand festhalten | MILE-012; abgeschlossen |
-| [EPIC-013](EPIC-013-beta-token-access.md) | Bestehenden Entwicklerzugang und bis zu zwölf einzelne Beta-Tokens am selben G5-Endpunkt ermöglichen | MILE-019; in Arbeit |
+| [EPIC-013](EPIC-013-beta-token-access.md) | Bestehenden Entwicklerzugang und bis zu zwölf einzelne Beta-Tokens am selben G5-Endpunkt ermöglichen | MILE-019; abgeschlossen |
 
 Die IDs bleiben stabil; Reihenfolge folgt der Roadmap. EPIC-001 bis EPIC-012 sind abgeschlossen.
 
 
 Abgeschlossen: [EPIC-004 — Quellengebundene Vergleichsfälle](EPIC-004-source-bound-comparison-cases.md) für MILE-002-A. Der bestehende EPIC-001 trägt MILE-002-B/C und bleibt Eigentümer der anschließenden Lernanalyse.
+
+## MILE-020 — abgeschlossen
+
+- [EPIC-014 — Quellengebundene Modul-Fähigkeiten](EPIC-014-module-capability-descriptors.md)

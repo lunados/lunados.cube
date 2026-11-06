@@ -42,6 +42,12 @@ class G5ContractTests(unittest.TestCase):
         self.assertEqual(result['cross_domain']['overall_status'],'NOT_DEFINED')
         for name in ('epistemic_warrant','current_authority','canonical_admission'):
             self.assertEqual(result['cross_domain'][name],'NOT_EVALUATED')
+    def test_packaged_neighbors(self):
+        result=self.dispatch('cube_discover_surface')['result']
+        raw=(self.home/'.g5-runtime/P3/adapters/mcp-local/aiaeao_mcp_local/neighbors.json').read_bytes()
+        encoded=json.dumps(result['neighbors'],sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode('utf-8')
+        self.assertEqual(encoded,raw)
+        self.assertEqual(len(result['neighbors']['items']),7)
     def test_unknown_rejected(self):self.assertFalse(self.dispatch('eval',{'code':'print(1)'})['ok'])
     def test_no_user_files_or_network_functions(self):
         for x in ('read_file','open_url','execute','fetch','run_shell'):

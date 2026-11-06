@@ -1,6 +1,6 @@
 # TASK-085 — Live- und Host-Abnahme
 
-Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/beta-token-access/tasks.md).
+Planungsstand: ausgearbeitet. Ausführungsstatus ausschließlich in [tasks.md](../../openspec/changes/archive/2026-11-06-beta-token-access/tasks.md).
 
 Stories: [US-035](../04-US/US-035-developer-access.md), [US-036](../04-US/US-036-beta-access.md), [US-037](../04-US/US-037-beta-revocation.md) · Mile: [MILE-019](../02-Milestones/MILE-019-beta-token-access.md) · Aufwand: geschätzt 0,5–0,75 PT zuzüglich Host-Einrichtung
 
@@ -12,7 +12,7 @@ Vor dem Gateway-Deployment eine neue sichtbare Gateway-Versionsbezeichnung festl
 
 Ein datierter Bericht enthält Gateway-Version, Endpunkt ohne Token, erwartete und beobachtete HTTP-/MCP-Ergebnisse, Host-Resultate und offene Abweichungen. Er enthält keine Tokens, Empfängerlisten oder beliebigen Request-Bodies. MILE-019 bleibt offen, solange Entwicklerzugang, Einzelwiderruf oder beide Host-Verbindungen nicht nachgewiesen sind.
 
-**Abnahmeentscheidung vom 2026-11-06:** Der Nutzer akzeptiert diese Task ausdrücklich mit ausstehender manueller Claude-Host-Prüfung. Die beobachteten Ergebnisse und diese Grenze stehen im [TASK-085-Nachweis](../10-Evidence/MILE-019/TASK-085-RESULT.md). Diese Task-Akzeptanz schließt MILE-019 noch nicht.
+**Abnahmeentscheidung vom 2026-11-06:** Der Nutzer akzeptierte diese Task zunächst mit ausstehender manueller Claude-Host-Prüfung. Die Prüfung wurde später am selben Tag im [TASK-085-Nachweis](../10-Evidence/MILE-019/TASK-085-RESULT.md) ergänzt. Anschließend erklärte der Nutzer den [formalen Abschluss von MILE-019](../10-Evidence/MILE-019/CLOSURE.md).
 
 ## Abhängigkeiten und Grenze
 

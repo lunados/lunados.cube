@@ -80,7 +80,16 @@ class TestG4Surface(unittest.TestCase):
         self.assertEqual(found,list(surface.TOOLS_G6))
     def test_golden(self):
         path=BASE/'evidence/G4_CAPABILITIES_GOLDEN.json'
-        self.assertEqual(self.card,json.loads(path.read_text(encoding='utf-8')))
+        previous=copy.deepcopy(self.card)
+        previous.pop('neighbors')
+        self.assertEqual(previous,json.loads(path.read_text(encoding='utf-8')))
+    def test_pinned_neighbors(self):
+        raw=(BASE/'aiaeao_mcp_local/neighbors.json').read_bytes()
+        encoded=json.dumps(self.card['neighbors'],sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode('utf-8')
+        self.assertEqual(encoded,raw)
+        self.assertEqual({item['module_id'] for item in self.card['neighbors']['items']},{
+            'aiaeao.core-server','aiaeao.server-gui','aiaeao.web-app',
+            'lunados.connector','lunados.cube','lunados.lib','lunados.toolbox'})
     def test_missing_p0_lock_is_fail_closed(self):
         with patch.object(p0_resources, 'PINNED_LOCK_SHA256','0'*64):
             with self.assertRaises(p0_resources.P0ResourceError):surface.discover_surface()

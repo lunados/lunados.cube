@@ -18,6 +18,7 @@
     {
       "type": "Text",
       "globs": [
+        "P3/adapters/mcp-local/aiaeao_mcp_local/neighbors.json",
         "P3/adapters/mcp-local/p0_snapshot/*.json",
         "P3/adapters/mcp-local/p0_snapshot/**/*.json",
         "P3/adapters/mcp-local/p0_snapshot/*.md",

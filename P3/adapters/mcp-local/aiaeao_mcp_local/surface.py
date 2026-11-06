@@ -4,6 +4,8 @@ This is metadata about *available local interfaces*, never a validation result.
 The v0.1.1 printer capability card deliberately remains backward compatible.
 """
 from __future__ import annotations
+import json
+from pathlib import Path
 from typing import Any
 from . import bridge, p0_resources, p1_adapter
 
@@ -22,6 +24,11 @@ RELEASE_G6 = 'P3-MCP-LOCAL/0.3.0-rc1'
 PLAN_TOOLS = ('cube_plan_source', 'cube_plan_views', 'cube_plan_check')
 TOOLS_G6 = TOOLS+PLAN_TOOLS
 P1_STATUSES = ('PASS', 'FAIL', 'UNRESOLVED')
+
+
+def _neighbors() -> dict[str, Any]:
+    """Read the packaged documentary reference block, never an owner checkout."""
+    return json.loads(Path(__file__).with_name('neighbors.json').read_bytes())
 
 
 def discover_surface() -> dict[str, Any]:
@@ -48,6 +55,7 @@ def discover_surface() -> dict[str, Any]:
     uris = [item['uri'] for item in entries] + [p0_resources.INDEX_URI]
     return {
         'format': FORMAT,
+        'neighbors': _neighbors(),
         'release': {
             'name': 'aiaeao-cube-local',
             'version': RELEASE,

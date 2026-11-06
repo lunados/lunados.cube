@@ -2,10 +2,10 @@
 
 ## Aktiv
 
-- [beta-token-access](beta-token-access/proposal.md) — MILE-019 in Arbeit: TASK-082/083 lokal abgeschlossen; bestehender G5-Endpunkt mit Entwickler-Token und bis zu zwölf einzeln widerrufbaren Beta-Tokens; PIN, Access und OAuth außerhalb des Umfangs.
-
 ## Abgeschlossen
 
+- [2026-11-06 — declare-module-capabilities](archive/2026-11-06-declare-module-capabilities/proposal.md) — MILE-020 für den benannten Owner-Stand und beide live aufgerufenen MCP-Zugänge [abgeschlossen](../../docs/10-Evidence/MILE-020/CLOSURE.md); Relay-Integration erst vor dauerhafter Verbraucher-Bindung und außerhalb dieser Mile.
+- [2026-11-06 — beta-token-access](archive/2026-11-06-beta-token-access/proposal.md) — MILE-019 abgeschlossen: bestehender G5-Endpunkt mit Entwickler-Token und bis zu zwölf einzeln widerrufbaren Beta-Tokens; Codex- und Claude-Host-Aufrufe belegt; PIN, Access und OAuth außerhalb des Umfangs ([Nachweis](../../docs/10-Evidence/MILE-019/CLOSURE.md)); mit Nachweisen archiviert.
 - [2026-11-02 — record-current-state](archive/2026-11-02-record-current-state/proposal.md) — MILE-012 umgesetzt: G5-Ledger und bekannte Grenzen, RELEASE_INDEX, Live-Ausgangswert R5 86/88 und R6 25/26; keine Codeänderung; mit Nachweisen archiviert.
 - [2026-11-02 — declare-relation-origin](archive/2026-11-02-declare-relation-origin/proposal.md) — MILE-011 umgesetzt: P1.14 gebundene Herkunft (`binding-context/10`), `cube.flow` 0.7.6 mit Herkunftslinie, G4, G6 und G5 `0.9.0-proof`, Sichtprüfung 6/6; mit Nachweisen archiviert.
 - [2026-11-02 — deliver-remote-plan-views](archive/2026-11-02-deliver-remote-plan-views/proposal.md) — MILE-010 umgesetzt: `/9` und die Plansichten VP-07 bis VP-11 im G5-Remote (`0.8.0-proof`), Offline-Parität 88/88, Host-Abnahme 7/7, CPU-Grenze dokumentiert; mit Nachweisen archiviert.

@@ -71,10 +71,19 @@ Zugehörigkeit und Akzeptanz stehen in den Stories. Der Aufgabenstatus wird nur 
 
 - [US-034 — Aktueller Stand nachvollziehbar](US-034-current-state-recorded.md)
 
-## MILE-019 — in Arbeit
+## MILE-019 — abgeschlossen
 
 - [US-035 — Entwicklerzugang erhalten](US-035-developer-access.md)
 - [US-036 — Beta-Zugang nutzen](US-036-beta-access.md)
 - [US-037 — Beta-Zugang einzeln entziehen](US-037-beta-revocation.md)
 
-[Führender Aufgabenstatus](../../openspec/changes/beta-token-access/tasks.md).
+[Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-06-beta-token-access/tasks.md).
+
+## MILE-020 — abgeschlossen
+
+- [US-038 — Fähigkeiten mit nachvollziehbarem Vertrag lesen](US-038-capability-contract.md)
+- [US-039 — Fähigkeiten bei ihren Modulquellen finden](US-039-owned-module-descriptors.md)
+- [US-040 — Host-Pfad und Connector-Namen verstehen](US-040-descriptor-boundaries.md)
+- [US-041 — Gepinnte Nachbarn über den Cube entdecken](US-041-neighbor-discovery.md)
+
+[Führender Aufgabenstatus](../../openspec/changes/archive/2026-11-06-declare-module-capabilities/tasks.md).

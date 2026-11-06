@@ -1,6 +1,6 @@
 # Design — G5-Beta-Tokens
 
-Status: proposed · 2026-11-06 · [MILE-019](../../../docs/02-Milestones/MILE-019-beta-token-access.md)
+Status: done · 2026-11-06 · archiviert · [MILE-019](../../../../docs/02-Milestones/MILE-019-beta-token-access.md)
 
 ## Ausgangspunkt
 

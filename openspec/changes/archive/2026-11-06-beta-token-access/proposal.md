@@ -1,6 +1,6 @@
 # Beta-Zugang am bestehenden G5-Endpunkt
 
-Status: in_progress · [MILE-019](../../../docs/02-Milestones/MILE-019-beta-token-access.md) · [EPIC-013](../../../docs/03-Epics/EPIC-013-beta-token-access.md)
+Status: done · 2026-11-06 · archiviert · [MILE-019](../../../../docs/02-Milestones/MILE-019-beta-token-access.md) · [EPIC-013](../../../../docs/03-Epics/EPIC-013-beta-token-access.md) · [Abschluss](../../../../docs/10-Evidence/MILE-019/CLOSURE.md)
 
 ## Why
 

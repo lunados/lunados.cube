@@ -1,0 +1,1 @@
+Synthetic source for a format-only example. It describes no running module.

@@ -60,7 +60,7 @@ def collect():
             out['check:'+name] = sha(encode(mod.check_panels(d)))
             out['files:'+name] = sha(encode({k: sha(v) for k, v in sorted(files.items())}))
     out['legacy:cube_get_capabilities'] = sha(encode(bridge.get_capabilities()))
-    out['g4:discover_surface'] = sha(encode(surface.discover_surface()))
+    out['g4:discover_surface'] = sha(encode({k: v for k, v in surface.discover_surface().items() if k != 'neighbors'}))
     return out
 
 

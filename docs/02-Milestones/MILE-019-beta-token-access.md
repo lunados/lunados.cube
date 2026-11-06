@@ -1,8 +1,8 @@
 # MILE-019 — Beta-Zugang per Token am bestehenden G5
 
-Status: **in Arbeit, alle Abnahmekriterien belegt** (TASK-082–085 abgeschlossen; Claude-Host-Test am 2026-11-06 nachgetragen; Abschluss durch den Nutzer offen) · Stand: 2026-11-06 · Ausgangspunkt: bestehender G5-Remote-Proof mit Gateway und privatem Core · [MILE-017](MILE-017-staging-production.md) ist eingefroren
+Status: **abgeschlossen** (Nutzerentscheidung vom 2026-11-06; [Abschlussnachweis](../10-Evidence/MILE-019/CLOSURE.md)) · Stand: 2026-11-06 · Ausgangspunkt: bestehender G5-Remote-Proof mit Gateway und privatem Core · [MILE-017](MILE-017-staging-production.md) ist eingefroren
 
-Ausarbeitung: [EPIC-013](../03-Epics/EPIC-013-beta-token-access.md) · [US-035–037](../04-US/README.md#mile-019--in-arbeit) · [TASK-082–085](../05-Tasks/README.md#mile-019--in-arbeit) · [OpenSpec-Change](../../openspec/changes/beta-token-access/proposal.md)
+Ausarbeitung: [EPIC-013](../03-Epics/EPIC-013-beta-token-access.md) · [US-035–037](../04-US/README.md#mile-019--abgeschlossen) · [TASK-082–085](../05-Tasks/README.md#mile-019--abgeschlossen) · [OpenSpec-Change](../../openspec/changes/archive/2026-11-06-beta-token-access/proposal.md)
 
 ## Ziel und Entscheidung
 

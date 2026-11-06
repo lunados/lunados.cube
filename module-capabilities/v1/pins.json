@@ -1,0 +1,52 @@
+{
+  "descriptors": [
+    {
+      "path": "descriptor.json",
+      "ref": "lunados.cube:module-capabilities/v1/descriptor.json",
+      "sha256": "0c3f17186e06a0112c60c7fc71b84585d393e8cf690cf12d7208a82759c02936",
+      "sources": [
+        {
+          "id": "p0-manifest",
+          "path": "../../AIAEAO_Pure_Cube_P0_v9.4/manifest.json"
+        },
+        {
+          "id": "p0-resources",
+          "path": "../../P3/adapters/mcp-local/aiaeao_mcp_local/p0_resources.py"
+        },
+        {
+          "id": "p0-tool",
+          "path": "../../P3/adapters/mcp-local/aiaeao_mcp_local/p0_tool.py"
+        },
+        {
+          "id": "p1-adapter",
+          "path": "../../P3/adapters/mcp-local/aiaeao_mcp_local/p1_adapter.py"
+        },
+        {
+          "id": "p2-bridge",
+          "path": "../../P3/adapters/mcp-local/aiaeao_mcp_local/bridge.py"
+        },
+        {
+          "id": "p2-plan",
+          "path": "../../P3/adapters/mcp-local/aiaeao_mcp_local/plan_views.py"
+        },
+        {
+          "id": "p3-surface",
+          "path": "../../P3/adapters/mcp-local/aiaeao_mcp_local/surface.py"
+        },
+        {
+          "id": "p3-server",
+          "path": "../../P3/adapters/mcp-local/aiaeao_mcp_local/server.py"
+        },
+        {
+          "id": "p3-gateway",
+          "path": "../../P3/remote-mcp-g5/gateway/src/index.mjs"
+        },
+        {
+          "id": "p3-core",
+          "path": "../../P3/remote-mcp-g5/python-core/core_runtime.py"
+        }
+      ]
+    }
+  ],
+  "format": "aiaeao.module-capabilities.pin-manifest/1"
+}
